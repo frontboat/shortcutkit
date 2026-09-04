@@ -146,6 +146,124 @@
    "DisclosureLevel": "Public"
   }
  },
+ "com.apple.facetime.facetime": {
+  "ActionClass": "WFStartCallAction",
+  "ActionKeywords": "phone|number|call",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.FaceTime"
+  },
+  "Description": {
+   "DescriptionSummary": "Calls the contact passed in as input using FaceTime."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "Input": {
+   "Multiple": true,
+   "ParameterKey": "WFFaceTimeContact",
+   "Required": true,
+   "Types": [
+    "WFPhoneNumber",
+    "WFEmailAddress",
+    "NSString"
+   ]
+  },
+  "InputPassthrough": true,
+  "IntentIdentifier": "sirikit.intent.call.StartCallIntent",
+  "Name": "FaceTime",
+  "ParameterSummary": {
+   "format": "${WFFaceTimeType} ${WFFaceTimeContact}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFIntentAppPickerParameter",
+    "DefaultValue": {
+     "BundleIdentifier": "com.apple.TelephonyUtilities.PhoneIntentHandler"
+    },
+    "Hidden": true,
+    "IntentName": "INStartCallIntent",
+    "Key": "IntentAppDefinition",
+    "Label": "App"
+   },
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Video",
+    "ItemDisplayNames": [
+     "FaceTime",
+     "FaceTime Audio"
+    ],
+    "Items": [
+     "Video",
+     "Audio"
+    ],
+    "Key": "WFFaceTimeType",
+    "Label": "Call Type",
+    "Prompt": "What type of call?"
+   },
+   {
+    "AllowsMultipleValues": true,
+    "Class": "WFContactFieldParameter",
+    "IntentSlotName": "contacts",
+    "Key": "WFFaceTimeContact",
+    "Label": "Contact",
+    "Prompt": "Who do you want to call?"
+   }
+  ],
+  "RequiredResources": [
+   "WFStartCallAccessResource",
+   "WFContactAccessResource"
+  ],
+  "WFStartCallActionType": "FaceTime"
+ },
+ "com.apple.mobilephone.call": {
+  "ActionClass": "WFStartCallAction",
+  "ActionKeywords": "phone|number|dial|mobile|telephone",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.mobilephone"
+  },
+  "Description": {
+   "DescriptionSummary": "Calls the phone number passed in as input."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "Input": {
+   "Multiple": false,
+   "ParameterKey": "WFCallContact",
+   "Required": true,
+   "Types": [
+    "WFPhoneNumber",
+    "NSString"
+   ]
+  },
+  "InputPassthrough": true,
+  "IntentIdentifier": "sirikit.intent.call.StartCallIntent",
+  "Name": "Call",
+  "ParameterSummary": {
+   "format": "Call ${WFCallContact}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFIntentAppPickerParameter",
+    "DefaultValue": {
+     "BundleIdentifier": "com.apple.TelephonyUtilities.PhoneIntentHandler"
+    },
+    "Hidden": true,
+    "IntentName": "INStartCallIntent",
+    "Key": "IntentAppDefinition",
+    "Label": "App"
+   },
+   {
+    "AllowsMultipleValues": false,
+    "Class": "WFPhoneNumberFieldParameter",
+    "IntentSlotName": "contacts",
+    "Key": "WFCallContact",
+    "Label": "Contact",
+    "Prompt": "Who do you want to call?"
+   }
+  ],
+  "RequiredResources": [
+   "WFStartCallAccessResource",
+   "WFContactAccessResource"
+  ],
+  "WFStartCallActionType": "Phone"
+ },
  "com.apple.mobileslideshow.StreamShareService": {
   "ActionClass": "WFShareExtensionAction",
   "ActionKeywords": "post|stream|share|with|icloud|photo|sharing",
@@ -612,6 +730,280 @@
    "WFContactAccessResource",
    "WFReminderAccessResource"
   ]
+ },
+ "is.workflow.actions.addnewcontact": {
+  "ActionClass": "WFAddNewContactAction",
+  "ActionKeywords": "create|add|contact",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.MobileAddressBook"
+  },
+  "Description": {
+   "DescriptionResult": "The new contact",
+   "DescriptionSummary": "Creates a new contact."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "InputPassthrough": false,
+  "Name": "New Contact",
+  "Output": {
+   "Multiple": false,
+   "OutputName": "New Contact",
+   "Types": [
+    "WFContact"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Add ${WFContactFirstName}${WFContactLastName} to Contacts"
+  },
+  "Parameters": [
+   {
+    "Class": "WFTextInputParameter",
+    "Description": "The first name of the contact.",
+    "Key": "WFContactFirstName",
+    "Label": "First name",
+    "Optional": true,
+    "Placeholder": "First Name",
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFTextInputParameter",
+    "Description": "The last name of the contact.",
+    "Key": "WFContactLastName",
+    "Label": "Last name",
+    "Optional": true,
+    "Placeholder": "Last Name",
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFTextInputParameter",
+    "Description": "The company of the contact.",
+    "Key": "WFContactCompany",
+    "Label": "Company",
+    "Optional": true,
+    "Placeholder": "optional",
+    "TextAlignment": "Right"
+   },
+   {
+    "AllowsMultipleValues": false,
+    "Class": "WFVariablePickerParameter",
+    "Key": "WFContactPhoto",
+    "Label": "Photo",
+    "Optional": true,
+    "Placeholder": "Choose"
+   },
+   {
+    "AllowsMultipleValues": true,
+    "Class": "WFPhoneNumberFieldParameter",
+    "Key": "WFContactPhoneNumbers",
+    "Label": "Phone Number",
+    "Optional": true,
+    "Placeholder": "optional"
+   },
+   {
+    "AllowsMultipleValues": true,
+    "Class": "WFEmailAddressFieldParameter",
+    "Key": "WFContactEmails",
+    "Label": "Email Address",
+    "Optional": true,
+    "Placeholder": "optional"
+   },
+   {
+    "Class": "WFTextInputParameter",
+    "Description": "Optionally, notes for this contact.",
+    "Key": "WFContactNotes",
+    "Label": "Notes",
+    "Multiline": true,
+    "Placeholder": "Notes"
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": true,
+    "Key": "ShowWhenRun",
+    "Label": "Show Compose Sheet"
+   }
+  ],
+  "RequiredResources": [
+   "WFContactAccessResource",
+   {
+    "RequiredResources": [
+     {
+      "WFParameterKey": "ShowWhenRun",
+      "WFParameterValue": true,
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ],
+    "WFResourceClass": "WFUserInteractionResource"
+   }
+  ],
+  "UserInterfaceClasses": {
+   "AppKit": "WFCatalystHostingActionUserInterface",
+   "UIKit": "WFAddNewContactActionUIKitUserInterface"
+  }
+ },
+ "is.workflow.actions.addnewevent": {
+  "ActionClass": "WFAddNewEventAction",
+  "ActionKeywords": "create|add|calendar",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.mobilecal"
+  },
+  "Description": {
+   "DescriptionResult": "The new event",
+   "DescriptionSummary": "Creates a new event and adds it to the selected calendar."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "InputPassthrough": false,
+  "Name": "New Event",
+  "Output": {
+   "Multiple": false,
+   "OutputName": "New Event",
+   "Types": [
+    "EKEvent"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Add ${WFCalendarItemTitle} from ${WFCalendarItemStartDate} to ${WFCalendarItemEndDate}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFTextInputParameter",
+    "Description": "The title of this event.",
+    "Key": "WFCalendarItemTitle",
+    "Label": "Title",
+    "Optional": true,
+    "Placeholder": "Title",
+    "Prompt": "What\u2019s the title of the event?",
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFTextInputParameter",
+    "Key": "WFCalendarItemLocation",
+    "Label": "Location",
+    "Optional": true,
+    "Placeholder": "optional",
+    "Prompt": "What\u2019s the location of the event?",
+    "TextAlignment": "Right",
+    "TextContentType": "Location"
+   },
+   {
+    "Class": "WFCalendarPickerParameter",
+    "Description": "The calendar to add this event to.",
+    "HidesReadOnlyCalendars": true,
+    "Key": "WFCalendarDescriptor",
+    "Label": "Calendar",
+    "LegacyKey": "WFCalendarItemCalendar",
+    "Prompt": "On which calendar?"
+   },
+   {
+    "Class": "WFDateFieldParameter",
+    "Description": "Text representing the date this event begins. Examples: \u201ctomorrow at 2\u201d, \u201cJanuary 3\u201d, \u201c8:00pm\u201d",
+    "DetectsAllDayDates": true,
+    "DisplaysAllDayString": true,
+    "HintDisplayMode": "WhileProcessing",
+    "Key": "WFCalendarItemStartDate",
+    "Label": "Start Date",
+    "Optional": true,
+    "Placeholder": "Tomorrow at noon",
+    "Prompt": "When does the event start?",
+    "ReactiveParameterKey": "WFCalendarItemEndDate",
+    "ResultType": "WFDetectedDate",
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFDateFieldParameter",
+    "Description": "Text representing the date this event finishes.",
+    "DetectsAllDayDates": true,
+    "DisplaysAllDayString": true,
+    "HintDisplayMode": "WhileProcessing",
+    "Key": "WFCalendarItemEndDate",
+    "Label": "End Date",
+    "Optional": true,
+    "Placeholder": "Tomorrow at 1pm",
+    "Prompt": "When does the event end?",
+    "ResultType": "WFDetectedDate",
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": false,
+    "Description": "When enabled, the event takes place over an entire day and time is ignored.",
+    "Key": "WFCalendarItemAllDay",
+    "Label": "All Day",
+    "Prompt": "Is this an All Day event?"
+   },
+   {
+    "Class": "WFEnumerationParameter",
+    "Description": "Optionally, when to show an alert to notify me of this event.",
+    "DisallowedVariableTypes": [
+     "Variable"
+    ],
+    "Items": [
+     "None",
+     "At time of event",
+     "5 minutes before",
+     "15 minutes before",
+     "30 minutes before",
+     "1 hour before",
+     "2 hours before",
+     "1 day before",
+     "2 days before",
+     "1 week before",
+     "Custom"
+    ],
+    "Key": "WFAlertTime",
+    "Label": "Alert",
+    "Optional": true,
+    "Prompt": "When do you want to be alerted about the event?"
+   },
+   {
+    "Class": "WFTextInputParameter",
+    "Description": "Text representing the date when the alert should occur. Examples: \u201ctonight at 7\u201d, \u201cMarch 7\u201d",
+    "Key": "WFAlertCustomTime",
+    "Label": "Alert Time",
+    "Placeholder": "Tomorrow at 4pm",
+    "Prompt": "When should the alert happen?",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFAlertTime",
+      "WFParameterValue": "Custom",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ],
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFTextInputParameter",
+    "Description": "Optionally, a description for this event.",
+    "Key": "WFCalendarItemNotes",
+    "Label": "Notes",
+    "Multiline": true,
+    "Optional": true,
+    "Placeholder": "Notes",
+    "Prompt": "What notes do you want to add to the event?"
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": true,
+    "Key": "ShowWhenRun",
+    "Label": "Show Compose Sheet"
+   }
+  ],
+  "RequiredResources": [
+   "WFCalendarAccessResource",
+   "WFContactAccessResource",
+   {
+    "RequiredResources": [
+     {
+      "WFParameterKey": "ShowWhenRun",
+      "WFParameterValue": true,
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ],
+    "WFResourceClass": "WFUserInteractionResource"
+   }
+  ],
+  "UserInterfaceClasses": {
+   "AppKit": "WFCatalystHostingActionUserInterface",
+   "UIKit": "WFAddNewEventActionUIKitUserInterface"
+  }
  },
  "is.workflow.actions.addnewreminder": {
   "ActionClass": "WFAddNewReminderAction",
@@ -1284,6 +1676,78 @@
    }
   }
  },
+ "is.workflow.actions.alert": {
+  "ActionClass": "WFAlertAction",
+  "ActionKeywords": "message|ask|display|prompt|show|confirmation",
+  "Description": {
+   "DescriptionSummary": "Displays an alert with a title, a message, and two buttons. If the user selects the OK button, the shortcut continues. The cancel button stops the shortcut."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Yellow_Accessibility",
+  "IconSymbol": "macwindow",
+  "InputPassthrough": true,
+  "Name": "Show Alert",
+  "ParameterSummary": {
+   "format": "Show alert ${WFAlertActionMessage}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFTextInputParameter",
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAlertActionTitle",
+    "Label": "Title",
+    "Optional": true,
+    "Placeholder": "optional"
+   },
+   {
+    "Class": "WFTextInputParameter",
+    "DefaultValue": "Do you want to continue?",
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAlertActionMessage",
+    "Label": "Message",
+    "Multiline": true,
+    "Placeholder": "Informational message"
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": true,
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAlertActionCancelButtonShown",
+    "Label": "Show Cancel Button"
+   }
+  ],
+  "RequiredResources": [
+   "WFUserInteractionResource"
+  ]
+ },
+ "is.workflow.actions.announcenotifications.set": {
+  "ActionClass": "WFHandleCustomIntentAction",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Preferences"
+  },
+  "DisabledOnPlatforms": [
+   "Desktop"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Siri",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetAnnounceNotificationsIntent",
+  "ParameterOverrides": {
+   "state": {
+    "Key": "OnValue"
+   }
+  },
+  "RequiredResources": [
+   {
+    "resource": "WFDeviceIdiomResource"
+   }
+  ]
+ },
  "is.workflow.actions.appearance": {
   "ActionClass": "WFSetAppearanceAction",
   "ActionKeywords": "style|mode|dark|appearance",
@@ -1352,6 +1816,117 @@
    }
   ],
   "ResidentCompatible": true
+ },
+ "is.workflow.actions.ask": {
+  "ActionClass": "WFAskForInputAction",
+  "ActionKeywords": "ask|prompt|show|dialog|keyboard|text|number|url|date|time",
+  "Description": {
+   "DescriptionSummary": "Displays a dialog prompting the user to enter a piece of information."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Cyan",
+  "IconSymbol": "plus.bubble.fill",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFAskForInputIntent",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": false,
+   "Types": [
+    "NSString",
+    "NSDecimalNumber",
+    "NSURL",
+    "NSDate"
+   ]
+  },
+  "ParameterOverrides": {
+   "allowsDecimalNumbers": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAskActionAllowsDecimalNumbers"
+   },
+   "allowsMultilineText": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAllowsMultilineText"
+   },
+   "allowsNegativeNumbers": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAskActionAllowsNegativeNumbers"
+   },
+   "dateAndTimeAnswer": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAskActionDefaultAnswerDateAndTime"
+   },
+   "dateAnswer": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAskActionDefaultAnswerDate"
+   },
+   "defaultURLAnswer": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAskActionDefaultAnswerURL",
+    "KeyboardType": "URL"
+   },
+   "numberAnswer": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAskActionDefaultAnswerNumber"
+   },
+   "question": {
+    "Key": "WFAskActionPrompt",
+    "Optional": true
+   },
+   "stringAnswer": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAskActionDefaultAnswer",
+    "Label": "Default Answer"
+   },
+   "timeAnswer": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "Key": "WFAskActionDefaultAnswerTime"
+   },
+   "type": {
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "IntentEnumOverrides": {
+     "date": "Date",
+     "dateAndTime": "Date and Time",
+     "number": "Number",
+     "text": "Text",
+     "time": "Time",
+     "url": "URL"
+    },
+    "Key": "WFInputType"
+   },
+   "urlAnswer": {
+    "Hidden": true
+   }
+  },
+  "ParameterSummary": {
+   "format": "Ask for ${WFInputType} with ${WFAskActionPrompt}"
+  },
+  "RequiredResources": [
+   "WFUserInteractionResource"
+  ],
+  "UserInterfaces": [
+   "UIKit",
+   "Watch",
+   "Siri"
+  ]
  },
  "is.workflow.actions.askllm": {
   "ActionClass": "WFAskLLMAction",
@@ -1713,6 +2288,91 @@
    }
   ]
  },
+ "is.workflow.actions.choosefromlist": {
+  "ActionClass": "WFChooseFromListAction",
+  "ActionKeywords": "choose|select|list|options|menu|multiple",
+  "Description": {
+   "DescriptionSummary": "Presents a menu of the items passed as input to the action and outputs the user\u2019s selection."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Cyan",
+  "IconSymbol": "list.bullet.rectangle",
+  "Input": {
+   "InputTypeDeterminesOutputType": true,
+   "Multiple": true,
+   "ParameterKey": "WFInput",
+   "Required": true,
+   "Types": [
+    "WFImageContentItem",
+    "WFDictionaryContentItem",
+    "WFContentItem"
+   ]
+  },
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFChooseFromListIntent",
+  "Name": "Choose from List",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": false,
+   "OutputName": "Chosen Item",
+   "Types": [
+    "WFContentItem"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Choose from ${WFInput}"
+  },
+  "Parameters": [
+   {
+    "AllowsMultipleValues": true,
+    "Class": "WFVariablePickerParameter",
+    "IntentSlotName": "originalItems",
+    "Key": "WFInput",
+    "Label": "List",
+    "Optional": true,
+    "Placeholder": "List"
+   },
+   {
+    "Class": "WFTextInputParameter",
+    "DefaultValue": "",
+    "Description": "The instruction provided when the list is presented.",
+    "DisallowedVariableTypes": [
+     "Ask"
+    ],
+    "IntentSlotName": "prompt",
+    "Key": "WFChooseFromListActionPrompt",
+    "Label": "Prompt",
+    "Placeholder": "optional",
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": false,
+    "Description": "When enabled, multiple items may be chosen from the list.",
+    "Key": "WFChooseFromListActionSelectMultiple",
+    "Label": "Select Multiple"
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": false,
+    "Description": "When enabled, all of the items in the list will start out selected when Choose from List is presented.",
+    "Key": "WFChooseFromListActionSelectAll",
+    "Label": "Select All Initially",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFChooseFromListActionSelectMultiple",
+      "WFParameterValue": true,
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   }
+  ],
+  "RequiredResources": [
+   "WFUserInteractionResource"
+  ],
+  "UserInterfaceClasses": {
+   "UIKit": "WFChooseFromListActionUIKitUserInterface"
+  }
+ },
  "is.workflow.actions.choosefrommenu": {
   "ActionClass": "WFChooseFromMenuAction",
   "ActionKeywords": "list|prompt|select|action|sheet|switch",
@@ -2015,6 +2675,127 @@
   ],
   "ResidentCompatible": true
  },
+ "is.workflow.actions.converttimezone": {
+  "ActionClass": "WFConvertTimeZoneAction",
+  "ActionKeywords": "date|set|pass|time|zone|timezone|current|now|get",
+  "Description": {
+   "DescriptionSummary": "Converts the specified date and time from one time zone to another."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Tint",
+  "IconSymbol": "globe",
+  "IconSymbolColor": "Red",
+  "Input": {
+   "Multiple": false,
+   "ParameterKey": "Date",
+   "Required": true,
+   "Types": [
+    "NSDate",
+    "NSDateComponents"
+   ]
+  },
+  "Name": "Convert Time Zone",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": false,
+   "OutputName": "Converted Date",
+   "Types": [
+    "NSDateComponents"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Convert ${Date} from ${SourceTimeZone} to ${DestinationTimeZone}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFDateFieldParameter",
+    "Key": "Date",
+    "Label": "Date",
+    "Placeholder": "June 29, 2007",
+    "TimeZonePlaceholder": "Time Zone"
+   },
+   {
+    "Class": "WFTimeZonePickerParameter",
+    "Key": "SourceTimeZone",
+    "Label": "Time Zone",
+    "Optional": true
+   },
+   {
+    "Class": "WFTimeZonePickerParameter",
+    "Key": "DestinationTimeZone",
+    "Label": "Destination Time Zone"
+   }
+  ]
+ },
+ "is.workflow.actions.correctspelling": {
+  "ActionClass": "WFHandleCustomIntentAction",
+  "ActionKeywords": "text|spell|spelling|correct|autocorrect",
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Text",
+  "InProcess": true,
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFCorrectSpellingIntent",
+  "Output": {
+   "DisclosureLevel": "Public"
+  },
+  "ResidentCompatible": true
+ },
+ "is.workflow.actions.count": {
+  "ActionClass": "WFCountAction",
+  "ActionKeywords": "get|number|length|list|file|document",
+  "Description": {
+   "DescriptionNote": "This is just like the Count in Sesame Street, but instead of a vampire, it\u2019s a Shortcuts action.",
+   "DescriptionSummary": "Counts the number of items, characters, words, sentences, or lines passed as input."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Gray",
+  "IconSymbol": "sum",
+  "Input": {
+   "Multiple": true,
+   "ParameterKey": "Input",
+   "Required": true,
+   "Types": [
+    "WFContentItem",
+    "WFStringContentItem"
+   ]
+  },
+  "LocallyProcessesData": true,
+  "Name": "Count",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": false,
+   "OutputName": "Count",
+   "Types": [
+    "NSDecimalNumber"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Count ${WFCountType} in ${Input}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Items",
+    "Items": [
+     "Items",
+     "Characters",
+     "Words",
+     "Sentences",
+     "Lines"
+    ],
+    "Key": "WFCountType",
+    "Label": "Type",
+    "Prompt": "What do you want to count?"
+   },
+   {
+    "Class": "WFVariablePickerParameter",
+    "Key": "Input",
+    "Label": "Input",
+    "Placeholder": "Input",
+    "ProcessIntoContentItems": true
+   }
+  ],
+  "ResidentCompatible": true
+ },
  "is.workflow.actions.createplaylist": {
   "ActionClass": "WFCreatePlaylistAction",
   "ActionKeywords": "song|music|itunes|playlist|apple|album",
@@ -2086,6 +2867,98 @@
   ],
   "SuggestedAsInitialAction": false
  },
+ "is.workflow.actions.date": {
+  "ActionClass": "WFDateAction",
+  "ActionKeywords": "date|set date|pass date|time|current|now|get|holiday|public event|event",
+  "Description": {
+   "DescriptionSummary": "Passes the specified date and time to the next action."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Tint",
+  "IconSymbol": "calendar",
+  "IconSymbolColor": "Red",
+  "Name": "Date",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": false,
+   "OutputName": "Date",
+   "Types": [
+    "NSDate",
+    "NSDateComponents"
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFDateActionPickerModeParameter",
+    "DefaultValue": "Current Date",
+    "Key": "WFDateActionMode",
+    "Label": "Date"
+   },
+   {
+    "Class": "WFDateFieldParameter",
+    "Key": "WFDateActionDate",
+    "Label": "Date",
+    "Placeholder": "June 29, 2007",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFDateActionMode",
+      "WFParameterValue": "Specified Date",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ],
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Next Occurrence",
+    "Items": [
+     "Next Occurrence",
+     "Specified Year"
+    ],
+    "Key": "WFEventOccurrenceMode",
+    "Label": "Occurrence",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFDateActionMode",
+      "WFParameterRelation": "!=",
+      "WFParameterValue": "Specified Date",
+      "WFResourceClass": "WFParameterRelationResource"
+     },
+     {
+      "WFParameterKey": "WFDateActionMode",
+      "WFParameterRelation": "!=",
+      "WFParameterValue": "Current Date",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFDateActionYearPickerParameter",
+    "Key": "WFEventOccurrenceSpecifiedYear",
+    "Label": "Year",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFEventOccurrenceMode",
+      "WFParameterValue": "Specified Year",
+      "WFResourceClass": "WFParameterRelationResource"
+     },
+     {
+      "WFParameterKey": "WFDateActionMode",
+      "WFParameterRelation": "!=",
+      "WFParameterValue": "Specified Date",
+      "WFResourceClass": "WFParameterRelationResource"
+     },
+     {
+      "WFParameterKey": "WFDateActionMode",
+      "WFParameterRelation": "!=",
+      "WFParameterValue": "Current Date",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   }
+  ],
+  "ResidentCompatible": true
+ },
  "is.workflow.actions.debug.contentattribution": {
   "ActionClass": "WFContentAttributionSetDebuggerAction",
   "ActionKeywords": "mdm|content source|data info",
@@ -2127,6 +3000,35 @@
   "UserInterfaces": [
    "UIKit"
   ]
+ },
+ "is.workflow.actions.delay": {
+  "ActionClass": "WFDelayAction",
+  "ActionKeywords": "time|delay|wait|seconds",
+  "Description": {
+   "DescriptionSummary": "Waits for the specified number of seconds before continuing with the next action."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Gray",
+  "IconSymbol": "hourglass",
+  "InputPassthrough": true,
+  "Name": "Wait",
+  "ParameterSummary": {
+   "format": "Wait ${WFDelayTime}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFStepperParameter",
+    "DefaultValue": 1,
+    "Key": "WFDelayTime",
+    "StepperDescription": "Number of Seconds",
+    "StepperNoun": "%d Seconds"
+   }
+  ],
+  "RequiredResources": [
+   "WFMainThreadResource"
+  ],
+  "ResidentCompatible": true,
+  "SnappingPassthrough": true
  },
  "is.workflow.actions.deletestoredcontent": {
   "ActionClass": "WFDeleteStoredContentAction",
@@ -2811,6 +3713,28 @@
    {
     "resource": "WFDeviceCapabilityResource"
    },
+   {
+    "resource": "WFDeviceIdiomResource"
+   }
+  ]
+ },
+ "is.workflow.actions.displaysleep": {
+  "ActionClass": "WFDisplaySleepAction",
+  "ActionKeywords": "screen|off|monitor|idle|standby|shut|turn",
+  "Description": {
+   "DescriptionSummary": "Puts the display(s) of this Mac to sleep."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Gray",
+  "IconSymbol": "display",
+  "Name": "Put Display to Sleep",
+  "ParameterSummary": {
+   "format": "Put the display to sleep"
+  },
+  "RequiredResources": [
    {
     "resource": "WFDeviceIdiomResource"
    }
@@ -3884,10 +4808,10 @@
     "Class": "WFEnumerationParameter",
     "DefaultValue": "Normal",
     "ItemDisplayNames": [
-     "0.5\\U00d7",
+     "0.5\u00d7",
      "Normal",
-     "1.5\\U00d7",
-     "2\\U00d7",
+     "1.5\u00d7",
+     "2\u00d7",
      "Custom"
     ],
     "Items": [
@@ -5260,6 +6184,36 @@
   "WFContentItemClass": "WFReminderContentItem",
   "WFContentItemDefaultProperty": "List"
  },
+ "is.workflow.actions.filter.vpns": {
+  "ActionClass": "WFContentItemFilterAction",
+  "ActionKeywords": "virtual|private|network|secure|connect|tunnel",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Preferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Searches for VPNs installed on your device that match the given criteria."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Blue",
+  "IconSymbol": "network.connected.to.line.below.fill",
+  "Input": {
+   "Types": [
+    "WFVPNContentItem"
+   ]
+  },
+  "LocallyProcessesData": true,
+  "Name": "Find VPNs",
+  "Output": {
+   "DisclosureLevel": "Private",
+   "Multiple": true,
+   "OutputName": "Found VPNs",
+   "Types": [
+    "WFVPNConfiguration"
+   ]
+  },
+  "SuggestedAsInitialAction": false,
+  "WFContentItemClass": "WFVPNContentItem"
+ },
  "is.workflow.actions.filter.windows": {
   "ActionClass": "WFContentItemFilterAction",
   "AppDefinition": {
@@ -5357,6 +6311,160 @@
    ]
   }
  },
+ "is.workflow.actions.format.date": {
+  "ActionClass": "WFFormatDateAction",
+  "ActionKeywords": "date|time|formatter",
+  "Description": {
+   "DescriptionNote": "Custom format strings use the format patterns from Unicode Technical Standard #35 (unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns).",
+   "DescriptionSummary": "Formats a date and time into text."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Tint",
+  "IconSymbol": "calendar",
+  "IconSymbolColor": "Red",
+  "Input": {
+   "Multiple": true,
+   "ParameterKey": "WFDate",
+   "Required": true,
+   "Types": [
+    "WFDateContentItem"
+   ]
+  },
+  "Name": "Format Date",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": true,
+   "OutputName": "Formatted Date",
+   "Types": [
+    "NSString"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Format ${WFDate}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Short",
+    "Items": [
+     "None",
+     "Short",
+     "Medium",
+     "Long",
+     "Relative",
+     "RFC 2822",
+     "ISO 8601",
+     "Custom"
+    ],
+    "Key": "WFDateFormatStyle",
+    "Label": "Date Format",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFTimeFormatStyle",
+      "WFParameterValues": [
+       "None",
+       "Short",
+       "Medium",
+       "Long"
+      ],
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Medium",
+    "Items": [
+     "Short",
+     "Medium",
+     "Long"
+    ],
+    "Key": "WFRelativeDateFormatStyle",
+    "Label": "Alternate Format",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFDateFormatStyle",
+      "WFParameterValue": "Relative",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Short",
+    "Items": [
+     "None",
+     "Short",
+     "Medium",
+     "Long",
+     "Relative"
+    ],
+    "Key": "WFTimeFormatStyle",
+    "Label": "Time Format",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFDateFormatStyle",
+      "WFParameterValues": [
+       "None",
+       "Short",
+       "Medium",
+       "Long",
+       "Relative"
+      ],
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "Key": "WFISO8601IncludeTime",
+    "Label": "Include ISO 8601 Time",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFDateFormatStyle",
+      "WFParameterValue": "ISO 8601",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFCustomDateFormatParameter",
+    "Key": "WFDateFormat",
+    "Label": "Format String",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFDateFormatStyle",
+      "WFParameterValue": "Custom",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFDateFieldParameter",
+    "Key": "WFDate",
+    "Label": "Date",
+    "Placeholder": "Date",
+    "Prompt": "What date do you want to format?"
+   },
+   {
+    "Class": "WFLocalePickerParameter",
+    "Key": "WFLocale",
+    "Label": "Locale",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFDateFormatStyle",
+      "WFParameterRelation": "!=",
+      "WFParameterValues": [
+       "RFC 2822",
+       "ISO 8601"
+      ],
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   }
+  ],
+  "ResidentCompatible": true
+ },
  "is.workflow.actions.format.filesize": {
   "ActionClass": "WFFormatFileSizeAction",
   "ActionKeywords": "byte|bytes|megabyte|megabytes|count",
@@ -5443,6 +6551,58 @@
     "Placeholder": "File Size"
    }
   ]
+ },
+ "is.workflow.actions.format.number": {
+  "ActionClass": "WFFormatNumberAction",
+  "ActionKeywords": "digits|decimal",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.calculator"
+  },
+  "Description": {
+   "DescriptionSummary": "Formats a number into text."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Gray",
+  "IconSymbol": "number",
+  "Input": {
+   "Multiple": true,
+   "ParameterKey": "WFNumber",
+   "Required": true,
+   "Types": [
+    "WFBooleanContentItem",
+    "WFNumberContentItem"
+   ]
+  },
+  "LocallyProcessesData": true,
+  "Name": "Format Number",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": true,
+   "OutputName": "Formatted Number",
+   "Types": [
+    "NSString"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Format ${WFNumber} to ${WFNumberFormatDecimalPlaces}"
+  },
+  "Parameters": [
+   {
+    "AllowsDecimalNumbers": true,
+    "Class": "WFNumberFieldParameter",
+    "Key": "WFNumber",
+    "Label": "Number"
+   },
+   {
+    "Class": "WFStepperParameter",
+    "DefaultValue": 2,
+    "Key": "WFNumberFormatDecimalPlaces",
+    "MinimumValue": 0,
+    "StepperDescription": "Decimal Places",
+    "StepperNoun": "%d Decimal Places"
+   }
+  ],
+  "ResidentCompatible": true
  },
  "is.workflow.actions.generatebarcode": {
   "ActionClass": "WFGenerateMachineReadableCodeAction",
@@ -5604,6 +6764,45 @@
    }
   ]
  },
+ "is.workflow.actions.getbatterylevel": {
+  "ActionClass": "WFBatteryLevelAction",
+  "ActionKeywords": "remaining|percentage|left|power|charging|charger|plugged|outlet|level|connected|lightning|usb",
+  "Description": {
+   "DescriptionNote": "You can use this action to fetch the current battery percentage, whether your device is plugged into a charger or is charging, or get the current battery charge limit if one is enabled.",
+   "DescriptionResult": "A number with the current battery percentage, current charge limit, or a Yes/No Boolean value.",
+   "DescriptionSummary": "Returns information about the battery and any charger connected to the device."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Green",
+  "IconSymbol": "battery.100",
+  "Name": "Get Battery Status",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": false,
+   "OutputName": "Battery State",
+   "Types": [
+    "NSDecimalNumber",
+    "WFBooleanContentItem"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Get ${Subject}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Battery Level",
+    "Items": [
+     "Battery Level",
+     "Is Charging",
+     "Is Connected to Charger",
+     "Charge Limit"
+    ],
+    "Key": "Subject",
+    "Label": "Get"
+   }
+  ]
+ },
  "is.workflow.actions.getclassaction": {
   "ActionClass": "WFGetClassAction",
   "Description": {
@@ -5645,6 +6844,80 @@
     "Key": "Input",
     "Label": "Input",
     "Placeholder": "Input"
+   }
+  ]
+ },
+ "is.workflow.actions.getclipboard": {
+  "ActionClass": "WFGetClipboardAction",
+  "ActionKeywords": "text|clipboard|copy|paste|contents|of",
+  "Description": {
+   "DescriptionSummary": "Passes the contents of the clipboard to the next action."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Tint",
+  "IconSymbol": "clipboard.fill",
+  "IconSymbolColor": "Blue",
+  "Name": "Get Clipboard",
+  "Output": {
+   "Multiple": true,
+   "OutputName": "Clipboard",
+   "Types": [
+    "WFContentItem"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Get clipboard"
+  },
+  "RequiredResources": [
+   "WFMainThreadResource"
+  ],
+  "RequiresUnlock": true
+ },
+ "is.workflow.actions.getcurrentapp": {
+  "ActionClass": "WFGetCurrentAppAction",
+  "ActionKeywords": "app|foreground|visible|topmost",
+  "Description": {
+   "DescriptionSummary": "Gets the current visible app."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Indigo",
+  "Name": "Get Current App",
+  "Output": {
+   "Types": [
+    "WFApp"
+   ]
+  },
+  "ParameterSummary": {
+   "possibleValues": [
+    {
+     "format": "Get ${WFVisibleAppScope} app",
+     "key": "WFVisibleAppScope(Current)",
+     "requiredValues": {
+      "WFVisibleAppScope": "Current"
+     }
+    },
+    {
+     "format": "Get ${WFVisibleAppScope} apps",
+     "key": "WFVisibleAppScope(Visible)",
+     "requiredValues": {
+      "WFVisibleAppScope": "Visible"
+     }
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Current",
+    "Items": [
+     "Current",
+     "Visible"
+    ],
+    "Key": "WFVisibleAppScope",
+    "Label": "Scope"
    }
   ]
  },
@@ -6929,6 +8202,43 @@
    "WFShortcutsAccessResource"
   ]
  },
+ "is.workflow.actions.getnameofemoji": {
+  "ActionClass": "WFGetEmojiNameAction",
+  "Description": {
+   "DescriptionSummary": "Gets the names of emoji passed into the action."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Smiley",
+  "Input": {
+   "ParameterKey": "WFInput",
+   "Required": true,
+   "Types": [
+    "NSString"
+   ]
+  },
+  "InputPassthrough": false,
+  "Name": "Get Name of Emoji",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": true,
+   "OutputName": "Name of Emoji",
+   "Types": [
+    "NSString"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Get name of emoji in ${WFInput}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFTextInputParameter",
+    "Key": "WFInput",
+    "Label": "Text",
+    "Placeholder": "Text"
+   }
+  ],
+  "ResidentCompatible": true
+ },
  "is.workflow.actions.getonscreencontent": {
   "ActionClass": "WFGetOnScreenContentAction",
   "ActionKeywords": "on|screen",
@@ -7419,6 +8729,123 @@
    "Watch"
   ]
  },
+ "is.workflow.actions.gettimebetweendates": {
+  "ActionClass": "WFTimeUntilDateAction",
+  "ActionKeywords": "between|after|before|seconds|minutes|hours|days|weeks|years|math|calculate|interval",
+  "Description": {
+   "DescriptionNote": "This action outputs a negative number if the input date takes place before the specified date.",
+   "DescriptionSummary": "Subtracts the specified date from the date passed into the action. For example, this action could get the number of minutes from now until a calendar event passed in as input."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Tint",
+  "IconSymbol": "calendar.badge.clock",
+  "IconSymbolColor": "Red",
+  "Input": {
+   "ParameterKey": "WFInput",
+   "Required": true,
+   "Types": [
+    "NSDate"
+   ]
+  },
+  "InputPassthrough": false,
+  "Name": "Get Time Between Dates",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "OutputName": "Time Between Dates",
+   "Types": [
+    "NSNumber"
+   ]
+  },
+  "ParameterSummary": {
+   "possibleValues": [
+    {
+     "format": "Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}",
+     "key": "WFTimeUntilFromDate,WFInput,WFTimeUntilUnit(Total Time)",
+     "requiredValues": {
+      "WFTimeUntilUnit": "Total Time"
+     }
+    },
+    {
+     "format": "Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}",
+     "key": "WFTimeUntilFromDate,WFInput,WFTimeUntilUnit(Seconds)",
+     "requiredValues": {
+      "WFTimeUntilUnit": "Seconds"
+     }
+    },
+    {
+     "format": "Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}",
+     "key": "WFTimeUntilFromDate,WFInput,WFTimeUntilUnit(Minutes)",
+     "requiredValues": {
+      "WFTimeUntilUnit": "Minutes"
+     }
+    },
+    {
+     "format": "Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}",
+     "key": "WFTimeUntilFromDate,WFInput,WFTimeUntilUnit(Hours)",
+     "requiredValues": {
+      "WFTimeUntilUnit": "Hours"
+     }
+    },
+    {
+     "format": "Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}",
+     "key": "WFTimeUntilFromDate,WFInput,WFTimeUntilUnit(Days)",
+     "requiredValues": {
+      "WFTimeUntilUnit": "Days"
+     }
+    },
+    {
+     "format": "Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}",
+     "key": "WFTimeUntilFromDate,WFInput,WFTimeUntilUnit(Weeks)",
+     "requiredValues": {
+      "WFTimeUntilUnit": "Weeks"
+     }
+    },
+    {
+     "format": "Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}",
+     "key": "WFTimeUntilFromDate,WFInput,WFTimeUntilUnit(Months)",
+     "requiredValues": {
+      "WFTimeUntilUnit": "Months"
+     }
+    },
+    {
+     "format": "Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}",
+     "key": "WFTimeUntilFromDate,WFInput,WFTimeUntilUnit(Years)",
+     "requiredValues": {
+      "WFTimeUntilUnit": "Years"
+     }
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFDateFieldParameter",
+    "Key": "WFTimeUntilFromDate",
+    "Label": "First Date"
+   },
+   {
+    "Class": "WFDateFieldParameter",
+    "Key": "WFInput",
+    "Label": "Second Date"
+   },
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Minutes",
+    "Items": [
+     "Total Time",
+     "Seconds",
+     "Minutes",
+     "Hours",
+     "Days",
+     "Weeks",
+     "Months",
+     "Years"
+    ],
+    "Key": "WFTimeUntilUnit",
+    "Label": "In"
+   }
+  ],
+  "ResidentCompatible": true
+ },
  "is.workflow.actions.gettraveltime": {
   "ActionClass": "WFGetTravelTimeAction",
   "ActionKeywords": "maps|directions|calculate|estimated|arrival|eta|driving|walking|transit",
@@ -7769,6 +9196,104 @@
     ],
     "Key": "WFURLComponent",
     "Label": "Component"
+   }
+  ],
+  "ResidentCompatible": true
+ },
+ "is.workflow.actions.getvalueforkey": {
+  "ActionClass": "WFGetDictionaryValueAction",
+  "ActionKeywords": "json|plist|xml|urlencoded|query|string|for|key",
+  "Description": {
+   "DescriptionNote": "You can reference values deep inside of a dictionary by providing multiple keys separated by dots. For example, to get the value \u201csoup\u201d from the dictionary {\\\"beverages\\\": [{\\\"favorite\\\": \\\"soup\\\"}]}, you can specify the key path \u201cbeverages.1.favorite\u201d.",
+   "DescriptionSummary": "Gets the value for the specified key in the dictionary passed into the action."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Orange",
+  "IconSymbol": "book.closed.fill",
+  "Input": {
+   "Multiple": false,
+   "ParameterKey": "WFInput",
+   "Required": true,
+   "Types": [
+    "WFDictionaryContentItem"
+   ]
+  },
+  "InputPassthrough": false,
+  "Name": "Get Dictionary Value",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": true,
+   "OutputName": "Dictionary Value",
+   "Types": [
+    "WFStringContentItem",
+    "WFNumberContentItem",
+    "WFDateContentItem",
+    "WFDictionaryContentItem",
+    "WFBooleanContentItem"
+   ]
+  },
+  "ParameterSummary": {
+   "possibleValues": [
+    {
+     "format": "Get ${WFGetDictionaryValueType} in ${WFInput}",
+     "key": "WFGetDictionaryValueType(All Keys),WFInput",
+     "requiredValues": {
+      "WFGetDictionaryValueType": "All Keys"
+     }
+    },
+    {
+     "format": "Get ${WFGetDictionaryValueType} in ${WFInput}",
+     "key": "WFGetDictionaryValueType(All Values),WFInput",
+     "requiredValues": {
+      "WFGetDictionaryValueType": "All Values"
+     }
+    },
+    {
+     "format": "Get ${WFGetDictionaryValueType} for ${WFDictionaryKey} in ${WFInput}",
+     "key": "WFGetDictionaryValueType(Value),WFDictionaryKey,WFInput",
+     "requiredValues": {
+      "WFGetDictionaryValueType": "Value"
+     }
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Value",
+    "DisallowedVariableTypes": [
+     "Ask",
+     "Variable"
+    ],
+    "Items": [
+     "Value",
+     "All Keys",
+     "All Values"
+    ],
+    "Key": "WFGetDictionaryValueType",
+    "Label": "Get"
+   },
+   {
+    "AutocapitalizationType": "None",
+    "Class": "WFTextInputParameter",
+    "DisableAutocorrection": true,
+    "Key": "WFDictionaryKey",
+    "Label": "Key",
+    "Placeholder": "Key",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFGetDictionaryValueType",
+      "WFParameterValue": "Value",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ],
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFVariablePickerParameter",
+    "Key": "WFInput",
+    "Label": "Dictionary",
+    "Placeholder": "Dictionary"
    }
   ],
   "ResidentCompatible": true
@@ -9192,6 +10717,62 @@
   ],
   "ResidentCompatible": true
  },
+ "is.workflow.actions.image.rotate": {
+  "ActionClass": "WFImageRotateAction",
+  "ActionKeywords": "portrait|landscape|degrees|rotation|orientation|photos",
+  "Description": {
+   "DescriptionSummary": "Turns an image or video clockwise by a particular number of degrees."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Blue",
+  "IconSymbol": "rotate.right.fill",
+  "Input": {
+   "Multiple": true,
+   "ParameterKey": "WFImage",
+   "Required": true,
+   "Types": [
+    "WFImage",
+    "AVAsset"
+   ]
+  },
+  "InputPassthrough": false,
+  "Name": "Rotate Image/Video",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": true,
+   "OutputName": "Rotated Image/Video",
+   "Types": [
+    "WFImage",
+    "AVAsset"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Rotate ${WFImage} by ${WFImageRotateAmount} degrees"
+  },
+  "Parameters": [
+   {
+    "AllowsDecimalNumbers": true,
+    "Class": "WFNumberFieldParameter",
+    "DefaultValue": 90,
+    "Key": "WFImageRotateAmount",
+    "Label": "Degrees",
+    "Placeholder": "90",
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFVariablePickerParameter",
+    "Key": "WFImage",
+    "Label": "Image",
+    "Placeholder": "Image",
+    "PreferredTypes": [
+     "public.image",
+     "public.video",
+     "public.movie"
+    ]
+   }
+  ],
+  "ResidentCompatible": true
+ },
  "is.workflow.actions.imgur.upload": {
   "ActionClass": "WFImgurUploadAction",
   "ActionKeywords": "image|reddit|album|photo",
@@ -9626,6 +11207,52 @@
    "WFRemoteServerAccessResource"
   ]
  },
+ "is.workflow.actions.intercom": {
+  "ActionClass": "WFIntercomAction",
+  "ActionKeywords": "announce|homepod|notif|home|family|audio|broadcast|message|speak|speech",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Home"
+  },
+  "Description": {
+   "DescriptionNote": "This action accepts both text and media files as input. Media files will be broadcast as they are. When text is provided, it will be first converted to audio using the current Siri language and voice. You can also use the Make Spoken Audio From Text action to customize the voice parameters.",
+   "DescriptionSummary": "Announces a message passed as input using Intercom."
+  },
+  "DisabledOnPlatforms": [
+   "Desktop"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Orange",
+  "IconSymbol": "intercom",
+  "Input": {
+   "Multiple": true,
+   "ParameterKey": "WFInput",
+   "Required": true,
+   "Types": [
+    "WFAVAssetContentItem",
+    "WFStringContentItem"
+   ]
+  },
+  "Name": "Intercom",
+  "ParameterSummary": {
+   "format": "Intercom ${WFInput} to ${WFHome}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFHomeAreaPickerParameter",
+    "Key": "WFHome",
+    "Label": "Home"
+   },
+   {
+    "AllowsMultipleValues": true,
+    "Class": "WFTextInputParameter",
+    "Description": "The message to announce using Intercom. Any input exceeding 60 seconds in duration will be trimmed.",
+    "Key": "WFInput",
+    "Label": "Message",
+    "Placeholder": "Dinner is ready!",
+    "ProcessIntoContentItems": true
+   }
+  ]
+ },
  "is.workflow.actions.lightroom.import": {
   "ActionClass": "WFImportToLightroomAction",
   "AppDefinition": {
@@ -9846,6 +11473,113 @@
    }
   ],
   "ResidentCompatible": true
+ },
+ "is.workflow.actions.lock.app": {
+  "ActionClass": "WFLockAppAction",
+  "ActionKeywords": "lock|protect|authentication|private",
+  "Description": {
+   "DescriptionSummary": "Changes whether the selected application is locked. Locked apps require authentication to access."
+  },
+  "DisabledOnPlatforms": [
+   "Desktop",
+   "Watch",
+   "XR"
+  ],
+  "Discoverable": false,
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Blue",
+  "IconSymbol": "lock",
+  "Name": "Lock App",
+  "ParameterSummary": {
+   "possibleValues": [
+    {
+     "format": "${WFLockAppOperation} lock for ${WFApp}",
+     "key": "WFLockOperation(Toggle),WFApp",
+     "requiredValues": {
+      "WFLockOperation": "Toggle"
+     }
+    },
+    {
+     "format": "${WFLockAppOperation} ${WFApp}",
+     "key": "WFLockOperation(Lock),WFApp",
+     "requiredValues": {
+      "WFLockOperation": "Lock"
+     }
+    },
+    {
+     "format": "${WFLockAppOperation} ${WFApp}",
+     "key": "WFLockOperation(Unlock),WFApp",
+     "requiredValues": {
+      "WFLockOperation": "Unlock"
+     }
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Lock",
+    "ItemDisplayNames": [
+     "Lock",
+     "Unlock",
+     "Toggle"
+    ],
+    "Items": [
+     "Lock",
+     "Unlock",
+     "Toggle"
+    ],
+    "Key": "WFLockAppOperation",
+    "Label": "Operation"
+   },
+   {
+    "AppSearchType": "OpenApp",
+    "Class": "WFAppPickerParameter",
+    "Key": "WFApp",
+    "Label": "App",
+    "Placeholder": "App"
+   }
+  ],
+  "RequiredResources": []
+ },
+ "is.workflow.actions.lockscreen": {
+  "ActionClass": "WFLockScreenAction",
+  "ActionKeywords": "display",
+  "Description": {
+   "DescriptionSummary": "Locks the screen of this device."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Gray",
+  "IconSymbol": "lock.fill",
+  "Name": "Lock Screen",
+  "ParameterSummary": {
+   "format": "Lock the screen"
+  }
+ },
+ "is.workflow.actions.logout": {
+  "ActionClass": "WFLogOutUserAction",
+  "ActionKeywords": "log|out|logout|user",
+  "Description": {
+   "DescriptionSummary": "Logs out the current user."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Gray",
+  "IconSymbol": "person.crop.circle.fill",
+  "Name": "Log Out User",
+  "ParameterSummary": {
+   "format": "Log out the current user"
+  },
+  "RequiredResources": [
+   {
+    "resource": "WFDeviceIdiomResource"
+   }
+  ]
  },
  "is.workflow.actions.lowpowermode.set": {
   "ActionClass": "WFSetLowPowerModeAction",
@@ -10543,9 +12277,9 @@
     "Items": [
      "+",
      "-",
-     "\\U00d7",
-     "\\U00f7",
-     "\\U2026"
+     "\u00d7",
+     "\u00f7",
+     "\u2026"
     ],
     "Key": "WFMathOperation",
     "Label": "Operation"
@@ -10561,8 +12295,8 @@
      "10^x",
      "ln(x)",
      "log(x)",
-     "\\U221ax",
-     "\\U221bx",
+     "\u221ax",
+     "\u221bx",
      "x!",
      "sin(x)",
      "cos(x)",
@@ -11276,6 +13010,31 @@
   "UserInterfaces": [
    "UIKit",
    "AppKit"
+  ]
+ },
+ "is.workflow.actions.openpasswords": {
+  "ActionClass": "WFShowPasswordsAction",
+  "ActionKeywords": "keychain",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Passwords"
+  },
+  "Description": {
+   "DescriptionSummary": "Opens Passwords and searches for the given text."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "Name": "Search in Passwords",
+  "ParameterSummary": {
+   "format": "Search ${WFShowPasswordsSearchTerm} in Passwords"
+  },
+  "Parameters": [
+   {
+    "Class": "WFTextInputParameter",
+    "Key": "WFShowPasswordsSearchTerm",
+    "Label": "Text"
+   }
   ]
  },
  "is.workflow.actions.openurl": {
@@ -12308,6 +14067,82 @@
    "WFMainThreadResource"
   ]
  },
+ "is.workflow.actions.personalhotspot.password.get": {
+  "ActionClass": "WFGetHotspotPasswordAction",
+  "ActionKeywords": "keychain",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Preferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Returns the password of your Personal Hotspot."
+  },
+  "DisabledOnPlatforms": [
+   "Watch",
+   "Desktop"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Green",
+  "IconSymbol": "personalhotspot",
+  "Name": "Get Hotspot Password",
+  "Output": {
+   "DisclosureLevel": "Private",
+   "Multiple": false,
+   "OutputName": "Personal Hotspot Password",
+   "Types": [
+    "NSString"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Get Personal Hotspot password"
+  },
+  "RequiredResources": [
+   {
+    "resource": "WFDeviceCapabilityResource"
+   }
+  ]
+ },
+ "is.workflow.actions.personalhotspot.password.set": {
+  "ActionClass": "WFSetHotspotPasswordAction",
+  "ActionKeywords": "keychain",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Preferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets the Personal Hotspot password."
+  },
+  "DisabledOnPlatforms": [
+   "Watch",
+   "Desktop"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Green",
+  "IconSymbol": "personalhotspot",
+  "Input": {
+   "Multiple": false,
+   "ParameterKey": "WFInput",
+   "Required": true,
+   "Types": [
+    "WFStringContentItem"
+   ]
+  },
+  "Name": "Set Hotspot Password",
+  "ParameterSummary": {
+   "format": "Set Personal Hotspot password to ${WFInput}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFTextInputParameter",
+    "Key": "WFInput",
+    "Label": "Password",
+    "Placeholder": "hello_world"
+   }
+  ],
+  "RequiredResources": [
+   {
+    "resource": "WFDeviceCapabilityResource"
+   }
+  ]
+ },
  "is.workflow.actions.personalhotspot.set": {
   "ActionClass": "WFHandleCustomIntentAction",
   "ActionKeywords": "wireless|accessories|accessory|turn|tethering|cellular|internet|sharing|data|3g|4g|5g",
@@ -12847,6 +14682,102 @@
   ],
   "RequiredResources": [
    "WFPodcastsAccessResource"
+  ]
+ },
+ "is.workflow.actions.posters.get": {
+  "ActionClass": "WFGetPostersAction",
+  "ActionKeywords": "current|photo|lock|home|screen",
+  "Description": {
+   "DescriptionSummary": "Gets all of your Lock Screen wallpapers, and returns them as output so you can use them with other actions."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Wallpaper",
+  "Name": "Get All Wallpapers",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "OutputName": "Wallpapers",
+   "Types": [
+    "WFPosterRepresentation"
+   ]
+  },
+  "ParameterSummary": {
+   "possibleValues": [
+    {
+     "format": "Get ${WFPosterType} wallpapers",
+     "key": "WFPosterType(All)",
+     "requiredValues": {
+      "WFPosterType": "All"
+     }
+    },
+    {
+     "format": "Get ${WFPosterType} wallpaper",
+     "key": "WFPosterType(Current)",
+     "requiredValues": {
+      "WFPosterType": "Current"
+     }
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "All",
+    "Items": [
+     "All",
+     "Current"
+    ],
+    "Key": "WFPosterType",
+    "Label": "Type"
+   }
+  ],
+  "RequiredResources": [
+   "WFWallpaperModificationAccessResource",
+   {
+    "resource": "WFDeviceCapabilityResource"
+   }
+  ]
+ },
+ "is.workflow.actions.posters.switch": {
+  "ActionClass": "WFSwitchPosterAction",
+  "ActionKeywords": "photo|lock|home|screen",
+  "Description": {
+   "DescriptionNote": "If the wallpaper has a linked Focus, this action will set the Focus, too.",
+   "DescriptionSummary": "Switches the current Lock Screen wallpaper."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Wallpaper",
+  "Input": {
+   "Multiple": false,
+   "ParameterKey": "WFPoster",
+   "Required": true,
+   "Types": [
+    "WFPosterRepresentation"
+   ]
+  },
+  "Name": "Switch Between Wallpapers",
+  "ParameterSummary": {
+   "format": "Switch to ${WFPoster}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFPosterPickerParameter",
+    "HandlesDefaultPoster": false,
+    "Key": "WFPoster",
+    "Label": "Wallpaper",
+    "Optional": true,
+    "VisiblePosters": "All"
+   }
+  ],
+  "RateLimit": {
+   "Delay": 3,
+   "Threshold": 4,
+   "Timeout": 15
+  },
+  "RequiredResources": [
+   "WFWallpaperModificationAccessResource",
+   {
+    "resource": "WFDeviceCapabilityResource"
+   }
   ]
  },
  "is.workflow.actions.postonfacebook": {
@@ -13448,6 +15379,54 @@
   "RequiredResources": [
    "WFAddToReadingListAccessResource",
    "WFRemoteServerAccessResource"
+  ]
+ },
+ "is.workflow.actions.reboot": {
+  "ActionClass": "WFShutDownDeviceAction",
+  "ActionKeywords": "reboot|restart|turn|off|halt|power|down",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Preferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Shuts down or restarts your device."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Gray",
+  "IconSymbol": "power",
+  "Name": "Shut Down",
+  "ParameterSummary": {
+   "possibleValues": [
+    {
+     "format": "${WFShutdownMode} this device",
+     "key": "WFShutdownMode(Restart)",
+     "requiredValues": {
+      "WFShutdownMode": "Restart"
+     }
+    },
+    {
+     "format": "${WFShutdownMode} this device",
+     "key": "WFShutdownMode(Shut Down)",
+     "requiredValues": {
+      "WFShutdownMode": "Shut Down"
+     }
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Shut Down",
+    "Items": [
+     "Shut Down",
+     "Restart"
+    ],
+    "Key": "WFShutdownMode",
+    "Label": "Mode",
+    "Prompt": "What would you like to do?"
+   }
   ]
  },
  "is.workflow.actions.recordaudio": {
@@ -15822,6 +17801,30 @@
    "Siri"
   ]
  },
+ "is.workflow.actions.setairdropreceiving": {
+  "ActionClass": "WFSetAirDropReceivingAction",
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "AirDrop",
+  "Name": "Set AirDrop Receiving",
+  "ParameterSummary": {
+   "format": "Set AirDrop Receiving to ${WFAirDropState}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFAirDropVisibilityParameter",
+    "Key": "WFAirDropState",
+    "Label": "State"
+   }
+  ],
+  "RequiredResources": [
+   {
+    "resource": "WFDeviceIdiomResource"
+   }
+  ]
+ },
  "is.workflow.actions.setbrightness": {
   "ActionClass": "WFHandleCustomIntentAction",
   "ActionKeywords": "screen|display|backlight",
@@ -15848,6 +17851,60 @@
    "Threshold": 5,
    "Timeout": 30
   }
+ },
+ "is.workflow.actions.setclipboard": {
+  "ActionClass": "WFSetClipboardAction",
+  "ActionKeywords": "text|clipboard|copy|paste|set",
+  "Description": {
+   "DescriptionSummary": "Copies the result of the last action to the clipboard."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Tint",
+  "IconSymbol": "doc.on.doc.fill",
+  "IconSymbolColor": "Blue",
+  "Input": {
+   "Multiple": true,
+   "ParameterKey": "WFInput",
+   "Required": true,
+   "Types": [
+    "WFContentItem"
+   ]
+  },
+  "InputPassthrough": true,
+  "Name": "Copy to Clipboard",
+  "ParameterSummary": {
+   "format": "Copy ${WFInput} to clipboard"
+  },
+  "Parameters": [
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": false,
+    "Description": "When enabled, the input will only be copied locally, and will not be shared to other devices via Handoff.",
+    "Key": "WFLocalOnly",
+    "Label": "Local Only"
+   },
+   {
+    "Class": "WFDateFieldParameter",
+    "Description": "When set, the clipboard contents will expire and be automatically deleted at the specified time. Optional.",
+    "Key": "WFExpirationDate",
+    "Label": "Expire At",
+    "Optional": true,
+    "Placeholder": "Today at 3 PM",
+    "TextAlignment": "Right"
+   },
+   {
+    "Class": "WFVariablePickerParameter",
+    "Key": "WFInput",
+    "Label": "Content",
+    "Placeholder": "Content"
+   }
+  ],
+  "RemoteExecuteOnPlatforms": [
+   "Watch"
+  ],
+  "RequiredResources": [
+   "WFMainThreadResource"
+  ]
  },
  "is.workflow.actions.setitemname": {
   "ActionClass": "WFSetItemNameAction",
@@ -16518,6 +18575,44 @@
    }
   ]
  },
+ "is.workflow.actions.showincalendar": {
+  "ActionClass": "WFOpenInCalendarAction",
+  "ActionKeywords": "date|event|show|reveal",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.mobilecal"
+  },
+  "Description": {
+   "DescriptionSummary": "Shows the date or calendar event passed as input in the Calendar app."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "Input": {
+   "Multiple": false,
+   "ParameterKey": "WFEvent",
+   "Required": true,
+   "Types": [
+    "WFDateContentItem",
+    "WFCalendarEventContentItem",
+    "WFTimeIntervalContentItem"
+   ]
+  },
+  "InputPassthrough": true,
+  "LocallyProcessesData": true,
+  "Name": "Open in Calendar",
+  "ParameterSummary": {
+   "format": "Open ${WFEvent} in Calendar"
+  },
+  "Parameters": [
+   {
+    "Class": "WFVariablePickerParameter",
+    "Key": "WFEvent",
+    "Label": "Event",
+    "Placeholder": "Event"
+   }
+  ],
+  "RequiredResources": [
+   "WFURLOpenResource"
+  ]
+ },
  "is.workflow.actions.showinstore": {
   "ActionClass": "WFShowInStoreAction",
   "ActionKeywords": "app|song|music|movie|ebook|audiobook|tv|album|store",
@@ -16828,6 +18923,28 @@
    }
   ]
  },
+ "is.workflow.actions.sleep": {
+  "ActionClass": "WFSleepDeviceAction",
+  "ActionKeywords": "standby",
+  "Description": {
+   "DescriptionSummary": "Put this Mac to sleep."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Gray",
+  "IconSymbol": "sleep",
+  "Name": "Sleep",
+  "ParameterSummary": {
+   "format": "Put this Mac to sleep"
+  },
+  "RequiredResources": [
+   {
+    "resource": "WFDeviceIdiomResource"
+   }
+  ]
+ },
  "is.workflow.actions.speaktext": {
   "ActionClass": "WFSpeakTextAction",
   "ActionKeywords": "speak|dictate|text|say|speech|talk|out|loud",
@@ -16984,8 +19101,8 @@
     "DefaultValue": "\u00bd + \u00bd",
     "Hidden": false,
     "Items": [
-     "\\U00bd + \\U00bd",
-     "\\U2154 + \\U2153"
+     "\u00bd + \u00bd",
+     "\u2154 + \u2153"
     ],
     "Key": "WFAppRatio",
     "Label": "Ratio"
@@ -17170,6 +19287,194 @@
    }
   ]
  },
+ "is.workflow.actions.takephoto": {
+  "ActionClass": "WFTakePhotoAction",
+  "ActionKeywords": "camera|take|photo",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.camera"
+  },
+  "Description": {
+   "DescriptionResult": "Photo from the camera.",
+   "DescriptionSummary": "Uses the camera to take photos."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "InputPassthrough": false,
+  "Name": "Take Photo",
+  "Output": {
+   "Multiple": true,
+   "OutputName": "Photo",
+   "Required": true,
+   "Types": [
+    "WFImage"
+   ]
+  },
+  "ParameterSummary": {
+   "possibleValues": [
+    {
+     "format": "Take photo",
+     "key": "WFCameraCaptureShowPreview"
+    },
+    {
+     "format": "Take photo with ${WFCameraCaptureDevice} camera",
+     "key": "WFCameraCaptureShowPreview,WFCameraCaptureDevice"
+    },
+    {
+     "format": "Take ${WFPhotoCount}",
+     "key": "WFCameraCaptureShowPreview(1),WFPhotoCount",
+     "requiredValues": {
+      "WFCameraCaptureShowPreview": "1"
+     }
+    },
+    {
+     "format": "Take ${WFPhotoCount} with ${WFCameraCaptureDevice} camera",
+     "key": "WFCameraCaptureShowPreview(1),WFPhotoCount,WFCameraCaptureDevice",
+     "requiredValues": {
+      "WFCameraCaptureShowPreview": "1"
+     }
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": true,
+    "Key": "WFCameraCaptureShowPreview",
+    "Label": "Show Camera Preview"
+   },
+   {
+    "Class": "WFStepperParameter",
+    "DefaultValue": 1,
+    "Key": "WFPhotoCount",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFCameraCaptureShowPreview",
+      "WFParameterValue": true,
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ],
+    "StepperDescription": "Number of Photos",
+    "StepperNoun": "%d Photos",
+    "StepperPrefix": "Take"
+   },
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Back",
+    "Items": [
+     "Front",
+     "Back"
+    ],
+    "Key": "WFCameraCaptureDevice",
+    "Label": "Camera",
+    "RequiredResources": [
+     {
+      "resource": "WFDeviceIdiomResource"
+     }
+    ]
+   }
+  ],
+  "RequiredResources": [
+   "WFUserInteractionResource",
+   "WFCameraAccessResource"
+  ],
+  "UserInterfaceClasses": {
+   "AppKit": "WFCatalystHostingActionUserInterface",
+   "UIKit": "WFTakePhotoActionUIKitUserInterface"
+  },
+  "UserInterfaces": [
+   "UIKit"
+  ]
+ },
+ "is.workflow.actions.takescreenshot": {
+  "ActionClass": "WFTakeScreenshotAction",
+  "ActionKeywords": "capture|take|screen",
+  "Description": {
+   "DescriptionResult": "Image from the device\u2019s screen.",
+   "DescriptionSummary": "Take a screenshot of the device\u2019s screen."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Gray",
+  "IconSymbol": "camera.viewfinder",
+  "Name": "Take Screenshot",
+  "Output": {
+   "Multiple": true,
+   "OutputName": "Screenshot",
+   "Required": true,
+   "Types": [
+    "WFImage"
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Full Screen",
+    "Items": [
+     "Full Screen",
+     "Interactive"
+    ],
+    "Key": "WFTakeScreenshotScreenshotType",
+    "Label": "Type",
+    "RequiredResources": [
+     {
+      "resource": "WFDeviceIdiomResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Window",
+    "Items": [
+     "Window",
+     "Custom"
+    ],
+    "Key": "WFTakeScreenshotActionInteractiveSelectionType",
+    "Label": "Selection",
+    "RequiredResources": [
+     {
+      "resource": "WFDeviceIdiomResource"
+     },
+     {
+      "WFParameterKey": "WFTakeScreenshotScreenshotType",
+      "WFParameterValue": "Interactive",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": false,
+    "Key": "WFTakeScreenshotMainMonitorOnly",
+    "Label": "Capture Main Display Only",
+    "RequiredResources": [
+     {
+      "resource": "WFDeviceIdiomResource"
+     },
+     {
+      "WFParameterKey": "WFTakeScreenshotScreenshotType",
+      "WFParameterValue": "Full Screen",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": false,
+    "Hidden": true,
+    "Key": "WFTakeScreenshotIgnoreContextualAssistanceLayers",
+    "Label": "Ignore Contextual Assistance Layers"
+   }
+  ],
+  "RateLimit": {
+   "Delay": 3,
+   "Threshold": 1,
+   "Timeout": 20
+  },
+  "RequiredResources": [
+   "WFScreenshotAccessResource"
+  ]
+ },
  "is.workflow.actions.takevideo": {
   "ActionClass": "WFTakeVideoAction",
   "ActionKeywords": "camera|clip|record",
@@ -17265,6 +19570,107 @@
    "UIKit"
   ]
  },
+ "is.workflow.actions.text.changecase": {
+  "ActionClass": "WFHandleCustomIntentAction",
+  "ActionKeywords": "uppercase|lowercase|title|transform|text|capitalize",
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Yellow_Accessibility",
+  "IconSymbol": "textformat",
+  "InProcess": true,
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFChangeCaseIntent",
+  "Output": {
+   "DisclosureLevel": "Public"
+  },
+  "ParameterOverrides": {
+   "type": {
+    "IntentEnumOverrides": {
+     "alternatingCase": "cApItAlIzE wItH aLtErNaTiNg cAsE",
+     "capitalize": "Capitalize Every Word",
+     "lowercase": "lowercase",
+     "sentenceCase": "Capitalize with sentence case",
+     "titleCase": "Capitalize with Title Case",
+     "uppercase": "UPPERCASE"
+    },
+    "Key": "WFCaseType"
+   }
+  },
+  "ResidentCompatible": true
+ },
+ "is.workflow.actions.text.combine": {
+  "ActionClass": "WFTextComponentsAction",
+  "ActionKeywords": "separate|delimiter|append",
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Text",
+  "InProcess": true,
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFCombineTextIntent",
+  "Output": {
+   "DisclosureLevel": "Public"
+  },
+  "ParameterOverrides": {
+   "customSeparator": {
+    "Key": "WFTextCustomSeparator"
+   },
+   "separator": {
+    "IntentEnumOverrides": {
+     "custom": "Custom",
+     "newLines": "New Lines",
+     "spaces": "Spaces"
+    },
+    "Key": "WFTextSeparator"
+   }
+  },
+  "ResidentCompatible": true,
+  "WFTextComponentsMode": "Combine"
+ },
+ "is.workflow.actions.text.match": {
+  "ActionClass": "WFHandleCustomIntentAction",
+  "ActionKeywords": "finding|matching|searching|regular|expression|regexp",
+  "Description": {
+   "DescriptionResult": "A list of text items that matched the regular expression"
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Text",
+  "InProcess": true,
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFMatchTextIntent",
+  "Output": {
+   "DisclosureLevel": "Public"
+  },
+  "ParameterOverrides": {
+   "caseSensitive": {
+    "Description": "When disabled, the capitalization of letters is ignored.",
+    "Key": "WFMatchTextCaseSensitive"
+   },
+   "pattern": {
+    "Class": "WFRegexFieldParameter",
+    "Key": "WFMatchTextPattern"
+   }
+  },
+  "ResidentCompatible": true
+ },
+ "is.workflow.actions.text.match.getgroup": {
+  "ActionClass": "WFHandleCustomIntentAction",
+  "ActionKeywords": "finding|matching|searching|regular|expression|regexp",
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Text",
+  "InProcess": true,
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFMatchTextGetGroupIntent",
+  "Output": {
+   "DisclosureLevel": "Public"
+  },
+  "ParameterOverrides": {
+   "groupIndex": {
+    "Key": "WFGroupIndex"
+   },
+   "type": {
+    "IntentEnumOverrides": {
+     "all": "All Groups",
+     "atIndex": "Group At Index"
+    },
+    "Key": "WFGetGroupType"
+   }
+  },
+  "ResidentCompatible": true
+ },
  "is.workflow.actions.text.replace": {
   "ActionClass": "WFReplaceTextAction",
   "ActionKeywords": "finding|matching|searching|regular|expression|regexp",
@@ -17334,6 +19740,93 @@
    }
   ],
   "ResidentCompatible": true
+ },
+ "is.workflow.actions.text.split": {
+  "ActionClass": "WFTextComponentsAction",
+  "ActionKeywords": "separate|delimiter",
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Text",
+  "InProcess": true,
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFSplitTextIntent",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": true
+  },
+  "ParameterOverrides": {
+   "customSeparator": {
+    "Key": "WFTextCustomSeparator"
+   },
+   "separator": {
+    "IntentEnumOverrides": {
+     "custom": "Custom",
+     "everyCharacter": "Every Character",
+     "newLines": "New Lines",
+     "spaces": "Spaces"
+    },
+    "Key": "WFTextSeparator"
+   }
+  },
+  "ResidentCompatible": true,
+  "WFTextComponentsMode": "Split"
+ },
+ "is.workflow.actions.text.translate": {
+  "ActionClass": "WFTranslateTextAction",
+  "ActionKeywords": "translation|language",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Translate"
+  },
+  "Description": {
+   "DescriptionSummary": "Translates the text passed into the action into another language."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "TranslateIcon",
+  "Input": {
+   "Multiple": true,
+   "ParameterKey": "WFInputText",
+   "Required": true,
+   "Types": [
+    "NSString"
+   ]
+  },
+  "InputPassthrough": false,
+  "Name": "Translate Text",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": true,
+   "OutputName": "Translated Text",
+   "Types": [
+    "NSString"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Translate ${WFInputText} from ${WFSelectedFromLanguage} to ${WFSelectedLanguage}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFTranslateTextLanguagePickerParameter",
+    "Key": "WFSelectedFromLanguage",
+    "Label": "Language",
+    "LanguageDetection": true
+   },
+   {
+    "Class": "WFTranslateTextLanguagePickerParameter",
+    "Key": "WFSelectedLanguage",
+    "Label": "To"
+   },
+   {
+    "Class": "WFTextInputParameter",
+    "Key": "WFInputText",
+    "Label": "Text",
+    "Multiline": true
+   }
+  ],
+  "RemoteExecuteOnPlatforms": [
+   "Watch"
+  ],
+  "RequiredResources": [
+   "WFRemoteServerAccessResource"
+  ],
+  "ResidentCompatible": false
  },
  "is.workflow.actions.text.trimwhitespace": {
   "ActionClass": "WFTrimWhitespaceAction",
@@ -18155,6 +20648,88 @@
    }
   ]
  },
+ "is.workflow.actions.url": {
+  "ActionClass": "WFURLAction",
+  "ActionKeywords": "text|such text|very speech|much words|so wow",
+  "Description": {
+   "DescriptionSummary": "Passes the specified URL to the next action."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Tint",
+  "IconSymbol": "link",
+  "IconSymbolColor": "Blue",
+  "Name": "URL",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": true,
+   "OutputName": "URL",
+   "Types": [
+    "NSURL"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "${WFURLActionURL}"
+  },
+  "Parameters": [
+   {
+    "AllowsMultipleValues": true,
+    "Class": "WFURLParameter",
+    "Key": "WFURLActionURL",
+    "Label": "URL",
+    "Placeholder": "apple.com"
+   }
+  ],
+  "ResidentCompatible": true
+ },
+ "is.workflow.actions.url.expand": {
+  "ActionClass": "WFExpandURLAction",
+  "ActionKeywords": "clean|link|links|long|short",
+  "Description": {
+   "DescriptionNote": "The expanded URL is cleaned, removing unnecessary parameters such as \u201cutm_source\u201d.",
+   "DescriptionResult": "The full, expanded URL, or the original URL if the URL was not shortened",
+   "DescriptionSummary": "This action expands and cleans up URLs which have been shortened using a URL shortening service like TinyURL or Bit.ly."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Tint",
+  "IconSymbol": "link",
+  "IconSymbolColor": "Blue",
+  "Input": {
+   "Multiple": true,
+   "ParameterKey": "URL",
+   "Required": true,
+   "Types": [
+    "WFURLContentItem"
+   ]
+  },
+  "Name": "Expand URL",
+  "Output": {
+   "DisclosureLevel": "Public",
+   "Multiple": true,
+   "OutputName": "Expanded URL",
+   "Types": [
+    "WFURLContentItem"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Expand ${URL}"
+  },
+  "Parameters": [
+   {
+    "AutocapitalizationType": "None",
+    "Class": "WFTextInputParameter",
+    "DisableAutocorrection": true,
+    "Key": "URL",
+    "KeyboardType": "URL",
+    "Label": "URL",
+    "Placeholder": "URL",
+    "TextContentType": "URL"
+   }
+  ],
+  "RequiredResources": [
+   "WFRemoteServerAccessResource"
+  ],
+  "ResidentCompatible": true
+ },
  "is.workflow.actions.url.getheaders": {
   "ActionClass": "WFGetURLHeadersAction",
   "ActionKeywords": "URL|web|http",
@@ -18511,6 +21086,139 @@
    "UIKit"
   ]
  },
+ "is.workflow.actions.vpn.get": {
+  "ActionClass": "WFGetVPNAction",
+  "ActionKeywords": "virtual|private|network|secure|connect|tunnel",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Preferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Returns the currently active VPN. If VPN is not active, this action returns nothing."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Blue",
+  "IconSymbol": "network.connected.to.line.below.fill",
+  "InputPassthrough": false,
+  "Name": "Get Current VPN",
+  "Output": {
+   "DisclosureLevel": "Private",
+   "Multiple": false,
+   "OutputName": "Current VPN",
+   "Types": [
+    "WFVPNConfiguration"
+   ]
+  }
+ },
+ "is.workflow.actions.vpn.set": {
+  "ActionClass": "WFSetVPNAction",
+  "ActionKeywords": "virtual|private|network|secure|connect|tunnel",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Preferences"
+  },
+  "Description": {
+   "DescriptionNote": "VPN Configurations can be set up in the Settings app. On macOS, you must authenticate as an administrator to change the On Demand setting for a VPN Configuration.",
+   "DescriptionSummary": "Connects, disconnects or changes the On Demand setting for one or more VPN Configurations on this device."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconColor": "Blue",
+  "IconSymbol": "network.connected.to.line.below.fill",
+  "Input": {
+   "InputTypeDeterminesOutputType": false,
+   "Multiple": true,
+   "ParameterKey": "WFVPN",
+   "Required": true,
+   "Types": [
+    "WFVPNContentItem"
+   ]
+  },
+  "InputPassthrough": true,
+  "Name": "Set VPN",
+  "ParameterSummary": {
+   "possibleValues": [
+    {
+     "format": "${WFVPNOperation} to ${WFVPN}",
+     "key": "WFVPNOperation(Connect),WFVPN",
+     "requiredValues": {
+      "WFVPNOperation": "Connect"
+     }
+    },
+    {
+     "format": "${WFVPNOperation} from ${WFVPN}",
+     "key": "WFVPNOperation(Disconnect),WFVPN",
+     "requiredValues": {
+      "WFVPNOperation": "Disconnect"
+     }
+    },
+    {
+     "format": "${WFVPNOperation} to ${WFOnDemandValue} for ${WFVPN}",
+     "key": "WFVPNOperation(Set On Demand),WFOnDemandValue,WFVPN",
+     "requiredValues": {
+      "WFVPNOperation": "Set On Demand"
+     }
+    },
+    {
+     "format": "${WFVPNOperation} for ${WFVPN}",
+     "key": "WFVPNOperation(Toggle On Demand),WFVPN",
+     "requiredValues": {
+      "WFVPNOperation": "Toggle On Demand"
+     }
+    },
+    {
+     "format": "${WFVPNOperation} ${WFVPN}",
+     "key": "WFVPNOperation(Toggle),WFVPN",
+     "requiredValues": {
+      "WFVPNOperation": "Toggle"
+     }
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "AllowsMultipleValues": false,
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Connect",
+    "Items": [
+     "Connect",
+     "Disconnect",
+     "Toggle",
+     "Set On Demand",
+     "Toggle On Demand"
+    ],
+    "Key": "WFVPNOperation",
+    "Label": "Operation"
+   },
+   {
+    "AllowsMultipleValues": false,
+    "Class": "WFSwitchParameter",
+    "DefaultValue": true,
+    "Key": "WFOnDemandValue",
+    "Label": "Set On Demand To",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFVPNOperation",
+      "WFParameterValue": "Set On Demand",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "AllowsMultipleValues": true,
+    "AlwaysShowsButton": true,
+    "Class": "WFVPNPickerParameter",
+    "Description": "The VPNs that will be configured by running this action.",
+    "Key": "WFVPN",
+    "Label": "VPN",
+    "Prompt": "Which VPN?"
+   }
+  ],
+  "RequiredResources": []
+ },
  "is.workflow.actions.waittoreturn": {
   "ActionClass": "WFWaitToReturnAction",
   "ActionKeywords": "wait",
@@ -18528,6 +21236,173 @@
   "RequiredResources": [
    "WFMainThreadResource"
   ]
+ },
+ "is.workflow.actions.wallpaper.set": {
+  "ActionClass": "WFSetWallpaperAction",
+  "ActionKeywords": "set|wallpaper|current|photo|lock|home|screen",
+  "Description": {
+   "DescriptionSummary": "Sets the wallpaper to the specified image."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "FillingProvider": "WFBundledActionProvider",
+  "IconName": "Wallpaper",
+  "Input": {
+   "Multiple": false,
+   "ParameterKey": "WFInput",
+   "Required": true,
+   "Types": [
+    "WFImageContentItem",
+    "WFPhotoMediaContentItem"
+   ]
+  },
+  "Name": "Set Wallpaper Photo",
+  "Output": {
+   "Multiple": false,
+   "OutputName": "Wallpaper",
+   "Types": [
+    "WFPosterRepresentation"
+   ]
+  },
+  "ParameterSummary": {
+   "possibleValues": [
+    {
+     "format": "Set wallpaper to ${WFInput}",
+     "key": "WFInput"
+    },
+    {
+     "format": "Set ${WFWallpaperLocation} wallpaper to ${WFInput}",
+     "key": "WFWallpaperLocation,WFInput"
+    },
+    {
+     "format": "Set ${WFSelectedPoster} to ${WFInput} for ${WFWallpaperLocation}",
+     "key": "WFWallpaperLocation,WFSelectedPoster,WFInput"
+    }
+   ]
+  },
+  "Parameters": [
+   {
+    "Class": "WFVariablePickerParameter",
+    "Key": "WFInput",
+    "Label": "Image"
+   },
+   {
+    "AllowsMultipleValues": true,
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": [
+     "Lock Screen",
+     "Home Screen"
+    ],
+    "Items": [
+     "Lock Screen",
+     "Home Screen"
+    ],
+    "Key": "WFWallpaperLocation",
+    "Label": "Wallpaper Location",
+    "RequiredResources": [
+     {
+      "resource": "WFDeviceIdiomResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": true,
+    "Key": "WFWallpaperShowPreview",
+    "Label": "Show Preview",
+    "RequiredResources": [
+     {
+      "resource": "WFDeviceIdiomResource"
+     },
+     {
+      "WFParameterKey": "WFWallpaperLocation",
+      "WFParameterRelation": "!=",
+      "WFParameterValue": "Home Screen",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": false,
+    "Key": "WFWallpaperPerspectiveZoom",
+    "Label": "Perspective Zoom",
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFWallpaperShowPreview",
+      "WFParameterValue": false,
+      "WFResourceClass": "WFParameterRelationResource"
+     },
+     {
+      "resource": "WFDeviceIdiomResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFPosterPickerParameter",
+    "HandlesDefaultPoster": true,
+    "Key": "WFSelectedPoster",
+    "Label": "Wallpaper",
+    "Optional": true,
+    "RequiredResources": [
+     {
+      "resource": "WFDeviceCapabilityResource"
+     }
+    ],
+    "VisiblePosters": "EligiblePhotos"
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": true,
+    "Key": "WFWallpaperSmartCrop",
+    "Label": "Crop to Subject",
+    "RequiredResources": [
+     {
+      "resource": "WFDeviceCapabilityResource"
+     }
+    ]
+   },
+   {
+    "Class": "WFSwitchParameter",
+    "DefaultValue": true,
+    "Key": "WFWallpaperLegibilityBlur",
+    "Label": "Legibility Blur",
+    "RequiredResources": [
+     {
+      "resource": "WFDeviceCapabilityResource"
+     },
+     {
+      "WFParameterKey": "WFWallpaperLocation",
+      "WFParameterRelation": "!=",
+      "WFParameterValue": "Lock Screen",
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ]
+   }
+  ],
+  "RateLimit": {
+   "Delay": 3,
+   "Threshold": 1,
+   "Timeout": 20
+  },
+  "RequiredResources": [
+   "WFWallpaperModificationAccessResource",
+   "WFPhotoAccessResource",
+   {
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFWallpaperShowPreview",
+      "WFParameterValue": true,
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ],
+    "WFResourceClass": "WFUserInteractionResource"
+   }
+  ],
+  "UserInterfaceClasses": {
+   "UIKit": "WFSetWallpaperActionUIKitUserInterface"
+  }
  },
  "is.workflow.actions.watchmedo": {
   "ActionClass": "WFWatchMeDoAction",
@@ -18566,6 +21441,114 @@
     "resource": "WFDeviceIdiomResource"
    }
   ]
+ },
+ "is.workflow.actions.weather.currentconditions": {
+  "ActionClass": "WFGetCurrentWeatherConditionsAction",
+  "ActionKeywords": "current|temperature|visibility|humidity|pressure|wind|sunrise|sunset",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.weather"
+  },
+  "Description": {
+   "DescriptionAttribution": "Weather information provided by [Weather data sources](https://weather-data.apple.com/legal-attribution.html).",
+   "DescriptionSummary": "Gets the current weather conditions at the specified location."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "InputPassthrough": false,
+  "Name": "Get Current Weather",
+  "Output": {
+   "Multiple": false,
+   "OutputName": "Weather Conditions",
+   "Types": [
+    "WFWeatherData"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Get weather at ${WFWeatherCustomLocation}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFLocationParameter",
+    "CurrentLocationAccuracy": "HundredMeters",
+    "DefaultToCurrentLocation": true,
+    "Key": "WFWeatherCustomLocation",
+    "Label": "Location"
+   }
+  ],
+  "RequiredResources": [
+   {
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFWeatherCustomLocation",
+      "WFParameterValue": {
+       "isCurrentLocation": true
+      },
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ],
+    "WFResourceClass": "WFLocationAccessResource"
+   },
+   "WFRemoteServerAccessResource"
+  ],
+  "ResidentCompatible": true
+ },
+ "is.workflow.actions.weather.forecast": {
+  "ActionClass": "WFGetWeatherForecastAction",
+  "ActionKeywords": "current|temperature|visibility|humidity|pressure|wind|sunrise|sunset",
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.weather"
+  },
+  "Description": {
+   "DescriptionAttribution": "Weather information provided by [Weather data sources](https://weather-data.apple.com/legal-attribution.html).",
+   "DescriptionSummary": "Gets an hourly or daily weather forecast at the specified location."
+  },
+  "FillingProvider": "WFBundledActionProvider",
+  "InputPassthrough": false,
+  "Name": "Get Weather Forecast",
+  "Output": {
+   "Multiple": true,
+   "OutputName": "Weather Conditions",
+   "Types": [
+    "WFWeatherData"
+   ]
+  },
+  "ParameterSummary": {
+   "format": "Get ${WFWeatherForecastType} forecast at ${WFWeatherCustomLocation}"
+  },
+  "Parameters": [
+   {
+    "Class": "WFLocationParameter",
+    "CurrentLocationAccuracy": "HundredMeters",
+    "DefaultToCurrentLocation": true,
+    "Key": "WFWeatherCustomLocation",
+    "Label": "Location"
+   },
+   {
+    "Class": "WFEnumerationParameter",
+    "DefaultValue": "Daily",
+    "Items": [
+     "Hourly",
+     "Daily"
+    ],
+    "Key": "WFWeatherForecastType",
+    "Label": "Type"
+   }
+  ],
+  "RequiredResources": [
+   {
+    "RequiredResources": [
+     {
+      "WFParameterKey": "WFWeatherCustomLocation",
+      "WFParameterValue": {
+       "isCurrentLocation": true
+      },
+      "WFResourceClass": "WFParameterRelationResource"
+     }
+    ],
+    "WFResourceClass": "WFLocationAccessResource"
+   },
+   "WFRemoteServerAccessResource"
+  ],
+  "ResidentCompatible": true
  },
  "is.workflow.actions.wifi.set": {
   "ActionClass": "WFSetWiFiAction",

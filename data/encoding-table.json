@@ -133,6 +133,24 @@
         "WFSerializationType" : "WFTextTokenAttachment"
       }
     },
+    "WFArchiveFormatSubstitutableState" : {
+      "value:string" : "hello",
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
     "WFBooleanSubstitutableState" : {
       "bool:YES" : true,
       "number:5" : 5,
@@ -235,6 +253,23 @@
         "WFSerializationType" : "WFDictionaryFieldValue"
       }
     },
+    "WFDisplayParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
     "WFFileParameterState" : {
       "variable:ActionOutput" : {
         "Value" : {
@@ -286,6 +321,23 @@
 
       }
     },
+    "WFHMHomeAreaSubstitutableState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
     "WFINObjectSubstitutableState" : {
       "variable:ActionOutput" : {
         "Value" : {
@@ -320,7 +372,42 @@
         "WFSerializationType" : "WFTextTokenAttachment"
       }
     },
+    "WFINRideOptionParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
     "WFIntentDescriptorParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFiTunesStoreCountrySubstitutableState" : {
+      "value:string" : "hello",
       "variable:ActionOutput" : {
         "Value" : {
           "OutputName" : "Stored Content",
@@ -355,6 +442,23 @@
       }
     },
     "WFMediaItemState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFMediaRouteState" : {
       "variable:ActionOutput" : {
         "Value" : {
           "OutputName" : "Stored Content",
@@ -432,6 +536,74 @@
         "WFSerializationType" : "WFTextTokenAttachment"
       }
     },
+    "WFPHAssetCollectionState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFPlaylistSubstitutableState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFPodcastSubstitutableState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFPosterParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
     "WFQuantityParameterState" : {
       "variable:ActionOutput" : {
         "Value" : {
@@ -457,6 +629,75 @@
       "string:hello" : "hello"
     },
     "WFStringSubstitutableState" : {
+      "value:string" : "hello",
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFTimeZonePickerParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFTrelloBoardSubstitutableState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFTrelloListSubstitutableState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFTumblrBlogSubstitutableState" : {
       "value:string" : "hello",
       "variable:ActionOutput" : {
         "Value" : {
@@ -567,6 +808,26 @@
           "string" : "Hello ￼!"
         },
         "WFSerializationType" : "WFTextTokenString"
+      }
+    },
+    "WFVPNParameterState" : {
+      "value:bool" : null,
+      "value:number" : null,
+      "value:string" : null,
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
       }
     },
     "WFWorkflowParameterState" : {

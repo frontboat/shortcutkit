@@ -5,8 +5,11 @@
 #
 #   bun run extract          # or ./tools/extract-builtin-actions.sh from the repo root
 #
-# Needs Xcode or the Command Line Tools (xcrun clang) and python3 (3.9+). Bun is optional
-# (rebuilds the TypeScript package's declarations when its node_modules exist).
+# Needs python3 (3.9+) and osascript (part of macOS). No compiler: the engine probes are
+# JavaScript for Automation scripts because ActionKit, which owns about a quarter of the
+# built-in actions, only loads into Apple platform binaries such as osascript (see
+# tools/jxa-prelude.js). Bun is optional (rebuilds the TypeScript package's declarations when
+# its node_modules exist).
 set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 out="$(dirname "$here")"
@@ -16,25 +19,21 @@ mkdir -p "$data" "$docs"
 work="$(mktemp -d)"
 trap 'rm -rf "$work"' EXIT
 
-echo "compiling extractor"
-xcrun clang -fobjc-arc -framework Foundation -o "$work/extract" "$here/extract-builtin-actions.m"
+# Run a probe inside osascript, a platform binary, so ActionKit's actions are included.
+jxa() { local name="$1"; shift; cat "$here/jxa-prelude.js" "$here/$name.js" > "$work/$name.js"; osascript -l JavaScript "$work/$name.js" "$@"; }
 
-echo "querying WorkflowKit"
-"$work/extract" "$data/builtin-actions.json"
+echo "querying WorkflowKit and ActionKit"
+jxa extract-builtin-actions "$data/builtin-actions.json"
 
 echo "rendering markdown"
 python3 "$here/render-builtin-actions.py" "$data/builtin-actions.json" "$docs/builtin-actions-reference.md"
 
-echo "compiling parameter-encoding probe"
-xcrun clang -fobjc-arc -fobjc-exceptions -framework Foundation -o "$work/encodings" "$here/extract-parameter-encodings.m"
 echo "mapping parameter classes to state classes"
-"$work/encodings" "$data/parameter-encodings.json" 2>&1 | rg -v "must implement" || true
+jxa extract-parameter-encodings "$data/parameter-encodings.json"
 python3 "$here/render-parameter-encodings.py" "$data/parameter-encodings.json" "$docs/parameter-encodings.md"
 
-echo "compiling encoding-table probe"
-xcrun clang -fobjc-arc -fobjc-exceptions -framework Foundation -o "$work/enctable" "$here/extract-encoding-table.m"
 echo "serializing variables, token strings, state classes, palette"
-"$work/enctable" "$data/encoding-table.json" "$data/parameter-encodings.json"
+jxa extract-encoding-table "$data/encoding-table.json" "$data/parameter-encodings.json"
 
 echo "refreshing the Python package's bundled definitions"
 mkdir -p "$out/python/src/shortcutkit/data" && cp "$data/builtin-actions.json" "$out/python/src/shortcutkit/data/builtin-actions.json"
@@ -69,6 +68,7 @@ cat > "$data/provenance.json" <<JSON
   "macOS": { "version": "$(sw_vers -productVersion)", "build": "$(sw_vers -buildVersion)", "arch": "$(uname -m)" },
   "shortcutsApp": { "version": "$shortcuts_version", "build": "$shortcuts_build" },
   "workflowKit": "$(defaults read /System/Library/PrivateFrameworks/WorkflowKit.framework/Versions/A/Resources/Info.plist CFBundleShortVersionString 2>/dev/null || echo unknown)",
+  "actionKit": "$(defaults read /System/Library/PrivateFrameworks/ActionKit.framework/Versions/A/Resources/Info.plist CFBundleShortVersionString 2>/dev/null || echo unknown)",
   "counts": {
     "builtinActions": $(python3 -c "import json;print(len(json.load(open('$data/builtin-actions.json'))))"),
     "identifierStrings": $(wc -l < "$data/builtin-action-identifiers.txt" | tr -d ' '),

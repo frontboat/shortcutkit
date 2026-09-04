@@ -55,7 +55,7 @@ describe("shortcutkit", () => {
 
 describe("typed catalogue", () => {
   test("every built-in action has a key and parameter keys are typed", () => {
-    expect(Object.keys(ACTIONS).length).toBe(339);
+    expect(Object.keys(ACTIONS).length).toBe(392);
     expect(actions.setstoredcontent).toBe("is.workflow.actions.setstoredcontent");
     const s = new Shortcut("T");
     s.action(actions.setstoredcontent, { WFInput: "x", WFStoredContentKey: "k", WFStoredContentGlobalValue: true });
@@ -90,6 +90,6 @@ describe("definitions", () => {
     expect(d.Parameters?.map((p) => p.Class)).toEqual(["WFTextInputParameter", "WFStoredValueVariableFieldParameter", "WFSwitchParameter"]);
     expect(d.IconSymbol).toBe("cylinder.split.1x2.fill");
     expect(getDefinition("com.example.Nope")).toBeUndefined();
-    expect(Object.keys(allDefinitions()).length).toBe(339);
+    expect(Object.keys(allDefinitions()).length).toBe(392);
   });
 });

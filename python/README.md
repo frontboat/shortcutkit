@@ -8,12 +8,12 @@ Build, validate and sign Apple Shortcuts (`.shortcut`) files from Python.
 ## About
 
 Apple has never documented the `.shortcut` format or what its actions accept. shortcutkit
-does not guess at either. Its data was produced by loading WorkflowKit, the private framework
-behind the Shortcuts app, and asking its own classes to describe and serialize every built-in
-action. Every identifier, parameter key and value encoding came out of the engine, not from a
+does not guess at either. Its data was produced by loading WorkflowKit and ActionKit, the private
+frameworks behind the Shortcuts app, and asking their own classes to describe and serialize
+every built-in action. Every identifier, parameter key and value encoding came out of the engine, not from a
 person reading files, so the package cannot disagree with the app.
 
-All 339 built-in actions are bundled with the value kind each parameter accepts, and
+All 392 built-in actions are bundled with the value kind each parameter accepts, and
 `action()` checks your call against them before anything is written. A wrong key or a string
 where a boolean belongs raises `ValueError`. A file built from plain code signs, imports and
 runs. Pure Python, no dependencies. Signing shells out to the macOS `shortcuts` command;
@@ -53,7 +53,7 @@ package on PyPI, archived 2024) and [shortcuts-js](https://github.com/joshfarran
 space and is a programming language with its own compiler rather than a library.
 
 shortcutkit is a plain Python library whose action catalogue comes from the Shortcuts engine
-rather than from a maintainer. All 339 built-in actions are covered, and the data regenerates
+rather than from a maintainer. All 392 built-in actions are covered, and the data regenerates
 after each macOS update.
 
 ## Installation
@@ -118,7 +118,7 @@ python -m shortcutkit demo out.shortcut
 - [Shortcut file format](https://github.com/frontboat/shortcutkit/blob/main/docs/shortcut-file-format.md):
   the `.shortcut` format end to end, every field.
 - [Built-in actions reference](https://github.com/frontboat/shortcutkit/blob/main/docs/builtin-actions-reference.md):
-  all 339 built-in actions with their parameters.
+  all 392 built-in actions with their parameters.
 - [Parameter encodings](https://github.com/frontboat/shortcutkit/blob/main/docs/parameter-encodings.md):
   how each parameter class is serialized.
 - [Extraction notes](https://github.com/frontboat/shortcutkit/blob/main/docs/extraction.md):

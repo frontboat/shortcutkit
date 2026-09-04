@@ -34,11 +34,14 @@ registers a definition when the registry initialises.
 
 ### What worked
 
-Load WorkflowKit into an ordinary process and ask the same object Shortcuts.app asks:
+Load the engine into a process and ask the same object Shortcuts.app asks:
 
-1. `dlopen` the framework. It resolves from the shared cache; no extraction, no SIP changes.
-2. `[[WFBundledActionProvider alloc] init]`, then `-availableActionIdentifiers` (339 on macOS 27)
-   and `-actionDefinitionsWithIdentifiers:`, which returns a dictionary of `WFActionDefinition`
+1. `dlopen` ActionKit, then WorkflowKit. Both resolve from the shared cache; no extraction, no
+   SIP changes. The process must be an Apple platform binary (see the next section), so the
+   probes are JavaScript for Automation run by `osascript`.
+2. `[[WFBundledActionProvider alloc] init]`, then `-availableActionIdentifiers` (392 on macOS 27:
+   339 from WorkflowKit plus 53 that ActionKit registers when it loads) and
+   `-actionDefinitionsWithIdentifiers:`, which returns a dictionary of `WFActionDefinition`
    objects keyed by identifier.
 3. Unwrap. `WFActionDefinition`, `WFParameterDefinition` and `WFActionDescriptionDefinition` are
    each a wrapper around one `NSDictionary` ivar. `WFParameterSummary` and
@@ -46,21 +49,53 @@ Load WorkflowKit into an ordinary process and ask the same object Shortcuts.app 
    parameter values that select each variant. Every human-readable field is a
    `LocalizedStringResource` bridged to ObjC; its English default is read from the object's
    description.
-4. Serialise to JSON. One thing cannot be unwrapped in ObjC: enumeration parameter choice
-   lists (`Parameters[].Items`) are Swift arrays boxed as `__SwiftValue` with no element
-   access. `render-builtin-actions.py` parses the English defaults out of their description and
-   rewrites the field as a plain list.
+4. Serialise to JSON. Enumeration parameter choice lists (`Parameters[].Items`) are Swift
+   arrays of `LocalizedStringResource`; the bridge exposes them as `NSArray`, so each element
+   is resolved to its English default like any other localized field. (The earlier compiled
+   probe could not see into them and left their description for `render-builtin-actions.py`
+   to parse, which is why that script still accepts the string form.)
 
 The method names above were found with the ObjC runtime, `class_copyMethodList` and
 `class_copyIvarList`, on the classes named in the binary. They are private API and can change
 with any macOS release. If the extractor fails, re-dump the method lists of
-`WFBundledActionProvider`, `WFActionDefinition`, and `WFParameterSummary` and adjust.
+`WFBundledActionProvider`, `WFActionDefinition`, and `WFParameterSummary` and adjust
+(`methodNames()` in `tools/jxa-prelude.js` does this from JXA).
+
+### ActionKit and the platform-binary requirement
+
+The first extraction ran a compiled probe in an ordinary process and got 339 definitions. That
+was wrong by 53, and the missing ones were not obscure: Ask for Input, Show Alert, Count,
+Choose from List, Date, Format Date, Get Clipboard, URL and Get Dictionary Value were all
+absent. Those actions are not implemented in WorkflowKit. They live in ActionKit.framework as
+`WFAskForInputAction`, `WFAlertAction`, `WFCountAction` and so on, each backed by an App
+Intent, and ActionKit registers them with `WFBundledActionProvider` when it loads.
+
+ActionKit does not load into an ordinary process. `+[WFActionKitStaticInitializer load]` reads
+the host's code-signing flags and aborts unless `CS_PLATFORM_BINARY` is set ("Assertion
+failed: (platformBinary)"). A platform binary, in turn, refuses to map any code that is not
+itself platform-signed, so a compiled helper cannot be loaded into one either. The way through
+is `osascript`: it is a platform binary, it has no library validation, and JavaScript for
+Automation can `dlopen` frameworks (`ObjC.bindFunction("dlopen", …)`) and call Objective-C
+through its bridge. With ActionKit loaded there, the same provider call returns 392.
+
+Two bridge limitations shaped the probes. The JXA `Class.alloc.initWith…` chain does not
+resolve initializers of these private classes even though the instances respond to them, so
+`tools/jxa-prelude.js` creates objects with `objc_msgSend` on raw pointers (`make()`,
+`makeBool()`, `makeUInts()`). And bridged objects are callable proxies (`typeof` reports
+`"function"`), 64-bit integers come back as strings, and Swift-backed arrays report `count`
+as a string; the prelude's `isObj()`, `count()` and `Number()` calls exist for that.
+
+Of the 411 `is.workflow.actions.*` identifier strings in the shared cache, 392 now have
+definitions. The remaining 19 are accessor and variant identifiers (`image.rotate.left`,
+`getstartdate`, `runworkflow.WFInput`, a `detect.dicionary` typo) and retired integrations
+(`dropbox.*`, `alarm.*`) that no provider offers on macOS.
 
 ### Caveats
 
 - Reflects the Shortcuts engine on the Mac that ran it, so iOS-only actions do not appear.
-- 339 definitions versus 411 identifier strings: the difference is property accessors,
-  deprecated actions, and platform variants the provider does not offer.
+- 392 definitions versus 411 identifier strings: the difference is property accessors,
+  deprecated actions, and platform variants the provider does not offer (see the ActionKit
+  section above for the list).
 - `RequiredResources` entries (device idiom, capabilities, Apple Intelligence access) have no
   dictionary form. They are emitted as `{"resource": "<class>"}` plus any plain-valued ivars.
 - Actions contributed by apps through App Intents are not here. Those come from each app's
@@ -78,11 +113,12 @@ value is written. That is decided one level down.
 
 Every `WFParameter` subclass answers `-singleStateClass`. The state class implements
 `-serializedRepresentation` and `-initWithSerializedRepresentation:variableProvider:parameter:`.
-Those two methods are the encoding. `extract-parameter-encodings.m` creates all 339 actions
+Those two methods are the encoding. `extract-parameter-encodings.js` creates all 392 actions
 through `WFBundledActionProvider` (`-createAllAvailableActionsIncludingMissingActions:YES`, so
 iOS-only actions are included), walks their parameters, and records parameter class, state
-class, and each parameter's `-defaultSerializedRepresentation`. Result: 52 parameter classes
-resolve to 31 state classes.
+class, and each parameter's `-defaultSerializedRepresentation`. Result: 98 parameter classes
+resolve to 47 state classes (52 and 31 before ActionKit was loaded; 70 of the original
+actions also gained parameters whose classes ActionKit defines).
 
 ### The general shapes
 
@@ -130,7 +166,7 @@ Validation checks every built-in identifier and parameter key against `data/buil
 - **Envelope.** Apple ships seven complete `.wflow` files in WorkflowKit's `Gallery.bundle`.
   Every top-level key came from there, cross-checked against the columns of the library
   database and against key strings in the framework.
-- **Encodings, definitively.** `extract-encoding-table.m` constructs each variable kind
+- **Encodings, definitively.** `extract-encoding-table.js` constructs each variable kind
   (`WFActionOutputVariable`, `WFUserDefinedVariable`, `WFShortcutInputVariable`, …), a
   `WFVariableString` with embedded variables, and each state class via its own
   constructors (`initWithValue:`, `initWithNumber:`, `initWithVariable:`,

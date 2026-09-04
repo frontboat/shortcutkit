@@ -1,6 +1,6 @@
 # Shortcuts built-in actions (from WorkflowKit's action registry)
 
-Extracted by loading WorkflowKit and asking WFBundledActionProvider for every definition. 339 actions. Field names are Apple's own (ActionClass, Parameters[].Class, etc.). Full structured data: data/builtin-actions.json. See docs/extraction.md for how this was produced.
+Extracted by loading WorkflowKit and asking WFBundledActionProvider for every definition. 392 actions. Field names are Apple's own (ActionClass, Parameters[].Class, etc.). Full structured data: data/builtin-actions.json. See docs/extraction.md for how this was produced.
 
 ## Add Frame to GIF
 
@@ -289,8 +289,8 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - ResidentCompatible: True
 - parameters:
   - `WFInput` (NumberField) Number
-  - `WFMathOperation` (Enumeration) Operation default="+" choices=["+", "-", "\\U00d7", "\\U00f7", "\\U2026"]
-  - `WFScientificMathOperation` (Enumeration) Scientific Operation choices=["Modulus", "x^2", "x^3", "x^y", "e^x", "10^x", "ln(x)", "log(x)", "\\U221ax", "\\U221bx", "x!", "sin(x)", "cos(x)", "tan(x)", "abs(x)"]
+  - `WFMathOperation` (Enumeration) Operation default="+" choices=["+", "-", "\u00d7", "\u00f7", "\u2026"]
+  - `WFScientificMathOperation` (Enumeration) Scientific Operation choices=["Modulus", "x^2", "x^3", "x^y", "e^x", "10^x", "ln(x)", "log(x)", "\u221ax", "\u221bx", "x!", "sin(x)", "cos(x)", "tan(x)", "abs(x)"]
   - `WFMathOperand` (NumberField) Operand
   - `WFScientificMathOperand` (NumberField) Operand
 
@@ -320,6 +320,18 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFStatisticsOperation` (Enumeration) Operation default="Average" choices=["Average", "Minimum", "Maximum", "Sum", "Median", "Mode", "Range", "Standard Deviation"]
   - `Input` (VariablePicker) Input
 
+## Call
+
+- identifier: `com.apple.mobilephone.call`  ·  class `WFStartCallAction`
+- Calls the phone number passed in as input.
+- summary: `Call ${WFCallContact}`
+- input: WFPhoneNumber, NSString (required)
+- keywords: phone, number, dial, mobile, telephone
+- InputPassthrough: True
+- parameters:
+  - `IntentAppDefinition` (IntentAppPicker) App default={"BundleIdentifier": "com.apple.TelephonyUtilities.PhoneIntentHandler"}
+  - `WFCallContact` (PhoneNumberField) Contact
+
 ## Change Playback Destination
 
 - identifier: `is.workflow.actions.setplaybackdestination`  ·  class `WFChangePlaybackDestinationAction`
@@ -335,6 +347,21 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFMediaRouteOperation` (Enumeration) Operation default="Set" choices=["Set", "Add", "Remove"]
   - `WFMediaRoute` (MediaRoutePicker) Device default="Local" — The device that is set, added, or removed as playback destination.
+
+## Choose from List
+
+- identifier: `is.workflow.actions.choosefromlist`  ·  class `WFChooseFromListAction`
+- Presents a menu of the items passed as input to the action and outputs the user’s selection.
+- summary: `Choose from ${WFInput}`
+- input: WFImageContentItem, WFDictionaryContentItem, WFContentItem (required)
+- output: Chosen Item WFContentItem
+- keywords: choose, select, list, options, menu, multiple
+- icon: list.bullet.rectangle (Cyan)
+- parameters:
+  - `WFInput` (VariablePicker) List
+  - `WFChooseFromListActionPrompt` (TextInput) Prompt default="" — The instruction provided when the list is presented.
+  - `WFChooseFromListActionSelectMultiple` (Switch) Select Multiple default=false — When enabled, multiple items may be chosen from the list.
+  - `WFChooseFromListActionSelectAll` (Switch) Select All Initially default=false — When enabled, all of the items in the list will start out selected when Choose from List is presented.
 
 ## Choose from Menu
 
@@ -533,6 +560,49 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFMeasurementUnit` (MeasurementUnitPicker) Unit
   - `WFInput` (VariablePicker) Measurement
 
+## Convert Time Zone
+
+- identifier: `is.workflow.actions.converttimezone`  ·  class `WFConvertTimeZoneAction`
+- Converts the specified date and time from one time zone to another.
+- summary: `Convert ${Date} from ${SourceTimeZone} to ${DestinationTimeZone}`
+- input: NSDate, NSDateComponents (required)
+- output: Converted Date NSDateComponents
+- keywords: date, set, pass, time, zone, timezone, current, now, get
+- icon: globe (Tint)
+- parameters:
+  - `Date` (DateField) Date
+  - `SourceTimeZone` (TimeZonePicker) Time Zone
+  - `DestinationTimeZone` (TimeZonePicker) Destination Time Zone
+
+## Copy to Clipboard
+
+- identifier: `is.workflow.actions.setclipboard`  ·  class `WFSetClipboardAction`
+- Copies the result of the last action to the clipboard.
+- summary: `Copy ${WFInput} to clipboard`
+- input: WFContentItem (required)
+- keywords: text, clipboard, copy, paste, set
+- icon: doc.on.doc.fill (Tint)
+- InputPassthrough: True
+- parameters:
+  - `WFLocalOnly` (Switch) Local Only default=false — When enabled, the input will only be copied locally, and will not be shared to other devices via Handoff.
+  - `WFExpirationDate` (DateField) Expire At — When set, the clipboard contents will expire and be automatically deleted at the specified time. Optional.
+  - `WFInput` (VariablePicker) Content
+
+## Count
+
+- identifier: `is.workflow.actions.count`  ·  class `WFCountAction`
+- Counts the number of items, characters, words, sentences, or lines passed as input.
+- note: This is just like the Count in Sesame Street, but instead of a vampire, it’s a Shortcuts action.
+- summary: `Count ${WFCountType} in ${Input}`
+- input: WFContentItem, WFStringContentItem (required)
+- output: Count NSDecimalNumber
+- keywords: get, number, length, list, file, document
+- icon: sum (Gray)
+- ResidentCompatible: True
+- parameters:
+  - `WFCountType` (Enumeration) Type default="Items" choices=["Items", "Characters", "Words", "Sentences", "Lines"]
+  - `Input` (VariablePicker) Input
+
 ## Create Dropbox Folder
 
 - identifier: `is.workflow.actions.dropbox.createfolder`  ·  class `WFCreateDropboxFolderAction`
@@ -653,6 +723,20 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFImageCropY` (NumberField) Y Coordinate
   - `WFImageCropWidth` (NumberField) Width default=100
   - `WFImageCropHeight` (NumberField) Height default=100
+
+## Date
+
+- identifier: `is.workflow.actions.date`  ·  class `WFDateAction`
+- Passes the specified date and time to the next action.
+- output: Date NSDate, NSDateComponents
+- keywords: date, set date, pass date, time, current, now, get, holiday, public event, event
+- icon: calendar (Tint)
+- ResidentCompatible: True
+- parameters:
+  - `WFDateActionMode` (DateActionPickerMode) Date default="Current Date"
+  - `WFDateActionDate` (DateField) Date
+  - `WFEventOccurrenceMode` (Enumeration) Occurrence default="Next Occurrence" choices=["Next Occurrence", "Specified Year"]
+  - `WFEventOccurrenceSpecifiedYear` (DateActionYearPicker) Year
 
 ## Delete Files
 
@@ -806,6 +890,21 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `IntentAppDefinition` (IntentAppPicker) App default={"BundleIdentifier": "com.apple.SessionTrackerApp"}
 
+## Expand URL
+
+- identifier: `is.workflow.actions.url.expand`  ·  class `WFExpandURLAction`
+- This action expands and cleans up URLs which have been shortened using a URL shortening service like TinyURL or Bit.ly.
+- result: The full, expanded URL, or the original URL if the URL was not shortened
+- note: The expanded URL is cleaned, removing unnecessary parameters such as “utm_source”.
+- summary: `Expand ${URL}`
+- input: WFURLContentItem (required)
+- output: Expanded URL WFURLContentItem
+- keywords: clean, link, links, long, short
+- icon: link (Tint)
+- ResidentCompatible: True
+- parameters:
+  - `URL` (TextInput) URL
+
 ## Extract Archive
 
 - identifier: `is.workflow.actions.unzip`  ·  class `WFExtractArchiveAction`
@@ -818,6 +917,19 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - icon: doc.zipper (Tint)
 - parameters:
   - `WFArchive` (VariablePicker) Archive
+
+## FaceTime
+
+- identifier: `com.apple.facetime.facetime`  ·  class `WFStartCallAction`
+- Calls the contact passed in as input using FaceTime.
+- summary: `${WFFaceTimeType} ${WFFaceTimeContact}`
+- input: WFPhoneNumber, WFEmailAddress, NSString (required)
+- keywords: phone, number, call
+- InputPassthrough: True
+- parameters:
+  - `IntentAppDefinition` (IntentAppPicker) App default={"BundleIdentifier": "com.apple.TelephonyUtilities.PhoneIntentHandler"}
+  - `WFFaceTimeType` (Enumeration) Call Type default="Video" choices=["Video", "Audio"]
+  - `WFFaceTimeContact` (ContactField) Contact
 
 ## File
 
@@ -976,6 +1088,15 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 
 - identifier: `is.workflow.actions.filter.reminders`  ·  class `WFContentItemFilterAction`
 
+## Find VPNs
+
+- identifier: `is.workflow.actions.filter.vpns`  ·  class `WFContentItemFilterAction`
+- Searches for VPNs installed on your device that match the given criteria.
+- input: WFVPNContentItem
+- output: Found VPNs WFVPNConfiguration
+- keywords: virtual, private, network, secure, connect, tunnel
+- icon: network.connected.to.line.below.fill (Blue)
+
 ## Find Windows
 
 - identifier: `is.workflow.actions.filter.windows`  ·  class `WFContentItemFilterAction`
@@ -1007,6 +1128,26 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFInput` (TextInput) Podcast URL
 
+## Format Date
+
+- identifier: `is.workflow.actions.format.date`  ·  class `WFFormatDateAction`
+- Formats a date and time into text.
+- note: Custom format strings use the format patterns from Unicode Technical Standard #35 (unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns).
+- summary: `Format ${WFDate}`
+- input: WFDateContentItem (required)
+- output: Formatted Date NSString
+- keywords: date, time, formatter
+- icon: calendar (Tint)
+- ResidentCompatible: True
+- parameters:
+  - `WFDateFormatStyle` (Enumeration) Date Format default="Short" choices=["None", "Short", "Medium", "Long", "Relative", "RFC 2822", "ISO 8601", "Custom"]
+  - `WFRelativeDateFormatStyle` (Enumeration) Alternate Format default="Medium" choices=["Short", "Medium", "Long"]
+  - `WFTimeFormatStyle` (Enumeration) Time Format default="Short" choices=["None", "Short", "Medium", "Long", "Relative"]
+  - `WFISO8601IncludeTime` (Switch) Include ISO 8601 Time
+  - `WFDateFormat` (CustomDateFormat) Format String
+  - `WFDate` (DateField) Date
+  - `WFLocale` (LocalePicker) Locale
+
 ## Format File Size
 
 - identifier: `is.workflow.actions.format.filesize`  ·  class `WFFormatFileSizeAction`
@@ -1022,6 +1163,20 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFFileSizeFormat` (Enumeration) Format default="Automatic" choices=["Automatic", "Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB or Higher"]
   - `WFFileSizeIncludeUnits` (Switch) Include Units default=true
   - `WFFileSize` (NumberField) File Size
+
+## Format Number
+
+- identifier: `is.workflow.actions.format.number`  ·  class `WFFormatNumberAction`
+- Formats a number into text.
+- summary: `Format ${WFNumber} to ${WFNumberFormatDecimalPlaces}`
+- input: WFBooleanContentItem, WFNumberContentItem (required)
+- output: Formatted Number NSString
+- keywords: digits, decimal
+- icon: number (Gray)
+- ResidentCompatible: True
+- parameters:
+  - `WFNumber` (NumberField) Number
+  - `WFNumberFormatDecimalPlaces` (Stepper) default=2
 
 ## Generate Hash
 
@@ -1050,6 +1205,18 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFInput` (VariablePicker) Input
 
+## Get All Wallpapers
+
+- identifier: `is.workflow.actions.posters.get`  ·  class `WFGetPostersAction`
+- Gets all of your Lock Screen wallpapers, and returns them as output so you can use them with other actions.
+- summary variants:
+  - `Get ${WFPosterType} wallpapers`  when {"WFPosterType": "All"}
+  - `Get ${WFPosterType} wallpaper`  when {"WFPosterType": "Current"}
+- output: Wallpapers WFPosterRepresentation
+- keywords: current, photo, lock, home, screen
+- parameters:
+  - `WFPosterType` (Enumeration) Type default="All" choices=["All", "Current"]
+
 ## Get Article using Safari Reader
 
 - identifier: `is.workflow.actions.getarticle`  ·  class `WFCoercionAction`
@@ -1063,6 +1230,28 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - InputPassthrough: False
 - parameters:
   - `WFWebPage` (TextInput) URL
+
+## Get Battery Status
+
+- identifier: `is.workflow.actions.getbatterylevel`  ·  class `WFBatteryLevelAction`
+- Returns information about the battery and any charger connected to the device.
+- result: A number with the current battery percentage, current charge limit, or a Yes/No Boolean value.
+- note: You can use this action to fetch the current battery percentage, whether your device is plugged into a charger or is charging, or get the current battery charge limit if one is enabled.
+- summary: `Get ${Subject}`
+- output: Battery State NSDecimalNumber, WFBooleanContentItem
+- keywords: remaining, percentage, left, power, charging, charger, plugged, outlet, level, connected, lightning, usb
+- icon: battery.100 (Green)
+- parameters:
+  - `Subject` (Enumeration) Get default="Battery Level" choices=["Battery Level", "Is Charging", "Is Connected to Charger", "Charge Limit"]
+
+## Get Clipboard
+
+- identifier: `is.workflow.actions.getclipboard`  ·  class `WFGetClipboardAction`
+- Passes the contents of the clipboard to the next action.
+- summary: `Get clipboard`
+- output: Clipboard WFContentItem
+- keywords: text, clipboard, copy, paste, contents, of
+- icon: clipboard.fill (Tint)
 
 ## Get Component of URL
 
@@ -1140,6 +1329,18 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFInput` (TextInput) URL
 
+## Get Current App
+
+- identifier: `is.workflow.actions.getcurrentapp`  ·  class `WFGetCurrentAppAction`
+- Gets the current visible app.
+- summary variants:
+  - `Get ${WFVisibleAppScope} app`  when {"WFVisibleAppScope": "Current"}
+  - `Get ${WFVisibleAppScope} apps`  when {"WFVisibleAppScope": "Visible"}
+- output:  WFApp
+- keywords: app, foreground, visible, topmost
+- parameters:
+  - `WFVisibleAppScope` (Enumeration) Scope default="Current" choices=["Current", "Visible"]
+
 ## Get Current Focus
 
 - identifier: `is.workflow.actions.dnd.getfocus`  ·  class `WFGetFocusAction`
@@ -1184,6 +1385,27 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - InputPassthrough: False
 - parameters:
   - `Subject` (Enumeration) Get default="Current Song" choices=["Current Song", "Current Playback Time"]
+
+## Get Current VPN
+
+- identifier: `is.workflow.actions.vpn.get`  ·  class `WFGetVPNAction`
+- Returns the currently active VPN. If VPN is not active, this action returns nothing.
+- output: Current VPN WFVPNConfiguration
+- keywords: virtual, private, network, secure, connect, tunnel
+- icon: network.connected.to.line.below.fill (Blue)
+- InputPassthrough: False
+
+## Get Current Weather
+
+- identifier: `is.workflow.actions.weather.currentconditions`  ·  class `WFGetCurrentWeatherConditionsAction`
+- Gets the current weather conditions at the specified location.
+- summary: `Get weather at ${WFWeatherCustomLocation}`
+- output: Weather Conditions WFWeatherData
+- keywords: current, temperature, visibility, humidity, pressure, wind, sunrise, sunset
+- ResidentCompatible: True
+- InputPassthrough: False
+- parameters:
+  - `WFWeatherCustomLocation` (Location) Location
 
 ## Get Current Web Page from Safari
 
@@ -1359,6 +1581,26 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFInput` (VariablePicker) Input
 
+## Get Dictionary Value
+
+- identifier: `is.workflow.actions.getvalueforkey`  ·  class `WFGetDictionaryValueAction`
+- Gets the value for the specified key in the dictionary passed into the action.
+- note: You can reference values deep inside of a dictionary by providing multiple keys separated by dots. For example, to get the value “soup” from the dictionary {\"beverages\": [{\"favorite\": \"soup\"}]}, you can specify the key path “beverages.1.favorite”.
+- summary variants:
+  - `Get ${WFGetDictionaryValueType} in ${WFInput}`  when {"WFGetDictionaryValueType": "All Keys"}
+  - `Get ${WFGetDictionaryValueType} in ${WFInput}`  when {"WFGetDictionaryValueType": "All Values"}
+  - `Get ${WFGetDictionaryValueType} for ${WFDictionaryKey} in ${WFInput}`  when {"WFGetDictionaryValueType": "Value"}
+- input: WFDictionaryContentItem (required)
+- output: Dictionary Value WFStringContentItem, WFNumberContentItem, WFDateContentItem, WFDictionaryContentItem, WFBooleanContentItem
+- keywords: json, plist, xml, urlencoded, query, string, for, key
+- icon: book.closed.fill (Orange)
+- ResidentCompatible: True
+- InputPassthrough: False
+- parameters:
+  - `WFGetDictionaryValueType` (Enumeration) Get default="Value" choices=["Value", "All Keys", "All Values"]
+  - `WFDictionaryKey` (TextInput) Key
+  - `WFInput` (VariablePicker) Dictionary
+
 ## Get Distance
 
 - identifier: `is.workflow.actions.getdistance`  ·  class `WFGetDistanceAction`
@@ -1486,6 +1728,15 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - InputPassthrough: False
 - parameters:
   - `WFInput` (TextInput) URL
+
+## Get Hotspot Password
+
+- identifier: `is.workflow.actions.personalhotspot.password.get`  ·  class `WFGetHotspotPasswordAction`
+- Returns the password of your Personal Hotspot.
+- summary: `Get Personal Hotspot password`
+- output: Personal Hotspot Password NSString
+- keywords: keychain
+- icon: personalhotspot (Green)
 
 ## Get Images from Input
 
@@ -1665,6 +1916,18 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFInput` (VariablePicker) Item
   - `GetWebPageTitle` (Switch) Get Web Page Title default=true — If this option is enabled, and a URL is passed in, this action will fetch the title of the corresponding web page.
+
+## Get Name of Emoji
+
+- identifier: `is.workflow.actions.getnameofemoji`  ·  class `WFGetEmojiNameAction`
+- Gets the names of emoji passed into the action.
+- summary: `Get name of emoji in ${WFInput}`
+- input: NSString (required)
+- output: Name of Emoji NSString
+- ResidentCompatible: True
+- InputPassthrough: False
+- parameters:
+  - `WFInput` (TextInput) Text
 
 ## Get Network Details
 
@@ -1887,6 +2150,31 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFGetTextFromPDFPageFooter` (TextInput) Page Footer Text
   - `WFCombinePages` (Switch) Combine Pages default=true
 
+## Get Time Between Dates
+
+- identifier: `is.workflow.actions.gettimebetweendates`  ·  class `WFTimeUntilDateAction`
+- Subtracts the specified date from the date passed into the action. For example, this action could get the number of minutes from now until a calendar event passed in as input.
+- note: This action outputs a negative number if the input date takes place before the specified date.
+- summary variants:
+  - `Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}`  when {"WFTimeUntilUnit": "Total Time"}
+  - `Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}`  when {"WFTimeUntilUnit": "Seconds"}
+  - `Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}`  when {"WFTimeUntilUnit": "Minutes"}
+  - `Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}`  when {"WFTimeUntilUnit": "Hours"}
+  - `Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}`  when {"WFTimeUntilUnit": "Days"}
+  - `Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}`  when {"WFTimeUntilUnit": "Weeks"}
+  - `Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}`  when {"WFTimeUntilUnit": "Months"}
+  - `Get ${WFTimeUntilUnit} between ${WFTimeUntilFromDate} and ${WFInput}`  when {"WFTimeUntilUnit": "Years"}
+- input: NSDate (required)
+- output: Time Between Dates NSNumber
+- keywords: between, after, before, seconds, minutes, hours, days, weeks, years, math, calculate, interval
+- icon: calendar.badge.clock (Tint)
+- ResidentCompatible: True
+- InputPassthrough: False
+- parameters:
+  - `WFTimeUntilFromDate` (DateField) First Date
+  - `WFInput` (DateField) Second Date
+  - `WFTimeUntilUnit` (Enumeration) In default="Minutes" choices=["Total Time", "Seconds", "Minutes", "Hours", "Days", "Weeks", "Months", "Years"]
+
 ## Get Travel Time
 
 - identifier: `is.workflow.actions.gettraveltime`  ·  class `WFGetTravelTimeAction`
@@ -1977,6 +2265,19 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - ResidentCompatible: True
 - parameters:
   - `WFVariable` (VariablePicker) Variable
+
+## Get Weather Forecast
+
+- identifier: `is.workflow.actions.weather.forecast`  ·  class `WFGetWeatherForecastAction`
+- Gets an hourly or daily weather forecast at the specified location.
+- summary: `Get ${WFWeatherForecastType} forecast at ${WFWeatherCustomLocation}`
+- output: Weather Conditions WFWeatherData
+- keywords: current, temperature, visibility, humidity, pressure, wind, sunrise, sunset
+- ResidentCompatible: True
+- InputPassthrough: False
+- parameters:
+  - `WFWeatherCustomLocation` (Location) Location
+  - `WFWeatherForecastType` (Enumeration) Type default="Daily" choices=["Hourly", "Daily"]
 
 ## Get What’s On Screen
 
@@ -2086,6 +2387,19 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFStopAndRespondResponse` (TextInput) Response
   - `WFAskForType` (Enumeration) Type default="Photos" choices=["Files", "Text", "Date", "Photos", "Contacts", "Email Address", "Music", "Phone Number"]
 
+## Intercom
+
+- identifier: `is.workflow.actions.intercom`  ·  class `WFIntercomAction`
+- Announces a message passed as input using Intercom.
+- note: This action accepts both text and media files as input. Media files will be broadcast as they are. When text is provided, it will be first converted to audio using the current Siri language and voice. You can also use the Make Spoken Audio From Text action to customize the voice parameters.
+- summary: `Intercom ${WFInput} to ${WFHome}`
+- input: WFAVAssetContentItem, WFStringContentItem (required)
+- keywords: announce, homepod, notif, home, family, audio, broadcast, message, speak, speech
+- icon: intercom (Orange)
+- parameters:
+  - `WFHome` (HomeAreaPicker) Home
+  - `WFInput` (TextInput) Message — The message to announce using Intercom. Any input exceeding 60 seconds in duration will be trimmed.
+
 ## is.workflow.actions.airplanemode.set
 
 - identifier: `is.workflow.actions.airplanemode.set`  ·  class `WFHandleCustomIntentAction`
@@ -2093,12 +2407,25 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - icon: airplane (Orange)
 - InputPassthrough: True
 
+## is.workflow.actions.announcenotifications.set
+
+- identifier: `is.workflow.actions.announcenotifications.set`  ·  class `WFHandleCustomIntentAction`
+
 ## is.workflow.actions.appearance
 
 - identifier: `is.workflow.actions.appearance`  ·  class `WFSetAppearanceAction`
 - keywords: style, mode, dark, appearance
 - icon: appearance (Blue)
 - ResidentCompatible: False
+
+## is.workflow.actions.ask
+
+- identifier: `is.workflow.actions.ask`  ·  class `WFAskForInputAction`
+- Displays a dialog prompting the user to enter a piece of information.
+- summary: `Ask for ${WFInputType} with ${WFAskActionPrompt}`
+- output:  NSString, NSDecimalNumber, NSURL, NSDate
+- keywords: ask, prompt, show, dialog, keyboard, text, number, url, date, time
+- icon: plus.bubble.fill (Cyan)
 
 ## is.workflow.actions.bluetooth.set
 
@@ -2113,6 +2440,13 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - keywords: service, phone, airplane, turn
 - icon: antenna.radiowaves.left.and.right (Green)
 - InputPassthrough: True
+
+## is.workflow.actions.correctspelling
+
+- identifier: `is.workflow.actions.correctspelling`  ·  class `WFHandleCustomIntentAction`
+- output:
+- keywords: text, spell, spelling, correct, autocorrect
+- ResidentCompatible: True
 
 ## is.workflow.actions.display.always-on.set
 
@@ -2198,6 +2532,43 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - keywords: window, set
 - icon: squares.leading.rectangle (Blue)
 
+## is.workflow.actions.text.changecase
+
+- identifier: `is.workflow.actions.text.changecase`  ·  class `WFHandleCustomIntentAction`
+- output:
+- keywords: uppercase, lowercase, title, transform, text, capitalize
+- icon: textformat (Yellow_Accessibility)
+- ResidentCompatible: True
+
+## is.workflow.actions.text.combine
+
+- identifier: `is.workflow.actions.text.combine`  ·  class `WFTextComponentsAction`
+- output:
+- keywords: separate, delimiter, append
+- ResidentCompatible: True
+
+## is.workflow.actions.text.match
+
+- identifier: `is.workflow.actions.text.match`  ·  class `WFHandleCustomIntentAction`
+- result: A list of text items that matched the regular expression
+- output:
+- keywords: finding, matching, searching, regular, expression, regexp
+- ResidentCompatible: True
+
+## is.workflow.actions.text.match.getgroup
+
+- identifier: `is.workflow.actions.text.match.getgroup`  ·  class `WFHandleCustomIntentAction`
+- output:
+- keywords: finding, matching, searching, regular, expression, regexp
+- ResidentCompatible: True
+
+## is.workflow.actions.text.split
+
+- identifier: `is.workflow.actions.text.split`  ·  class `WFTextComponentsAction`
+- output:
+- keywords: separate, delimiter
+- ResidentCompatible: True
+
 ## is.workflow.actions.truetone.set
 
 - identifier: `is.workflow.actions.truetone.set`  ·  class `WFHandleCustomIntentAction`
@@ -2249,6 +2620,28 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFLocation` (Location) Location
 
+## Lock App
+
+- identifier: `is.workflow.actions.lock.app`  ·  class `WFLockAppAction`
+- Changes whether the selected application is locked. Locked apps require authentication to access.
+- summary variants:
+  - `${WFLockAppOperation} lock for ${WFApp}`  when {"WFLockOperation": "Toggle"}
+  - `${WFLockAppOperation} ${WFApp}`  when {"WFLockOperation": "Lock"}
+  - `${WFLockAppOperation} ${WFApp}`  when {"WFLockOperation": "Unlock"}
+- keywords: lock, protect, authentication, private
+- icon: lock (Blue)
+- parameters:
+  - `WFLockAppOperation` (Enumeration) Operation default="Lock" choices=["Lock", "Unlock", "Toggle"]
+  - `WFApp` (AppPicker) App
+
+## Lock Screen
+
+- identifier: `is.workflow.actions.lockscreen`  ·  class `WFLockScreenAction`
+- Locks the screen of this device.
+- summary: `Lock the screen`
+- keywords: display
+- icon: lock.fill (Gray)
+
 ## Log Health Sample
 
 - identifier: `is.workflow.actions.health.quantity.log`  ·  class `WFLogHealthSampleAction`
@@ -2264,6 +2657,14 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFCategorySampleAdditionalEnumerationKey` (HealthCategoryAdditionalPicker) Value
   - `WFQuantitySampleDate` (HealthActionStartDateField) Date — The date and time of the data point. The current date will be used if you don’t provide a date.
   - `WFSampleEndDate` (HealthActionEndDateField) End Date — The date and time for the end of the data point. The current date will be used if you don’t provide a date.
+
+## Log Out User
+
+- identifier: `is.workflow.actions.logout`  ·  class `WFLogOutUserAction`
+- Logs out the current user.
+- summary: `Log out the current user`
+- keywords: log, out, logout, user
+- icon: person.crop.circle.fill (Gray)
 
 ## Log Workout
 
@@ -2564,6 +2965,46 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFBringToFront` (Switch) Bring to Front default=true
   - `Display` (DisplayPicker) Display — The display to move the window to.
 
+## New Contact
+
+- identifier: `is.workflow.actions.addnewcontact`  ·  class `WFAddNewContactAction`
+- Creates a new contact.
+- result: The new contact
+- summary: `Add ${WFContactFirstName}${WFContactLastName} to Contacts`
+- output: New Contact WFContact
+- keywords: create, add, contact
+- InputPassthrough: False
+- parameters:
+  - `WFContactFirstName` (TextInput) First name — The first name of the contact.
+  - `WFContactLastName` (TextInput) Last name — The last name of the contact.
+  - `WFContactCompany` (TextInput) Company — The company of the contact.
+  - `WFContactPhoto` (VariablePicker) Photo
+  - `WFContactPhoneNumbers` (PhoneNumberField) Phone Number
+  - `WFContactEmails` (EmailAddressField) Email Address
+  - `WFContactNotes` (TextInput) Notes — Optionally, notes for this contact.
+  - `ShowWhenRun` (Switch) Show Compose Sheet default=true
+
+## New Event
+
+- identifier: `is.workflow.actions.addnewevent`  ·  class `WFAddNewEventAction`
+- Creates a new event and adds it to the selected calendar.
+- result: The new event
+- summary: `Add ${WFCalendarItemTitle} from ${WFCalendarItemStartDate} to ${WFCalendarItemEndDate}`
+- output: New Event EKEvent
+- keywords: create, add, calendar
+- InputPassthrough: False
+- parameters:
+  - `WFCalendarItemTitle` (TextInput) Title — The title of this event.
+  - `WFCalendarItemLocation` (TextInput) Location
+  - `WFCalendarDescriptor` (CalendarPicker) Calendar — The calendar to add this event to.
+  - `WFCalendarItemStartDate` (DateField) Start Date — Text representing the date this event begins. Examples: “tomorrow at 2”, “January 3”, “8:00pm”
+  - `WFCalendarItemEndDate` (DateField) End Date — Text representing the date this event finishes.
+  - `WFCalendarItemAllDay` (Switch) All Day default=false — When enabled, the event takes place over an entire day and time is ignored.
+  - `WFAlertTime` (Enumeration) Alert choices=["None", "At time of event", "5 minutes before", "15 minutes before", "30 minutes before", "1 hour before", "2 hours before", "1 day before", "2 days before", "1 week before", "Custom"] — Optionally, when to show an alert to notify me of this event.
+  - `WFAlertCustomTime` (TextInput) Alert Time — Text representing the date when the alert should occur. Examples: “tonight at 7”, “March 7”
+  - `WFCalendarItemNotes` (TextInput) Notes — Optionally, a description for this event.
+  - `ShowWhenRun` (Switch) Show Compose Sheet default=true
+
 ## New Reminder
 
 - identifier: `is.workflow.actions.addnewreminder`  ·  class `WFAddNewReminderAction`
@@ -2686,6 +3127,17 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFBlindSquareSimulation` (Switch) Start Simulation default=false
   - `WFInput` (Location) Location
+
+## Open in Calendar
+
+- identifier: `is.workflow.actions.showincalendar`  ·  class `WFOpenInCalendarAction`
+- Shows the date or calendar event passed as input in the Calendar app.
+- summary: `Open ${WFEvent} in Calendar`
+- input: WFDateContentItem, WFCalendarEventContentItem, WFTimeIntervalContentItem (required)
+- keywords: date, event, show, reveal
+- InputPassthrough: True
+- parameters:
+  - `WFEvent` (VariablePicker) Event
 
 ## Open in GoodReader
 
@@ -2997,6 +3449,14 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFInput` (VariablePicker) Input
 
+## Put Display to Sleep
+
+- identifier: `is.workflow.actions.displaysleep`  ·  class `WFDisplaySleepAction`
+- Puts the display(s) of this Mac to sleep.
+- summary: `Put the display to sleep`
+- keywords: screen, off, monitor, idle, standby, shut, turn
+- icon: display (Gray)
+
 ## Quick Look
 
 - identifier: `is.workflow.actions.previewdocument`  ·  class `WFQuickLookAction`
@@ -3244,6 +3704,21 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFFile` (FilePicker) Files
 
+## Rotate Image/Video
+
+- identifier: `is.workflow.actions.image.rotate`  ·  class `WFImageRotateAction`
+- Turns an image or video clockwise by a particular number of degrees.
+- summary: `Rotate ${WFImage} by ${WFImageRotateAmount} degrees`
+- input: WFImage, AVAsset (required)
+- output: Rotated Image/Video WFImage, AVAsset
+- keywords: portrait, landscape, degrees, rotation, orientation, photos
+- icon: rotate.right.fill (Blue)
+- ResidentCompatible: True
+- InputPassthrough: False
+- parameters:
+  - `WFImageRotateAmount` (NumberField) Degrees default=90
+  - `WFImage` (VariablePicker) Image
+
 ## Round Number
 
 - identifier: `is.workflow.actions.round`  ·  class `WFRoundNumberAction`
@@ -3420,6 +3895,15 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFSpotlightSearchResultType` (SpotlightSearchResultTypePicker) Type default="All"
   - `WFSpotlightSearchLimit` (Stepper) default=5
 
+## Search in Passwords
+
+- identifier: `is.workflow.actions.openpasswords`  ·  class `WFShowPasswordsAction`
+- Opens Passwords and searches for the given text.
+- summary: `Search ${WFShowPasswordsSearchTerm} in Passwords`
+- keywords: keychain
+- parameters:
+  - `WFShowPasswordsSearchTerm` (TextInput) Text
+
 ## Search Web
 
 - identifier: `is.workflow.actions.searchweb`  ·  class `WFSearchWebAction`
@@ -3576,6 +4060,13 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - keywords: messenger, facebook, fb, send, text, gif, image, video
 - InputPassthrough: True
 
+## Set AirDrop Receiving
+
+- identifier: `is.workflow.actions.setairdropreceiving`  ·  class `WFSetAirDropReceivingAction`
+- summary: `Set AirDrop Receiving to ${WFAirDropState}`
+- parameters:
+  - `WFAirDropState` (AirDropVisibility) State
+
 ## Set Appearance on Apple TV
 
 - identifier: `com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent`  ·  class `WFHandleCustomIntentAction`
@@ -3618,6 +4109,17 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `Event` (VariablePicker) Event — The event after which to turn off the Focus
   - `Time` (DateField) Time — The time after which to turn off the Focus
   - `FocusModes` (FocusModesPicker) Focus
+
+## Set Hotspot Password
+
+- identifier: `is.workflow.actions.personalhotspot.password.set`  ·  class `WFSetHotspotPasswordAction`
+- Sets the Personal Hotspot password.
+- summary: `Set Personal Hotspot password to ${WFInput}`
+- input: WFStringContentItem (required)
+- keywords: keychain
+- icon: personalhotspot (Green)
+- parameters:
+  - `WFInput` (TextInput) Password
 
 ## Set Name
 
@@ -3689,6 +4191,46 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFVolumeSetting` (Enumeration) Volume Setting default="Media" choices=["Media", "Ringtone", "Alarms & Timers", "Alerts & System Sounds"] — The volume setting to change: Media, Ringtone, Alarms & Timers, or Alerts & System Sounds.
   - `WFVolume` (Slider) Volume default=0.5 — If you set the volume using a variable, use a number between 0 and 1 (for example, pass 0.5 for half volume).
 
+## Set VPN
+
+- identifier: `is.workflow.actions.vpn.set`  ·  class `WFSetVPNAction`
+- Connects, disconnects or changes the On Demand setting for one or more VPN Configurations on this device.
+- note: VPN Configurations can be set up in the Settings app. On macOS, you must authenticate as an administrator to change the On Demand setting for a VPN Configuration.
+- summary variants:
+  - `${WFVPNOperation} to ${WFVPN}`  when {"WFVPNOperation": "Connect"}
+  - `${WFVPNOperation} from ${WFVPN}`  when {"WFVPNOperation": "Disconnect"}
+  - `${WFVPNOperation} to ${WFOnDemandValue} for ${WFVPN}`  when {"WFVPNOperation": "Set On Demand"}
+  - `${WFVPNOperation} for ${WFVPN}`  when {"WFVPNOperation": "Toggle On Demand"}
+  - `${WFVPNOperation} ${WFVPN}`  when {"WFVPNOperation": "Toggle"}
+- input: WFVPNContentItem (required)
+- keywords: virtual, private, network, secure, connect, tunnel
+- icon: network.connected.to.line.below.fill (Blue)
+- InputPassthrough: True
+- parameters:
+  - `WFVPNOperation` (Enumeration) Operation default="Connect" choices=["Connect", "Disconnect", "Toggle", "Set On Demand", "Toggle On Demand"]
+  - `WFOnDemandValue` (Switch) Set On Demand To default=true
+  - `WFVPN` (VPNPicker) VPN — The VPNs that will be configured by running this action.
+
+## Set Wallpaper Photo
+
+- identifier: `is.workflow.actions.wallpaper.set`  ·  class `WFSetWallpaperAction`
+- Sets the wallpaper to the specified image.
+- summary variants:
+  - `Set wallpaper to ${WFInput}`
+  - `Set ${WFWallpaperLocation} wallpaper to ${WFInput}`
+  - `Set ${WFSelectedPoster} to ${WFInput} for ${WFWallpaperLocation}`
+- input: WFImageContentItem, WFPhotoMediaContentItem (required)
+- output: Wallpaper WFPosterRepresentation
+- keywords: set, wallpaper, current, photo, lock, home, screen
+- parameters:
+  - `WFInput` (VariablePicker) Image
+  - `WFWallpaperLocation` (Enumeration) Wallpaper Location default=["Lock Screen", "Home Screen"] choices=["Lock Screen", "Home Screen"]
+  - `WFWallpaperShowPreview` (Switch) Show Preview default=true
+  - `WFWallpaperPerspectiveZoom` (Switch) Perspective Zoom default=false
+  - `WFSelectedPoster` (PosterPicker) Wallpaper
+  - `WFWallpaperSmartCrop` (Switch) Crop to Subject default=true
+  - `WFWallpaperLegibilityBlur` (Switch) Legibility Blur default=true
+
 ## Share
 
 - identifier: `is.workflow.actions.share`  ·  class `WFShareAction`
@@ -3725,6 +4267,19 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFShazamMediaActionShowWhenRun` (Switch) Show When Run default=true
   - `WFShazamMediaActionErrorIfNotRecognized` (Switch) Error If Not Recognized default=true
+
+## Show Alert
+
+- identifier: `is.workflow.actions.alert`  ·  class `WFAlertAction`
+- Displays an alert with a title, a message, and two buttons. If the user selects the OK button, the shortcut continues. The cancel button stops the shortcut.
+- summary: `Show alert ${WFAlertActionMessage}`
+- keywords: message, ask, display, prompt, show, confirmation
+- icon: macwindow (Yellow_Accessibility)
+- InputPassthrough: True
+- parameters:
+  - `WFAlertActionTitle` (TextInput) Title
+  - `WFAlertActionMessage` (TextInput) Message default="Do you want to continue?"
+  - `WFAlertActionCancelButtonShown` (Switch) Show Cancel Button default=true
 
 ## Show Content
 
@@ -3819,6 +4374,18 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFEnterSafariReader` (Switch) Enter Safari Reader default=false — Enter Safari Reader mode if it’s available for the given web page.
   - `WFURL` (TextInput) URL
 
+## Shut Down
+
+- identifier: `is.workflow.actions.reboot`  ·  class `WFShutDownDeviceAction`
+- Shuts down or restarts your device.
+- summary variants:
+  - `${WFShutdownMode} this device`  when {"WFShutdownMode": "Restart"}
+  - `${WFShutdownMode} this device`  when {"WFShutdownMode": "Shut Down"}
+- keywords: reboot, restart, turn, off, halt, power, down
+- icon: power (Gray)
+- parameters:
+  - `WFShutdownMode` (Enumeration) Mode default="Shut Down" choices=["Shut Down", "Restart"]
+
 ## Skip Back
 
 - identifier: `is.workflow.actions.skipback`  ·  class `WFSkipSongAction`
@@ -3841,6 +4408,14 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - InputPassthrough: True
 - parameters:
   - `WFMediaRoute` (MediaRoutePicker) Device default="Local"
+
+## Sleep
+
+- identifier: `is.workflow.actions.sleep`  ·  class `WFSleepDeviceAction`
+- Put this Mac to sleep.
+- summary: `Put this Mac to sleep`
+- keywords: standby
+- icon: sleep (Gray)
 
 ## Speak Text
 
@@ -3883,7 +4458,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFPrimaryAppIdentifier` (AppPicker) App
   - `WFSecondaryAppIdentifier` (AppPicker) App
-  - `WFAppRatio` (Enumeration) Ratio default="\u00bd + \u00bd" choices=["\\U00bd + \\U00bd", "\\U2154 + \\U2153"]
+  - `WFAppRatio` (Enumeration) Ratio default="\u00bd + \u00bd" choices=["\u00bd + \u00bd", "\u2154 + \u2153"]
 
 ## Start Screen Saver
 
@@ -3977,6 +4552,49 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFPostalCode` (TextInput) Postal Code
   - `WFCountry` (CountryField) Region
 
+## Switch Between Wallpapers
+
+- identifier: `is.workflow.actions.posters.switch`  ·  class `WFSwitchPosterAction`
+- Switches the current Lock Screen wallpaper.
+- note: If the wallpaper has a linked Focus, this action will set the Focus, too.
+- summary: `Switch to ${WFPoster}`
+- input: WFPosterRepresentation (required)
+- keywords: photo, lock, home, screen
+- parameters:
+  - `WFPoster` (PosterPicker) Wallpaper
+
+## Take Photo
+
+- identifier: `is.workflow.actions.takephoto`  ·  class `WFTakePhotoAction`
+- Uses the camera to take photos.
+- result: Photo from the camera.
+- summary variants:
+  - `Take photo`
+  - `Take photo with ${WFCameraCaptureDevice} camera`
+  - `Take ${WFPhotoCount}`  when {"WFCameraCaptureShowPreview": "1"}
+  - `Take ${WFPhotoCount} with ${WFCameraCaptureDevice} camera`  when {"WFCameraCaptureShowPreview": "1"}
+- output: Photo WFImage
+- keywords: camera, take, photo
+- InputPassthrough: False
+- parameters:
+  - `WFCameraCaptureShowPreview` (Switch) Show Camera Preview default=true
+  - `WFPhotoCount` (Stepper) default=1
+  - `WFCameraCaptureDevice` (Enumeration) Camera default="Back" choices=["Front", "Back"]
+
+## Take Screenshot
+
+- identifier: `is.workflow.actions.takescreenshot`  ·  class `WFTakeScreenshotAction`
+- Take a screenshot of the device’s screen.
+- result: Image from the device’s screen.
+- output: Screenshot WFImage
+- keywords: capture, take, screen
+- icon: camera.viewfinder (Gray)
+- parameters:
+  - `WFTakeScreenshotScreenshotType` (Enumeration) Type default="Full Screen" choices=["Full Screen", "Interactive"]
+  - `WFTakeScreenshotActionInteractiveSelectionType` (Enumeration) Selection default="Window" choices=["Window", "Custom"]
+  - `WFTakeScreenshotMainMonitorOnly` (Switch) Capture Main Display Only default=false
+  - `WFTakeScreenshotIgnoreContextualAssistanceLayers` (Switch) Ignore Contextual Assistance Layers default=false
+
 ## Take Video
 
 - identifier: `is.workflow.actions.takevideo`  ·  class `WFTakeVideoAction`
@@ -4003,6 +4621,21 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - ResidentCompatible: True
 - parameters:
   - `WFTextActionText` (TextInput) Text default=""
+
+## Translate Text
+
+- identifier: `is.workflow.actions.text.translate`  ·  class `WFTranslateTextAction`
+- Translates the text passed into the action into another language.
+- summary: `Translate ${WFInputText} from ${WFSelectedFromLanguage} to ${WFSelectedLanguage}`
+- input: NSString (required)
+- output: Translated Text NSString
+- keywords: translation, language
+- ResidentCompatible: False
+- InputPassthrough: False
+- parameters:
+  - `WFSelectedFromLanguage` (TranslateTextLanguagePicker) Language
+  - `WFSelectedLanguage` (TranslateTextLanguagePicker) To
+  - `WFInputText` (TextInput) Text
 
 ## Trim Media
 
@@ -4086,6 +4719,18 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFImgurTitle` (TextInput) Title
   - `WFImgurDescription` (TextInput) Description
 
+## URL
+
+- identifier: `is.workflow.actions.url`  ·  class `WFURLAction`
+- Passes the specified URL to the next action.
+- summary: `${WFURLActionURL}`
+- output: URL NSURL
+- keywords: text, such text, very speech, much words, so wow
+- icon: link (Tint)
+- ResidentCompatible: True
+- parameters:
+  - `WFURLActionURL` (URL) URL
+
 ## URL Encode
 
 - identifier: `is.workflow.actions.urlencode`  ·  class `WFURLEncodeAction`
@@ -4129,6 +4774,18 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - InputPassthrough: True
 - parameters:
   - `WFVibrateHapticType` (Enumeration) Haptic Pattern default="Default" choices=["Default", "Up Direction", "Down Direction", "Success", "Failure", "Retry", "Start", "Stop", "Click"] — When run on Apple Watch, the selected pattern will be tapped on to your wrist.
+
+## Wait
+
+- identifier: `is.workflow.actions.delay`  ·  class `WFDelayAction`
+- Waits for the specified number of seconds before continuing with the next action.
+- summary: `Wait ${WFDelayTime}`
+- keywords: time, delay, wait, seconds
+- icon: hourglass (Gray)
+- ResidentCompatible: True
+- InputPassthrough: True
+- parameters:
+  - `WFDelayTime` (Stepper) default=1
 
 ## Wait to Return
 

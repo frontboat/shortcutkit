@@ -8,9 +8,9 @@ Build, validate and sign Apple Shortcuts (`.shortcut`) files from TypeScript or 
 ## About
 
 Apple has never documented the `.shortcut` format or what its actions accept. shortcutkit
-does not guess at either. The tools in this repository load WorkflowKit, the private framework
-behind the Shortcuts app, and ask its own classes to describe and serialize every built-in
-action. Every action identifier, parameter key, value encoding, icon colour, and even the
+does not guess at either. The tools in this repository load WorkflowKit and ActionKit, the private
+frameworks behind the Shortcuts app, and ask their own classes to describe and serialize
+every built-in action. Every action identifier, parameter key, value encoding, icon colour, and even the
 UTF-16 offset rule for embedded references came out of the engine, not from a person reading
 files. The package cannot disagree with the app.
 
@@ -25,7 +25,7 @@ files you are using.
 
 ## Features
 
-- **Every built-in action, typed.** `actions.*` lists all 339 identifiers, with each action's
+- **Every built-in action, typed.** `actions.*` lists all 392 identifiers, with each action's
   name, description, summary, output and parameter keys as hover documentation.
 - **Parameters checked before you run anything.** `{ WFStoredContentGlobalValue: "yes" }` is a
   compile error; a switch takes a boolean or a reference. Enumeration choices are suggested.
@@ -53,7 +53,7 @@ a different shape: a programming language with its own compiler, editor extensio
 manager, whose actions are defined in that language.
 
 shortcutkit is a library, not a language. You write TypeScript or Python you already know, and
-the action catalogue comes from the Shortcuts engine rather than from a maintainer. All 339
+the action catalogue comes from the Shortcuts engine rather than from a maintainer. All 392
 built-in actions are covered today, and the next macOS update is one `bun run extract` away.
 
 ## Installation
@@ -144,7 +144,7 @@ python -m shortcutkit demo out.shortcut
 
 - [`docs/shortcut-file-format.md`](docs/shortcut-file-format.md): the `.shortcut` format end
   to end, every field.
-- [`docs/builtin-actions-reference.md`](docs/builtin-actions-reference.md): all 339 built-in
+- [`docs/builtin-actions-reference.md`](docs/builtin-actions-reference.md): all 392 built-in
   actions with their parameters.
 - [`docs/parameter-encodings.md`](docs/parameter-encodings.md): how each parameter class is
   serialized.
@@ -184,10 +184,12 @@ Never hand-edit the generated files. Change the generator or the data and re-run
 
 The extracted data is committed on purpose. It can only be produced on a Mac, through private
 API that changes between releases, so committing it is what makes the package reproducible.
-To refresh after a macOS update, on a Mac with Xcode or the Command Line Tools:
+To refresh after a macOS update, on any Mac. No Xcode is needed: the probes are JavaScript
+for Automation scripts run by `osascript`, because ActionKit, which defines about a quarter of
+the built-in actions, only loads into Apple's own platform binaries.
 
 ```bash
-bun run extract        # ~1 minute: loads WorkflowKit, dumps and serializes everything
+bun run extract        # ~10 s: loads WorkflowKit and ActionKit in osascript, dumps and serializes everything
 bun install && bun test
 bun run diff-data      # what changed vs the committed data, and the semver bump it implies
 bun run changelog      # the same as a CHANGELOG.md section

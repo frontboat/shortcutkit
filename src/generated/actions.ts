@@ -59,6 +59,20 @@ export const actions = {
    */
   com_apple_TVRemoteUIService_WakeAppleTVIntent: "com.apple.TVRemoteUIService.WakeAppleTVIntent",
   /**
+   * **FaceTime**
+   * Calls the contact passed in as input using FaceTime.
+   * Summary: `${WFFaceTimeType} ${WFFaceTimeContact}`
+   * Parameters: `IntentAppDefinition`, `WFFaceTimeType`, `WFFaceTimeContact`
+   */
+  com_apple_facetime_facetime: "com.apple.facetime.facetime",
+  /**
+   * **Call**
+   * Calls the phone number passed in as input.
+   * Summary: `Call ${WFCallContact}`
+   * Parameters: `IntentAppDefinition`, `WFCallContact`
+   */
+  com_apple_mobilephone_call: "com.apple.mobilephone.call",
+  /**
    * **Post to Shared Album**
    * Summary: `Post ${ImageInput} to Shared Album`
    * Parameters: `ImageInput`
@@ -108,6 +122,22 @@ export const actions = {
    */
   addnewcalendar: "is.workflow.actions.addnewcalendar",
   /**
+   * **New Contact**
+   * Creates a new contact.
+   * Summary: `Add ${WFContactFirstName}${WFContactLastName} to Contacts`
+   * Output: New Contact
+   * Parameters: `WFContactFirstName`, `WFContactLastName`, `WFContactCompany`, `WFContactPhoto`, `WFContactPhoneNumbers`, `WFContactEmails`, `WFContactNotes`, `ShowWhenRun`
+   */
+  addnewcontact: "is.workflow.actions.addnewcontact",
+  /**
+   * **New Event**
+   * Creates a new event and adds it to the selected calendar.
+   * Summary: `Add ${WFCalendarItemTitle} from ${WFCalendarItemStartDate} to ${WFCalendarItemEndDate}`
+   * Output: New Event
+   * Parameters: `WFCalendarItemTitle`, `WFCalendarItemLocation`, `WFCalendarDescriptor`, `WFCalendarItemStartDate`, `WFCalendarItemEndDate`, `WFCalendarItemAllDay`, `WFAlertTime`, `WFAlertCustomTime`, `WFCalendarItemNotes`, `ShowWhenRun`
+   */
+  addnewevent: "is.workflow.actions.addnewevent",
+  /**
    * **New Reminder**
    * Creates a new reminder and adds it to the selected list of reminders.
    * Output: New Reminder
@@ -131,7 +161,7 @@ export const actions = {
    * Adds the items passed as input to the specified playlist.
    * Summary: `Add ${WFInput} to ${WFPlaylistName}`
    * Output: Updated Playlist
-   * Parameters: `WFInput`, `WFPlaylistName`
+   * Parameters: `WFPlaylistName`, `WFInput`
    */
   addtoplaylist: "is.workflow.actions.addtoplaylist",
   /**
@@ -150,11 +180,24 @@ export const actions = {
   airdropdocument: "is.workflow.actions.airdropdocument",
   /**
    * **is.workflow.actions.airplanemode.set**
-   * Parameters: `ShowWhenRun`
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   airplanemode_set: "is.workflow.actions.airplanemode.set",
   /**
+   * **Show Alert**
+   * Displays an alert with a title, a message, and two buttons. If the user selects the OK button, the shortcut continues. The cancel button stops the shortcut.
+   * Summary: `Show alert ${WFAlertActionMessage}`
+   * Parameters: `WFAlertActionTitle`, `WFAlertActionMessage`, `WFAlertActionCancelButtonShown`
+   */
+  alert: "is.workflow.actions.alert",
+  /**
+   * **is.workflow.actions.announcenotifications.set**
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
+   */
+  announcenotifications_set: "is.workflow.actions.announcenotifications.set",
+  /**
    * **is.workflow.actions.appearance**
+   * Parameters: `operation`, `style`, `ShowWhenRun`
    */
   appearance: "is.workflow.actions.appearance",
   /**
@@ -166,10 +209,17 @@ export const actions = {
    */
   appendvariable: "is.workflow.actions.appendvariable",
   /**
+   * **is.workflow.actions.ask**
+   * Displays a dialog prompting the user to enter a piece of information.
+   * Summary: `Ask for ${WFInputType} with ${WFAskActionPrompt}`
+   * Parameters: `WFAskActionPrompt`, `WFInputType`, `WFAskActionDefaultAnswer`, `WFAskActionDefaultAnswerNumber`, `urlAnswer`, `WFAskActionDefaultAnswerURL`, `WFAskActionDefaultAnswerDate`, `WFAskActionDefaultAnswerTime`, `WFAskActionDefaultAnswerDateAndTime`, `WFAskActionAllowsDecimalNumbers`, `WFAskActionAllowsNegativeNumbers`, `WFAllowsMultilineText`, `ShowWhenRun`
+   */
+  ask: "is.workflow.actions.ask",
+  /**
    * **Use Model**
    * Use a model to handle complex requests in your shortcuts.
    * Output: Response
-   * Parameters: `WFLLMModel`, `WFLLMPrompt`, `WFAllowWebSearch`, `FollowUp`, `WFGenerativeResultType`
+   * Parameters: `WFLLMModel`, `WFLLMPrompt`, `WFAllowWebSearch`, `WFGenerativeResultType`, `FollowUp`
    */
   askllm: "is.workflow.actions.askllm",
   /**
@@ -190,7 +240,7 @@ export const actions = {
   base64encode: "is.workflow.actions.base64encode",
   /**
    * **is.workflow.actions.bluetooth.set**
-   * Parameters: `ShowWhenRun`
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   bluetooth_set: "is.workflow.actions.bluetooth.set",
   /**
@@ -203,8 +253,17 @@ export const actions = {
   calculateexpression: "is.workflow.actions.calculateexpression",
   /**
    * **is.workflow.actions.cellulardata.set**
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   cellulardata_set: "is.workflow.actions.cellulardata.set",
+  /**
+   * **Choose from List**
+   * Presents a menu of the items passed as input to the action and outputs the user’s selection.
+   * Summary: `Choose from ${WFInput}`
+   * Output: Chosen Item
+   * Parameters: `WFInput`, `WFChooseFromListActionPrompt`, `WFChooseFromListActionSelectMultiple`, `WFChooseFromListActionSelectAll`
+   */
+  choosefromlist: "is.workflow.actions.choosefromlist",
   /**
    * **Choose from Menu**
    * Presents a menu and runs different actions based on which menu item was chosen.
@@ -262,6 +321,27 @@ export const actions = {
    */
   contacts: "is.workflow.actions.contacts",
   /**
+   * **Convert Time Zone**
+   * Converts the specified date and time from one time zone to another.
+   * Summary: `Convert ${Date} from ${SourceTimeZone} to ${DestinationTimeZone}`
+   * Output: Converted Date
+   * Parameters: `Date`, `SourceTimeZone`, `DestinationTimeZone`
+   */
+  converttimezone: "is.workflow.actions.converttimezone",
+  /**
+   * **is.workflow.actions.correctspelling**
+   * Parameters: `text`, `ShowWhenRun`
+   */
+  correctspelling: "is.workflow.actions.correctspelling",
+  /**
+   * **Count**
+   * Counts the number of items, characters, words, sentences, or lines passed as input.
+   * Summary: `Count ${WFCountType} in ${Input}`
+   * Output: Count
+   * Parameters: `WFCountType`, `Input`
+   */
+  count: "is.workflow.actions.count",
+  /**
    * **Create Playlist**
    * Creates a new playlist in the Music app, adding any items passed as input to the new playlist.
    * Summary: `Create playlist ${WFPlaylistName} with ${WFPlaylistItems}`
@@ -270,12 +350,26 @@ export const actions = {
    */
   createplaylist: "is.workflow.actions.createplaylist",
   /**
+   * **Date**
+   * Passes the specified date and time to the next action.
+   * Output: Date
+   * Parameters: `WFDateActionMode`, `WFDateActionDate`, `WFEventOccurrenceMode`, `WFEventOccurrenceSpecifiedYear`
+   */
+  date: "is.workflow.actions.date",
+  /**
    * **Show Content Attribution**
    * Shows the Content Source of Input contents
    * Summary: `Show Content Attribution of ${Input}`
    * Parameters: `Input`
    */
   debug_contentattribution: "is.workflow.actions.debug.contentattribution",
+  /**
+   * **Wait**
+   * Waits for the specified number of seconds before continuing with the next action.
+   * Summary: `Wait ${WFDelayTime}`
+   * Parameters: `WFDelayTime`
+   */
+  delay: "is.workflow.actions.delay",
   /**
    * **Delete Stored Content**
    * Deletes stored content for the specified name.
@@ -383,7 +477,7 @@ export const actions = {
    * Transcribes what you say aloud into text and passes the result to the next action.
    * Summary: `Dictate text`
    * Output: Dictated Text
-   * Parameters: `WFDictateTextStopListening`, `WFSpeechLanguage`
+   * Parameters: `WFSpeechLanguage`, `WFDictateTextStopListening`
    */
   dictatetext: "is.workflow.actions.dictatetext",
   /**
@@ -402,8 +496,15 @@ export const actions = {
   /**
    * **is.workflow.actions.display.always-on.set**
    * Sets the Always On Display setting of your iPhone to on or off.
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   display_always_on_set: "is.workflow.actions.display.always-on.set",
+  /**
+   * **Put Display to Sleep**
+   * Puts the display(s) of this Mac to sleep.
+   * Summary: `Put the display to sleep`
+   */
+  displaysleep: "is.workflow.actions.displaysleep",
   /**
    * **Get Current Focus**
    * Returns the currently active Focus.
@@ -699,6 +800,13 @@ export const actions = {
    */
   filter_reminders: "is.workflow.actions.filter.reminders",
   /**
+   * **Find VPNs**
+   * Searches for VPNs installed on your device that match the given criteria.
+   * Output: Found VPNs
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  filter_vpns: "is.workflow.actions.filter.vpns",
+  /**
    * **Find Windows**
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
@@ -711,9 +819,17 @@ export const actions = {
   finder_getselectedfiles: "is.workflow.actions.finder.getselectedfiles",
   /**
    * **is.workflow.actions.flashlight**
-   * Parameters: `ShowWhenRun`
+   * Parameters: `operation`, `state`, `WFFlashlightLevel`, `ShowWhenRun`
    */
   flashlight: "is.workflow.actions.flashlight",
+  /**
+   * **Format Date**
+   * Formats a date and time into text.
+   * Summary: `Format ${WFDate}`
+   * Output: Formatted Date
+   * Parameters: `WFDateFormatStyle`, `WFRelativeDateFormatStyle`, `WFTimeFormatStyle`, `WFISO8601IncludeTime`, `WFDateFormat`, `WFDate`, `WFLocale`
+   */
+  format_date: "is.workflow.actions.format.date",
   /**
    * **Format File Size**
    * Formats a file size into text.
@@ -722,6 +838,14 @@ export const actions = {
    * Parameters: `WFFileSizeFormat`, `WFFileSizeIncludeUnits`, `WFFileSize`
    */
   format_filesize: "is.workflow.actions.format.filesize",
+  /**
+   * **Format Number**
+   * Formats a number into text.
+   * Summary: `Format ${WFNumber} to ${WFNumberFormatDecimalPlaces}`
+   * Output: Formatted Number
+   * Parameters: `WFNumber`, `WFNumberFormatDecimalPlaces`
+   */
+  format_number: "is.workflow.actions.format.number",
   /**
    * **Create QR Code**
    * Creates a Quick Response (QR) code for the specified text.
@@ -747,6 +871,14 @@ export const actions = {
    */
   getarticle: "is.workflow.actions.getarticle",
   /**
+   * **Get Battery Status**
+   * Returns information about the battery and any charger connected to the device.
+   * Summary: `Get ${Subject}`
+   * Output: Battery State
+   * Parameters: `Subject`
+   */
+  getbatterylevel: "is.workflow.actions.getbatterylevel",
+  /**
    * **Get Object of Class**
    * Returns a particular object class from the input.
    * Summary: `Get object of class ${Class} from ${Input}`
@@ -754,6 +886,19 @@ export const actions = {
    * Parameters: `Class`, `Input`
    */
   getclassaction: "is.workflow.actions.getclassaction",
+  /**
+   * **Get Clipboard**
+   * Passes the contents of the clipboard to the next action.
+   * Summary: `Get clipboard`
+   * Output: Clipboard
+   */
+  getclipboard: "is.workflow.actions.getclipboard",
+  /**
+   * **Get Current App**
+   * Gets the current visible app.
+   * Parameters: `WFVisibleAppScope`
+   */
+  getcurrentapp: "is.workflow.actions.getcurrentapp",
   /**
    * **Get Current Location**
    * Gets the current location of the device.
@@ -781,7 +926,7 @@ export const actions = {
   /**
    * **Open Directions**
    * Opens directions to the location passed into this action in your choice of Maps, Google Maps, Citymapper, Transit, or Waze. For example, you can use this action to get directions to an upcoming event on your calendar.
-   * Parameters: `WFLocation`, `WFDestination`, `WFGetDirectionsActionMode`, `WFGetDirectionsActionApp`
+   * Parameters: `WFLocation`, `WFDestination`, `WFGetDirectionsActionApp`, `WFGetDirectionsActionMode`
    */
   getdirections: "is.workflow.actions.getdirections",
   /**
@@ -789,7 +934,7 @@ export const actions = {
    * Calculates the distance to the location passed into this action.
    * Summary: `Get distance from ${WFGetDirectionsCustomLocation} to ${WFGetDistanceDestination}`
    * Output: Distance
-   * Parameters: `WFGetDirectionsCustomLocation`, `WFGetDistanceDestination`, `WFGetDirectionsActionMode`, `WFAvoidTolls`, `WFAvoidHighways`, `Accuracy`, `WFDistanceUnit`
+   * Parameters: `WFGetDirectionsCustomLocation`, `WFGetDistanceDestination`, `WFGetDirectionsActionMode`, `WFAvoidTolls`, `WFAvoidHighways`, `WFDistanceUnit`, `Accuracy`
    */
   getdistance: "is.workflow.actions.getdistance",
   /**
@@ -934,6 +1079,14 @@ export const actions = {
    */
   getmyworkflows: "is.workflow.actions.getmyworkflows",
   /**
+   * **Get Name of Emoji**
+   * Gets the names of emoji passed into the action.
+   * Summary: `Get name of emoji in ${WFInput}`
+   * Output: Name of Emoji
+   * Parameters: `WFInput`
+   */
+  getnameofemoji: "is.workflow.actions.getnameofemoji",
+  /**
    * **Get What’s On Screen**
    * Gets the current content on screen, if available.
    * Summary: `Get what’s on screen`
@@ -945,7 +1098,7 @@ export const actions = {
    * Finds content that is currently visible on-screen like images, calendar events, URLs, and more.
    * Summary: `Get on-screen ${WFOnScreenContextResultType}`
    * Output: On-Screen Content
-   * Parameters: `WFOnScreenContextScope`, `WFOnScreenContextLimitEnabled`, `WFOnScreenContextLimit`, `WFOnScreenContextResultType`
+   * Parameters: `WFOnScreenContextResultType`, `WFOnScreenContextScope`, `WFOnScreenContextLimitEnabled`, `WFOnScreenContextLimit`
    */
   getonscreencontext: "is.workflow.actions.getonscreencontext",
   /**
@@ -1014,6 +1167,13 @@ export const actions = {
    */
   gettextfrompdf: "is.workflow.actions.gettextfrompdf",
   /**
+   * **Get Time Between Dates**
+   * Subtracts the specified date from the date passed into the action. For example, this action could get the number of minutes from now until a calendar event passed in as input.
+   * Output: Time Between Dates
+   * Parameters: `WFTimeUntilFromDate`, `WFInput`, `WFTimeUntilUnit`
+   */
+  gettimebetweendates: "is.workflow.actions.gettimebetweendates",
+  /**
    * **Get Travel Time**
    * Estimates the amount of time it will take to travel to the location passed into this action.
    * Summary: `Get ${WFGetDirectionsActionMode} time from ${WFGetDirectionsCustomLocation} to ${WFDestination}`
@@ -1054,6 +1214,13 @@ export const actions = {
    */
   geturlcomponent: "is.workflow.actions.geturlcomponent",
   /**
+   * **Get Dictionary Value**
+   * Gets the value for the specified key in the dictionary passed into the action.
+   * Output: Dictionary Value
+   * Parameters: `WFGetDictionaryValueType`, `WFDictionaryKey`, `WFInput`
+   */
+  getvalueforkey: "is.workflow.actions.getvalueforkey",
+  /**
    * **Get Variable**
    * Gets the value of the specified variable and passes it to the next action.
    * Summary: `Get ${WFVariable}`
@@ -1073,7 +1240,7 @@ export const actions = {
    * **Get Network Details**
    * Gets information about the currently connected networks.
    * Output: Network Details
-   * Parameters: `WFWiFiDetail`, `WFCellularDetail`, `WFEthernetDetail`, `WFNetworkDetailsNetwork`
+   * Parameters: `WFNetworkDetailsNetwork`, `WFWiFiDetail`, `WFCellularDetail`, `WFEthernetDetail`
    */
   getwifi: "is.workflow.actions.getwifi",
   /**
@@ -1152,7 +1319,7 @@ export const actions = {
    * Converts the images passed into the action to the specified image format.
    * Summary: `Convert ${WFInput} to ${WFImageFormat}`
    * Output: Converted Image
-   * Parameters: `WFImageCompressionQuality`, `WFImagePreserveMetadata`, `WFInput`, `WFImageFormat`
+   * Parameters: `WFImageFormat`, `WFImageCompressionQuality`, `WFImagePreserveMetadata`, `WFInput`
    */
   image_convert: "is.workflow.actions.image.convert",
   /**
@@ -1192,6 +1359,14 @@ export const actions = {
    */
   image_resize: "is.workflow.actions.image.resize",
   /**
+   * **Rotate Image/Video**
+   * Turns an image or video clockwise by a particular number of degrees.
+   * Summary: `Rotate ${WFImage} by ${WFImageRotateAmount} degrees`
+   * Output: Rotated Image/Video
+   * Parameters: `WFImageRotateAmount`, `WFImage`
+   */
+  image_rotate: "is.workflow.actions.image.rotate",
+  /**
    * **Upload to Imgur**
    * Uploads the input to Imgur.
    * Summary: `Upload ${WFInput}`
@@ -1211,7 +1386,7 @@ export const actions = {
    * **Input**
    * Stops execution of the current shortcut and dismisses the shortcut on screen. No more actions will be run after this action.
    * Summary: `Receive ${WFInputType} from ${WFInputSurface}`
-   * Parameters: `WFOutput`, `WFInputType`, `WFInputSurface`, `WFNoInputBehavior`, `WFStopAndRespondResponse`, `WFAskForType`, `WFPickingMode`, `SelectMultiple`, `WFPhotoPickerTypes`, `WFSelectMultiplePhotos`, `WFSelectMultiple`, `WFExportSongActionSelectMultiple`
+   * Parameters: `WFOutput`, `WFInputType`, `WFInputSurface`, `WFNoInputBehavior`, `WFStopAndRespondResponse`, `WFAskForType`, `WFPickingMode`, `SelectMultiple`, `WFDateActionMode`, `WFDateActionDate`, `WFEventOccurrenceMode`, `WFEventOccurrenceSpecifiedYear`, `WFPhotoPickerTypes`, `WFSelectMultiplePhotos`, `WFSelectMultiple`, `WFExportSongActionSelectMultiple`
    */
   input: "is.workflow.actions.input",
   /**
@@ -1230,10 +1405,17 @@ export const actions = {
    */
   instapaper_get: "is.workflow.actions.instapaper.get",
   /**
+   * **Intercom**
+   * Announces a message passed as input using Intercom.
+   * Summary: `Intercom ${WFInput} to ${WFHome}`
+   * Parameters: `WFHome`, `WFInput`
+   */
+  intercom: "is.workflow.actions.intercom",
+  /**
    * **Import to Lightroom**
    * Imports the photos passed as input into Lightroom.
    * Summary: `Import ${WFInput} to Lightroom`
-   * Parameters: `applyPreset`, `presetGroup`, `WFInput`, `preset`
+   * Parameters: `applyPreset`, `presetGroup`, `preset`, `WFInput`
    */
   lightroom_import: "is.workflow.actions.lightroom.import",
   /**
@@ -1258,7 +1440,26 @@ export const actions = {
    */
   location: "is.workflow.actions.location",
   /**
+   * **Lock App**
+   * Changes whether the selected application is locked. Locked apps require authentication to access.
+   * Parameters: `WFLockAppOperation`, `WFApp`
+   */
+  lock_app: "is.workflow.actions.lock.app",
+  /**
+   * **Lock Screen**
+   * Locks the screen of this device.
+   * Summary: `Lock the screen`
+   */
+  lockscreen: "is.workflow.actions.lockscreen",
+  /**
+   * **Log Out User**
+   * Logs out the current user.
+   * Summary: `Log out the current user`
+   */
+  logout: "is.workflow.actions.logout",
+  /**
    * **is.workflow.actions.lowpowermode.set**
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   lowpowermode_set: "is.workflow.actions.lowpowermode.set",
   /**
@@ -1282,7 +1483,7 @@ export const actions = {
    * Creates images from the pages in the PDF passed into the action.
    * Summary: `Make ${WFMakeImageFromPDFPageImageFormat} image from ${WFInput}`
    * Output: Image
-   * Parameters: `WFInput`, `WFMakeImageFromPDFPageResolution`, `WFMakeImageFromPDFPageImageFormat`, `WFMakeImageFromPDFPageColorspace`
+   * Parameters: `WFInput`, `WFMakeImageFromPDFPageImageFormat`, `WFMakeImageFromPDFPageColorspace`, `WFMakeImageFromPDFPageResolution`
    */
   makeimagefrompdfpage: "is.workflow.actions.makeimagefrompdfpage",
   /**
@@ -1322,7 +1523,7 @@ export const actions = {
    * Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar.xz, tar, gzip, cpio, or iso archives.
    * Summary: `Make ${WFArchiveFormat} archive from ${WFInput}`
    * Output: Archive
-   * Parameters: `WFZIPName`, `WFInput`, `WFArchiveFormat`
+   * Parameters: `WFZIPName`, `WFArchiveFormat`, `WFInput`
    */
   makezip: "is.workflow.actions.makezip",
   /**
@@ -1336,7 +1537,7 @@ export const actions = {
    * **Convert Measurement**
    * Converts the measurements passed into the action to the specified unit.
    * Output: Converted Measurement
-   * Parameters: `WFMeasurementUnit`, `WFInput`, `WFMeasurementUnitType`
+   * Parameters: `WFMeasurementUnitType`, `WFMeasurementUnit`, `WFInput`
    */
   measurement_convert: "is.workflow.actions.measurement.convert",
   /**
@@ -1344,7 +1545,7 @@ export const actions = {
    * Passes the specified measurement (including number and unit) to the next action.
    * Summary: `${WFMeasurementUnitType}\n${WFMeasurementUnit}`
    * Output: Measurement
-   * Parameters: `WFMeasurementUnit`, `WFMeasurementUnitType`
+   * Parameters: `WFMeasurementUnitType`, `WFMeasurementUnit`
    */
   measurement_create: "is.workflow.actions.measurement.create",
   /**
@@ -1363,7 +1564,7 @@ export const actions = {
   movewindow: "is.workflow.actions.movewindow",
   /**
    * **is.workflow.actions.nightshift.set**
-   * Parameters: `ShowWhenRun`
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   nightshift_set: "is.workflow.actions.nightshift.set",
   /**
@@ -1410,6 +1611,13 @@ export const actions = {
    */
   openin: "is.workflow.actions.openin",
   /**
+   * **Search in Passwords**
+   * Opens Passwords and searches for the given text.
+   * Summary: `Search ${WFShowPasswordsSearchTerm} in Passwords`
+   * Parameters: `WFShowPasswordsSearchTerm`
+   */
+  openpasswords: "is.workflow.actions.openpasswords",
+  /**
    * **Open URLs**
    * Opens URLs passed into the action in Safari.
    * Summary: `Open ${WFInput}`
@@ -1426,6 +1634,7 @@ export const actions = {
   openxcallbackurl: "is.workflow.actions.openxcallbackurl",
   /**
    * **is.workflow.actions.orientationlock.set**
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   orientationlock_set: "is.workflow.actions.orientationlock.set",
   /**
@@ -1458,9 +1667,23 @@ export const actions = {
    */
   pausemusic: "is.workflow.actions.pausemusic",
   /**
+   * **Get Hotspot Password**
+   * Returns the password of your Personal Hotspot.
+   * Summary: `Get Personal Hotspot password`
+   * Output: Personal Hotspot Password
+   */
+  personalhotspot_password_get: "is.workflow.actions.personalhotspot.password.get",
+  /**
+   * **Set Hotspot Password**
+   * Sets the Personal Hotspot password.
+   * Summary: `Set Personal Hotspot password to ${WFInput}`
+   * Parameters: `WFInput`
+   */
+  personalhotspot_password_set: "is.workflow.actions.personalhotspot.password.set",
+  /**
    * **is.workflow.actions.personalhotspot.set**
    * Sets the device’s Personal Hotspot to on or off.
-   * Parameters: `ShowWhenRun`
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   personalhotspot_set: "is.workflow.actions.personalhotspot.set",
   /**
@@ -1504,7 +1727,7 @@ export const actions = {
    * **Play Podcast**
    * Plays a podcast using the Podcasts app. If no podcast is selected, resumes playback.
    * Summary: `Play ${WFPodcastShow}`
-   * Parameters: `WFPodcastPlaybackOrder`, `WFPodcastShow`
+   * Parameters: `WFPodcastShow`, `WFPodcastPlaybackOrder`
    */
   playpodcast: "is.workflow.actions.playpodcast",
   /**
@@ -1537,6 +1760,20 @@ export const actions = {
    */
   podcasts_subscribe: "is.workflow.actions.podcasts.subscribe",
   /**
+   * **Get All Wallpapers**
+   * Gets all of your Lock Screen wallpapers, and returns them as output so you can use them with other actions.
+   * Output: Wallpapers
+   * Parameters: `WFPosterType`
+   */
+  posters_get: "is.workflow.actions.posters.get",
+  /**
+   * **Switch Between Wallpapers**
+   * Switches the current Lock Screen wallpaper.
+   * Summary: `Switch to ${WFPoster}`
+   * Parameters: `WFPoster`
+   */
+  posters_switch: "is.workflow.actions.posters.switch",
+  /**
    * **Post on Facebook**
    * Shares the input on Facebook.
    * Summary: `Post ${FacebookContent}`
@@ -1559,6 +1796,7 @@ export const actions = {
   print: "is.workflow.actions.print",
   /**
    * **Get Details of Appearance**
+   * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_appearance: "is.workflow.actions.properties.appearance",
   /**
@@ -1622,10 +1860,12 @@ export const actions = {
   properties_music: "is.workflow.actions.properties.music",
   /**
    * **Get Details of Parked Car**
+   * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_parkedcar: "is.workflow.actions.properties.parkedcar",
   /**
    * **Get Details of Podcast Episode**
+   * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_podcast: "is.workflow.actions.properties.podcast",
   /**
@@ -1640,6 +1880,7 @@ export const actions = {
   properties_reminders: "is.workflow.actions.properties.reminders",
   /**
    * **Get Details of Ride Status**
+   * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_ridestatus: "is.workflow.actions.properties.ridestatus",
   /**
@@ -1649,18 +1890,22 @@ export const actions = {
   properties_safariwebpage: "is.workflow.actions.properties.safariwebpage",
   /**
    * **Get Details of Shazam**
+   * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_shazam: "is.workflow.actions.properties.shazam",
   /**
    * **Get Details of Trello Item**
+   * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_trello: "is.workflow.actions.properties.trello",
   /**
    * **Get Details of Ulysses Sheet**
+   * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_ulysses_sheet: "is.workflow.actions.properties.ulysses.sheet",
   /**
    * **Get Details of Weather Conditions**
+   * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_weather_conditions: "is.workflow.actions.properties.weather.conditions",
   /**
@@ -1681,6 +1926,12 @@ export const actions = {
    * Parameters: `WFURL`
    */
   readinglist: "is.workflow.actions.readinglist",
+  /**
+   * **Shut Down**
+   * Shuts down or restarts your device.
+   * Parameters: `WFShutdownMode`
+   */
+  reboot: "is.workflow.actions.reboot",
   /**
    * **Record Audio**
    * Uses the microphone to record audio.
@@ -1708,7 +1959,7 @@ export const actions = {
    * Removes the photos or videos passed as input from the specified photo album.
    * Summary: `Remove ${WFInput} from ${WFRemoveAlbumSelectedGroup}`
    * Output: Removed Photo Media
-   * Parameters: `WFInput`, `WFRemoveAlbumSelectedGroup`
+   * Parameters: `WFRemoveAlbumSelectedGroup`, `WFInput`
    */
   removefromalbum: "is.workflow.actions.removefromalbum",
   /**
@@ -1750,7 +2001,7 @@ export const actions = {
    * **Request Ride**
    * Requests a ride from the specified pickup location to a specified drop off location.
    * Summary: `Request ride from ${PickupLocation} to ${DropOffLocation} with ${IntentAppDefinition}`
-   * Parameters: `IntentAppDefinition`, `PickupLocation`, `DropOffLocation`, `PaymentMethod`, `PartySize`, `RideOption`
+   * Parameters: `IntentAppDefinition`, `PickupLocation`, `DropOffLocation`, `RideOption`, `PaymentMethod`, `PartySize`
    */
   ride_requestride: "is.workflow.actions.ride.requestride",
   /**
@@ -1819,7 +2070,7 @@ export const actions = {
    * Runs a script on a remote computer over SSH.
    * Summary: `Run script over SSH`
    * Output: Shell Script Result
-   * Parameters: `WFSSHScript`, `WFSSHHost`, `WFSSHPort`, `WFSSHUser`, `WFSSHAuthenticationType`, `WFSSHPassword`, `WFInput`, `WFSSHKey`
+   * Parameters: `WFSSHScript`, `WFSSHHost`, `WFSSHPort`, `WFSSHUser`, `WFSSHAuthenticationType`, `WFSSHPassword`, `WFSSHKey`, `WFInput`
    */
   runsshscript: "is.workflow.actions.runsshscript",
   /**
@@ -1842,7 +2093,7 @@ export const actions = {
    * Adds the photos and videos passed as input to the specified photo album.
    * Summary: `Save ${WFInput} to ${WFCameraRollSelectedGroup}`
    * Output: Saved Photo Media
-   * Parameters: `WFInput`, `WFCameraRollSelectedGroup`
+   * Parameters: `WFCameraRollSelectedGroup`, `WFInput`
    */
   savetocameraroll: "is.workflow.actions.savetocameraroll",
   /**
@@ -1850,7 +2101,7 @@ export const actions = {
    * Searches the App Store, returning the apps that match the specified search terms. You can get more details about the results using the Get Details of App Store App action.
    * Summary: `Find ${WFSearchTerm} on the App Store`
    * Output: App Store Apps
-   * Parameters: `WFSearchTerm`, `WFAttribute`, `WFEntity`, `WFItemLimit`, `WFCountry`
+   * Parameters: `WFSearchTerm`, `WFAttribute`, `WFEntity`, `WFCountry`, `WFItemLimit`
    */
   searchappstore: "is.workflow.actions.searchappstore",
   /**
@@ -1858,7 +2109,7 @@ export const actions = {
    * Searches the iTunes Store, returning the items that match the specified search terms. You can get more details about the results using the Get Details of iTunes Product action.
    * Summary: `Find ${WFSearchTerm} on the iTunes Store`
    * Output: iTunes Products
-   * Parameters: `WFSearchTerm`, `WFMediaType`, `WFAttribute`, `WFEntity`, `WFItemLimit`, `WFCountry`
+   * Parameters: `WFSearchTerm`, `WFMediaType`, `WFAttribute`, `WFEntity`, `WFCountry`, `WFItemLimit`
    */
   searchitunes: "is.workflow.actions.searchitunes",
   /**
@@ -1866,7 +2117,7 @@ export const actions = {
    * Finds nearby places using Maps, and returns the results.
    * Summary: `Find ${WFSearchQuery} near ${WFInput}`
    * Output: Local Businesses
-   * Parameters: `WFInput`, `WFSearchQuery`, `WFSearchSortOrder`, `WFSearchRadius`
+   * Parameters: `WFInput`, `WFSearchQuery`, `WFSearchRadius`, `WFSearchSortOrder`
    */
   searchlocalbusinesses: "is.workflow.actions.searchlocalbusinesses",
   /**
@@ -1881,7 +2132,7 @@ export const actions = {
    * Finds podcasts in the Apple Podcasts catalog, returning the items that match the specified search terms.
    * Summary: `Find ${WFSearchTerm}`
    * Output: Podcasts
-   * Parameters: `WFSearchTerm`, `WFAttribute`, `WFEntity`, `WFItemLimit`, `WFCountry`
+   * Parameters: `WFSearchTerm`, `WFAttribute`, `WFEntity`, `WFCountry`, `WFItemLimit`
    */
   searchpodcasts: "is.workflow.actions.searchpodcasts",
   /**
@@ -1930,7 +2181,7 @@ export const actions = {
    * **Send Email**
    * Pass text into the action to set the email body. Other types of input are added as attachments.
    * Summary: `Send ${WFSendEmailActionInputAttachments} with ${WFSendEmailActionSubject} to ${WFSendEmailActionToRecipients}`
-   * Parameters: `WFSendEmailActionFrom`, `WFSendEmailActionToRecipients`, `WFSendEmailActionCcRecipients`, `WFSendEmailActionBccRecipients`, `WFSendEmailActionSubject`, `WFSendEmailActionInputAttachments`, `WFSendEmailActionSaveAsDraft`, `WFSendEmailActionShowComposeSheet`, `WFEmailAccountActionSelectedAccount`
+   * Parameters: `WFEmailAccountActionSelectedAccount`, `WFSendEmailActionFrom`, `WFSendEmailActionToRecipients`, `WFSendEmailActionCcRecipients`, `WFSendEmailActionBccRecipients`, `WFSendEmailActionSubject`, `WFSendEmailActionInputAttachments`, `WFSendEmailActionSaveAsDraft`, `WFSendEmailActionShowComposeSheet`
    */
   sendemail: "is.workflow.actions.sendemail",
   /**
@@ -1941,10 +2192,23 @@ export const actions = {
    */
   sendmessage: "is.workflow.actions.sendmessage",
   /**
+   * **Set AirDrop Receiving**
+   * Summary: `Set AirDrop Receiving to ${WFAirDropState}`
+   * Parameters: `WFAirDropState`
+   */
+  setairdropreceiving: "is.workflow.actions.setairdropreceiving",
+  /**
    * **is.workflow.actions.setbrightness**
-   * Parameters: `ShowWhenRun`
+   * Parameters: `WFBrightness`, `ShowWhenRun`
    */
   setbrightness: "is.workflow.actions.setbrightness",
+  /**
+   * **Copy to Clipboard**
+   * Copies the result of the last action to the clipboard.
+   * Summary: `Copy ${WFInput} to clipboard`
+   * Parameters: `WFLocalOnly`, `WFExpirationDate`, `WFInput`
+   */
+  setclipboard: "is.workflow.actions.setclipboard",
   /**
    * **Set Name**
    * Sets the name of the item passed as input.
@@ -2041,6 +2305,13 @@ export const actions = {
    */
   showinblindsquare: "is.workflow.actions.showinblindsquare",
   /**
+   * **Open in Calendar**
+   * Shows the date or calendar event passed as input in the Calendar app.
+   * Summary: `Open ${WFEvent} in Calendar`
+   * Parameters: `WFEvent`
+   */
+  showincalendar: "is.workflow.actions.showincalendar",
+  /**
    * **Show in iTunes Store**
    * Shows the iTunes products or App Store apps passed as input in a store sheet. This is useful with the Find iTunes Store Items and Find App Store Apps actions.
    * Summary: `Show ${WFProduct} in iTunes Store`
@@ -2063,7 +2334,7 @@ export const actions = {
   showwebpage: "is.workflow.actions.showwebpage",
   /**
    * **is.workflow.actions.silenceunknowncallers.set**
-   * Parameters: `ShowWhenRun`
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   silenceunknowncallers_set: "is.workflow.actions.silenceunknowncallers.set",
   /**
@@ -2089,14 +2360,20 @@ export const actions = {
    * **Post to Slack**
    * Posts the input to the specified Slack channel.
    * Summary: `Post ${WFSlackInput} to ${SlackChannel}`
-   * Parameters: `WFSlackInput`, `WFAccount`, `SlackChannel`
+   * Parameters: `WFAccount`, `WFSlackInput`, `SlackChannel`
    */
   slack_send: "is.workflow.actions.slack.send",
+  /**
+   * **Sleep**
+   * Put this Mac to sleep.
+   * Summary: `Put this Mac to sleep`
+   */
+  sleep: "is.workflow.actions.sleep",
   /**
    * **Speak Text**
    * Speaks the inputted text aloud.
    * Summary: `Speak ${WFText}`
-   * Parameters: `WFSpeakTextWait`, `WFSpeakTextRate`, `WFSpeakTextPitch`, `WFText`, `WFSpeakTextLanguage`, `WFSpeakTextVoice`
+   * Parameters: `WFSpeakTextWait`, `WFSpeakTextRate`, `WFSpeakTextPitch`, `WFSpeakTextLanguage`, `WFSpeakTextVoice`, `WFText`
    */
   speaktext: "is.workflow.actions.speaktext",
   /**
@@ -2119,12 +2396,12 @@ export const actions = {
    * Searches for content in the system that matches the specified text.
    * Summary: `Search ${WFInputText}`
    * Output: Results
-   * Parameters: `WFInputText`, `WFSpotlightSearchLimit`, `WFSpotlightSearchResultType`
+   * Parameters: `WFInputText`, `WFSpotlightSearchResultType`, `WFSpotlightSearchLimit`
    */
   spotlightsearch: "is.workflow.actions.spotlightsearch",
   /**
    * **is.workflow.actions.stagemanager.set**
-   * Parameters: `ShowWhenRun`
+   * Parameters: `operation`, `state`, `showDock`, `showRecentApps`, `ShowWhenRun`
    */
   stagemanager_set: "is.workflow.actions.stagemanager.set",
   /**
@@ -2142,12 +2419,46 @@ export const actions = {
    */
   statistics: "is.workflow.actions.statistics",
   /**
+   * **Take Photo**
+   * Uses the camera to take photos.
+   * Output: Photo
+   * Parameters: `WFCameraCaptureShowPreview`, `WFPhotoCount`, `WFCameraCaptureDevice`
+   */
+  takephoto: "is.workflow.actions.takephoto",
+  /**
+   * **Take Screenshot**
+   * Take a screenshot of the device’s screen.
+   * Output: Screenshot
+   * Parameters: `WFTakeScreenshotScreenshotType`, `WFTakeScreenshotActionInteractiveSelectionType`, `WFTakeScreenshotMainMonitorOnly`, `WFTakeScreenshotIgnoreContextualAssistanceLayers`
+   */
+  takescreenshot: "is.workflow.actions.takescreenshot",
+  /**
    * **Take Video**
    * Uses the camera to take a video clip.
    * Output: Video
    * Parameters: `WFCameraCaptureDevice`, `WFCameraCaptureQuality`, `WFRecordingStart`
    */
   takevideo: "is.workflow.actions.takevideo",
+  /**
+   * **is.workflow.actions.text.changecase**
+   * Parameters: `text`, `WFCaseType`, `ShowWhenRun`
+   */
+  text_changecase: "is.workflow.actions.text.changecase",
+  /**
+   * **is.workflow.actions.text.combine**
+   * Parameters: `text`, `WFTextSeparator`, `WFTextCustomSeparator`, `ShowWhenRun`
+   */
+  text_combine: "is.workflow.actions.text.combine",
+  /**
+   * **is.workflow.actions.text.match**
+   * Parameters: `text`, `WFMatchTextPattern`, `WFMatchTextCaseSensitive`, `ShowWhenRun`
+   */
+  text_match: "is.workflow.actions.text.match",
+  /**
+   * **is.workflow.actions.text.match.getgroup**
+   * Parameters: `matches`, `WFGetGroupType`, `WFGroupIndex`, `ShowWhenRun`
+   */
+  text_match_getgroup: "is.workflow.actions.text.match.getgroup",
   /**
    * **Replace Text**
    * Replaces all occurrences of the given text with other text.
@@ -2156,6 +2467,19 @@ export const actions = {
    * Parameters: `WFReplaceTextFind`, `WFReplaceTextReplace`, `WFReplaceTextCaseSensitive`, `WFReplaceTextRegularExpression`, `WFInput`
    */
   text_replace: "is.workflow.actions.text.replace",
+  /**
+   * **is.workflow.actions.text.split**
+   * Parameters: `text`, `WFTextSeparator`, `WFTextCustomSeparator`, `ShowWhenRun`
+   */
+  text_split: "is.workflow.actions.text.split",
+  /**
+   * **Translate Text**
+   * Translates the text passed into the action into another language.
+   * Summary: `Translate ${WFInputText} from ${WFSelectedFromLanguage} to ${WFSelectedLanguage}`
+   * Output: Translated Text
+   * Parameters: `WFSelectedFromLanguage`, `WFSelectedLanguage`, `WFInputText`
+   */
+  text_translate: "is.workflow.actions.text.translate",
   /**
    * **Trim Whitespace**
    * Removes whitespace and newlines from both ends of the text passed into the action.
@@ -2176,7 +2500,7 @@ export const actions = {
    * Adds a new item to Todoist.
    * Summary: `Add ${WFTodoistContent} to ${WFTodoistProject}`
    * Output: Todoist Item
-   * Parameters: `WFTodoistContent`, `WFTodoistDueDate`, `WFTodoistReminder`, `WFTodoistReminderType`, `WFTodoistPriority`, `WFTodoistNotes`, `WFTodoistFile`, `WFTodoistProject`
+   * Parameters: `WFTodoistContent`, `WFTodoistProject`, `WFTodoistDueDate`, `WFTodoistReminder`, `WFTodoistReminderType`, `WFTodoistPriority`, `WFTodoistNotes`, `WFTodoistFile`
    */
   todoist_add: "is.workflow.actions.todoist.add",
   /**
@@ -2192,7 +2516,7 @@ export const actions = {
    * Creates a new card on the specified list and board in your Trello account.
    * Summary: `Add ${WFTrelloName} to the ${WFTrelloCardPosition} of ${WFTrelloList} in ${WFTrelloBoard}`
    * Output: Trello Card
-   * Parameters: `WFTrelloName`, `WFTrelloDueDate`, `WFTrelloCardPosition`, `WFTrelloAttachments`, `WFTrelloDescription`, `WFTrelloBoard`, `WFTrelloList`
+   * Parameters: `WFTrelloName`, `WFTrelloBoard`, `WFTrelloList`, `WFTrelloDueDate`, `WFTrelloCardPosition`, `WFTrelloAttachments`, `WFTrelloDescription`
    */
   trello_add_card: "is.workflow.actions.trello.add.card",
   /**
@@ -2200,7 +2524,7 @@ export const actions = {
    * Creates a new list on the specified board in your Trello account.
    * Summary: `Create the list ${WFTrelloName} in ${WFTrelloBoard}`
    * Output: Trello List
-   * Parameters: `WFTrelloName`, `WFTrelloPosition`, `WFTrelloBoard`
+   * Parameters: `WFTrelloName`, `WFTrelloBoard`, `WFTrelloPosition`
    */
   trello_add_list: "is.workflow.actions.trello.add.list",
   /**
@@ -2220,7 +2544,7 @@ export const actions = {
   trimvideo: "is.workflow.actions.trimvideo",
   /**
    * **is.workflow.actions.truetone.set**
-   * Parameters: `ShowWhenRun`
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   truetone_set: "is.workflow.actions.truetone.set",
   /**
@@ -2228,7 +2552,7 @@ export const actions = {
    * Posts the content passed into the action to Tumblr.
    * Summary: `Post ${WFInput}`
    * Output: Tumblr Post URL
-   * Parameters: `WFInput`, `WFPostType`, `WFPostState`, `WFPostTitle`, `WFPostSource`, `WFPostCaption`, `WFPostTags`, `WFPostDescription`, `WFComposeInApp`, `WFBlogName`
+   * Parameters: `WFInput`, `WFComposeInApp`, `WFBlogName`, `WFPostType`, `WFPostState`, `WFPostTitle`, `WFPostSource`, `WFPostCaption`, `WFPostTags`, `WFPostDescription`
    */
   tumblr_post: "is.workflow.actions.tumblr.post",
   /**
@@ -2246,6 +2570,22 @@ export const actions = {
    * Parameters: `WFArchive`
    */
   unzip: "is.workflow.actions.unzip",
+  /**
+   * **URL**
+   * Passes the specified URL to the next action.
+   * Summary: `${WFURLActionURL}`
+   * Output: URL
+   * Parameters: `WFURLActionURL`
+   */
+  url: "is.workflow.actions.url",
+  /**
+   * **Expand URL**
+   * This action expands and cleans up URLs which have been shortened using a URL shortening service like TinyURL or Bit.ly.
+   * Summary: `Expand ${URL}`
+   * Output: Expanded URL
+   * Parameters: `URL`
+   */
+  url_expand: "is.workflow.actions.url.expand",
   /**
    * **Get Headers of URL**
    * Retrieves the HTTP headers of the URL passed as input using a HEAD request.
@@ -2295,11 +2635,30 @@ export const actions = {
    */
   viewresult: "is.workflow.actions.viewresult",
   /**
+   * **Get Current VPN**
+   * Returns the currently active VPN. If VPN is not active, this action returns nothing.
+   * Output: Current VPN
+   */
+  vpn_get: "is.workflow.actions.vpn.get",
+  /**
+   * **Set VPN**
+   * Connects, disconnects or changes the On Demand setting for one or more VPN Configurations on this device.
+   * Parameters: `WFVPNOperation`, `WFOnDemandValue`, `WFVPN`
+   */
+  vpn_set: "is.workflow.actions.vpn.set",
+  /**
    * **Wait to Return**
    * Pauses execution until you leave the Shortcuts app and return to it.\n\nThis action might be useful after an action that switches apps, to pause execution until you return to the Shortcuts app.\n\nThis action will only take effect when running shortcuts in the Shortcuts app.
    * Summary: `Wait to return`
    */
   waittoreturn: "is.workflow.actions.waittoreturn",
+  /**
+   * **Set Wallpaper Photo**
+   * Sets the wallpaper to the specified image.
+   * Output: Wallpaper
+   * Parameters: `WFInput`, `WFWallpaperLocation`, `WFWallpaperShowPreview`, `WFWallpaperPerspectiveZoom`, `WFSelectedPoster`, `WFWallpaperSmartCrop`, `WFWallpaperLegibilityBlur`
+   */
+  wallpaper_set: "is.workflow.actions.wallpaper.set",
   /**
    * **Watch Me Do**
    * Records and plays back mouse and keyboard events.
@@ -2308,7 +2667,24 @@ export const actions = {
    */
   watchmedo: "is.workflow.actions.watchmedo",
   /**
+   * **Get Current Weather**
+   * Gets the current weather conditions at the specified location.
+   * Summary: `Get weather at ${WFWeatherCustomLocation}`
+   * Output: Weather Conditions
+   * Parameters: `WFWeatherCustomLocation`
+   */
+  weather_currentconditions: "is.workflow.actions.weather.currentconditions",
+  /**
+   * **Get Weather Forecast**
+   * Gets an hourly or daily weather forecast at the specified location.
+   * Summary: `Get ${WFWeatherForecastType} forecast at ${WFWeatherCustomLocation}`
+   * Output: Weather Conditions
+   * Parameters: `WFWeatherCustomLocation`, `WFWeatherForecastType`
+   */
+  weather_forecast: "is.workflow.actions.weather.forecast",
+  /**
    * **is.workflow.actions.wifi.set**
+   * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   wifi_set: "is.workflow.actions.wifi.set",
   /**
@@ -2316,7 +2692,7 @@ export const actions = {
    * Posts the input to a WordPress blog as a new post or page.
    * Summary: `Post ${WFInput} as ${Title}`
    * Output: WordPress Post URL
-   * Parameters: `Blog`, `Title`, `Type`, `Format`, `Status`, `Categories`, `Tags`, `Advanced`, `AllowComments`, `Slug`, `Excerpt`, `Date`, `Template`, `ThumbnailImage`, `ShowCustomFields`, `CustomFields`, `WFInput`, `WFAccount`
+   * Parameters: `WFAccount`, `Blog`, `Title`, `Type`, `Format`, `Status`, `Categories`, `Tags`, `Advanced`, `AllowComments`, `Slug`, `Excerpt`, `Date`, `Template`, `ThumbnailImage`, `ShowCustomFields`, `CustomFields`, `WFInput`
    */
   wordpress_post: "is.workflow.actions.wordpress.post",
   /**
@@ -2347,6 +2723,8 @@ export const ACTIONS = {
   "com.apple.TVRemoteUIService.ToggleCaptionsIntent": { name: "com.apple.TVRemoteUIService.ToggleCaptionsIntent", params: ["ShowWhenRun"], output: null },
   "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent": { name: "Set Appearance on Apple TV", params: ["ShowWhenRun"], output: null },
   "com.apple.TVRemoteUIService.WakeAppleTVIntent": { name: "com.apple.TVRemoteUIService.WakeAppleTVIntent", params: ["ShowWhenRun"], output: null },
+  "com.apple.facetime.facetime": { name: "FaceTime", params: ["IntentAppDefinition", "WFFaceTimeType", "WFFaceTimeContact"], output: null },
+  "com.apple.mobilephone.call": { name: "Call", params: ["IntentAppDefinition", "WFCallContact"], output: null },
   "com.apple.mobileslideshow.StreamShareService": { name: "Post to Shared Album", params: ["ImageInput"], output: null },
   "com.apple.musicrecognition.RecognizeMusicIntent": { name: "Recognize Music", params: ["WFShazamMediaActionShowWhenRun", "WFShazamMediaActionErrorIfNotRecognized"], output: "Shazam Media" },
   "com.panic.iOS.Transmit.Share": { name: "Save with Transmit", params: ["TransmitSaveTo", "TransmitFavoriteName", "TransmitPath"], output: null },
@@ -2354,21 +2732,27 @@ export const ACTIONS = {
   "is.workflow.actions.additemtolist": { name: "Add Item to List", params: ["WFListItem", "WFInsertPosition", "WFItemIndex", "WFListVariable"], output: "List" },
   "is.workflow.actions.addmusictoupnext": { name: "Add to Playing Next", params: ["WFWhenToPlay", "WFMusic"], output: null },
   "is.workflow.actions.addnewcalendar": { name: "Add New Calendar", params: ["CalendarName"], output: "New Calendar" },
+  "is.workflow.actions.addnewcontact": { name: "New Contact", params: ["WFContactFirstName", "WFContactLastName", "WFContactCompany", "WFContactPhoto", "WFContactPhoneNumbers", "WFContactEmails", "WFContactNotes", "ShowWhenRun"], output: "New Contact" },
+  "is.workflow.actions.addnewevent": { name: "New Event", params: ["WFCalendarItemTitle", "WFCalendarItemLocation", "WFCalendarDescriptor", "WFCalendarItemStartDate", "WFCalendarItemEndDate", "WFCalendarItemAllDay", "WFAlertTime", "WFAlertCustomTime", "WFCalendarItemNotes", "ShowWhenRun"], output: "New Event" },
   "is.workflow.actions.addnewreminder": { name: "New Reminder", params: ["WFCalendarItemTitle", "WFCalendarDescriptor", "WFAlertEnabled", "WFAlertCondition", "WFAlertLocation", "WFAlertPerson", "WFAlertLocationRadius", "WFAlertCustomTime", "WFPriority", "WFUrgent", "WFFlag", "WFURL", "WFImages", "WFParentTask", "WFTags", "WFCalendarItemNotes"], output: "New Reminder" },
   "is.workflow.actions.addquickreminder": { name: "Show Quick Reminder", params: [], output: null },
   "is.workflow.actions.address": { name: "Street Address", params: ["WFAddressLine1", "WFAddressLine2", "WFCity", "WFState", "WFPostalCode", "WFCountry"], output: "Street Address" },
-  "is.workflow.actions.addtoplaylist": { name: "Add to Playlist", params: ["WFInput", "WFPlaylistName"], output: "Updated Playlist" },
+  "is.workflow.actions.addtoplaylist": { name: "Add to Playlist", params: ["WFPlaylistName", "WFInput"], output: "Updated Playlist" },
   "is.workflow.actions.adjustdate": { name: "Adjust Date", params: ["WFDate", "WFAdjustOperation", "WFDuration"], output: "Adjusted Date" },
   "is.workflow.actions.airdropdocument": { name: "AirDrop", params: ["WFInput"], output: null },
-  "is.workflow.actions.airplanemode.set": { name: "is.workflow.actions.airplanemode.set", params: ["ShowWhenRun"], output: null },
-  "is.workflow.actions.appearance": { name: "is.workflow.actions.appearance", params: [], output: null },
+  "is.workflow.actions.airplanemode.set": { name: "is.workflow.actions.airplanemode.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
+  "is.workflow.actions.alert": { name: "Show Alert", params: ["WFAlertActionTitle", "WFAlertActionMessage", "WFAlertActionCancelButtonShown"], output: null },
+  "is.workflow.actions.announcenotifications.set": { name: "is.workflow.actions.announcenotifications.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
+  "is.workflow.actions.appearance": { name: "is.workflow.actions.appearance", params: ["operation", "style", "ShowWhenRun"], output: null },
   "is.workflow.actions.appendvariable": { name: "Add to Variable", params: ["WFVariableName", "WFInput"], output: "Variable" },
-  "is.workflow.actions.askllm": { name: "Use Model", params: ["WFLLMModel", "WFLLMPrompt", "WFAllowWebSearch", "FollowUp", "WFGenerativeResultType"], output: "Response" },
+  "is.workflow.actions.ask": { name: "is.workflow.actions.ask", params: ["WFAskActionPrompt", "WFInputType", "WFAskActionDefaultAnswer", "WFAskActionDefaultAnswerNumber", "urlAnswer", "WFAskActionDefaultAnswerURL", "WFAskActionDefaultAnswerDate", "WFAskActionDefaultAnswerTime", "WFAskActionDefaultAnswerDateAndTime", "WFAskActionAllowsDecimalNumbers", "WFAskActionAllowsNegativeNumbers", "WFAllowsMultilineText", "ShowWhenRun"], output: null },
+  "is.workflow.actions.askllm": { name: "Use Model", params: ["WFLLMModel", "WFLLMPrompt", "WFAllowWebSearch", "WFGenerativeResultType", "FollowUp"], output: "Response" },
   "is.workflow.actions.avairyeditphoto": { name: "Markup", params: ["WFDocument"], output: "Markup Result" },
   "is.workflow.actions.base64encode": { name: "Base64 Encode", params: ["WFEncodeMode", "WFBase64LineBreakMode", "WFInput"], output: "Base64 Encoded" },
-  "is.workflow.actions.bluetooth.set": { name: "is.workflow.actions.bluetooth.set", params: ["ShowWhenRun"], output: null },
+  "is.workflow.actions.bluetooth.set": { name: "is.workflow.actions.bluetooth.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
   "is.workflow.actions.calculateexpression": { name: "Calculate Expression", params: ["Input"], output: "Calculation Result" },
-  "is.workflow.actions.cellulardata.set": { name: "is.workflow.actions.cellulardata.set", params: [], output: null },
+  "is.workflow.actions.cellulardata.set": { name: "is.workflow.actions.cellulardata.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
+  "is.workflow.actions.choosefromlist": { name: "Choose from List", params: ["WFInput", "WFChooseFromListActionPrompt", "WFChooseFromListActionSelectMultiple", "WFChooseFromListActionSelectAll"], output: "Chosen Item" },
   "is.workflow.actions.choosefrommenu": { name: "Choose from Menu", params: ["WFMenuPrompt", "WFMenuItems", "WFMenuItemTitle", "WFMenuItemAttributedTitle"], output: null },
   "is.workflow.actions.clearupnext": { name: "Clear Playing Next", params: [], output: null },
   "is.workflow.actions.cloudapp.upload": { name: "Upload to CloudApp", params: ["WFCloudAppPrivacyType", "WFInput"], output: "CloudApp URLs" },
@@ -2377,8 +2761,13 @@ export const ACTIONS = {
   "is.workflow.actions.conditional": { name: "If", params: ["WFConditions", "WFInput", "WFCondition", "WFConditionalActionString", "WFNumberValue", "WFConditionalLegacyComparisonBehavior", "WFEnumerationValue", "WFBooleanValue", "WFDate", "WFAnotherDate", "WFDuration"], output: null },
   "is.workflow.actions.connecttoservers": { name: "Connect to Servers", params: ["WFInput"], output: "Connected Server" },
   "is.workflow.actions.contacts": { name: "Contacts", params: ["WFContact"], output: "Contacts" },
+  "is.workflow.actions.converttimezone": { name: "Convert Time Zone", params: ["Date", "SourceTimeZone", "DestinationTimeZone"], output: "Converted Date" },
+  "is.workflow.actions.correctspelling": { name: "is.workflow.actions.correctspelling", params: ["text", "ShowWhenRun"], output: null },
+  "is.workflow.actions.count": { name: "Count", params: ["WFCountType", "Input"], output: "Count" },
   "is.workflow.actions.createplaylist": { name: "Create Playlist", params: ["WFPlaylistName", "WFPlaylistAuthor", "WFPlaylistDescription", "WFPlaylistItems"], output: "New Playlist" },
+  "is.workflow.actions.date": { name: "Date", params: ["WFDateActionMode", "WFDateActionDate", "WFEventOccurrenceMode", "WFEventOccurrenceSpecifiedYear"], output: "Date" },
   "is.workflow.actions.debug.contentattribution": { name: "Show Content Attribution", params: ["Input"], output: null },
+  "is.workflow.actions.delay": { name: "Wait", params: ["WFDelayTime"], output: null },
   "is.workflow.actions.deletestoredcontent": { name: "Delete Stored Content", params: ["WFStoredContentKey", "WFStoredContentGlobalValue"], output: null },
   "is.workflow.actions.deskconnect.send": { name: "Send via DeskConnect", params: ["WFInput"], output: null },
   "is.workflow.actions.detect.address": { name: "Get Addresses from Input", params: ["WFInput"], output: "Addresses" },
@@ -2392,10 +2781,11 @@ export const ACTIONS = {
   "is.workflow.actions.detect.phonenumber": { name: "Get Phone Numbers from Input", params: ["WFInput"], output: "Phone Numbers" },
   "is.workflow.actions.detect.text": { name: "Get Text from Input", params: ["WFInput"], output: "Text" },
   "is.workflow.actions.detectlanguage": { name: "Detect Language", params: ["WFInput"], output: "Language" },
-  "is.workflow.actions.dictatetext": { name: "Dictate Text", params: ["WFDictateTextStopListening", "WFSpeechLanguage"], output: "Dictated Text" },
+  "is.workflow.actions.dictatetext": { name: "Dictate Text", params: ["WFSpeechLanguage", "WFDictateTextStopListening"], output: "Dictated Text" },
   "is.workflow.actions.dictionary": { name: "Dictionary", params: ["WFItems"], output: "Dictionary" },
   "is.workflow.actions.dismisssiri": { name: "Dismiss Siri and Continue", params: [], output: null },
-  "is.workflow.actions.display.always-on.set": { name: "is.workflow.actions.display.always-on.set", params: [], output: null },
+  "is.workflow.actions.display.always-on.set": { name: "is.workflow.actions.display.always-on.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
+  "is.workflow.actions.displaysleep": { name: "Put Display to Sleep", params: [], output: null },
   "is.workflow.actions.dnd.getfocus": { name: "Get Current Focus", params: [], output: "Current Focus" },
   "is.workflow.actions.dnd.set": { name: "Set Focus", params: ["Operation", "Enabled", "AssertionType", "Event", "Time", "FocusModes"], output: null },
   "is.workflow.actions.documentpicker.open": { name: "Get File from Folder", params: ["WFFileErrorIfNotFound", "WFGetFolderContents", "WFFile", "WFGetFilePath"], output: "File" },
@@ -2440,19 +2830,25 @@ export const ACTIONS = {
   "is.workflow.actions.filter.music": { name: "Find Music", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
   "is.workflow.actions.filter.photos": { name: "Find Photos", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
   "is.workflow.actions.filter.reminders": { name: "Find Reminders", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
+  "is.workflow.actions.filter.vpns": { name: "Find VPNs", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Found VPNs" },
   "is.workflow.actions.filter.windows": { name: "Find Windows", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
   "is.workflow.actions.finder.getselectedfiles": { name: "Get Selected Files in Finder", params: [], output: "Selected File" },
-  "is.workflow.actions.flashlight": { name: "is.workflow.actions.flashlight", params: ["ShowWhenRun"], output: null },
+  "is.workflow.actions.flashlight": { name: "is.workflow.actions.flashlight", params: ["operation", "state", "WFFlashlightLevel", "ShowWhenRun"], output: null },
+  "is.workflow.actions.format.date": { name: "Format Date", params: ["WFDateFormatStyle", "WFRelativeDateFormatStyle", "WFTimeFormatStyle", "WFISO8601IncludeTime", "WFDateFormat", "WFDate", "WFLocale"], output: "Formatted Date" },
   "is.workflow.actions.format.filesize": { name: "Format File Size", params: ["WFFileSizeFormat", "WFFileSizeIncludeUnits", "WFFileSize"], output: "Formatted File Size" },
+  "is.workflow.actions.format.number": { name: "Format Number", params: ["WFNumber", "WFNumberFormatDecimalPlaces"], output: "Formatted Number" },
   "is.workflow.actions.generatebarcode": { name: "Create QR Code", params: ["WFText", "WFQRForegroundColor", "WFQRBackgroundColor", "WFQRRounded", "WFQRErrorCorrectionLevel"], output: "QR Code" },
   "is.workflow.actions.get.playlist": { name: "Get Playlist", params: ["WFPlaylistName"], output: "Playlist" },
   "is.workflow.actions.getarticle": { name: "Get Article using Safari Reader", params: ["WFWebPage"], output: "Article" },
+  "is.workflow.actions.getbatterylevel": { name: "Get Battery Status", params: ["Subject"], output: "Battery State" },
   "is.workflow.actions.getclassaction": { name: "Get Object of Class", params: ["Class", "Input"], output: "Object of Class" },
+  "is.workflow.actions.getclipboard": { name: "Get Clipboard", params: [], output: "Clipboard" },
+  "is.workflow.actions.getcurrentapp": { name: "Get Current App", params: ["WFVisibleAppScope"], output: null },
   "is.workflow.actions.getcurrentlocation": { name: "Get Current Location", params: ["Accuracy"], output: "Current Location" },
   "is.workflow.actions.getcurrentsong": { name: "Get Current Song", params: ["Subject"], output: "Current Song" },
   "is.workflow.actions.getdevicedetails": { name: "Get Device Details", params: ["WFDeviceDetail"], output: "Device Details" },
-  "is.workflow.actions.getdirections": { name: "Open Directions", params: ["WFLocation", "WFDestination", "WFGetDirectionsActionMode", "WFGetDirectionsActionApp"], output: null },
-  "is.workflow.actions.getdistance": { name: "Get Distance", params: ["WFGetDirectionsCustomLocation", "WFGetDistanceDestination", "WFGetDirectionsActionMode", "WFAvoidTolls", "WFAvoidHighways", "Accuracy", "WFDistanceUnit"], output: "Distance" },
+  "is.workflow.actions.getdirections": { name: "Open Directions", params: ["WFLocation", "WFDestination", "WFGetDirectionsActionApp", "WFGetDirectionsActionMode"], output: null },
+  "is.workflow.actions.getdistance": { name: "Get Distance", params: ["WFGetDirectionsCustomLocation", "WFGetDistanceDestination", "WFGetDirectionsActionMode", "WFAvoidTolls", "WFAvoidHighways", "WFDistanceUnit", "Accuracy"], output: "Distance" },
   "is.workflow.actions.getepisodesforpodcast": { name: "Get Episodes of Podcast", params: ["WFInput"], output: "Episodes" },
   "is.workflow.actions.getframesfromimage": { name: "Get Frames from Image", params: ["WFImage"], output: "Frames from Image" },
   "is.workflow.actions.gethalfwaypoint": { name: "Get Halfway Point", params: ["WFGetHalfwayPointFirstLocation", "WFGetHalfwayPointSecondLocation"], output: "Halfway Point" },
@@ -2471,8 +2867,9 @@ export const ACTIONS = {
   "is.workflow.actions.getmapslink": { name: "Get Maps URL", params: ["WFInput"], output: "Maps URL" },
   "is.workflow.actions.getmarkdownfromrichtext": { name: "Make Markdown from Rich Text", params: ["WFInput"], output: "Markdown from Rich Text" },
   "is.workflow.actions.getmyworkflows": { name: "Get My Shortcuts", params: ["Folder"], output: "My Shortcuts" },
+  "is.workflow.actions.getnameofemoji": { name: "Get Name of Emoji", params: ["WFInput"], output: "Name of Emoji" },
   "is.workflow.actions.getonscreencontent": { name: "Get What’s On Screen", params: [], output: "On-Screen Content" },
-  "is.workflow.actions.getonscreencontext": { name: "Get What’s On Screen", params: ["WFOnScreenContextScope", "WFOnScreenContextLimitEnabled", "WFOnScreenContextLimit", "WFOnScreenContextResultType"], output: "On-Screen Content" },
+  "is.workflow.actions.getonscreencontext": { name: "Get What’s On Screen", params: ["WFOnScreenContextResultType", "WFOnScreenContextScope", "WFOnScreenContextLimitEnabled", "WFOnScreenContextLimit"], output: "On-Screen Content" },
   "is.workflow.actions.getparentdirectory": { name: "Get Parent Directory", params: ["WFInput"], output: null },
   "is.workflow.actions.getparkedcarlocation": { name: "Get Parked Car Location", params: [], output: "Car Location" },
   "is.workflow.actions.getpodcastsfromlibrary": { name: "Get Podcasts from Library", params: [], output: "Podcasts" },
@@ -2482,14 +2879,16 @@ export const ACTIONS = {
   "is.workflow.actions.getstoredcontent": { name: "Get Stored Content", params: ["WFStoredContentKey", "WFStoredContentGlobalValue"], output: "Stored Content" },
   "is.workflow.actions.gettext": { name: "Text", params: ["WFTextActionText"], output: "Text" },
   "is.workflow.actions.gettextfrompdf": { name: "Get Text from PDF", params: ["WFInput", "WFGetTextFromPDFTextType", "WFGetTextFromPDFPageHeader", "WFGetTextFromPDFPageFooter", "WFCombinePages"], output: "Text" },
+  "is.workflow.actions.gettimebetweendates": { name: "Get Time Between Dates", params: ["WFTimeUntilFromDate", "WFInput", "WFTimeUntilUnit"], output: "Time Between Dates" },
   "is.workflow.actions.gettraveltime": { name: "Get Travel Time", params: ["WFGetDirectionsCustomLocation", "WFDestination", "WFGetDirectionsActionMode", "WFAvoidTolls", "WFAvoidHighways"], output: "Travel Time" },
   "is.workflow.actions.gettypeaction": { name: "Get File of Type", params: ["WFFileType", "WFInput"], output: "File of Type" },
   "is.workflow.actions.getupcomingevents": { name: "Get Upcoming Events", params: ["WFGetUpcomingItemCalendar", "WFGetUpcomingItemCount", "WFDateSpecifier", "WFSpecifiedDate"], output: "Events" },
   "is.workflow.actions.getupcomingreminders": { name: "Get Upcoming Reminders", params: ["WFGetUpcomingItemCalendar", "WFGetUpcomingItemCount"], output: "Reminders" },
   "is.workflow.actions.geturlcomponent": { name: "Get Component of URL", params: ["WFURL", "WFURLComponent"], output: "Component of URL" },
+  "is.workflow.actions.getvalueforkey": { name: "Get Dictionary Value", params: ["WFGetDictionaryValueType", "WFDictionaryKey", "WFInput"], output: "Dictionary Value" },
   "is.workflow.actions.getvariable": { name: "Get Variable", params: ["WFVariable"], output: "Variable" },
   "is.workflow.actions.getwebpagecontents": { name: "Get Contents of Web Page", params: ["WFInput"], output: "Contents of Web Page" },
-  "is.workflow.actions.getwifi": { name: "Get Network Details", params: ["WFWiFiDetail", "WFCellularDetail", "WFEthernetDetail", "WFNetworkDetailsNetwork"], output: "Network Details" },
+  "is.workflow.actions.getwifi": { name: "Get Network Details", params: ["WFNetworkDetailsNetwork", "WFWiFiDetail", "WFCellularDetail", "WFEthernetDetail"], output: "Network Details" },
   "is.workflow.actions.giphy": { name: "Find Giphy GIFs", params: ["WFGiphyQuery", "WFGiphyShowPicker", "WFGiphyLimit", "WFGiphySelectMultiple"], output: "GIFs" },
   "is.workflow.actions.goodreader.open": { name: "Open in GoodReader", params: ["WFInput"], output: null },
   "is.workflow.actions.handoff": { name: "Continue in Shortcuts App", params: [], output: null },
@@ -2500,64 +2899,74 @@ export const ACTIONS = {
   "is.workflow.actions.hide.app": { name: "Hide App", params: ["WFHideAppMode", "WFApp", "WFAppsExcept"], output: null },
   "is.workflow.actions.homeaccessory": { name: "Control Home", params: ["WFHome", "WFHomeTriggerActionSets"], output: null },
   "is.workflow.actions.image.combine": { name: "Combine Images", params: ["WFImageCombineMode", "WFImageCombineSpacing", "WFInput"], output: "Combined Image" },
-  "is.workflow.actions.image.convert": { name: "Convert Image", params: ["WFImageCompressionQuality", "WFImagePreserveMetadata", "WFInput", "WFImageFormat"], output: "Converted Image" },
+  "is.workflow.actions.image.convert": { name: "Convert Image", params: ["WFImageFormat", "WFImageCompressionQuality", "WFImagePreserveMetadata", "WFInput"], output: "Converted Image" },
   "is.workflow.actions.image.convert.finder": { name: "Convert Image", params: ["WFPreserveMetadata", "WFImage", "WFFileFormat", "WFSize"], output: "Converted Image" },
   "is.workflow.actions.image.crop": { name: "Crop Image", params: ["WFInput", "WFImageCropPosition", "WFImageCropX", "WFImageCropY", "WFImageCropWidth", "WFImageCropHeight"], output: "Cropped Image" },
   "is.workflow.actions.image.flip": { name: "Flip Image", params: ["WFImageFlipDirection", "WFInput"], output: "Flipped Image" },
   "is.workflow.actions.image.mask": { name: "Mask Image", params: ["WFInput", "WFMaskType", "WFMaskCornerRadius", "WFCustomMaskImage"], output: "Masked Image" },
   "is.workflow.actions.image.resize": { name: "Resize Image", params: ["WFImageResizeKey", "WFImageResizeWidth", "WFImageResizeHeight", "WFImageResizePercentage", "WFImageResizeLength", "WFImage"], output: "Resized Image" },
+  "is.workflow.actions.image.rotate": { name: "Rotate Image/Video", params: ["WFImageRotateAmount", "WFImage"], output: "Rotated Image/Video" },
   "is.workflow.actions.imgur.upload": { name: "Upload to Imgur", params: ["WFInput", "WFImgurAnonymous", "WFImgurDirectLink", "WFImgurAlbum", "WFImgurAlbumLayout", "WFImgurAlbumPrivacy", "WFImgurTitle", "WFImgurDescription"], output: "Imgur URLs" },
   "is.workflow.actions.importaudiofiles": { name: "Import Audio Files into Music", params: ["WFInput", "WFImportAudioFilesReencode", "WFImportAudioFilesEncoder"], output: "Imported Items" },
-  "is.workflow.actions.input": { name: "Input", params: ["WFOutput", "WFInputType", "WFInputSurface", "WFNoInputBehavior", "WFStopAndRespondResponse", "WFAskForType", "WFPickingMode", "SelectMultiple", "WFPhotoPickerTypes", "WFSelectMultiplePhotos", "WFSelectMultiple", "WFExportSongActionSelectMultiple"], output: null },
+  "is.workflow.actions.input": { name: "Input", params: ["WFOutput", "WFInputType", "WFInputSurface", "WFNoInputBehavior", "WFStopAndRespondResponse", "WFAskForType", "WFPickingMode", "SelectMultiple", "WFDateActionMode", "WFDateActionDate", "WFEventOccurrenceMode", "WFEventOccurrenceSpecifiedYear", "WFPhotoPickerTypes", "WFSelectMultiplePhotos", "WFSelectMultiple", "WFExportSongActionSelectMultiple"], output: null },
   "is.workflow.actions.instapaper.add": { name: "Add to Instapaper", params: ["WFInstapaperFolder", "WFInputURL"], output: null },
   "is.workflow.actions.instapaper.get": { name: "Get Instapaper Bookmarks", params: ["WFInstapaperFolder", "WFBookmarkCount"], output: "Instapaper Bookmarks" },
-  "is.workflow.actions.lightroom.import": { name: "Import to Lightroom", params: ["applyPreset", "presetGroup", "WFInput", "preset"], output: null },
+  "is.workflow.actions.intercom": { name: "Intercom", params: ["WFHome", "WFInput"], output: null },
+  "is.workflow.actions.lightroom.import": { name: "Import to Lightroom", params: ["applyPreset", "presetGroup", "preset", "WFInput"], output: null },
   "is.workflow.actions.list": { name: "List", params: ["WFItems"], output: "List" },
   "is.workflow.actions.listeningmode.set": { name: "Set Noise Control Mode", params: ["WFRoute", "WFListeningMode"], output: null },
   "is.workflow.actions.location": { name: "Location", params: ["WFLocation"], output: "Location" },
-  "is.workflow.actions.lowpowermode.set": { name: "is.workflow.actions.lowpowermode.set", params: [], output: null },
+  "is.workflow.actions.lock.app": { name: "Lock App", params: ["WFLockAppOperation", "WFApp"], output: null },
+  "is.workflow.actions.lockscreen": { name: "Lock Screen", params: [], output: null },
+  "is.workflow.actions.logout": { name: "Log Out User", params: [], output: null },
+  "is.workflow.actions.lowpowermode.set": { name: "is.workflow.actions.lowpowermode.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
   "is.workflow.actions.makediskimage": { name: "Make Disk Image", params: ["WFInput", "VolumeName", "EncryptImage", "SizeToFit", "ImageSize"], output: "Disk Image" },
   "is.workflow.actions.makegif": { name: "Make GIF", params: ["WFMakeGIFActionDelayTime", "WFMakeGIFActionLoopEnabled", "WFMakeGIFActionLoopCount", "WFMakeGIFActionAutoSize", "WFMakeGIFActionManualSizeWidth", "WFMakeGIFActionManualSizeHeight", "WFInput"], output: "GIF" },
-  "is.workflow.actions.makeimagefrompdfpage": { name: "Make Image from PDF Page", params: ["WFInput", "WFMakeImageFromPDFPageResolution", "WFMakeImageFromPDFPageImageFormat", "WFMakeImageFromPDFPageColorspace"], output: "Image" },
+  "is.workflow.actions.makeimagefrompdfpage": { name: "Make Image from PDF Page", params: ["WFInput", "WFMakeImageFromPDFPageImageFormat", "WFMakeImageFromPDFPageColorspace", "WFMakeImageFromPDFPageResolution"], output: "Image" },
   "is.workflow.actions.makeimagefromrichtext": { name: "Make Image from Rich Text", params: ["WFInput", "WFWidth", "WFHeight"], output: "Image" },
   "is.workflow.actions.makepdf": { name: "Make PDF", params: ["WFPDFIncludeMargin", "WFPDFIncludedPages", "WFPDFSinglePage", "WFPDFPageRangeStart", "WFPDFPageRangeEnd", "WFInput", "WFPDFDocumentMergeBehavior"], output: "PDF" },
   "is.workflow.actions.makespokenaudiofromtext": { name: "Make Spoken Audio from Text", params: ["WFInput", "WFSpeakTextRate", "WFSpeakTextPitch", "WFSpeakTextLanguage", "WFSpeakTextVoice"], output: "Spoken Audio" },
   "is.workflow.actions.makevideofromgif": { name: "Make Video from GIF", params: ["WFMakeVideoFromGIFActionLoopCount", "WFInputGIF"], output: "Video" },
-  "is.workflow.actions.makezip": { name: "Make Archive", params: ["WFZIPName", "WFInput", "WFArchiveFormat"], output: "Archive" },
+  "is.workflow.actions.makezip": { name: "Make Archive", params: ["WFZIPName", "WFArchiveFormat", "WFInput"], output: "Archive" },
   "is.workflow.actions.math": { name: "Calculate", params: ["WFInput", "WFMathOperation", "WFScientificMathOperation", "WFMathOperand", "WFScientificMathOperand"], output: "Calculation Result" },
-  "is.workflow.actions.measurement.convert": { name: "Convert Measurement", params: ["WFMeasurementUnit", "WFInput", "WFMeasurementUnitType"], output: "Converted Measurement" },
-  "is.workflow.actions.measurement.create": { name: "Measurement", params: ["WFMeasurementUnit", "WFMeasurementUnitType"], output: "Measurement" },
+  "is.workflow.actions.measurement.convert": { name: "Convert Measurement", params: ["WFMeasurementUnitType", "WFMeasurementUnit", "WFInput"], output: "Converted Measurement" },
+  "is.workflow.actions.measurement.create": { name: "Measurement", params: ["WFMeasurementUnitType", "WFMeasurementUnit"], output: "Measurement" },
   "is.workflow.actions.mountdiskimage": { name: "Mount Disk Image", params: ["WFInput"], output: "Mounted Volume" },
   "is.workflow.actions.movewindow": { name: "Move Window", params: ["WFPosition", "WFXCoordinate", "WFYCoordinate", "WFWindow", "WFBringToFront", "Display"], output: null },
-  "is.workflow.actions.nightshift.set": { name: "is.workflow.actions.nightshift.set", params: ["ShowWhenRun"], output: null },
+  "is.workflow.actions.nightshift.set": { name: "is.workflow.actions.nightshift.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
   "is.workflow.actions.nothing": { name: "Nothing", params: [], output: null },
   "is.workflow.actions.notification": { name: "Show Notification", params: ["WFNotificationActionTitle", "WFNotificationActionBody", "WFNotificationActionSound", "WFInput"], output: null },
   "is.workflow.actions.number": { name: "Number", params: ["WFNumberActionNumber"], output: "Number" },
   "is.workflow.actions.number.random": { name: "Random Number", params: ["WFRandomNumberMinimum", "WFRandomNumberMaximum"], output: "Random Number" },
   "is.workflow.actions.openapp": { name: "Open App", params: ["WFSelectedApp", "WFAppName", "WFWindowingFormat"], output: "App" },
   "is.workflow.actions.openin": { name: "Open File", params: ["WFOpenInAskWhenRun", "WFSelectedApp", "WFAppName", "WFInput"], output: null },
+  "is.workflow.actions.openpasswords": { name: "Search in Passwords", params: ["WFShowPasswordsSearchTerm"], output: null },
   "is.workflow.actions.openurl": { name: "Open URLs", params: ["WFInput"], output: null },
   "is.workflow.actions.openxcallbackurl": { name: "Open X-Callback URL", params: ["WFXCallbackCustomCallbackEnabled", "WFXCallbackCustomSuccessKey", "WFXCallbackCustomCancelKey", "WFXCallbackCustomErrorKey", "WFXCallbackCustomSuccessURLEnabled", "WFXCallbackCustomSuccessURL", "WFXCallbackURL"], output: "X-Callback Result" },
-  "is.workflow.actions.orientationlock.set": { name: "is.workflow.actions.orientationlock.set", params: [], output: null },
+  "is.workflow.actions.orientationlock.set": { name: "is.workflow.actions.orientationlock.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
   "is.workflow.actions.output": { name: "Stop and Output", params: ["WFOutput", "WFNoOutputSurfaceBehavior", "WFResponse"], output: null },
   "is.workflow.actions.overlayimageonimage": { name: "Overlay Image", params: ["WFImage", "WFInput", "WFShouldShowImageEditor", "WFImagePosition", "WFImageWidth", "WFImageHeight", "WFImageX", "WFImageY", "WFRotation", "WFOverlayImageOpacity"], output: "Overlaid Image" },
   "is.workflow.actions.overlaytext": { name: "Overlay Text", params: ["WFText", "WFImage", "WFTextPosition", "WFTextX", "WFPercentageTextX", "WFTextY", "WFPercentageTextY", "WFTextOffset", "WFPercentageTextOffset", "WFFont", "WFFontSize", "WFPercentageFontSize", "WFTextAlignment", "WFTextColor", "WFTextRotation", "WFTextOutlineEnabled", "WFTextStrokeWidth", "WFPercentageTextStrokeWidth", "WFTextStrokeColor", "WFTextBoxWidth", "WFPercentageTextBoxWidth", "WFSizingMethod"], output: "Image with Text" },
   "is.workflow.actions.pausemusic": { name: "Play/Pause", params: ["WFPlayPauseBehavior", "WFMediaRoute"], output: null },
-  "is.workflow.actions.personalhotspot.set": { name: "is.workflow.actions.personalhotspot.set", params: ["ShowWhenRun"], output: null },
+  "is.workflow.actions.personalhotspot.password.get": { name: "Get Hotspot Password", params: [], output: "Personal Hotspot Password" },
+  "is.workflow.actions.personalhotspot.password.set": { name: "Set Hotspot Password", params: ["WFInput"], output: null },
+  "is.workflow.actions.personalhotspot.set": { name: "is.workflow.actions.personalhotspot.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
   "is.workflow.actions.phonenumber": { name: "Phone Number", params: ["WFPhoneNumber"], output: "Phone Number" },
   "is.workflow.actions.photos.createalbum": { name: "Create Photo Album", params: ["AlbumName", "WFInput"], output: "Saved Photo Media" },
   "is.workflow.actions.pinboard.add": { name: "Add to Pinboard", params: ["WFPinTitle", "WFPinTags", "WFPinPublic", "WFPinUnread", "WFPinDescription", "WFPinboardURL"], output: null },
   "is.workflow.actions.pinboard.get": { name: "Get Pinboard Bookmarks", params: ["WFPinTags", "WFBookmarkCount"], output: "Pinboard Bookmarks" },
   "is.workflow.actions.playmusic": { name: "Play Music", params: ["WFMediaItems", "WFPlayMusicActionShuffle", "WFPlayMusicActionRepeat"], output: null },
-  "is.workflow.actions.playpodcast": { name: "Play Podcast", params: ["WFPodcastPlaybackOrder", "WFPodcastShow"], output: null },
+  "is.workflow.actions.playpodcast": { name: "Play Podcast", params: ["WFPodcastShow", "WFPodcastPlaybackOrder"], output: null },
   "is.workflow.actions.playsound": { name: "Play Sound", params: ["WFInput"], output: null },
   "is.workflow.actions.pocket.add": { name: "Add to Pocket", params: ["WFPocketTags", "WFInputURL"], output: null },
   "is.workflow.actions.pocket.get": { name: "Get Items from Pocket", params: ["WFPocketItemCount", "WFPocketItemState", "WFPocketItemSearchTerm", "WFPocketItemSearchTags"], output: "Items from Pocket" },
   "is.workflow.actions.podcasts.subscribe": { name: "Follow Podcast", params: ["WFInput"], output: null },
+  "is.workflow.actions.posters.get": { name: "Get All Wallpapers", params: ["WFPosterType"], output: "Wallpapers" },
+  "is.workflow.actions.posters.switch": { name: "Switch Between Wallpapers", params: ["WFPoster"], output: null },
   "is.workflow.actions.postonfacebook": { name: "Post on Facebook", params: ["FacebookContent"], output: null },
   "is.workflow.actions.previewdocument": { name: "Quick Look", params: ["WFInput", "WFQuickLookActionFullScreen"], output: null },
   "is.workflow.actions.print": { name: "Print", params: ["WFInput"], output: null },
-  "is.workflow.actions.properties.appearance": { name: "Get Details of Appearance", params: [], output: null },
+  "is.workflow.actions.properties.appearance": { name: "Get Details of Appearance", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.appstore": { name: "Get Details of App Store App", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.articles": { name: "Get Details of Article", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.calendarevents": { name: "Get Details of Calendar Events", params: ["WFContentItemPropertyName", "WFInput"], output: null },
@@ -2570,29 +2979,30 @@ export const ACTIONS = {
   "is.workflow.actions.properties.itunesstore": { name: "Get Details of iTunes Product", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.locations": { name: "Get Details of Locations", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.music": { name: "Get Details of Music", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.parkedcar": { name: "Get Details of Parked Car", params: [], output: null },
-  "is.workflow.actions.properties.podcast": { name: "Get Details of Podcast Episode", params: [], output: null },
+  "is.workflow.actions.properties.parkedcar": { name: "Get Details of Parked Car", params: ["WFContentItemPropertyName", "WFInput"], output: null },
+  "is.workflow.actions.properties.podcast": { name: "Get Details of Podcast Episode", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.podcastshow": { name: "Get Details of Podcast", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.reminders": { name: "Get Details of Reminders", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.ridestatus": { name: "Get Details of Ride Status", params: [], output: null },
+  "is.workflow.actions.properties.ridestatus": { name: "Get Details of Ride Status", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.safariwebpage": { name: "Get Details of Safari Web Page", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.shazam": { name: "Get Details of Shazam", params: [], output: null },
-  "is.workflow.actions.properties.trello": { name: "Get Details of Trello Item", params: [], output: null },
-  "is.workflow.actions.properties.ulysses.sheet": { name: "Get Details of Ulysses Sheet", params: [], output: null },
-  "is.workflow.actions.properties.weather.conditions": { name: "Get Details of Weather Conditions", params: [], output: null },
+  "is.workflow.actions.properties.shazam": { name: "Get Details of Shazam", params: ["WFContentItemPropertyName", "WFInput"], output: null },
+  "is.workflow.actions.properties.trello": { name: "Get Details of Trello Item", params: ["WFContentItemPropertyName", "WFInput"], output: null },
+  "is.workflow.actions.properties.ulysses.sheet": { name: "Get Details of Ulysses Sheet", params: ["WFContentItemPropertyName", "WFInput"], output: null },
+  "is.workflow.actions.properties.weather.conditions": { name: "Get Details of Weather Conditions", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.workflow": { name: "Get Details of Shortcut", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.quit.app": { name: "Quit App", params: ["WFQuitAppMode", "WFAppsExcept", "WFApp", "WFAskToSaveChanges"], output: null },
   "is.workflow.actions.readinglist": { name: "Add to Reading List", params: ["WFURL"], output: null },
+  "is.workflow.actions.reboot": { name: "Shut Down", params: ["WFShutdownMode"], output: null },
   "is.workflow.actions.recordaudio": { name: "Record Audio", params: ["WFRecordingCompression", "WFRecordingStart", "WFRecordingEnd", "WFRecordingTimeInterval"], output: "Recorded Audio" },
   "is.workflow.actions.reminders.showlist": { name: "Open Reminders List", params: ["WFList"], output: null },
   "is.workflow.actions.removeevents": { name: "Remove Events", params: ["WFCalendarIncludeFutureEvents", "WFInputEvents"], output: null },
-  "is.workflow.actions.removefromalbum": { name: "Remove from Photo Album", params: ["WFInput", "WFRemoveAlbumSelectedGroup"], output: "Removed Photo Media" },
+  "is.workflow.actions.removefromalbum": { name: "Remove from Photo Album", params: ["WFRemoveAlbumSelectedGroup", "WFInput"], output: "Removed Photo Media" },
   "is.workflow.actions.removereminders": { name: "Remove Reminders", params: ["WFInputReminders"], output: null },
   "is.workflow.actions.repeat.count": { name: "Repeat", params: ["WFRepeatCount"], output: "Repeat" },
   "is.workflow.actions.repeat.each": { name: "Repeat with Each", params: ["WFInput"], output: "Repeat with Each" },
   "is.workflow.actions.resizewindow": { name: "Resize Window", params: ["WFConfiguration", "WFWidth", "WFHeight", "WFWindow", "WFBringToFront"], output: null },
   "is.workflow.actions.returntohomescreen": { name: "Go to Home Screen", params: [], output: null },
-  "is.workflow.actions.ride.requestride": { name: "Request Ride", params: ["IntentAppDefinition", "PickupLocation", "DropOffLocation", "PaymentMethod", "PartySize", "RideOption"], output: null },
+  "is.workflow.actions.ride.requestride": { name: "Request Ride", params: ["IntentAppDefinition", "PickupLocation", "DropOffLocation", "RideOption", "PaymentMethod", "PartySize"], output: null },
   "is.workflow.actions.round": { name: "Round Number", params: ["WFInput", "WFRoundTo", "WFRoundMode", "TenToThePowerOf"], output: "Rounded Number" },
   "is.workflow.actions.rss": { name: "Get Items from RSS Feed", params: ["WFRSSFeedURL", "WFRSSItemQuantity"], output: "RSS Items" },
   "is.workflow.actions.rss.extract": { name: "Get RSS Feeds from Page", params: ["WFURLs"], output: "RSS Feeds from Page" },
@@ -2601,24 +3011,26 @@ export const ACTIONS = {
   "is.workflow.actions.runjavascriptforautomation": { name: "Run JavaScript for Mac Automation", params: ["Input", "Script"], output: "JavaScript Result" },
   "is.workflow.actions.runjavascriptonwebpage": { name: "is.workflow.actions.runjavascriptonwebpage", params: ["WFJavaScript", "WFInput"], output: "JavaScript Result" },
   "is.workflow.actions.runshellscript": { name: "Run Shell Script", params: ["Script", "Shell", "Input", "InputMode", "RunAsRoot"], output: "Shell Script Result" },
-  "is.workflow.actions.runsshscript": { name: "Run Script Over SSH", params: ["WFSSHScript", "WFSSHHost", "WFSSHPort", "WFSSHUser", "WFSSHAuthenticationType", "WFSSHPassword", "WFInput", "WFSSHKey"], output: "Shell Script Result" },
+  "is.workflow.actions.runsshscript": { name: "Run Script Over SSH", params: ["WFSSHScript", "WFSSHHost", "WFSSHPort", "WFSSHUser", "WFSSHAuthenticationType", "WFSSHPassword", "WFSSHKey", "WFInput"], output: "Shell Script Result" },
   "is.workflow.actions.runworkflow": { name: "Run Shortcut", params: ["WFWorkflow", "WFInput"], output: "Shortcut Result" },
   "is.workflow.actions.safari.geturl": { name: "Get Current Web Page from Safari", params: [], output: "Web Page" },
-  "is.workflow.actions.savetocameraroll": { name: "Save to Photos", params: ["WFInput", "WFCameraRollSelectedGroup"], output: "Saved Photo Media" },
-  "is.workflow.actions.searchappstore": { name: "Find App Store Apps", params: ["WFSearchTerm", "WFAttribute", "WFEntity", "WFItemLimit", "WFCountry"], output: "App Store Apps" },
-  "is.workflow.actions.searchitunes": { name: "Find iTunes Store Items", params: ["WFSearchTerm", "WFMediaType", "WFAttribute", "WFEntity", "WFItemLimit", "WFCountry"], output: "iTunes Products" },
-  "is.workflow.actions.searchlocalbusinesses": { name: "Find Places", params: ["WFInput", "WFSearchQuery", "WFSearchSortOrder", "WFSearchRadius"], output: "Local Businesses" },
+  "is.workflow.actions.savetocameraroll": { name: "Save to Photos", params: ["WFCameraRollSelectedGroup", "WFInput"], output: "Saved Photo Media" },
+  "is.workflow.actions.searchappstore": { name: "Find App Store Apps", params: ["WFSearchTerm", "WFAttribute", "WFEntity", "WFCountry", "WFItemLimit"], output: "App Store Apps" },
+  "is.workflow.actions.searchitunes": { name: "Find iTunes Store Items", params: ["WFSearchTerm", "WFMediaType", "WFAttribute", "WFEntity", "WFCountry", "WFItemLimit"], output: "iTunes Products" },
+  "is.workflow.actions.searchlocalbusinesses": { name: "Find Places", params: ["WFInput", "WFSearchQuery", "WFSearchRadius", "WFSearchSortOrder"], output: "Local Businesses" },
   "is.workflow.actions.searchmaps": { name: "Open in Maps", params: ["WFInput", "WFSearchMapsActionApp"], output: null },
-  "is.workflow.actions.searchpodcasts": { name: "Find Podcasts", params: ["WFSearchTerm", "WFAttribute", "WFEntity", "WFItemLimit", "WFCountry"], output: "Podcasts" },
+  "is.workflow.actions.searchpodcasts": { name: "Find Podcasts", params: ["WFSearchTerm", "WFAttribute", "WFEntity", "WFCountry", "WFItemLimit"], output: "Podcasts" },
   "is.workflow.actions.searchweb": { name: "Search Web", params: ["WFSearchWebDestination", "WFInputText"], output: null },
   "is.workflow.actions.seek": { name: "Seek", params: ["WFSeekBehavior", "WFTimeInterval", "WFMediaRoute"], output: null },
   "is.workflow.actions.selectcontacts": { name: "Select Contact", params: ["WFSelectMultiple"], output: "Contacts" },
   "is.workflow.actions.selectemail": { name: "Select Email Address", params: [], output: "Email Addresses" },
   "is.workflow.actions.selectphone": { name: "Select Phone Number", params: [], output: "Phone Numbers" },
   "is.workflow.actions.selectphoto": { name: "Select Photos", params: ["WFPhotoPickerTypes", "WFSelectMultiplePhotos"], output: "Photos" },
-  "is.workflow.actions.sendemail": { name: "Send Email", params: ["WFSendEmailActionFrom", "WFSendEmailActionToRecipients", "WFSendEmailActionCcRecipients", "WFSendEmailActionBccRecipients", "WFSendEmailActionSubject", "WFSendEmailActionInputAttachments", "WFSendEmailActionSaveAsDraft", "WFSendEmailActionShowComposeSheet", "WFEmailAccountActionSelectedAccount"], output: null },
+  "is.workflow.actions.sendemail": { name: "Send Email", params: ["WFEmailAccountActionSelectedAccount", "WFSendEmailActionFrom", "WFSendEmailActionToRecipients", "WFSendEmailActionCcRecipients", "WFSendEmailActionBccRecipients", "WFSendEmailActionSubject", "WFSendEmailActionInputAttachments", "WFSendEmailActionSaveAsDraft", "WFSendEmailActionShowComposeSheet"], output: null },
   "is.workflow.actions.sendmessage": { name: "Send Message", params: ["IntentAppDefinition", "ShowWhenRun", "WFSendMessageActionRecipients", "WFSendMessageContent", "WFSendMessagePrefix"], output: null },
-  "is.workflow.actions.setbrightness": { name: "is.workflow.actions.setbrightness", params: ["ShowWhenRun"], output: null },
+  "is.workflow.actions.setairdropreceiving": { name: "Set AirDrop Receiving", params: ["WFAirDropState"], output: null },
+  "is.workflow.actions.setbrightness": { name: "is.workflow.actions.setbrightness", params: ["WFBrightness", "ShowWhenRun"], output: null },
+  "is.workflow.actions.setclipboard": { name: "Copy to Clipboard", params: ["WFLocalOnly", "WFExpirationDate", "WFInput"], output: null },
   "is.workflow.actions.setitemname": { name: "Set Name", params: ["WFName", "WFDontIncludeFileExtension", "WFInput"], output: "Renamed Item" },
   "is.workflow.actions.setparkedcar": { name: "Set Parked Car", params: ["WFLocation", "WFSetParkedCarNotes", "WFImage"], output: "Parked Car" },
   "is.workflow.actions.setplaybackdestination": { name: "Change Playback Destination", params: ["WFMediaRouteOperation", "WFMediaRoute"], output: null },
@@ -2633,35 +3045,47 @@ export const ACTIONS = {
   "is.workflow.actions.shazamMedia": { name: "Shazam It", params: ["WFShazamMediaActionShowWhenRun", "WFShazamMediaActionErrorIfNotRecognized"], output: "Shazam Media" },
   "is.workflow.actions.showdefinition": { name: "Show Definition", params: ["Word"], output: null },
   "is.workflow.actions.showinblindsquare": { name: "Open in BlindSquare", params: ["WFBlindSquareSimulation", "WFInput"], output: null },
+  "is.workflow.actions.showincalendar": { name: "Open in Calendar", params: ["WFEvent"], output: null },
   "is.workflow.actions.showinstore": { name: "Show in iTunes Store", params: ["WFProduct"], output: null },
   "is.workflow.actions.showresult": { name: "Show Content", params: ["Text"], output: null },
   "is.workflow.actions.showwebpage": { name: "Show Web View", params: ["WFEnterSafariReader", "WFURL"], output: null },
-  "is.workflow.actions.silenceunknowncallers.set": { name: "is.workflow.actions.silenceunknowncallers.set", params: ["ShowWhenRun"], output: null },
+  "is.workflow.actions.silenceunknowncallers.set": { name: "is.workflow.actions.silenceunknowncallers.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
   "is.workflow.actions.sirikit.donation.handle": { name: "Unknown Intent", params: ["ShowWhenRun"], output: null },
   "is.workflow.actions.skipback": { name: "Skip Back", params: ["WFSkipBackBehavior", "WFMediaRoute"], output: null },
   "is.workflow.actions.skipforward": { name: "Skip Forward", params: ["WFMediaRoute"], output: null },
-  "is.workflow.actions.slack.send": { name: "Post to Slack", params: ["WFSlackInput", "WFAccount", "SlackChannel"], output: null },
-  "is.workflow.actions.speaktext": { name: "Speak Text", params: ["WFSpeakTextWait", "WFSpeakTextRate", "WFSpeakTextPitch", "WFText", "WFSpeakTextLanguage", "WFSpeakTextVoice"], output: null },
+  "is.workflow.actions.slack.send": { name: "Post to Slack", params: ["WFAccount", "WFSlackInput", "SlackChannel"], output: null },
+  "is.workflow.actions.sleep": { name: "Sleep", params: [], output: null },
+  "is.workflow.actions.speaktext": { name: "Speak Text", params: ["WFSpeakTextWait", "WFSpeakTextRate", "WFSpeakTextPitch", "WFSpeakTextLanguage", "WFSpeakTextVoice", "WFText"], output: null },
   "is.workflow.actions.splitpdf": { name: "Split PDF Into Pages", params: ["WFInput"], output: "PDF Pages" },
   "is.workflow.actions.splitscreen": { name: "Split Screen Apps", params: ["WFPrimaryAppIdentifier", "WFSecondaryAppIdentifier", "WFAppRatio"], output: null },
-  "is.workflow.actions.spotlightsearch": { name: "Search", params: ["WFInputText", "WFSpotlightSearchLimit", "WFSpotlightSearchResultType"], output: "Results" },
-  "is.workflow.actions.stagemanager.set": { name: "is.workflow.actions.stagemanager.set", params: ["ShowWhenRun"], output: null },
+  "is.workflow.actions.spotlightsearch": { name: "Search", params: ["WFInputText", "WFSpotlightSearchResultType", "WFSpotlightSearchLimit"], output: "Results" },
+  "is.workflow.actions.stagemanager.set": { name: "is.workflow.actions.stagemanager.set", params: ["operation", "state", "showDock", "showRecentApps", "ShowWhenRun"], output: null },
   "is.workflow.actions.startscreensaver": { name: "Start Screen Saver", params: [], output: null },
   "is.workflow.actions.statistics": { name: "Calculate Statistics", params: ["WFStatisticsOperation", "Input"], output: "Statistics" },
+  "is.workflow.actions.takephoto": { name: "Take Photo", params: ["WFCameraCaptureShowPreview", "WFPhotoCount", "WFCameraCaptureDevice"], output: "Photo" },
+  "is.workflow.actions.takescreenshot": { name: "Take Screenshot", params: ["WFTakeScreenshotScreenshotType", "WFTakeScreenshotActionInteractiveSelectionType", "WFTakeScreenshotMainMonitorOnly", "WFTakeScreenshotIgnoreContextualAssistanceLayers"], output: "Screenshot" },
   "is.workflow.actions.takevideo": { name: "Take Video", params: ["WFCameraCaptureDevice", "WFCameraCaptureQuality", "WFRecordingStart"], output: "Video" },
+  "is.workflow.actions.text.changecase": { name: "is.workflow.actions.text.changecase", params: ["text", "WFCaseType", "ShowWhenRun"], output: null },
+  "is.workflow.actions.text.combine": { name: "is.workflow.actions.text.combine", params: ["text", "WFTextSeparator", "WFTextCustomSeparator", "ShowWhenRun"], output: null },
+  "is.workflow.actions.text.match": { name: "is.workflow.actions.text.match", params: ["text", "WFMatchTextPattern", "WFMatchTextCaseSensitive", "ShowWhenRun"], output: null },
+  "is.workflow.actions.text.match.getgroup": { name: "is.workflow.actions.text.match.getgroup", params: ["matches", "WFGetGroupType", "WFGroupIndex", "ShowWhenRun"], output: null },
   "is.workflow.actions.text.replace": { name: "Replace Text", params: ["WFReplaceTextFind", "WFReplaceTextReplace", "WFReplaceTextCaseSensitive", "WFReplaceTextRegularExpression", "WFInput"], output: "Updated Text" },
+  "is.workflow.actions.text.split": { name: "is.workflow.actions.text.split", params: ["text", "WFTextSeparator", "WFTextCustomSeparator", "ShowWhenRun"], output: null },
+  "is.workflow.actions.text.translate": { name: "Translate Text", params: ["WFSelectedFromLanguage", "WFSelectedLanguage", "WFInputText"], output: "Translated Text" },
   "is.workflow.actions.text.trimwhitespace": { name: "Trim Whitespace", params: ["WFInput"], output: "Updated Text" },
   "is.workflow.actions.timer.start": { name: "Start Timer", params: ["IntentAppDefinition", "WFDuration"], output: null },
-  "is.workflow.actions.todoist.add": { name: "Add Todoist Item", params: ["WFTodoistContent", "WFTodoistDueDate", "WFTodoistReminder", "WFTodoistReminderType", "WFTodoistPriority", "WFTodoistNotes", "WFTodoistFile", "WFTodoistProject"], output: "Todoist Item" },
+  "is.workflow.actions.todoist.add": { name: "Add Todoist Item", params: ["WFTodoistContent", "WFTodoistProject", "WFTodoistDueDate", "WFTodoistReminder", "WFTodoistReminderType", "WFTodoistPriority", "WFTodoistNotes", "WFTodoistFile"], output: "Todoist Item" },
   "is.workflow.actions.trello.add.board": { name: "Create Trello Board", params: ["WFTrelloName", "WFTrelloDescription"], output: "Trello Board" },
-  "is.workflow.actions.trello.add.card": { name: "Add Trello Card", params: ["WFTrelloName", "WFTrelloDueDate", "WFTrelloCardPosition", "WFTrelloAttachments", "WFTrelloDescription", "WFTrelloBoard", "WFTrelloList"], output: "Trello Card" },
-  "is.workflow.actions.trello.add.list": { name: "Create Trello List", params: ["WFTrelloName", "WFTrelloPosition", "WFTrelloBoard"], output: "Trello List" },
+  "is.workflow.actions.trello.add.card": { name: "Add Trello Card", params: ["WFTrelloName", "WFTrelloBoard", "WFTrelloList", "WFTrelloDueDate", "WFTrelloCardPosition", "WFTrelloAttachments", "WFTrelloDescription"], output: "Trello Card" },
+  "is.workflow.actions.trello.add.list": { name: "Create Trello List", params: ["WFTrelloName", "WFTrelloBoard", "WFTrelloPosition"], output: "Trello List" },
   "is.workflow.actions.trello.get": { name: "Get Trello Items", params: ["WFTrelloItemType", "WFTrelloBoard", "WFTrelloList"], output: "Trello Items" },
   "is.workflow.actions.trimvideo": { name: "Trim Media", params: ["WFInputMedia"], output: "Trimmed Media" },
-  "is.workflow.actions.truetone.set": { name: "is.workflow.actions.truetone.set", params: ["ShowWhenRun"], output: null },
-  "is.workflow.actions.tumblr.post": { name: "Post to Tumblr", params: ["WFInput", "WFPostType", "WFPostState", "WFPostTitle", "WFPostSource", "WFPostCaption", "WFPostTags", "WFPostDescription", "WFComposeInApp", "WFBlogName"], output: "Tumblr Post URL" },
+  "is.workflow.actions.truetone.set": { name: "is.workflow.actions.truetone.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
+  "is.workflow.actions.tumblr.post": { name: "Post to Tumblr", params: ["WFInput", "WFComposeInApp", "WFBlogName", "WFPostType", "WFPostState", "WFPostTitle", "WFPostSource", "WFPostCaption", "WFPostTags", "WFPostDescription"], output: "Tumblr Post URL" },
   "is.workflow.actions.tweet": { name: "Tweet", params: ["TweetInput"], output: null },
   "is.workflow.actions.unzip": { name: "Extract Archive", params: ["WFArchive"], output: "Files" },
+  "is.workflow.actions.url": { name: "URL", params: ["WFURLActionURL"], output: "URL" },
+  "is.workflow.actions.url.expand": { name: "Expand URL", params: ["URL"], output: "Expanded URL" },
   "is.workflow.actions.url.getheaders": { name: "Get Headers of URL", params: ["WFInput"], output: "Headers of URL" },
   "is.workflow.actions.urlencode": { name: "URL Encode", params: ["WFEncodeMode", "WFInput"], output: "URL Encoded Text" },
   "is.workflow.actions.useractivity.open": { name: "Unknown User Activity", params: [], output: null },
@@ -2669,10 +3093,15 @@ export const ACTIONS = {
   "is.workflow.actions.venmo.request": { name: "Request Payment", params: ["IntentAppDefinition", "WFVenmoActionRecipients", "WFVenmoActionAmount", "WFVenmoActionAppSwitch", "ShowWhenRun", "WFVenmoActionNote"], output: null },
   "is.workflow.actions.vibrate": { name: "Vibrate Device", params: ["WFVibrateHapticType"], output: null },
   "is.workflow.actions.viewresult": { name: "Show Content Graph", params: ["WFInput"], output: null },
+  "is.workflow.actions.vpn.get": { name: "Get Current VPN", params: [], output: "Current VPN" },
+  "is.workflow.actions.vpn.set": { name: "Set VPN", params: ["WFVPNOperation", "WFOnDemandValue", "WFVPN"], output: null },
   "is.workflow.actions.waittoreturn": { name: "Wait to Return", params: [], output: null },
+  "is.workflow.actions.wallpaper.set": { name: "Set Wallpaper Photo", params: ["WFInput", "WFWallpaperLocation", "WFWallpaperShowPreview", "WFWallpaperPerspectiveZoom", "WFSelectedPoster", "WFWallpaperSmartCrop", "WFWallpaperLegibilityBlur"], output: "Wallpaper" },
   "is.workflow.actions.watchmedo": { name: "Watch Me Do", params: ["WFUserEvent", "WFPlaybackSpeed"], output: null },
-  "is.workflow.actions.wifi.set": { name: "is.workflow.actions.wifi.set", params: [], output: null },
-  "is.workflow.actions.wordpress.post": { name: "Post to WordPress", params: ["Blog", "Title", "Type", "Format", "Status", "Categories", "Tags", "Advanced", "AllowComments", "Slug", "Excerpt", "Date", "Template", "ThumbnailImage", "ShowCustomFields", "CustomFields", "WFInput", "WFAccount"], output: "WordPress Post URL" },
+  "is.workflow.actions.weather.currentconditions": { name: "Get Current Weather", params: ["WFWeatherCustomLocation"], output: "Weather Conditions" },
+  "is.workflow.actions.weather.forecast": { name: "Get Weather Forecast", params: ["WFWeatherCustomLocation", "WFWeatherForecastType"], output: "Weather Conditions" },
+  "is.workflow.actions.wifi.set": { name: "is.workflow.actions.wifi.set", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
+  "is.workflow.actions.wordpress.post": { name: "Post to WordPress", params: ["WFAccount", "Blog", "Title", "Type", "Format", "Status", "Categories", "Tags", "Advanced", "AllowComments", "Slug", "Excerpt", "Date", "Template", "ThumbnailImage", "ShowCustomFields", "CustomFields", "WFInput"], output: "WordPress Post URL" },
   "is.workflow.actions.workout.end": { name: "End Workout", params: ["IntentAppDefinition"], output: null },
   "is.workflow.actions.workout.start": { name: "Start Workout", params: ["IntentAppDefinition", "isOpenEnded", "workoutName", "WorkoutGoal"], output: null },
 } as const;
@@ -2690,6 +3119,8 @@ export type ParamTypes = {
   "com.apple.TVRemoteUIService.ToggleCaptionsIntent": { "ShowWhenRun": BoolValue };
   "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent": { "ShowWhenRun": BoolValue };
   "com.apple.TVRemoteUIService.WakeAppleTVIntent": { "ShowWhenRun": BoolValue };
+  "com.apple.facetime.facetime": { "IntentAppDefinition": AnyValue; "WFFaceTimeType": EnumValue<"Video" | "Audio">; "WFFaceTimeContact": AnyValue };
+  "com.apple.mobilephone.call": { "IntentAppDefinition": AnyValue; "WFCallContact": AnyValue };
   "com.apple.mobileslideshow.StreamShareService": { "ImageInput": PickerValue };
   "com.apple.musicrecognition.RecognizeMusicIntent": { "WFShazamMediaActionShowWhenRun": BoolValue; "WFShazamMediaActionErrorIfNotRecognized": BoolValue };
   "com.panic.iOS.Transmit.Share": { "TransmitSaveTo": EnumValue<"Local" | "Remote">; "TransmitFavoriteName": TextValue; "TransmitPath": TextValue };
@@ -2697,21 +3128,27 @@ export type ParamTypes = {
   "is.workflow.actions.additemtolist": { "WFListItem": TextValue; "WFInsertPosition": EnumValue<"Beginning" | "End" | "Index">; "WFItemIndex": NumberValue; "WFListVariable": PickerValue };
   "is.workflow.actions.addmusictoupnext": { "WFWhenToPlay": EnumValue<"Next" | "Later">; "WFMusic": PickerValue };
   "is.workflow.actions.addnewcalendar": { "CalendarName": TextValue };
+  "is.workflow.actions.addnewcontact": { "WFContactFirstName": TextValue; "WFContactLastName": TextValue; "WFContactCompany": TextValue; "WFContactPhoto": PickerValue; "WFContactPhoneNumbers": AnyValue; "WFContactEmails": AnyValue; "WFContactNotes": TextValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.addnewevent": { "WFCalendarItemTitle": TextValue; "WFCalendarItemLocation": TextValue; "WFCalendarDescriptor": AnyValue; "WFCalendarItemStartDate": TextValue; "WFCalendarItemEndDate": TextValue; "WFCalendarItemAllDay": BoolValue; "WFAlertTime": EnumValue<"None" | "At time of event" | "5 minutes before" | "15 minutes before" | "30 minutes before" | "1 hour before" | "2 hours before" | "1 day before" | "2 days before" | "1 week before" | "Custom">; "WFAlertCustomTime": TextValue; "WFCalendarItemNotes": TextValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.addnewreminder": { "WFCalendarItemTitle": TextValue; "WFCalendarDescriptor": AnyValue; "WFAlertEnabled": EnumValue<"No Alert" | "Alert">; "WFAlertCondition": EnumValue<"At Time" | "When I Arrive" | "When I Leave" | "When Messaging">; "WFAlertLocation": AnyValue; "WFAlertPerson": AnyValue; "WFAlertLocationRadius": QuantityValue; "WFAlertCustomTime": TextValue; "WFPriority": EnumValue<"None" | "Low" | "Medium" | "High">; "WFUrgent": BoolValue; "WFFlag": BoolValue; "WFURL": TextValue; "WFImages": PickerValue; "WFParentTask": PickerValue; "WFTags": StringValue; "WFCalendarItemNotes": TextValue };
   "is.workflow.actions.addquickreminder": {  };
-  "is.workflow.actions.address": { "WFAddressLine1": TextValue; "WFAddressLine2": TextValue; "WFCity": TextValue; "WFState": TextValue; "WFPostalCode": TextValue; "WFCountry": AnyValue };
-  "is.workflow.actions.addtoplaylist": { "WFInput": PickerValue; "WFPlaylistName": AnyValue };
+  "is.workflow.actions.address": { "WFAddressLine1": TextValue; "WFAddressLine2": TextValue; "WFCity": TextValue; "WFState": TextValue; "WFPostalCode": TextValue; "WFCountry": TextValue };
+  "is.workflow.actions.addtoplaylist": { "WFPlaylistName": AnyValue; "WFInput": PickerValue };
   "is.workflow.actions.adjustdate": { "WFDate": TextValue; "WFAdjustOperation": EnumValue<"Add" | "Subtract" | "Get Start of Minute" | "Get Start of Hour" | "Get Start of Day" | "Get Start of Week" | "Get Start of Month" | "Get Start of Year">; "WFDuration": QuantityValue };
   "is.workflow.actions.airdropdocument": { "WFInput": PickerValue };
-  "is.workflow.actions.airplanemode.set": { "ShowWhenRun": BoolValue };
-  "is.workflow.actions.appearance": {  };
+  "is.workflow.actions.airplanemode.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.alert": { "WFAlertActionTitle": TextValue; "WFAlertActionMessage": TextValue; "WFAlertActionCancelButtonShown": BoolValue };
+  "is.workflow.actions.announcenotifications.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.appearance": { "operation": StringValue; "style": StringValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.appendvariable": { "WFVariableName": PlainString; "WFInput": PickerValue };
-  "is.workflow.actions.askllm": { "WFLLMModel": StringValue; "WFLLMPrompt": TextValue; "WFAllowWebSearch": BoolValue; "FollowUp": BoolValue; "WFGenerativeResultType": AnyValue };
+  "is.workflow.actions.ask": { "WFAskActionPrompt": TextValue; "WFInputType": StringValue; "WFAskActionDefaultAnswer": TextValue; "WFAskActionDefaultAnswerNumber": NumberValue; "urlAnswer": TextValue; "WFAskActionDefaultAnswerURL": TextValue; "WFAskActionDefaultAnswerDate": TextValue; "WFAskActionDefaultAnswerTime": TextValue; "WFAskActionDefaultAnswerDateAndTime": TextValue; "WFAskActionAllowsDecimalNumbers": BoolValue; "WFAskActionAllowsNegativeNumbers": BoolValue; "WFAllowsMultilineText": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.askllm": { "WFLLMModel": StringValue; "WFLLMPrompt": TextValue; "WFAllowWebSearch": BoolValue; "WFGenerativeResultType": StringValue; "FollowUp": BoolValue };
   "is.workflow.actions.avairyeditphoto": { "WFDocument": PickerValue };
   "is.workflow.actions.base64encode": { "WFEncodeMode": EnumValue<"Encode" | "Decode">; "WFBase64LineBreakMode": EnumValue<"None" | "Every 64 Characters" | "Every 76 Characters">; "WFInput": PickerValue };
-  "is.workflow.actions.bluetooth.set": { "ShowWhenRun": BoolValue };
+  "is.workflow.actions.bluetooth.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.calculateexpression": { "Input": TextValue };
-  "is.workflow.actions.cellulardata.set": {  };
+  "is.workflow.actions.cellulardata.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.choosefromlist": { "WFInput": PickerValue; "WFChooseFromListActionPrompt": TextValue; "WFChooseFromListActionSelectMultiple": BoolValue; "WFChooseFromListActionSelectAll": BoolValue };
   "is.workflow.actions.choosefrommenu": { "WFMenuPrompt": TextValue; "WFMenuItems": AnyValue; "WFMenuItemTitle": PlainString; "WFMenuItemAttributedTitle": AnyValue };
   "is.workflow.actions.clearupnext": {  };
   "is.workflow.actions.cloudapp.upload": { "WFCloudAppPrivacyType": EnumValue<"Private" | "Public">; "WFInput": PickerValue };
@@ -2720,8 +3157,13 @@ export type ParamTypes = {
   "is.workflow.actions.conditional": { "WFConditions": FilterTemplateValue; "WFInput": PickerValue; "WFCondition": PlainNumber; "WFConditionalActionString": TextValue; "WFNumberValue": NumberValue; "WFConditionalLegacyComparisonBehavior": BoolValue; "WFEnumerationValue": TextValue; "WFBooleanValue": BoolValue; "WFDate": TextValue; "WFAnotherDate": TextValue; "WFDuration": AnyValue };
   "is.workflow.actions.connecttoservers": { "WFInput": TextValue };
   "is.workflow.actions.contacts": { "WFContact": AnyValue };
+  "is.workflow.actions.converttimezone": { "Date": TextValue; "SourceTimeZone": AnyValue; "DestinationTimeZone": AnyValue };
+  "is.workflow.actions.correctspelling": { "text": TextValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.count": { "WFCountType": EnumValue<"Items" | "Characters" | "Words" | "Sentences" | "Lines">; "Input": PickerValue };
   "is.workflow.actions.createplaylist": { "WFPlaylistName": TextValue; "WFPlaylistAuthor": TextValue; "WFPlaylistDescription": TextValue; "WFPlaylistItems": PickerValue };
+  "is.workflow.actions.date": { "WFDateActionMode": StringValue; "WFDateActionDate": TextValue; "WFEventOccurrenceMode": EnumValue<"Next Occurrence" | "Specified Year">; "WFEventOccurrenceSpecifiedYear": StringValue };
   "is.workflow.actions.debug.contentattribution": { "Input": PickerValue };
+  "is.workflow.actions.delay": { "WFDelayTime": NumberValue };
   "is.workflow.actions.deletestoredcontent": { "WFStoredContentKey": TextValue; "WFStoredContentGlobalValue": BoolValue };
   "is.workflow.actions.deskconnect.send": { "WFInput": PickerValue };
   "is.workflow.actions.detect.address": { "WFInput": PickerValue };
@@ -2735,10 +3177,11 @@ export type ParamTypes = {
   "is.workflow.actions.detect.phonenumber": { "WFInput": TextValue };
   "is.workflow.actions.detect.text": { "WFInput": PickerValue };
   "is.workflow.actions.detectlanguage": { "WFInput": TextValue };
-  "is.workflow.actions.dictatetext": { "WFDictateTextStopListening": EnumValue<"After Pause" | "After Short Pause" | "On Tap">; "WFSpeechLanguage": AnyValue };
+  "is.workflow.actions.dictatetext": { "WFSpeechLanguage": StringValue; "WFDictateTextStopListening": EnumValue<"After Pause" | "After Short Pause" | "On Tap"> };
   "is.workflow.actions.dictionary": { "WFItems": DictionaryValue };
   "is.workflow.actions.dismisssiri": {  };
-  "is.workflow.actions.display.always-on.set": {  };
+  "is.workflow.actions.display.always-on.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.displaysleep": {  };
   "is.workflow.actions.dnd.getfocus": {  };
   "is.workflow.actions.dnd.set": { "Operation": EnumValue<"Turn" | "Toggle">; "Enabled": BoolValue; "AssertionType": EnumValue<"Turned Off" | "Time" | "I Leave" | "Event Ends">; "Event": PickerValue; "Time": TextValue; "FocusModes": AnyValue };
   "is.workflow.actions.documentpicker.open": { "WFFileErrorIfNotFound": BoolValue; "WFGetFolderContents": BoolValue; "WFFile": AnyValue; "WFGetFilePath": TextValue };
@@ -2765,7 +3208,7 @@ export type ParamTypes = {
   "is.workflow.actions.file.delete": { "WFInput": AnyValue; "WFDeleteImmediatelyDelete": BoolValue };
   "is.workflow.actions.file.getfoldercontents": { "WFFolder": AnyValue; "Recursive": BoolValue };
   "is.workflow.actions.file.getlink": { "WFFile": PickerValue };
-  "is.workflow.actions.file.label": { "WFInput": AnyValue; "WFLabelColorNumber": AnyValue };
+  "is.workflow.actions.file.label": { "WFInput": AnyValue; "WFLabelColorNumber": NumberValue };
   "is.workflow.actions.file.move": { "WFFile": AnyValue; "WFFolder": AnyValue; "WFReplaceExisting": BoolValue };
   "is.workflow.actions.file.rename": { "WFFile": AnyValue; "WFNewFilename": TextValue };
   "is.workflow.actions.file.reveal": { "WFFile": AnyValue };
@@ -2783,19 +3226,25 @@ export type ParamTypes = {
   "is.workflow.actions.filter.music": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
   "is.workflow.actions.filter.photos": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
   "is.workflow.actions.filter.reminders": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
+  "is.workflow.actions.filter.vpns": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
   "is.workflow.actions.filter.windows": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
   "is.workflow.actions.finder.getselectedfiles": {  };
-  "is.workflow.actions.flashlight": { "ShowWhenRun": BoolValue };
+  "is.workflow.actions.flashlight": { "operation": StringValue; "state": BoolValue; "WFFlashlightLevel": NumberValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.format.date": { "WFDateFormatStyle": EnumValue<"None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom">; "WFRelativeDateFormatStyle": EnumValue<"Short" | "Medium" | "Long">; "WFTimeFormatStyle": EnumValue<"None" | "Short" | "Medium" | "Long" | "Relative">; "WFISO8601IncludeTime": BoolValue; "WFDateFormat": TextValue; "WFDate": TextValue; "WFLocale": StringValue };
   "is.workflow.actions.format.filesize": { "WFFileSizeFormat": EnumValue<"Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher">; "WFFileSizeIncludeUnits": BoolValue; "WFFileSize": NumberValue };
+  "is.workflow.actions.format.number": { "WFNumber": NumberValue; "WFNumberFormatDecimalPlaces": NumberValue };
   "is.workflow.actions.generatebarcode": { "WFText": TextValue; "WFQRForegroundColor": AnyValue; "WFQRBackgroundColor": AnyValue; "WFQRRounded": BoolValue; "WFQRErrorCorrectionLevel": EnumValue<"Low" | "Medium" | "Quartile" | "High"> };
   "is.workflow.actions.get.playlist": { "WFPlaylistName": AnyValue };
   "is.workflow.actions.getarticle": { "WFWebPage": TextValue };
+  "is.workflow.actions.getbatterylevel": { "Subject": EnumValue<"Battery Level" | "Is Charging" | "Is Connected to Charger" | "Charge Limit"> };
   "is.workflow.actions.getclassaction": { "Class": TextValue; "Input": PickerValue };
+  "is.workflow.actions.getclipboard": {  };
+  "is.workflow.actions.getcurrentapp": { "WFVisibleAppScope": EnumValue<"Current" | "Visible"> };
   "is.workflow.actions.getcurrentlocation": { "Accuracy": StringValue };
   "is.workflow.actions.getcurrentsong": { "Subject": EnumValue<"Current Song" | "Current Playback Time"> };
   "is.workflow.actions.getdevicedetails": { "WFDeviceDetail": EnumValue<"Device Name" | "Device Hostname" | "Device Model" | "Device Is Watch" | "System Version" | "System Build Number" | "Screen Width" | "Screen Height" | "Current Volume" | "Current Brightness" | "Current Appearance" | "Device Is Locked"> };
-  "is.workflow.actions.getdirections": { "WFLocation": AnyValue; "WFDestination": AnyValue; "WFGetDirectionsActionMode": StringValue; "WFGetDirectionsActionApp": AnyValue };
-  "is.workflow.actions.getdistance": { "WFGetDirectionsCustomLocation": AnyValue; "WFGetDistanceDestination": AnyValue; "WFGetDirectionsActionMode": EnumValue<"Direct" | "Driving" | "Walking" | "Biking">; "WFAvoidTolls": BoolValue; "WFAvoidHighways": BoolValue; "Accuracy": StringValue; "WFDistanceUnit": AnyValue };
+  "is.workflow.actions.getdirections": { "WFLocation": AnyValue; "WFDestination": AnyValue; "WFGetDirectionsActionApp": StringValue; "WFGetDirectionsActionMode": StringValue };
+  "is.workflow.actions.getdistance": { "WFGetDirectionsCustomLocation": AnyValue; "WFGetDistanceDestination": AnyValue; "WFGetDirectionsActionMode": EnumValue<"Direct" | "Driving" | "Walking" | "Biking">; "WFAvoidTolls": BoolValue; "WFAvoidHighways": BoolValue; "WFDistanceUnit": EnumValue<"Miles" | "Kilometers">; "Accuracy": StringValue };
   "is.workflow.actions.getepisodesforpodcast": { "WFInput": AnyValue };
   "is.workflow.actions.getframesfromimage": { "WFImage": PickerValue };
   "is.workflow.actions.gethalfwaypoint": { "WFGetHalfwayPointFirstLocation": AnyValue; "WFGetHalfwayPointSecondLocation": AnyValue };
@@ -2814,8 +3263,9 @@ export type ParamTypes = {
   "is.workflow.actions.getmapslink": { "WFInput": AnyValue };
   "is.workflow.actions.getmarkdownfromrichtext": { "WFInput": PickerValue };
   "is.workflow.actions.getmyworkflows": { "Folder": AnyValue };
+  "is.workflow.actions.getnameofemoji": { "WFInput": TextValue };
   "is.workflow.actions.getonscreencontent": {  };
-  "is.workflow.actions.getonscreencontext": { "WFOnScreenContextScope": EnumValue<"All Visible" | "Focused App Only">; "WFOnScreenContextLimitEnabled": BoolValue; "WFOnScreenContextLimit": NumberValue; "WFOnScreenContextResultType": AnyValue };
+  "is.workflow.actions.getonscreencontext": { "WFOnScreenContextResultType": StringValue; "WFOnScreenContextScope": EnumValue<"All Visible" | "Focused App Only">; "WFOnScreenContextLimitEnabled": BoolValue; "WFOnScreenContextLimit": NumberValue };
   "is.workflow.actions.getparentdirectory": { "WFInput": AnyValue };
   "is.workflow.actions.getparkedcarlocation": {  };
   "is.workflow.actions.getpodcastsfromlibrary": {  };
@@ -2825,14 +3275,16 @@ export type ParamTypes = {
   "is.workflow.actions.getstoredcontent": { "WFStoredContentKey": TextValue; "WFStoredContentGlobalValue": BoolValue };
   "is.workflow.actions.gettext": { "WFTextActionText": TextValue };
   "is.workflow.actions.gettextfrompdf": { "WFInput": AnyValue; "WFGetTextFromPDFTextType": EnumValue<"Text" | "Rich Text">; "WFGetTextFromPDFPageHeader": TextValue; "WFGetTextFromPDFPageFooter": TextValue; "WFCombinePages": BoolValue };
+  "is.workflow.actions.gettimebetweendates": { "WFTimeUntilFromDate": TextValue; "WFInput": TextValue; "WFTimeUntilUnit": EnumValue<"Total Time" | "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks" | "Months" | "Years"> };
   "is.workflow.actions.gettraveltime": { "WFGetDirectionsCustomLocation": AnyValue; "WFDestination": AnyValue; "WFGetDirectionsActionMode": EnumValue<"Driving" | "Walking" | "Transit" | "Biking">; "WFAvoidTolls": BoolValue; "WFAvoidHighways": BoolValue };
   "is.workflow.actions.gettypeaction": { "WFFileType": TextValue; "WFInput": PickerValue };
   "is.workflow.actions.getupcomingevents": { "WFGetUpcomingItemCalendar": AnyValue; "WFGetUpcomingItemCount": NumberValue; "WFDateSpecifier": EnumValue<"Any Day" | "Today" | "Tomorrow" | "Specified Day">; "WFSpecifiedDate": TextValue };
   "is.workflow.actions.getupcomingreminders": { "WFGetUpcomingItemCalendar": AnyValue; "WFGetUpcomingItemCount": NumberValue };
   "is.workflow.actions.geturlcomponent": { "WFURL": TextValue; "WFURLComponent": EnumValue<"Scheme" | "User" | "Password" | "Host" | "Port" | "Path" | "Query" | "Fragment"> };
+  "is.workflow.actions.getvalueforkey": { "WFGetDictionaryValueType": EnumValue<"Value" | "All Keys" | "All Values">; "WFDictionaryKey": TextValue; "WFInput": PickerValue };
   "is.workflow.actions.getvariable": { "WFVariable": PickerValue };
   "is.workflow.actions.getwebpagecontents": { "WFInput": TextValue };
-  "is.workflow.actions.getwifi": { "WFWiFiDetail": EnumValue<"Network Name" | "BSSID" | "Wi-Fi Standard" | "RX Rate" | "TX Rate" | "RSSI" | "Noise" | "Channel Number" | "Hardware MAC Address">; "WFCellularDetail": EnumValue<"Carrier Name" | "Radio Technology" | "Country Code" | "Is Roaming Abroad" | "Number of Signal Bars">; "WFEthernetDetail": EnumValue<"Interface Name" | "IPv4 Address" | "IPv6 Address" | "Subnet Mask" | "Router IP" | "Is Connected" | "Link Speed" | "Ethernet Standard" | "Hardware MAC Address">; "WFNetworkDetailsNetwork": AnyValue };
+  "is.workflow.actions.getwifi": { "WFNetworkDetailsNetwork": StringValue; "WFWiFiDetail": EnumValue<"Network Name" | "BSSID" | "Wi-Fi Standard" | "RX Rate" | "TX Rate" | "RSSI" | "Noise" | "Channel Number" | "Hardware MAC Address">; "WFCellularDetail": EnumValue<"Carrier Name" | "Radio Technology" | "Country Code" | "Is Roaming Abroad" | "Number of Signal Bars">; "WFEthernetDetail": EnumValue<"Interface Name" | "IPv4 Address" | "IPv6 Address" | "Subnet Mask" | "Router IP" | "Is Connected" | "Link Speed" | "Ethernet Standard" | "Hardware MAC Address"> };
   "is.workflow.actions.giphy": { "WFGiphyQuery": TextValue; "WFGiphyShowPicker": BoolValue; "WFGiphyLimit": NumberValue; "WFGiphySelectMultiple": BoolValue };
   "is.workflow.actions.goodreader.open": { "WFInput": PickerValue };
   "is.workflow.actions.handoff": {  };
@@ -2843,64 +3295,74 @@ export type ParamTypes = {
   "is.workflow.actions.hide.app": { "WFHideAppMode": EnumValue<"App" | "All Apps">; "WFApp": AnyValue; "WFAppsExcept": AnyValue };
   "is.workflow.actions.homeaccessory": { "WFHome": StringValue; "WFHomeTriggerActionSets": AnyValue };
   "is.workflow.actions.image.combine": { "WFImageCombineMode": EnumValue<"Horizontally" | "Vertically" | "In a Grid">; "WFImageCombineSpacing": NumberValue; "WFInput": PickerValue };
-  "is.workflow.actions.image.convert": { "WFImageCompressionQuality": NumberValue; "WFImagePreserveMetadata": BoolValue; "WFInput": PickerValue; "WFImageFormat": AnyValue };
+  "is.workflow.actions.image.convert": { "WFImageFormat": StringValue; "WFImageCompressionQuality": NumberValue; "WFImagePreserveMetadata": BoolValue; "WFInput": PickerValue };
   "is.workflow.actions.image.convert.finder": { "WFPreserveMetadata": BoolValue; "WFImage": PickerValue; "WFFileFormat": EnumValue<"JPEG" | "PNG" | "HEIF">; "WFSize": EnumValue<"Small" | "Medium" | "Large" | "Original"> };
   "is.workflow.actions.image.crop": { "WFInput": PickerValue; "WFImageCropPosition": EnumValue<"Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom">; "WFImageCropX": NumberValue; "WFImageCropY": NumberValue; "WFImageCropWidth": NumberValue; "WFImageCropHeight": NumberValue };
   "is.workflow.actions.image.flip": { "WFImageFlipDirection": EnumValue<"Horizontal" | "Vertical">; "WFInput": PickerValue };
   "is.workflow.actions.image.mask": { "WFInput": PickerValue; "WFMaskType": EnumValue<"Rounded Rectangle" | "Ellipse" | "Icon" | "Custom Image">; "WFMaskCornerRadius": NumberValue; "WFCustomMaskImage": PickerValue };
   "is.workflow.actions.image.resize": { "WFImageResizeKey": EnumValue<"Size" | "Percentage" | "Longest Edge">; "WFImageResizeWidth": NumberValue; "WFImageResizeHeight": NumberValue; "WFImageResizePercentage": NumberValue; "WFImageResizeLength": NumberValue; "WFImage": PickerValue };
+  "is.workflow.actions.image.rotate": { "WFImageRotateAmount": NumberValue; "WFImage": PickerValue };
   "is.workflow.actions.imgur.upload": { "WFInput": PickerValue; "WFImgurAnonymous": BoolValue; "WFImgurDirectLink": BoolValue; "WFImgurAlbum": BoolValue; "WFImgurAlbumLayout": EnumValue<"Blog" | "Grid" | "Horizontal" | "Vertical">; "WFImgurAlbumPrivacy": EnumValue<"Public" | "Hidden" | "Secret">; "WFImgurTitle": TextValue; "WFImgurDescription": TextValue };
   "is.workflow.actions.importaudiofiles": { "WFInput": AnyValue; "WFImportAudioFilesReencode": BoolValue; "WFImportAudioFilesEncoder": EnumValue<"Default" | "AAC" | "AIFF" | "Lossless" | "MP3" | "WAV"> };
-  "is.workflow.actions.input": { "WFOutput": AnyValue; "WFInputType": StringValue; "WFInputSurface": StringValue; "WFNoInputBehavior": EnumValue<"Stop and Respond" | "Ask For" | "Get Clipboard" | "Continue">; "WFStopAndRespondResponse": TextValue; "WFAskForType": EnumValue<"Files" | "Text" | "Date" | "Photos" | "Contacts" | "Email Address" | "Music" | "Phone Number">; "WFPickingMode": StringValue; "SelectMultiple": BoolValue; "WFPhotoPickerTypes": StringValue; "WFSelectMultiplePhotos": BoolValue; "WFSelectMultiple": BoolValue; "WFExportSongActionSelectMultiple": BoolValue };
+  "is.workflow.actions.input": { "WFOutput": AnyValue; "WFInputType": StringValue; "WFInputSurface": StringValue; "WFNoInputBehavior": EnumValue<"Stop and Respond" | "Ask For" | "Get Clipboard" | "Continue">; "WFStopAndRespondResponse": TextValue; "WFAskForType": EnumValue<"Files" | "Text" | "Date" | "Photos" | "Contacts" | "Email Address" | "Music" | "Phone Number">; "WFPickingMode": StringValue; "SelectMultiple": BoolValue; "WFDateActionMode": StringValue; "WFDateActionDate": TextValue; "WFEventOccurrenceMode": StringValue; "WFEventOccurrenceSpecifiedYear": StringValue; "WFPhotoPickerTypes": StringValue; "WFSelectMultiplePhotos": BoolValue; "WFSelectMultiple": BoolValue; "WFExportSongActionSelectMultiple": BoolValue };
   "is.workflow.actions.instapaper.add": { "WFInstapaperFolder": StringValue; "WFInputURL": TextValue };
   "is.workflow.actions.instapaper.get": { "WFInstapaperFolder": StringValue; "WFBookmarkCount": NumberValue };
-  "is.workflow.actions.lightroom.import": { "applyPreset": BoolValue; "presetGroup": EnumValue<"B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting">; "WFInput": PickerValue; "preset": AnyValue };
+  "is.workflow.actions.intercom": { "WFHome": AnyValue; "WFInput": TextValue };
+  "is.workflow.actions.lightroom.import": { "applyPreset": BoolValue; "presetGroup": EnumValue<"B&W" | "Color" | "Creative" | "Curve" | "Grain" | "Sharpening" | "Vignetting">; "preset": AnyValue; "WFInput": PickerValue };
   "is.workflow.actions.list": { "WFItems": AnyValue };
-  "is.workflow.actions.listeningmode.set": { "WFRoute": AnyValue; "WFListeningMode": AnyValue };
+  "is.workflow.actions.listeningmode.set": { "WFRoute": AnyValue; "WFListeningMode": StringValue };
   "is.workflow.actions.location": { "WFLocation": AnyValue };
-  "is.workflow.actions.lowpowermode.set": {  };
+  "is.workflow.actions.lock.app": { "WFLockAppOperation": EnumValue<"Lock" | "Unlock" | "Toggle">; "WFApp": AnyValue };
+  "is.workflow.actions.lockscreen": {  };
+  "is.workflow.actions.logout": {  };
+  "is.workflow.actions.lowpowermode.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.makediskimage": { "WFInput": AnyValue; "VolumeName": TextValue; "EncryptImage": BoolValue; "SizeToFit": BoolValue; "ImageSize": QuantityValue };
   "is.workflow.actions.makegif": { "WFMakeGIFActionDelayTime": NumberValue; "WFMakeGIFActionLoopEnabled": BoolValue; "WFMakeGIFActionLoopCount": NumberValue; "WFMakeGIFActionAutoSize": BoolValue; "WFMakeGIFActionManualSizeWidth": NumberValue; "WFMakeGIFActionManualSizeHeight": NumberValue; "WFInput": PickerValue };
-  "is.workflow.actions.makeimagefrompdfpage": { "WFInput": PickerValue; "WFMakeImageFromPDFPageResolution": NumberValue; "WFMakeImageFromPDFPageImageFormat": AnyValue; "WFMakeImageFromPDFPageColorspace": AnyValue };
+  "is.workflow.actions.makeimagefrompdfpage": { "WFInput": PickerValue; "WFMakeImageFromPDFPageImageFormat": StringValue; "WFMakeImageFromPDFPageColorspace": StringValue; "WFMakeImageFromPDFPageResolution": NumberValue };
   "is.workflow.actions.makeimagefromrichtext": { "WFInput": PickerValue; "WFWidth": NumberValue; "WFHeight": NumberValue };
   "is.workflow.actions.makepdf": { "WFPDFIncludeMargin": BoolValue; "WFPDFIncludedPages": EnumValue<"All Pages" | "Single Page" | "Page Range">; "WFPDFSinglePage": NumberValue; "WFPDFPageRangeStart": NumberValue; "WFPDFPageRangeEnd": NumberValue; "WFInput": PickerValue; "WFPDFDocumentMergeBehavior": EnumValue<"Append" | "Shuffle"> };
-  "is.workflow.actions.makespokenaudiofromtext": { "WFInput": TextValue; "WFSpeakTextRate": NumberValue; "WFSpeakTextPitch": NumberValue; "WFSpeakTextLanguage": AnyValue; "WFSpeakTextVoice": AnyValue };
+  "is.workflow.actions.makespokenaudiofromtext": { "WFInput": TextValue; "WFSpeakTextRate": NumberValue; "WFSpeakTextPitch": NumberValue; "WFSpeakTextLanguage": StringValue; "WFSpeakTextVoice": StringValue };
   "is.workflow.actions.makevideofromgif": { "WFMakeVideoFromGIFActionLoopCount": NumberValue; "WFInputGIF": PickerValue };
-  "is.workflow.actions.makezip": { "WFZIPName": TextValue; "WFInput": PickerValue; "WFArchiveFormat": AnyValue };
-  "is.workflow.actions.math": { "WFInput": NumberValue; "WFMathOperation": EnumValue<"+" | "-" | "\\U00d7" | "\\U00f7" | "\\U2026">; "WFScientificMathOperation": EnumValue<"Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "\\U221ax" | "\\U221bx" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)">; "WFMathOperand": NumberValue; "WFScientificMathOperand": NumberValue };
-  "is.workflow.actions.measurement.convert": { "WFMeasurementUnit": AnyValue; "WFInput": PickerValue; "WFMeasurementUnitType": AnyValue };
-  "is.workflow.actions.measurement.create": { "WFMeasurementUnit": QuantityValue; "WFMeasurementUnitType": AnyValue };
+  "is.workflow.actions.makezip": { "WFZIPName": TextValue; "WFArchiveFormat": AnyValue; "WFInput": PickerValue };
+  "is.workflow.actions.math": { "WFInput": NumberValue; "WFMathOperation": EnumValue<"+" | "-" | "×" | "÷" | "…">; "WFScientificMathOperation": EnumValue<"Modulus" | "x^2" | "x^3" | "x^y" | "e^x" | "10^x" | "ln(x)" | "log(x)" | "√x" | "∛x" | "x!" | "sin(x)" | "cos(x)" | "tan(x)" | "abs(x)">; "WFMathOperand": NumberValue; "WFScientificMathOperand": NumberValue };
+  "is.workflow.actions.measurement.convert": { "WFMeasurementUnitType": StringValue; "WFMeasurementUnit": AnyValue; "WFInput": PickerValue };
+  "is.workflow.actions.measurement.create": { "WFMeasurementUnitType": StringValue; "WFMeasurementUnit": QuantityValue };
   "is.workflow.actions.mountdiskimage": { "WFInput": AnyValue };
   "is.workflow.actions.movewindow": { "WFPosition": EnumValue<"Top Left" | "Top Center" | "Top Right" | "Middle Left" | "Center" | "Middle Right" | "Bottom Left" | "Bottom Center" | "Bottom Right" | "Coordinates">; "WFXCoordinate": NumberValue; "WFYCoordinate": NumberValue; "WFWindow": PickerValue; "WFBringToFront": BoolValue; "Display": AnyValue };
-  "is.workflow.actions.nightshift.set": { "ShowWhenRun": BoolValue };
+  "is.workflow.actions.nightshift.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.nothing": {  };
   "is.workflow.actions.notification": { "WFNotificationActionTitle": TextValue; "WFNotificationActionBody": TextValue; "WFNotificationActionSound": BoolValue; "WFInput": PickerValue };
   "is.workflow.actions.number": { "WFNumberActionNumber": NumberValue };
   "is.workflow.actions.number.random": { "WFRandomNumberMinimum": NumberValue; "WFRandomNumberMaximum": NumberValue };
   "is.workflow.actions.openapp": { "WFSelectedApp": AnyValue; "WFAppName": TextValue; "WFWindowingFormat": EnumValue<"Full Screen" | "Left" | "Right" | "Top" | "Bottom" | "Top Leading" | "Top Trailing" | "Bottom Leading" | "Bottom Trailing" | "Left Third" | "Middle Third" | "Right Third"> };
   "is.workflow.actions.openin": { "WFOpenInAskWhenRun": BoolValue; "WFSelectedApp": AnyValue; "WFAppName": TextValue; "WFInput": AnyValue };
+  "is.workflow.actions.openpasswords": { "WFShowPasswordsSearchTerm": TextValue };
   "is.workflow.actions.openurl": { "WFInput": TextValue };
   "is.workflow.actions.openxcallbackurl": { "WFXCallbackCustomCallbackEnabled": BoolValue; "WFXCallbackCustomSuccessKey": TextValue; "WFXCallbackCustomCancelKey": TextValue; "WFXCallbackCustomErrorKey": TextValue; "WFXCallbackCustomSuccessURLEnabled": BoolValue; "WFXCallbackCustomSuccessURL": TextValue; "WFXCallbackURL": TextValue };
-  "is.workflow.actions.orientationlock.set": {  };
+  "is.workflow.actions.orientationlock.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.output": { "WFOutput": TextValue; "WFNoOutputSurfaceBehavior": EnumValue<"Respond" | "Do Nothing" | "Copy to Clipboard">; "WFResponse": TextValue };
   "is.workflow.actions.overlayimageonimage": { "WFImage": PickerValue; "WFInput": PickerValue; "WFShouldShowImageEditor": BoolValue; "WFImagePosition": EnumValue<"Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom">; "WFImageWidth": NumberValue; "WFImageHeight": NumberValue; "WFImageX": NumberValue; "WFImageY": NumberValue; "WFRotation": NumberValue; "WFOverlayImageOpacity": NumberValue };
   "is.workflow.actions.overlaytext": { "WFText": TextValue; "WFImage": PickerValue; "WFTextPosition": EnumValue<"Top Left" | "Top Center" | "Top Right" | "Middle Left" | "Center" | "Middle Right" | "Bottom Left" | "Bottom Center" | "Bottom Right" | "Custom Position">; "WFTextX": NumberValue; "WFPercentageTextX": NumberValue; "WFTextY": NumberValue; "WFPercentageTextY": NumberValue; "WFTextOffset": NumberValue; "WFPercentageTextOffset": NumberValue; "WFFont": AnyValue; "WFFontSize": NumberValue; "WFPercentageFontSize": NumberValue; "WFTextAlignment": EnumValue<"Left" | "Center" | "Right">; "WFTextColor": AnyValue; "WFTextRotation": NumberValue; "WFTextOutlineEnabled": BoolValue; "WFTextStrokeWidth": NumberValue; "WFPercentageTextStrokeWidth": NumberValue; "WFTextStrokeColor": AnyValue; "WFTextBoxWidth": NumberValue; "WFPercentageTextBoxWidth": NumberValue; "WFSizingMethod": EnumValue<"Proportional" | "Absolute"> };
   "is.workflow.actions.pausemusic": { "WFPlayPauseBehavior": EnumValue<"Play/Pause" | "Play" | "Pause">; "WFMediaRoute": AnyValue };
-  "is.workflow.actions.personalhotspot.set": { "ShowWhenRun": BoolValue };
+  "is.workflow.actions.personalhotspot.password.get": {  };
+  "is.workflow.actions.personalhotspot.password.set": { "WFInput": TextValue };
+  "is.workflow.actions.personalhotspot.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.phonenumber": { "WFPhoneNumber": AnyValue };
   "is.workflow.actions.photos.createalbum": { "AlbumName": TextValue; "WFInput": PickerValue };
   "is.workflow.actions.pinboard.add": { "WFPinTitle": TextValue; "WFPinTags": TextValue; "WFPinPublic": BoolValue; "WFPinUnread": BoolValue; "WFPinDescription": TextValue; "WFPinboardURL": TextValue };
   "is.workflow.actions.pinboard.get": { "WFPinTags": TextValue; "WFBookmarkCount": NumberValue };
   "is.workflow.actions.playmusic": { "WFMediaItems": AnyValue; "WFPlayMusicActionShuffle": EnumValue<"Off" | "Songs">; "WFPlayMusicActionRepeat": EnumValue<"None" | "One" | "All"> };
-  "is.workflow.actions.playpodcast": { "WFPodcastPlaybackOrder": EnumValue<"Default" | "Newest First" | "Oldest First">; "WFPodcastShow": AnyValue };
+  "is.workflow.actions.playpodcast": { "WFPodcastShow": AnyValue; "WFPodcastPlaybackOrder": EnumValue<"Default" | "Newest First" | "Oldest First"> };
   "is.workflow.actions.playsound": { "WFInput": PickerValue };
   "is.workflow.actions.pocket.add": { "WFPocketTags": TextValue; "WFInputURL": TextValue };
   "is.workflow.actions.pocket.get": { "WFPocketItemCount": NumberValue; "WFPocketItemState": EnumValue<"Unread" | "Archived" | "All">; "WFPocketItemSearchTerm": TextValue; "WFPocketItemSearchTags": TextValue };
   "is.workflow.actions.podcasts.subscribe": { "WFInput": TextValue };
+  "is.workflow.actions.posters.get": { "WFPosterType": EnumValue<"All" | "Current"> };
+  "is.workflow.actions.posters.switch": { "WFPoster": AnyValue };
   "is.workflow.actions.postonfacebook": { "FacebookContent": PickerValue };
   "is.workflow.actions.previewdocument": { "WFInput": PickerValue; "WFQuickLookActionFullScreen": BoolValue };
   "is.workflow.actions.print": { "WFInput": PickerValue };
-  "is.workflow.actions.properties.appearance": {  };
+  "is.workflow.actions.properties.appearance": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.properties.appstore": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.properties.articles": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.properties.calendarevents": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
@@ -2913,29 +3375,30 @@ export type ParamTypes = {
   "is.workflow.actions.properties.itunesstore": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.properties.locations": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.properties.music": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.parkedcar": {  };
-  "is.workflow.actions.properties.podcast": {  };
+  "is.workflow.actions.properties.parkedcar": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
+  "is.workflow.actions.properties.podcast": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.properties.podcastshow": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.properties.reminders": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.ridestatus": {  };
+  "is.workflow.actions.properties.ridestatus": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.properties.safariwebpage": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.shazam": {  };
-  "is.workflow.actions.properties.trello": {  };
-  "is.workflow.actions.properties.ulysses.sheet": {  };
-  "is.workflow.actions.properties.weather.conditions": {  };
+  "is.workflow.actions.properties.shazam": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
+  "is.workflow.actions.properties.trello": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
+  "is.workflow.actions.properties.ulysses.sheet": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
+  "is.workflow.actions.properties.weather.conditions": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.properties.workflow": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
   "is.workflow.actions.quit.app": { "WFQuitAppMode": EnumValue<"App" | "All Apps">; "WFAppsExcept": AnyValue; "WFApp": AnyValue; "WFAskToSaveChanges": BoolValue };
   "is.workflow.actions.readinglist": { "WFURL": TextValue };
+  "is.workflow.actions.reboot": { "WFShutdownMode": EnumValue<"Shut Down" | "Restart"> };
   "is.workflow.actions.recordaudio": { "WFRecordingCompression": EnumValue<"Normal" | "Very High">; "WFRecordingStart": EnumValue<"On Tap" | "Immediately">; "WFRecordingEnd": EnumValue<"On Tap" | "After Time">; "WFRecordingTimeInterval": QuantityValue };
   "is.workflow.actions.reminders.showlist": { "WFList": AnyValue };
   "is.workflow.actions.removeevents": { "WFCalendarIncludeFutureEvents": BoolValue; "WFInputEvents": PickerValue };
-  "is.workflow.actions.removefromalbum": { "WFInput": PickerValue; "WFRemoveAlbumSelectedGroup": AnyValue };
+  "is.workflow.actions.removefromalbum": { "WFRemoveAlbumSelectedGroup": AnyValue; "WFInput": PickerValue };
   "is.workflow.actions.removereminders": { "WFInputReminders": PickerValue };
   "is.workflow.actions.repeat.count": { "WFRepeatCount": NumberValue };
   "is.workflow.actions.repeat.each": { "WFInput": PickerValue };
   "is.workflow.actions.resizewindow": { "WFConfiguration": EnumValue<"Fit Screen" | "Top Half" | "Bottom Half" | "Left Half" | "Right Half" | "Top Left Quarter" | "Top Right Quarter" | "Bottom Left Quarter" | "Bottom Right Quarter" | "Dimensions">; "WFWidth": NumberValue; "WFHeight": NumberValue; "WFWindow": PickerValue; "WFBringToFront": BoolValue };
   "is.workflow.actions.returntohomescreen": {  };
-  "is.workflow.actions.ride.requestride": { "IntentAppDefinition": AnyValue; "PickupLocation": AnyValue; "DropOffLocation": AnyValue; "PaymentMethod": AnyValue; "PartySize": NumberValue; "RideOption": AnyValue };
+  "is.workflow.actions.ride.requestride": { "IntentAppDefinition": AnyValue; "PickupLocation": AnyValue; "DropOffLocation": AnyValue; "RideOption": AnyValue; "PaymentMethod": AnyValue; "PartySize": NumberValue };
   "is.workflow.actions.round": { "WFInput": NumberValue; "WFRoundTo": EnumValue<"Millions" | "Hundred Thousands" | "Ten Thousands" | "Thousands" | "Hundreds Place" | "Tens Place" | "Ones Place" | "Tenths" | "Hundredths" | "Thousandths" | "Ten Thousandths" | "Hundred Thousandths" | "Millionths" | "Ten Millionths" | "Hundred Millionths" | "Billionths" | "10 ^">; "WFRoundMode": EnumValue<"Normal" | "Always Round Up" | "Always Round Down">; "TenToThePowerOf": NumberValue };
   "is.workflow.actions.rss": { "WFRSSFeedURL": TextValue; "WFRSSItemQuantity": NumberValue };
   "is.workflow.actions.rss.extract": { "WFURLs": TextValue };
@@ -2944,24 +3407,26 @@ export type ParamTypes = {
   "is.workflow.actions.runjavascriptforautomation": { "Input": PickerValue; "Script": PlainString };
   "is.workflow.actions.runjavascriptonwebpage": { "WFJavaScript": TextValue; "WFInput": PickerValue };
   "is.workflow.actions.runshellscript": { "Script": TextValue; "Shell": StringValue; "Input": PickerValue; "InputMode": EnumValue<"to stdin" | "as arguments">; "RunAsRoot": BoolValue };
-  "is.workflow.actions.runsshscript": { "WFSSHScript": TextValue; "WFSSHHost": TextValue; "WFSSHPort": TextValue; "WFSSHUser": TextValue; "WFSSHAuthenticationType": EnumValue<"Password" | "SSH Key">; "WFSSHPassword": TextValue; "WFInput": PickerValue; "WFSSHKey": AnyValue };
+  "is.workflow.actions.runsshscript": { "WFSSHScript": TextValue; "WFSSHHost": TextValue; "WFSSHPort": TextValue; "WFSSHUser": TextValue; "WFSSHAuthenticationType": EnumValue<"Password" | "SSH Key">; "WFSSHPassword": TextValue; "WFSSHKey": AnyValue; "WFInput": PickerValue };
   "is.workflow.actions.runworkflow": { "WFWorkflow": AnyValue; "WFInput": PickerValue };
   "is.workflow.actions.safari.geturl": {  };
-  "is.workflow.actions.savetocameraroll": { "WFInput": PickerValue; "WFCameraRollSelectedGroup": AnyValue };
-  "is.workflow.actions.searchappstore": { "WFSearchTerm": TextValue; "WFAttribute": StringValue; "WFEntity": StringValue; "WFItemLimit": NumberValue; "WFCountry": AnyValue };
-  "is.workflow.actions.searchitunes": { "WFSearchTerm": TextValue; "WFMediaType": StringValue; "WFAttribute": StringValue; "WFEntity": StringValue; "WFItemLimit": NumberValue; "WFCountry": AnyValue };
-  "is.workflow.actions.searchlocalbusinesses": { "WFInput": AnyValue; "WFSearchQuery": TextValue; "WFSearchSortOrder": EnumValue<"Relevance" | "Distance">; "WFSearchRadius": AnyValue };
-  "is.workflow.actions.searchmaps": { "WFInput": AnyValue; "WFSearchMapsActionApp": AnyValue };
-  "is.workflow.actions.searchpodcasts": { "WFSearchTerm": TextValue; "WFAttribute": StringValue; "WFEntity": StringValue; "WFItemLimit": NumberValue; "WFCountry": AnyValue };
+  "is.workflow.actions.savetocameraroll": { "WFCameraRollSelectedGroup": AnyValue; "WFInput": PickerValue };
+  "is.workflow.actions.searchappstore": { "WFSearchTerm": TextValue; "WFAttribute": StringValue; "WFEntity": StringValue; "WFCountry": AnyValue; "WFItemLimit": NumberValue };
+  "is.workflow.actions.searchitunes": { "WFSearchTerm": TextValue; "WFMediaType": StringValue; "WFAttribute": StringValue; "WFEntity": StringValue; "WFCountry": AnyValue; "WFItemLimit": NumberValue };
+  "is.workflow.actions.searchlocalbusinesses": { "WFInput": AnyValue; "WFSearchQuery": TextValue; "WFSearchRadius": QuantityValue; "WFSearchSortOrder": EnumValue<"Relevance" | "Distance"> };
+  "is.workflow.actions.searchmaps": { "WFInput": AnyValue; "WFSearchMapsActionApp": StringValue };
+  "is.workflow.actions.searchpodcasts": { "WFSearchTerm": TextValue; "WFAttribute": StringValue; "WFEntity": StringValue; "WFCountry": AnyValue; "WFItemLimit": NumberValue };
   "is.workflow.actions.searchweb": { "WFSearchWebDestination": EnumValue<"Amazon" | "Bing" | "DuckDuckGo" | "eBay" | "Google" | "Reddit" | "Twitter" | "Yahoo!" | "YouTube">; "WFInputText": TextValue };
   "is.workflow.actions.seek": { "WFSeekBehavior": EnumValue<"To Time" | "Forward By" | "Backward By">; "WFTimeInterval": QuantityValue; "WFMediaRoute": AnyValue };
   "is.workflow.actions.selectcontacts": { "WFSelectMultiple": BoolValue };
   "is.workflow.actions.selectemail": {  };
   "is.workflow.actions.selectphone": {  };
   "is.workflow.actions.selectphoto": { "WFPhotoPickerTypes": EnumValue<"Images" | "Live Photos" | "Videos">; "WFSelectMultiplePhotos": BoolValue };
-  "is.workflow.actions.sendemail": { "WFSendEmailActionFrom": TextValue; "WFSendEmailActionToRecipients": AnyValue; "WFSendEmailActionCcRecipients": AnyValue; "WFSendEmailActionBccRecipients": AnyValue; "WFSendEmailActionSubject": TextValue; "WFSendEmailActionInputAttachments": TextValue; "WFSendEmailActionSaveAsDraft": BoolValue; "WFSendEmailActionShowComposeSheet": BoolValue; "WFEmailAccountActionSelectedAccount": AnyValue };
+  "is.workflow.actions.sendemail": { "WFEmailAccountActionSelectedAccount": StringValue; "WFSendEmailActionFrom": TextValue; "WFSendEmailActionToRecipients": AnyValue; "WFSendEmailActionCcRecipients": AnyValue; "WFSendEmailActionBccRecipients": AnyValue; "WFSendEmailActionSubject": TextValue; "WFSendEmailActionInputAttachments": TextValue; "WFSendEmailActionSaveAsDraft": BoolValue; "WFSendEmailActionShowComposeSheet": BoolValue };
   "is.workflow.actions.sendmessage": { "IntentAppDefinition": AnyValue; "ShowWhenRun": BoolValue; "WFSendMessageActionRecipients": AnyValue; "WFSendMessageContent": TextValue; "WFSendMessagePrefix": TextValue };
-  "is.workflow.actions.setbrightness": { "ShowWhenRun": BoolValue };
+  "is.workflow.actions.setairdropreceiving": { "WFAirDropState": StringValue };
+  "is.workflow.actions.setbrightness": { "WFBrightness": NumberValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.setclipboard": { "WFLocalOnly": BoolValue; "WFExpirationDate": TextValue; "WFInput": PickerValue };
   "is.workflow.actions.setitemname": { "WFName": TextValue; "WFDontIncludeFileExtension": BoolValue; "WFInput": PickerValue };
   "is.workflow.actions.setparkedcar": { "WFLocation": AnyValue; "WFSetParkedCarNotes": TextValue; "WFImage": PickerValue };
   "is.workflow.actions.setplaybackdestination": { "WFMediaRouteOperation": EnumValue<"Set" | "Add" | "Remove">; "WFMediaRoute": AnyValue };
@@ -2976,35 +3441,47 @@ export type ParamTypes = {
   "is.workflow.actions.shazamMedia": { "WFShazamMediaActionShowWhenRun": BoolValue; "WFShazamMediaActionErrorIfNotRecognized": BoolValue };
   "is.workflow.actions.showdefinition": { "Word": TextValue };
   "is.workflow.actions.showinblindsquare": { "WFBlindSquareSimulation": BoolValue; "WFInput": AnyValue };
+  "is.workflow.actions.showincalendar": { "WFEvent": PickerValue };
   "is.workflow.actions.showinstore": { "WFProduct": PickerValue };
   "is.workflow.actions.showresult": { "Text": TextValue };
   "is.workflow.actions.showwebpage": { "WFEnterSafariReader": BoolValue; "WFURL": TextValue };
-  "is.workflow.actions.silenceunknowncallers.set": { "ShowWhenRun": BoolValue };
+  "is.workflow.actions.silenceunknowncallers.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.sirikit.donation.handle": { "ShowWhenRun": BoolValue };
   "is.workflow.actions.skipback": { "WFSkipBackBehavior": EnumValue<"Beginning" | "Previous Song">; "WFMediaRoute": AnyValue };
   "is.workflow.actions.skipforward": { "WFMediaRoute": AnyValue };
-  "is.workflow.actions.slack.send": { "WFSlackInput": PickerValue; "WFAccount": AnyValue; "SlackChannel": AnyValue };
-  "is.workflow.actions.speaktext": { "WFSpeakTextWait": BoolValue; "WFSpeakTextRate": NumberValue; "WFSpeakTextPitch": NumberValue; "WFText": TextValue; "WFSpeakTextLanguage": AnyValue; "WFSpeakTextVoice": AnyValue };
+  "is.workflow.actions.slack.send": { "WFAccount": StringValue; "WFSlackInput": PickerValue; "SlackChannel": AnyValue };
+  "is.workflow.actions.sleep": {  };
+  "is.workflow.actions.speaktext": { "WFSpeakTextWait": BoolValue; "WFSpeakTextRate": NumberValue; "WFSpeakTextPitch": NumberValue; "WFSpeakTextLanguage": StringValue; "WFSpeakTextVoice": StringValue; "WFText": TextValue };
   "is.workflow.actions.splitpdf": { "WFInput": AnyValue };
-  "is.workflow.actions.splitscreen": { "WFPrimaryAppIdentifier": AnyValue; "WFSecondaryAppIdentifier": AnyValue; "WFAppRatio": EnumValue<"\\U00bd + \\U00bd" | "\\U2154 + \\U2153"> };
-  "is.workflow.actions.spotlightsearch": { "WFInputText": TextValue; "WFSpotlightSearchLimit": NumberValue; "WFSpotlightSearchResultType": AnyValue };
-  "is.workflow.actions.stagemanager.set": { "ShowWhenRun": BoolValue };
+  "is.workflow.actions.splitscreen": { "WFPrimaryAppIdentifier": AnyValue; "WFSecondaryAppIdentifier": AnyValue; "WFAppRatio": EnumValue<"½ + ½" | "⅔ + ⅓"> };
+  "is.workflow.actions.spotlightsearch": { "WFInputText": TextValue; "WFSpotlightSearchResultType": StringValue; "WFSpotlightSearchLimit": NumberValue };
+  "is.workflow.actions.stagemanager.set": { "operation": StringValue; "state": BoolValue; "showDock": BoolValue; "showRecentApps": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.startscreensaver": {  };
   "is.workflow.actions.statistics": { "WFStatisticsOperation": EnumValue<"Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mode" | "Range" | "Standard Deviation">; "Input": PickerValue };
+  "is.workflow.actions.takephoto": { "WFCameraCaptureShowPreview": BoolValue; "WFPhotoCount": NumberValue; "WFCameraCaptureDevice": EnumValue<"Front" | "Back"> };
+  "is.workflow.actions.takescreenshot": { "WFTakeScreenshotScreenshotType": EnumValue<"Full Screen" | "Interactive">; "WFTakeScreenshotActionInteractiveSelectionType": EnumValue<"Window" | "Custom">; "WFTakeScreenshotMainMonitorOnly": BoolValue; "WFTakeScreenshotIgnoreContextualAssistanceLayers": BoolValue };
   "is.workflow.actions.takevideo": { "WFCameraCaptureDevice": EnumValue<"Front" | "Back">; "WFCameraCaptureQuality": EnumValue<"Low" | "Medium" | "High">; "WFRecordingStart": EnumValue<"On Tap" | "Immediately"> };
+  "is.workflow.actions.text.changecase": { "text": TextValue; "WFCaseType": StringValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.text.combine": { "text": TextValue; "WFTextSeparator": StringValue; "WFTextCustomSeparator": TextValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.text.match": { "text": TextValue; "WFMatchTextPattern": TextValue; "WFMatchTextCaseSensitive": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.text.match.getgroup": { "matches": PickerValue; "WFGetGroupType": StringValue; "WFGroupIndex": NumberValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.text.replace": { "WFReplaceTextFind": TextValue; "WFReplaceTextReplace": TextValue; "WFReplaceTextCaseSensitive": BoolValue; "WFReplaceTextRegularExpression": BoolValue; "WFInput": TextValue };
+  "is.workflow.actions.text.split": { "text": TextValue; "WFTextSeparator": StringValue; "WFTextCustomSeparator": TextValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.text.translate": { "WFSelectedFromLanguage": StringValue; "WFSelectedLanguage": StringValue; "WFInputText": TextValue };
   "is.workflow.actions.text.trimwhitespace": { "WFInput": TextValue };
   "is.workflow.actions.timer.start": { "IntentAppDefinition": AnyValue; "WFDuration": QuantityValue };
-  "is.workflow.actions.todoist.add": { "WFTodoistContent": TextValue; "WFTodoistDueDate": TextValue; "WFTodoistReminder": TextValue; "WFTodoistReminderType": EnumValue<"Email" | "Push Notification" | "Text Message">; "WFTodoistPriority": EnumValue<"4" | "3" | "2" | "1">; "WFTodoistNotes": TextValue; "WFTodoistFile": PickerValue; "WFTodoistProject": AnyValue };
+  "is.workflow.actions.todoist.add": { "WFTodoistContent": TextValue; "WFTodoistProject": StringValue; "WFTodoistDueDate": TextValue; "WFTodoistReminder": TextValue; "WFTodoistReminderType": EnumValue<"Email" | "Push Notification" | "Text Message">; "WFTodoistPriority": EnumValue<"4" | "3" | "2" | "1">; "WFTodoistNotes": TextValue; "WFTodoistFile": PickerValue };
   "is.workflow.actions.trello.add.board": { "WFTrelloName": TextValue; "WFTrelloDescription": TextValue };
-  "is.workflow.actions.trello.add.card": { "WFTrelloName": TextValue; "WFTrelloDueDate": TextValue; "WFTrelloCardPosition": EnumValue<"Top" | "Bottom">; "WFTrelloAttachments": PickerValue; "WFTrelloDescription": TextValue; "WFTrelloBoard": AnyValue; "WFTrelloList": AnyValue };
-  "is.workflow.actions.trello.add.list": { "WFTrelloName": TextValue; "WFTrelloPosition": EnumValue<"Top" | "Bottom">; "WFTrelloBoard": AnyValue };
+  "is.workflow.actions.trello.add.card": { "WFTrelloName": TextValue; "WFTrelloBoard": AnyValue; "WFTrelloList": AnyValue; "WFTrelloDueDate": TextValue; "WFTrelloCardPosition": EnumValue<"Top" | "Bottom">; "WFTrelloAttachments": PickerValue; "WFTrelloDescription": TextValue };
+  "is.workflow.actions.trello.add.list": { "WFTrelloName": TextValue; "WFTrelloBoard": AnyValue; "WFTrelloPosition": EnumValue<"Top" | "Bottom"> };
   "is.workflow.actions.trello.get": { "WFTrelloItemType": EnumValue<"Boards" | "Lists" | "Cards">; "WFTrelloBoard": AnyValue; "WFTrelloList": AnyValue };
   "is.workflow.actions.trimvideo": { "WFInputMedia": PickerValue };
-  "is.workflow.actions.truetone.set": { "ShowWhenRun": BoolValue };
-  "is.workflow.actions.tumblr.post": { "WFInput": PickerValue; "WFPostType": StringValue; "WFPostState": EnumValue<"Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately">; "WFPostTitle": TextValue; "WFPostSource": TextValue; "WFPostCaption": TextValue; "WFPostTags": TextValue; "WFPostDescription": TextValue; "WFComposeInApp": AnyValue; "WFBlogName": AnyValue };
+  "is.workflow.actions.truetone.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.tumblr.post": { "WFInput": PickerValue; "WFComposeInApp": BoolValue; "WFBlogName": AnyValue; "WFPostType": StringValue; "WFPostState": EnumValue<"Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately">; "WFPostTitle": TextValue; "WFPostSource": TextValue; "WFPostCaption": TextValue; "WFPostTags": TextValue; "WFPostDescription": TextValue };
   "is.workflow.actions.tweet": { "TweetInput": TextValue };
   "is.workflow.actions.unzip": { "WFArchive": PickerValue };
+  "is.workflow.actions.url": { "WFURLActionURL": TextValue };
+  "is.workflow.actions.url.expand": { "URL": TextValue };
   "is.workflow.actions.url.getheaders": { "WFInput": TextValue };
   "is.workflow.actions.urlencode": { "WFEncodeMode": EnumValue<"Encode" | "Decode">; "WFInput": TextValue };
   "is.workflow.actions.useractivity.open": {  };
@@ -3012,10 +3489,15 @@ export type ParamTypes = {
   "is.workflow.actions.venmo.request": { "IntentAppDefinition": AnyValue; "WFVenmoActionRecipients": AnyValue; "WFVenmoActionAmount": QuantityValue; "WFVenmoActionAppSwitch": BoolValue; "ShowWhenRun": BoolValue; "WFVenmoActionNote": TextValue };
   "is.workflow.actions.vibrate": { "WFVibrateHapticType": EnumValue<"Default" | "Up Direction" | "Down Direction" | "Success" | "Failure" | "Retry" | "Start" | "Stop" | "Click"> };
   "is.workflow.actions.viewresult": { "WFInput": PickerValue };
+  "is.workflow.actions.vpn.get": {  };
+  "is.workflow.actions.vpn.set": { "WFVPNOperation": EnumValue<"Connect" | "Disconnect" | "Toggle" | "Set On Demand" | "Toggle On Demand">; "WFOnDemandValue": BoolValue; "WFVPN": AnyValue };
   "is.workflow.actions.waittoreturn": {  };
+  "is.workflow.actions.wallpaper.set": { "WFInput": PickerValue; "WFWallpaperLocation": EnumValue<"Lock Screen" | "Home Screen">; "WFWallpaperShowPreview": BoolValue; "WFWallpaperPerspectiveZoom": BoolValue; "WFSelectedPoster": AnyValue; "WFWallpaperSmartCrop": BoolValue; "WFWallpaperLegibilityBlur": BoolValue };
   "is.workflow.actions.watchmedo": { "WFUserEvent": AnyValue; "WFPlaybackSpeed": NumberValue };
-  "is.workflow.actions.wifi.set": {  };
-  "is.workflow.actions.wordpress.post": { "Blog": StringValue; "Title": TextValue; "Type": StringValue; "Format": StringValue; "Status": StringValue; "Categories": StringValue; "Tags": StringValue; "Advanced": PlainNumber; "AllowComments": BoolValue; "Slug": TextValue; "Excerpt": TextValue; "Date": TextValue; "Template": StringValue; "ThumbnailImage": PickerValue; "ShowCustomFields": PlainNumber; "CustomFields": DictionaryValue; "WFInput": PickerValue; "WFAccount": AnyValue };
+  "is.workflow.actions.weather.currentconditions": { "WFWeatherCustomLocation": AnyValue };
+  "is.workflow.actions.weather.forecast": { "WFWeatherCustomLocation": AnyValue; "WFWeatherForecastType": EnumValue<"Hourly" | "Daily"> };
+  "is.workflow.actions.wifi.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.wordpress.post": { "WFAccount": StringValue; "Blog": StringValue; "Title": TextValue; "Type": StringValue; "Format": StringValue; "Status": StringValue; "Categories": StringValue; "Tags": StringValue; "Advanced": PlainNumber; "AllowComments": BoolValue; "Slug": TextValue; "Excerpt": TextValue; "Date": TextValue; "Template": StringValue; "ThumbnailImage": PickerValue; "ShowCustomFields": PlainNumber; "CustomFields": DictionaryValue; "WFInput": PickerValue };
   "is.workflow.actions.workout.end": { "IntentAppDefinition": AnyValue };
   "is.workflow.actions.workout.start": { "IntentAppDefinition": AnyValue; "isOpenEnded": BoolValue; "workoutName": AnyValue; "WorkoutGoal": AnyValue };
 };

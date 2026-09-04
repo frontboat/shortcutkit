@@ -6,6 +6,8 @@ export interface Provenance {
   macOS: { version: string; build: string; arch: string };
   shortcutsApp: { version: string; build: string };
   workflowKit: string;
+  /** ActionKit.framework version; it defines the built-in actions WorkflowKit does not (Ask for Input, Show Alert, Count, ...). */
+  actionKit?: string;
   counts: { builtinActions: number; identifierStrings: number; appProvidedActions: number };
   note?: string;
 }
