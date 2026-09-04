@@ -23,7 +23,7 @@ function formOf(v) {
 }
 function run(argv) {
   if (argv.length < 6) throw new Error("usage: verify-library-output.js fixture.json apple-app-intents.json parameter-encodings.json encoding-table.json encoding-roundtrips.json report.json");
-  loadEngine();
+  loadEngine(); console.log("engine loaded");
   const fixture = readJSON(argv[0]), apple = readJSON(argv[1]).actions, enc = readJSON(argv[2]), table = readJSON(argv[3]), roundtrips = readJSON(argv[4]).results;
   const stateOf = {}; for (const [pc, e] of Object.entries(enc.parameterClasses)) if (typeof e.stateClass === "string") stateOf[pc] = e.stateClass;
   for (const e of Object.values(table.appIntentValueTypes || {})) if (e && typeof e === "object" && e.parameterClass && e.stateClass && !e.parameterClass.startsWith("(")) stateOf[e.parameterClass] = stateOf[e.parameterClass] || e.stateClass;
@@ -32,6 +32,7 @@ function run(argv) {
   for (const p of [klass("WFBundledActionProvider").alloc.init, klass("WFIntentActionProvider").alloc.init]) {
     const all = items(p === undefined ? $([]) : (p.respondsToSelector("createAllAvailableActionsIncludingMissingActions:") ? p.createAllAvailableActionsIncludingMissingActions(true) : p.createAllAvailableActions));
     for (let i = 0; i < count(all); i++) { const a = all.objectAtIndex(i); byId[str(a.identifier)] = a; }
+    console.log(cls(p) + ": " + count(all) + " actions");
   }
   const failures = [], deviceValidated = []; let engineChecked = 0, tableChecked = 0, unverifiable = 0, passed = 0, missingTemplates = 0, rejectedConfirmed = 0;
   // Actions the engine itself creates as missing on this Mac (retired integrations such as CloudApp, Dropbox,
@@ -39,7 +40,7 @@ function run(argv) {
   const missingIds = new Set(Object.keys(byId).filter((id) => byId[id].isMissing));
   let n = 0;
   for (const c of fixture.cases) {
-    n++;
+    n++; if (n % 5000 === 0) console.log(n + " cases");
     const tpl = byId[c.identifier];
     if (tpl && missingIds.has(c.identifier)) { missingTemplates++; continue; }
     if (tpl) {
@@ -70,6 +71,7 @@ function run(argv) {
     }
   }
   // Whole shortcuts through the file loader, as the app imports them.
+  console.log("cases done; loading whole shortcuts");
   const shortcuts = [];
   for (const s of fixture.shortcuts) {
     ObjC.bindFunction("objc_msgSend", ["void *", ["void *", "void *", "void *", "void *", "bool"]]);
