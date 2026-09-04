@@ -109,7 +109,10 @@ whose `string` is one U+FFFC (`data/encoding-table.json`, `variable:MyVar` under
 substitutable state takes the bare attachment.
 
 **Variable picker** parameters (`WFVariablePickerParameter`, e.g. `WFInput` on Repeat with
-Each and on If) wrap an attachment: `{ "Type": "Variable", "Variable": <attachment> }`.
+Each and on If) take either form: the app writes `{ "Type": "Variable", "Variable": <attachment> }`
+into the library, while the engine's own state (`WFVariableParameterState`, `variable:ActionOutput`
+in `data/encoding-table.json`) and Apple's gallery files write the bare attachment. Both load;
+`picker()` produces the first, a bare `ref()` the second.
 
 **Substitutable states** (`WF*SubstitutableState`) accept either the plain value or an
 attachment in the same slot. This is what lets any text, number, or switch be driven by a

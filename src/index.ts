@@ -3,7 +3,7 @@
 import { spawnSync } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { toXmlPlist, type PlistValue } from "./plist.js";
-import { getDefinition } from "./definitions.js";
+import { getDefinition, type ActionDefinition } from "./definitions.js";
 import { ACTIONS, PARAM_KINDS } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
 import type { Attachment, Picker, TokenString, Value } from "./values.js";
@@ -18,6 +18,35 @@ export { provenance, type Provenance } from "./provenance.js";
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
 
 export type Action = { WFWorkflowActionIdentifier: string; WFWorkflowActionParameters: Record<string, Value>; outputName?: string };
+/** What the catalogue knows about an identifier: built-in or App Intent, engine definition or not. */
+export type CatalogEntry = {
+  identifier: string;
+  /** Display name, as the editor shows it. */
+  name: string;
+  /** Parameter keys the action accepts, in the editor's order. */
+  params: readonly string[];
+  /** Value kind per key: bool, number, string, text, picker, plainString, plainNumber, dictionary, quantity, filter, any. */
+  kinds: Record<string, string>;
+  /** Output name, or null when the action produces nothing. */
+  output: string | null;
+  /** Present for App Intents actions; written as the AppIntentDescriptor parameter. */
+  descriptor?: AppIntentDescriptor;
+  /** The engine's definition, for built-ins only. */
+  definition?: ActionDefinition;
+};
+
+/**
+ * Look up any catalogue identifier, built-in or App Intent. getDefinition() only knows built-ins
+ * (App Intents have no engine definition); this covers both with the same shape.
+ */
+export function getAction(identifier: string): CatalogEntry | undefined {
+  const entry = (ACTIONS as Record<string, { name: string; params: readonly string[]; output: string | null; descriptor?: AppIntentDescriptor }>)[identifier];
+  if (!entry) return undefined;
+  const kinds = { ...((PARAM_KINDS as Record<string, Record<string, string>>)[identifier] ?? {}) };
+  const definition = getDefinition(identifier);
+  return { identifier, name: entry.name, params: entry.params, kinds, output: entry.output, ...(entry.descriptor ? { descriptor: entry.descriptor } : {}), ...(definition ? { definition } : {}) };
+}
+
 /** Names the app that provides an App Intents action; written as the AppIntentDescriptor parameter. */
 export type AppIntentDescriptor = { BundleIdentifier: string; Name: string; TeamIdentifier: string; AppIntentIdentifier: string };
 

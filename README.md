@@ -44,8 +44,10 @@ files you are using.
   manage the grouping identifiers for you.
 - **App Intents from installed apps.** Any identifier outside the built-in set is accepted;
   built-in identifiers and their parameter keys are also validated at run time.
-- **Definitions and provenance.** `getDefinition(id)` returns the full record (icon, keywords,
-  parameter classes, required resources); `provenance` says which build produced the data.
+- **Definitions and provenance.** `getAction(id)` describes any identifier, built-in or App
+  Intent: name, parameter keys and kinds, output, descriptor. `getDefinition(id)` returns the
+  engine's full record for a built-in (icon, keywords, parameter classes, required resources);
+  `provenance` says which build produced the data.
 - **Signing.** `Shortcut.sign()` wraps `shortcuts sign` so the output imports on any device.
 
 ## How it compares

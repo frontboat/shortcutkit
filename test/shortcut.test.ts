@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, allDefinitions, ref, text, variable, shortcutInput, CONDITION } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, CONDITION } from "../src/index";
 
 describe("shortcutkit", () => {
   test("validates identifiers and parameter keys against the definitions", () => {
@@ -91,6 +91,21 @@ describe("definitions", () => {
     expect(d.IconSymbol).toBe("cylinder.split.1x2.fill");
     expect(getDefinition("com.example.Nope")).toBeUndefined();
     expect(Object.keys(allDefinitions()).length).toBe(434);
+  });
+});
+
+describe("getAction", () => {
+  test("covers built-ins and App Intents with one shape", () => {
+    const b = getAction(actions.runjavascriptonwebpage)!;
+    expect(b.name).toBe("Run JavaScript on Active Safari Tab");
+    expect(b.kinds.WFJavaScript).toBe("text");
+    expect(b.definition?.Input?.ParameterKey).toBe("WFInput");
+    expect(b.descriptor).toBeUndefined();
+    const a = getAction(actions.safari_create_new_tab)!;
+    expect(a.name).toBe("Create New Tab");
+    expect(a.descriptor?.BundleIdentifier).toBe("com.apple.Safari");
+    expect(a.definition).toBeUndefined();
+    expect(getAction("nope")).toBeUndefined();
   });
 });
 

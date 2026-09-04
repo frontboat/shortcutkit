@@ -283,6 +283,22 @@ class Shortcut:
         return dst
 
 
+def get_action(identifier, definitions=DEFINITIONS):
+    """What the catalogue knows about any identifier, built-in or App Intent, in one shape:
+    name, params, kinds, output, descriptor (App Intents) and definition (built-ins)."""
+    entry = ACTIONS.get(identifier)
+    if entry is None:
+        return None
+    out = {"identifier": identifier, "name": entry["name"], "params": list(entry["params"]),
+           "kinds": dict(PARAM_KINDS.get(identifier, {})), "output": entry.get("output")}
+    if entry.get("descriptor"):
+        out["descriptor"] = entry["descriptor"]
+    defs = json.load(open(definitions)) if definitions and pathlib.Path(definitions).exists() else {}
+    if identifier in defs:
+        out["definition"] = defs[identifier]
+    return out
+
+
 def demo(out):
     out = pathlib.Path(out)
     s = Shortcut(out.stem, color="Teal")
@@ -306,6 +322,6 @@ from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES  # noqa: E402
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
-__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
+__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "get_action", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "0.6.1"
+__version__ = "0.6.2"

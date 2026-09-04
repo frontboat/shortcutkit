@@ -47,6 +47,8 @@ Both live at https://github.com/frontboat/shortcutkit.
   manage the grouping identifiers for you.
 - **App Intents from installed apps.** Any identifier outside the built-in set is accepted and
   its parameters are passed through as given.
+- **Lookup.** `get_action(identifier)` describes any identifier, built-in or App Intent: name,
+  parameter keys and kinds, output, descriptor, and the engine's definition for built-ins.
 - **Reference tables.** `CONDITION` codes, `ICON_COLORS`, `PARAM_CHOICES`, and `PROVENANCE` recording which
   macOS and Shortcuts build the bundled data came from.
 

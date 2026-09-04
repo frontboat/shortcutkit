@@ -6,6 +6,15 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.6.2 (2026-09-04)
+
+- `getAction(identifier)` (Python `get_action`) describes any catalogue identifier, built-in or
+  App Intent, in one shape: name, parameter keys and kinds, output, descriptor, and the engine's
+  definition for built-ins. `getDefinition()` is engine-only and returns nothing for App
+  Intents, which made their names look missing when exploring the catalogue.
+- Format reference: variable-picker parameters take either the wrapped form the app writes or
+  the bare attachment the engine and Apple's gallery write; both load.
+
 ## 0.6.1 (2026-09-04)
 
 - `action()` wraps a bare attachment given for a text parameter (string, URL and date fields)
