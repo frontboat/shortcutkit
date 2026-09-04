@@ -6,6 +6,13 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.7.1 (2026-09-04)
+
+- `Shortcut` takes `types` (Python `types=`), the surfaces a shortcut is offered in:
+  `ActionExtension` for the share sheet, `QuickActions` for the Finder and Services menus,
+  `MenuBar`, `NCWidget`, `WatchKit`, `Sleep`, `ReceivesOnScreenContent`. `WFWorkflowTypes`
+  was always written empty before, so there was no way to make a share-sheet shortcut.
+
 ## 0.7.0 (2026-09-04)
 
 - **A named parameter type for every action**: `ShowresultParams`,

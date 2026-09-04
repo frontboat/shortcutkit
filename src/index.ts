@@ -111,7 +111,16 @@ export function text(...parts: Array<string | number | Attachment>): TokenString
   return { WFSerializationType: "WFTextTokenString", Value: { string, attachmentsByRange } };
 }
 
-export interface ShortcutOptions { color?: IconColor | number; glyph?: number; inputClasses?: string[] }
+/** Where a shortcut is offered beyond the app: `ActionExtension` is the share sheet, `QuickActions` the Finder and Services menus, `MenuBar`, `NCWidget`, `WatchKit`, `Sleep`, `ReceivesOnScreenContent`. */
+export type WorkflowType = "ActionExtension" | "QuickActions" | "MenuBar" | "NCWidget" | "WatchKit" | "Sleep" | "ReceivesOnScreenContent";
+export interface ShortcutOptions {
+  color?: IconColor | number;
+  glyph?: number;
+  /** Content item classes accepted as input (`WFSafariWebPageContentItem`, `WFURLContentItem`, …); what the share sheet offers this shortcut for. */
+  inputClasses?: string[];
+  /** Surfaces the shortcut appears in (`WFWorkflowTypes`); `["ActionExtension"]` puts it in the share sheet. Default none. */
+  types?: WorkflowType[];
+}
 
 export class Shortcut {
   readonly name: string;
@@ -119,12 +128,14 @@ export class Shortcut {
   private readonly color: number;
   private readonly glyph: number;
   private readonly inputClasses: string[];
+  private readonly types: WorkflowType[];
 
   constructor(name: string, options: ShortcutOptions = {}) {
     this.name = name;
     this.color = typeof options.color === "number" ? options.color : ICON_COLORS[options.color ?? "Blue"];
     this.glyph = options.glyph ?? DEFAULT_GLYPH;
     this.inputClasses = options.inputClasses ?? [];
+    this.types = options.types ?? [];
   }
 
   /**
@@ -208,7 +219,7 @@ export class Shortcut {
       WFWorkflowMinimumClientVersion: 900,
       WFWorkflowMinimumClientVersionString: "900",
       WFWorkflowIcon: { WFWorkflowIconStartColor: this.color, WFWorkflowIconGlyphNumber: this.glyph },
-      WFWorkflowTypes: [],
+      WFWorkflowTypes: this.types,
       WFQuickActionSurfaces: [],
       WFWorkflowInputContentItemClasses: this.inputClasses,
       WFWorkflowOutputContentItemClasses: [],

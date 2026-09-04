@@ -94,6 +94,18 @@ describe("definitions", () => {
   });
 });
 
+describe("share sheet shortcuts", () => {
+  test("carry their surfaces and input classes in the envelope", () => {
+    const s = new Shortcut("Page Links", { types: ["ActionExtension"], inputClasses: ["WFSafariWebPageContentItem"] });
+    s.action(actions.runjavascriptonwebpage, { WFInput: shortcutInput(), WFJavaScript: "completion(document.links.length)" });
+    const p = s.toPlist();
+    expect(p.WFWorkflowTypes).toEqual(["ActionExtension"]);
+    expect(p.WFWorkflowInputContentItemClasses).toEqual(["WFSafariWebPageContentItem"]);
+    expect(p.WFWorkflowHasShortcutInputVariables).toBe(true);
+    expect(new Shortcut("Plain").toPlist().WFWorkflowTypes).toEqual([]);
+  });
+});
+
 describe("named parameter types and output types", () => {
   test("every action has a Params alias and output content types", () => {
     const p: ShowresultParams = { Text: text("hi") };

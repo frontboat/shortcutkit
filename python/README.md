@@ -80,7 +80,7 @@ pip install shortcutkit
 ## Usage
 
 ```python
-from shortcutkit import Shortcut, actions, ref, text
+from shortcutkit import Shortcut, actions, ref, text, shortcut_input
 
 s = Shortcut("Greeting", color="Teal")
 got = s.action(actions.GETSTOREDCONTENT, WFStoredContentKey="greeting")
@@ -90,6 +90,17 @@ Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut")   # macOS
 ```
 
 Open the signed file and Shortcuts imports it.
+
+### Share sheet
+
+```python
+s = Shortcut("Page Links", types=["ActionExtension"], input_classes=["WFSafariWebPageContentItem"])
+links = s.action(actions.RUNJAVASCRIPTONWEBPAGE, WFInput=shortcut_input(), WFJavaScript="completion(document.links.length)")
+s.action(actions.SHOWRESULT, Text=text("Links: ", ref(links)))
+```
+
+`types` takes `ActionExtension` (share sheet), `QuickActions` (Finder and Services menus),
+`MenuBar`, `NCWidget`, `WatchKit`, `Sleep` and `ReceivesOnScreenContent`.
 
 ### Control flow
 

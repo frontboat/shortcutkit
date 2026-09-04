@@ -92,7 +92,7 @@ pip install shortcutkit
 ## Usage
 
 ```ts
-import { Shortcut, actions, ref, text } from "shortcutkit";
+import { Shortcut, actions, ref, text, shortcutInput } from "shortcutkit";
 
 const s = new Shortcut("Greeting", { color: "Teal" });
 const got = s.action(actions.getstoredcontent, { WFStoredContentKey: "greeting" });
@@ -102,6 +102,20 @@ Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut");
 ```
 
 Open the signed file and Shortcuts imports it.
+
+### Share sheet
+
+A shortcut offered from the share sheet declares its surfaces and the input it accepts, and
+reads that input with `shortcutInput()`:
+
+```ts
+const s = new Shortcut("Page Links", { types: ["ActionExtension"], inputClasses: ["WFSafariWebPageContentItem"] });
+const links = s.action(actions.runjavascriptonwebpage, { WFInput: shortcutInput(), WFJavaScript: "completion(document.links.length)" });
+s.action(actions.showresult, { Text: text("Links: ", ref(links)) });
+```
+
+`types` takes `ActionExtension` (share sheet), `QuickActions` (Finder and Services menus),
+`MenuBar`, `NCWidget`, `WatchKit`, `Sleep` and `ReceivesOnScreenContent`.
 
 ### Control flow
 

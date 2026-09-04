@@ -149,11 +149,15 @@ def text(*parts):
 
 
 class Shortcut:
-    def __init__(self, name, color="Blue", glyph=DEFAULT_GLYPH, input_classes=None, definitions=DEFINITIONS):
+    def __init__(self, name, color="Blue", glyph=DEFAULT_GLYPH, input_classes=None, types=None, definitions=DEFINITIONS):
+        """types: surfaces the shortcut appears in (WFWorkflowTypes): "ActionExtension" is the share
+        sheet, "QuickActions" the Finder and Services menus, also "MenuBar", "NCWidget", "WatchKit",
+        "Sleep", "ReceivesOnScreenContent". input_classes: content item classes accepted as input."""
         self.name = name
         self.color = ICON_COLORS[color] if isinstance(color, str) else color
         self.glyph = glyph
         self.input_classes = input_classes or []
+        self.types = list(types or [])
         self.actions = []
         self.defs = json.load(open(definitions)) if pathlib.Path(definitions).exists() else {}
 
@@ -259,7 +263,7 @@ class Shortcut:
             "WFWorkflowMinimumClientVersion": 900,
             "WFWorkflowMinimumClientVersionString": "900",
             "WFWorkflowIcon": {"WFWorkflowIconStartColor": self.color, "WFWorkflowIconGlyphNumber": self.glyph},
-            "WFWorkflowTypes": [],
+            "WFWorkflowTypes": self.types,
             "WFQuickActionSurfaces": [],
             "WFWorkflowInputContentItemClasses": self.input_classes,
             "WFWorkflowOutputContentItemClasses": [],
@@ -325,4 +329,4 @@ PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "get_action", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "0.7.0"
+__version__ = "0.7.1"
