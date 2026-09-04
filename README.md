@@ -7,13 +7,21 @@ Build, validate and sign Apple Shortcuts (`.shortcut`) files from TypeScript or 
 
 ## About
 
-Shortcuts has no public file-format specification and no public list of what its actions
-accept. shortcutkit fills that gap by extracting the action definitions and value encodings
-from WorkflowKit, the engine inside the Shortcuts app, and generating a typed catalogue from
-them. Every one of the 339 built-in actions is available with its parameter keys and value
-shapes checked at compile time in TypeScript, or at run time in Python. Nothing was
-transcribed by hand, and `data/provenance.json` records exactly which macOS and Shortcuts build
-the data came from.
+Apple has never documented the `.shortcut` format or what its actions accept. shortcutkit
+does not guess at either. The tools in this repository load WorkflowKit, the private framework
+behind the Shortcuts app, and ask its own classes to describe and serialize every built-in
+action. Every action identifier, parameter key, value encoding, icon colour, and even the
+UTF-16 offset rule for embedded references came out of the engine, not from a person reading
+files. The package cannot disagree with the app.
+
+That turns an undocumented format into a typed one. In TypeScript, a wrong parameter key or a
+string where a boolean belongs is a compile error. In Python the same checks run when you call
+`action()`. A file built from plain code signs, imports and runs.
+
+The data stays current the same way it was made. After a macOS update, one command re-extracts
+everything in about a minute and prints a diff of what Apple changed, along with the semver
+bump it deserves. `data/provenance.json` records which macOS and Shortcuts build produced the
+files you are using.
 
 ## Features
 

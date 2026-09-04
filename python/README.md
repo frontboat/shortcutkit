@@ -7,12 +7,21 @@ Build, validate and sign Apple Shortcuts (`.shortcut`) files from Python.
 
 ## About
 
-Shortcuts has no public file-format specification and no public list of what its actions
-accept. shortcutkit fills that gap with data extracted from WorkflowKit, the engine inside the
-Shortcuts app: every one of the 339 built-in actions is bundled with its identifier, parameter
-keys and the value kind each key accepts, and `action()` checks your parameters against them
-before anything is written. Pure Python, no dependencies. Signing shells out to the macOS
-`shortcuts` command; everything else runs anywhere.
+Apple has never documented the `.shortcut` format or what its actions accept. shortcutkit
+does not guess at either. Its data was produced by loading WorkflowKit, the private framework
+behind the Shortcuts app, and asking its own classes to describe and serialize every built-in
+action. Every identifier, parameter key and value encoding came out of the engine, not from a
+person reading files, so the package cannot disagree with the app.
+
+All 339 built-in actions are bundled with the value kind each parameter accepts, and
+`action()` checks your call against them before anything is written. A wrong key or a string
+where a boolean belongs raises `ValueError`. A file built from plain code signs, imports and
+runs. Pure Python, no dependencies. Signing shells out to the macOS `shortcuts` command;
+everything else runs anywhere.
+
+The data regenerates in about a minute after any macOS update, with a diff of what Apple
+changed and the semver bump it deserves. `PROVENANCE` records which macOS and Shortcuts build
+produced the bundled files.
 
 A TypeScript package of the same name shares the same data and adds compile-time checking.
 Both live at https://github.com/frontboat/shortcutkit.
