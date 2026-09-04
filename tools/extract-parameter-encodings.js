@@ -29,7 +29,7 @@ function run(argv) {
     if (isSystemBundle(isNil(bundle) ? null : str(bundle))) actions.push(a);
   }
   actions.sort((a, b) => str(a.identifier).localeCompare(str(b.identifier)));
-  const byParamClass = {}, actionParameters = {}, actionOutputNames = {};
+  const byParamClass = {}, actionParameters = {}, actionOutputNames = {}, actionDefaults = {};
   let created = 0, params = 0, failed = 0;
   for (const action of actions) {
     const ident = str(action.identifier);
@@ -47,6 +47,7 @@ function run(argv) {
       if (!key.isNil() && isA(key, "NSString")) keys.push({ key: str(key), class: pc });
       let sc = null, dflt = null;
       try { sc = str($.NSStringFromClass(p.singleStateClass)); dflt = p.defaultSerializedRepresentation; } catch (e) { /* container parameter without a value state */ }
+      if (!isNil(dflt) && !isNil(key) && isA(key, "NSString")) (actionDefaults[ident] = actionDefaults[ident] || {})[str(key)] = plain(dflt, 0);
       const entry = byParamClass[pc] || (byParamClass[pc] = { defaultExamples: [], count: 0, usedBy: [] });
       entry.stateClass = sc;
       const pd = plain(dflt, 0);
@@ -64,5 +65,5 @@ function run(argv) {
     if (typeof scn !== "string" || stateClassSelectors[scn] || !hasClass(scn)) continue;
     stateClassSelectors[scn] = methodNames(scn).filter((s) => s.includes("erializ") || s.includes("init"));
   }
-  writeJSON(argv[0], { parameterClasses: byParamClass, stateClassSelectors, actionParameters, actionOutputNames });
+  writeJSON(argv[0], { parameterClasses: byParamClass, stateClassSelectors, actionParameters, actionOutputNames, actionDefaults });
 }

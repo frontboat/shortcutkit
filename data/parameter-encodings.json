@@ -1,4 +1,1525 @@
 {
+  "actionDefaults" : {
+    "com.apple.facetime.facetime" : {
+      "IntentAppDefinition" : {
+        "BundleIdentifier" : "com.apple.TelephonyUtilities.PhoneIntentHandler"
+      },
+      "WFFaceTimeType" : "Video"
+    },
+    "com.apple.mobilephone.call" : {
+      "IntentAppDefinition" : {
+        "BundleIdentifier" : "com.apple.TelephonyUtilities.PhoneIntentHandler"
+      }
+    },
+    "com.apple.musicrecognition.RecognizeMusicIntent" : {
+      "WFShazamMediaActionErrorIfNotRecognized" : true,
+      "WFShazamMediaActionShowWhenRun" : true
+    },
+    "com.apple.NanoSettings.NPRFPingMyPhoneIntent" : {
+      "ShowWhenRun" : true,
+      "state" : "off"
+    },
+    "com.apple.NanoSettings.NPRFSetAlwaysOnIntent" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "state" : "on"
+    },
+    "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "state" : "on"
+    },
+    "com.apple.NanoSettings.NPRFSetFlashLightIntent" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "state" : "on"
+    },
+    "com.apple.NanoSettings.NPRFSetSchoolTimeIntent" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "state" : "on"
+    },
+    "com.apple.NanoSettings.NPRFSetSilentModeIntent" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "state" : "on"
+    },
+    "com.apple.NanoSettings.NPRFSetTheaterModeIntent" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "state" : "on"
+    },
+    "com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "state" : "on"
+    },
+    "com.apple.NanoSettings.NPRFSetWaterLockIntent" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "state" : "on"
+    },
+    "com.apple.news.TagIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.news.TodayIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.Notes.ICNotesFolderIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.LaunchApplicationIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.LaunchRemoteIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.LaunchScreenSaverIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.PauseContentIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.SkipContentIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.SleepAppleTVIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.SwitchUserAccountIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.ToggleCaptionsIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.TVRemoteUIService.WakeAppleTVIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent" : {
+      "backgroundSound" : "BalancedNoise",
+      "ShowWhenRun" : true
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent" : {
+      "always" : false,
+      "duration" : {
+        "Value" : {
+          "Magnitude" : "15",
+          "Unit" : "min"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      },
+      "interval" : "duration",
+      "ShowWhenRun" : true
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent" : {
+      "ShowWhenRun" : true,
+      "volumeValue" : 10
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 0
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent" : {
+      "operation" : "turn",
+      "ShowWhenRun" : true,
+      "state" : 1
+    },
+    "com.apple.weather.WeatherIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.panic.iOS.Transmit.Share" : {
+      "TransmitSaveTo" : "Remote"
+    },
+    "is.workflow.actions.addframetogif" : {
+      "WFGIFAutoSize" : true,
+      "WFGIFDelayTime" : 0.25
+    },
+    "is.workflow.actions.additemtolist" : {
+      "WFInsertPosition" : "End"
+    },
+    "is.workflow.actions.addmusictoupnext" : {
+      "WFWhenToPlay" : "Next"
+    },
+    "is.workflow.actions.addnewcontact" : {
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.addnewevent" : {
+      "ShowWhenRun" : true,
+      "WFCalendarItemAllDay" : false
+    },
+    "is.workflow.actions.addnewreminder" : {
+      "WFAlertCondition" : "At Time",
+      "WFAlertEnabled" : "No Alert",
+      "WFAlertLocationRadius" : {
+        "Value" : {
+          "Magnitude" : "1000",
+          "Unit" : "ft"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      },
+      "WFPriority" : "None"
+    },
+    "is.workflow.actions.address" : {
+      "WFCountry" : "United States"
+    },
+    "is.workflow.actions.addtoplaylist" : {
+      "WFPlaylistName" : {
+        "EntireMusicLibrary" : true
+      }
+    },
+    "is.workflow.actions.adjustdate" : {
+      "WFAdjustOperation" : "Add",
+      "WFDuration" : {
+        "Value" : {
+          "Unit" : "sec"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      }
+    },
+    "is.workflow.actions.airplanemode.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.alert" : {
+      "WFAlertActionCancelButtonShown" : true,
+      "WFAlertActionMessage" : "Do you want to continue?"
+    },
+    "is.workflow.actions.announcenotifications.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.appearance" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "style" : "dark"
+    },
+    "is.workflow.actions.ask" : {
+      "ShowWhenRun" : true,
+      "WFAllowsMultilineText" : true,
+      "WFAskActionAllowsDecimalNumbers" : true,
+      "WFAskActionAllowsNegativeNumbers" : true,
+      "WFInputType" : "Text"
+    },
+    "is.workflow.actions.askllm" : {
+      "FollowUp" : false,
+      "WFAllowWebSearch" : false,
+      "WFGenerativeResultType" : "Automatic",
+      "WFLLMModel" : "Apple Intelligence"
+    },
+    "is.workflow.actions.base64encode" : {
+      "WFBase64LineBreakMode" : "Every 76 Characters",
+      "WFEncodeMode" : "Encode"
+    },
+    "is.workflow.actions.bluetooth.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.cellulardata.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.choosefromlist" : {
+      "WFChooseFromListActionPrompt" : "",
+      "WFChooseFromListActionSelectAll" : false,
+      "WFChooseFromListActionSelectMultiple" : false
+    },
+    "is.workflow.actions.cloudapp.upload" : {
+      "WFCloudAppPrivacyType" : "Private"
+    },
+    "is.workflow.actions.conditional" : {
+      "WFConditions" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      }
+    },
+    "is.workflow.actions.correctspelling" : {
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.count" : {
+      "WFCountType" : "Items"
+    },
+    "is.workflow.actions.date" : {
+      "WFDateActionMode" : "Current Date",
+      "WFEventOccurrenceMode" : "Next Occurrence"
+    },
+    "is.workflow.actions.delay" : {
+      "WFDelayTime" : 1
+    },
+    "is.workflow.actions.deletestoredcontent" : {
+      "WFStoredContentGlobalValue" : false
+    },
+    "is.workflow.actions.dictatetext" : {
+      "WFDictateTextStopListening" : "After Pause",
+      "WFSpeechLanguage" : "en-US"
+    },
+    "is.workflow.actions.display.always-on.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.dnd.set" : {
+      "AssertionType" : "Turned Off",
+      "Enabled" : false,
+      "Operation" : "Turn"
+    },
+    "is.workflow.actions.documentpicker.open" : {
+      "WFFile" : {
+        "displayName" : "Shortcuts",
+        "fileLocation" : {
+          "relativeSubpath" : "",
+          "WFFileLocationType" : "Shortcuts"
+        },
+        "filename" : "Documents"
+      },
+      "WFFileErrorIfNotFound" : true,
+      "WFGetFolderContents" : false
+    },
+    "is.workflow.actions.documentpicker.save" : {
+      "WFAskWhereToSave" : true,
+      "WFFolder" : {
+        "displayName" : "Shortcuts",
+        "fileLocation" : {
+          "relativeSubpath" : "",
+          "WFFileLocationType" : "Shortcuts"
+        },
+        "filename" : "Documents"
+      },
+      "WFSaveFileOverwrite" : false
+    },
+    "is.workflow.actions.downloadurl" : {
+      "WFHTTPBodyType" : "JSON",
+      "WFHTTPMethod" : "GET"
+    },
+    "is.workflow.actions.dropbox.appendfile" : {
+      "WFAppendFileWriteMode" : "Append",
+      "WFAppendOnNewLine" : true
+    },
+    "is.workflow.actions.dropbox.open" : {
+      "SelectMultiple" : false,
+      "WFFileErrorIfNotFound" : true,
+      "WFShowFilePicker" : true
+    },
+    "is.workflow.actions.dropbox.savefile" : {
+      "WFAskWhereToSave" : true
+    },
+    "is.workflow.actions.encodemedia" : {
+      "WFMediaAudioFormat" : "M4A",
+      "WFMediaAudioOnly" : false,
+      "WFMediaPreserveTransparency" : false,
+      "WFMediaSize" : "Passthrough",
+      "WFMediaSpeed" : "Normal"
+    },
+    "is.workflow.actions.evernote.append" : {
+      "WFEvernoteWriteMode" : "Append"
+    },
+    "is.workflow.actions.evernote.get" : {
+      "WFEvernoteNotesCount" : 1
+    },
+    "is.workflow.actions.evernote.getlink" : {
+      "WFEvernoteShareInAppLink" : false
+    },
+    "is.workflow.actions.file.append" : {
+      "WFAppendFileWriteMode" : "Append",
+      "WFAppendOnNewLine" : true,
+      "WFFile" : {
+        "displayName" : "Shortcuts",
+        "fileLocation" : {
+          "relativeSubpath" : "",
+          "WFFileLocationType" : "Shortcuts"
+        },
+        "filename" : "Documents"
+      }
+    },
+    "is.workflow.actions.file.createfolder" : {
+      "WFFolder" : {
+        "displayName" : "Shortcuts",
+        "fileLocation" : {
+          "relativeSubpath" : "",
+          "WFFileLocationType" : "Shortcuts"
+        },
+        "filename" : "Documents"
+      }
+    },
+    "is.workflow.actions.file.delete" : {
+      "WFDeleteImmediatelyDelete" : false
+    },
+    "is.workflow.actions.file.getfoldercontents" : {
+      "Recursive" : false
+    },
+    "is.workflow.actions.file.move" : {
+      "WFFolder" : {
+        "displayName" : "Shortcuts",
+        "fileLocation" : {
+          "relativeSubpath" : "",
+          "WFFileLocationType" : "Shortcuts"
+        },
+        "filename" : "Documents"
+      },
+      "WFReplaceExisting" : false
+    },
+    "is.workflow.actions.file.select" : {
+      "SelectMultiple" : false,
+      "WFPickingMode" : "Files"
+    },
+    "is.workflow.actions.filter.apps" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemInputParameter" : "Library",
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.articles" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.calendarevents" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+            {
+              "Bounded" : true,
+              "Operator" : 1000,
+              "Property" : "Start Date",
+              "Removable" : false,
+              "Values" : {
+                "Number" : "7",
+                "Unit" : 16
+              }
+            }
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemInputParameter" : "Library",
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.contacts" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemInputParameter" : "Library",
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.displays" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemInputParameter" : "Library",
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.eventattendees" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.files" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.images" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.locations" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.music" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemInputParameter" : "Library",
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.photos" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemInputParameter" : "Library",
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.reminders" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemInputParameter" : "Library",
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.vpns" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemInputParameter" : "Library",
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.filter.windows" : {
+      "WFCompoundType" : "0",
+      "WFContentItemFilter" : {
+        "Value" : {
+          "WFActionParameterFilterPrefix" : 1,
+          "WFActionParameterFilterTemplates" : [
+
+          ],
+          "WFContentPredicateBoundedDate" : false
+        },
+        "WFSerializationType" : "WFContentPredicateTableTemplate"
+      },
+      "WFContentItemInputParameter" : "Library",
+      "WFContentItemLimitEnabled" : false,
+      "WFContentItemLimitNumber" : 5
+    },
+    "is.workflow.actions.flashlight" : {
+      "operation" : "set",
+      "ShowWhenRun" : true,
+      "state" : true,
+      "WFFlashlightLevel" : 0.5
+    },
+    "is.workflow.actions.format.date" : {
+      "WFDateFormat" : "EEE, dd MMM yyyy HH:mm:ss Z",
+      "WFDateFormatStyle" : "Short",
+      "WFRelativeDateFormatStyle" : "Medium",
+      "WFTimeFormatStyle" : "Short"
+    },
+    "is.workflow.actions.format.filesize" : {
+      "WFFileSizeFormat" : "Automatic",
+      "WFFileSizeIncludeUnits" : true
+    },
+    "is.workflow.actions.format.number" : {
+      "WFNumberFormatDecimalPlaces" : 2
+    },
+    "is.workflow.actions.generatebarcode" : {
+      "WFQRBackgroundColor" : {
+        "alphaComponent" : 1,
+        "blueComponent" : 1,
+        "greenComponent" : 1,
+        "redComponent" : 1,
+        "WFColorRepresentationType" : "WFColorRepresentationTypeCGColor"
+      },
+      "WFQRErrorCorrectionLevel" : "Medium",
+      "WFQRForegroundColor" : {
+        "alphaComponent" : 1,
+        "blueComponent" : 0,
+        "greenComponent" : 0,
+        "redComponent" : 0,
+        "WFColorRepresentationType" : "WFColorRepresentationTypeCGColor"
+      },
+      "WFQRRounded" : false
+    },
+    "is.workflow.actions.getbatterylevel" : {
+      "Subject" : "Battery Level"
+    },
+    "is.workflow.actions.getcurrentapp" : {
+      "WFVisibleAppScope" : "Current"
+    },
+    "is.workflow.actions.getcurrentlocation" : {
+      "Accuracy" : "HundredMeters"
+    },
+    "is.workflow.actions.getcurrentsong" : {
+      "Subject" : "Current Song"
+    },
+    "is.workflow.actions.getdevicedetails" : {
+      "WFDeviceDetail" : "Device Name"
+    },
+    "is.workflow.actions.getdirections" : {
+      "WFGetDirectionsActionApp" : "Maps",
+      "WFGetDirectionsActionMode" : "Driving",
+      "WFLocation" : {
+        "isCurrentLocation" : true
+      }
+    },
+    "is.workflow.actions.getdistance" : {
+      "Accuracy" : "HundredMeters",
+      "WFAvoidHighways" : false,
+      "WFAvoidTolls" : false,
+      "WFDistanceUnit" : "Miles",
+      "WFGetDirectionsActionMode" : "Direct",
+      "WFGetDirectionsCustomLocation" : {
+        "isCurrentLocation" : true
+      }
+    },
+    "is.workflow.actions.getipaddress" : {
+      "WFIPAddressSourceOption" : "External",
+      "WFIPAddressTypeOption" : "IPv4"
+    },
+    "is.workflow.actions.getitemfromlist" : {
+      "WFItemSpecifier" : "First Item"
+    },
+    "is.workflow.actions.getitemname" : {
+      "GetWebPageTitle" : true
+    },
+    "is.workflow.actions.getlastphoto" : {
+      "WFGetLatestPhotoCount" : 1,
+      "WFGetLatestPhotosActionIncludeScreenshots" : true
+    },
+    "is.workflow.actions.getlastscreenshot" : {
+      "WFGetLatestPhotoCount" : 1
+    },
+    "is.workflow.actions.getlastvideo" : {
+      "WFGetLatestPhotoCount" : 1
+    },
+    "is.workflow.actions.getlatestbursts" : {
+      "WFGetLatestPhotoCount" : 1
+    },
+    "is.workflow.actions.getlatestlivephotos" : {
+      "WFGetLatestPhotoCount" : 1
+    },
+    "is.workflow.actions.getmyworkflows" : {
+      "Folder" : {
+        "DisplayString" : "All Shortcuts",
+        "Identifier" : "AllShortcuts"
+      }
+    },
+    "is.workflow.actions.getonscreencontext" : {
+      "WFOnScreenContextLimit" : 5,
+      "WFOnScreenContextLimitEnabled" : false,
+      "WFOnScreenContextResultType" : "Images",
+      "WFOnScreenContextScope" : "All Visible"
+    },
+    "is.workflow.actions.getstoredcontent" : {
+      "WFStoredContentGlobalValue" : false
+    },
+    "is.workflow.actions.gettext" : {
+      "WFTextActionText" : ""
+    },
+    "is.workflow.actions.gettextfrompdf" : {
+      "WFCombinePages" : true,
+      "WFGetTextFromPDFTextType" : "Text"
+    },
+    "is.workflow.actions.gettimebetweendates" : {
+      "WFTimeUntilUnit" : "Minutes"
+    },
+    "is.workflow.actions.gettraveltime" : {
+      "WFAvoidHighways" : false,
+      "WFAvoidTolls" : false,
+      "WFGetDirectionsActionMode" : "Driving",
+      "WFGetDirectionsCustomLocation" : {
+        "isCurrentLocation" : true
+      }
+    },
+    "is.workflow.actions.gettypeaction" : {
+      "WFFileType" : "public.rtf"
+    },
+    "is.workflow.actions.getupcomingevents" : {
+      "WFDateSpecifier" : "Any Day",
+      "WFGetUpcomingItemCount" : 1
+    },
+    "is.workflow.actions.getupcomingreminders" : {
+      "WFGetUpcomingItemCount" : 1
+    },
+    "is.workflow.actions.geturlcomponent" : {
+      "WFURLComponent" : "Scheme"
+    },
+    "is.workflow.actions.getvalueforkey" : {
+      "WFGetDictionaryValueType" : "Value"
+    },
+    "is.workflow.actions.getwifi" : {
+      "WFCellularDetail" : "Carrier Name",
+      "WFEthernetDetail" : "Interface Name",
+      "WFNetworkDetailsNetwork" : "Wi-Fi",
+      "WFWiFiDetail" : "Network Name"
+    },
+    "is.workflow.actions.giphy" : {
+      "WFGiphyLimit" : 1,
+      "WFGiphyShowPicker" : true
+    },
+    "is.workflow.actions.hash" : {
+      "WFHashType" : "MD5"
+    },
+    "is.workflow.actions.health.workout.log" : {
+      "WFWorkoutDuration" : {
+        "Value" : {
+          "Unit" : "min"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      }
+    },
+    "is.workflow.actions.hide.app" : {
+      "WFHideAppMode" : "App"
+    },
+    "is.workflow.actions.image.combine" : {
+      "WFImageCombineMode" : "Horizontally",
+      "WFImageCombineSpacing" : 0
+    },
+    "is.workflow.actions.image.convert" : {
+      "WFImageCompressionQuality" : 0.75,
+      "WFImageFormat" : "JPEG",
+      "WFImagePreserveMetadata" : true
+    },
+    "is.workflow.actions.image.convert.finder" : {
+      "WFFileFormat" : "JPEG",
+      "WFSize" : "Small"
+    },
+    "is.workflow.actions.image.crop" : {
+      "WFImageCropHeight" : 100,
+      "WFImageCropPosition" : "Center",
+      "WFImageCropWidth" : 100
+    },
+    "is.workflow.actions.image.flip" : {
+      "WFImageFlipDirection" : "Horizontal"
+    },
+    "is.workflow.actions.image.mask" : {
+      "WFMaskType" : "Rounded Rectangle"
+    },
+    "is.workflow.actions.image.resize" : {
+      "WFImageResizeKey" : "Size",
+      "WFImageResizeWidth" : 640
+    },
+    "is.workflow.actions.image.rotate" : {
+      "WFImageRotateAmount" : 90
+    },
+    "is.workflow.actions.imgur.upload" : {
+      "WFImgurAlbum" : false,
+      "WFImgurAlbumLayout" : "Blog",
+      "WFImgurAlbumPrivacy" : "Hidden",
+      "WFImgurAnonymous" : true
+    },
+    "is.workflow.actions.importaudiofiles" : {
+      "WFImportAudioFilesEncoder" : "Default",
+      "WFImportAudioFilesReencode" : false
+    },
+    "is.workflow.actions.input" : {
+      "SelectMultiple" : false,
+      "WFAskForType" : "Photos",
+      "WFDateActionMode" : "Current Date",
+      "WFEventOccurrenceMode" : "Next Occurrence",
+      "WFInputSurface" : "",
+      "WFNoInputBehavior" : "Stop and Respond",
+      "WFPhotoPickerTypes" : [
+        "Images",
+        "Live Photos",
+        "Videos"
+      ],
+      "WFPickingMode" : "Files",
+      "WFSelectMultiplePhotos" : false
+    },
+    "is.workflow.actions.instapaper.get" : {
+      "WFBookmarkCount" : 5
+    },
+    "is.workflow.actions.lightroom.import" : {
+      "applyPreset" : false,
+      "presetGroup" : "Color"
+    },
+    "is.workflow.actions.lock.app" : {
+      "WFLockAppOperation" : "Lock"
+    },
+    "is.workflow.actions.lowpowermode.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.makediskimage" : {
+      "ImageSize" : {
+        "Value" : {
+          "Magnitude" : "1",
+          "Unit" : "GB"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      },
+      "SizeToFit" : false
+    },
+    "is.workflow.actions.makegif" : {
+      "WFMakeGIFActionAutoSize" : true,
+      "WFMakeGIFActionDelayTime" : 0.20000000000000001,
+      "WFMakeGIFActionLoopCount" : 1,
+      "WFMakeGIFActionLoopEnabled" : true
+    },
+    "is.workflow.actions.makeimagefrompdfpage" : {
+      "WFMakeImageFromPDFPageColorspace" : "RGB",
+      "WFMakeImageFromPDFPageImageFormat" : "public.png",
+      "WFMakeImageFromPDFPageResolution" : 300
+    },
+    "is.workflow.actions.makeimagefromrichtext" : {
+      "WFHeight" : 768,
+      "WFWidth" : 1024
+    },
+    "is.workflow.actions.makepdf" : {
+      "WFPDFDocumentMergeBehavior" : "Append",
+      "WFPDFIncludedPages" : "All Pages",
+      "WFPDFIncludeMargin" : false
+    },
+    "is.workflow.actions.makespokenaudiofromtext" : {
+      "WFSpeakTextPitch" : 1,
+      "WFSpeakTextRate" : 0.5
+    },
+    "is.workflow.actions.makevideofromgif" : {
+      "WFMakeVideoFromGIFActionLoopCount" : 1
+    },
+    "is.workflow.actions.makezip" : {
+      "WFArchiveFormat" : "zip"
+    },
+    "is.workflow.actions.math" : {
+      "WFMathOperation" : "+"
+    },
+    "is.workflow.actions.measurement.convert" : {
+      "WFMeasurementUnit" : {
+        "WFNSUnitSymbol" : "ft",
+        "WFNSUnitType" : "Length"
+      },
+      "WFMeasurementUnitType" : "Length"
+    },
+    "is.workflow.actions.measurement.create" : {
+      "WFMeasurementUnit" : {
+        "Value" : {
+          "Unit" : "ft"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      },
+      "WFMeasurementUnitType" : "Length"
+    },
+    "is.workflow.actions.movewindow" : {
+      "WFBringToFront" : true,
+      "WFPosition" : "Center"
+    },
+    "is.workflow.actions.nightshift.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.notification" : {
+      "WFNotificationActionSound" : true
+    },
+    "is.workflow.actions.openapp" : {
+      "WFWindowingFormat" : "Full Screen"
+    },
+    "is.workflow.actions.openin" : {
+      "WFOpenInAskWhenRun" : false
+    },
+    "is.workflow.actions.openxcallbackurl" : {
+      "WFXCallbackCustomSuccessKey" : "x-success",
+      "WFXCallbackCustomSuccessURL" : "shortcuts:\/\/callback"
+    },
+    "is.workflow.actions.orientationlock.set" : {
+      "OnValue" : true,
+      "operation" : "toggle",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.output" : {
+      "WFNoOutputSurfaceBehavior" : "Do Nothing",
+      "WFOutput" : "",
+      "WFResponse" : ""
+    },
+    "is.workflow.actions.overlayimageonimage" : {
+      "WFImagePosition" : "Center",
+      "WFOverlayImageOpacity" : 100,
+      "WFRotation" : 0,
+      "WFShouldShowImageEditor" : true
+    },
+    "is.workflow.actions.overlaytext" : {
+      "WFFontSize" : 36,
+      "WFPercentageFontSize" : 0.10000000000000001,
+      "WFPercentageTextBoxWidth" : 0.80000000000000004,
+      "WFPercentageTextOffset" : 0.10000000000000001,
+      "WFPercentageTextStrokeWidth" : 0.10000000000000001,
+      "WFPercentageTextX" : 0,
+      "WFPercentageTextY" : 0,
+      "WFSizingMethod" : "Proportional",
+      "WFTextAlignment" : "Center",
+      "WFTextColor" : {
+        "WFColorRepresentationType" : "WFColorRepresentationTypeSystem",
+        "WFSystemColor" : "WFSystemColorBlack"
+      },
+      "WFTextOffset" : 0,
+      "WFTextOutlineEnabled" : false,
+      "WFTextPosition" : "Center",
+      "WFTextRotation" : 0,
+      "WFTextStrokeColor" : {
+        "WFColorRepresentationType" : "WFColorRepresentationTypeSystem",
+        "WFSystemColor" : "WFSystemColorBlack"
+      },
+      "WFTextStrokeWidth" : 0
+    },
+    "is.workflow.actions.pausemusic" : {
+      "WFMediaRoute" : {
+        "isLocalDevice" : true,
+        "routeUID" : "Speaker"
+      },
+      "WFPlayPauseBehavior" : "Play\/Pause"
+    },
+    "is.workflow.actions.personalhotspot.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.pinboard.add" : {
+      "WFPinPublic" : true,
+      "WFPinUnread" : true
+    },
+    "is.workflow.actions.pinboard.get" : {
+      "WFBookmarkCount" : 5
+    },
+    "is.workflow.actions.pocket.get" : {
+      "WFPocketItemCount" : 1,
+      "WFPocketItemState" : "All"
+    },
+    "is.workflow.actions.posters.get" : {
+      "WFPosterType" : "All"
+    },
+    "is.workflow.actions.properties.music" : {
+      "WFContentItemPropertyName" : "Artist"
+    },
+    "is.workflow.actions.properties.reminders" : {
+      "WFContentItemPropertyName" : "List"
+    },
+    "is.workflow.actions.quit.app" : {
+      "WFAskToSaveChanges" : true,
+      "WFQuitAppMode" : "App"
+    },
+    "is.workflow.actions.reboot" : {
+      "WFShutdownMode" : "Shut Down"
+    },
+    "is.workflow.actions.recordaudio" : {
+      "WFRecordingCompression" : "Normal",
+      "WFRecordingEnd" : "On Tap",
+      "WFRecordingStart" : "On Tap",
+      "WFRecordingTimeInterval" : {
+        "Value" : {
+          "Unit" : "min"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      }
+    },
+    "is.workflow.actions.removeevents" : {
+      "WFCalendarIncludeFutureEvents" : false
+    },
+    "is.workflow.actions.repeat.count" : {
+      "WFRepeatCount" : 1
+    },
+    "is.workflow.actions.resizewindow" : {
+      "WFBringToFront" : true,
+      "WFConfiguration" : "Fit Screen"
+    },
+    "is.workflow.actions.ride.requestride" : {
+      "PartySize" : 1,
+      "PickupLocation" : {
+        "isCurrentLocation" : true
+      }
+    },
+    "is.workflow.actions.round" : {
+      "TenToThePowerOf" : 0,
+      "WFRoundMode" : "Normal",
+      "WFRoundTo" : "Ones Place"
+    },
+    "is.workflow.actions.rss" : {
+      "WFRSSFeedURL" : "https:\/\/www.apple.com\/newsroom\/rss-feed.rss",
+      "WFRSSItemQuantity" : 10
+    },
+    "is.workflow.actions.runapplescript" : {
+      "Script" : "on run {input, parameters}\n    (* Your script goes here *)\n    return input\nend run"
+    },
+    "is.workflow.actions.runjavascriptforautomation" : {
+      "Script" : "function run(input, parameters) {\n    \/\/ Your script goes here\n    return input;\n}"
+    },
+    "is.workflow.actions.runjavascriptonwebpage" : {
+      "WFJavaScript" : "var result = [];\n\/\/ Get all links from the page\nvar elements = document.querySelectorAll(\"a\");\nfor (let element of elements) {\n    result.push({\n        \"url\": element.href,\n        \"text\": element.innerText\n    });\n}\n\n\/\/ Call completion to finish\ncompletion(result);"
+    },
+    "is.workflow.actions.runshellscript" : {
+      "InputMode" : "to stdin",
+      "RunAsRoot" : false,
+      "Shell" : "\/bin\/zsh"
+    },
+    "is.workflow.actions.runsshscript" : {
+      "WFSSHAuthenticationType" : "Password",
+      "WFSSHKey" : {
+
+      },
+      "WFSSHPort" : "22"
+    },
+    "is.workflow.actions.searchappstore" : {
+      "WFAttribute" : "All",
+      "WFCountry" : "United States",
+      "WFEntity" : "iPhone",
+      "WFItemLimit" : 25
+    },
+    "is.workflow.actions.searchitunes" : {
+      "WFAttribute" : "All",
+      "WFCountry" : "United States",
+      "WFEntity" : "Songs",
+      "WFItemLimit" : 25,
+      "WFMediaType" : "Music"
+    },
+    "is.workflow.actions.searchlocalbusinesses" : {
+      "WFInput" : {
+        "isCurrentLocation" : true
+      },
+      "WFSearchRadius" : {
+        "Value" : {
+          "Magnitude" : "1",
+          "Unit" : "mi"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      },
+      "WFSearchSortOrder" : "Relevance"
+    },
+    "is.workflow.actions.searchmaps" : {
+      "WFSearchMapsActionApp" : "Maps"
+    },
+    "is.workflow.actions.searchpodcasts" : {
+      "WFAttribute" : "All",
+      "WFCountry" : "United States",
+      "WFEntity" : "Podcasts",
+      "WFItemLimit" : 25
+    },
+    "is.workflow.actions.searchweb" : {
+      "WFSearchWebDestination" : "Google"
+    },
+    "is.workflow.actions.seek" : {
+      "WFMediaRoute" : {
+        "isLocalDevice" : true,
+        "routeUID" : "Speaker"
+      },
+      "WFSeekBehavior" : "To Time",
+      "WFTimeInterval" : {
+        "Value" : {
+          "Unit" : "sec"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      }
+    },
+    "is.workflow.actions.selectphoto" : {
+      "WFPhotoPickerTypes" : [
+        "Images",
+        "Live Photos",
+        "Videos"
+      ],
+      "WFSelectMultiplePhotos" : false
+    },
+    "is.workflow.actions.sendemail" : {
+      "WFSendEmailActionShowComposeSheet" : true
+    },
+    "is.workflow.actions.sendmessage" : {
+      "IntentAppDefinition" : {
+        "BundleIdentifier" : "com.apple.MobileSMS"
+      },
+      "ShowWhenRun" : false
+    },
+    "is.workflow.actions.setairdropreceiving" : {
+      "WFAirDropState" : "Everyone"
+    },
+    "is.workflow.actions.setbrightness" : {
+      "ShowWhenRun" : true,
+      "WFBrightness" : 0.5
+    },
+    "is.workflow.actions.setclipboard" : {
+      "WFLocalOnly" : false
+    },
+    "is.workflow.actions.setparkedcar" : {
+      "WFLocation" : {
+        "isCurrentLocation" : true
+      }
+    },
+    "is.workflow.actions.setplaybackdestination" : {
+      "WFMediaRoute" : {
+        "isLocalDevice" : true,
+        "routeUID" : "Speaker"
+      },
+      "WFMediaRouteOperation" : "Set"
+    },
+    "is.workflow.actions.setstoredcontent" : {
+      "WFStoredContentGlobalValue" : false
+    },
+    "is.workflow.actions.setters.calendarevents" : {
+      "Mode" : "Set",
+      "ValueLabel" : true,
+      "WFCalendarEventContentItemDuration" : {
+        "Value" : {
+          "Unit" : "min"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      }
+    },
+    "is.workflow.actions.setters.contacts" : {
+      "Mode" : "Set"
+    },
+    "is.workflow.actions.setters.reminders" : {
+      "Mode" : "Set"
+    },
+    "is.workflow.actions.setvolume" : {
+      "WFVolume" : 0.5,
+      "WFVolumeSetting" : "Media"
+    },
+    "is.workflow.actions.shazamMedia" : {
+      "WFShazamMediaActionErrorIfNotRecognized" : true,
+      "WFShazamMediaActionShowWhenRun" : true
+    },
+    "is.workflow.actions.showinblindsquare" : {
+      "WFBlindSquareSimulation" : false
+    },
+    "is.workflow.actions.showresult" : {
+      "Text" : ""
+    },
+    "is.workflow.actions.showwebpage" : {
+      "WFEnterSafariReader" : false
+    },
+    "is.workflow.actions.silenceunknowncallers.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.sirikit.donation.handle" : {
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.skipback" : {
+      "WFMediaRoute" : {
+        "isLocalDevice" : true,
+        "routeUID" : "Speaker"
+      },
+      "WFSkipBackBehavior" : "Beginning"
+    },
+    "is.workflow.actions.skipforward" : {
+      "WFMediaRoute" : {
+        "isLocalDevice" : true,
+        "routeUID" : "Speaker"
+      }
+    },
+    "is.workflow.actions.speaktext" : {
+      "WFSpeakTextPitch" : 1,
+      "WFSpeakTextRate" : 0.5,
+      "WFSpeakTextWait" : true
+    },
+    "is.workflow.actions.splitscreen" : {
+      "WFAppRatio" : "½ + ½"
+    },
+    "is.workflow.actions.spotlightsearch" : {
+      "WFSpotlightSearchLimit" : 5,
+      "WFSpotlightSearchResultType" : [
+        "Calendar Events",
+        "Contacts",
+        "Mail",
+        "Messages",
+        "Photos",
+        "Reminders",
+        "Voice Recordings",
+        "Bookmarks"
+      ]
+    },
+    "is.workflow.actions.stagemanager.set" : {
+      "operation" : "set",
+      "showDock" : true,
+      "showRecentApps" : true,
+      "ShowWhenRun" : true,
+      "state" : true
+    },
+    "is.workflow.actions.statistics" : {
+      "WFStatisticsOperation" : "Average"
+    },
+    "is.workflow.actions.takephoto" : {
+      "WFCameraCaptureDevice" : "Back",
+      "WFCameraCaptureShowPreview" : true,
+      "WFPhotoCount" : 1
+    },
+    "is.workflow.actions.takescreenshot" : {
+      "WFTakeScreenshotActionInteractiveSelectionType" : "Window",
+      "WFTakeScreenshotIgnoreContextualAssistanceLayers" : false,
+      "WFTakeScreenshotMainMonitorOnly" : false,
+      "WFTakeScreenshotScreenshotType" : "Full Screen"
+    },
+    "is.workflow.actions.takevideo" : {
+      "WFCameraCaptureDevice" : "Back",
+      "WFCameraCaptureQuality" : "High",
+      "WFRecordingStart" : "Immediately"
+    },
+    "is.workflow.actions.text.changecase" : {
+      "ShowWhenRun" : true,
+      "WFCaseType" : "UPPERCASE"
+    },
+    "is.workflow.actions.text.combine" : {
+      "ShowWhenRun" : true,
+      "WFTextSeparator" : "New Lines"
+    },
+    "is.workflow.actions.text.match" : {
+      "ShowWhenRun" : true,
+      "WFMatchTextCaseSensitive" : true,
+      "WFMatchTextPattern" : "[0-9a-zA-Z]"
+    },
+    "is.workflow.actions.text.match.getgroup" : {
+      "ShowWhenRun" : true,
+      "WFGetGroupType" : "Group At Index",
+      "WFGroupIndex" : "1"
+    },
+    "is.workflow.actions.text.replace" : {
+      "WFReplaceTextCaseSensitive" : true,
+      "WFReplaceTextRegularExpression" : false
+    },
+    "is.workflow.actions.text.split" : {
+      "ShowWhenRun" : true,
+      "WFTextSeparator" : "New Lines"
+    },
+    "is.workflow.actions.text.translate" : {
+      "WFSelectedFromLanguage" : "Detect Language",
+      "WFSelectedLanguage" : "en_US"
+    },
+    "is.workflow.actions.timer.start" : {
+      "IntentAppDefinition" : {
+        "BundleIdentifier" : "com.apple.mobiletimer-framework.MobileTimerIntents"
+      },
+      "WFDuration" : {
+        "Value" : {
+          "Unit" : "min"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      }
+    },
+    "is.workflow.actions.todoist.add" : {
+      "WFTodoistPriority" : "4",
+      "WFTodoistProject" : "Inbox",
+      "WFTodoistReminderType" : "Email"
+    },
+    "is.workflow.actions.trello.add.card" : {
+      "WFTrelloCardPosition" : "Top"
+    },
+    "is.workflow.actions.trello.add.list" : {
+      "WFTrelloPosition" : "Top"
+    },
+    "is.workflow.actions.trello.get" : {
+      "WFTrelloItemType" : "Boards"
+    },
+    "is.workflow.actions.truetone.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.tumblr.post" : {
+      "WFComposeInApp" : false,
+      "WFPostState" : "Post Now",
+      "WFPostType" : "Text"
+    },
+    "is.workflow.actions.urlencode" : {
+      "WFEncodeMode" : "Encode"
+    },
+    "is.workflow.actions.venmo.pay" : {
+      "IntentAppDefinition" : {
+        "BundleIdentifier" : "com.apple.PassKit.PassKitIntentsExtension"
+      },
+      "WFVenmoActionAmount" : {
+        "Value" : {
+          "Unit" : "USD"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      },
+      "WFVenmoActionAppSwitch" : false
+    },
+    "is.workflow.actions.venmo.request" : {
+      "IntentAppDefinition" : {
+        "BundleIdentifier" : "com.apple.PassKit.PassKitIntentsExtension"
+      },
+      "ShowWhenRun" : true,
+      "WFVenmoActionAmount" : {
+        "Value" : {
+          "Unit" : "USD"
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      },
+      "WFVenmoActionAppSwitch" : false
+    },
+    "is.workflow.actions.vibrate" : {
+      "WFVibrateHapticType" : "Default"
+    },
+    "is.workflow.actions.vpn.set" : {
+      "WFOnDemandValue" : true,
+      "WFVPNOperation" : "Connect"
+    },
+    "is.workflow.actions.wallpaper.set" : {
+      "WFWallpaperLegibilityBlur" : true,
+      "WFWallpaperLocation" : [
+        "Lock Screen",
+        "Home Screen"
+      ],
+      "WFWallpaperPerspectiveZoom" : false,
+      "WFWallpaperShowPreview" : true,
+      "WFWallpaperSmartCrop" : true
+    },
+    "is.workflow.actions.watchmedo" : {
+      "WFPlaybackSpeed" : 1,
+      "WFUserEvent" : {
+
+      }
+    },
+    "is.workflow.actions.weather.currentconditions" : {
+      "WFWeatherCustomLocation" : {
+        "isCurrentLocation" : true
+      }
+    },
+    "is.workflow.actions.weather.forecast" : {
+      "WFWeatherCustomLocation" : {
+        "isCurrentLocation" : true
+      },
+      "WFWeatherForecastType" : "Daily"
+    },
+    "is.workflow.actions.wifi.set" : {
+      "OnValue" : true,
+      "operation" : "set",
+      "ShowWhenRun" : true
+    },
+    "is.workflow.actions.workout.end" : {
+      "IntentAppDefinition" : {
+        "BundleIdentifier" : "com.apple.SessionTrackerApp"
+      }
+    },
+    "is.workflow.actions.workout.start" : {
+      "IntentAppDefinition" : {
+        "BundleIdentifier" : "com.apple.SessionTrackerApp"
+      },
+      "isOpenEnded" : true
+    }
+  },
   "actionOutputNames" : {
     "com.apple.facetime.facetime" : "FaceTime",
     "com.apple.mobilephone.call" : "Call",

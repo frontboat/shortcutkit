@@ -99,6 +99,16 @@ def main(argv):
     for row_id, cid, team, origin, ctype in con.execute("select rowId, id, teamId, origin, containerType from ContainerMetadata"):
         name = con.execute("select name from ContainerMetadataLocalizations where containerId=? and locale='en'", (row_id,)).fetchone()
         containers[row_id] = {"bundleIdentifier": cid, "teamId": team or None, "name": name[0] if name else None, "containerType": ctype}
+    # Display names of entity/enum types ("Reminder" for com.apple.reminders.ReminderEntity): the
+    # editor labels an App Intent's output with its output type's display name when the tool has
+    # no result label of its own.
+    type_display = {}
+    for row_id, blob in con.execute("select rowId, id from Types"):
+        bundle, tname = read_bundle_and_name(blob)
+        if bundle and tname:
+            name = con.execute("select name from TypeDisplayRepresentations where typeId=? and locale='en' and name is not null and name != '' limit 1", (row_id,)).fetchone()
+            if name:
+                type_display[f"{bundle}.{tname}"] = name[0]
     tools, names = [], {}
     for (row_id, ident, tool_type, flags, vis, provider, python_name, container_id, attribution_id) in con.execute(
             "select rowId, id, toolType, flags, visibilityFlags, sourceActionProvider, pythonName, sourceContainerId, attributionContainerId from Tools order by id"):
@@ -115,13 +125,16 @@ def main(argv):
                 p["alternativeTypes"] = types[1:]
             params.append(p)
         outputs = [t for (t,) in con.execute("select typeIdentifier from ToolOutputTypes where toolId=?", (row_id,))]
+        output_name = loc[1] or next((type_display[t] for t in outputs if t in type_display), None)
         keywords = [k for (k,) in con.execute("select keyword from SearchKeywords where toolId=? and locale='en' order by \"order\"", (row_id,))]
         link_ids = [k for (k,) in con.execute("select identifier from LinkActionIdentifiers where toolId=?", (row_id,))]
         container = containers.get(container_id, {})
         tool = {"identifier": ident, "key": python_name, "toolType": tool_type, "provider": provider, "visibilityFlags": vis, "flags": flags,
                 "app": container, "attribution": containers.get(attribution_id) if attribution_id and attribution_id != container_id else None,
-                "name": loc[0], "outputName": loc[1], "description": loc[2], "descriptionResult": loc[3], "descriptionNote": loc[4],
-                "outputTypes": outputs, "keywords": keywords, "appIntentIdentifier": link_ids[0] if link_ids else None, "parameters": params}
+                "name": loc[0], "outputName": output_name, "outputNameSource": "resultLabel" if loc[1] else ("outputType" if output_name else None),
+                "description": loc[2], "descriptionResult": loc[3], "descriptionNote": loc[4],
+                "outputTypes": outputs, "outputTypeNames": [type_display.get(t) for t in outputs], "keywords": keywords,
+                "appIntentIdentifier": link_ids[0] if link_ids else None, "parameters": params}
         tools.append(tool)
         if loc[0]:
             enums = {p["key"]: [c["id"] for c in p["type"].get("cases", [])] for p in params if p["type"].get("kind") == "enum" and p["type"].get("cases")}

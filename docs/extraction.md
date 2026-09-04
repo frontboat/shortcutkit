@@ -152,6 +152,18 @@ provider calls cannot: seven built-ins (`appendnote`, `deletephotos`, `filter.no
 now served through App Intents and appear only there, and fifteen catalogue entries (control
 flow, retired integrations) are not offered in the editor at all.
 
+**What the registry is trusted for.** It is the app's index for its model tooling, not a
+copy of what Shortcuts writes into files, so each column is used only where it was checked:
+identifiers (against Apple's gallery files and the on-disk metadata), parameter keys and
+enumeration case ids (every list with an engine default was checked: the default is one of
+the cases, 93 of 93), display names, and descriptions. Its result label is not the editor's
+output name (for Ask for Input it is the action's own name, the editor writes "Provided
+Input"), so output names come from the engine's action objects wherever the engine can
+answer, and for App Intents from the tool's result label or its output type's display name
+("Reminder"). Whenever the engine can produce a value, the engine wins; the registry fills in
+only what the engine cannot say. `annotate-builtin-actions.py` re-checks the enumeration
+lists on every refresh and warns on a mismatch.
+
 Requirement: Shortcuts.app must have run once on the extracting Mac so the index exists. The
 `toolKit` field of `data/provenance.json` records which index version was read.
 

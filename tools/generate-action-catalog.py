@@ -132,7 +132,7 @@ def app_intent_entries(catalog):
         out.append({
             "key": t.get("key") or key_for(ident), "identifier": ident, "name": t.get("name") or ident,
             "description": (t.get("description") or "") + (f" ({app.get('name')})" if app.get("name") else ""),
-            "params": params, "output": t.get("outputName") or (t.get("outputTypes") or [None])[0], "summary": None, "kinds": kinds,
+            "params": params, "output": t.get("outputName"), "summary": None, "kinds": kinds,
             "descriptor": {"BundleIdentifier": app.get("bundleIdentifier"), "Name": app.get("name"), "TeamIdentifier": app.get("teamId") or APPLE_TEAM,
                            "AppIntentIdentifier": t.get("appIntentIdentifier") or ident.rsplit(".", 1)[-1]},
         })

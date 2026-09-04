@@ -6,6 +6,15 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.4.2 (2026-09-04)
+
+- App Intents output names: where the registry has no result label, the output type's display
+  name is used ("Reminder" for Create Reminder, "Note" for Create Note) instead of the raw type
+  identifier; 194 actions gain a label, 710 have no output.
+- Every enumeration case list taken from the registry is checked against the engine's default
+  on each refresh (93 of 93 agree); the extraction notes record what the registry is and is
+  not trusted for. No parameter or type change.
+
 ## 0.4.1 (2026-09-04)
 
 - Output names for the ActionKit built-ins now come from the engine's action objects rather

@@ -3039,7 +3039,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Workaround for rdar://146914251**
    *  (com.apple.-Photos-AppIntents)
-   * Output: none
    * Parameters: `asset`
    */
   com_apple_photos_app_intents_workaround_for_rdar_146914251: "com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent",
@@ -3053,49 +3052,46 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Create Contact**
    * Create a new contact and open the contact card in the Contacts app (Contacts)
-   * Output: com.apple.AddressBook.ContactEntity
+   * Output: Contact
    * Parameters: `contactType`, `personName`, `organizationName`, `departmentName`, `jobTitle`, `phoneticOrganizationName`, `phoneNumbers`, `emailAddresses`, `postalAddresses`, `contactRelations`, `birthday`, `dates`, `OpenWhenRun`
    */
   contacts_create_contact: "com.apple.AddressBook.CreateContactIntent",
   /**
    * **Delete Contact**
    * Delete a contact (Contacts)
-   * Output: none
    * Parameters: `entities`
    */
   contacts_delete_contact: "com.apple.AddressBook.DeleteContactIntent",
   /**
    * **Fetch Avatars for Contacts**
    * Fetch Avatars from the contacts database (Contacts)
-   * Output: com.apple.AddressBook.ContactAvatarFetchResultEntity
+   * Output: Contact Avatar Fetch Result
    * Parameters: `identifiers`, `kinds`
    */
   contacts_fetch_avatars_for_contacts: "com.apple.AddressBook.FetchContactAvatarIntent",
   /**
    * **Fetch Contacts**
    * Fetch contacts from the contacts database (Contacts)
-   * Output: com.apple.AddressBook.ContactFetchResultEntity
+   * Output: Contact Fetch Result
    * Parameters: `identifiers`, `keysToFetch`
    */
   contacts_fetch_contacts: "com.apple.AddressBook.FetchContactIntent",
   /**
    * **Search in Contacts App**
    * Search for a contact in the Contacts app (Contacts)
-   * Output: none
    * Parameters: `criteria`
    */
   contacts_search_in_contacts_app: "com.apple.AddressBook.SearchInContactsIntent",
   /**
    * **Update Contact Details**
    * Update contact details for a contact (Contacts)
-   * Output: com.apple.AddressBook.ContactEntity
+   * Output: Contact
    * Parameters: `target`, `contactType`, `personName`, `organizationName`, `departmentName`, `jobTitle`, `phoneticOrganizationName`, `phoneNumbers`, `emailAddresses`, `postalAddresses`, `contactRelations`, `birthday`, `dates`, `OpenWhenRun`
    */
   contacts_update_contact_details: "com.apple.AddressBook.UpdateContactIntent",
   /**
    * **View Contact Card**
    * Open a contact card for a contact (Contacts)
-   * Output: none
    * Parameters: `target`, `highlightedValue`, `highlightedPropertyType`, `shouldEdit`
    */
   contacts_view_contact_card: "com.apple.AddressBook.ViewContactCardIntent",
@@ -3144,7 +3140,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Activate Tab**
    * Activates a window tab. (com.apple.AppKit)
-   * Output: none
    * Parameters: `app`, `processInstanceIdentifier`, `windowTab`
    */
   com_apple_app_kit_activate_tab: "com.apple.AppKit.WindowTabActivateIntent",
@@ -3158,84 +3153,81 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Can Perform Writing Tools**
    * Writing Tools need a focused text view to work. This intent checks if Writing Tools can be used with the current environment. (com.apple.AppKit)
-   * Output: bool
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_can_perform_writing_tools: "com.apple.AppKit.WritingToolsCanPerformIntent",
   /**
    * **Text Compose**
    * Invoke Writing Tools and compose text. (com.apple.AppKit)
-   * Output: com.apple.AppKit.WritingToolsResult
+   * Output: Writing Tools Result
    * Parameters: `app`, `processInstanceIdentifier`, `prompt`
    */
   com_apple_app_kit_text_compose: "com.apple.AppKit.WritingToolsComposeIntent",
   /**
    * **Open Ended**
    * Invoke Writing Tools and rewrite or compose text with the given prompt. (com.apple.AppKit)
-   * Output: com.apple.AppKit.WritingToolsResult
+   * Output: Writing Tools Result
    * Parameters: `app`, `processInstanceIdentifier`, `prompt`
    */
   com_apple_app_kit_open_ended: "com.apple.AppKit.WritingToolsOpenEndedIntent",
   /**
    * **Text Compose**
    * Invoke Writing Tools and compose text. (com.apple.AppKit)
-   * Output: com.apple.AppKit.WritingToolsResult
+   * Output: Writing Tools Result
    * Parameters: `app`, `processInstanceIdentifier`, `prompt`, `externalProviderID`
    */
   com_apple_AppKit_WritingToolsPartnerIntent: "com.apple.AppKit.WritingToolsPartnerIntent",
   /**
    * **Proofread**
    * Invoke Writing Tools and proofread the current text. (com.apple.AppKit)
-   * Output: com.apple.AppKit.WritingToolsResult
+   * Output: Writing Tools Result
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_proofread: "com.apple.AppKit.WritingToolsProofreadIntent",
   /**
    * **Rewrite**
    * Invoke Writing Tools and rewrite the current text. (com.apple.AppKit)
-   * Output: com.apple.AppKit.WritingToolsResult
+   * Output: Writing Tools Result
    * Parameters: `app`, `processInstanceIdentifier`, `type`, `prompt`
    */
   com_apple_app_kit_rewrite: "com.apple.AppKit.WritingToolsRewriteIntent",
   /**
    * **Summarize**
    * Invoke Writing Tools and summarize the current text. (com.apple.AppKit)
-   * Output: com.apple.AppKit.WritingToolsResult
+   * Output: Writing Tools Result
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_summarize: "com.apple.AppKit.WritingToolsSummarizeIntent",
   /**
    * **Key Points**
    * Invoke Writing Tools and transform the current text into key points. (com.apple.AppKit)
-   * Output: com.apple.AppKit.WritingToolsResult
+   * Output: Writing Tools Result
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_key_points: "com.apple.AppKit.WritingToolsTransformKeyPointsIntent",
   /**
    * **List**
    * Invoke Writing Tools and transform the current text into a list. (com.apple.AppKit)
-   * Output: com.apple.AppKit.WritingToolsResult
+   * Output: Writing Tools Result
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_list: "com.apple.AppKit.WritingToolsTransformListIntent",
   /**
    * **Table**
    * Invoke Writing Tools and transform the current text into a table. (com.apple.AppKit)
-   * Output: com.apple.AppKit.WritingToolsResult
+   * Output: Writing Tools Result
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_table: "com.apple.AppKit.WritingToolsTransformTableIntent",
   /**
    * **Search App Store**
    * Navigate to search results. (App Store)
-   * Output: none
    * Parameters: `criteria`
    */
   app_store_search_app_store: "com.apple.AppStore.SystemSearchIntent",
   /**
    * **Open Game Center Settings**
    * Opens all Game Center settings. (GameCenterSettingsExtension)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_game_center_settings: "com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks",
@@ -3256,21 +3248,20 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Activate Scene**
    *  (Home)
-   * Output: com.apple.Home.SceneResult
+   * Output: Scene Result
    * Parameters: `homeEntity`, `sceneEntity`, `timeout`
    */
   home_activate_scene: "com.apple.Home.ActivateSceneIntent",
   /**
    * **Automate Set Attribute Value**
    *  (Home)
-   * Output: com.apple.Home.AutomationResult
+   * Output: Automation Result
    * Parameters: `attributes`, `devices`, `homeEntity`, `rooms`, `trigger`, `recurrenceWeekdays`, `name`
    */
   home_automate_set_attribute_value: "com.apple.Home.AutomateAttributeValueIntent",
   /**
    * **Automate Scene**
    *  (Home)
-   * Output: none
    * Parameters: `sceneEntity`, `trigger`, `recurrenceWeekdays`
    */
   home_automate_scene: "com.apple.Home.AutomateSceneIntent",
@@ -3284,7 +3275,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Delta Attribute**
    *  (Home)
-   * Output: com.apple.Home.DeviceResult
+   * Output: Device Result
    * Parameters: `attribute`, `delta`, `devices`, `homeEntity`, `zoneEntities`, `roomEntities`, `timeout`, `OpenWhenRun`
    */
   home_delta_attribute: "com.apple.Home.DeltaAttributeValueIntent",
@@ -3298,68 +3289,60 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Error Intent**
    *  (Home)
-   * Output: none
    */
   home_error_intent: "com.apple.Home.ErrorIntent",
   /**
    * **Show the Grid Forecast for a Home or your location.**
    *  (Home)
-   * Output: none
    * Parameters: `forecastLocationEntity`
    */
   home_show_the_grid_forecast_for_a_home_or_your_location: "com.apple.Home.ForecastWidgetConfiguration",
   /**
    * **Get Attribute**
    *  (Home)
-   * Output: com.apple.Home.DeviceResult
+   * Output: Device Result
    * Parameters: `homeEntity`, `zoneEntities`, `roomEntities`, `devices`, `attributeTypes`, `timeout`, `OpenWhenRun`
    */
   home_get_attribute: "com.apple.Home.GetAttributeValueIntent",
   /**
    * **Get Device Info**
    *  (Home)
-   * Output: com.apple.Home.DeviceInfoResult
+   * Output: Supported Attributes Result
    * Parameters: `devices`, `homeEntity`
    */
   home_get_device_info: "com.apple.Home.GetDeviceInfoIntent",
   /**
    * **Select Home**
    *  (Home)
-   * Output: none
    * Parameters: `siteDetail`
    */
   home_select_home: "com.apple.Home.HistoricalUsageWidgetConfiguration",
   /**
    * **HomeAppIntentsExtensionTestAppIntent**
    *  (Home)
-   * Output: none
    */
   com_apple_home_app_intents_extension_home_app_intents_extension_test_app_intent: "com.apple.Home.HomeAppIntentsExtensionTestAppIntent",
   /**
    * **Scene or Accessory**
    * Home (Home)
-   * Output: none
    * Parameters: `home`, `item`
    */
   home_scene_or_accessory: "com.apple.Home.HomeSingleTileConfigurationIntent",
   /**
    * **Accessories**
    * Quickly control your favorite home accessories or scenes. (Home)
-   * Output: none
    * Parameters: `useRecommendations`, `show`, `home`, `items`
    */
   home_accessories: "com.apple.Home.HomeXLModuleConfigurationIntent",
   /**
    * **Open Accessory or Scene in Home app**
    * Forwards and opens URLs in the Home app when an in-widget toggle cannot be performed (Home)
-   * Output: none
    * Parameters: `url`
    */
   home_open_accessory_or_scene_in_home_app: "com.apple.Home.OpenURLInHomeIntent",
   /**
    * **Recommended Item**
    * Recommended Accessory or Scene (Home)
-   * Output: none
    * Parameters: `useHomeKitRecommendations`, `home`, `accessoriesAndScenes`
    */
   home_recommended_item: "com.apple.Home.RecommendedItemIntent",
@@ -3380,7 +3363,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Toggle Accessory or Scene**
    * Toggles the state of the specified accessory or scene. (Home)
-   * Output: none
    * Parameters: `entity`, `analyticsInfoJSON`
    */
   home_toggle_accessory_or_scene: "com.apple.Home.SecureToggleIntent",
@@ -3394,70 +3376,62 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Set Attribute**
    *  (Home)
-   * Output: com.apple.Home.DeviceResult
+   * Output: Device Result
    * Parameters: `attributes`, `devices`, `homeEntity`, `zoneEntities`, `roomEntities`, `timeout`, `OpenWhenRun`
    */
   home_set_attribute: "com.apple.Home.SetAttributeValueIntent",
   /**
    * **Show Device Result**
    *  (Home)
-   * Output: none
    * Parameters: `userSpecificity`, `destination`, `successDeviceIDs`, `failedDeviceIDs`, `failedDeviceIDsToIgnore`, `attributeType`, `oldDeviceResults`, `newDeviceResults`, `secondaryAccessoryControlDestination`
    */
   home_show_device_result: "com.apple.Home.ShowDeviceResultIntent",
   /**
    * **Show Error**
    *  (Home)
-   * Output: none
    * Parameters: `destination`, `errorDisplayType`
    */
   home_show_error: "com.apple.Home.ShowErrorIntent",
   /**
    * **Show Navigation**
    *  (Home)
-   * Output: none
    * Parameters: `categoryType`, `dashboardViewType`, `deviceEntities`, `secondaryAccessoryControlDestination`, `homeEntity`, `roomEntity`
    */
   home_show_navigation: "com.apple.Home.ShowNavigationIntent",
   /**
    * **Show Scene Result**
    *  (Home)
-   * Output: none
    * Parameters: `sceneID`, `hasSiriExecutionFailure`
    */
   home_show_scene_result: "com.apple.Home.ShowSceneResultIntent",
   /**
    * **ToggleIntentTitle**
    * ToggleIntentDescription (Home)
-   * Output: none
    * Parameters: `value`, `targetIDString`, `homeIDString`, `action`, `uniqueIdentifier`, `widgetKind`, `OpenWhenRun`
    */
   home_toggle_intent_title: "com.apple.Home.TileControlAction",
   /**
    * **Toggle Attribute**
    *  (Home)
-   * Output: com.apple.Home.DeviceResult
+   * Output: Device Result
    * Parameters: `attributeTypes`, `devices`, `homeEntity`, `zoneEntities`, `roomEntities`, `timeout`, `OpenWhenRun`
    */
   home_toggle_attribute: "com.apple.Home.ToggleAttributeIntent",
   /**
    * **Scene or Accessory**
    * Home (Home)
-   * Output: none
    * Parameters: `home`, `accessoriesAndScenes`
    */
   com_apple_Home_ToggleControlConfigurationIntent: "com.apple.Home.ToggleControlConfigurationIntent",
   /**
    * **Toggle Accessory or Scene**
    * Toggles the state of the specified accessory or scene. (Home)
-   * Output: none
    * Parameters: `entity`
    */
   com_apple_Home_ToggleIntent: "com.apple.Home.ToggleIntent",
   /**
    * **Select Home**
    *  (Home)
-   * Output: none
    * Parameters: `siteDetail`
    */
   com_apple_Home_UtilityRateInfoWidgetConfiguration: "com.apple.Home.UtilityRateInfoWidgetConfiguration",
@@ -3478,89 +3452,76 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Ask a Question**
    * Ask a question about the current camera view. (Magnifier)
-   * Output: none
    * Parameters: `prompt`
    */
   com_apple_magnifier_ask_a_question: "com.apple.Magnifier.AskVQAIntent",
   /**
    * **Describe This**
    * Provide a description of what’s in the camera view. (Magnifier)
-   * Output: none
    */
   com_apple_magnifier_describe_this: "com.apple.Magnifier.DescribeThisIntent",
   /**
    * **Detect Doors**
    * Use the camera to detect doors near you. (Magnifier)
-   * Output: none
    */
   com_apple_magnifier_detect_doors: "com.apple.Magnifier.DetectDoorsIntent",
   /**
    * **Detect Furniture**
    * Use the camera to detect furniture around you. If people detection is also on, you can also get information about seat occupancy. (Magnifier)
-   * Output: none
    */
   com_apple_magnifier_detect_furniture: "com.apple.Magnifier.DetectFurnitureIntent",
   /**
    * **Detect People**
    * Use the camera to detect people near you. (Magnifier)
-   * Output: none
    */
   com_apple_magnifier_detect_people: "com.apple.Magnifier.DetectPeopleIntent",
   /**
    * **Detect Text**
    * Use the camera to detect text around you. (Magnifier)
-   * Output: none
    */
   com_apple_magnifier_detect_text: "com.apple.Magnifier.DetectTextIntent",
   /**
    * **Find This**
    * FIND_SESSION_VQA_APP_INTENT_DESCRIPTION (Magnifier)
-   * Output: none
    * Parameters: `searchTerm`
    */
   com_apple_magnifier_find_this: "com.apple.Magnifier.FindSessionAppIntent",
   /**
    * **Follow Up**
    * Ask a follow-up question about the current camera view. (Magnifier)
-   * Output: none
    * Parameters: `prompt`
    */
   com_apple_magnifier_follow_up: "com.apple.Magnifier.FollowUpVQAAppIntent",
   /**
    * **Magnifier**
    * Turn your iPhone into a magnifying glass to zoom in on and detect objects near you. (Magnifier)
-   * Output: none
    */
   com_apple_magnifier_magnifier: "com.apple.Magnifier.MagnifierIntent",
   /**
    * **Start Point & Speak**
    * Detect text near your finger. (Magnifier)
-   * Output: none
    */
   com_apple_magnifier_start_point_speak: "com.apple.Magnifier.PointAndSpeakIntent",
   /**
    * **Open Reader**
    * Open Reader in Magnifier (Magnifier)
-   * Output: none
    */
   com_apple_magnifier_open_reader: "com.apple.Magnifier.ReaderModeIntent",
   /**
    * **Detect Items**
    * Detect people, doors, text or furniture in Camera view (Magnifier)
-   * Output: none
    * Parameters: `detectionType`
    */
   com_apple_magnifier_detect_items: "com.apple.Magnifier.StartDetectionTypeIntent",
   /**
    * **What Color Is This**
    * Describe the color in the camera view. (Magnifier)
-   * Output: none
    */
   com_apple_magnifier_what_color_is_this: "com.apple.Magnifier.WhatColorIsThisIntent",
   /**
    * **Calculate ETA**
    * Calculate Estimated Time of Arrival (Maps)
-   * Output: com.apple.Maps.ETAEntity
+   * Output: ETA
    * Parameters: `origin`, `destination`, `transportationType`, `departureTime`, `preferences`, `ShowWhenRun`
    */
   maps_calculate_eta: "com.apple.Maps.CalculateETAIntent",
@@ -3574,14 +3535,13 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **MapsIntents Debug Dispatch**
    *  (Maps)
-   * Output: com.apple.Maps.ETAEntity
+   * Output: ETA
    * Parameters: `testCase`, `ShowWhenRun`
    */
   maps_maps_intents_debug_dispatch: "com.apple.Maps.MapsIntentsDebugDispatch",
   /**
    * **Shows List of Places**
    * Shows List of Places (Maps)
-   * Output: none
    * Parameters: `places`, `attributes`, `languageId`
    */
   maps_shows_list_of_places: "com.apple.Maps.MapsShowPlacesInAppIntent",
@@ -3602,49 +3562,47 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Search Places**
    *  (Maps)
-   * Output: com.apple.-GeoToolbox-AppIntents.GeoToolbox.PlaceDescriptorEntity
+   * Output: Location
    * Parameters: `searchQuery`, `deviceLocation`, `maxResults`, `filterTypes`, `appIdentifier`, `viewport`
    */
   maps_search_places: "com.apple.Maps.SearchPlacesIntent",
   /**
    * **Start Navigation in Maps**
    * Start Navigation (Maps)
-   * Output: com.apple.Maps.NavigationSessionEntity
+   * Output: Current Route
    * Parameters: `origin`, `destinations`, `transportationType`, `preferences`, `OpenWhenRun`
    */
   maps_start_navigation_in_maps: "com.apple.Maps.StartNavigationIntent",
   /**
    * **Test: Drive to Apple Park**
    *  (Maps)
-   * Output: com.apple.Maps.NavigationSessionEntity
+   * Output: Current Route
    * Parameters: `OpenWhenRun`
    */
   maps_test_drive_to_apple_park: "com.apple.Maps.TestStartNavigationIntent",
   /**
    * **Test: Update Navigation Waypoints**
    *  (Maps)
-   * Output: com.apple.Maps.NavigationSessionEntity
+   * Output: Current Route
    * Parameters: `testCase`, `OpenWhenRun`
    */
   maps_test_update_navigation_waypoints: "com.apple.Maps.TestUpdateNavigationIntent",
   /**
    * **Add stops**
    * maps_MapsUpdateNavigationWaypointsIntent_1.0.0_intent_description (Maps)
-   * Output: com.apple.Maps.NavigationSessionEntity
+   * Output: Current Route
    * Parameters: `navigation`, `waypoints`, `OpenWhenRun`
    */
   maps_add_stops: "com.apple.Maps.UpdateNavigationIntent",
   /**
    * **ConnectToSpeakerIntent**
    * Establish a connection with remote speakers to allow for starting playback on those speakers (MediaRemoteAppIntentsExtension)
-   * Output: none
    * Parameters: `application`, `destinations`, `requestIdentifierOverride`
    */
   com_apple_media_remote_app_intents_extension_connect_to_speaker_intent: "com.apple.MediaRemoteAppIntentsExtension.ConnectToSpeakerIntent",
   /**
    * **Open Inbox**
    * Opens the specified inbox in Messages. (Messages)
-   * Output: none
    * Parameters: `filterMode`
    */
   messages_open_inbox: "com.apple.MobileSMS.ChangeFilterModeIntent",
@@ -3658,61 +3616,52 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Set Messages Focus Filter**
    * Sets the behavior of the Messages app when the given Focus is enabled. (Messages)
-   * Output: none
    * Parameters: `Mode`, `FocusMode`, `enableFocusFiltering`
    */
   messages_set_messages_focus_filter: "com.apple.MobileSMS.ConversationListFocusFilterAction",
   /**
    * **Delete Conversations**
    * Deletes the specified conversations. (Messages)
-   * Output: none
    * Parameters: `entities`
    */
   messages_delete_conversations: "com.apple.MobileSMS.DeleteConversationIntent",
   /**
    * **Delete Messages**
    * Deletes the specified messages. To pass messages to this action, use the Find Message action or a Message automation. (Messages)
-   * Output: none
    * Parameters: `entities`, `WFLinkMessagesEntityVariablePickerKey`
    */
   messages_delete_messages: "com.apple.MobileSMS.DeleteMessageIntent",
   /**
    * **Draft Message**
    * Opens the Messages app with a new draft. (Messages)
-   * Output: none
    * Parameters: `destination`, `subject`, `content`, `audioMessage`, `attachments`, `locations`, `links`, `scheduledDate`
    */
   messages_draft_message: "com.apple.MobileSMS.DraftMessageIntent",
   /**
    * **Edit Sent Message**
    * Edit an already sent message with new content (Messages)
-   * Output: none
    * Parameters: `message`, `content`
    */
   messages_edit_sent_message: "com.apple.MobileSMS.EditSentMessageIntent",
   /**
    * **Fetch Conversation Identifier Intent**
    *  (Messages)
-   * Output: string
    * Parameters: `intentPersons`
    */
   messages_fetch_conversation_identifier_intent: "com.apple.MobileSMS.FetchConversationIdentifierIntent",
   /**
    * **Fetch Downtime Conversation List Intent**
    *  (Messages)
-   * Output: none
    */
   messages_fetch_downtime_conversation_list_intent: "com.apple.MobileSMS.FetchDowntimeConversationListIntent",
   /**
    * **Fetch Muted Conversation List Intent**
    *  (Messages)
-   * Output: none
    */
   messages_fetch_muted_conversation_list_intent: "com.apple.MobileSMS.FetchMutedConversationListIntent",
   /**
    * **Mark as Read**
    * Marks a specific conversation as read or unread. (Messages)
-   * Output: none
    * Parameters: `operation`, `conversation`, `unreadState`, `OpenWhenRun`
    */
   messages_mark_as_read: "com.apple.MobileSMS.MarkConversationAsUnreadIntent",
@@ -3726,180 +3675,161 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Mute Conversation Intent**
    *  (Messages)
-   * Output: none
    * Parameters: `conversationIdentifier`, `isMuted`
    */
   messages_mute_conversation_intent: "com.apple.MobileSMS.MuteConversationIntent",
   /**
    * **Open Conversation**
    * Opens a specific conversation in Messages. (Messages)
-   * Output: none
    * Parameters: `target`
    */
   messages_open_conversation: "com.apple.MobileSMS.OpenConversationIntent",
   /**
    * **Open Conversation List**
    * Opens the conversation list in Messages. (Messages)
-   * Output: none
    */
   messages_open_conversation_list: "com.apple.MobileSMS.OpenConversationListIntent",
   /**
    * **Reveal Message**
    * Shows a specific message in Messages. (Messages)
-   * Output: none
    * Parameters: `target`
    */
   messages_reveal_message: "com.apple.MobileSMS.OpenMessageIntent",
   /**
    * **Remove Tapback**
    * Removes the Tapback on the specific message. (Messages)
-   * Output: none
    * Parameters: `message`, `OpenWhenRun`
    */
   messages_remove_tapback: "com.apple.MobileSMS.RemoveTapbackIntent",
   /**
    * **Search in Messages**
    * Search messages and attachments for the provided search term. (Messages)
-   * Output: none
    * Parameters: `criteria`
    */
   messages_search_in_messages: "com.apple.MobileSMS.SearchMessagesIntent",
   /**
    * **Send Collaboration Message**
    * Send a collaboration invitation message to recipients via Messages (Messages)
-   * Output: none
    * Parameters: `destination`
    */
   messages_send_collaboration_message: "com.apple.MobileSMS.SendCollaborationMessageIntent",
   /**
    * **Send Message**
    * Sends a message with the associated parameters (Messages)
-   * Output: com.apple.MobileSMS.MessageEntity
+   * Output: Message
    * Parameters: `destination`, `subject`, `content`, `audioMessage`, `attachments`, `locations`, `links`, `scheduledDate`
    */
   messages_send_message: "com.apple.MobileSMS.SendMessageIntent",
   /**
    * **Send Tapback**
    * React to the specified message with a Tapback. To pass a message to this action, use the Find Message action or a Message automation. (Messages)
-   * Output: com.apple.MobileSMS.MessageEntity
+   * Output: Message
    * Parameters: `message`, `reaction`, `WFLinkMessagesEntityVariablePickerKey`
    */
   messages_send_tapback: "com.apple.MobileSMS.SendMessageReactionIntent",
   /**
    * **Send Reply**
    * Sends a reply to a specific message. (Messages)
-   * Output: none
    * Parameters: `content`, `message`, `subject`, `OpenWhenRun`
    */
   messages_send_reply: "com.apple.MobileSMS.SendReplyIntent",
   /**
    * **Set Conversation Read Status**
    *  (Messages)
-   * Output: none
    * Parameters: `conversation`, `isRead`
    */
   messages_set_conversation_read_status: "com.apple.MobileSMS.SetConversationReadStatusIntent",
   /**
    * **Set Message Read Status**
    * Changes the message read status to a given value (Messages)
-   * Output: none
    * Parameters: `message`, `isRead`
    */
   messages_set_message_read_status: "com.apple.MobileSMS.SetMessageReadStatusIntent",
   /**
    * **Undo Send Message**
    * Unsend a sent message (Messages)
-   * Output: none
    * Parameters: `message`
    */
   messages_undo_send_message: "com.apple.MobileSMS.UnsendMessageIntent",
   /**
    * **Add Music Items to Library**
    * Adds the specified items to your Library (Music)
-   * Output: none
    * Parameters: `audioEntity`, `ShowWhenRun`, `OpenWhenRun`
    */
   music_add_music_items_to_library: "com.apple.Music.AddMusicItemToLibrarySiriIntent",
   /**
    * **Add Music Items to Playlist**
    * Adds the specified items to a playlist (Music)
-   * Output: none
    * Parameters: `audioEntity`, `playlist`, `OpenWhenRun`
    */
   music_add_music_items_to_playlist: "com.apple.Music.AddMusicItemToPlaylistSiriIntent",
   /**
    * **Create station**
    * Start a station based on the current playlist item (Music)
-   * Output: none
    */
   music_create_station: "com.apple.Music.CreateStationSiriIntent",
   /**
    * **Open Music Item**
    * Opens the specified item in Apple Music (Music)
-   * Output: none
    * Parameters: `target`
    */
   music_open_music_item: "com.apple.Music.OpenMusicItemSiriIntent",
   /**
    * **Play Audio**
    * Plays the specified item on the desired devices (Music)
-   * Output: none
    * Parameters: `warmupAudioQueueResult`, `audioEntity`, `playbackAttributes`, `queueLocation`
    */
   music_play_audio: "com.apple.Music.PlayMusicItemSiriIntent",
   /**
    * **SearchMusicSiriIntent_Title**
    * SearchMusicSiriIntent_Description (Music)
-   * Output: none
    * Parameters: `criteria`
    */
   music_search_music_siri_intent_title: "com.apple.Music.SearchMusicSiriIntent",
   /**
    * **Set Music Item Affinity**
    * Set the affinity of the specified item (Music)
-   * Output: none
    * Parameters: `target`, `affinityState`, `OpenWhenRun`
    */
   music_set_music_item_affinity: "com.apple.Music.UpdateMusicItemAffinitySiriIntent",
   /**
    * **WarmupMusicQueueSiriIntent_Title**
    * WarmupMusicQueueSiriIntent_Description (Music)
-   * Output: com.apple.Music.WarmupMusicQueueResultSiriEntity
+   * Output: Warmup Audio Queue Result
    * Parameters: `audioEntity`, `playbackAttributes`
    */
   music_warmup_music_queue_siri_intent_title: "com.apple.Music.WarmupMusicQueueSiriIntent",
   /**
    * **Add File to Note**
    * Adds an attachment into a note. (Notes)
-   * Output: com.apple.Notes.AttachmentEntity
+   * Output: Attachment
    * Parameters: `name`, `file`, `note`, `OpenWhenRun`
    */
   notes_add_file_to_note: "com.apple.Notes.AddFileAttachmentLinkAction",
   /**
    * **Add Link**
    * Adds a link into a note. (Notes)
-   * Output: com.apple.Notes.AttachmentEntity
+   * Output: Attachment
    * Parameters: `name`, `url`, `note`, `OpenWhenRun`
    */
   notes_add_link: "com.apple.Notes.AddLinkAttachmentLinkAction",
   /**
    * **Add or Remove Note Lock**
    * Lock the given note so that viewing it requires a password, passcode, or biometric authentication, or remove the lock to allow unrestricted access. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `operation`, `target`, `OpenWhenRun`
    */
   notes_add_or_remove_note_lock: "com.apple.Notes.AddOrRemoveNoteLockLinkAction",
   /**
    * **Add Tags to Notes**
    * Adds tags to notes. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `notes`, `tags`
    */
   notes_add_tags_to_notes: "com.apple.Notes.AddTagsToNotesLinkAction",
   /**
    * **Apply Formatting to Selected Text**
    * Formats selected text in a note. (Notes)
-   * Output: none
    * Parameters: `bold`, `italic`, `underline`, `strikethrough`
    */
   notes_apply_formatting_to_selected_text: "com.apple.Notes.ApplyFormattingLinkAction",
@@ -3913,299 +3843,270 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Change Folder View Setting**
    * Changes your folder view in Notes between Gallery and List views. (Notes)
-   * Output: none
    * Parameters: `changeOperation`, `setting`
    */
   notes_change_folder_view_setting: "com.apple.Notes.ChangeFolderSettingLinkAction",
   /**
    * **Change Notes Setting**
    * Change the settings of the Notes app. (Notes)
-   * Output: none
    * Parameters: `changeOperation`, `setting`
    */
   notes_change_notes_setting: "com.apple.Notes.ChangeSettingLinkAction",
   /**
    * **Change Tag Selection**
    * Changes the selected tags in the tag browser. (Notes)
-   * Output: none
    * Parameters: `includedTags`, `excludedTags`, `selectionOperator`
    */
   notes_change_tag_selection: "com.apple.Notes.ChangeTagSelectionIntent",
   /**
    * **Close Notes View**
    * Close or hide the provided view in the Notes app. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_close_notes_view: "com.apple.Notes.CloseAppLocationLinkAction",
   /**
    * **Close Note**
    * Closes an open note. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_close_note: "com.apple.Notes.CloseNoteLinkAction",
   /**
    * **Append Checklist Item**
    * Adds a checklist item to the end of a note. (Notes)
-   * Output: com.apple.Notes.ChecklistItemEntity
+   * Output: Checklist Item
    * Parameters: `name`, `noteEntity`, `OpenWhenRun`
    */
   notes_append_checklist_item: "com.apple.Notes.CreateChecklistItemLinkAction",
   /**
    * **Create Folder**
    * Creates a new folder. (Notes)
-   * Output: com.apple.Notes.FolderEntity
+   * Output: Folder
    * Parameters: `name`, `OpenWhenRun`
    */
   notes_create_folder: "com.apple.Notes.CreateFolderLinkAction",
   /**
    * **Create Note**
    * Creates a new note. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `name`, `content`, `attachments`, `isPinned`, `folder`, `OpenWhenRun`
    */
   notes_create_note: "com.apple.Notes.CreateNoteIntent",
   /**
    * **Add Table to Note**
    * Adds a table into a note. (Notes)
-   * Output: com.apple.Notes.TableEntity
+   * Output: Table
    * Parameters: `name`, `csvString`, `note`, `OpenWhenRun`
    */
   notes_add_table_to_note: "com.apple.Notes.CreateTableLinkAction",
   /**
    * **Create Tag**
    * Creates a tag that can be used in notes. (Notes)
-   * Output: com.apple.Notes.TagEntity
+   * Output: Tag
    * Parameters: `name`, `OpenWhenRun`
    */
   notes_create_tag: "com.apple.Notes.CreateTagLinkAction",
   /**
    * **Delete Attachments**
    * Deletes attachments from a note. (Notes)
-   * Output: none
    * Parameters: `entities`
    */
   notes_delete_attachments: "com.apple.Notes.DeleteAttachmentsLinkAction",
   /**
    * **Delete Checklist Items**
    * Deletes checklist items from a note. (Notes)
-   * Output: none
    * Parameters: `entities`
    */
   notes_delete_checklist_items: "com.apple.Notes.DeleteChecklistItemsLinkAction",
   /**
    * **Delete Folders**
    * Deletes folders from Notes. (Notes)
-   * Output: none
    * Parameters: `entities`
    */
   notes_delete_folders: "com.apple.Notes.DeleteFoldersLinkAction",
   /**
    * **Delete Notes**
    * Delete notes. (Notes)
-   * Output: none
    * Parameters: `entities`
    */
   notes_delete_notes: "com.apple.Notes.DeleteNotesLinkAction",
   /**
    * **Delete Tables**
    * Delete tables from a note. (Notes)
-   * Output: none
    * Parameters: `entities`
    */
   notes_delete_tables: "com.apple.Notes.DeleteTablesLinkAction",
   /**
    * **Delete Tags**
    * Delete tags from Notes. (Notes)
-   * Output: none
    * Parameters: `entities`
    */
   notes_delete_tags: "com.apple.Notes.DeleteTagsLinkAction",
   /**
    * **Apply Emphasis to Selected Text**
    * Sets the emphasis style (Notes)
-   * Output: none
    * Parameters: `emphasisColor`
    */
   notes_apply_emphasis_to_selected_text: "com.apple.Notes.EmphasisLinkAction",
   /**
    * **Generate Fallback PDF**
    *  (Notes)
-   * Output: bool
    * Parameters: `attachmentIdentifier`
    */
   notes_generate_fallback_pdf: "com.apple.Notes.GenerateFallbackPDF",
   /**
    * **Get Linked Notes**
    * Creates a list of notes that are linked to from the specified note. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `entity`
    */
   notes_get_linked_notes: "com.apple.Notes.GetLinkedNotesLinkAction",
   /**
    * **Insert All Mention**
    * Insert an all mention into the provided target note, notifying all collaborators. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `target`
    */
   notes_insert_all_mention: "com.apple.Notes.InsertAllMentionLinkAction",
   /**
    * **Insert Mention**
    * Mentions another participant or all participants in a shared note. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `target`, `mentionText`
    */
   notes_insert_mention: "com.apple.Notes.InsertMentionLinkAction",
   /**
    * **Insert Note Link**
    * Adds a link to a note in a note. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `linkedNote`, `target`, `useNoteTitleAsName`
    */
   notes_insert_note_link: "com.apple.Notes.InsertNoteLinkLinkAction",
   /**
    * **Move Notes to Folder**
    * Moves notes into a folder in Notes. (Notes)
-   * Output: none
    * Parameters: `container`, `entities`
    */
   notes_move_notes_to_folder: "com.apple.Notes.MoveNotesToFolderLinkAction",
   /**
    * **Append to Note**
    * Adds text to the end of a note. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `target`, `content`
    */
   notes_append_to_note: "com.apple.Notes.NoteAppendTextIntent",
   /**
    * **Open Account**
    * Opens an existing account in Notes. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_open_account: "com.apple.Notes.OpenAccountLinkAction",
   /**
    * **Open Notes View**
    * Opens the attachments browser or folder list in Notes. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_open_notes_view: "com.apple.Notes.OpenAppLocationLinkAction",
   /**
    * **Open Attachment**
    * Opens an attachment that’s in a note. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_open_attachment: "com.apple.Notes.OpenAttachmentLinkAction",
   /**
    * **Reveal Checklist Item**
    * Opens the note that contains the specified checklist item. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_reveal_checklist_item: "com.apple.Notes.OpenChecklistItemLinkAction",
   /**
    * **Open Folder**
    * Opens an existing folder in Notes. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_open_folder: "com.apple.Notes.OpenFolderLinkAction",
   /**
    * **Reveal Table**
    * Opens the note that contains the chosen table. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_reveal_table: "com.apple.Notes.OpenTableLinkAction",
   /**
    * **Open Tag**
    * Opens a list of notes that contain a specific tag. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_open_tag: "com.apple.Notes.OpenTagLinkAction",
   /**
    * **Open Top-Level Folder**
    * Opens the Shared, Call Recordings, Math Notes, or Quick Notes folder in Notes. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_open_top_level_folder: "com.apple.Notes.OpenTopLevelFolderLinkAction",
   /**
    * **Pin Notes**
    * Pins or unpins notes. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `operation`, `entities`
    */
   notes_pin_notes: "com.apple.Notes.PinNotesLinkAction",
   /**
    * **Quick Note**
    *  (Notes)
-   * Output: none
    */
   notes_quick_note: "com.apple.Notes.QuickNoteIntent",
   /**
    * **Remove Tags from Notes**
    * Removes tags from notes. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `notes`, `tags`
    */
   notes_remove_tags_from_notes: "com.apple.Notes.RemoveTagsFromNotesLinkAction",
   /**
    * **Rename Folder**
    * Renames a folder in Notes. (Notes)
-   * Output: com.apple.Notes.FolderEntity
+   * Output: Folder
    * Parameters: `entity`, `name`
    */
   notes_rename_folder: "com.apple.Notes.RenameFolderLinkAction",
   /**
    * **Replace Selected Text**
    * Replaces selected text with new text in a note. (Notes)
-   * Output: none
    * Parameters: `text`
    */
   notes_replace_selected_text: "com.apple.Notes.ReplaceSelectionLinkAction",
   /**
    * **Set Attachment Size**
    * Sets the size of an attachment in a note. (Notes)
-   * Output: none
    * Parameters: `target`, `attachmentSize`
    */
   notes_set_attachment_size: "com.apple.Notes.SetAttachmentSizeLinkAction",
   /**
    * **Set Checklist Items Checked**
    * Checks or unchecks items in a checklist. (Notes)
-   * Output: com.apple.Notes.ChecklistItemEntity
+   * Output: Checklist Item
    * Parameters: `changeOperation`, `entities`, `note`, `OpenWhenRun`
    */
   notes_set_checklist_items_checked: "com.apple.Notes.SetChecklistItemCheckedLinkActionv2",
   /**
    * **Set Paragraph Style**
    * Applies a paragraph style to text in a note. (Notes)
-   * Output: none
    * Parameters: `paragraphStyle`
    */
   notes_set_paragraph_style: "com.apple.Notes.SetParagraphStyleLinkAction",
   /**
    * **Show Note and Attachment Search Result**
    * Searches for notes and attachments in Notes. (Notes)
-   * Output: none
    * Parameters: `criteria`
    */
   notes_show_note_and_attachment_search_result: "com.apple.Notes.ShowNotesAppSearchResultsLinkAction",
   /**
    * **Show Quick Note**
    * Opens the Quick Note editor view. (Notes)
-   * Output: none
    */
   notes_show_quick_note: "com.apple.Notes.ShowQuickNoteIntent",
   /**
    * **Start Audio Recording**
    * Opens the audio details screen to record audio in Notes. (Notes)
-   * Output: none
    */
   notes_start_audio_recording: "com.apple.Notes.StartRecordingLinkAction",
   /**
@@ -4218,28 +4119,25 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Update Note**
    * Updates a note in Notes. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `name`, `attachments`, `isPinned`, `target`, `folder`
    */
   notes_update_note: "com.apple.Notes.UpdateNoteIntent",
   /**
    * **Select Person**
    *  (Contacts)
-   * Output: none
    * Parameters: `person`, `shouldShowButtons`, `messageButton`, `callButton`, `verticalLayoutDT`, `verticalLayoutDF`
    */
   com_apple_people_view_service_select_person: "com.apple.PeopleViewService.SelectPersonIntent",
   /**
    * **Open URL**
    *  (Contacts)
-   * Output: none
    * Parameters: `url`
    */
   com_apple_people_view_service_open_url: "com.apple.PeopleViewService.URLAppIntent",
   /**
    * **Add Photos To Album**
    * Adds photos to the specified album. (Photos)
-   * Output: none
    * Parameters: `assets`, `album`
    */
   photos_add_photos_to_album: "com.apple.Photos.AddAssetsToAlbumIntent",
@@ -4253,14 +4151,12 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Apply Filter**
    * Applies the specified filter. (Photos)
-   * Output: none
    * Parameters: `asset`, `effect`
    */
   photos_apply_filter: "com.apple.Photos.ApplyFilterIntent",
   /**
    * **Apply Style**
    * Applies the specified style. (Photos)
-   * Output: none
    * Parameters: `asset`, `style`
    */
   photos_apply_style: "com.apple.Photos.ApplyStyleIntent",
@@ -4274,124 +4170,109 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Clean Up**
    * Opens the specified photo to Clean Up. (Photos)
-   * Output: none
    */
   photos_clean_up: "com.apple.Photos.CleanupIntent",
   /**
    * **Copy and Paste Edits**
    * Copies edits between the specified source and destination photos. (Photos)
-   * Output: none
    * Parameters: `sourceAsset`, `destinationAssets`
    */
   photos_copy_and_paste_edits: "com.apple.Photos.CopyPasteEditsIntent",
   /**
    * **Create Album**
    * Creates an album with the specified name. (Photos)
-   * Output: com.apple.Photos.AlbumEntity
+   * Output: Album
    * Parameters: `title`, `OpenWhenRun`
    */
   photos_create_album: "com.apple.Photos.CreateAlbumIntent",
   /**
    * **Save to Photos**
    * Adds the specified photos to the photo library. (Photos)
-   * Output: com.apple.Photos.AssetEntity
+   * Output: Photo
    * Parameters: `files`, `OpenWhenRun`
    */
   photos_save_to_photos: "com.apple.Photos.CreateAssetsIntent",
   /**
    * **Crop**
    * Opens the photo to Crop. (Photos)
-   * Output: none
    */
   photos_crop: "com.apple.Photos.CropIntent",
   /**
    * **Delete Albums**
    * Deletes the specified albums. (Photos)
-   * Output: none
    * Parameters: `entities`
    */
   photos_delete_albums: "com.apple.Photos.DeleteAlbumsIntent",
   /**
    * **Delete Photos**
    * Deletes the specified photos. (Photos)
-   * Output: none
    * Parameters: `entities`
    */
   photos_delete_photos: "com.apple.Photos.DeleteAssetsIntent",
   /**
    * **Duplicate Photos**
    * Duplicates the specified photos. (Photos)
-   * Output: com.apple.Photos.AssetEntity
+   * Output: Photo
    * Parameters: `assets`, `OpenWhenRun`
    */
   photos_duplicate_photos: "com.apple.Photos.DuplicateAssetsIntent",
   /**
    * **Edit Photo**
    * Opens the specified photo to Edit. (Photos)
-   * Output: none
    * Parameters: `asset`
    */
   photos_edit_photo: "com.apple.Photos.EditAssetIntent",
   /**
    * **Portrait Mode**
    * Enables or disables Portrait mode for the photo. (Photos)
-   * Output: none
    * Parameters: `enabled`, `ShowWhenRun`
    */
   photos_portrait_mode: "com.apple.Photos.EnableDepthIntent",
   /**
    * **Auto Enhance Photo**
    * Enables or disables auto-enhancement of the specified photos. (Photos)
-   * Output: none
    * Parameters: `assets`, `enabled`
    */
   photos_auto_enhance_photo: "com.apple.Photos.EnhanceIntent",
   /**
    * **Favorite Photos**
    * Favorites or unfavorites the specified photos. (Photos)
-   * Output: none
    * Parameters: `assets`, `action`
    */
   photos_favorite_photos: "com.apple.Photos.FavoriteAssetsIntent",
   /**
    * **Favorite Memories**
    * Favorites or unfavorites the specified memories. (Photos)
-   * Output: none
    * Parameters: `memories`, `action`
    */
   photos_favorite_memories: "com.apple.Photos.FavoriteMemoriesIntent",
   /**
    * **Favorite People or Pets**
    * Favorites or unfavorites the specified people or pets. (Photos)
-   * Output: none
    * Parameters: `people`, `action`
    */
   photos_favorite_people_or_pets: "com.apple.Photos.FavoritePeopleIntent",
   /**
    * **Set Library View**
    * Sets the specified library view. (Photos)
-   * Output: none
    * Parameters: `viewMode`
    */
   photos_set_library_view: "com.apple.Photos.FilterLibraryIntent",
   /**
    * **Hide Photos**
    * Hides the specified photos. (Photos)
-   * Output: none
    * Parameters: `assets`, `action`
    */
   photos_hide_photos: "com.apple.Photos.HideAssetsIntent",
   /**
    * **Hide People or Pets**
    * Hides the specified people or pets. (Photos)
-   * Output: none
    * Parameters: `people`, `action`
    */
   photos_hide_people_or_pets: "com.apple.Photos.HidePeopleIntent",
   /**
    * **Markup**
    * Opens the photo to Markup. (Photos)
-   * Output: none
    */
   photos_markup: "com.apple.Photos.MarkupIntent",
   /**
@@ -4404,49 +4285,42 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Move to Personal Library**
    * Moves the specified photos to the Personal Library. (Photos)
-   * Output: none
    * Parameters: `assets`
    */
   photos_move_to_personal_library: "com.apple.Photos.MoveAssetsToPersonalLibraryIntent",
   /**
    * **Move to Shared Library**
    * Moves the specified photos to the Shared Library. (Photos)
-   * Output: none
    * Parameters: `assets`
    */
   photos_move_to_shared_library: "com.apple.Photos.MoveAssetsToSharedLibraryIntent",
   /**
    * **Open Album**
    * Opens the specified album. (Photos)
-   * Output: none
    * Parameters: `target`
    */
   photos_open_album: "com.apple.Photos.OpenAlbumIntent",
   /**
    * **Open Photo**
    * Opens the specified photo. (Photos)
-   * Output: none
    * Parameters: `target`
    */
   photos_open_photo: "com.apple.Photos.OpenAssetIntent",
   /**
    * **Open View**
    * Opens the specified view. (Photos)
-   * Output: none
    * Parameters: `target`
    */
   photos_open_view: "com.apple.Photos.OpenDestinationIntent",
   /**
    * **Create Memory**
    * Opens Photos to create a memory movie. (Photos)
-   * Output: none
    * Parameters: `query`
    */
   photos_create_memory: "com.apple.Photos.OpenMemoryCreationViewIntent",
   /**
    * **Photos Relive Widget Configuration**
    * Configuration (Photos)
-   * Output: none
    * Parameters: `widgetType`, `album`, `alwaysDisplayInFullColor`
    */
   photos_photos_relive_widget_configuration: "com.apple.Photos.PLPhotosReliveWidgetConfigurationIntent",
@@ -4460,349 +4334,304 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Add Photos to Album**
    * Adds the provided photos to the provided album. (Photos)
-   * Output: none
    * Parameters: `assets`, `album`
    */
   com_apple_Photos_PhotosAddAssetsToAlbumAssistantIntent: "com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent",
   /**
    * **Search Photos**
    * Searches photos with the provided attributed string. (Photos)
-   * Output: none
    * Parameters: `criteria`
    */
   photos_search_photos: "com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent",
   /**
    * **Cleanup Photo**
    * Remove distracting objects in a photo. (Photos)
-   * Output: none
    * Parameters: `target`
    */
   photos_cleanup_photo: "com.apple.Photos.PhotosCleanupPhotoAssistantIntent",
   /**
    * **Copy Edits**
    * Copies edits from the provided photo. (Photos)
-   * Output: none
    * Parameters: `target`
    */
   photos_copy_edits: "com.apple.Photos.PhotosCopyEditsAssistantIntent",
   /**
    * **Create Album**
    * Creates an album. (Photos)
-   * Output: com.apple.Photos.AlbumEntity
+   * Output: Album
    * Parameters: `name`, `OpenWhenRun`
    */
   com_apple_Photos_PhotosCreateAlbumAssistantIntent: "com.apple.Photos.PhotosCreateAlbumAssistantIntent",
   /**
    * **Create Photos**
    * Creates photos from the provided files. (Photos)
-   * Output: com.apple.Photos.AssetEntity
+   * Output: Photo
    * Parameters: `files`
    */
   photos_create_photos: "com.apple.Photos.PhotosCreateAssetsAssistantIntent",
   /**
    * **Crop Photo**
    * Crops a photo. (Photos)
-   * Output: none
    * Parameters: `target`
    */
   photos_crop_photo: "com.apple.Photos.PhotosCropAssistantIntent",
   /**
    * **Delete Albums**
    * Deletes the provided albums. (Photos)
-   * Output: none
    * Parameters: `entities`
    */
   com_apple_Photos_PhotosDeleteAlbumsAssistantIntent: "com.apple.Photos.PhotosDeleteAlbumsAssistantIntent",
   /**
    * **Delete Photos**
    * Deletes the provided photos. (Photos)
-   * Output: none
    * Parameters: `entities`
    */
   com_apple_Photos_PhotosDeleteAssetsAssistantIntent: "com.apple.Photos.PhotosDeleteAssetsAssistantIntent",
   /**
    * **Duplicate Photos**
    * Duplicates the selected photos. (Photos)
-   * Output: com.apple.Photos.AssetEntity
+   * Output: Photo
    * Parameters: `entities`, `OpenWhenRun`
    */
   com_apple_Photos_PhotosDuplicateAssetsAssistantIntent: "com.apple.Photos.PhotosDuplicateAssetsAssistantIntent",
   /**
    * **Edit Photo**
    * Opens a photo for editing. (Photos)
-   * Output: none
    * Parameters: `asset`
    */
   com_apple_Photos_PhotosEditAssetAssistantIntent: "com.apple.Photos.PhotosEditAssetAssistantIntent",
   /**
    * **Present Search Results**
    *  (Photos)
-   * Output: none
    * Parameters: `criteria`
    */
   photos_present_search_results: "com.apple.Photos.PhotosEntityCollectionSearchAssistantIntent",
   /**
    * **Favorite Memories**
    * Favorites or unfavorites memories. (Photos)
-   * Output: none
    * Parameters: `memories`, `action`
    */
   com_apple_Photos_PhotosFavoriteMemoriesAssistantIntent: "com.apple.Photos.PhotosFavoriteMemoriesAssistantIntent",
   /**
    * **Set Library View**
    * Sets the library view. (Photos)
-   * Output: none
    * Parameters: `viewMode`
    */
   com_apple_Photos_PhotosFilterLibraryAssistantIntent: "com.apple.Photos.PhotosFilterLibraryAssistantIntent",
   /**
    * **Move to Personal Library**
    * Moves photos to the Personal Library. (Photos)
-   * Output: none
    * Parameters: `assets`
    */
   com_apple_Photos_PhotosMoveAssetsToPersonalLibraryAssistantIntent: "com.apple.Photos.PhotosMoveAssetsToPersonalLibraryAssistantIntent",
   /**
    * **Move to Shared Library**
    * Moves photos to the Shared Library. (Photos)
-   * Output: none
    * Parameters: `assets`
    */
   com_apple_Photos_PhotosMoveAssetsToSharedLibraryAssistantIntent: "com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent",
   /**
    * **Create a Memory**
    * Creates a Memory movie from a description. (Photos)
-   * Output: none
    * Parameters: `query`
    */
   photos_create_a_memory: "com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent",
   /**
    * **Paste Edits**
    * Pastes edits to the provided photo. (Photos)
-   * Output: none
    * Parameters: `target`
    */
   photos_paste_edits: "com.apple.Photos.PhotosPasteEditsAssistantIntent",
   /**
    * **Photos Relive Featured Widget Configuration**
    * Configuration (Photos)
-   * Output: none
    * Parameters: `alwaysDisplayInFullColor`, `enableSpatialEffect`
    */
   photos_photos_relive_featured_widget_configuration: "com.apple.Photos.PhotosReliveWidgetFeaturedConfiguration",
   /**
    * **Remove Photos from Album**
    * Removes the provided photos from the provided album. (Photos)
-   * Output: none
    * Parameters: `album`, `assets`
    */
   com_apple_Photos_PhotosRemoveAssetsFromAlbumAssistantIntent: "com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent",
   /**
    * **Search**
    * Navigate to search results. (Photos)
-   * Output: none
    * Parameters: `criteria`
    */
   photos_search: "com.apple.Photos.PhotosSearchAssistantIntent",
   /**
    * **Set Depth**
    * Sets the depth value of a photo. (Photos)
-   * Output: none
    * Parameters: `target`, `value`, `ShowWhenRun`
    */
   photos_set_depth: "com.apple.Photos.PhotosSetDepthAssistantIntent",
   /**
    * **Set Exposure**
    * Configures the exposure for a photo. (Photos)
-   * Output: none
    * Parameters: `target`, `value`, `ShowWhenRun`
    */
   com_apple_Photos_PhotosSetExposureAssistantIntent: "com.apple.Photos.PhotosSetExposureAssistantIntent",
   /**
    * **Apply Filter**
    * Applies a filter to a photo. (Photos)
-   * Output: none
    * Parameters: `target`, `filterType`
    */
   com_apple_Photos_PhotosSetFilterAssistantIntent: "com.apple.Photos.PhotosSetFilterAssistantIntent",
   /**
    * **Rotate Photo**
    * Rotates a photo. (Photos)
-   * Output: none
    * Parameters: `target`, `direction`
    */
   photos_rotate_photo: "com.apple.Photos.PhotosSetRotationAssistantIntent",
   /**
    * **Set Saturation**
    * Configures the saturation for a photo. (Photos)
-   * Output: none
    * Parameters: `target`, `value`, `ShowWhenRun`
    */
   com_apple_Photos_PhotosSetSaturationAssistantIntent: "com.apple.Photos.PhotosSetSaturationAssistantIntent",
   /**
    * **Set Warmth**
    * Configures the warmth for a photo. (Photos)
-   * Output: none
    * Parameters: `target`, `value`, `ShowWhenRun`
    */
   com_apple_Photos_PhotosSetWarmthAssistantIntent: "com.apple.Photos.PhotosSetWarmthAssistantIntent",
   /**
    * **Straighten Photo**
    * Straightens a photo. (Photos)
-   * Output: none
    * Parameters: `target`
    */
   photos_straighten_photo: "com.apple.Photos.PhotosStraightenAssistantIntent",
   /**
    * **Toggle Depth Effect**
    * Toggles depth effect for a photo. (Photos)
-   * Output: none
    * Parameters: `target`, `isEnabled`, `ShowWhenRun`
    */
   photos_toggle_depth_effect: "com.apple.Photos.PhotosToggleDepthAssistantIntent",
   /**
    * **Enhance Photo**
    * Enhances a photo. (Photos)
-   * Output: none
    * Parameters: `target`, `isEnabled`
    */
   photos_enhance_photo: "com.apple.Photos.PhotosToggleSuggestedEditsAssistantIntent",
   /**
    * **Rename Album**
    * Renames the provided album. (Photos)
-   * Output: none
    * Parameters: `target`, `name`
    */
   com_apple_Photos_PhotosUpdateAlbumAssistantIntent: "com.apple.Photos.PhotosUpdateAlbumAssistantIntent",
   /**
    * **Update Photo**
    * Updates an existing photo’s properties. (Photos)
-   * Output: none
    * Parameters: `target`, `name`, `isFavorite`, `isHidden`
    */
   photos_update_photo: "com.apple.Photos.PhotosUpdateAssetAssistantIntent",
   /**
    * **Update Person**
    * Updates the provided person with new properties. (Photos)
-   * Output: none
    * Parameters: `target`, `isFavorite`, `name`
    */
   photos_update_person: "com.apple.Photos.PhotosUpdateRecognizedPersonAssistantIntent",
   /**
    * **Remove Photos From Album**
    * Removes the photos from the specified album. (Photos)
-   * Output: none
    * Parameters: `album`, `assets`
    */
   photos_remove_photos_from_album: "com.apple.Photos.RemoveAssetsFromAlbumIntent",
   /**
    * **Rename Album**
    * Renames the album with the specified name. (Photos)
-   * Output: none
    * Parameters: `album`, `title`
    */
   photos_rename_album: "com.apple.Photos.RenameAlbumIntent",
   /**
    * **Rename Person**
    * Renames the person with the specified name. (Photos)
-   * Output: none
    * Parameters: `person`, `name`
    */
   photos_rename_person: "com.apple.Photos.RenamePersonIntent",
   /**
    * **REVEAL_ALBUMS_INTENT_TITLE**
    *  (Photos)
-   * Output: none
    * Parameters: `albums`
    */
   photos_reveal_albums_intent_title: "com.apple.Photos.RevealAlbumsIntent",
   /**
    * **REVEAL_ASSETS_INTENT_TITLE**
    *  (Photos)
-   * Output: none
    * Parameters: `assets`, `pluralDestination`
    */
   photos_reveal_assets_intent_title: "com.apple.Photos.RevealAssetsIntent",
   /**
    * **Rotate**
    * Rotates the photos in the specified direction. (Photos)
-   * Output: none
    * Parameters: `assets`, `clockwise`
    */
   photos_rotate: "com.apple.Photos.RotateIntent",
   /**
    * **Set Aperture**
    * Sets the aperture of the photo to the specified value. (Photos)
-   * Output: none
    * Parameters: `value`, `ShowWhenRun`
    */
   photos_set_aperture: "com.apple.Photos.SetApertureIntent",
   /**
    * **Set Audio Mix**
    * Sets the specified audio mix. (Photos)
-   * Output: none
    * Parameters: `audioMix`
    */
   photos_set_audio_mix: "com.apple.Photos.SetAudioMixIntent",
   /**
    * **Set Exposure**
    * Sets the exposure of the photo to the specified value. (Photos)
-   * Output: none
    * Parameters: `value`, `ShowWhenRun`
    */
   photos_set_exposure: "com.apple.Photos.SetExposureIntent",
   /**
    * **Set Playback Speed**
    * Sets the specified playback speed. (Photos)
-   * Output: none
    * Parameters: `playbackRate`
    */
   photos_set_playback_speed: "com.apple.Photos.SetPlaybackRateIntent",
   /**
    * **Set Saturation**
    * Sets the saturation of the photo to the specified value. (Photos)
-   * Output: none
    * Parameters: `value`, `ShowWhenRun`
    */
   photos_set_saturation: "com.apple.Photos.SetSaturationIntent",
   /**
    * **Set Warmth**
    * Set the warmth of the photo to the specified value. (Photos)
-   * Output: none
    * Parameters: `value`, `ShowWhenRun`
    */
   photos_set_warmth: "com.apple.Photos.SetWarmthIntent",
   /**
    * **Straighten**
    * Straightens the photo. (Photos)
-   * Output: none
    */
   photos_straighten: "com.apple.Photos.StraightenIntent",
   /**
    * **Enhance Documents**
    * Enhances the documents. (Preview)
-   * Output: com.apple.Preview.DocumentEntity
+   * Output: Document
    * Parameters: `target`, `OpenWhenRun`
    */
   com_apple_preview_enhance_documents: "com.apple.Preview.AutoEnhanceIntent",
   /**
    * **Bookmark Pages**
    * Bookmark the specified pages. (Preview)
-   * Output: com.apple.Preview.PageEntity
+   * Output: Page
    * Parameters: `pages`, `OpenWhenRun`
    */
   com_apple_preview_bookmark_pages: "com.apple.Preview.BookmarkIntent",
   /**
    * **Close Documents**
    * Close the documents. (Preview)
-   * Output: none
    * Parameters: `documents`
    */
   com_apple_preview_close_documents: "com.apple.Preview.CloseIntent",
   /**
    * **Delete Pages**
    * Deletes the specified pages. (Preview)
-   * Output: none
    * Parameters: `entities`
    */
   com_apple_preview_delete_pages: "com.apple.Preview.DeletePageIntent",
@@ -4816,14 +4645,13 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Export Documents**
    * Export the documents. (Preview)
-   * Output: file
    * Parameters: `documents`, `type`, `folder`, `overwriteIfExists`
    */
   com_apple_preview_export_documents: "com.apple.Preview.ExportIntent",
   /**
    * **Flip Documents**
    * Flip the documents horizontally or vertically. (Preview)
-   * Output: com.apple.Preview.DocumentEntity
+   * Output: Document
    * Parameters: `documents`, `horizontally`, `OpenWhenRun`
    */
   com_apple_preview_flip_documents: "com.apple.Preview.FlipIntent",
@@ -4837,77 +4665,75 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Insert Page**
    * Inserts pages from the specified files. (Preview)
-   * Output: none
    * Parameters: `files`, `isAfter`, `page`
    */
   com_apple_preview_insert_page: "com.apple.Preview.InsertPageIntent",
   /**
    * **Open Documents**
    * Opens the specified files in the reader. (Preview)
-   * Output: com.apple.Preview.DocumentEntity
+   * Output: Document
    * Parameters: `files`
    */
   com_apple_preview_open_documents: "com.apple.Preview.OpenIntent",
   /**
    * **Remove Image Background in Documents**
    * Remove the image background from the documents. (Preview)
-   * Output: com.apple.Preview.DocumentEntity
+   * Output: Document
    * Parameters: `documents`, `OpenWhenRun`
    */
   com_apple_preview_remove_image_background_in_documents: "com.apple.Preview.RemoveBackgroundIntent",
   /**
    * **Resize Documents**
    * Resizes the documents to a particular width and height. (Preview)
-   * Output: com.apple.Preview.DocumentEntity
+   * Output: Document
    * Parameters: `documents`, `width`, `height`, `OpenWhenRun`
    */
   com_apple_preview_resize_documents: "com.apple.Preview.ResizeIntent",
   /**
    * **Reveal Document**
    * Reveal the specified document. (Preview)
-   * Output: com.apple.Preview.DocumentEntity
+   * Output: Document
    * Parameters: `target`
    */
   com_apple_preview_reveal_document: "com.apple.Preview.RevealDocumentIntent",
   /**
    * **Open Page**
    * Opens the app to the specified document page. (Preview)
-   * Output: com.apple.Preview.PageEntity
+   * Output: Page
    * Parameters: `target`
    */
   com_apple_preview_open_page: "com.apple.Preview.RevealPageIntent",
   /**
    * **Rotate Documents**
    * Rotates the documents in the specified direction. (Preview)
-   * Output: com.apple.Preview.DocumentEntity
+   * Output: Document
    * Parameters: `documents`, `isClockwise`, `OpenWhenRun`
    */
   com_apple_preview_rotate_documents: "com.apple.Preview.RotateIntent",
   /**
    * **Rotate Pages**
    * Rotates the pages in the specified direction. (Preview)
-   * Output: com.apple.Preview.PageEntity
+   * Output: Page
    * Parameters: `pages`, `isClockwise`, `OpenWhenRun`
    */
   com_apple_preview_rotate_pages: "com.apple.Preview.RotatePageIntent",
   /**
    * **Save Documents**
    * Save the documents. (Preview)
-   * Output: com.apple.Preview.DocumentEntity
+   * Output: Document
    * Parameters: `documents`
    */
   com_apple_preview_save_documents: "com.apple.Preview.SaveIntent",
   /**
    * **Search Documents**
    * Searches for text in the documents. (Preview)
-   * Output: none
    * Parameters: `documents`, `criteria`
    */
   com_apple_preview_search_documents: "com.apple.Preview.SearchIntent",
   /**
    * **Add to History**
    *  (Safari)
-   * Output: com.apple.Safari.HistoryEntity
+   * Output: History Entity
    * Parameters: `url`, `name`, `timeOfVisit`
    */
   safari_add_to_history: "com.apple.Safari.AddHistoryItem",
@@ -4921,118 +4747,109 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Bookmark Tab**
    * Creates a new bookmark for this tab. (Safari)
-   * Output: com.apple.Safari.BookmarkEntity
+   * Output: Bookmark
    * Parameters: `tab`, `name`
    */
   safari_bookmark_tab: "com.apple.Safari.BookmarkTabIntent",
   /**
    * **Bookmark URL**
    * Creates a new bookmark for a given URL. (Safari)
-   * Output: com.apple.Safari.BookmarkEntity
+   * Output: Bookmark
    * Parameters: `url`, `name`
    */
   safari_bookmark_url: "com.apple.Safari.BookmarkURLIntent",
   /**
    * **Close Tab**
    * Closes the selected tab. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_close_tab: "com.apple.Safari.CloseTab",
   /**
    * **Close Tabs**
    * Closes the selected tabs. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_close_tabs: "com.apple.Safari.CloseTabsAssistantIntent",
   /**
    * **Close View**
    * Closes the view in Safari. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_close_view: "com.apple.Safari.CloseView",
   /**
    * **Close Windows**
    * Closes the selected windows. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_close_windows: "com.apple.Safari.CloseWindowsIntent",
   /**
    * **Add Bookmark**
    * Adds the current page to Bookmarks. (Safari)
-   * Output: none
    * Parameters: `name`
    */
   safari_add_bookmark: "com.apple.Safari.CreateNewBookmark",
   /**
    * **Create New Tab**
    * Opens a new tab in the current Tab Group. (Safari)
-   * Output: com.apple.Safari.TabEntity
+   * Output: Tab
    */
   safari_create_new_tab: "com.apple.Safari.CreateNewTab",
   /**
    * **Create Tab Group**
    * Creates a new Tab Group, optionally with specified contents. (Safari)
-   * Output: com.apple.Safari.TabGroupEntity
+   * Output: Tab Group
    * Parameters: `contents`, `name`
    */
   safari_create_tab_group: "com.apple.Safari.CreateNewTabGroup",
   /**
    * **Create Window**
    * Creates a new browser window. (Safari)
-   * Output: com.apple.Safari.WindowEntity
+   * Output: Window
    * Parameters: `isPrivate`
    */
   safari_create_window: "com.apple.Safari.CreateNewWindow",
   /**
    * **Add to Reading List**
    * Adds the current page to Reading List. (Safari)
-   * Output: com.apple.Safari.ReadingListItemEntity
+   * Output: Reading List Item
    * Parameters: `name`, `title`, `url`
    */
   safari_add_to_reading_list: "com.apple.Safari.CreateReadingListItem",
   /**
    * **Create Tab**
    * Creates a new tab with a URL loaded, or blank if omitted. (Safari)
-   * Output: com.apple.Safari.TabEntity
+   * Output: Tab
    * Parameters: `url`, `isPrivate`
    */
   safari_create_tab: "com.apple.Safari.CreateTabAssistantIntent",
   /**
    * **Delete Bookmarks**
    * Deletes the selected bookmarks. (Safari)
-   * Output: none
    * Parameters: `entities`
    */
   safari_delete_bookmarks: "com.apple.Safari.DeleteBookmarks",
   /**
    * **Delete History Items**
    *  (Safari)
-   * Output: none
    * Parameters: `entities`
    */
   safari_delete_history_items: "com.apple.Safari.DeleteHistoryItems",
   /**
    * **Delete Tab Groups**
    * Delete one or more Safari Tab Groups. (Safari)
-   * Output: none
    * Parameters: `entities`
    */
   safari_delete_tab_groups: "com.apple.Safari.DeleteTabGroups",
   /**
    * **Find on Page**
    * Find the given text on the selected tab. (Safari)
-   * Output: none
    * Parameters: `searchPhrase`, `tab`
    */
   safari_find_on_page: "com.apple.Safari.FindOnPage",
   /**
    * **Get History Items**
    *  (Safari)
-   * Output: com.apple.Safari.HistoryEntity
+   * Output: History Entity
    */
   safari_get_history_items: "com.apple.Safari.GetHistoryItems",
   /**
@@ -5045,91 +4862,78 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Open Link**
    * Navigates a tab to the given URL. (Safari)
-   * Output: none
    * Parameters: `url`, `tab`
    */
   safari_open_link: "com.apple.Safari.LoadURLInTab",
   /**
    * **Move Tabs to Tab Group**
    * Move Safari tabs from their current Tab Group into a new one. (Safari)
-   * Output: none
    * Parameters: `entities`, `container`
    */
   safari_move_tabs_to_tab_group: "com.apple.Safari.MoveTabsToTabGroup",
   /**
    * **Move Tabs to Window**
    * Move Safari tabs from their current window into another window. (Safari)
-   * Output: none
    * Parameters: `entities`, `container`
    */
   safari_move_tabs_to_window: "com.apple.Safari.MoveTabsToWindowIntent",
   /**
    * **Notify User in Safari For Page Update**
    *  (Safari)
-   * Output: none
    * Parameters: `message`, `automationID`, `pageURL`
    */
   safari_notify_user_in_safari_for_page_update: "com.apple.Safari.NotifyUserForUpdatedPageIntent",
   /**
    * **Open Bookmark**
    * Opens the selected bookmark. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_open_bookmark: "com.apple.Safari.OpenBookmark",
   /**
    * **Open Bookmark**
    * Opens the specified bookmark. (Safari)
-   * Output: none
    * Parameters: `target`, `tab`
    */
   com_apple_Safari_OpenBookmarkAssistantIntent: "com.apple.Safari.OpenBookmarkAssistantIntent",
   /**
    * **Open History Item**
    *  (Safari)
-   * Output: bool
    * Parameters: `target`
    */
   safari_open_history_item: "com.apple.Safari.OpenHistoryItem",
   /**
    * **Open Reading List Item**
    * Opens the selected Reading List item. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_open_reading_list_item: "com.apple.Safari.OpenReadingListItem",
   /**
    * **Switch Tab**
    * Switch to an existing tab. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_switch_tab: "com.apple.Safari.OpenTab",
   /**
    * **Open Tab Group**
    * Opens the selected Tab Group. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_open_tab_group: "com.apple.Safari.OpenTabGroup",
   /**
    * **Set Safari Focus Filter**
    * Sets the behavior of the Safari app when the given Focus is enabled. (Safari)
-   * Output: none
    * Parameters: `Mode`, `FocusMode`, `type`, `profileEntity`, `tabGroupEntity`, `openLinksInTabGroup`
    */
   safari_set_safari_focus_filter: "com.apple.Safari.OpenTabGroupForFocus",
   /**
    * **Open View**
    * Opens the view in Safari. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_open_view: "com.apple.Safari.OpenView",
   /**
    * **Search Website**
    * Opens browser to search given term on specified website. (Safari)
-   * Output: none
    * Parameters: `term`, `website`
    */
   safari_search_website: "com.apple.Safari.QuickWebsiteSearchIntent",
@@ -5150,28 +4954,25 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Report NotifyMeWhen Automation Result**
    *  (Safari)
-   * Output: none
    * Parameters: `errorMessage`, `automationID`, `pageURL`
    */
   safari_report_notify_me_when_automation_result: "com.apple.Safari.ReportNotifyMeWhenAutomationResult",
   /**
    * **Request Web Page Context**
    *  (Safari)
-   * Output: com.apple.Safari.WebPageContextResult
+   * Output: Web Page Context Result
    * Parameters: `url`, `shortcutsAutomationUUID`
    */
   safari_request_web_page_context: "com.apple.Safari.RequestWebPageContextIntent",
   /**
    * **Search Tabs**
    * Perform a search of tabs in Safari. (Safari)
-   * Output: none
    * Parameters: `criteria`
    */
   safari_search_tabs: "com.apple.Safari.SearchTabs",
   /**
    * **Show Window**
    * Brings the given Safari window to the foreground. (Safari)
-   * Output: none
    * Parameters: `target`
    */
   safari_show_window: "com.apple.Safari.ShowWindowIntent",
@@ -5293,14 +5094,12 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Change Mouse Tracking Speed**
    * Increases or decreases mouse tracking speed (SettingsPlaceholder)
-   * Output: none
    * Parameters: `change`
    */
   com_apple_settings_change_mouse_tracking_speed: "com.apple.Settings.ChangeMouseTrackingSpeedIntent",
   /**
    * **Change Trackpad Tracking Speed**
    * Increases or decreases trackpad tracking speed (SettingsPlaceholder)
-   * Output: none
    * Parameters: `change`
    */
   com_apple_settings_change_trackpad_tracking_speed: "com.apple.Settings.ChangeTrackpadTrackingSpeedIntent",
@@ -5601,378 +5400,324 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Open Accessibility Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_accessibility_settings: "com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink",
   /**
    * **Open Apple Account Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_apple_account_settings: "com.apple.Settings.OpenAppleAccountSettingsDeepLink",
   /**
    * **Open Application Notifications Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_application_notifications_settings: "com.apple.Settings.OpenApplicationNotificationsSettings",
   /**
    * **Open Automatically Set Date & Time Setting**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_automatically_set_date_time_setting: "com.apple.Settings.OpenAutomaticallySetDateTimeSetting",
   /**
    * **Open Automatically Set Time Zone Setting**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_automatically_set_time_zone_setting: "com.apple.Settings.OpenAutomaticallySetTimeZoneSetting",
   /**
    * **Open Touch ID & Password Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_touch_id_password_settings: "com.apple.Settings.OpenBiometricsAndPasswordSettingsEntityDeepLinks",
   /**
    * **Open Bluetooth Power Setting**
    * Toggles the bluetooth power setting on or off (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_bluetooth_power_setting: "com.apple.Settings.OpenBluetoothPowerDeepLink",
   /**
    * **Open Bluetooth Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_bluetooth_settings: "com.apple.Settings.OpenBluetoothSettingsDeepLink",
   /**
    * **Open CDs & DVDs Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_cds_dvds_settings: "com.apple.Settings.OpenCDsAndDvDsSettingsExtensionSettingsDeepLink",
   /**
    * **Open Class Progress Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_class_progress_settings: "com.apple.Settings.OpenClassKitSettingsSettingsDeepLink",
   /**
    * **Open Classroom Settings**
    * Opens a destination in Classroom Settings (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_classroom_settings: "com.apple.Settings.OpenClassroomDynamicDeepLinks",
   /**
    * **Open Clock Options**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_clock_options: "com.apple.Settings.OpenClockOptionsEntity",
   /**
    * **Open an Internet Accountʼs Settings**
    * Go to a specific Internet Accountʼs settings (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_an_internet_accountʼs_settings: "com.apple.Settings.OpenConfiguredInternetAccountSettings",
   /**
    * **Open Control Center module setting**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_control_center_module_setting: "com.apple.Settings.OpenControlCenterModule",
   /**
    * **Open Menu Bar Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_menu_bar_settings: "com.apple.Settings.OpenControlCenterSettingsSettingsDeepLink",
   /**
    * **Open the Current Time Zone Setting**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_the_current_time_zone_setting: "com.apple.Settings.OpenCurrentTimeZoneSetting",
   /**
    * **Open Date & Time Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_date_time_settings: "com.apple.Settings.OpenDateAndTimeExtensionSettingsDeepLink",
   /**
    * **Open Desktop Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_desktop_settings: "com.apple.Settings.OpenDesktopSettingsEntity",
   /**
    * **Open Desktop & Dock Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_desktop_dock_settings: "com.apple.Settings.OpenDesktopSettingsSettingsDeepLink",
   /**
    * **Open Device Management Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_device_management_settings: "com.apple.Settings.OpenDeviceManagementSettingsDeepLink",
   /**
    * **Open Dock Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_dock_settings: "com.apple.Settings.OpenDockSettingsEntity",
   /**
    * **Open Family Member Settings**
    * See what family members can access and share, and manage child account settings and parental controls. (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_family_member_settings: "com.apple.Settings.OpenFamilyMemberSettings",
   /**
    * **Open Family Settings**
    * See what family members can access and share, and manage child account settings and parental controls. (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_family_settings: "com.apple.Settings.OpenFamilySettings",
   /**
    * **Open Family Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_Settings_OpenFamilySettingsSettingsDeepLink: "com.apple.Settings.OpenFamilySettingsSettingsDeepLink",
   /**
    * **Set Up Family Sharing**
    * Share your subscriptions and music, movie and other media purchases with up to five people. (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_set_up_family_sharing: "com.apple.Settings.OpenFamilySetup",
   /**
    * **Open Family Subscriptions**
    * Manage all your Apple and App Store subscriptions. (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_family_subscriptions: "com.apple.Settings.OpenFamilySubscriptions",
   /**
    * **Open Focus Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_focus_settings: "com.apple.Settings.OpenFocusSettingsExtensionSettingsDeepLink",
   /**
    * **Open Game Center Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_game_center_settings: "com.apple.Settings.OpenGameCenterMacOsSettingsExtensionSettingsDeepLink",
   /**
    * **Open Game Controllers Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_game_controllers_settings: "com.apple.Settings.OpenGameControllerMacSettingsSettingsDeepLink",
   /**
    * **Open List of Internet Accounts**
    * Open List of Internet Accounts (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_list_of_internet_accounts: "com.apple.Settings.OpenInternetAccountsSettings",
   /**
    * **Open Keyboard Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_keyboard_settings: "com.apple.Settings.OpenKeyboardSettingsSettingsDeepLink",
   /**
    * **Open Language & Region Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_language_region_settings: "com.apple.Settings.OpenLocalizationSettingsDeepLink",
   /**
    * **Open Mission Control Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_mission_control_settings: "com.apple.Settings.OpenMissionControlSettingsEntity",
   /**
    * **Open Mouse Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_mouse_settings: "com.apple.Settings.OpenMouseExtensionSettingsDeepLink",
   /**
    * **Open Notification Center Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_notification_center_settings: "com.apple.Settings.OpenNotificationCenterEntity",
   /**
    * **Open Notification Summarization Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_notification_summarization_settings: "com.apple.Settings.OpenNotificationSummarizationEntity",
   /**
    * **Open Notifications Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_notifications_settings: "com.apple.Settings.OpenNotificationsSettingsSettingsDeepLink",
   /**
    * **Open Passwords Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_passwords_settings: "com.apple.Settings.OpenPasswordsSettingsExtensionSettingsDeepLink",
   /**
    * **Open Screen Time Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_screen_time_settings: "com.apple.Settings.OpenScreenTimeDeepLinksIntent",
   /**
    * **Open Siri Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_siri_settings: "com.apple.Settings.OpenSiriSetupSettingsDeepLink",
   /**
    * **Open Software Update Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_software_update_settings: "com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink",
   /**
    * **Open Search Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_search_settings: "com.apple.Settings.OpenSpotlightSettingsDeepLinks",
   /**
    * **Open Startup Disk Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_startup_disk_settings: "com.apple.Settings.OpenStartupDiskSettingsDeepLink",
   /**
    * **Open Startup Disk Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_Settings_OpenStartupDiskStaticDeepLinks: "com.apple.Settings.OpenStartupDiskStaticDeepLinks",
   /**
    * **Open Storage Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_storage_settings: "com.apple.Settings.OpenStorageSettingsDeepLink",
   /**
    * **Open the Current Date & Time Setting**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_the_current_date_time_setting: "com.apple.Settings.OpenTheCurrentDateTimeSetting",
   /**
    * **Open Time Machine Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_time_machine_settings: "com.apple.Settings.OpenTimeMachineSettingsSettingsDeepLink",
   /**
    * **Open Trackpad Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_trackpad_settings: "com.apple.Settings.OpenTrackpadExtensionSettingsDeepLink",
   /**
    * **Open 24-Hour Time Setting**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_24_hour_time_setting: "com.apple.Settings.OpenTwentyFourHourTimeSetting",
   /**
    * **Open VPN Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_vpn_settings: "com.apple.Settings.OpenVpnSettingsDeepLink",
   /**
    * **Open Wallpaper Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_wallpaper_settings: "com.apple.Settings.OpenWallpaperSettingsDeepLink",
   /**
    * **Open Wi‑Fi Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_wi_fi_settings: "com.apple.Settings.OpenWiFiSettingsDeepLink",
   /**
    * **Open Widget Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_widget_settings: "com.apple.Settings.OpenWidgetSettingsEntity",
   /**
    * **Open Windows Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_windows_settings: "com.apple.Settings.OpenWindowsSettingsEntity",
@@ -6035,91 +5780,78 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Open About Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_about_settings: "com.apple.Settings.PlaceholderOpenAboutExtensionSettingsDeepLink",
   /**
    * **Open AirDrop & Continuity Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_air_drop_continuity_settings: "com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink",
   /**
    * **Open Appearance Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_appearance_settings: "com.apple.Settings.PlaceholderOpenAppearanceSettingsDeepLink",
   /**
    * **Open Displays Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_displays_settings: "com.apple.Settings.PlaceholderOpenDisplaysExtSettingsDeepLink",
   /**
    * **Open Lock Screen Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_lock_screen_settings: "com.apple.Settings.PlaceholderOpenLockScreenSettingsDeepLink",
   /**
    * **Open Login Items Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_login_items_settings: "com.apple.Settings.PlaceholderOpenLoginItemsSettingsDeepLink",
   /**
    * **Open Network Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_network_settings: "com.apple.Settings.PlaceholderOpenNetworkSettingsDeepLink",
   /**
    * **Open Printers & Scanners Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_printers_scanners_settings: "com.apple.Settings.PlaceholderOpenPrinterScannerSettingsSettingsDeepLink",
   /**
    * **Open Privacy & Security Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_privacy_security_settings: "com.apple.Settings.PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink",
   /**
    * **Open Sharing Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_sharing_settings: "com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink",
   /**
    * **Open Sound Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_sound_settings: "com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink",
   /**
    * **Open Transfer or Reset Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_transfer_or_reset_settings: "com.apple.Settings.PlaceholderOpenTransferResetExtensionSettingsDeepLink",
   /**
    * **Open Users & Groups Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_users_groups_settings: "com.apple.Settings.PlaceholderOpenUsersGroupsSettingsDeepLink",
@@ -6175,7 +5907,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Open Legacy Preference Panes Settings**
    *  (SettingsPlaceholder)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_legacy_preference_panes_settings: "com.apple.Settings.PrefPanesOpenDeepLink",
@@ -6237,7 +5968,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Set Focus**
    * Turn a specific Focus on or off (SettingsPlaceholder)
-   * Output: none
    * Parameters: `enable`, `focus`, `ShowWhenRun`
    */
   com_apple_settings_set_focus: "com.apple.Settings.SetFocusState",
@@ -6356,7 +6086,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **SoftwareUpdateSettingsExtensionIntents**
    *  (SettingsPlaceholder)
-   * Output: none
    */
   com_apple_settings_software_update_settings_extension_intents: "com.apple.Settings.SoftwareUpdateSettingsExtensionIntents",
   /**
@@ -6747,7 +6476,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Returns the device’s current orientation on iPhone and iPad.
 
 A result of “Unknown” indicates that the device is not supported. (ShortcutsActions)
-   * Output: com.apple.ShortcutsActions.Orientation
+   * Output: Orientation
    */
   settings_get_orientation: "com.apple.ShortcutsActions.GetOrientationAction",
   /**
@@ -6763,111 +6492,95 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Play Music**
    *  (ShortcutsActions)
-   * Output: none
    * Parameters: `music`
    */
   com_apple_shortcuts_actions_play_music: "com.apple.ShortcutsActions.PlayMusicTopHitAction",
   /**
    * **Play Podcast**
    *  (ShortcutsActions)
-   * Output: none
    * Parameters: `podcast`
    */
   com_apple_shortcuts_actions_play_podcast: "com.apple.ShortcutsActions.PlayPodcastTopHitAction",
   /**
    * **Reset Cellular Data Statistics**
    * Resets the cellular data usage counters for the current Data line in Settings. (ShortcutsActions)
-   * Output: none
    */
   com_apple_shortcuts_actions_reset_cellular_data_statistics: "com.apple.ShortcutsActions.ResetCellularDataStatisticsAction",
   /**
    * **Set Battery Charge Limit**
    * Sets the battery charge limit of the device. (ShortcutsActions)
-   * Output: none
    * Parameters: `limit`, `setUntilTomorrow`
    */
   settings_set_battery_charge_limit: "com.apple.ShortcutsActions.SetBatteryChargeLimitAction",
   /**
    * **Set Data Roaming**
    * Sets the Data Roaming setting for a given cellular plan. (ShortcutsActions)
-   * Output: none
    * Parameters: `plan`, `operation`, `state`
    */
   com_apple_shortcuts_actions_set_data_roaming: "com.apple.ShortcutsActions.SetDataRoamingAction",
   /**
    * **Set Default Line**
    * Sets the cellular plan used by default for voice calls or data. (ShortcutsActions)
-   * Output: none
    * Parameters: `type`, `plan`, `allowCellularDataSwitching`
    */
   com_apple_shortcuts_actions_set_default_line: "com.apple.ShortcutsActions.SetDefaultCellularPlanAction",
   /**
    * **Set Multitasking Mode**
    * Sets the multitasking mode of the device. (ShortcutsActions)
-   * Output: none
    * Parameters: `mode`, `automaticallyShowAndHideDock`, `showRecentApps`
    */
   com_apple_shortcuts_actions_set_multitasking_mode: "com.apple.ShortcutsActions.SetMultitaskingModeAction",
   /**
    * **Set Silent Mode**
    * Switch between Silent and Ring for calls and alerts. (ShortcutsActions)
-   * Output: none
    * Parameters: `operation`, `state`
    */
   com_apple_shortcuts_actions_set_silent_mode: "com.apple.ShortcutsActions.SetSilentModeAction",
   /**
    * **Set Voice & Data**
    * Sets the Voice & Data mode. (ShortcutsActions)
-   * Output: none
    * Parameters: `sim`, `ratMode`
    */
   com_apple_shortcuts_actions_set_voice_data: "com.apple.ShortcutsActions.SetVoiceDataModeAction",
   /**
    * **Show Control Center**
    * Shows, hides, or toggles Control Center. (ShortcutsActions)
-   * Output: none
    * Parameters: `operation`
    */
   com_apple_shortcuts_actions_show_control_center: "com.apple.ShortcutsActions.ShowControlCenterAction",
   /**
    * **Start Call**
    *  (ShortcutsActions)
-   * Output: none
    * Parameters: `person`
    */
   com_apple_shortcuts_actions_start_call: "com.apple.ShortcutsActions.StartCallTopHitAction",
   /**
    * **Start FaceTime Audio Call**
    *  (ShortcutsActions)
-   * Output: none
    * Parameters: `faceTimeContact`
    */
   com_apple_shortcuts_actions_start_face_time_audio_call: "com.apple.ShortcutsActions.StartFaceTimeAudioCallTopHitAction",
   /**
    * **Start Call**
    *  (ShortcutsActions)
-   * Output: none
    * Parameters: `faceTimeContact`
    */
   com_apple_ShortcutsActions_StartFaceTimeCallTopHitAction: "com.apple.ShortcutsActions.StartFaceTimeCallTopHitAction",
   /**
    * **Start FaceTime Video Call**
    *  (ShortcutsActions)
-   * Output: none
    * Parameters: `faceTimeContact`
    */
   com_apple_shortcuts_actions_start_face_time_video_call: "com.apple.ShortcutsActions.StartFaceTimeVideoCallTopHitAction",
   /**
    * **Start Time Machine Backup**
    * Initiates or interrupts a Time Machine backup to the given destination. (ShortcutsActions)
-   * Output: none
    * Parameters: `mode`, `destination`
    */
   com_apple_backup_launcher_start_time_machine_backup: "com.apple.ShortcutsActions.TimeMachineAction",
   /**
    * **Toggle Cellular Plan**
    * Enables or disables a cellular plan on this iPhone. (ShortcutsActions)
-   * Output: none
    * Parameters: `plan`, `operation`, `state`
    */
   com_apple_shortcuts_actions_toggle_cellular_plan: "com.apple.ShortcutsActions.ToggleCellularPlanAction",
@@ -6881,7 +6594,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Clear Current Search**
    * Clear current search and return to recents and suggestions (Spotlight)
-   * Output: none
    */
   spotlight_clear_current_search: "com.apple.Spotlight.ClearSpotlightIntent",
   /**
@@ -6894,69 +6606,59 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Search**
    * Opens Search and performs a search for the specified text. (Spotlight)
-   * Output: none
    * Parameters: `criteria`
    */
   spotlight_open_search: "com.apple.Spotlight.SearchSpotlightIntent",
   /**
    * **Open Search**
    * Opens Search and performs a search for the specified text. (Spotlight)
-   * Output: none
    * Parameters: `criteria`, `queryKind`, `filterTitle`, `searchTopLevelFilter`, `searchEntityFilter`
    */
   com_apple_Spotlight_SearchSpotlightIntentInternal: "com.apple.Spotlight.SearchSpotlightIntentInternal",
   /**
    * **Continue Search in App**
    * Continue Search with the same search query in another app (Spotlight)
-   * Output: none
    * Parameters: `target`
    */
   spotlight_continue_search_in_app: "com.apple.Spotlight.SearchUIContinuationIntent",
   /**
    * **Open Siri Knowledge Page**
    * Navigate to Siri Knowledge Page (Spotlight)
-   * Output: none
    * Parameters: `target`
    */
   spotlight_open_siri_knowledge_page: "com.apple.Spotlight.SearchUIOpenKnowledgeIntent",
   /**
    * **Show Search**
    * Shows or hides Search. (Spotlight)
-   * Output: none
    * Parameters: `action`
    */
   spotlight_show_search: "com.apple.Spotlight.ToggleSpotlightIntent",
   /**
    * **Close an App**
    * Closes an app matching the provided application parameter. (SystemIntents)
-   * Output: none
    * Parameters: `application`
    */
   com_apple_system_intents_close_an_app: "com.apple.SystemIntents.CloseApplicationIntent",
   /**
    * **Launch an App**
    * Opens an app matching the provided application parameter. (SystemIntents)
-   * Output: none
    * Parameters: `application`, `url`
    */
   com_apple_system_intents_launch_an_app: "com.apple.SystemIntents.LaunchApplicationIntent",
   /**
    * **Show Desktop**
    * Shows the user's Desktop. (SystemIntents)
-   * Output: none
    */
   com_apple_system_intents_show_desktop: "com.apple.SystemIntents.ShowHomeScreenIntent",
   /**
    * **Open Contact Key Verification Public Verification Code Settings**
    *  (TransparencySettingsIntents)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_contact_key_verification_public_verification_code_settings: "com.apple.TransparencySettingsIntents.OpenTransparencyPublicVerificationCodeDeepLink",
   /**
    * **Open Contact Key Verification Status Settings**
    *  (TransparencySettingsIntents)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_contact_key_verification_status_settings: "com.apple.TransparencySettingsIntents.OpenTransparencyStatusDeepLink",
@@ -6970,7 +6672,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **TransparencySettingsIntents**
    *  (TransparencySettingsIntents)
-   * Output: none
    */
   com_apple_transparency_settings_intents_transparency_settings_intents: "com.apple.TransparencySettingsIntents.TransparencySettingsIntents",
   /**
@@ -7025,7 +6726,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Change Recording Playback Setting**
    * Changes playback settings in Voice Memos. (Voice Memos)
-   * Output: none
    * Parameters: `changeOperation`, `setting`
    */
   voice_memos_change_recording_playback_setting: "com.apple.VoiceMemos.ChangeRecordingPlaybackSetting",
@@ -7046,21 +6746,19 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Create Folder**
    * Creates a new folder in Voice Memos. (Voice Memos)
-   * Output: com.apple.VoiceMemos.RCFolderEntity
+   * Output: Folders
    * Parameters: `name`, `ShowWhenRun`
    */
   voice_memos_create_folder: "com.apple.VoiceMemos.CreateFolder",
   /**
    * **Delete Folders**
    * Deletes the specified folders. (Voice Memos)
-   * Output: none
    * Parameters: `entities`
    */
   voice_memos_delete_folders: "com.apple.VoiceMemos.DeleteFolder",
   /**
    * **Delete Recordings**
    * Deletes the specified recordings. (Voice Memos)
-   * Output: none
    * Parameters: `entities`
    */
   voice_memos_delete_recordings: "com.apple.VoiceMemos.DeleteRecording",
@@ -7081,42 +6779,38 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Folder**
    * Opens a specific folder in Voice Memos. (Voice Memos)
-   * Output: none
    * Parameters: `target`
    */
   voice_memos_open_folder: "com.apple.VoiceMemos.OpenFolder",
   /**
    * **Open Reset Identifier**
    *  (Voice Memos)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_reset_identifier: "com.apple.VoiceMemos.OpenResetAnalyticsIdentifierEntity",
   /**
    * **Play Recording**
    * Plays a recording. (Voice Memos)
-   * Output: none
    * Parameters: `playbackType`, `entity`
    */
   voice_memos_play_recording: "com.apple.VoiceMemos.PlaybackVoiceMemoIntent",
   /**
    * **Combine Recordings**
    * Combine two recordings into a multi-tracks recording. (Voice Memos)
-   * Output: com.apple.VoiceMemos.RCRecordingEntity
+   * Output: Recording
    * Parameters: `firstRecording`, `secondRecording`
    */
   voice_memos_combine_recordings: "com.apple.VoiceMemos.RCCombineRecordings",
   /**
    * **CONTROL_CENTER_TOGGLE_RECORDING_INTENT_TITLE**
    * CONTROL_CENTER_TOGGLE_RECORDING_INTENT_DESCRIPTION (Voice Memos)
-   * Output: none
    * Parameters: `value`
    */
   voice_memos_control_center_toggle_recording_intent_title: "com.apple.VoiceMemos.RCControlCenterToggleRecording",
   /**
    * **Import Recording**
    * Import an audio file with a specified title. (Voice Memos)
-   * Output: com.apple.VoiceMemos.RCRecordingEntity
+   * Output: Recording
    * Parameters: `audioFile`, `title`
    */
   voice_memos_import_recording: "com.apple.VoiceMemos.RCImportRecording",
@@ -7130,7 +6824,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Create Recording**
    * Creates a new recording in Voice Memos. (Voice Memos)
-   * Output: none
    * Parameters: `name`
    */
   voice_memos_create_recording: "com.apple.VoiceMemos.RecordVoiceMemoIntent",
@@ -7144,27 +6837,23 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Search in Voice Memos**
    * Opens Voice Memos and performs a search for the specified text. (Voice Memos)
-   * Output: none
    * Parameters: `searchPhrase`
    */
   voice_memos_search_in_voice_memos: "com.apple.VoiceMemos.SearchRecordings",
   /**
    * **Select Recording**
    * Opens a specific recording in Voice Memos. (Voice Memos)
-   * Output: none
    * Parameters: `target`
    */
   voice_memos_select_recording: "com.apple.VoiceMemos.SelectRecording",
   /**
    * **Stop Recording**
    * Stops the current recording. (Voice Memos)
-   * Output: none
    */
   voice_memos_stop_recording: "com.apple.VoiceMemos.StopRecording",
   /**
    * **Voice Memo**
    * Record personal notes, musical ideas, and more. (Voice Memos)
-   * Output: none
    */
   voice_memos_voice_memo: "com.apple.VoiceMemos.ToggleRecording",
   /**
@@ -7184,44 +6873,37 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Application Windows**
    *  (WindowManager)
-   * Output: none
    */
   com_apple_window_manager_application_windows: "com.apple.WindowManager.AppExposeAction",
   /**
    * **Tile Windows to Corners**
    *  (WindowManager)
-   * Output: none
    */
   com_apple_window_manager_tile_windows_to_corners: "com.apple.WindowManager.CornersTileAction",
   /**
    * **Mission Control**
    *  (WindowManager)
-   * Output: none
    */
   com_apple_window_manager_mission_control: "com.apple.WindowManager.MissionControlAction",
   /**
    * **Show Desktop**
    *  (WindowManager)
-   * Output: none
    */
   com_apple_window_manager_show_desktop: "com.apple.WindowManager.ShowDesktopAction",
   /**
    * **Enable Stage Manager**
    *  (WindowManager)
-   * Output: none
    * Parameters: `value`
    */
   com_apple_window_manager_enable_stage_manager: "com.apple.WindowManager.StageManagerToggleIntent",
   /**
    * **Tile Windows Left & Corners**
    *  (WindowManager)
-   * Output: none
    */
   com_apple_window_manager_tile_windows_left_corners: "com.apple.WindowManager.ThreeUpTileAction",
   /**
    * **Tile Windows Left & Right**
    *  (WindowManager)
-   * Output: none
    */
   com_apple_window_manager_tile_windows_left_right: "com.apple.WindowManager.TwoUpTileAction",
   /**
@@ -7283,14 +6965,12 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Calculator**
    * Opens calculator app. (Calculator)
-   * Output: none
    * Parameters: `target`
    */
   calculator_calculator: "com.apple.calculator.LaunchCalculatorOpenIntent",
   /**
    * **Answer the call**
    * Answers an incoming call (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `call`
    */
   com_apple_calls_phone_app_intents_extension_answer_the_call: "com.apple.calls.PhoneAppIntentsExtension.AnswerCallIntent",
@@ -7318,69 +6998,61 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Create a conference call**
    * Creates a conference call (PhoneAppIntentsExtension)
-   * Output: com.apple.calls.PhoneAppIntentsExtension.ConferenceCall
+   * Output: Conference Call
    * Parameters: `audioVisualMode`, `destination`
    */
   face_time_create_a_conference_call: "com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent",
   /**
    * **Ends the call**
    * Ends a call (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `call`
    */
   com_apple_calls_phone_app_intents_extension_ends_the_call: "com.apple.calls.PhoneAppIntentsExtension.EndCallIntent",
   /**
    * **Prepare call messages to read**
    * Prepare call messages to read (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `messages`
    */
   com_apple_calls_phone_app_intents_extension_prepare_call_messages_to_read: "com.apple.calls.PhoneAppIntentsExtension.PrepareCallMessagesIntent",
   /**
    * **Prepare read call records**
    * Prepare read call records (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `records`
    */
   com_apple_calls_phone_app_intents_extension_prepare_read_call_records: "com.apple.calls.PhoneAppIntentsExtension.PrepareReadCallRecordsIntent",
   /**
    * **Set audio route for an ongoing call**
    * Set audio route for an ongoing call (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `audioRoute`
    */
   com_apple_calls_phone_app_intents_extension_set_audio_route_for_an_ongoing_call: "com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent",
   /**
    * **Start an emergency call**
    * Starts an emergency call (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `destination`
    */
   com_apple_calls_phone_app_intents_extension_start_an_emergency_call: "com.apple.calls.PhoneAppIntentsExtension.StartEmergencyCallIntent",
   /**
    * **Start a FaceTime call**
    * Starts a FaceTime call to a person, handle, or named group (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `audioVisualMode`, `destination`
    */
   face_time_start_a_face_time_call: "com.apple.calls.PhoneAppIntentsExtension.StartFaceTimeCallIntent",
   /**
    * **Start a Telephony call**
    * Starts a call to a person, handle, or named group (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `audioVisualMode`, `destination`
    */
   phone_start_a_telephony_call: "com.apple.calls.PhoneAppIntentsExtension.StartTelephonyCallIntent",
   /**
    * **Clear Current Search**
    * Clear current search and return to recents and suggestions (Siri AI)
-   * Output: none
    */
   com_apple_campo_clear_current_search: "com.apple.campo.ClearSpotlightIntent",
   /**
    * **Resume Conversation**
    * Resume the specified conversation. (Siri AI)
-   * Output: com.apple.campo.ConversationEntity
+   * Output: Conversation
    * Parameters: `target`
    */
   com_apple_campo_resume_conversation: "com.apple.campo.ResumeConversationIntent",
@@ -7394,42 +7066,36 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Search**
    * Opens Search and performs a search for the specified text. (Siri AI)
-   * Output: none
    * Parameters: `criteria`
    */
   com_apple_campo_open_search: "com.apple.campo.SearchSpotlightIntent",
   /**
    * **Open Search**
    * Opens Search and performs a search for the specified text. (Siri AI)
-   * Output: none
    * Parameters: `criteria`, `queryKind`, `filterTitle`, `searchTopLevelFilter`, `searchEntityFilter`
    */
   com_apple_campo_SearchSpotlightIntentInternal: "com.apple.campo.SearchSpotlightIntentInternal",
   /**
    * **Continue Search in App**
    * Continue Search with the same search query in another app (Siri AI)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_campo_continue_search_in_app: "com.apple.campo.SearchUIContinuationIntent",
   /**
    * **Open Siri Knowledge Page**
    * Navigate to Siri Knowledge Page (Siri AI)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_campo_open_siri_knowledge_page: "com.apple.campo.SearchUIOpenKnowledgeIntent",
   /**
    * **Show Search**
    * Shows or hides Search. (Siri AI)
-   * Output: none
    * Parameters: `action`
    */
   com_apple_campo_show_search: "com.apple.campo.ToggleSpotlightIntent",
   /**
    * **Add City**
    * Adds the specified city to the Clock app. (Clock)
-   * Output: none
    * Parameters: `city`, `OpenWhenRun`
    */
   clock_add_city: "com.apple.clock.AddWorldClockIntent",
@@ -7443,178 +7109,157 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Cancel Timers**
    * Cancel timers (Clock)
-   * Output: none
    * Parameters: `entities`
    */
   clock_cancel_timers: "com.apple.clock.AssistantCancelTimerIntent",
   /**
    * **Add Alarm**
    * Create an alarm (Clock)
-   * Output: com.apple.clock.AssistantAlarmEntity
+   * Output: Alarm
    * Parameters: `time`, `label`, `recurrenceDays`, `canSnooze`
    */
   clock_add_alarm: "com.apple.clock.AssistantCreateAlarmIntent",
   /**
    * **Start Timer**
    * Create a timer (Clock)
-   * Output: com.apple.clock.TimerEntity
+   * Output: Timer
    * Parameters: `duration`, `label`, `isSleepTimer`
    */
   clock_start_timer: "com.apple.clock.AssistantCreateTimerIntent",
   /**
    * **Delete Alarms**
    * Delete the alarms (Clock)
-   * Output: none
    * Parameters: `entities`
    */
   clock_delete_alarms: "com.apple.clock.AssistantDeleteAlarmIntent",
   /**
    * **Lap Stopwatch**
    * Lap the stopwatch (Clock)
-   * Output: none
    * Parameters: `stopwatch`
    */
   clock_lap_stopwatch: "com.apple.clock.AssistantLapStopwatchIntent",
   /**
    * **Pause Timer**
    * Pause a timer (Clock)
-   * Output: none
    * Parameters: `timer`
    */
   clock_pause_timer: "com.apple.clock.AssistantPauseTimerIntent",
   /**
    * **Reset Stopwatch**
    * Reset the stopwatch (Clock)
-   * Output: none
    * Parameters: `stopwatch`
    */
   clock_reset_stopwatch: "com.apple.clock.AssistantResetStopwatchIntent",
   /**
    * **Resume Timer**
    * Resume a timer (Clock)
-   * Output: none
    * Parameters: `timer`
    */
   clock_resume_timer: "com.apple.clock.AssistantResumeTimerIntent",
   /**
    * **Start Stopwatch**
    * Start the stopwatch (Clock)
-   * Output: com.apple.clock.StopwatchEntity
+   * Output: Stopwatch
    * Parameters: `stopwatch`
    */
   clock_start_stopwatch: "com.apple.clock.AssistantStartStopwatchIntent",
   /**
    * **Stop Stopwatch**
    * Stop the stopwatch (Clock)
-   * Output: none
    * Parameters: `stopwatch`
    */
   clock_stop_stopwatch: "com.apple.clock.AssistantStopStopwatchIntent",
   /**
    * **Cancel Timer**
    * Cancels the Timer in the Clock app. (Clock)
-   * Output: none
    */
   clock_cancel_timer: "com.apple.clock.CancelTimerIntent",
   /**
    * **Delete Alarms**
    * Deletes one or more alarms in the Clock app. (Clock)
-   * Output: none
    * Parameters: `entities`
    */
   com_apple_clock_DeleteAlarmIntent: "com.apple.clock.DeleteAlarmIntent",
   /**
    * **Dismiss Alarm**
    * Dismiss a firing or snoozed alarm (Clock)
-   * Output: com.apple.clock.AssistantAlarmEntity
+   * Output: Alarm
    * Parameters: `alarm`
    */
   clock_dismiss_alarm: "com.apple.clock.DismissAlarmIntent",
   /**
    * **Get Current Timer**
    * Returns the total duration or remaining time of the current Timer in the Clock app. (Clock)
-   * Output: measurement_duration
    * Parameters: `mode`
    */
   clock_get_current_timer: "com.apple.clock.GetCurrentTimerDetailsIntent",
   /**
    * **Get Time for City**
    * Provides time for specified city (Clock)
-   * Output: string
    * Parameters: `city`
    */
   clock_get_time_for_city: "com.apple.clock.GetTimeForCityIntent",
   /**
    * **Lap Stopwatch**
    * Laps the Stopwatch in the Clock app. (Clock)
-   * Output: none
    * Parameters: `OpenWhenRun`
    */
   com_apple_clock_LapStopwatchIntent: "com.apple.clock.LapStopwatchIntent",
   /**
    * **Opens Alarm**
    * Opens the given alarm in the Clock app. (Clock)
-   * Output: none
    * Parameters: `target`
    */
   clock_opens_alarm: "com.apple.clock.OpenAlarmIntent",
   /**
    * **Open Tab**
    * Opens the given tab in the Clock app. (Clock)
-   * Output: none
    * Parameters: `tab`
    */
   clock_open_tab: "com.apple.clock.OpenTab",
   /**
    * **Open Clock Tab**
    * Opens tab in the Clock app. (Clock)
-   * Output: none
    * Parameters: `target`
    */
   clock_open_clock_tab: "com.apple.clock.OpenTabIntent",
   /**
    * **Pause Timer**
    * Pauses the Timer in the Clock app. (Clock)
-   * Output: none
    */
   com_apple_clock_PauseTimerIntent: "com.apple.clock.PauseTimerIntent",
   /**
    * **Remove City**
    * Removes the specified city from the Clock app. (Clock)
-   * Output: none
    * Parameters: `entities`, `OpenWhenRun`
    */
   clock_remove_city: "com.apple.clock.RemoveWorldClockIntent",
   /**
    * **Reset Stopwatch**
    * Resets the Stopwatch in the Clock app. (Clock)
-   * Output: none
    * Parameters: `OpenWhenRun`
    */
   com_apple_clock_ResetStopwatchIntent: "com.apple.clock.ResetStopwatchIntent",
   /**
    * **Resume Timer**
    * Resumes the Timer in the Clock app. (Clock)
-   * Output: none
    */
   com_apple_clock_ResumeTimerIntent: "com.apple.clock.ResumeTimerIntent",
   /**
    * **Snooze Alarm**
    * Snooze the firing alarm (Clock)
-   * Output: com.apple.clock.AssistantAlarmEntity
+   * Output: Alarm
    * Parameters: `alarm`, `duration`
    */
   clock_snooze_alarm: "com.apple.clock.SnoozeAlarmIntent",
   /**
    * **Start Stopwatch**
    * Starts the Stopwatch in the Clock app. (Clock)
-   * Output: none
    */
   com_apple_clock_StartStopwatchIntent: "com.apple.clock.StartStopwatchIntent",
   /**
    * **Stop the Stopwatch**
    * Stops the Stopwatch in the Clock app. (Clock)
-   * Output: none
    * Parameters: `OpenWhenRun`
    */
   clock_stop_the_stopwatch: "com.apple.clock.StopStopwatchIntent",
@@ -7628,183 +7273,172 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Update Alarm**
    * Update the alarm, for example, turn on / off the alarm, change the label, time, or repeating schedule (Clock)
-   * Output: com.apple.clock.AssistantAlarmEntity
+   * Output: Alarm
    * Parameters: `alarm`, `isEnabled`, `time`, `label`, `recurrenceDays`, `allowsSnooze`
    */
   clock_update_alarm: "com.apple.clock.UpdateAlarmIntent",
   /**
    * **Update Timer**
    * Update the timer’s attributes (Clock)
-   * Output: com.apple.clock.TimerEntity
+   * Output: Timer
    * Parameters: `timer`, `duration`, `label`, `isSleepTimer`
    */
   clock_update_timer: "com.apple.clock.UpdateTimerIntent",
   /**
    * **Put Display to Sleep**
    *  (ControlCenter)
-   * Output: none
    */
   com_apple_controlcenter_put_display_to_sleep: "com.apple.controlcenter.DisplaySleepIntent",
   /**
    * **Lock the screen**
    *  (ControlCenter)
-   * Output: none
    */
   com_apple_controlcenter_lock_the_screen: "com.apple.controlcenter.LockScreenIntent",
   /**
    * **Start Screen Saver**
    *  (ControlCenter)
-   * Output: none
    */
   com_apple_controlcenter_start_screen_saver: "com.apple.controlcenter.ScreenSaverIntent",
   /**
    * **Enable or disable Dark Mode**
    *  (ControlCenter)
-   * Output: none
    * Parameters: `value`
    */
   com_apple_controlcenter_enable_or_disable_dark_mode: "com.apple.controlcenter.SetDarkModeEnabledIntent",
   /**
    * **Enable or disable Night Shift**
    *  (ControlCenter)
-   * Output: none
    * Parameters: `value`
    */
   com_apple_controlcenter_enable_or_disable_night_shift: "com.apple.controlcenter.SetNightShiftEnabledIntent",
   /**
    * **Enable or disable True Tone**
    *  (ControlCenter)
-   * Output: none
    * Parameters: `value`
    */
   com_apple_controlcenter_enable_or_disable_true_tone: "com.apple.controlcenter.SetTrueToneEnabledIntent",
   /**
    * **Automatically hide and show the Dock**
    *  (Dock)
-   * Output: none
    * Parameters: `value`
    */
   com_apple_dock_automatically_hide_and_show_the_dock: "com.apple.dock.SetDockAutoHideEnabledIntent",
   /**
    * **Compress Items**
    * Compresses items into an archive (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `sources`, `format`, `destination`, `OpenWhenRun`
    */
   finder_compress_items: "com.apple.finder.CompressItemsIntent",
   /**
    * **Copy and Move Items**
    * Copies items to another location (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `sources`, `destination`, `overwriteConflicts`, `OpenWhenRun`
    */
   finder_copy_and_move_items: "com.apple.finder.CopyItemsIntent",
   /**
    * **Create Folder**
    * Creates a new folder. (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `fileName`, `target`, `OpenWhenRun`
    */
   finder_create_folder: "com.apple.finder.CreateFolderIntent",
   /**
    * **Duplicate Items**
    * Duplicates items in their current locations (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `sources`, `OpenWhenRun`
    */
   finder_duplicate_items: "com.apple.finder.DuplicateItemsIntent",
   /**
    * **Get Info**
    * Shows the Get Info window for an item or items (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `targets`
    */
   finder_get_info: "com.apple.finder.GetInfoIntent",
   /**
    * **Get Location**
    * Provides a well-known location on disk (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `location`
    */
   finder_get_location: "com.apple.finder.GetLocationIntent",
   /**
    * **Get Selected Items**
    * Gets the selected Finder items (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    */
   finder_get_selected_items: "com.apple.finder.GetSelectedItemsIntent",
   /**
    * **Go To Enclosing Folder**
    * Navigates the front Finder window to its enclosing folder (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    */
   finder_go_to_enclosing_folder: "com.apple.finder.GoToEnclosingFolderIntent",
   /**
    * **Go To Folder**
    * Shows the Finder’s Go To Folder… UI (Finder)
-   * Output: none
    */
   finder_go_to_folder: "com.apple.finder.GoToFolderIntent",
   /**
    * **Go To Location**
    * Navigates to a location in a Finder window (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `location`
    */
   finder_go_to_location: "com.apple.finder.GoToLocationIntent",
   /**
    * **Move Items to Folder**
    * Moves existing files or folders. (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `entities`, `destinationFolder`, `overwriteConflicts`, `OpenWhenRun`
    */
   finder_move_items_to_folder: "com.apple.finder.MoveItemsIntent",
   /**
    * **Open Item**
    * Opens a selected file or folder. (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `target`
    */
   finder_open_item: "com.apple.finder.OpenItemIntent",
   /**
    * **Rename Item**
    * Renames an existing file or folder. (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `target`, `newName`, `overwriteExtension`, `OpenWhenRun`
    */
   finder_rename_item: "com.apple.finder.RenameItemIntent",
   /**
    * **Reveal Items**
    * Shows the items in Finder windows (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `targets`, `openInNewWindow`
    */
   finder_reveal_items: "com.apple.finder.RevealItemsIntent",
   /**
    * **Search in Finder**
    * Search for files and folders in Finder (Finder)
-   * Output: none
    * Parameters: `criteria`
    */
   finder_search_in_finder: "com.apple.finder.SearchInBrowserIntent",
   /**
    * **Trash Items**
    * Moves items to the Trash (Finder)
-   * Output: com.apple.finder.FINodeEntity
+   * Output: File
    * Parameters: `entities`, `OpenWhenRun`
    */
   finder_trash_items: "com.apple.finder.TrashItemsIntent",
   /**
    * **Choose Person**
    *  (Find My)
-   * Output: none
    * Parameters: `contact`
    */
   com_apple_findmy_choose_person: "com.apple.findmy.FriendSelectorIntent",
   /**
    * **Preview_Intent_Only**
    *  (Find My)
-   * Output: none
    */
   com_apple_findmy_preview_intent_only: "com.apple.findmy.Intent",
   /**
@@ -7817,7 +7451,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Choose Item**
    *  (Find My)
-   * Output: none
    * Parameters: `source`
    */
   com_apple_findmy_choose_item: "com.apple.findmy.ItemSelectorIntent",
@@ -7845,21 +7478,21 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Add Item to Board**
    * Adds an item to a board. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `target`, `itemType`, `text`, `mediaItems`, `url`, `OpenWhenRun`
    */
   freeform_add_item_to_board: "com.apple.freeform.CRLAddItemToBoardIntent",
   /**
    * **Add Sticky Note to Board**
    * Adds a sticky note to a board (empty or with text in it). (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `board`, `string`, `OpenWhenRun`
    */
   freeform_add_sticky_note_to_board: "com.apple.freeform.CRLAddStickyNoteToBoardIntent",
   /**
    * **Add Text to Board**
    * Adds a text box to a board (empty or with text in it). (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `board`, `string`, `OpenWhenRun`
    */
   freeform_add_text_to_board: "com.apple.freeform.CRLAddTextToBoardIntent",
@@ -7873,193 +7506,180 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Show/Hide Dot Grid**
    * Shows or hides the dot grid for a board. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `entity`, `operation`, `OpenWhenRun`
    */
   freeform_show_hide_dot_grid: "com.apple.freeform.CRLChangeBoardCanvasGridIntent",
   /**
    * **Show/Hide Object Connectors**
    * Shows or hides object connectors for a board. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `entity`, `operation`, `OpenWhenRun`
    */
   freeform_show_hide_object_connectors: "com.apple.freeform.CRLChangeBoardObjectConnectorsIntent",
   /**
    * **Change Fill Color**
    * Changes the fill color of the shape, sticky note, or text box selected on the board. (Freeform)
-   * Output: none
    * Parameters: `board`, `color`
    */
   freeform_change_fill_color: "com.apple.freeform.CRLChangeSelectionColorIntent",
   /**
    * **Change Font Size**
    * Changes the font size of the text selected on the board. (Freeform)
-   * Output: none
    * Parameters: `board`, `size`
    */
   freeform_change_font_size: "com.apple.freeform.CRLChangeSelectionFontSizeIntent",
   /**
    * **Change Font Style**
    * Applies a font style to the text selected on the board. (Freeform)
-   * Output: none
    * Parameters: `board`, `style`
    */
   freeform_change_font_style: "com.apple.freeform.CRLChangeSelectionFontStyleIntent",
   /**
    * **Create Board**
    * Creates a new board. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `title`, `OpenWhenRun`
    */
   freeform_create_board: "com.apple.freeform.CRLCreateBoardIntent",
   /**
    * **Delete Boards**
    * Deletes one or more boards. (Freeform)
-   * Output: none
    * Parameters: `entities`
    */
   freeform_delete_boards: "com.apple.freeform.CRLDeleteBoardIntent",
   /**
    * **Favorite/Unfavorite Board**
    * Adds a board to Favorites or removes a board from Favorites. (Freeform)
-   * Output: none
    * Parameters: `entity`, `operation`
    */
   freeform_favorite_unfavorite_board: "com.apple.freeform.CRLFavoriteBoardIntent_v2",
   /**
    * **Add Files to Board**
    * Adds one or more files to a board. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `board`, `files`, `OpenWhenRun`
    */
   freeform_add_files_to_board: "com.apple.freeform.CRLInsertFilesToBoardIntent",
   /**
    * **Add Photos to Board**
    * Adds one or more photos to a board. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `board`, `images`, `OpenWhenRun`
    */
   freeform_add_photos_to_board: "com.apple.freeform.CRLInsertPhotosToBoardIntent",
   /**
    * **Add Shape to Board**
    * Adds a shape to a board (empty or with text in it). (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `board`, `shapes`, `string`, `OpenWhenRun`
    */
   freeform_add_shape_to_board: "com.apple.freeform.CRLInsertShapeToBoardIntent",
   /**
    * **Insert Text**
    * Adds text to a board in a text box or a specified container. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `board`, `strings`, `container`, `OpenWhenRun`
    */
   freeform_insert_text: "com.apple.freeform.CRLInsertTextToBoardIntent",
   /**
    * **Add Link to Board**
    * Adds a web link to a board. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `board`, `url`, `OpenWhenRun`
    */
   freeform_add_link_to_board: "com.apple.freeform.CRLInsertURLToBoardIntent",
   /**
    * **Open Board**
    * Opens an existing board. (Freeform)
-   * Output: none
    * Parameters: `target`
    */
   freeform_open_board: "com.apple.freeform.CRLOpenBoardIntent",
   /**
    * **Rename Board**
    * Renames a board. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `entity`, `property`, `OpenWhenRun`
    */
   freeform_rename_board: "com.apple.freeform.CRLRenameBoardIntent",
   /**
    * **Resize Text**
    * Increases or decreases the font size of the text selected on the board. (Freeform)
-   * Output: none
    * Parameters: `board`, `behavior`
    */
   freeform_resize_text: "com.apple.freeform.CRLResizeSelectionFontIntent",
   /**
    * **Resize Text**
    * Increases or decreases the font size of the text selected on the board. (Freeform)
-   * Output: none
    * Parameters: `board`, `operation`
    */
   com_apple_freeform_CRLResizeSelectionFontIntent_v2: "com.apple.freeform.CRLResizeSelectionFontIntent_v2",
   /**
    * **Rename Board**
    * Renames a board. (Freeform)
-   * Output: com.apple.freeform.CRLBoardEntity
+   * Output: Board
    * Parameters: `target`, `title`, `OpenWhenRun`
    */
   com_apple_freeform_CRLUpdateBoardIntent: "com.apple.freeform.CRLUpdateBoardIntent",
   /**
    * **Utilities Intent**
    *  (Freeform)
-   * Output: string
    * Parameters: `arguments`, `operation`
    */
   freeform_utilities_intent: "com.apple.freeform.CRLUtilitiesIntent",
   /**
    * **Create New Freeform Board**
    * Create a new board for Freeform (Freeform)
-   * Output: none
    */
   freeform_create_new_freeform_board: "com.apple.freeform.CRLiOSCreateBoardIntent",
   /**
    * **Open Freeform Board**
    * Open the specified board in Freeform (Freeform)
-   * Output: none
    * Parameters: `board`
    */
   freeform_open_freeform_board: "com.apple.freeform.CRLiOSOpenBoardIntent",
   /**
    * **Generate Knowledge Response**
    * This intent accepts a knowledge-seeking request and delegates the request to ChatGPT, which actually performs it and propagates back the generative result. (GenerativeAssistantExtension)
-   * Output: com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity
+   * Output: GenerativeResponse AppEntity
    * Parameters: `explicitInvocation`, `partner`, `userQuery`, `additionalInfo`, `ShowWhenRun`
    */
   com_apple_generativeassistanttools_generative_assistant_extension_generate_knowledge_response: "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateKnowledgeResponseIntent",
   /**
    * **Generate Rich Content From Media**
    * This intent answers a user query about on screen content, e.g., image, pdf, webpage, by delegating the request to ChatGPT in order to provide a generative response. (GenerativeAssistantExtension)
-   * Output: com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity
+   * Output: GenerativeResponse AppEntity
    * Parameters: `explicitInvocation`, `partner`, `directInvocationClient`, `additionalInfo`, `userQuery`, `ShowWhenRun`
    */
   com_apple_generativeassistanttools_generative_assistant_extension_generate_rich_content_from_media: "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentFromMediaIntent",
   /**
    * **Generate Rich Content**
    * This intent accepts a user request to generate a type of text content (for example ‘email’, ‘note’, ‘paragraph’) and delegates the request to ChatGPT, which actually performs it and propagates back the generative result. (GenerativeAssistantExtension)
-   * Output: com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity
+   * Output: GenerativeResponse AppEntity
    * Parameters: `explicitInvocation`, `partner`, `userQuery`, `additionalInfo`, `ShowWhenRun`
    */
   com_apple_generativeassistanttools_generative_assistant_extension_generate_rich_content: "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentIntent",
   /**
    * **On Screen Content Intent**
    *  (GenerativeAssistantExtension)
-   * Output: com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentEntity
+   * Output: GenerativeResponse AppEntity
    */
   com_apple_generativeassistanttools_generative_assistant_extension_on_screen_content_intent: "com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentIntent",
   /**
    * **Prewarm GenerativeAssistantExtension**
    *  (GenerativeAssistantExtension)
-   * Output: bool
    */
   com_apple_generativeassistanttools_generative_assistant_extension_prewarm_generative_assistant_extension: "com.apple.generativeassistanttools.GenerativeAssistantExtension.PrewarmGenerativeAssistantExtensionIntent",
   /**
    * **Generative Partner Prototype**
    *  (GenerativePartnerPrototypeExtension)
-   * Output: com.apple.AppIntents.AppIntents._ModelDelegationResultEntity
+   * Output: Model Delegation Response
    * Parameters: `prompt`, `conversationIdentifier`, `configuration`
    */
   com_apple_gms_generative_partner_prototype_extension_generative_partner_prototype: "com.apple.gms.GenerativePartnerPrototypeExtension.GenerativePartnerPrototypeIntentChatGPT",
   /**
    * **Open Collection**
    * Opens a Tip collection in the Tips app. (Tips)
-   * Output: none
    * Parameters: `collection`
    */
   com_apple_helpviewer_open_collection: "com.apple.helpviewer.CollectionOpenIntent",
@@ -8080,7 +7700,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Set Audiobook Sleep Timer**
    * Sets a sleep timer in the Books app from available sleep timer options. (Books)
-   * Output: none
    * Parameters: `option`, `duration`, `ShowWhenRun`
    */
   books_set_audiobook_sleep_timer: "com.apple.iBooksX.AudiobookSleepTimerIntent",
@@ -8094,21 +7713,18 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Change Book Appearance**
    * Changes the appearance or reading theme in an open book. (Books)
-   * Output: none
    * Parameters: `changeOperation`, `setting`
    */
   books_change_book_appearance: "com.apple.iBooksX.BookReaderChangeThemeIntent",
   /**
    * **Turn Page**
    * Navigates to the next or previous page. (Books)
-   * Output: none
    * Parameters: `direction`, `target`
    */
   books_turn_page: "com.apple.iBooksX.BookReaderNavigatePageInBookIntent",
   /**
    * **Turn Page**
    * Navigates pages in an open book forward to backwards sequentially. (Books)
-   * Output: none
    * Parameters: `direction`
    */
   com_apple_iBooksX_BookReaderNavigatePagesIntent: "com.apple.iBooksX.BookReaderNavigatePagesIntent",
@@ -8135,21 +7751,18 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Change Text Size**
    * Updates the font size for a book. (Books)
-   * Output: none
    * Parameters: `changeOperation`, `target`, `book`
    */
   books_change_text_size: "com.apple.iBooksX.ChangeFontSizeIntent",
   /**
    * **Close Book**
    * Close a book you specify, in the Books app. (Books)
-   * Output: none
    * Parameters: `target`
    */
   books_close_book: "com.apple.iBooksX.CloseBookIntent",
   /**
    * **Open View or Collection in Books App**
    * Opens the Books app to the view you specify. (Books)
-   * Output: none
    * Parameters: `target`
    */
   books_open_view_or_collection_in_books_app: "com.apple.iBooksX.DeepLinkIntent",
@@ -8163,151 +7776,132 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Audio Item**
    * Opens an audio item in the app UI (Books)
-   * Output: none
    * Parameters: `target`
    */
   books_open_audio_item: "com.apple.iBooksX.OpenAudioIntent",
   /**
    * **Open Book**
    * Opens the last book you were reading, or a book you specify, in the Books app. (Books)
-   * Output: none
    * Parameters: `mode`, `target`
    */
   books_open_book: "com.apple.iBooksX.OpenBookIntent",
   /**
    * **Open Default Collection**
    * Opens a specified default collection in the Books app. (Books)
-   * Output: none
    * Parameters: `target`
    */
   books_open_default_collection: "com.apple.iBooksX.OpenDefaultCollectionIntent",
   /**
    * **Open Most Recent Book**
    * Opens the last book you were reading in the Books app. (Books)
-   * Output: none
    */
   books_open_most_recent_book: "com.apple.iBooksX.OpenMostRecentBookIntent",
   /**
    * **Open Specific Book**
    * Opens a book you specify, in the Books app. (Books)
-   * Output: none
    * Parameters: `target`
    */
   books_open_specific_book: "com.apple.iBooksX.OpenSpecificBookIntent",
   /**
    * **Open View in Books App**
    * Opens the Books app to the tab or sidebar view you specify. (Books)
-   * Output: none
    * Parameters: `target`
    */
   books_open_view_in_books_app: "com.apple.iBooksX.OpenTabBarItemIntent",
   /**
    * **Open Table of Contents**
    * Opens the table of contents in the Books app for a book you specify. (Books)
-   * Output: none
    * Parameters: `target`
    */
   books_open_table_of_contents: "com.apple.iBooksX.OpenTableOfContentsIntent",
   /**
    * **Pause Current Audiobook**
    * Pauses the audiobook you are currently listening to in the Books app. (Books)
-   * Output: none
    */
   books_pause_current_audiobook: "com.apple.iBooksX.PauseCurrentAudiobookIntent",
   /**
    * **Play Audio Item**
    * Play an audio item (Books)
-   * Output: none
    * Parameters: `warmupAudioQueueResult`, `audioEntity`, `playbackAttributes`, `queueLocation`
    */
   books_play_audio_item: "com.apple.iBooksX.PlayAudioIntent",
   /**
    * **Play Audiobook**
    * Plays the last audiobook you were listening to, or an audiobook you specify, in the Books app. (Books)
-   * Output: none
    * Parameters: `mode`, `target`
    */
   books_play_audiobook: "com.apple.iBooksX.PlayAudiobookIntent",
   /**
    * **Play Most Recent Audiobook**
    * Plays the last audiobook you were listening to in the Books app. (Books)
-   * Output: none
    */
   books_play_most_recent_audiobook: "com.apple.iBooksX.PlayMostRecentAudiobookIntent",
   /**
    * **Play Specific Audiobook**
    * Plays an audiobook you specify, in the Books app. (Books)
-   * Output: none
    * Parameters: `target`
    */
   books_play_specific_audiobook: "com.apple.iBooksX.PlaySpecificAudiobookIntent",
   /**
    * **Search in the Books App**
    * Searches the Books app for books and audiobooks in the store and your library by title or author. (Books)
-   * Output: none
    * Parameters: `criteria`
    */
   books_search_in_the_books_app: "com.apple.iBooksX.SearchBooksAppIntent",
   /**
    * **Search in Books**
    * Searches the Books app for books and audiobooks in the store and your library by title or author. (Books)
-   * Output: none
    * Parameters: `searchPhrase`
    */
   books_search_in_books: "com.apple.iBooksX.SearchBooksIntent",
   /**
    * **UpdateReaderIntent**
    * UpdateReaderIntent (Books)
-   * Output: none
    * Parameters: `target`, `font`, `theme`, `pageNavigationSetting`, `isTextJustified`, `isAllowMultipleColumns`
    */
   books_update_reader_intent: "com.apple.iBooksX.UpdateBookSettingsIntent",
   /**
    * **Create Calendar**
    * Creates a new calendar. (Calendar)
-   * Output: com.apple.iCal.CalendarEntity
+   * Output: Calendar
    * Parameters: `name`, `source`, `OpenWhenRun`
    */
   calendar_create_calendar: "com.apple.iCal.CreateCalendarIntent",
   /**
    * **Create Event**
    * Creates a new event. (Calendar)
-   * Output: com.apple.iCal.EventEntity
+   * Output: Event
    * Parameters: `title`, `startDate`, `endDate`, `isAllDay`, `recurrence`, `calendar`, `location`, `note`, `alarms`, `attendees`, `privacyLevel`, `availability`, `travelTime`, `url`, `floatingTimeZoneID`, `virtualConferenceType`, `OpenWhenRun`
    */
   calendar_create_event: "com.apple.iCal.CreateEventIntent",
   /**
    * **Delete Calendars**
    * Deletes the given calendars. (Calendar)
-   * Output: none
    * Parameters: `entities`, `reportJunk`
    */
   calendar_delete_calendars: "com.apple.iCal.DeleteCalendarsIntent",
   /**
    * **Delete Events**
    * Deletes the given events. (Calendar)
-   * Output: none
    * Parameters: `entity`, `span`
    */
   calendar_delete_events: "com.apple.iCal.DeleteEventIntent",
   /**
    * **Edit Event**
    * Modifies the given event. (Calendar)
-   * Output: com.apple.iCal.EventEntity
+   * Output: Event
    * Parameters: `event`, `title`, `startDate`, `endDate`, `isAllDay`, `calendar`, `privacyLevel`, `status`, `availability`, `location`, `note`, `recurrence`, `travelTime`, `alarms`, `url`, `participationStatus`, `attendees`, `span`, `locationPredictionAction`, `virtualConferenceType`, `OpenWhenRun`
    */
   calendar_edit_event: "com.apple.iCal.EditEventIntent",
   /**
    * **Email Attendees**
    * Starts an email addressed to the attendees of the given event. (Calendar)
-   * Output: none
    * Parameters: `target`
    */
   calendar_email_attendees: "com.apple.iCal.EmailAttendeesIntent",
   /**
    * **Email Organizer**
    * Starts an email addressed to the organizer of the given event. (Calendar)
-   * Output: none
    * Parameters: `target`
    */
   calendar_email_organizer: "com.apple.iCal.EmailOrganizerIntent",
@@ -8321,21 +7915,20 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Fetch Transferable Event By URL Intent**
    *  (Calendar)
-   * Output: com.apple.iCal.TransferableEventEntity
+   * Output: TransferableEventEntity <no loc>
    * Parameters: `url`
    */
   calendar_fetch_transferable_event_by_url_intent: "com.apple.iCal.FetchTransferableEventByURLIntent",
   /**
    * **Fetch Transferable Events In Range Intent <no loc>**
    *  (Calendar)
-   * Output: com.apple.iCal.TransferableEventEntity
+   * Output: TransferableEventEntity <no loc>
    * Parameters: `rangeStart`, `rangeEnd`
    */
   calendar_fetch_transferable_events_in_range_intent_no_loc: "com.apple.iCal.FetchTransferableEventsInRangeIntent",
   /**
    * **Highlight Event**
    * Jumps to the date of the given event and highlights it. (Calendar)
-   * Output: none
    * Parameters: `target`
    */
   calendar_highlight_event: "com.apple.iCal.HighlightEventIntent",
@@ -8349,70 +7942,60 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Join Event**
    * Joins or calls the virtual conference for the given event. (Calendar)
-   * Output: none
    * Parameters: `target`
    */
   calendar_join_event: "com.apple.iCal.JoinEventIntent",
   /**
    * **List Events Intent <no loc>**
    *  (Calendar)
-   * Output: none
    * Parameters: `description`, `target`
    */
   calendar_list_events_intent_no_loc: "com.apple.iCal.ListEventsIntent",
   /**
    * **Open Calendar Editor**
    * Shows an editor for the given calendar. (Calendar)
-   * Output: none
    * Parameters: `target`, `enableDoneInitially`
    */
   calendar_open_calendar_editor: "com.apple.iCal.OpenCalendarEditorIntent",
   /**
    * **Open Calendar View**
    * Opens the given view. (Calendar)
-   * Output: none
    * Parameters: `target`
    */
   calendar_open_calendar_view: "com.apple.iCal.OpenCalendarViewIntent",
   /**
    * **Open Date**
    * Jumps to the given date. (Calendar)
-   * Output: none
    * Parameters: `target`
    */
   calendar_open_date: "com.apple.iCal.OpenDateIntent",
   /**
    * **Open Event Details**
    * Shows the details for the given event. (Calendar)
-   * Output: none
    * Parameters: `title`, `caption`, `target`
    */
   calendar_open_event_details: "com.apple.iCal.OpenEventDetailsIntent",
   /**
    * **Open Event Editor**
    * Shows an editor for the given event. (Calendar)
-   * Output: none
    * Parameters: `target`
    */
   calendar_open_event_editor: "com.apple.iCal.OpenEventEditorIntent",
   /**
    * **Respond to Inbox Item**
    * Responds to the given inbox item. (Calendar)
-   * Output: none
    * Parameters: `target`, `response`
    */
   calendar_respond_to_inbox_item: "com.apple.iCal.RespondToInboxItemIntent",
   /**
    * **Set Calendar Focus Filter**
    * Sets the behavior of the Calendar app when the given Focus is enabled. (Calendar)
-   * Output: none
    * Parameters: `Mode`, `FocusMode`, `calendars`
    */
   calendar_set_calendar_focus_filter: "com.apple.iCal.SetCalendarFocusConfiguration",
   /**
    * **Test Compose Engine**
    *  (Calendar)
-   * Output: string
    * Parameters: `input`, `requestedDetails`, `rangeStart`, `rangeEnd`, `maxResults`, `dataSources`, `dateNow`
    */
   calendar_test_compose_engine: "com.apple.iCal.TestComposeEngineIntent",
@@ -8433,80 +8016,68 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Export Presentation in Background**
    * Exports a presentation to a specified file format. Does not open the presentation or bring it to the foreground. (Keynote)
-   * Output: file
    * Parameters: `document`, `format`, `sourcePassword`, `password`
    */
   com_apple_i_work_keynote_export_presentation_in_background: "com.apple.iWork.Keynote.KNDocumentBackgroundExportIntent",
   /**
    * **Create New Presentation**
    * Create a new presentation from the theme chooser in Keynote. (Keynote)
-   * Output: none
    */
   com_apple_i_work_keynote_create_new_presentation: "com.apple.iWork.Keynote.KNNewDocumentIntent",
   /**
    * **Export Spreadsheet in Background**
    * Exports a spreadsheet to a specified file format. Does not open the spreadsheet or bring it to the foreground. (Numbers)
-   * Output: file
    * Parameters: `document`, `format`, `sourcePassword`, `password`
    */
   com_apple_i_work_numbers_export_spreadsheet_in_background: "com.apple.iWork.Numbers.TNDocumentBackgroundExportIntent",
   /**
    * **Create New Spreadsheet**
    * Create a new spreadsheet from the template chooser in Numbers. (Numbers)
-   * Output: none
    */
   com_apple_i_work_numbers_create_new_spreadsheet: "com.apple.iWork.Numbers.TNNewDocumentIntent",
   /**
    * **Export Document in Background**
    * Exports a document to a specified file format. Does not open the document or bring it to the foreground. (Pages)
-   * Output: file
    * Parameters: `document`, `format`, `sourcePassword`, `password`
    */
   com_apple_i_work_pages_export_document_in_background: "com.apple.iWork.Pages.TPDocumentBackgroundExportIntent",
   /**
    * **Create New Document**
    * Create a new document from the template chooser in Pages. (Pages)
-   * Output: none
    */
   com_apple_i_work_pages_create_new_document: "com.apple.iWork.Pages.TPNewDocumentIntent",
   /**
    * **Start Navigation**
    * Start navigation from origin to destinations (Maps)
-   * Output: none
    * Parameters: `origin`, `destinations`, `transportationType`, `preferences`
    */
   com_apple_intelligenceflow_GeoFlowTools_GeoFlowTools_StartNavigationFlowTool_com_apple_Maps: "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps",
   /**
    * **Update Navigation Waypoints**
    * Replace the active navigation session's waypoints with the provided list. (Maps)
-   * Output: none
    * Parameters: `waypoints`, `navigation`
    */
   com_apple_intelligenceflow_GeoFlowTools_GeoFlowTools_UpdateWayPointsFlowTool_com_apple_Maps: "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps",
   /**
    * **GetCurrentLocationTool**
    * A standalone tool to get the user's location. (GetCurrentLocationFlowToolPlugin)
-   * Output: none
    */
   com_apple_intelligenceflow_GetCurrentLocationFlowToolPlugin_GetCurrentLocationFlowToolPlugin_GetCurrentLocationTool: "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin.GetCurrentLocationFlowToolPlugin.GetCurrentLocationTool",
   /**
    * **Open Application**
    * Open Application (IntelligenceFlowAppIntentsExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_intelligenceflow_intelligence_flow_app_intents_extension_open_application: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenApplication",
   /**
    * **Open File**
    * Open File (IntelligenceFlowAppIntentsExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_intelligenceflow_intelligence_flow_app_intents_extension_open_file: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenFile",
   /**
    * **Open URL**
    * Open URL (IntelligenceFlowAppIntentsExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_intelligenceflow_intelligence_flow_app_intents_extension_open_url: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenURL",
@@ -8541,7 +8112,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Add Current Location Setting**
    * Open the Add Current Location Setting in the Journal Settings pane. (Journal)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_preferences_open_add_current_location_setting: "com.apple.journal.AddCurrentLocationIntent",
@@ -8562,41 +8132,36 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Always Use Moment Date Setting**
    * Open the Always Use Moment Date Setting in the Journal Settings pane. (Journal)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_preferences_open_always_use_moment_date_setting: "com.apple.journal.AlwaysUseMomentDateIntent",
   /**
    * **Create Audio Entry**
    * Creates a new audio journal entry. (Journal)
-   * Output: none
    */
   com_apple_journal_create_audio_entry: "com.apple.journal.CreateEntryAudioIntent",
   /**
    * **Create Entry**
    * Creates a new journal entry. (Journal)
-   * Output: com.apple.journal.JournalEntity
+   * Output: Journal Entry
    * Parameters: `message`, `title`, `locationName`, `mediaItems`, `location`, `entryBookmark`, `entryDate`, `OpenWhenRun`
    */
   com_apple_journal_create_entry: "com.apple.journal.CreateEntryIntent",
   /**
    * **Open Entry**
    * Opens an existing entry. (Journal)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_journal_open_entry: "com.apple.journal.OpenEntryEntityIntent",
   /**
    * **Open Journal Settings**
    * Open Journal settings. (Journal)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_preferences_open_journal_settings: "com.apple.journal.OpenJournalSettingsDeeplinks",
   /**
    * **StartWritingRefreshIntent**
    *  (Journal)
-   * Output: none
    */
   com_apple_journal_start_writing_refresh_intent: "com.apple.journal.RefreshIntent",
   /**
@@ -8616,14 +8181,12 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Save to Photos Setting**
    * Open the Save to Photos Setting in the Journal Settings pane. (Journal)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_preferences_open_save_to_photos_setting: "com.apple.journal.SaveToPhotosIntent",
   /**
    * **Search Entries**
    * Searches journal entries. (Journal)
-   * Output: none
    * Parameters: `criteria`
    */
   com_apple_journal_search_entries: "com.apple.journal.SearchEntriesIntent",
@@ -8644,7 +8207,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Show Writing Prompts Setting**
    * Open the Show Writing Prompts Setting in the Journal Settings pane. (Journal)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_preferences_open_show_writing_prompts_setting: "com.apple.journal.ShowWritingPromptsIntent",
@@ -8665,49 +8227,45 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Show Suggested Moments Setting**
    * Open the Show Suggested Moments Setting in the Journal Settings pane. (Journal)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_preferences_open_show_suggested_moments_setting: "com.apple.journal.SkipJournalingSuggestionsIntent",
   /**
    * **Streaks**
    * Keep track of your daily or weekly journaling streak. (Journal)
-   * Output: none
    * Parameters: `visualization`
    */
   com_apple_journal_streaks: "com.apple.journal.StreaksWidgetConfigurationIntent",
   /**
    * **Archive Message**
    * Archives one or more email messages. (Mail)
-   * Output: com.apple.mail.MailMessageEntity
+   * Output: Message
    * Parameters: `entities`, `ShowWhenRun`
    */
   mail_archive_message: "com.apple.mail.ArchiveMessageIntent",
   /**
    * **Commit Search Suggestion**
    *  (Mail)
-   * Output: none
    * Parameters: `query`, `suggestionIndex`
    */
   mail_commit_search_suggestion: "com.apple.mail.CommitSearchSuggestionIntent",
   /**
    * **Compose Message**
    * Opens an email composer to draft an email. Does not send the email draft. (Mail)
-   * Output: com.apple.mail.DraftMessageEntity
+   * Output: Draft Message
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`
    */
   mail_compose_message: "com.apple.mail.ComposeMessageIntent",
   /**
    * **Delete Draft**
    * Deletes one or more email drafts. (Mail)
-   * Output: none
    * Parameters: `entities`
    */
   mail_delete_draft: "com.apple.mail.DeleteDraftIntent",
   /**
    * **Delete Message**
    * Deletes one or more email messages. (Mail)
-   * Output: com.apple.mail.MailMessageEntity
+   * Output: Message
    * Parameters: `entities`
    */
   mail_delete_message: "com.apple.mail.DeleteMessageIntent",
@@ -8721,14 +8279,13 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Forward Message**
    * Opens an email composer to forward an email. Does not send the email draft. (Mail)
-   * Output: com.apple.mail.DraftMessageEntity
+   * Output: Draft Message
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
    */
   mail_forward_message: "com.apple.mail.ForwardMessageIntent",
   /**
    * **Set Mail Focus Filter**
    * Sets the behavior of the Mail app when the given Focus is enabled. (Mail)
-   * Output: none
    * Parameters: `Mode`, `FocusMode`, `accounts`
    */
   mail_set_mail_focus_filter: "com.apple.mail.MailFocusConfigurationAction",
@@ -8749,125 +8306,114 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Draft**
    * Open an email message draft (Mail)
-   * Output: none
    * Parameters: `target`
    */
   mail_open_draft: "com.apple.mail.OpenDraftComposerIntent",
   /**
    * **Open Draft**
    * Open an email message draft (Mail)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_mail_OpenDraftURLIntent: "com.apple.mail.OpenDraftURLIntent",
   /**
    * **Open Message**
    * Open an email message (Mail)
-   * Output: none
    * Parameters: `target`
    */
   mail_open_message: "com.apple.mail.OpenMessageURLIntent",
   /**
    * **Open Smart Mailbox**
    * Opens the specified smart mailbox in Mail’s sidebar (Mail)
-   * Output: com.apple.mail.SmartMailboxEntity
+   * Output: Smart Mailbox
    * Parameters: `name`
    */
   mail_open_smart_mailbox: "com.apple.mail.OpenSmartMailboxIntent",
   /**
    * **Reply Message**
    * Opens an email composer to reply to an email. Does not send the email draft. (Mail)
-   * Output: com.apple.mail.DraftMessageEntity
+   * Output: Draft Message
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `isReplyAll`, `target`
    */
   mail_reply_message: "com.apple.mail.ReplyMessageIntent",
   /**
    * **Save Draft**
    * Saves an email draft. (Mail)
-   * Output: com.apple.mail.DraftMessageEntity
+   * Output: Draft Message
    * Parameters: `target`, `ShowWhenRun`
    */
   mail_save_draft: "com.apple.mail.SaveDraftIntent",
   /**
    * **Show Siri Search Results**
    *  (Mail)
-   * Output: none
    * Parameters: `criteria`
    */
   mail_show_siri_search_results: "com.apple.mail.SearchMailEntityIntent",
   /**
    * **Search**
    * Navigate to search results. (Mail)
-   * Output: none
    * Parameters: `criteria`
    */
   mail_search: "com.apple.mail.SearchMailIntent",
   /**
    * **Search Mail Suggestions**
    *  (Mail)
-   * Output: none
    * Parameters: `query`, `progressive`
    */
   mail_search_mail_suggestions: "com.apple.mail.SearchMailSuggestionsIntent",
   /**
    * **Send Draft**
    * Sends an email draft or schedules it to be sent later. (Mail)
-   * Output: none
    * Parameters: `sendLaterDate`, `target`, `ShowWhenRun`
    */
   mail_send_draft: "com.apple.mail.SendDraftIntent",
   /**
    * **Send an Email**
    *  (Mail)
-   * Output: none
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `inReplyTo`
    */
   mail_send_an_email: "com.apple.mail.SendMail",
   /**
    * **Mark Email Read**
    *  (Mail)
-   * Output: none
    * Parameters: `message`, `read`
    */
   mail_mark_email_read: "com.apple.mail.SetMailMessageIsRead",
   /**
    * **Undo Send Message**
    * Undo an email message that has just been sent (Mail)
-   * Output: none
    */
   mail_undo_send_message: "com.apple.mail.UndoSendMessageIntent",
   /**
    * **Unsubscribe Message**
    * Unsubscribe from one or more email messages (Mail)
-   * Output: none
    * Parameters: `messages`, `ShowWhenRun`
    */
   mail_unsubscribe_message: "com.apple.mail.UnsubscribeMessageIntent",
   /**
    * **Update Draft**
    * Makes updates to an email draft. (Mail)
-   * Output: com.apple.mail.DraftMessageEntity
+   * Output: Draft Message
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
    */
   mail_update_draft: "com.apple.mail.UpdateDraftIntent",
   /**
    * **Update Message**
    * Makes updates to one or more existing email messages by modifying the status, flags, and location. (Mail)
-   * Output: com.apple.mail.MailMessageEntity
+   * Output: Message
    * Parameters: `target`, `isRead`, `isFlagged`, `isJunk`, `flagColor`, `mailbox`
    */
   mail_update_message: "com.apple.mail.UpdateMessageIntent",
   /**
    * **Create Note**
    * Creates a note using the content passed as input. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `name`, `contents`, `folder`, `interpretAsMarkdown`, `OpenWhenRun`
    */
   com_apple_mobilenotes_SharingExtension: "com.apple.mobilenotes.SharingExtension",
   /**
    * **Add Alarm**
    * Creates an Alarm in the Clock app. (Clock)
-   * Output: com.apple.clock.AlarmEntity
+   * Output: Alarm
    * Parameters: `dateComponents`, `name`, `repeats`, `allowsSnooze`, `OpenWhenRun`
    */
   com_apple_mobiletimer_framework_MobileTimerIntents_MTCreateAlarmIntent: "com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent",
@@ -8881,21 +8427,20 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Toggle Alarm**
    * Enables or disables an Alarm in the Clock app. (Clock)
-   * Output: com.apple.clock.AlarmEntity
+   * Output: Alarm
    * Parameters: `operation`, `state`, `alarm`, `ShowWhenRun`
    */
   clock_toggle_alarm: "com.apple.mobiletimer-framework.MobileTimerIntents.MTToggleAlarmIntent",
   /**
    * **Recognize Music**
    * Find out what song is playing nearby or on your Mac with Shazam. (Music Recognition)
-   * Output: com.apple.musicrecognition.mac.ShazamSongEntity
+   * Output: Song
    * Parameters: `addToLibrary`, `errorIfNotRecognized`, `ShowWhenRun`
    */
   com_apple_musicrecognition_mac_recognize_music: "com.apple.musicrecognition.mac.RecognizeAudioIntent",
   /**
    * **Open Recognized Song**
    * Opens an item in the application. (Music Recognition)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_musicrecognition_mac_open_recognized_song: "com.apple.musicrecognition.mac.ShazamSongEntityOpenIntent",
@@ -9000,20 +8545,17 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Block Channel or Topic**
    * Block a channel or topic from appearing, except in parts of the app curated by the Apple News editors (News)
-   * Output: none
    * Parameters: `target`
    */
   news_block_channel_or_topic: "com.apple.news.BlockIntent",
   /**
    * **Decrease Text Size**
    * Decreases the text size for the opened article (News)
-   * Output: none
    */
   news_decrease_text_size: "com.apple.news.DecreaseTextSizeIntent",
   /**
    * **Follow Channel or Topic**
    * Adds a channel or topic to your Following list (News)
-   * Output: none
    * Parameters: `target`
    */
   news_follow_channel_or_topic: "com.apple.news.FollowIntent",
@@ -9034,26 +8576,25 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Get Ingredients**
    * Get the ingredients for a recipe. (News)
-   * Output: com.apple.news.IngredientEntity
+   * Output: Recipe Ingredient
    * Parameters: `recipe`
    */
   news_get_ingredients: "com.apple.news.GetIngredientsAppIntent",
   /**
    * **Get Recent Recipes**
    * Get a list of recently viewed recipes. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    */
   news_get_recent_recipes: "com.apple.news.GetRecentRecipesAppIntent",
   /**
    * **Get Saved Recipes**
    * Get a list of saved recipes. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    */
   news_get_saved_recipes: "com.apple.news.GetSavedRecipesAppIntent",
   /**
    * **Increase Text Size**
    * Increases the text size for the opened article (News)
-   * Output: none
    */
   news_increase_text_size: "com.apple.news.IncreaseTextSizeIntent",
   /**
@@ -9080,53 +8621,46 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Article**
    * Open an article in the News app (News)
-   * Output: none
    * Parameters: `target`
    */
   news_open_article: "com.apple.news.OpenArticleIntent",
   /**
    * **Open Channel or Topic**
    * Open a channel or topic feed in the News app (News)
-   * Output: none
    * Parameters: `target`
    */
   news_open_channel_or_topic: "com.apple.news.OpenFeedIntent",
   /**
    * **Open History Feed**
    * Opens the History Feed (News)
-   * Output: none
    */
   news_open_history_feed: "com.apple.news.OpenHistoryIntent",
   /**
    * **Open Main Page of News Settings**
    *  (News)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_preferences_open_main_page_of_news_settings: "com.apple.news.OpenNewsSettingsDynamicDeepLinks",
   /**
    * **Open Recipe**
    * Shows a recipe in the News app. (News)
-   * Output: com.apple.news.NewsRecipeEntity
+   * Output: Recipe
    * Parameters: `target`
    */
   news_open_recipe: "com.apple.news.OpenRecipeIntent",
   /**
    * **Open Saved Feed**
    * Opens the Saved Feed (News)
-   * Output: none
    */
   news_open_saved_feed: "com.apple.news.OpenSavedIntent",
   /**
    * **Open Saved Recipes**
    * Opens Saved Recipes (News)
-   * Output: none
    */
   news_open_saved_recipes: "com.apple.news.OpenSavedRecipesIntent",
   /**
    * **Open News Feed**
    * Open a feed in the News app (News)
-   * Output: none
    * Parameters: `target`
    */
   news_open_news_feed: "com.apple.news.OpenStaticFeed",
@@ -9147,7 +8681,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Play Article**
    * Plays the audio story associated with the article. (News)
-   * Output: none
    * Parameters: `article`
    */
   news_play_article: "com.apple.news.PlayArticleIntent",
@@ -9168,112 +8701,108 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Save Article**
    * Add the article to your Saved Stories list (News)
-   * Output: none
    * Parameters: `target`
    */
   news_save_article: "com.apple.news.SaveArticleIntent",
   /**
    * **Save Recipe**
    * Saves a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`
    */
   news_save_recipe: "com.apple.news.SaveRecipeAppIntent",
   /**
    * **Select Ingredient**
    * Selects an ingredient in a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`, `ingredient`
    */
   news_select_ingredient: "com.apple.news.SelectIngredientAppIntent",
   /**
    * **Show Details**
    * Shows details for a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`
    */
   news_show_details: "com.apple.news.ShowDetailsAppIntent",
   /**
    * **Show Ingredients**
    * Shows ingredients for a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`
    */
   news_show_ingredients: "com.apple.news.ShowIngredientsAppIntent",
   /**
    * **Show Instructions**
    * Shows instructions for a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`
    */
   news_show_instructions: "com.apple.news.ShowInstructionsAppIntent",
   /**
    * **Show Next Step**
    * Shows the next step for a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`
    */
   news_show_next_step: "com.apple.news.ShowNextStepAppIntent",
   /**
    * **Show Previous Step**
    * Shows the previous step for a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`
    */
   news_show_previous_step: "com.apple.news.ShowPreviousStepAppIntent",
   /**
    * **Show Specific Step**
    * Shows a specific step for a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`, `step`
    */
   news_show_specific_step: "com.apple.news.ShowSpecificStepIntent",
   /**
    * **Start Cooking**
    * Starts Cook Mode. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`
    */
   news_start_cooking: "com.apple.news.StartCookingAppIntent",
   /**
    * **Stop Cooking**
    * Stops Cook Mode. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`
    */
   news_stop_cooking: "com.apple.news.StopCookingAppIntent",
   /**
    * **Play Audio Article**
    * Toggles playback of the given article. (News)
-   * Output: none
    * Parameters: `articleID`
    */
   news_play_audio_article: "com.apple.news.ToggleAudioPlaybackIntent",
   /**
    * **Unblock Channel or Topic**
    * Unblock a channel or topic from appearing (News)
-   * Output: none
    * Parameters: `target`
    */
   news_unblock_channel_or_topic: "com.apple.news.UnblockIntent",
   /**
    * **Unsave Article**
    * Delete the article from your Saved Stories list (News)
-   * Output: none
    * Parameters: `target`
    */
   news_unsave_article: "com.apple.news.UnsaveArticleIntent",
   /**
    * **Unsave Recipe**
    * Unsaves a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`
    */
   news_unsave_recipe: "com.apple.news.UnsaveRecipeAppIntent",
   /**
    * **Unselect Ingredient**
    * Unselects an ingredient in a recipe. (News)
-   * Output: com.apple.news.RecipeEntity
+   * Output: Recipe
    * Parameters: `recipe`, `ingredient`
    */
   news_unselect_ingredient: "com.apple.news.UnselectIngredientAppIntent",
@@ -9294,77 +8823,66 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Flight Reservation Entity**
    * Open Flight Reservation Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_flight_reservation_entity: "com.apple.omniSearch.SearchToolExtension.OpenFlightReservationEntityIntent",
   /**
    * **Open Generic Event Entity**
    * Open Generic Event Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_generic_event_entity: "com.apple.omniSearch.SearchToolExtension.OpenGenericEventEntityIntent",
   /**
    * **Open Hotel Reservation Entity**
    * Open Hotel Reservation Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_hotel_reservation_entity: "com.apple.omniSearch.SearchToolExtension.OpenHotelReservationEntityIntent",
   /**
    * **Open Business ID Card Entity**
    * Open Business ID Card Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_business_id_card_entity: "com.apple.omniSearch.SearchToolExtension.OpenIDCardBusinessEntityIntent",
   /**
    * **Open Personal ID Card Entity**
    * Open Personal ID Card Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_personal_id_card_entity: "com.apple.omniSearch.SearchToolExtension.OpenIDCardPersonalEntityIntent",
   /**
    * **Open Media Entity**
    * Open Media Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_media_entity: "com.apple.omniSearch.SearchToolExtension.OpenMediaEntityIntent",
   /**
    * **Open Restaurant Reservation Entity**
    * Open Restaurant Reservation Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_restaurant_reservation_entity: "com.apple.omniSearch.SearchToolExtension.OpenRestaurantReservationEntityIntent",
   /**
    * **Open Search Spotlight Entity**
    * Open Search Spotlight Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_search_spotlight_entity: "com.apple.omniSearch.SearchToolExtension.OpenSearchSpotlightEntityIntent",
   /**
    * **Open Ticketed Show Entity**
    * Open Ticketed Show Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_ticketed_show_entity: "com.apple.omniSearch.SearchToolExtension.OpenTicketedShowEntityIntent",
   /**
    * **Open Ticketed Transportation Entity**
    * Open Ticketed Transportation Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_ticketed_transportation_entity: "com.apple.omniSearch.SearchToolExtension.OpenTicketedTransportationEntityIntent",
   /**
    * **Open Vehicle Reservation Entity**
    * Open Vehicle Reservation Entity (SearchToolExtension)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_omni_search_search_tool_extension_open_vehicle_reservation_entity: "com.apple.omniSearch.SearchToolExtension.OpenVehicleReservationEntityIntent",
@@ -9399,7 +8917,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Add Audio to Library**
    * Adds audio item to the user's library (Podcasts)
-   * Output: none
    * Parameters: `audioEntity`
    */
   podcasts_add_audio_to_library: "com.apple.podcasts.AddAudioToLibraryIntent",
@@ -9413,63 +8930,55 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Follow Show**
    * Follow the provided show, adding it to you library (Podcasts)
-   * Output: com.apple.podcasts.ShowEntity
+   * Output: Podcast Show
    * Parameters: `show`, `OpenWhenRun`
    */
   podcasts_follow_show: "com.apple.podcasts.FollowShowAppIntent",
   /**
    * **Open App Location**
    * Open the Podcasts application to a specific location (Podcasts)
-   * Output: none
    * Parameters: `target`
    */
   podcasts_open_app_location: "com.apple.podcasts.OpenAppLocationAppIntent",
   /**
    * **Open Audio Intent**
    * Opens a audio item in the app UI (e.g., find <Artist>) (Podcasts)
-   * Output: none
    * Parameters: `target`
    */
   podcasts_open_audio_intent: "com.apple.podcasts.OpenAudioAppIntent",
   /**
    * **Open Channel**
    *  (Podcasts)
-   * Output: none
    * Parameters: `target`
    */
   podcasts_open_channel: "com.apple.podcasts.OpenChannelAppIntent",
   /**
    * **Open Episode**
    *  (Podcasts)
-   * Output: none
    * Parameters: `target`
    */
   podcasts_open_episode: "com.apple.podcasts.OpenEpisodeAppIntent",
   /**
    * **Open Show**
    *  (Podcasts)
-   * Output: none
    * Parameters: `target`, `notice`
    */
   podcasts_open_show: "com.apple.podcasts.OpenShowAppIntent",
   /**
    * **Play Episode**
    * Play the provided episode immediately, clearing the playback queue (Podcasts)
-   * Output: none
    * Parameters: `warmupAudioQueueResult`, `playbackAttributes`, `queueLocation`, `audioEntity`, `requestIdentifierOverride`
    */
   podcasts_play_episode: "com.apple.podcasts.PlayAudioIntent",
   /**
    * **Play or Pause Station**
    * Start playback of a station or pause playback if the station is currently playing. (Podcasts)
-   * Output: none
    * Parameters: `station`, `firstEpisode`
    */
   podcasts_play_or_pause_station: "com.apple.podcasts.PlayPauseStationAppIntent",
   /**
    * **Play or Pause Episode**
    *  (Podcasts)
-   * Output: none
    * Parameters: `episode`, `episodePlaylist`, `playbackAccountDSID`
    */
   podcasts_play_or_pause_episode: "com.apple.podcasts.PlayPauseWidgetIntent",
@@ -9483,21 +8992,18 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Search Podcasts**
    * Searches for the specified content in Apple Podcasts (Podcasts)
-   * Output: none
    * Parameters: `criteria`
    */
   podcasts_search_podcasts: "com.apple.podcasts.SearchPodcastsAppIntent",
   /**
    * **Select a Library List**
    * Selects the list to show in the library widget (Podcasts)
-   * Output: none
    * Parameters: `list`
    */
   podcasts_select_a_library_list: "com.apple.podcasts.SelectLibraryListAppIntent",
   /**
    * **Select a Podcast Show**
    * Selects the podcast show to display in the library widget (Podcasts)
-   * Output: none
    * Parameters: `show`
    */
   podcasts_select_a_podcast_show: "com.apple.podcasts.SelectWidgetShowAppIntent",
@@ -9511,105 +9017,97 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Warmup Audio Queue**
    * Warmup a specific audio item to the queue (Podcasts)
-   * Output: com.apple.podcasts.WarmupAudioQueueResult
+   * Output: Warmup Audio Queue Result
    * Parameters: `audioEntity`, `requestIdentifierOverride`, `playbackAttributes`
    */
   podcasts_warmup_audio_queue: "com.apple.podcasts.WarmupAudioQueueIntent",
   /**
    * **Cancel Print Job**
    * Cancel Print Job (Print Center)
-   * Output: none
    * Parameters: `jobContextIdentifier`
    */
   com_apple_printcenter_cancel_print_job: "com.apple.printcenter.CancelPrintJob",
   /**
    * **Open Print Center**
    *  (Print Center)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_printcenter_open_print_center: "com.apple.printcenter.LaunchPrintCenterAppIntent",
   /**
    * **Print Documents**
    *  (Print Center)
-   * Output: none
    * Parameters: `documents`, `printer`
    */
   com_apple_printcenter_print_documents: "com.apple.printcenter.PrintDocuments",
   /**
    * **Add or Remove Tags**
    * Add tags to or remove tags from reminders. (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `operation`, `reminders`, `tags`, `OpenWhenRun`
    */
   reminders_add_or_remove_tags: "com.apple.reminders.AddOrRemoveTagsAppIntent",
   /**
    * **Set Reminder completion state**
    * Set the completion of a specific reminder and its subtasks. (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `reminder`, `isCompleted`, `completeSubtasks`, `OpenWhenRun`
    */
   reminders_set_reminder_completion_state: "com.apple.reminders.CompleteReminderAppIntent",
   /**
    * **Set Reminders completion state <no loc>**
    *  (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `reminders`, `isCompleted`, `completeSubtasks`
    */
   reminders_set_reminders_completion_state_no_loc: "com.apple.reminders.CompleteRemindersAppIntent",
   /**
    * **Open New Custom Smart List**
    * Creates a list to automatically include reminders filtered by tags, dates, and more. (Reminders)
-   * Output: none
    * Parameters: `name`
    */
   reminders_open_new_custom_smart_list: "com.apple.reminders.CreateCustomSmartListAppIntent",
   /**
    * **Create Group**
    * Creates a group in Reminders. (Reminders)
-   * Output: com.apple.reminders.GroupEntity
+   * Output: Group
    * Parameters: `name`, `lists`
    */
   reminders_create_group: "com.apple.reminders.CreateGroupAppIntent",
   /**
    * **Create Section**
    * Creates a section in a list. (Reminders)
-   * Output: com.apple.reminders.SectionEntity
+   * Output: Section
    * Parameters: `list`, `name`, `OpenWhenRun`
    */
   reminders_create_section: "com.apple.reminders.CreateSectionAppIntent",
   /**
    * **Delete Lists**
    * Delete lists from Reminders. (Reminders)
-   * Output: none
    * Parameters: `entities`
    */
   reminders_delete_lists: "com.apple.reminders.DeleteListsAppIntent",
   /**
    * **Delete Reminders and Subtasks**
    * Delete reminders. (Reminders)
-   * Output: none
    * Parameters: `entities`, `deleteSubtasks`, `deleteRecurringReminders`
    */
   reminders_delete_reminders_and_subtasks: "com.apple.reminders.DeleteRemindersAppIntent",
   /**
    * **Delete Groups**
    * Delete groups from Reminders. (Reminders)
-   * Output: none
    * Parameters: `entities`, `deleteSublists`
    */
   reminders_delete_groups: "com.apple.reminders.DeleteRemindersListGroupsAppIntent",
   /**
    * **Delete Sections**
    * Delete sections from Reminders. (Reminders)
-   * Output: none
    * Parameters: `entities`, `deleteReminders`
    */
   reminders_delete_sections: "com.apple.reminders.DeleteSectionsAppIntent",
   /**
    * **Get Default List <no loc>**
    *  (Reminders)
-   * Output: com.apple.reminders.ListEntity
+   * Output: List
    * Parameters: `requireCloudKitAccount`
    */
   reminders_get_default_list_no_loc: "com.apple.reminders.GetDefaultListAppIntent",
@@ -9656,49 +9154,46 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Move Reminders**
    * Move reminders to a list or section, or make them a subtask of a parent reminder. (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `reminders`, `position`, `targetType`, `list`, `section`, `parentReminder`, `OpenWhenRun`
    */
   reminders_move_reminders: "com.apple.reminders.MoveRemindersAppIntent",
   /**
    * **Move Reminders to a Reminders List <no loc>**
    * Move Reminders to a given Reminders List, at the given insertion position <no loc> (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `reminders`, `position`, `targetList`, `OpenWhenRun`
    */
   reminders_move_reminders_to_a_reminders_list_no_loc: "com.apple.reminders.MoveRemindersToListAppIntent",
   /**
    * **Move Reminders to become Subtasks of a Parent Reminder <no loc>**
    * Move Reminders to become Subtasks of a Parent Reminder, or become top-level reminders <no loc> (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `reminders`, `position`, `parentReminder`
    */
   reminders_move_reminders_to_become_subtasks_of_a_parent_reminder_no_loc: "com.apple.reminders.MoveRemindersToParentReminderAppIntent",
   /**
    * **Move Reminders to a Reminders List Section <no loc>**
    * Move Reminders to a given Reminders List Section, at the given insertion position <no loc> (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `reminders`, `position`, `targetSection`
    */
   reminders_move_reminders_to_a_reminders_list_section_no_loc: "com.apple.reminders.MoveRemindersToSectionAppIntent",
   /**
    * **Open Group**
    * Opens a Group in Reminders. (Reminders)
-   * Output: none
    * Parameters: `target`
    */
   reminders_open_group: "com.apple.reminders.OpenGroupAppIntent",
   /**
    * **Open Reminder In List**
    * Opens a reminder. (Reminders)
-   * Output: none
    * Parameters: `target`, `showDetail`, `title`, `caption`, `inSmartList`
    */
   reminders_open_reminder_in_list: "com.apple.reminders.OpenReminderAppIntent",
   /**
    * **Open Smart List**
    * Open a smart list in Reminders. (Reminders)
-   * Output: none
    * Parameters: `target`
    */
   reminders_open_smart_list: "com.apple.reminders.OpenSmartListAppIntent",
@@ -9740,56 +9235,52 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Snooze Reminders**
    * Snooze Reminders and delay the alerts. (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `entities`, `nextTriggerTime`
    */
   reminders_snooze_reminders: "com.apple.reminders.SnoozeRemindersAppIntent",
   /**
    * **Create List**
    * Creates a list in Reminders. (Reminders)
-   * Output: com.apple.reminders.ListEntity
+   * Output: List
    * Parameters: `name`, `type`, `group`, `OpenWhenRun`
    */
   reminders_create_list: "com.apple.reminders.TTRCreateListAppIntent",
   /**
    * **Create Reminder**
    * Creates a new reminder. (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `title`, `note`, `isFlagged`, `images`, `tags`, `urls`, `dueDate`, `recurrence`, `locationTrigger`, `list`, `section`, `isAllDay`, `earlyAlert`, `vehicleTrigger`, `priorityLevel`, `parentReminder`, `contactPerson`, `assignedPerson`, `subtasks`
    */
   reminders_create_reminder: "com.apple.reminders.TTRCreateReminderAppIntent",
   /**
    * **Open List**
    * Opens a list in Reminders. (Reminders)
-   * Output: none
    * Parameters: `target`
    */
   reminders_open_list: "com.apple.reminders.TTROpenListAppIntent",
   /**
    * **Open List**
    * Opens a list in Reminders. (Reminders)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_reminders_TTROpenSmartListAppIntent: "com.apple.reminders.TTROpenSmartListAppIntent",
   /**
    * **Toggle Reminder completion**
    * Toggles completion of a specific reminder. (Reminders)
-   * Output: none
    * Parameters: `reminder`, `isCompleted`, `isFromUrgentReminderActivity`
    */
   reminders_toggle_reminder_completion: "com.apple.reminders.TTRReminderSetCompletedIntent",
   /**
    * **Search in Reminders**
    * Search for a reminder. (Reminders)
-   * Output: none
    * Parameters: `searchPhrase`
    */
   reminders_search_in_reminders: "com.apple.reminders.TTRSearchRemindersAppIntent",
   /**
    * **Update reminders group properties**
    * Update reminders group properties. (Reminders)
-   * Output: com.apple.reminders.GroupEntity
+   * Output: Group
    * Parameters: `name`, `target`, `lists`
    */
   reminders_update_reminders_group_properties: "com.apple.reminders.UpdateGroupAppIntent",
@@ -9801,400 +9292,357 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
 • Color
 • Badge
 • Parent Group (Reminders)
-   * Output: com.apple.reminders.ListEntity
+   * Output: List
    * Parameters: `target`, `name`, `type`, `color`, `badge`, `parent`, `propertyToUpdate`
    */
   com_apple_reminders_UpdateListAppIntent: "com.apple.reminders.UpdateListAppIntent",
   /**
    * **Auto-Categorize Reminders List**
    * Auto-Categorize a reminders list. (Reminders)
-   * Output: com.apple.reminders.ListEntity
+   * Output: List
    * Parameters: `target`, `autoCategorize`, `OpenWhenRun`
    */
   reminders_auto_categorize_reminders_list: "com.apple.reminders.UpdateListAutoCategorizeAppIntent",
   /**
    * **Pin/Unpin Reminders List**
    * Pin or unpin reminders list. (Reminders)
-   * Output: com.apple.reminders.ListEntity
+   * Output: List
    * Parameters: `target`, `isPinned`, `OpenWhenRun`
    */
   reminders_pin_unpin_reminders_list: "com.apple.reminders.UpdateListIsPinnedAppIntent",
   /**
    * **Change Reminders List Layout**
    * Toggle reminders list layout. (Reminders)
-   * Output: com.apple.reminders.ListEntity
+   * Output: List
    * Parameters: `target`, `listLayout`, `OpenWhenRun`
    */
   reminders_change_reminders_list_layout: "com.apple.reminders.UpdateListLayoutAppIntent",
   /**
    * **Show/Hide Completed Reminders**
    * Toggle show or hide completed reminders in list. (Reminders)
-   * Output: com.apple.reminders.ListEntity
+   * Output: List
    * Parameters: `target`, `showsCompleted`, `OpenWhenRun`
    */
   reminders_show_hide_completed_reminders: "com.apple.reminders.UpdateListShowsCompletedAppIntent",
   /**
    * **Change Reminders List Sorting Style**
    * Change reminders list sorting style. (Reminders)
-   * Output: com.apple.reminders.ListEntity
+   * Output: List
    * Parameters: `target`, `sortingStyle`, `OpenWhenRun`
    */
   reminders_change_reminders_list_sorting_style: "com.apple.reminders.UpdateListSortingStyleAppIntent",
   /**
    * **Update Reminder properties**
    * Update Reminder properties. (Reminders)
-   * Output: com.apple.reminders.ReminderEntity
+   * Output: Reminder
    * Parameters: `target`, `isCompleted`, `isFlagged`, `title`, `note`, `images`, `tags`, `urls`, `dueDate`, `recurrence`, `locationTrigger`, `subtasks`, `list`, `section`, `earlyAlert`, `vehicleTrigger`, `contactPerson`, `assignedPerson`, `priorityLevel`, `parent`
    */
   reminders_update_reminder_properties: "com.apple.reminders.UpdateReminderAppIntent",
   /**
    * **Update section properties**
    * Update section properties. (Reminders)
-   * Output: com.apple.reminders.SectionEntity
+   * Output: Section
    * Parameters: `target`, `name`, `isCollapsed`
    */
   reminders_update_section_properties: "com.apple.reminders.UpdateSectionAppIntent",
   /**
    * **Update reminders system smart list properties**
    * Update reminders smart list properties. (Reminders)
-   * Output: com.apple.reminders.SmartListEntity
+   * Output: Smart List
    * Parameters: `target`, `isHidden`
    */
   reminders_update_reminders_system_smart_list_properties: "com.apple.reminders.UpdateSmartListAppIntent",
   /**
    * **Show/Hide Reminders System Smart List**
    * Show or hide reminders system smart list. (Reminders)
-   * Output: com.apple.reminders.SmartListEntity
+   * Output: Smart List
    * Parameters: `entity`, `property`, `OpenWhenRun`
    */
   reminders_show_hide_reminders_system_smart_list: "com.apple.reminders.UpdateSmartListIsHiddenAppIntent",
   /**
    * **Capture Screen**
    *  (Screenshot)
-   * Output: none
    */
   com_apple_screenshot_launcher_capture_screen: "com.apple.screenshot.launcher.CaptureScreenIntent",
   /**
    * **Capture Selection**
    *  (Screenshot)
-   * Output: none
    */
   com_apple_screenshot_launcher_capture_selection: "com.apple.screenshot.launcher.CaptureSelectionIntent",
   /**
    * **Capture Selection with Visual Intelligence**
    *  (Screenshot)
-   * Output: none
    */
   com_apple_screenshot_launcher_capture_selection_with_visual_intelligence: "com.apple.screenshot.launcher.CaptureSelectionWithVisualIntelligenceIntent",
   /**
    * **Capture Configuration**
    *  (Screenshot)
-   * Output: none
    * Parameters: `name`, `selectionStyle`, `destination`, `timer`, `showMousePointer`, `hdr`
    */
   com_apple_screenshot_launcher_capture_configuration: "com.apple.screenshot.launcher.CustomCaptureConfiguration",
   /**
    * **Custom Capture**
    *  (Screenshot)
-   * Output: none
    * Parameters: `arguments`
    */
   com_apple_screenshot_launcher_custom_capture: "com.apple.screenshot.launcher.CustomCaptureIntent",
   /**
    * **Screen Recording Configuration**
    *  (Screenshot)
-   * Output: none
    * Parameters: `name`, `selectionStyle`, `destination`, `timer`, `showMouseClicks`, `hdr`
    */
   com_apple_screenshot_launcher_screen_recording_configuration: "com.apple.screenshot.launcher.CustomRecordConfiguration",
   /**
    * **Custom Capture**
    *  (Screenshot)
-   * Output: none
    * Parameters: `value`, `arguments`
    */
   com_apple_screenshot_launcher_CustomRecordIntent: "com.apple.screenshot.launcher.CustomRecordIntent",
   /**
    * **Record Screen**
    *  (Screenshot)
-   * Output: none
    * Parameters: `value`
    */
   com_apple_screenshot_launcher_record_screen: "com.apple.screenshot.launcher.RecordScreenIntent",
   /**
    * **Record Selection**
    *  (Screenshot)
-   * Output: none
    * Parameters: `value`
    */
   com_apple_screenshot_launcher_record_selection: "com.apple.screenshot.launcher.RecordSelectionIntent",
   /**
    * **Screenshot Toolbar**
    *  (Screenshot)
-   * Output: none
    */
   com_apple_screenshot_launcher_screenshot_toolbar: "com.apple.screenshot.launcher.ScreenshotToolbarIntent",
   /**
    * **Add Shortcut to Home Screen**
    * Adds a shortcut to your Home Screen as an icon. (Shortcuts)
-   * Output: none
    * Parameters: `shortcut`, `title`, `image`
    */
   com_apple_shortcuts_add_shortcut_to_home_screen: "com.apple.shortcuts.AddShortcutToHomeScreenAction",
   /**
    * **Change Shortcut Icon**
    * Opens the icon editor for a shortcut (Shortcuts)
-   * Output: none
    * Parameters: `shortcut`
    */
   com_apple_shortcuts_change_shortcut_icon: "com.apple.shortcuts.ChangeShortcutIconAction",
   /**
    * **Create Folder**
    * Creates a new Shortcuts folder (Shortcuts)
-   * Output: com.apple.shortcuts.RootNavigationDestination
+   * Output: Folder
    * Parameters: `name`, `OpenWhenRun`
    */
   com_apple_shortcuts_create_folder: "com.apple.shortcuts.CreateFolderAction",
   /**
    * **Create iCloud Link for Shortcut**
    * Creates an iCloud link for a shortcut that can be shared (Shortcuts)
-   * Output: url
    * Parameters: `shortcut`
    */
   com_apple_shortcuts_create_icloud_link_for_shortcut: "com.apple.shortcuts.CreateShortcutiCloudLinkAction",
   /**
    * **Create Shortcut**
    * Creates a new empty shortcut (Shortcuts)
-   * Output: com.apple.shortcuts.WFWorkflowReference
+   * Output: Shortcut
    * Parameters: `name`, `OpenWhenRun`
    */
   com_apple_shortcuts_create_shortcut: "com.apple.shortcuts.CreateWorkflowAction",
   /**
    * **Delete Shortcuts**
    * Deletes shortcuts from your library (Shortcuts)
-   * Output: none
    * Parameters: `entities`
    */
   com_apple_shortcuts_delete_shortcuts: "com.apple.shortcuts.DeleteWorkflowAction",
   /**
    * **Generate Shortcut**
    * Generates a new shortcut from a text description using Apple Intelligence. (Shortcuts)
-   * Output: com.apple.shortcuts.WFWorkflowReference
+   * Output: Shortcut
    * Parameters: `prompt`, `answer`
    */
   com_apple_shortcuts_generate_shortcut: "com.apple.shortcuts.GenerateShortcutAction",
   /**
    * **Get Shortcut Attributes**
    * Get a shortcut’s settings. (Shortcuts)
-   * Output: bool
    * Parameters: `attribute`, `shortcut`, `OpenWhenRun`
    */
   com_apple_shortcuts_get_shortcut_attributes: "com.apple.shortcuts.GetShortcutAttributesAction",
   /**
    * **Move Shortcut**
    * Move shortcuts to a specified folder. (Shortcuts)
-   * Output: none
    * Parameters: `shortcuts`, `folder`, `OpenWhenRun`
    */
   com_apple_shortcuts_move_shortcut: "com.apple.shortcuts.MoveShortcutToFolderAction",
   /**
    * **Open App**
    *  (Shortcuts)
-   * Output: none
    * Parameters: `app`
    */
   com_apple_shortcuts_open_app: "com.apple.shortcuts.OpenAppIntent",
   /**
    * **Open Folder**
    * Opens a page within the Shortcuts app (Shortcuts)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_shortcuts_open_folder: "com.apple.shortcuts.OpenNavigationDestinationAction",
   /**
    * **Open Shortcuts Settings**
    *  (Shortcuts)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_preferences_open_shortcuts_settings: "com.apple.shortcuts.OpenShortcutsStaticDeepLinks",
   /**
    * **Open Shortcut**
    * Opens the editor for a shortcut (Shortcuts)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_shortcuts_open_shortcut: "com.apple.shortcuts.OpenWorkflowAction",
   /**
    * **Rename Shortcut**
    * Renames a shortcut to the specified name. (Shortcuts)
-   * Output: com.apple.shortcuts.WFWorkflowReference
+   * Output: Shortcut
    * Parameters: `shortcut`, `name`, `OpenWhenRun`
    */
   com_apple_shortcuts_rename_shortcut: "com.apple.shortcuts.RenameShortcutAction",
   /**
    * **Shortcut**
    *  (Shortcuts)
-   * Output: none
    * Parameters: `shortcut`
    */
   com_apple_shortcuts_shortcut: "com.apple.shortcuts.RunShortcutConfigurationIntent",
   /**
    * **Run Shortcut from Folder**
    *  (Shortcuts)
-   * Output: none
    */
   com_apple_shortcuts_run_shortcut_from_folder: "com.apple.shortcuts.RunShortcutFromCollectionIntent",
   /**
    * **Run Shortcut**
    *  (Shortcuts)
-   * Output: none
    * Parameters: `shortcut`
    */
   com_apple_shortcuts_run_shortcut: "com.apple.shortcuts.RunShortcutIntent",
   /**
    * **Search Shortcuts Actions**
    * Search for an available Shortcuts action. (Shortcuts)
-   * Output: com.apple.shortcuts.ShortcutsActionEntity
+   * Output: Shortcuts Action
    * Parameters: `query`
    */
   com_apple_shortcuts_search_shortcuts_actions: "com.apple.shortcuts.SearchActionDrawerAction",
   /**
    * **Search in Shortcuts**
    * Searches your shortcuts library (Shortcuts)
-   * Output: none
    * Parameters: `searchPhrase`, `folder`
    */
   com_apple_shortcuts_search_in_shortcuts: "com.apple.shortcuts.SearchShortcutsAction",
   /**
    * **Set Shortcut Attributes**
    * Modify a shortcut’s settings (Shortcuts)
-   * Output: none
    * Parameters: `operation`, `attribute`, `shortcut`, `state`, `OpenWhenRun`
    */
   com_apple_shortcuts_set_shortcut_attributes: "com.apple.shortcuts.SetShortcutAttributesAction",
   /**
    * **Shortcuts Folder**
    *  (Shortcuts)
-   * Output: none
    * Parameters: `collection`
    */
   com_apple_shortcuts_shortcuts_folder: "com.apple.shortcuts.ShortcutsFolderConfigurationIntent",
   /**
    * **Stop Shortcut**
    * Stops the shortcut if it is currently running. (Shortcuts)
-   * Output: none
    * Parameters: `runningContextIdentifier`
    */
   com_apple_shortcuts_stop_shortcut: "com.apple.shortcuts.StopWorkflowAction",
   /**
    * **Add Audio Item to Library**
    * Add an audio item to the person’s library (AudioAppIntentsExtension)
-   * Output: none
    * Parameters: `audioEntity`
    */
   com_apple_siri_audio_app_intents_extension_add_audio_item_to_library: "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent",
   /**
    * **Add Audio Item to Playlist**
    * Add an audio item to a playlist (AudioAppIntentsExtension)
-   * Output: none
    * Parameters: `audioEntity`, `playlist`
    */
   com_apple_siri_audio_app_intents_extension_add_audio_item_to_playlist: "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent",
   /**
    * **Play Audio Item**
    * Play an audio item (AudioAppIntentsExtension)
-   * Output: none
    * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `warmupAudioQueueResult`
    */
   com_apple_siri_audio_app_intents_extension_play_audio_item: "com.apple.siri.AudioAppIntentsExtension.SiriKitPlayAudioIntent",
   /**
    * **Like Audio Item**
    * Set the like state of an audio item to liked, unliked, or unset (AudioAppIntentsExtension)
-   * Output: none
    * Parameters: `target`, `affinityState`
    */
   com_apple_siri_audio_app_intents_extension_like_audio_item: "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent",
   /**
    * **Whole House Audio Placeholder Intent**
    *  (AudioAppIntentsExtension)
-   * Output: none
    * Parameters: `destinations`
    */
   com_apple_siri_audio_app_intents_extension_whole_house_audio_placeholder_intent: "com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent",
   /**
    * **EditPhotoWarmth**
    * Adjust the warmth/temperature of a photo to make it warmer or cooler. (Photos)
-   * Output: none
    * Parameters: `target`, `adjustmentType`, `value`, `isPercentage`
    */
   com_apple_siri_PhotosFlowTools_SiriPhotosFlowTools_EditPhotoWarmth_com_apple_Photos: "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos",
   /**
    * **InteractiveInstallApplicationTool**
    * A standalone tool to interactively install or update marketplace applications. (SiriAppLaunchFlowTools)
-   * Output: none
    * Parameters: `applications`, `isUpdate`
    */
   com_apple_siri_SiriAppLaunchFlowTools_SiriAppLaunchFlowTools_InteractiveInstallApplicationTool: "com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool",
   /**
    * **AddAudioToLibrary**
    *  (Music)
-   * Output: none
    * Parameters: `audioEntity`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_AddAudioToLibraryTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music",
   /**
    * **AddAudioToLibrary**
    *  (Podcasts)
-   * Output: none
    * Parameters: `audioEntity`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_AddAudioToLibraryTool_com_apple_podcasts: "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts",
   /**
    * **AddAudioToPlaylist**
    *  (Music)
-   * Output: none
    * Parameters: `audioEntity`, `playlist`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_AddAudioToPlaylistTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music",
   /**
    * **PlayAudio**
    *  (Music)
-   * Output: none
    * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `destinations`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_PlayAudioTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music",
   /**
    * **PlayAudio**
    *  (Books)
-   * Output: none
    * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `destinations`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_PlayAudioTool_com_apple_iBooksX: "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX",
   /**
    * **PlayAudio**
    *  (Podcasts)
-   * Output: none
    * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `destinations`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_PlayAudioTool_com_apple_podcasts: "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts",
   /**
    * **UpdateAudioAffinity**
    *  (Music)
-   * Output: none
    * Parameters: `target`, `affinityState`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_UpdateAudioAffinityTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music",
   /**
    * **Placeholder**
    *  (SiriCrisisAppIntentsExtension)
-   * Output: none
    */
   com_apple_siri_siri_crisis_app_intents_extension_placeholder: "com.apple.siri.SiriCrisisAppIntentsExtension._SiriCrisisPlaceholderIntent",
   /**
    * **CrisisDialog**
    * Handles crisis dialog for emergency and CSAM situations (SiriCrisisFlowTools)
-   * Output: none
    * Parameters: `situation`
    */
   com_apple_siri_SiriCrisisFlowTools_SiriCrisisFlowTools_CrisisDialogFlowTool: "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool",
@@ -10215,479 +9663,413 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **SiriGeoAppIntent**
    *  (SiriGeoAppIntentsExtension)
-   * Output: none
    */
   com_apple_siri_siri_geo_siri_geo_app_intent_extension_siri_geo_app_intent: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.SiriGeoAppIntent",
   /**
    * **Start Navigation for Third Party Apps**
    * Start Navigation (SiriGeoAppIntentsExtension)
-   * Output: com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity
+   * Output: Current Route
    * Parameters: `origin`, `destinations`, `transportationType`, `preferences`, `ShowWhenRun`
    */
   com_apple_siri_siri_geo_siri_geo_app_intent_extension_start_navigation_for_third_party_apps: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent",
   /**
    * **WhoAmITool**
    * Who am I Flow Tool (SiriIdentityInternal)
-   * Output: none
    */
   com_apple_siri_SiriIdentityInternal_SiriIdentityInternal_WhoAmITool: "com.apple.siri.SiriIdentityInternal.SiriIdentityInternal.WhoAmITool",
   /**
    * **CreateDraftMailTool**
    * Create a new email draft. (Mail)
-   * Output: none
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_CreateDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail",
   /**
    * **ForwardDraftMailTool**
    * Create a forwarding email draft. (Mail)
-   * Output: none
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_ForwardDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail",
   /**
    * **ReplyDraftMailTool**
    * Create a replying or replying all email draft. (Mail)
-   * Output: none
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`, `isReplyAll`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_ReplyDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail",
   /**
    * **SendDraftMailTool**
    * Send an email draft now or at a specified later time. (Mail)
-   * Output: none
    * Parameters: `sendLaterDate`, `target`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_SendDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail",
   /**
    * **UpdateDraftMailTool**
    * Update an email draft. (Mail)
-   * Output: none
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_UpdateDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail",
   /**
    * **SiriNotebookAppIntentsExtension**
    *  (SiriNotebookAppIntentsExtension)
-   * Output: none
    */
   com_apple_siri_siri_notebook_app_intents_extension_siri_notebook_app_intents_extension: "com.apple.siri.SiriNotebookAppIntentsExtension.SiriNotebookAppIntentsExtension",
   /**
    * **Prepare notifications**
    * Prepare notifications (SiriNotificationsAppIntentsExtension)
-   * Output: none
    * Parameters: `notifications`, `isReadLatest`, `isCatchMeUp`, `app`
    */
   com_apple_siri_siri_notifications_app_intents_extension_prepare_notifications: "com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent",
   /**
    * **SiriNotificationsAppIntentsExtension**
    *  (SiriNotificationsAppIntentsExtension)
-   * Output: none
    */
   com_apple_siri_siri_notifications_app_intents_extension_siri_notifications_app_intents_extension: "com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension",
   /**
    * **Prepare Notifications**
    * Prepare notifications for reading (SiriNotificationsFlowTools)
-   * Output: none
    * Parameters: `notifications`, `isReadLatest`, `isCatchMeUp`
    */
   com_apple_siri_SiriNotificationsFlowTools_SiriNotificationsFlowTools_PrepareNotificationsTool: "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool",
   /**
    * **ReadCallMessageIntent**
    *  (SiriPhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `message`
    */
   com_apple_siri_siriphone_app_intents_extension_read_call_message_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.ReadCallMessageIntent",
   /**
    * **SiriKitStartCallIntent**
    * Starts a call to a person, handle, or named group (SiriPhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `destination`, `audioVisualMode`
    */
   com_apple_siri_siriphone_app_intents_extension_siri_kit_start_call_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.SiriKitStartCallIntent",
   /**
    * **SiriPhonePunchoutIntent**
    *  (SiriPhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `url`, `uniqueID`, `OpenWhenRun`
    */
   phone_siriphone_punchout_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent",
   /**
    * **StartCrisisHelplineCallIntent**
    *  (SiriPhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `crisisResourceType`
    */
   com_apple_siri_siriphone_app_intents_extension_start_crisis_helpline_call_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.StartCrisisHelplineCallIntent",
   /**
    * **Answer an incoming call**
    * Answer an incoming call looked up in the context and routes the audio to the audio route if it was specified (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `call`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_AnswerCallFlowTool_com_apple_calls_PhoneAppIntentsExtension: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension",
   /**
    * **Call Emergency Contact Flow Tool**
    * Call the emergency contact. (SiriPhoneFlowTools)
-   * Output: none
    * Parameters: `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_CallEmergencyContactFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool",
   /**
    * **Callback Flow Tool**
    * Callback the previous caller. (SiriPhoneFlowTools)
-   * Output: none
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_CallbackFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool",
   /**
    * **Prepare Call Messages Flow Tool**
    * Prepare call messages (voicemails). (SiriPhoneFlowTools)
-   * Output: none
    * Parameters: `messages`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_PrepareCallMessagesFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool",
   /**
    * **Prepare Read Call Records**
    * Prepare Read call records. (SiriPhoneFlowTools)
-   * Output: none
    * Parameters: `records`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_PrepareReadCallRecordsFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool",
   /**
    * **Read Call Message Flow Tool**
    * Read call message. (SiriPhoneFlowTools)
-   * Output: none
    * Parameters: `message`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_ReadCallMessageFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool",
   /**
    * **Redial Flow Tool**
    * Redial last caller. (SiriPhoneFlowTools)
-   * Output: none
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_RedialFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.RedialFlowTool",
   /**
    * **Start a call**
    * Starts an audio or video call to a person, list of people, or group chat, using the default phone app, FaceTime, or a custom app (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `destination`, `audioVisualMode`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartCallFlowTool_com_apple_FaceTime: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime",
   /**
    * **Start a call**
    * Starts an audio or video call to a person, list of people, or group chat, using the default phone app, FaceTime, or a custom app (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `destination`, `audioVisualMode`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartCallFlowTool_com_apple_mobilephone: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone",
   /**
    * **Start Crisis Helpline Call Flow Tool**
    * Start a crisis helpline call. (SiriPhoneFlowTools)
-   * Output: none
    * Parameters: `crisisResourceType`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartCrisisHelplineCallFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool",
   /**
    * **Start Emergency Call**
    * Start an emergency call (PhoneAppIntentsExtension)
-   * Output: none
    * Parameters: `destination`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartEmergencyCallFlowTool_com_apple_calls_PhoneAppIntentsExtension: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension",
   /**
    * **SiriPhotosAppIntentsExtension**
    *  (SiriPhotosAppIntentsExtension)
-   * Output: none
    */
   com_apple_siri_siri_photos_app_intents_extension_siri_photos_app_intents_extension: "com.apple.siri.SiriPhotosAppIntentsExtension.SiriPhotosAppIntentsExtension",
   /**
    * **Update Photo Warmth**
    *  (SiriPhotosAppIntentsExtension)
-   * Output: none
    * Parameters: `target`, `adjustmentType`, `value`, `isPercentage`
    */
   com_apple_siri_siri_photos_app_intents_extension_update_photo_warmth: "com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool",
   /**
    * **CancelTimer**
    * Cancel the timer (Clock)
-   * Output: none
    * Parameters: `entities`
    */
   com_apple_siri_SiriTimeFlowTools_SiriTimeFlowTools_CancelTimerFlowTool_com_apple_clock: "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock",
   /**
    * **DismissAlarm**
    * Dismiss an alarm (Clock)
-   * Output: none
    * Parameters: `alarm`
    */
   com_apple_siri_SiriTimeFlowTools_SiriTimeFlowTools_DismissAlarmFlowTool_com_apple_clock: "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock",
   /**
    * **SnoozeAlarm**
    * Snooze a firing alarm (Clock)
-   * Output: none
    * Parameters: `alarm`, `duration`
    */
   com_apple_siri_SiriTimeFlowTools_SiriTimeFlowTools_SnoozeAlarmFlowTool_com_apple_clock: "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock",
   /**
    * **Translate Text**
    * Translate text from one language to another (SiriTranslationFlowTools)
-   * Output: none
    * Parameters: `phrase`, `targetLanguage`, `sourceLanguage`
    */
   com_apple_siri_SiriTranslationFlowTools_SiriTranslationFlowTools_TranslateTextFlowTool: "com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool",
   /**
    * **Cross Device Placeholder Intent**
    *  (SiriVideoAppIntents)
-   * Output: none
    * Parameters: `route`
    */
   com_apple_siri_siri_video_app_intents_cross_device_placeholder_intent: "com.apple.siri.SiriVideoAppIntents.CrossDevicePlaceholderIntent",
   /**
    * **Finds a freeform video**
    * Finds a freeform video (SiriVideoAppIntents)
-   * Output: none
    * Parameters: `entity`
    */
   com_apple_siri_siri_video_app_intents_finds_a_freeform_video: "com.apple.siri.SiriVideoAppIntents.InternalFindFreeformVideoIntent",
   /**
    * **Finds a video**
    * Finds a video (SiriVideoAppIntents)
-   * Output: none
    * Parameters: `content`
    */
   com_apple_siri_siri_video_app_intents_finds_a_video: "com.apple.siri.SiriVideoAppIntents.InternalFindVideoIntent",
   /**
    * **Plays a video**
    * Plays a video (SiriVideoAppIntents)
-   * Output: none
    * Parameters: `content`
    */
   com_apple_siri_siri_video_app_intents_plays_a_video: "com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent",
   /**
    * **Find Video content**
    * Find Video content (SiriVideoFlowTools)
-   * Output: none
    * Parameters: `content`
    */
   com_apple_siri_SiriVideoFlowTools_SiriVideoFlowTools_FindVideoContentTool: "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool",
   /**
    * **Messages Post Reading Action Tool**
    *  (SiriMessagesAppIntentsExtension)
-   * Output: none
    * Parameters: `readableMessages`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_messages_post_reading_action_tool: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent",
   /**
    * **Prepare To Read Conversation Tool**
    *  (SiriMessagesAppIntentsExtension)
-   * Output: none
    * Parameters: `conversation`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_prepare_to_read_conversation_tool: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent",
   /**
    * **SiriKitEditLastMessageIntent**
    * Edit an already sent message with new content (SiriMessagesAppIntentsExtension)
-   * Output: none
    * Parameters: `content`, `message`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_siri_kit_edit_last_message_intent: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitEditLastMessageIntent",
   /**
    * **Prepare Messages for Reading**
    * Prepares and processes messages to be read aloud by Siri (SiriMessagesAppIntentsExtension)
-   * Output: none
    * Parameters: `message`, `isRead`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_prepare_messages_for_reading: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitPrepareMessagesForReadingIntent",
   /**
    * **SiriKitSendMessageIntent**
    * Sends a message with the associated parameters (SiriMessagesAppIntentsExtension)
-   * Output: com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitMessageEntity
+   * Output: Message
    * Parameters: `destination`, `subject`, `content`, `audioMessage`, `attachments`, `locations`, `links`, `scheduledDate`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_siri_kit_send_message_intent: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitSendMessageIntent",
   /**
    * **SiriKitUnsendLastMessageIntent**
    * Unsend a sent message (SiriMessagesAppIntentsExtension)
-   * Output: none
    * Parameters: `message`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_siri_kit_unsend_last_message_intent: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent",
   /**
    * **SiriMessagesAppIntent**
    *  (SiriMessagesAppIntentsExtension)
-   * Output: none
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_siri_messages_app_intent: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriMessagesAppIntent",
   /**
    * **Update a Draft**
    *  (SiriMessagesAppIntentsExtension)
-   * Output: none
    * Parameters: `draft`, `recipients`, `subject`, `content`, `isAudioMessage`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_update_a_draft: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool",
   /**
    * **Create Draft**
    *  (Messages)
-   * Output: none
    * Parameters: `destination`, `subject`, `content`, `attachments`, `locations`, `links`, `audioMessage`, `isAudioMessage`, `scheduledDate`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_CreateDraftMessageTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS",
   /**
    * **Edit Last Message Sent With Siri**
    * Edit the content of the last message that was sent with Siri. (SiriMessagesFlowTools)
-   * Output: none
    * Parameters: `content`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_EditLastMessageSentWithSiriTool: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool",
   /**
    * **PerformMessagesPostReadActionFlowTool**
    * Post-read action messages Flow Tool (SiriMessagesFlowTools)
-   * Output: none
    * Parameters: `readableMessages`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PerformMessagesPostReadActionFlowTool: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool",
   /**
    * **Prepare Conversation**
    * Takes a ConversationEntity and prepares it for reading. (Messages)
-   * Output: none
    * Parameters: `conversation`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PrepareToReadConversationTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS",
   /**
    * **Prepare Conversation**
    * Takes a ConversationEntity and prepares it for reading. (SiriMessagesAppIntentsExtension)
-   * Output: none
    * Parameters: `conversation`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PrepareToReadConversationTool_com_apple_siri_messages_SiriMessagesAppIntentsExtension: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension",
   /**
    * **Prepare Messages**
    * Takes a list of MessageEntity objects and prepares them for reading. (Messages)
-   * Output: none
    * Parameters: `message`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PrepareToReadMessagesTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS",
   /**
    * **Send Draft Message**
    * Send a message or text message that has already been drafted using a designated app. Requires an existing draft message id and the messaging app. (Messages)
-   * Output: none
    * Parameters: `draft`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_SendDraftMessageTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS",
   /**
    * **Send Message Reaction**
    * Send a reaction to a message. (Messages)
-   * Output: none
    * Parameters: `message`, `reaction`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_SendMessageReactionTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS",
   /**
    * **Unsend Last Message Sent With Siri**
    * Unsend the last message that was sent with Siri. (SiriMessagesFlowTools)
-   * Output: none
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_UnsendLastMessageSentWithSiriTool: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UnsendLastMessageSentWithSiriTool",
   /**
    * **Update Draft**
    *  (Messages)
-   * Output: none
    * Parameters: `draft`, `destination`, `subject`, `content`, `attachments`, `locations`, `links`, `audioMessage`, `isAudioMessage`, `scheduledDate`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_UpdateDraftMessageTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS",
   /**
    * **Create List and Reminder**
    * Create a new list and add a new reminder to it (Reminders)
-   * Output: none
    * Parameters: `title`, `note`, `tags`, `urls`, `dueDate`, `recurrence`, `list`, `isFlagged`, `locationTrigger`, `name`, `type`
    */
   com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_CreateListAddReminderFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders",
   /**
    * **Create Reminder**
    * Create a new reminder (Reminders)
-   * Output: none
    * Parameters: `title`, `note`, `tags`, `urls`, `dueDate`, `recurrence`, `list`, `isFlagged`, `locationTrigger`
    */
   com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_CreateReminderFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders",
   /**
    * **Prepare Read Reminders**
    * Takes a list of reminders and prepares them for reading. (Reminders)
-   * Output: none
    * Parameters: `target`, `list`
    */
   com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_PrepareReadRemindersFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders",
   /**
    * **Update Reminder**
    * Update reminder (Reminders)
-   * Output: none
    * Parameters: `target`, `isCompleted`, `title`, `note`, `tags`, `urls`, `dueDate`, `recurrence`, `list`, `isFlagged`, `locationTrigger`
    */
   com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_UpdateReminderFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders",
   /**
    * **Share and Collaborate**
    * Share or collaborate on a document, note, reminder, or file with one or more people (sociallayerd)
-   * Output: none
    * Parameters: `recipients`
    */
   com_apple_sociallayerd_share_and_collaborate: "com.apple.sociallayerd.CollaborationIntent",
   /**
    * **Add Symbol to Watchlist**
    * Adds a symbol to a watchlist. (Stocks)
-   * Output: none
    * Parameters: `symbol`, `watchlist`, `OpenWhenRun`
    */
   stocks_add_symbol_to_watchlist: "com.apple.stocks.AddSymbolToWatchlistIntent",
   /**
    * **Block Channel or Topic**
    * Block a channel or topic from appearing, except in parts of the app curated by the Apple News editors (Stocks)
-   * Output: none
    * Parameters: `target`
    */
   stocks_block_channel_or_topic: "com.apple.stocks.BlockIntent",
   /**
    * **Decrease Text Size**
    * Decreases the text size for the opened article (Stocks)
-   * Output: none
    */
   stocks_decrease_text_size: "com.apple.stocks.DecreaseTextSizeIntent",
   /**
    * **Delete Symbol from Watchlist**
    * Delete a symbol from a watchlist. (Stocks)
-   * Output: none
    * Parameters: `symbol`, `watchlist`, `OpenWhenRun`
    */
   stocks_delete_symbol_from_watchlist: "com.apple.stocks.DeleteSymbolFromWatchlistIntent",
   /**
    * **Delete Watchlist**
    * Deletes the selected watchlists. (Stocks)
-   * Output: none
    * Parameters: `entities`
    */
   stocks_delete_watchlist: "com.apple.stocks.DeleteWatchlistsIntent",
   /**
    * **Follow Channel or Topic**
    * Adds a channel or topic to your Following list (Stocks)
-   * Output: none
    * Parameters: `target`
    */
   stocks_follow_channel_or_topic: "com.apple.stocks.FollowIntent",
   /**
    * **Get Symbol Quote**
    * Shows a price quote and performance for the symbol. (Stocks)
-   * Output: com.apple.stocks.SymbolQuoteEntity
+   * Output: Symbol Quote
    * Parameters: `symbol`, `OpenWhenRun`
    */
   stocks_get_symbol_quote: "com.apple.stocks.GetSymbolQuoteIntent",
   /**
    * **Increase Text Size**
    * Increases the text size for the opened article (Stocks)
-   * Output: none
    */
   stocks_increase_text_size: "com.apple.stocks.IncreaseTextSizeIntent",
   /**
    * **Create Watchlist**
    * Creates a new list of symbols you are interested in. (Stocks)
-   * Output: com.apple.stocks.WatchlistEntity
+   * Output: Watchlist
    * Parameters: `name`, `symbols`, `OpenWhenRun`
    */
   stocks_create_watchlist: "com.apple.stocks.NewWatchlistIntent",
@@ -10701,94 +10083,81 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Article**
    * Open an article in the News app (Stocks)
-   * Output: none
    * Parameters: `target`
    */
   stocks_open_article: "com.apple.stocks.OpenArticleIntent",
   /**
    * **Open Business News**
    * Shows news about the symbols in your watchlists and stories driving the market. (Stocks)
-   * Output: none
    */
   stocks_open_business_news: "com.apple.stocks.OpenBusinessNewsIntent",
   /**
    * **Open Channel or Topic**
    * Open a channel or topic feed in the News app (Stocks)
-   * Output: none
    * Parameters: `target`
    */
   stocks_open_channel_or_topic: "com.apple.stocks.OpenFeedIntent",
   /**
    * **Open History Feed**
    * Opens the History Feed (Stocks)
-   * Output: none
    */
   stocks_open_history_feed: "com.apple.stocks.OpenHistoryIntent",
   /**
    * **Open Recipe**
    * Shows a recipe in the News app. (Stocks)
-   * Output: com.apple.stocks.NewsRecipeEntity
+   * Output: Recipe
    * Parameters: `target`
    */
   stocks_open_recipe: "com.apple.stocks.OpenRecipeIntent",
   /**
    * **Open Saved Feed**
    * Opens the Saved Feed (Stocks)
-   * Output: none
    */
   stocks_open_saved_feed: "com.apple.stocks.OpenSavedIntent",
   /**
    * **Open Saved Recipes**
    * Opens Saved Recipes (Stocks)
-   * Output: none
    */
   stocks_open_saved_recipes: "com.apple.stocks.OpenSavedRecipesIntent",
   /**
    * **Open News Feed**
    * Open a feed in the News app (Stocks)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_stocks_OpenStaticFeed: "com.apple.stocks.OpenStaticFeed",
   /**
    * **Open Symbol**
    * Shows price quotes, trends, and performance data for the symbol you choose. (Stocks)
-   * Output: none
    * Parameters: `target`
    */
   stocks_open_symbol: "com.apple.stocks.OpenSymbolIntent",
   /**
    * **Open Watchlist**
    * Shows the watchlist you choose. (Stocks)
-   * Output: none
    * Parameters: `target`, `symbol`
    */
   stocks_open_watchlist: "com.apple.stocks.OpenWatchlistIntent",
   /**
    * **Play Article**
    * Plays the audio story associated with the article. (Stocks)
-   * Output: none
    * Parameters: `article`
    */
   stocks_play_article: "com.apple.stocks.PlayArticleIntent",
   /**
    * **Save Article**
    * Add the article to your Saved Stories list (Stocks)
-   * Output: none
    * Parameters: `target`
    */
   stocks_save_article: "com.apple.stocks.SaveArticleIntent",
   /**
    * **Show Symbol Price**
    * Shows price quotes, trends, and performance data for the symbol you choose. (Stocks)
-   * Output: none
    * Parameters: `stock`, `newsDisplayConfiguration`, `OpenWhenRun`
    */
   stocks_show_symbol_price: "com.apple.stocks.StockIntent",
   /**
    * **Show Watchlist**
    * Shows the watchlist you choose. (Stocks)
-   * Output: none
    * Parameters: `selectedWatchlist`, `newsDisplayConfiguration`, `showWatchlistNameValue`, `showMoreDataValue`, `showMoreSymbolsValue`, `OpenWhenRun`
    */
   stocks_show_watchlist: "com.apple.stocks.StocksOverviewIntent",
@@ -10809,14 +10178,12 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Unblock Channel or Topic**
    * Unblock a channel or topic from appearing (Stocks)
-   * Output: none
    * Parameters: `target`
    */
   stocks_unblock_channel_or_topic: "com.apple.stocks.UnblockIntent",
   /**
    * **Unsave Article**
    * Delete the article from your Saved Stories list (Stocks)
-   * Output: none
    * Parameters: `target`
    */
   stocks_unsave_article: "com.apple.stocks.UnsaveArticleIntent",
@@ -13243,357 +12610,306 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open About**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_about: "com.apple.systempreferences.OpenAboutSettingsStaticDeepLinks",
   /**
    * **Open Accessibility Audio Descriptions Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_audio_descriptions_settings: "com.apple.systempreferences.OpenAccessibilityAudioDescriptionsStaticDeepLinks",
   /**
    * **Open Accessibility Audio Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_audio_settings: "com.apple.systempreferences.OpenAccessibilityAudioStaticDeepLinks",
   /**
    * **Open Accessibility Display Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_display_settings: "com.apple.systempreferences.OpenAccessibilityDisplayStaticDeepLinks",
   /**
    * **Open Accessibility Hearing Devices Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_hearing_devices_settings: "com.apple.systempreferences.OpenAccessibilityHearingDevicesStaticDeepLinks",
   /**
    * **Open Accessibility Hover Text Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_hover_text_settings: "com.apple.systempreferences.OpenAccessibilityHoverTextStaticDeepLinks",
   /**
    * **Open Accessibility Keyboard Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_keyboard_settings: "com.apple.systempreferences.OpenAccessibilityKeyboardStaticDeepLinks",
   /**
    * **Open Accessibility Live Captions Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_live_captions_settings: "com.apple.systempreferences.OpenAccessibilityLiveCaptionsStaticDeepLinks",
   /**
    * **Open Accessibility Live Speech Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_live_speech_settings: "com.apple.systempreferences.OpenAccessibilityLiveSpeechStaticDeepLinks",
   /**
    * **Open Accessibility Motion Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_motion_settings: "com.apple.systempreferences.OpenAccessibilityMotionStaticDeepLinks",
   /**
    * **Open Accessibility Name Recognition Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_name_recognition_settings: "com.apple.systempreferences.OpenAccessibilityNameRecognitionStaticDeepLinks",
   /**
    * **Open Accessibility Personal Voice Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_personal_voice_settings: "com.apple.systempreferences.OpenAccessibilityPersonalVoiceStaticDeepLinks",
   /**
    * **Open Accessibility Pointer Control Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_pointer_control_settings: "com.apple.systempreferences.OpenAccessibilityPointerControlStaticDeepLinks",
   /**
    * **Open Accessibility RTT Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_rtt_settings: "com.apple.systempreferences.OpenAccessibilityRTTStaticDeepLinks",
   /**
    * **Open Accessibility  Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_settings: "com.apple.systempreferences.OpenAccessibilityRootStaticDeepLinks",
   /**
    * **Open Accessibility Shortcut Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_shortcut_settings: "com.apple.systempreferences.OpenAccessibilityShortcutStaticDeepLinks",
   /**
    * **Open Accessibility Siri Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_siri_settings: "com.apple.systempreferences.OpenAccessibilitySiriStaticDeepLinks",
   /**
    * **Open Accessibility Spoken Content Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_spoken_content_settings: "com.apple.systempreferences.OpenAccessibilitySpokenContentStaticDeepLinks",
   /**
    * **Open Accessibility Subtitles and Captioning Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_subtitles_and_captioning_settings: "com.apple.systempreferences.OpenAccessibilitySubtitlesandCaptioningStaticDeepLinks",
   /**
    * **Open Accessibility Switch Control Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_switch_control_settings: "com.apple.systempreferences.OpenAccessibilitySwitchControlStaticDeepLinks",
   /**
    * **Open Accessibility Vocal Shortcuts Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_vocal_shortcuts_settings: "com.apple.systempreferences.OpenAccessibilityVocalShortcutsStaticDeepLinks",
   /**
    * **Open Accessibility Voice Control Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_voice_control_settings: "com.apple.systempreferences.OpenAccessibilityVoiceControlStaticDeepLinks",
   /**
    * **Open Accessibility VoiceOver Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_voice_over_settings: "com.apple.systempreferences.OpenAccessibilityVoiceOverStaticDeepLinks",
   /**
    * **Open Accessibility Zoom Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_accessibility_zoom_settings: "com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks",
   /**
    * **Open AirDrop & Continuity**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_air_drop_continuity: "com.apple.systempreferences.OpenAirDropHandoffDeepLinks",
   /**
    * **Open Appearance Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_appearance_settings: "com.apple.systempreferences.OpenAppearanceSettingsDeepLink",
   /**
    * **Open Automatically adjust brightness**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_automatically_adjust_brightness: "com.apple.systempreferences.OpenAutoBrightnessEntityDeepLink",
   /**
    * **Open Automatically reconnect**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_automatically_reconnect: "com.apple.systempreferences.OpenAutomaticReconnectEntityDeepLink",
   /**
    * **Open Battery Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_battery_settings: "com.apple.systempreferences.OpenBatterSettingsDeepLink",
   /**
    * **Open Battery Health Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_battery_health_settings: "com.apple.systempreferences.OpenBatteryHealthPaneDynamicDeepLinks",
   /**
    * **Open Battery Settings Options Pane**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_battery_settings_options_pane: "com.apple.systempreferences.OpenBatteryOptionsPaneDynamicDeepLinks",
   /**
    * **Open Battery Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_battery_settings: "com.apple.systempreferences.OpenBatterySettingsPaneDynamicDeepLinks",
   /**
    * **Open Displays**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_displays: "com.apple.systempreferences.OpenDisplaysSettingsDeepLinks",
   /**
    * **Open Energy Saver Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_energy_saver_settings: "com.apple.systempreferences.OpenEnergySaverPaneDynamicDeepLinks",
   /**
    * **Open Energy Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_settings_open_energy_settings: "com.apple.systempreferences.OpenEnergySettingsDeepLink",
   /**
    * **Lock Screen Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_lock_screen_settings: "com.apple.systempreferences.OpenLockScreenDeepLinks",
   /**
    * **Open Login Items**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_login_items: "com.apple.systempreferences.OpenLoginItemsDeepLinks",
   /**
    * **Open Push through to connect**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_push_through_to_connect: "com.apple.systempreferences.OpenMagicEdgeEntityDeepLink",
   /**
    * **Open Network**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_network: "com.apple.systempreferences.OpenNetworkSettingsDeepLinks",
   /**
    * **Open AppleCare & Warranty**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   com_apple_preferences_open_apple_care_warranty: "com.apple.systempreferences.OpenNewDeviceOutreachStaticDeepLinks",
   /**
    * **Open Printers & Scanners**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_printers_scanners: "com.apple.systempreferences.OpenPrinterScannerDeepLinks",
   /**
    * **Open Privacy & Security**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_privacy_security: "com.apple.systempreferences.OpenPrivacySecurityDeepLinks",
   /**
    * **Open Share keyboard and mouse**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_share_keyboard_and_mouse: "com.apple.systempreferences.OpenShareKeyboardEntityDeepLink",
   /**
    * **Open Sound**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_sound: "com.apple.systempreferences.OpenSoundSettingsDeepLinks",
   /**
    * **Open Feedback Sound Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_feedback_sound_settings: "com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity",
   /**
    * **Open User Interface Sound Effects Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_user_interface_sound_effects_settings: "com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity",
   /**
    * **Open Startup Sound Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_startup_sound_settings: "com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity",
   /**
    * **Open Transfer or Reset**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_transfer_or_reset: "com.apple.systempreferences.OpenTransferResetDeepLinks",
   /**
    * **Open True Tone**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_true_tone: "com.apple.systempreferences.OpenTrueToneEntityDeepLink",
   /**
    * **Open Users & Groups**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_users_groups: "com.apple.systempreferences.OpenUsersGroupsDeepLinks",
   /**
    * **Open VPN Settings**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_vpn_settings: "com.apple.systempreferences.OpenVPNDeepLink",
@@ -13634,7 +12950,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Setting Navigation**
    *  (System Settings)
-   * Output: none
    * Parameters: `target`
    */
   settings_setting_navigation: "com.apple.systempreferences.SettingsNavigationEventDonationIntent",
@@ -13655,14 +12970,12 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Sharing**
    *  (SharingIntents)
-   * Output: none
    * Parameters: `target`
    */
   settings_open_sharing: "com.apple.systempreferences.SharingSettingsIntents.OpenSharingDeepLinks",
   /**
    * **SharingIntents**
    *  (SharingIntents)
-   * Output: none
    */
   com_apple_systempreferences_sharing_settings_intents_sharing_intents: "com.apple.systempreferences.SharingSettingsIntents.SharingIntents",
   /**
@@ -13750,21 +13063,18 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **High Power Mode**
    *  (System Settings)
-   * Output: none
    * Parameters: `value`
    */
   settings_high_power_mode: "com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent",
   /**
    * **High Power Mode**
    *  (System Settings)
-   * Output: none
    * Parameters: `value`
    */
   com_apple_systempreferences_ToggleHighPowerModeOnBatteryIntent: "com.apple.systempreferences.ToggleHighPowerModeOnBatteryIntent",
   /**
    * **Low Power Mode**
    *  (System Settings)
-   * Output: none
    * Parameters: `value`
    */
   settings_low_power_mode: "com.apple.systempreferences.ToggleLowPowerModeIntent",
@@ -13840,7 +13150,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Prepare notifications to read**
    * Prepare notifications to read (usernotificationsd)
-   * Output: none
    * Parameters: `notifications`
    */
   com_apple_usernotificationsd_prepare_notifications_to_read: "com.apple.usernotificationsd.PrepareUserNotificationIntent",
@@ -13854,21 +13163,18 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Set Wallpaper**
    * Sets the wallpaper from the list of available system wallpapers. (WallpaperAgent)
-   * Output: none
    * Parameters: `wallpaper`, `showOnAllSpaces`, `showAsScreenSaver`
    */
   com_apple_wallpaper_agent_set_wallpaper: "com.apple.wallpaper.agent.SetWallpaperIntent",
   /**
    * **Set Wallpaper Photo**
    * Sets the wallpaper to the specified image. (WallpaperAgent)
-   * Output: none
    * Parameters: `photo`, `showOnAllSpaces`
    */
   com_apple_wallpaper_agent_set_wallpaper_photo: "com.apple.wallpaper.agent.SetWallpaperPhotoIntent",
   /**
    * **Skip Wallpaper**
    *  (WallpaperAgent)
-   * Output: none
    */
   com_apple_wallpaper_agent_skip_wallpaper: "com.apple.wallpaper.agent.SkipShuffledContentAction",
   /**
@@ -13881,7 +13187,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Add Location to List**
    * Adds a location to the list of saved locations. (Weather)
-   * Output: none
    * Parameters: `placemark`, `OpenWhenRun`
    */
   weather_add_location_to_list: "com.apple.weather.AddSavedLocationIntent",
@@ -13909,40 +13214,34 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Moon Details**
    * Opens Weather and shows moon details (Weather)
-   * Output: none
    * Parameters: `location`
    */
   weather_open_moon_details: "com.apple.weather.OpenMoonIntent",
   /**
    * **Open Notifications Configuration**
    * Opens Weather to the Notifications panel to configure severe weather and next-hour precipitation notifications. (Weather)
-   * Output: none
    */
   weather_open_notifications_configuration: "com.apple.weather.OpenNotificationsConfigurationIntent",
   /**
    * **Open Sunrise and Sunset Details**
    * Opens Weather and shows sunrise and sunset details (Weather)
-   * Output: none
    * Parameters: `location`
    */
   weather_open_sunrise_and_sunset_details: "com.apple.weather.OpenSunriseSunsetIntent",
   /**
    * **Open Units Configuration**
    * Opens the Units panel to change temperature, wind, precipitation, pressure and distance unit settings used by Weather. (Weather)
-   * Output: none
    */
   weather_open_units_configuration: "com.apple.weather.OpenUnitsConfigurationIntent",
   /**
    * **Open Air Quality Details**
    * Opens Weather and shows air quality (Weather)
-   * Output: none
    * Parameters: `location`, `position`
    */
   weather_open_air_quality_details: "com.apple.weather.OpenWeatherAirQualityIntent",
   /**
    * **Open Weather Condition Details**
    * Opens Weather and shows a specific weather detail (Weather)
-   * Output: none
    * Parameters: `location`, `specificCondition`, `temperatureKind`, `date`
    */
   weather_open_weather_condition_details: "com.apple.weather.OpenWeatherSpecificConditionIntent",
@@ -13956,56 +13255,49 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Remove Locations from List**
    * Removes locations from the list of saved locations. (Weather)
-   * Output: none
    * Parameters: `entities`
    */
   weather_remove_locations_from_list: "com.apple.weather.RemoveSavedLocationIntent",
   /**
    * **Reset Unit**
    * Resets the unit for a weather detail to the system default (Weather)
-   * Output: none
    * Parameters: `unit`
    */
   weather_reset_unit: "com.apple.weather.ResetUnitsIntent",
   /**
    * **Set Distance Unit**
    * Sets the unit used for distance (Weather)
-   * Output: none
    * Parameters: `unit`
    */
   weather_set_distance_unit: "com.apple.weather.SetDistanceUnitIntent",
   /**
    * **Set Precipitation Unit**
    * Sets the unit used for precipitation (Weather)
-   * Output: none
    * Parameters: `unit`
    */
   weather_set_precipitation_unit: "com.apple.weather.SetPrecipitationUnitIntent",
   /**
    * **Set Pressure Unit**
    * Sets the unit used for barometric pressure (Weather)
-   * Output: none
    * Parameters: `unit`
    */
   weather_set_pressure_unit: "com.apple.weather.SetPressureUnitIntent",
   /**
    * **Set Temperature Unit**
    * Sets the unit used for temperature (Weather)
-   * Output: none
    * Parameters: `unit`
    */
   weather_set_temperature_unit: "com.apple.weather.SetTemperatureUnitIntent",
   /**
    * **Set Wind Unit**
    * Sets the unit used for wind (Weather)
-   * Output: none
    * Parameters: `unit`
    */
   weather_set_wind_unit: "com.apple.weather.SetWindUnitIntent",
   /**
    * **(INTERNAL ONLY) Sync Data**
    * (INTERNAL ONLY) Syncs a set of data from one device to its companion device. (Weather)
-   * Output: com.apple.weather.SyncedDataEntity
+   * Output: Synced Data
    * Parameters: `data`
    */
   weather_internal_only_sync_data: "com.apple.weather.SyncDataIntent",
@@ -14019,14 +13311,13 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Append to Note**
    * Adds text to the end of a note. (Notes)
-   * Output: com.apple.Notes.NoteEntity
+   * Output: Note
    * Parameters: `operation`, `entity`, `text`, `section`, `ignoreWhitespace`, `interpretAsMarkdown`
    */
   appendnote: "is.workflow.actions.appendnote",
   /**
    * **Delete Photos**
    * Deletes the specified photos. (Photos)
-   * Output: none
    * Parameters: `entities`
    */
   deletephotos: "is.workflow.actions.deletephotos",
@@ -14061,7 +13352,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
   /**
    * **Open Note**
    * Opens the specified note. (Notes)
-   * Output: none
    * Parameters: `target`
    */
   notes_open_note: "is.workflow.actions.shownote",
@@ -14503,315 +13793,315 @@ export const ACTIONS = {
   "is.workflow.actions.wordpress.post": { name: "Post to WordPress", params: ["WFAccount", "Blog", "Title", "Type", "Format", "Status", "Categories", "Tags", "Advanced", "AllowComments", "Slug", "Excerpt", "Date", "Template", "ThumbnailImage", "ShowCustomFields", "CustomFields", "WFInput"], output: "WordPress Post URL" },
   "is.workflow.actions.workout.end": { name: "End Workout", params: ["IntentAppDefinition"], output: null },
   "is.workflow.actions.workout.start": { name: "Start Workout", params: ["IntentAppDefinition", "isOpenEnded", "workoutName", "WorkoutGoal"], output: null },
-  "com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent": { name: "Workaround for rdar://146914251", params: ["asset"], output: "none", descriptor: { BundleIdentifier: "com.apple.-Photos-AppIntents", Name: "com.apple.-Photos-AppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "PHWorkaroundFor146914251Intent" } },
+  "com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent": { name: "Workaround for rdar://146914251", params: ["asset"], output: null, descriptor: { BundleIdentifier: "com.apple.-Photos-AppIntents", Name: "com.apple.-Photos-AppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "PHWorkaroundFor146914251Intent" } },
   "com.apple.AddressBook.ContactEntity": { name: "Find Contact", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Contact", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ContactEntity" } },
-  "com.apple.AddressBook.CreateContactIntent": { name: "Create Contact", params: ["contactType", "personName", "organizationName", "departmentName", "jobTitle", "phoneticOrganizationName", "phoneNumbers", "emailAddresses", "postalAddresses", "contactRelations", "birthday", "dates", "OpenWhenRun"], output: "com.apple.AddressBook.ContactEntity", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateContactIntent" } },
-  "com.apple.AddressBook.DeleteContactIntent": { name: "Delete Contact", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteContactIntent" } },
-  "com.apple.AddressBook.FetchContactAvatarIntent": { name: "Fetch Avatars for Contacts", params: ["identifiers", "kinds"], output: "com.apple.AddressBook.ContactAvatarFetchResultEntity", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchContactAvatarIntent" } },
-  "com.apple.AddressBook.FetchContactIntent": { name: "Fetch Contacts", params: ["identifiers", "keysToFetch"], output: "com.apple.AddressBook.ContactFetchResultEntity", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchContactIntent" } },
-  "com.apple.AddressBook.SearchInContactsIntent": { name: "Search in Contacts App", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchInContactsIntent" } },
-  "com.apple.AddressBook.UpdateContactIntent": { name: "Update Contact Details", params: ["target", "contactType", "personName", "organizationName", "departmentName", "jobTitle", "phoneticOrganizationName", "phoneNumbers", "emailAddresses", "postalAddresses", "contactRelations", "birthday", "dates", "OpenWhenRun"], output: "com.apple.AddressBook.ContactEntity", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateContactIntent" } },
-  "com.apple.AddressBook.ViewContactCardIntent": { name: "View Contact Card", params: ["target", "highlightedValue", "highlightedPropertyType", "shouldEdit"], output: "none", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ViewContactCardIntent" } },
+  "com.apple.AddressBook.CreateContactIntent": { name: "Create Contact", params: ["contactType", "personName", "organizationName", "departmentName", "jobTitle", "phoneticOrganizationName", "phoneNumbers", "emailAddresses", "postalAddresses", "contactRelations", "birthday", "dates", "OpenWhenRun"], output: "Contact", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateContactIntent" } },
+  "com.apple.AddressBook.DeleteContactIntent": { name: "Delete Contact", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteContactIntent" } },
+  "com.apple.AddressBook.FetchContactAvatarIntent": { name: "Fetch Avatars for Contacts", params: ["identifiers", "kinds"], output: "Contact Avatar Fetch Result", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchContactAvatarIntent" } },
+  "com.apple.AddressBook.FetchContactIntent": { name: "Fetch Contacts", params: ["identifiers", "keysToFetch"], output: "Contact Fetch Result", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchContactIntent" } },
+  "com.apple.AddressBook.SearchInContactsIntent": { name: "Search in Contacts App", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchInContactsIntent" } },
+  "com.apple.AddressBook.UpdateContactIntent": { name: "Update Contact Details", params: ["target", "contactType", "personName", "organizationName", "departmentName", "jobTitle", "phoneticOrganizationName", "phoneNumbers", "emailAddresses", "postalAddresses", "contactRelations", "birthday", "dates", "OpenWhenRun"], output: "Contact", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateContactIntent" } },
+  "com.apple.AddressBook.ViewContactCardIntent": { name: "View Contact Card", params: ["target", "highlightedValue", "highlightedPropertyType", "shouldEdit"], output: null, descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ViewContactCardIntent" } },
   "com.apple.AppKit.FetchIntelligenceCommands": { name: "Fetch Intelligence Commands", params: ["app", "processInstanceIdentifier", "cachedIfAvailable", "includeUntitled", "includeNonPerformable"], output: "IntelligenceCommand Entities", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchIntelligenceCommands" } },
   "com.apple.AppKit.InsertIntelligenceText": { name: "Insert Intelligence Text", params: ["app", "processInstanceIdentifier", "text", "replaceExisting", "targetWindowIdentifier", "targetFrame"], output: "Insertion Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertIntelligenceText" } },
   "com.apple.AppKit.PresentWritingToolsResult": { name: "Present Writing Tools Result", params: ["app", "text", "replaceExisting", "targetWindowIdentifier", "targetFrame", "precomputedCitationsJSON", "precomputedContentAdvisoriesJSON"], output: "Presentation Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "PresentWritingToolsResult" } },
   "com.apple.AppKit.RequestEditingContext": { name: "Request Editing Context", params: ["app", "targetWindowIdentifier", "targetFrame"], output: "Editing Context Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "RequestEditingContext" } },
   "com.apple.AppKit.RunIntelligenceCommand": { name: "Run Intelligence Command", params: ["app", "processInstanceIdentifier", "command"], output: "Execution Status", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunIntelligenceCommand" } },
   "com.apple.AppKit.RunIntelligenceCommandForKey": { name: "Run Intelligence Command For Key", params: ["app", "processInstanceIdentifier", "identifier", "command", "hierarchyComponents"], output: "Execution Status", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunIntelligenceCommandForKey" } },
-  "com.apple.AppKit.WindowTabActivateIntent": { name: "Activate Tab", params: ["app", "processInstanceIdentifier", "windowTab"], output: "none", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WindowTabActivateIntent" } },
+  "com.apple.AppKit.WindowTabActivateIntent": { name: "Activate Tab", params: ["app", "processInstanceIdentifier", "windowTab"], output: null, descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WindowTabActivateIntent" } },
   "com.apple.AppKit.WindowTabEntity": { name: "Find Window Tab", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Window Tab", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WindowTabEntity" } },
-  "com.apple.AppKit.WritingToolsCanPerformIntent": { name: "Can Perform Writing Tools", params: ["app", "processInstanceIdentifier"], output: "bool", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsCanPerformIntent" } },
-  "com.apple.AppKit.WritingToolsComposeIntent": { name: "Text Compose", params: ["app", "processInstanceIdentifier", "prompt"], output: "com.apple.AppKit.WritingToolsResult", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsComposeIntent" } },
-  "com.apple.AppKit.WritingToolsOpenEndedIntent": { name: "Open Ended", params: ["app", "processInstanceIdentifier", "prompt"], output: "com.apple.AppKit.WritingToolsResult", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsOpenEndedIntent" } },
-  "com.apple.AppKit.WritingToolsPartnerIntent": { name: "Text Compose", params: ["app", "processInstanceIdentifier", "prompt", "externalProviderID"], output: "com.apple.AppKit.WritingToolsResult", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsPartnerIntent" } },
-  "com.apple.AppKit.WritingToolsProofreadIntent": { name: "Proofread", params: ["app", "processInstanceIdentifier"], output: "com.apple.AppKit.WritingToolsResult", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsProofreadIntent" } },
-  "com.apple.AppKit.WritingToolsRewriteIntent": { name: "Rewrite", params: ["app", "processInstanceIdentifier", "type", "prompt"], output: "com.apple.AppKit.WritingToolsResult", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsRewriteIntent" } },
-  "com.apple.AppKit.WritingToolsSummarizeIntent": { name: "Summarize", params: ["app", "processInstanceIdentifier"], output: "com.apple.AppKit.WritingToolsResult", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsSummarizeIntent" } },
-  "com.apple.AppKit.WritingToolsTransformKeyPointsIntent": { name: "Key Points", params: ["app", "processInstanceIdentifier"], output: "com.apple.AppKit.WritingToolsResult", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsTransformKeyPointsIntent" } },
-  "com.apple.AppKit.WritingToolsTransformListIntent": { name: "List", params: ["app", "processInstanceIdentifier"], output: "com.apple.AppKit.WritingToolsResult", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsTransformListIntent" } },
-  "com.apple.AppKit.WritingToolsTransformTableIntent": { name: "Table", params: ["app", "processInstanceIdentifier"], output: "com.apple.AppKit.WritingToolsResult", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsTransformTableIntent" } },
-  "com.apple.AppStore.SystemSearchIntent": { name: "Search App Store", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.AppStore", Name: "App Store", TeamIdentifier: "0000000000", AppIntentIdentifier: "SystemSearchIntent" } },
-  "com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks": { name: "Open Game Center Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.GameCenter.Settings.DeviceExpertExtension", Name: "GameCenterSettingsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGameCenterSettingsDeepLinks" } },
+  "com.apple.AppKit.WritingToolsCanPerformIntent": { name: "Can Perform Writing Tools", params: ["app", "processInstanceIdentifier"], output: null, descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsCanPerformIntent" } },
+  "com.apple.AppKit.WritingToolsComposeIntent": { name: "Text Compose", params: ["app", "processInstanceIdentifier", "prompt"], output: "Writing Tools Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsComposeIntent" } },
+  "com.apple.AppKit.WritingToolsOpenEndedIntent": { name: "Open Ended", params: ["app", "processInstanceIdentifier", "prompt"], output: "Writing Tools Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsOpenEndedIntent" } },
+  "com.apple.AppKit.WritingToolsPartnerIntent": { name: "Text Compose", params: ["app", "processInstanceIdentifier", "prompt", "externalProviderID"], output: "Writing Tools Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsPartnerIntent" } },
+  "com.apple.AppKit.WritingToolsProofreadIntent": { name: "Proofread", params: ["app", "processInstanceIdentifier"], output: "Writing Tools Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsProofreadIntent" } },
+  "com.apple.AppKit.WritingToolsRewriteIntent": { name: "Rewrite", params: ["app", "processInstanceIdentifier", "type", "prompt"], output: "Writing Tools Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsRewriteIntent" } },
+  "com.apple.AppKit.WritingToolsSummarizeIntent": { name: "Summarize", params: ["app", "processInstanceIdentifier"], output: "Writing Tools Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsSummarizeIntent" } },
+  "com.apple.AppKit.WritingToolsTransformKeyPointsIntent": { name: "Key Points", params: ["app", "processInstanceIdentifier"], output: "Writing Tools Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsTransformKeyPointsIntent" } },
+  "com.apple.AppKit.WritingToolsTransformListIntent": { name: "List", params: ["app", "processInstanceIdentifier"], output: "Writing Tools Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsTransformListIntent" } },
+  "com.apple.AppKit.WritingToolsTransformTableIntent": { name: "Table", params: ["app", "processInstanceIdentifier"], output: "Writing Tools Result", descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsTransformTableIntent" } },
+  "com.apple.AppStore.SystemSearchIntent": { name: "Search App Store", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.AppStore", Name: "App Store", TeamIdentifier: "0000000000", AppIntentIdentifier: "SystemSearchIntent" } },
+  "com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks": { name: "Open Game Center Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.GameCenter.Settings.DeviceExpertExtension", Name: "GameCenterSettingsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGameCenterSettingsDeepLinks" } },
   "com.apple.GenerativePlaygroundApp.CreateImageIntent": { name: "Create Image", params: ["prompt", "style", "input_image_path", "previously_generated_image_id", "ShowWhenRun"], output: "Image", descriptor: { BundleIdentifier: "com.apple.GenerativePlaygroundApp", Name: "Image Playground", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateImageIntent" } },
   "com.apple.GenerativePlaygroundApp.GenerateImageIntent": { name: "Create Image", params: ["prompt", "style", "image", "saveToLibrary"], output: "Image", descriptor: { BundleIdentifier: "com.apple.GenerativePlaygroundApp", Name: "Image Playground", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateImageIntent" } },
-  "com.apple.Home.ActivateSceneIntent": { name: "Activate Scene", params: ["homeEntity", "sceneEntity", "timeout"], output: "com.apple.Home.SceneResult", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ActivateSceneIntent" } },
-  "com.apple.Home.AutomateAttributeValueIntent": { name: "Automate Set Attribute Value", params: ["attributes", "devices", "homeEntity", "rooms", "trigger", "recurrenceWeekdays", "name"], output: "com.apple.Home.AutomationResult", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutomateAttributeValueIntent" } },
-  "com.apple.Home.AutomateSceneIntent": { name: "Automate Scene", params: ["sceneEntity", "trigger", "recurrenceWeekdays"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutomateSceneIntent" } },
+  "com.apple.Home.ActivateSceneIntent": { name: "Activate Scene", params: ["homeEntity", "sceneEntity", "timeout"], output: "Scene Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ActivateSceneIntent" } },
+  "com.apple.Home.AutomateAttributeValueIntent": { name: "Automate Set Attribute Value", params: ["attributes", "devices", "homeEntity", "rooms", "trigger", "recurrenceWeekdays", "name"], output: "Automation Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutomateAttributeValueIntent" } },
+  "com.apple.Home.AutomateSceneIntent": { name: "Automate Scene", params: ["sceneEntity", "trigger", "recurrenceWeekdays"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutomateSceneIntent" } },
   "com.apple.Home.CameraClipEntity": { name: "Find ", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "CameraClipEntity", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "CameraClipEntity" } },
-  "com.apple.Home.DeltaAttributeValueIntent": { name: "Delta Attribute", params: ["attribute", "delta", "devices", "homeEntity", "zoneEntities", "roomEntities", "timeout", "OpenWhenRun"], output: "com.apple.Home.DeviceResult", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeltaAttributeValueIntent" } },
+  "com.apple.Home.DeltaAttributeValueIntent": { name: "Delta Attribute", params: ["attribute", "delta", "devices", "homeEntity", "zoneEntities", "roomEntities", "timeout", "OpenWhenRun"], output: "Device Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeltaAttributeValueIntent" } },
   "com.apple.Home.DeviceEntity": { name: "Find Device", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Device", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeviceEntity" } },
-  "com.apple.Home.ErrorIntent": { name: "Error Intent", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ErrorIntent" } },
-  "com.apple.Home.ForecastWidgetConfiguration": { name: "Show the Grid Forecast for a Home or your location.", params: ["forecastLocationEntity"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ForecastWidgetConfiguration" } },
-  "com.apple.Home.GetAttributeValueIntent": { name: "Get Attribute", params: ["homeEntity", "zoneEntities", "roomEntities", "devices", "attributeTypes", "timeout", "OpenWhenRun"], output: "com.apple.Home.DeviceResult", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetAttributeValueIntent" } },
-  "com.apple.Home.GetDeviceInfoIntent": { name: "Get Device Info", params: ["devices", "homeEntity"], output: "com.apple.Home.DeviceInfoResult", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetDeviceInfoIntent" } },
-  "com.apple.Home.HistoricalUsageWidgetConfiguration": { name: "Select Home", params: ["siteDetail"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HistoricalUsageWidgetConfiguration" } },
-  "com.apple.Home.HomeAppIntentsExtensionTestAppIntent": { name: "HomeAppIntentsExtensionTestAppIntent", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HomeAppIntentsExtensionTestAppIntent" } },
-  "com.apple.Home.HomeSingleTileConfigurationIntent": { name: "Scene or Accessory", params: ["home", "item"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HomeSingleTileConfigurationIntent" } },
-  "com.apple.Home.HomeXLModuleConfigurationIntent": { name: "Accessories", params: ["useRecommendations", "show", "home", "items"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HomeXLModuleConfigurationIntent" } },
-  "com.apple.Home.OpenURLInHomeIntent": { name: "Open Accessory or Scene in Home app", params: ["url"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenURLInHomeIntent" } },
-  "com.apple.Home.RecommendedItemIntent": { name: "Recommended Item", params: ["useHomeKitRecommendations", "home", "accessoriesAndScenes"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecommendedItemIntent" } },
+  "com.apple.Home.ErrorIntent": { name: "Error Intent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ErrorIntent" } },
+  "com.apple.Home.ForecastWidgetConfiguration": { name: "Show the Grid Forecast for a Home or your location.", params: ["forecastLocationEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ForecastWidgetConfiguration" } },
+  "com.apple.Home.GetAttributeValueIntent": { name: "Get Attribute", params: ["homeEntity", "zoneEntities", "roomEntities", "devices", "attributeTypes", "timeout", "OpenWhenRun"], output: "Device Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetAttributeValueIntent" } },
+  "com.apple.Home.GetDeviceInfoIntent": { name: "Get Device Info", params: ["devices", "homeEntity"], output: "Supported Attributes Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetDeviceInfoIntent" } },
+  "com.apple.Home.HistoricalUsageWidgetConfiguration": { name: "Select Home", params: ["siteDetail"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HistoricalUsageWidgetConfiguration" } },
+  "com.apple.Home.HomeAppIntentsExtensionTestAppIntent": { name: "HomeAppIntentsExtensionTestAppIntent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HomeAppIntentsExtensionTestAppIntent" } },
+  "com.apple.Home.HomeSingleTileConfigurationIntent": { name: "Scene or Accessory", params: ["home", "item"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HomeSingleTileConfigurationIntent" } },
+  "com.apple.Home.HomeXLModuleConfigurationIntent": { name: "Accessories", params: ["useRecommendations", "show", "home", "items"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HomeXLModuleConfigurationIntent" } },
+  "com.apple.Home.OpenURLInHomeIntent": { name: "Open Accessory or Scene in Home app", params: ["url"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenURLInHomeIntent" } },
+  "com.apple.Home.RecommendedItemIntent": { name: "Recommended Item", params: ["useHomeKitRecommendations", "home", "accessoriesAndScenes"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecommendedItemIntent" } },
   "com.apple.Home.RoomEntity": { name: "Find Room", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Room", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "RoomEntity" } },
   "com.apple.Home.SceneEntity": { name: "Find Scene", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Scene", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SceneEntity" } },
-  "com.apple.Home.SecureToggleIntent": { name: "Toggle Accessory or Scene", params: ["entity", "analyticsInfoJSON"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SecureToggleIntent" } },
+  "com.apple.Home.SecureToggleIntent": { name: "Toggle Accessory or Scene", params: ["entity", "analyticsInfoJSON"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SecureToggleIntent" } },
   "com.apple.Home.SelectedHomeEntity": { name: "Find Selected Home", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Selected Home", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectedHomeEntity" } },
-  "com.apple.Home.SetAttributeValueIntent": { name: "Set Attribute", params: ["attributes", "devices", "homeEntity", "zoneEntities", "roomEntities", "timeout", "OpenWhenRun"], output: "com.apple.Home.DeviceResult", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetAttributeValueIntent" } },
-  "com.apple.Home.ShowDeviceResultIntent": { name: "Show Device Result", params: ["userSpecificity", "destination", "successDeviceIDs", "failedDeviceIDs", "failedDeviceIDsToIgnore", "attributeType", "oldDeviceResults", "newDeviceResults", "secondaryAccessoryControlDestination"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowDeviceResultIntent" } },
-  "com.apple.Home.ShowErrorIntent": { name: "Show Error", params: ["destination", "errorDisplayType"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowErrorIntent" } },
-  "com.apple.Home.ShowNavigationIntent": { name: "Show Navigation", params: ["categoryType", "dashboardViewType", "deviceEntities", "secondaryAccessoryControlDestination", "homeEntity", "roomEntity"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowNavigationIntent" } },
-  "com.apple.Home.ShowSceneResultIntent": { name: "Show Scene Result", params: ["sceneID", "hasSiriExecutionFailure"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowSceneResultIntent" } },
-  "com.apple.Home.TileControlAction": { name: "ToggleIntentTitle", params: ["value", "targetIDString", "homeIDString", "action", "uniqueIdentifier", "widgetKind", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "TileControlAction" } },
-  "com.apple.Home.ToggleAttributeIntent": { name: "Toggle Attribute", params: ["attributeTypes", "devices", "homeEntity", "zoneEntities", "roomEntities", "timeout", "OpenWhenRun"], output: "com.apple.Home.DeviceResult", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleAttributeIntent" } },
-  "com.apple.Home.ToggleControlConfigurationIntent": { name: "Scene or Accessory", params: ["home", "accessoriesAndScenes"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleControlConfigurationIntent" } },
-  "com.apple.Home.ToggleIntent": { name: "Toggle Accessory or Scene", params: ["entity"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleIntent" } },
-  "com.apple.Home.UtilityRateInfoWidgetConfiguration": { name: "Select Home", params: ["siteDetail"], output: "none", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "UtilityRateInfoWidgetConfiguration" } },
+  "com.apple.Home.SetAttributeValueIntent": { name: "Set Attribute", params: ["attributes", "devices", "homeEntity", "zoneEntities", "roomEntities", "timeout", "OpenWhenRun"], output: "Device Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetAttributeValueIntent" } },
+  "com.apple.Home.ShowDeviceResultIntent": { name: "Show Device Result", params: ["userSpecificity", "destination", "successDeviceIDs", "failedDeviceIDs", "failedDeviceIDsToIgnore", "attributeType", "oldDeviceResults", "newDeviceResults", "secondaryAccessoryControlDestination"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowDeviceResultIntent" } },
+  "com.apple.Home.ShowErrorIntent": { name: "Show Error", params: ["destination", "errorDisplayType"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowErrorIntent" } },
+  "com.apple.Home.ShowNavigationIntent": { name: "Show Navigation", params: ["categoryType", "dashboardViewType", "deviceEntities", "secondaryAccessoryControlDestination", "homeEntity", "roomEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowNavigationIntent" } },
+  "com.apple.Home.ShowSceneResultIntent": { name: "Show Scene Result", params: ["sceneID", "hasSiriExecutionFailure"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowSceneResultIntent" } },
+  "com.apple.Home.TileControlAction": { name: "ToggleIntentTitle", params: ["value", "targetIDString", "homeIDString", "action", "uniqueIdentifier", "widgetKind", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "TileControlAction" } },
+  "com.apple.Home.ToggleAttributeIntent": { name: "Toggle Attribute", params: ["attributeTypes", "devices", "homeEntity", "zoneEntities", "roomEntities", "timeout", "OpenWhenRun"], output: "Device Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleAttributeIntent" } },
+  "com.apple.Home.ToggleControlConfigurationIntent": { name: "Scene or Accessory", params: ["home", "accessoriesAndScenes"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleControlConfigurationIntent" } },
+  "com.apple.Home.ToggleIntent": { name: "Toggle Accessory or Scene", params: ["entity"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleIntent" } },
+  "com.apple.Home.UtilityRateInfoWidgetConfiguration": { name: "Select Home", params: ["siteDetail"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "UtilityRateInfoWidgetConfiguration" } },
   "com.apple.Home.ZoneEntity": { name: "Find Zone", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Zone", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ZoneEntity" } },
   "com.apple.HydraUSDAppIntents.ConvertToUSDZ": { name: "Convert to USDZ", params: ["file"], output: "USDZ File", descriptor: { BundleIdentifier: "com.apple.HydraUSDAppIntents", Name: "USDAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConvertToUSDZ" } },
-  "com.apple.Magnifier.AskVQAIntent": { name: "Ask a Question", params: ["prompt"], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "AskVQAIntent" } },
-  "com.apple.Magnifier.DescribeThisIntent": { name: "Describe This", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DescribeThisIntent" } },
-  "com.apple.Magnifier.DetectDoorsIntent": { name: "Detect Doors", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectDoorsIntent" } },
-  "com.apple.Magnifier.DetectFurnitureIntent": { name: "Detect Furniture", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectFurnitureIntent" } },
-  "com.apple.Magnifier.DetectPeopleIntent": { name: "Detect People", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectPeopleIntent" } },
-  "com.apple.Magnifier.DetectTextIntent": { name: "Detect Text", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectTextIntent" } },
-  "com.apple.Magnifier.FindSessionAppIntent": { name: "Find This", params: ["searchTerm"], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindSessionAppIntent" } },
-  "com.apple.Magnifier.FollowUpVQAAppIntent": { name: "Follow Up", params: ["prompt"], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowUpVQAAppIntent" } },
-  "com.apple.Magnifier.MagnifierIntent": { name: "Magnifier", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "MagnifierIntent" } },
-  "com.apple.Magnifier.PointAndSpeakIntent": { name: "Start Point & Speak", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "PointAndSpeakIntent" } },
-  "com.apple.Magnifier.ReaderModeIntent": { name: "Open Reader", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReaderModeIntent" } },
-  "com.apple.Magnifier.StartDetectionTypeIntent": { name: "Detect Items", params: ["detectionType"], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartDetectionTypeIntent" } },
-  "com.apple.Magnifier.WhatColorIsThisIntent": { name: "What Color Is This", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "WhatColorIsThisIntent" } },
-  "com.apple.Maps.CalculateETAIntent": { name: "Calculate ETA", params: ["origin", "destination", "transportationType", "departureTime", "preferences", "ShowWhenRun"], output: "com.apple.Maps.ETAEntity", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "CalculateETAIntent" } },
+  "com.apple.Magnifier.AskVQAIntent": { name: "Ask a Question", params: ["prompt"], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "AskVQAIntent" } },
+  "com.apple.Magnifier.DescribeThisIntent": { name: "Describe This", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DescribeThisIntent" } },
+  "com.apple.Magnifier.DetectDoorsIntent": { name: "Detect Doors", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectDoorsIntent" } },
+  "com.apple.Magnifier.DetectFurnitureIntent": { name: "Detect Furniture", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectFurnitureIntent" } },
+  "com.apple.Magnifier.DetectPeopleIntent": { name: "Detect People", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectPeopleIntent" } },
+  "com.apple.Magnifier.DetectTextIntent": { name: "Detect Text", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectTextIntent" } },
+  "com.apple.Magnifier.FindSessionAppIntent": { name: "Find This", params: ["searchTerm"], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindSessionAppIntent" } },
+  "com.apple.Magnifier.FollowUpVQAAppIntent": { name: "Follow Up", params: ["prompt"], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowUpVQAAppIntent" } },
+  "com.apple.Magnifier.MagnifierIntent": { name: "Magnifier", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "MagnifierIntent" } },
+  "com.apple.Magnifier.PointAndSpeakIntent": { name: "Start Point & Speak", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "PointAndSpeakIntent" } },
+  "com.apple.Magnifier.ReaderModeIntent": { name: "Open Reader", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReaderModeIntent" } },
+  "com.apple.Magnifier.StartDetectionTypeIntent": { name: "Detect Items", params: ["detectionType"], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartDetectionTypeIntent" } },
+  "com.apple.Magnifier.WhatColorIsThisIntent": { name: "What Color Is This", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "WhatColorIsThisIntent" } },
+  "com.apple.Maps.CalculateETAIntent": { name: "Calculate ETA", params: ["origin", "destination", "transportationType", "departureTime", "preferences", "ShowWhenRun"], output: "ETA", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "CalculateETAIntent" } },
   "com.apple.Maps.CurrentLocationEntity": { name: "Get Current Location", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Location", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "CurrentLocationEntity" } },
-  "com.apple.Maps.MapsIntentsDebugDispatch": { name: "MapsIntents Debug Dispatch", params: ["testCase", "ShowWhenRun"], output: "com.apple.Maps.ETAEntity", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "MapsIntentsDebugDispatch" } },
-  "com.apple.Maps.MapsShowPlacesInAppIntent": { name: "Shows List of Places", params: ["places", "attributes", "languageId"], output: "none", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "MapsShowPlacesInAppIntent" } },
+  "com.apple.Maps.MapsIntentsDebugDispatch": { name: "MapsIntents Debug Dispatch", params: ["testCase", "ShowWhenRun"], output: "ETA", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "MapsIntentsDebugDispatch" } },
+  "com.apple.Maps.MapsShowPlacesInAppIntent": { name: "Shows List of Places", params: ["places", "attributes", "languageId"], output: null, descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "MapsShowPlacesInAppIntent" } },
   "com.apple.Maps.NavigationSessionEntity": { name: "Get Current Route", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Route", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "NavigationSessionEntity" } },
   "com.apple.Maps.ParkingLocationDataEntity": { name: "Get Parking Location", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Parking Location", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "ParkingLocationDataEntity" } },
-  "com.apple.Maps.SearchPlacesIntent": { name: "Search Places", params: ["searchQuery", "deviceLocation", "maxResults", "filterTypes", "appIdentifier", "viewport"], output: "com.apple.-GeoToolbox-AppIntents.GeoToolbox.PlaceDescriptorEntity", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchPlacesIntent" } },
-  "com.apple.Maps.StartNavigationIntent": { name: "Start Navigation in Maps", params: ["origin", "destinations", "transportationType", "preferences", "OpenWhenRun"], output: "com.apple.Maps.NavigationSessionEntity", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartNavigationIntent" } },
-  "com.apple.Maps.TestStartNavigationIntent": { name: "Test: Drive to Apple Park", params: ["OpenWhenRun"], output: "com.apple.Maps.NavigationSessionEntity", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "TestStartNavigationIntent" } },
-  "com.apple.Maps.TestUpdateNavigationIntent": { name: "Test: Update Navigation Waypoints", params: ["testCase", "OpenWhenRun"], output: "com.apple.Maps.NavigationSessionEntity", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "TestUpdateNavigationIntent" } },
-  "com.apple.Maps.UpdateNavigationIntent": { name: "Add stops", params: ["navigation", "waypoints", "OpenWhenRun"], output: "com.apple.Maps.NavigationSessionEntity", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateNavigationIntent" } },
-  "com.apple.MediaRemoteAppIntentsExtension.ConnectToSpeakerIntent": { name: "ConnectToSpeakerIntent", params: ["application", "destinations", "requestIdentifierOverride"], output: "none", descriptor: { BundleIdentifier: "com.apple.MediaRemoteAppIntentsExtension", Name: "MediaRemoteAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConnectToSpeakerIntent" } },
-  "com.apple.MobileSMS.ChangeFilterModeIntent": { name: "Open Inbox", params: ["filterMode"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeFilterModeIntent" } },
+  "com.apple.Maps.SearchPlacesIntent": { name: "Search Places", params: ["searchQuery", "deviceLocation", "maxResults", "filterTypes", "appIdentifier", "viewport"], output: "Location", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchPlacesIntent" } },
+  "com.apple.Maps.StartNavigationIntent": { name: "Start Navigation in Maps", params: ["origin", "destinations", "transportationType", "preferences", "OpenWhenRun"], output: "Current Route", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartNavigationIntent" } },
+  "com.apple.Maps.TestStartNavigationIntent": { name: "Test: Drive to Apple Park", params: ["OpenWhenRun"], output: "Current Route", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "TestStartNavigationIntent" } },
+  "com.apple.Maps.TestUpdateNavigationIntent": { name: "Test: Update Navigation Waypoints", params: ["testCase", "OpenWhenRun"], output: "Current Route", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "TestUpdateNavigationIntent" } },
+  "com.apple.Maps.UpdateNavigationIntent": { name: "Add stops", params: ["navigation", "waypoints", "OpenWhenRun"], output: "Current Route", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateNavigationIntent" } },
+  "com.apple.MediaRemoteAppIntentsExtension.ConnectToSpeakerIntent": { name: "ConnectToSpeakerIntent", params: ["application", "destinations", "requestIdentifierOverride"], output: null, descriptor: { BundleIdentifier: "com.apple.MediaRemoteAppIntentsExtension", Name: "MediaRemoteAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConnectToSpeakerIntent" } },
+  "com.apple.MobileSMS.ChangeFilterModeIntent": { name: "Open Inbox", params: ["filterMode"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeFilterModeIntent" } },
   "com.apple.MobileSMS.ConversationEntity": { name: "Find Conversation", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Conversation", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConversationEntity" } },
-  "com.apple.MobileSMS.ConversationListFocusFilterAction": { name: "Set Messages Focus Filter", params: ["Mode", "FocusMode", "enableFocusFiltering"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConversationListFocusFilterAction" } },
-  "com.apple.MobileSMS.DeleteConversationIntent": { name: "Delete Conversations", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteConversationIntent" } },
-  "com.apple.MobileSMS.DeleteMessageIntent": { name: "Delete Messages", params: ["entities", "WFLinkMessagesEntityVariablePickerKey"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteMessageIntent" } },
-  "com.apple.MobileSMS.DraftMessageIntent": { name: "Draft Message", params: ["destination", "subject", "content", "audioMessage", "attachments", "locations", "links", "scheduledDate"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "DraftMessageIntent" } },
-  "com.apple.MobileSMS.EditSentMessageIntent": { name: "Edit Sent Message", params: ["message", "content"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditSentMessageIntent" } },
-  "com.apple.MobileSMS.FetchConversationIdentifierIntent": { name: "Fetch Conversation Identifier Intent", params: ["intentPersons"], output: "string", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchConversationIdentifierIntent" } },
-  "com.apple.MobileSMS.FetchDowntimeConversationListIntent": { name: "Fetch Downtime Conversation List Intent", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchDowntimeConversationListIntent" } },
-  "com.apple.MobileSMS.FetchMutedConversationListIntent": { name: "Fetch Muted Conversation List Intent", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchMutedConversationListIntent" } },
-  "com.apple.MobileSMS.MarkConversationAsUnreadIntent": { name: "Mark as Read", params: ["operation", "conversation", "unreadState", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MarkConversationAsUnreadIntent" } },
+  "com.apple.MobileSMS.ConversationListFocusFilterAction": { name: "Set Messages Focus Filter", params: ["Mode", "FocusMode", "enableFocusFiltering"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConversationListFocusFilterAction" } },
+  "com.apple.MobileSMS.DeleteConversationIntent": { name: "Delete Conversations", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteConversationIntent" } },
+  "com.apple.MobileSMS.DeleteMessageIntent": { name: "Delete Messages", params: ["entities", "WFLinkMessagesEntityVariablePickerKey"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteMessageIntent" } },
+  "com.apple.MobileSMS.DraftMessageIntent": { name: "Draft Message", params: ["destination", "subject", "content", "audioMessage", "attachments", "locations", "links", "scheduledDate"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "DraftMessageIntent" } },
+  "com.apple.MobileSMS.EditSentMessageIntent": { name: "Edit Sent Message", params: ["message", "content"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditSentMessageIntent" } },
+  "com.apple.MobileSMS.FetchConversationIdentifierIntent": { name: "Fetch Conversation Identifier Intent", params: ["intentPersons"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchConversationIdentifierIntent" } },
+  "com.apple.MobileSMS.FetchDowntimeConversationListIntent": { name: "Fetch Downtime Conversation List Intent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchDowntimeConversationListIntent" } },
+  "com.apple.MobileSMS.FetchMutedConversationListIntent": { name: "Fetch Muted Conversation List Intent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchMutedConversationListIntent" } },
+  "com.apple.MobileSMS.MarkConversationAsUnreadIntent": { name: "Mark as Read", params: ["operation", "conversation", "unreadState", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MarkConversationAsUnreadIntent" } },
   "com.apple.MobileSMS.MessageEntity": { name: "Find Message", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Message", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MessageEntity" } },
-  "com.apple.MobileSMS.MuteConversationIntent": { name: "Mute Conversation Intent", params: ["conversationIdentifier", "isMuted"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MuteConversationIntent" } },
-  "com.apple.MobileSMS.OpenConversationIntent": { name: "Open Conversation", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenConversationIntent" } },
-  "com.apple.MobileSMS.OpenConversationListIntent": { name: "Open Conversation List", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenConversationListIntent" } },
-  "com.apple.MobileSMS.OpenMessageIntent": { name: "Reveal Message", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMessageIntent" } },
-  "com.apple.MobileSMS.RemoveTapbackIntent": { name: "Remove Tapback", params: ["message", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveTapbackIntent" } },
-  "com.apple.MobileSMS.SearchMessagesIntent": { name: "Search in Messages", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMessagesIntent" } },
-  "com.apple.MobileSMS.SendCollaborationMessageIntent": { name: "Send Collaboration Message", params: ["destination"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendCollaborationMessageIntent" } },
-  "com.apple.MobileSMS.SendMessageIntent": { name: "Send Message", params: ["destination", "subject", "content", "audioMessage", "attachments", "locations", "links", "scheduledDate"], output: "com.apple.MobileSMS.MessageEntity", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendMessageIntent" } },
-  "com.apple.MobileSMS.SendMessageReactionIntent": { name: "Send Tapback", params: ["message", "reaction", "WFLinkMessagesEntityVariablePickerKey"], output: "com.apple.MobileSMS.MessageEntity", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendMessageReactionIntent" } },
-  "com.apple.MobileSMS.SendReplyIntent": { name: "Send Reply", params: ["content", "message", "subject", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendReplyIntent" } },
-  "com.apple.MobileSMS.SetConversationReadStatusIntent": { name: "Set Conversation Read Status", params: ["conversation", "isRead"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetConversationReadStatusIntent" } },
-  "com.apple.MobileSMS.SetMessageReadStatusIntent": { name: "Set Message Read Status", params: ["message", "isRead"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetMessageReadStatusIntent" } },
-  "com.apple.MobileSMS.UnsendMessageIntent": { name: "Undo Send Message", params: ["message"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsendMessageIntent" } },
-  "com.apple.Music.AddMusicItemToLibrarySiriIntent": { name: "Add Music Items to Library", params: ["audioEntity", "ShowWhenRun", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddMusicItemToLibrarySiriIntent" } },
-  "com.apple.Music.AddMusicItemToPlaylistSiriIntent": { name: "Add Music Items to Playlist", params: ["audioEntity", "playlist", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddMusicItemToPlaylistSiriIntent" } },
-  "com.apple.Music.CreateStationSiriIntent": { name: "Create station", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateStationSiriIntent" } },
-  "com.apple.Music.OpenMusicItemSiriIntent": { name: "Open Music Item", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMusicItemSiriIntent" } },
-  "com.apple.Music.PlayMusicItemSiriIntent": { name: "Play Audio", params: ["warmupAudioQueueResult", "audioEntity", "playbackAttributes", "queueLocation"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayMusicItemSiriIntent" } },
-  "com.apple.Music.SearchMusicSiriIntent": { name: "SearchMusicSiriIntent_Title", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMusicSiriIntent" } },
-  "com.apple.Music.UpdateMusicItemAffinitySiriIntent": { name: "Set Music Item Affinity", params: ["target", "affinityState", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateMusicItemAffinitySiriIntent" } },
-  "com.apple.Music.WarmupMusicQueueSiriIntent": { name: "WarmupMusicQueueSiriIntent_Title", params: ["audioEntity", "playbackAttributes"], output: "com.apple.Music.WarmupMusicQueueResultSiriEntity", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "WarmupMusicQueueSiriIntent" } },
-  "com.apple.Notes.AddFileAttachmentLinkAction": { name: "Add File to Note", params: ["name", "file", "note", "OpenWhenRun"], output: "com.apple.Notes.AttachmentEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddFileAttachmentLinkAction" } },
-  "com.apple.Notes.AddLinkAttachmentLinkAction": { name: "Add Link", params: ["name", "url", "note", "OpenWhenRun"], output: "com.apple.Notes.AttachmentEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddLinkAttachmentLinkAction" } },
-  "com.apple.Notes.AddOrRemoveNoteLockLinkAction": { name: "Add or Remove Note Lock", params: ["operation", "target", "OpenWhenRun"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddOrRemoveNoteLockLinkAction" } },
-  "com.apple.Notes.AddTagsToNotesLinkAction": { name: "Add Tags to Notes", params: ["notes", "tags"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddTagsToNotesLinkAction" } },
-  "com.apple.Notes.ApplyFormattingLinkAction": { name: "Apply Formatting to Selected Text", params: ["bold", "italic", "underline", "strikethrough"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplyFormattingLinkAction" } },
+  "com.apple.MobileSMS.MuteConversationIntent": { name: "Mute Conversation Intent", params: ["conversationIdentifier", "isMuted"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MuteConversationIntent" } },
+  "com.apple.MobileSMS.OpenConversationIntent": { name: "Open Conversation", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenConversationIntent" } },
+  "com.apple.MobileSMS.OpenConversationListIntent": { name: "Open Conversation List", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenConversationListIntent" } },
+  "com.apple.MobileSMS.OpenMessageIntent": { name: "Reveal Message", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMessageIntent" } },
+  "com.apple.MobileSMS.RemoveTapbackIntent": { name: "Remove Tapback", params: ["message", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveTapbackIntent" } },
+  "com.apple.MobileSMS.SearchMessagesIntent": { name: "Search in Messages", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMessagesIntent" } },
+  "com.apple.MobileSMS.SendCollaborationMessageIntent": { name: "Send Collaboration Message", params: ["destination"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendCollaborationMessageIntent" } },
+  "com.apple.MobileSMS.SendMessageIntent": { name: "Send Message", params: ["destination", "subject", "content", "audioMessage", "attachments", "locations", "links", "scheduledDate"], output: "Message", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendMessageIntent" } },
+  "com.apple.MobileSMS.SendMessageReactionIntent": { name: "Send Tapback", params: ["message", "reaction", "WFLinkMessagesEntityVariablePickerKey"], output: "Message", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendMessageReactionIntent" } },
+  "com.apple.MobileSMS.SendReplyIntent": { name: "Send Reply", params: ["content", "message", "subject", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendReplyIntent" } },
+  "com.apple.MobileSMS.SetConversationReadStatusIntent": { name: "Set Conversation Read Status", params: ["conversation", "isRead"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetConversationReadStatusIntent" } },
+  "com.apple.MobileSMS.SetMessageReadStatusIntent": { name: "Set Message Read Status", params: ["message", "isRead"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetMessageReadStatusIntent" } },
+  "com.apple.MobileSMS.UnsendMessageIntent": { name: "Undo Send Message", params: ["message"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsendMessageIntent" } },
+  "com.apple.Music.AddMusicItemToLibrarySiriIntent": { name: "Add Music Items to Library", params: ["audioEntity", "ShowWhenRun", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddMusicItemToLibrarySiriIntent" } },
+  "com.apple.Music.AddMusicItemToPlaylistSiriIntent": { name: "Add Music Items to Playlist", params: ["audioEntity", "playlist", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddMusicItemToPlaylistSiriIntent" } },
+  "com.apple.Music.CreateStationSiriIntent": { name: "Create station", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateStationSiriIntent" } },
+  "com.apple.Music.OpenMusicItemSiriIntent": { name: "Open Music Item", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMusicItemSiriIntent" } },
+  "com.apple.Music.PlayMusicItemSiriIntent": { name: "Play Audio", params: ["warmupAudioQueueResult", "audioEntity", "playbackAttributes", "queueLocation"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayMusicItemSiriIntent" } },
+  "com.apple.Music.SearchMusicSiriIntent": { name: "SearchMusicSiriIntent_Title", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMusicSiriIntent" } },
+  "com.apple.Music.UpdateMusicItemAffinitySiriIntent": { name: "Set Music Item Affinity", params: ["target", "affinityState", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateMusicItemAffinitySiriIntent" } },
+  "com.apple.Music.WarmupMusicQueueSiriIntent": { name: "WarmupMusicQueueSiriIntent_Title", params: ["audioEntity", "playbackAttributes"], output: "Warmup Audio Queue Result", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "WarmupMusicQueueSiriIntent" } },
+  "com.apple.Notes.AddFileAttachmentLinkAction": { name: "Add File to Note", params: ["name", "file", "note", "OpenWhenRun"], output: "Attachment", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddFileAttachmentLinkAction" } },
+  "com.apple.Notes.AddLinkAttachmentLinkAction": { name: "Add Link", params: ["name", "url", "note", "OpenWhenRun"], output: "Attachment", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddLinkAttachmentLinkAction" } },
+  "com.apple.Notes.AddOrRemoveNoteLockLinkAction": { name: "Add or Remove Note Lock", params: ["operation", "target", "OpenWhenRun"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddOrRemoveNoteLockLinkAction" } },
+  "com.apple.Notes.AddTagsToNotesLinkAction": { name: "Add Tags to Notes", params: ["notes", "tags"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddTagsToNotesLinkAction" } },
+  "com.apple.Notes.ApplyFormattingLinkAction": { name: "Apply Formatting to Selected Text", params: ["bold", "italic", "underline", "strikethrough"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplyFormattingLinkAction" } },
   "com.apple.Notes.AttachmentEntity": { name: "Find Attachment", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Attachment", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AttachmentEntity" } },
-  "com.apple.Notes.ChangeFolderSettingLinkAction": { name: "Change Folder View Setting", params: ["changeOperation", "setting"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeFolderSettingLinkAction" } },
-  "com.apple.Notes.ChangeSettingLinkAction": { name: "Change Notes Setting", params: ["changeOperation", "setting"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeSettingLinkAction" } },
-  "com.apple.Notes.ChangeTagSelectionIntent": { name: "Change Tag Selection", params: ["includedTags", "excludedTags", "selectionOperator"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeTagSelectionIntent" } },
-  "com.apple.Notes.CloseAppLocationLinkAction": { name: "Close Notes View", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseAppLocationLinkAction" } },
-  "com.apple.Notes.CloseNoteLinkAction": { name: "Close Note", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseNoteLinkAction" } },
-  "com.apple.Notes.CreateChecklistItemLinkAction": { name: "Append Checklist Item", params: ["name", "noteEntity", "OpenWhenRun"], output: "com.apple.Notes.ChecklistItemEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateChecklistItemLinkAction" } },
-  "com.apple.Notes.CreateFolderLinkAction": { name: "Create Folder", params: ["name", "OpenWhenRun"], output: "com.apple.Notes.FolderEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateFolderLinkAction" } },
-  "com.apple.Notes.CreateNoteIntent": { name: "Create Note", params: ["name", "content", "attachments", "isPinned", "folder", "OpenWhenRun"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNoteIntent" } },
-  "com.apple.Notes.CreateTableLinkAction": { name: "Add Table to Note", params: ["name", "csvString", "note", "OpenWhenRun"], output: "com.apple.Notes.TableEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateTableLinkAction" } },
-  "com.apple.Notes.CreateTagLinkAction": { name: "Create Tag", params: ["name", "OpenWhenRun"], output: "com.apple.Notes.TagEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateTagLinkAction" } },
-  "com.apple.Notes.DeleteAttachmentsLinkAction": { name: "Delete Attachments", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAttachmentsLinkAction" } },
-  "com.apple.Notes.DeleteChecklistItemsLinkAction": { name: "Delete Checklist Items", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteChecklistItemsLinkAction" } },
-  "com.apple.Notes.DeleteFoldersLinkAction": { name: "Delete Folders", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteFoldersLinkAction" } },
-  "com.apple.Notes.DeleteNotesLinkAction": { name: "Delete Notes", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteNotesLinkAction" } },
-  "com.apple.Notes.DeleteTablesLinkAction": { name: "Delete Tables", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteTablesLinkAction" } },
-  "com.apple.Notes.DeleteTagsLinkAction": { name: "Delete Tags", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteTagsLinkAction" } },
-  "com.apple.Notes.EmphasisLinkAction": { name: "Apply Emphasis to Selected Text", params: ["emphasisColor"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmphasisLinkAction" } },
-  "com.apple.Notes.GenerateFallbackPDF": { name: "Generate Fallback PDF", params: ["attachmentIdentifier"], output: "bool", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateFallbackPDF" } },
-  "com.apple.Notes.GetLinkedNotesLinkAction": { name: "Get Linked Notes", params: ["entity"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetLinkedNotesLinkAction" } },
-  "com.apple.Notes.InsertAllMentionLinkAction": { name: "Insert All Mention", params: ["target"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertAllMentionLinkAction" } },
-  "com.apple.Notes.InsertMentionLinkAction": { name: "Insert Mention", params: ["target", "mentionText"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertMentionLinkAction" } },
-  "com.apple.Notes.InsertNoteLinkLinkAction": { name: "Insert Note Link", params: ["linkedNote", "target", "useNoteTitleAsName"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertNoteLinkLinkAction" } },
-  "com.apple.Notes.MoveNotesToFolderLinkAction": { name: "Move Notes to Folder", params: ["container", "entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveNotesToFolderLinkAction" } },
-  "com.apple.Notes.NoteAppendTextIntent": { name: "Append to Note", params: ["target", "content"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "NoteAppendTextIntent" } },
-  "com.apple.Notes.OpenAccountLinkAction": { name: "Open Account", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccountLinkAction" } },
-  "com.apple.Notes.OpenAppLocationLinkAction": { name: "Open Notes View", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppLocationLinkAction" } },
-  "com.apple.Notes.OpenAttachmentLinkAction": { name: "Open Attachment", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAttachmentLinkAction" } },
-  "com.apple.Notes.OpenChecklistItemLinkAction": { name: "Reveal Checklist Item", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenChecklistItemLinkAction" } },
-  "com.apple.Notes.OpenFolderLinkAction": { name: "Open Folder", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFolderLinkAction" } },
-  "com.apple.Notes.OpenTableLinkAction": { name: "Reveal Table", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTableLinkAction" } },
-  "com.apple.Notes.OpenTagLinkAction": { name: "Open Tag", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTagLinkAction" } },
-  "com.apple.Notes.OpenTopLevelFolderLinkAction": { name: "Open Top-Level Folder", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTopLevelFolderLinkAction" } },
-  "com.apple.Notes.PinNotesLinkAction": { name: "Pin Notes", params: ["operation", "entities"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "PinNotesLinkAction" } },
-  "com.apple.Notes.QuickNoteIntent": { name: "Quick Note", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "QuickNoteIntent" } },
-  "com.apple.Notes.RemoveTagsFromNotesLinkAction": { name: "Remove Tags from Notes", params: ["notes", "tags"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveTagsFromNotesLinkAction" } },
-  "com.apple.Notes.RenameFolderLinkAction": { name: "Rename Folder", params: ["entity", "name"], output: "com.apple.Notes.FolderEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameFolderLinkAction" } },
-  "com.apple.Notes.ReplaceSelectionLinkAction": { name: "Replace Selected Text", params: ["text"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReplaceSelectionLinkAction" } },
-  "com.apple.Notes.SetAttachmentSizeLinkAction": { name: "Set Attachment Size", params: ["target", "attachmentSize"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetAttachmentSizeLinkAction" } },
-  "com.apple.Notes.SetChecklistItemCheckedLinkActionv2": { name: "Set Checklist Items Checked", params: ["changeOperation", "entities", "note", "OpenWhenRun"], output: "com.apple.Notes.ChecklistItemEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetChecklistItemCheckedLinkActionv2" } },
-  "com.apple.Notes.SetParagraphStyleLinkAction": { name: "Set Paragraph Style", params: ["paragraphStyle"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetParagraphStyleLinkAction" } },
-  "com.apple.Notes.ShowNotesAppSearchResultsLinkAction": { name: "Show Note and Attachment Search Result", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowNotesAppSearchResultsLinkAction" } },
-  "com.apple.Notes.ShowQuickNoteIntent": { name: "Show Quick Note", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowQuickNoteIntent" } },
-  "com.apple.Notes.StartRecordingLinkAction": { name: "Start Audio Recording", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartRecordingLinkAction" } },
+  "com.apple.Notes.ChangeFolderSettingLinkAction": { name: "Change Folder View Setting", params: ["changeOperation", "setting"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeFolderSettingLinkAction" } },
+  "com.apple.Notes.ChangeSettingLinkAction": { name: "Change Notes Setting", params: ["changeOperation", "setting"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeSettingLinkAction" } },
+  "com.apple.Notes.ChangeTagSelectionIntent": { name: "Change Tag Selection", params: ["includedTags", "excludedTags", "selectionOperator"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeTagSelectionIntent" } },
+  "com.apple.Notes.CloseAppLocationLinkAction": { name: "Close Notes View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseAppLocationLinkAction" } },
+  "com.apple.Notes.CloseNoteLinkAction": { name: "Close Note", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseNoteLinkAction" } },
+  "com.apple.Notes.CreateChecklistItemLinkAction": { name: "Append Checklist Item", params: ["name", "noteEntity", "OpenWhenRun"], output: "Checklist Item", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateChecklistItemLinkAction" } },
+  "com.apple.Notes.CreateFolderLinkAction": { name: "Create Folder", params: ["name", "OpenWhenRun"], output: "Folder", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateFolderLinkAction" } },
+  "com.apple.Notes.CreateNoteIntent": { name: "Create Note", params: ["name", "content", "attachments", "isPinned", "folder", "OpenWhenRun"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNoteIntent" } },
+  "com.apple.Notes.CreateTableLinkAction": { name: "Add Table to Note", params: ["name", "csvString", "note", "OpenWhenRun"], output: "Table", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateTableLinkAction" } },
+  "com.apple.Notes.CreateTagLinkAction": { name: "Create Tag", params: ["name", "OpenWhenRun"], output: "Tag", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateTagLinkAction" } },
+  "com.apple.Notes.DeleteAttachmentsLinkAction": { name: "Delete Attachments", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAttachmentsLinkAction" } },
+  "com.apple.Notes.DeleteChecklistItemsLinkAction": { name: "Delete Checklist Items", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteChecklistItemsLinkAction" } },
+  "com.apple.Notes.DeleteFoldersLinkAction": { name: "Delete Folders", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteFoldersLinkAction" } },
+  "com.apple.Notes.DeleteNotesLinkAction": { name: "Delete Notes", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteNotesLinkAction" } },
+  "com.apple.Notes.DeleteTablesLinkAction": { name: "Delete Tables", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteTablesLinkAction" } },
+  "com.apple.Notes.DeleteTagsLinkAction": { name: "Delete Tags", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteTagsLinkAction" } },
+  "com.apple.Notes.EmphasisLinkAction": { name: "Apply Emphasis to Selected Text", params: ["emphasisColor"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmphasisLinkAction" } },
+  "com.apple.Notes.GenerateFallbackPDF": { name: "Generate Fallback PDF", params: ["attachmentIdentifier"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateFallbackPDF" } },
+  "com.apple.Notes.GetLinkedNotesLinkAction": { name: "Get Linked Notes", params: ["entity"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetLinkedNotesLinkAction" } },
+  "com.apple.Notes.InsertAllMentionLinkAction": { name: "Insert All Mention", params: ["target"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertAllMentionLinkAction" } },
+  "com.apple.Notes.InsertMentionLinkAction": { name: "Insert Mention", params: ["target", "mentionText"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertMentionLinkAction" } },
+  "com.apple.Notes.InsertNoteLinkLinkAction": { name: "Insert Note Link", params: ["linkedNote", "target", "useNoteTitleAsName"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertNoteLinkLinkAction" } },
+  "com.apple.Notes.MoveNotesToFolderLinkAction": { name: "Move Notes to Folder", params: ["container", "entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveNotesToFolderLinkAction" } },
+  "com.apple.Notes.NoteAppendTextIntent": { name: "Append to Note", params: ["target", "content"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "NoteAppendTextIntent" } },
+  "com.apple.Notes.OpenAccountLinkAction": { name: "Open Account", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccountLinkAction" } },
+  "com.apple.Notes.OpenAppLocationLinkAction": { name: "Open Notes View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppLocationLinkAction" } },
+  "com.apple.Notes.OpenAttachmentLinkAction": { name: "Open Attachment", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAttachmentLinkAction" } },
+  "com.apple.Notes.OpenChecklistItemLinkAction": { name: "Reveal Checklist Item", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenChecklistItemLinkAction" } },
+  "com.apple.Notes.OpenFolderLinkAction": { name: "Open Folder", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFolderLinkAction" } },
+  "com.apple.Notes.OpenTableLinkAction": { name: "Reveal Table", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTableLinkAction" } },
+  "com.apple.Notes.OpenTagLinkAction": { name: "Open Tag", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTagLinkAction" } },
+  "com.apple.Notes.OpenTopLevelFolderLinkAction": { name: "Open Top-Level Folder", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTopLevelFolderLinkAction" } },
+  "com.apple.Notes.PinNotesLinkAction": { name: "Pin Notes", params: ["operation", "entities"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "PinNotesLinkAction" } },
+  "com.apple.Notes.QuickNoteIntent": { name: "Quick Note", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "QuickNoteIntent" } },
+  "com.apple.Notes.RemoveTagsFromNotesLinkAction": { name: "Remove Tags from Notes", params: ["notes", "tags"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveTagsFromNotesLinkAction" } },
+  "com.apple.Notes.RenameFolderLinkAction": { name: "Rename Folder", params: ["entity", "name"], output: "Folder", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameFolderLinkAction" } },
+  "com.apple.Notes.ReplaceSelectionLinkAction": { name: "Replace Selected Text", params: ["text"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReplaceSelectionLinkAction" } },
+  "com.apple.Notes.SetAttachmentSizeLinkAction": { name: "Set Attachment Size", params: ["target", "attachmentSize"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetAttachmentSizeLinkAction" } },
+  "com.apple.Notes.SetChecklistItemCheckedLinkActionv2": { name: "Set Checklist Items Checked", params: ["changeOperation", "entities", "note", "OpenWhenRun"], output: "Checklist Item", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetChecklistItemCheckedLinkActionv2" } },
+  "com.apple.Notes.SetParagraphStyleLinkAction": { name: "Set Paragraph Style", params: ["paragraphStyle"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetParagraphStyleLinkAction" } },
+  "com.apple.Notes.ShowNotesAppSearchResultsLinkAction": { name: "Show Note and Attachment Search Result", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowNotesAppSearchResultsLinkAction" } },
+  "com.apple.Notes.ShowQuickNoteIntent": { name: "Show Quick Note", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowQuickNoteIntent" } },
+  "com.apple.Notes.StartRecordingLinkAction": { name: "Start Audio Recording", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartRecordingLinkAction" } },
   "com.apple.Notes.TableEntity": { name: "Find Table", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Table", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "TableEntity" } },
-  "com.apple.Notes.UpdateNoteIntent": { name: "Update Note", params: ["name", "attachments", "isPinned", "target", "folder"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateNoteIntent" } },
-  "com.apple.PeopleViewService.SelectPersonIntent": { name: "Select Person", params: ["person", "shouldShowButtons", "messageButton", "callButton", "verticalLayoutDT", "verticalLayoutDF"], output: "none", descriptor: { BundleIdentifier: "com.apple.PeopleViewService", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectPersonIntent" } },
-  "com.apple.PeopleViewService.URLAppIntent": { name: "Open URL", params: ["url"], output: "none", descriptor: { BundleIdentifier: "com.apple.PeopleViewService", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "URLAppIntent" } },
-  "com.apple.Photos.AddAssetsToAlbumIntent": { name: "Add Photos To Album", params: ["assets", "album"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddAssetsToAlbumIntent" } },
+  "com.apple.Notes.UpdateNoteIntent": { name: "Update Note", params: ["name", "attachments", "isPinned", "target", "folder"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateNoteIntent" } },
+  "com.apple.PeopleViewService.SelectPersonIntent": { name: "Select Person", params: ["person", "shouldShowButtons", "messageButton", "callButton", "verticalLayoutDT", "verticalLayoutDF"], output: null, descriptor: { BundleIdentifier: "com.apple.PeopleViewService", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectPersonIntent" } },
+  "com.apple.PeopleViewService.URLAppIntent": { name: "Open URL", params: ["url"], output: null, descriptor: { BundleIdentifier: "com.apple.PeopleViewService", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "URLAppIntent" } },
+  "com.apple.Photos.AddAssetsToAlbumIntent": { name: "Add Photos To Album", params: ["assets", "album"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddAssetsToAlbumIntent" } },
   "com.apple.Photos.AlbumEntity": { name: "Find Albums", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Album", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "AlbumEntity" } },
-  "com.apple.Photos.ApplyFilterIntent": { name: "Apply Filter", params: ["asset", "effect"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplyFilterIntent" } },
-  "com.apple.Photos.ApplyStyleIntent": { name: "Apply Style", params: ["asset", "style"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplyStyleIntent" } },
+  "com.apple.Photos.ApplyFilterIntent": { name: "Apply Filter", params: ["asset", "effect"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplyFilterIntent" } },
+  "com.apple.Photos.ApplyStyleIntent": { name: "Apply Style", params: ["asset", "style"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplyStyleIntent" } },
   "com.apple.Photos.AssetEntity": { name: "Find Photo", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Photo", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssetEntity" } },
-  "com.apple.Photos.CleanupIntent": { name: "Clean Up", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CleanupIntent" } },
-  "com.apple.Photos.CopyPasteEditsIntent": { name: "Copy and Paste Edits", params: ["sourceAsset", "destinationAssets"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CopyPasteEditsIntent" } },
-  "com.apple.Photos.CreateAlbumIntent": { name: "Create Album", params: ["title", "OpenWhenRun"], output: "com.apple.Photos.AlbumEntity", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateAlbumIntent" } },
-  "com.apple.Photos.CreateAssetsIntent": { name: "Save to Photos", params: ["files", "OpenWhenRun"], output: "com.apple.Photos.AssetEntity", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateAssetsIntent" } },
-  "com.apple.Photos.CropIntent": { name: "Crop", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CropIntent" } },
-  "com.apple.Photos.DeleteAlbumsIntent": { name: "Delete Albums", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAlbumsIntent" } },
-  "com.apple.Photos.DeleteAssetsIntent": { name: "Delete Photos", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAssetsIntent" } },
-  "com.apple.Photos.DuplicateAssetsIntent": { name: "Duplicate Photos", params: ["assets", "OpenWhenRun"], output: "com.apple.Photos.AssetEntity", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DuplicateAssetsIntent" } },
-  "com.apple.Photos.EditAssetIntent": { name: "Edit Photo", params: ["asset"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditAssetIntent" } },
-  "com.apple.Photos.EnableDepthIntent": { name: "Portrait Mode", params: ["enabled", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EnableDepthIntent" } },
-  "com.apple.Photos.EnhanceIntent": { name: "Auto Enhance Photo", params: ["assets", "enabled"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EnhanceIntent" } },
-  "com.apple.Photos.FavoriteAssetsIntent": { name: "Favorite Photos", params: ["assets", "action"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FavoriteAssetsIntent" } },
-  "com.apple.Photos.FavoriteMemoriesIntent": { name: "Favorite Memories", params: ["memories", "action"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FavoriteMemoriesIntent" } },
-  "com.apple.Photos.FavoritePeopleIntent": { name: "Favorite People or Pets", params: ["people", "action"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FavoritePeopleIntent" } },
-  "com.apple.Photos.FilterLibraryIntent": { name: "Set Library View", params: ["viewMode"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FilterLibraryIntent" } },
-  "com.apple.Photos.HideAssetsIntent": { name: "Hide Photos", params: ["assets", "action"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "HideAssetsIntent" } },
-  "com.apple.Photos.HidePeopleIntent": { name: "Hide People or Pets", params: ["people", "action"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "HidePeopleIntent" } },
-  "com.apple.Photos.MarkupIntent": { name: "Markup", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MarkupIntent" } },
+  "com.apple.Photos.CleanupIntent": { name: "Clean Up", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CleanupIntent" } },
+  "com.apple.Photos.CopyPasteEditsIntent": { name: "Copy and Paste Edits", params: ["sourceAsset", "destinationAssets"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CopyPasteEditsIntent" } },
+  "com.apple.Photos.CreateAlbumIntent": { name: "Create Album", params: ["title", "OpenWhenRun"], output: "Album", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateAlbumIntent" } },
+  "com.apple.Photos.CreateAssetsIntent": { name: "Save to Photos", params: ["files", "OpenWhenRun"], output: "Photo", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateAssetsIntent" } },
+  "com.apple.Photos.CropIntent": { name: "Crop", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CropIntent" } },
+  "com.apple.Photos.DeleteAlbumsIntent": { name: "Delete Albums", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAlbumsIntent" } },
+  "com.apple.Photos.DeleteAssetsIntent": { name: "Delete Photos", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAssetsIntent" } },
+  "com.apple.Photos.DuplicateAssetsIntent": { name: "Duplicate Photos", params: ["assets", "OpenWhenRun"], output: "Photo", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DuplicateAssetsIntent" } },
+  "com.apple.Photos.EditAssetIntent": { name: "Edit Photo", params: ["asset"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditAssetIntent" } },
+  "com.apple.Photos.EnableDepthIntent": { name: "Portrait Mode", params: ["enabled", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EnableDepthIntent" } },
+  "com.apple.Photos.EnhanceIntent": { name: "Auto Enhance Photo", params: ["assets", "enabled"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EnhanceIntent" } },
+  "com.apple.Photos.FavoriteAssetsIntent": { name: "Favorite Photos", params: ["assets", "action"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FavoriteAssetsIntent" } },
+  "com.apple.Photos.FavoriteMemoriesIntent": { name: "Favorite Memories", params: ["memories", "action"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FavoriteMemoriesIntent" } },
+  "com.apple.Photos.FavoritePeopleIntent": { name: "Favorite People or Pets", params: ["people", "action"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FavoritePeopleIntent" } },
+  "com.apple.Photos.FilterLibraryIntent": { name: "Set Library View", params: ["viewMode"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FilterLibraryIntent" } },
+  "com.apple.Photos.HideAssetsIntent": { name: "Hide Photos", params: ["assets", "action"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "HideAssetsIntent" } },
+  "com.apple.Photos.HidePeopleIntent": { name: "Hide People or Pets", params: ["people", "action"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "HidePeopleIntent" } },
+  "com.apple.Photos.MarkupIntent": { name: "Markup", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MarkupIntent" } },
   "com.apple.Photos.MemoryEntity": { name: "Find Memory", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Memory", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MemoryEntity" } },
-  "com.apple.Photos.MoveAssetsToPersonalLibraryIntent": { name: "Move to Personal Library", params: ["assets"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveAssetsToPersonalLibraryIntent" } },
-  "com.apple.Photos.MoveAssetsToSharedLibraryIntent": { name: "Move to Shared Library", params: ["assets"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveAssetsToSharedLibraryIntent" } },
-  "com.apple.Photos.OpenAlbumIntent": { name: "Open Album", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAlbumIntent" } },
-  "com.apple.Photos.OpenAssetIntent": { name: "Open Photo", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAssetIntent" } },
-  "com.apple.Photos.OpenDestinationIntent": { name: "Open View", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDestinationIntent" } },
-  "com.apple.Photos.OpenMemoryCreationViewIntent": { name: "Create Memory", params: ["query"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMemoryCreationViewIntent" } },
-  "com.apple.Photos.PLPhotosReliveWidgetConfigurationIntent": { name: "Photos Relive Widget Configuration", params: ["widgetType", "album", "alwaysDisplayInFullColor"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PLPhotosReliveWidgetConfigurationIntent" } },
+  "com.apple.Photos.MoveAssetsToPersonalLibraryIntent": { name: "Move to Personal Library", params: ["assets"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveAssetsToPersonalLibraryIntent" } },
+  "com.apple.Photos.MoveAssetsToSharedLibraryIntent": { name: "Move to Shared Library", params: ["assets"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveAssetsToSharedLibraryIntent" } },
+  "com.apple.Photos.OpenAlbumIntent": { name: "Open Album", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAlbumIntent" } },
+  "com.apple.Photos.OpenAssetIntent": { name: "Open Photo", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAssetIntent" } },
+  "com.apple.Photos.OpenDestinationIntent": { name: "Open View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDestinationIntent" } },
+  "com.apple.Photos.OpenMemoryCreationViewIntent": { name: "Create Memory", params: ["query"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMemoryCreationViewIntent" } },
+  "com.apple.Photos.PLPhotosReliveWidgetConfigurationIntent": { name: "Photos Relive Widget Configuration", params: ["widgetType", "album", "alwaysDisplayInFullColor"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PLPhotosReliveWidgetConfigurationIntent" } },
   "com.apple.Photos.PersonEntity": { name: "Find Person", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Person", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PersonEntity" } },
-  "com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent": { name: "Add Photos to Album", params: ["assets", "album"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosAddAssetsToAlbumAssistantIntent" } },
-  "com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent": { name: "Search Photos", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosAttributedSearchMediaAssistantIntent" } },
-  "com.apple.Photos.PhotosCleanupPhotoAssistantIntent": { name: "Cleanup Photo", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCleanupPhotoAssistantIntent" } },
-  "com.apple.Photos.PhotosCopyEditsAssistantIntent": { name: "Copy Edits", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCopyEditsAssistantIntent" } },
-  "com.apple.Photos.PhotosCreateAlbumAssistantIntent": { name: "Create Album", params: ["name", "OpenWhenRun"], output: "com.apple.Photos.AlbumEntity", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCreateAlbumAssistantIntent" } },
-  "com.apple.Photos.PhotosCreateAssetsAssistantIntent": { name: "Create Photos", params: ["files"], output: "com.apple.Photos.AssetEntity", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCreateAssetsAssistantIntent" } },
-  "com.apple.Photos.PhotosCropAssistantIntent": { name: "Crop Photo", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCropAssistantIntent" } },
-  "com.apple.Photos.PhotosDeleteAlbumsAssistantIntent": { name: "Delete Albums", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosDeleteAlbumsAssistantIntent" } },
-  "com.apple.Photos.PhotosDeleteAssetsAssistantIntent": { name: "Delete Photos", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosDeleteAssetsAssistantIntent" } },
-  "com.apple.Photos.PhotosDuplicateAssetsAssistantIntent": { name: "Duplicate Photos", params: ["entities", "OpenWhenRun"], output: "com.apple.Photos.AssetEntity", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosDuplicateAssetsAssistantIntent" } },
-  "com.apple.Photos.PhotosEditAssetAssistantIntent": { name: "Edit Photo", params: ["asset"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosEditAssetAssistantIntent" } },
-  "com.apple.Photos.PhotosEntityCollectionSearchAssistantIntent": { name: "Present Search Results", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosEntityCollectionSearchAssistantIntent" } },
-  "com.apple.Photos.PhotosFavoriteMemoriesAssistantIntent": { name: "Favorite Memories", params: ["memories", "action"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosFavoriteMemoriesAssistantIntent" } },
-  "com.apple.Photos.PhotosFilterLibraryAssistantIntent": { name: "Set Library View", params: ["viewMode"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosFilterLibraryAssistantIntent" } },
-  "com.apple.Photos.PhotosMoveAssetsToPersonalLibraryAssistantIntent": { name: "Move to Personal Library", params: ["assets"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosMoveAssetsToPersonalLibraryAssistantIntent" } },
-  "com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent": { name: "Move to Shared Library", params: ["assets"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosMoveAssetsToSharedLibraryAssistantIntent" } },
-  "com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent": { name: "Create a Memory", params: ["query"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosOpenMemoryCreationViewAssistantIntent" } },
-  "com.apple.Photos.PhotosPasteEditsAssistantIntent": { name: "Paste Edits", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosPasteEditsAssistantIntent" } },
-  "com.apple.Photos.PhotosReliveWidgetFeaturedConfiguration": { name: "Photos Relive Featured Widget Configuration", params: ["alwaysDisplayInFullColor", "enableSpatialEffect"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosReliveWidgetFeaturedConfiguration" } },
-  "com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent": { name: "Remove Photos from Album", params: ["album", "assets"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosRemoveAssetsFromAlbumAssistantIntent" } },
-  "com.apple.Photos.PhotosSearchAssistantIntent": { name: "Search", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSearchAssistantIntent" } },
-  "com.apple.Photos.PhotosSetDepthAssistantIntent": { name: "Set Depth", params: ["target", "value", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetDepthAssistantIntent" } },
-  "com.apple.Photos.PhotosSetExposureAssistantIntent": { name: "Set Exposure", params: ["target", "value", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetExposureAssistantIntent" } },
-  "com.apple.Photos.PhotosSetFilterAssistantIntent": { name: "Apply Filter", params: ["target", "filterType"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetFilterAssistantIntent" } },
-  "com.apple.Photos.PhotosSetRotationAssistantIntent": { name: "Rotate Photo", params: ["target", "direction"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetRotationAssistantIntent" } },
-  "com.apple.Photos.PhotosSetSaturationAssistantIntent": { name: "Set Saturation", params: ["target", "value", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetSaturationAssistantIntent" } },
-  "com.apple.Photos.PhotosSetWarmthAssistantIntent": { name: "Set Warmth", params: ["target", "value", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetWarmthAssistantIntent" } },
-  "com.apple.Photos.PhotosStraightenAssistantIntent": { name: "Straighten Photo", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosStraightenAssistantIntent" } },
-  "com.apple.Photos.PhotosToggleDepthAssistantIntent": { name: "Toggle Depth Effect", params: ["target", "isEnabled", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosToggleDepthAssistantIntent" } },
-  "com.apple.Photos.PhotosToggleSuggestedEditsAssistantIntent": { name: "Enhance Photo", params: ["target", "isEnabled"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosToggleSuggestedEditsAssistantIntent" } },
-  "com.apple.Photos.PhotosUpdateAlbumAssistantIntent": { name: "Rename Album", params: ["target", "name"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosUpdateAlbumAssistantIntent" } },
-  "com.apple.Photos.PhotosUpdateAssetAssistantIntent": { name: "Update Photo", params: ["target", "name", "isFavorite", "isHidden"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosUpdateAssetAssistantIntent" } },
-  "com.apple.Photos.PhotosUpdateRecognizedPersonAssistantIntent": { name: "Update Person", params: ["target", "isFavorite", "name"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosUpdateRecognizedPersonAssistantIntent" } },
-  "com.apple.Photos.RemoveAssetsFromAlbumIntent": { name: "Remove Photos From Album", params: ["album", "assets"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveAssetsFromAlbumIntent" } },
-  "com.apple.Photos.RenameAlbumIntent": { name: "Rename Album", params: ["album", "title"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameAlbumIntent" } },
-  "com.apple.Photos.RenamePersonIntent": { name: "Rename Person", params: ["person", "name"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenamePersonIntent" } },
-  "com.apple.Photos.RevealAlbumsIntent": { name: "REVEAL_ALBUMS_INTENT_TITLE", params: ["albums"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealAlbumsIntent" } },
-  "com.apple.Photos.RevealAssetsIntent": { name: "REVEAL_ASSETS_INTENT_TITLE", params: ["assets", "pluralDestination"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealAssetsIntent" } },
-  "com.apple.Photos.RotateIntent": { name: "Rotate", params: ["assets", "clockwise"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RotateIntent" } },
-  "com.apple.Photos.SetApertureIntent": { name: "Set Aperture", params: ["value", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetApertureIntent" } },
-  "com.apple.Photos.SetAudioMixIntent": { name: "Set Audio Mix", params: ["audioMix"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetAudioMixIntent" } },
-  "com.apple.Photos.SetExposureIntent": { name: "Set Exposure", params: ["value", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetExposureIntent" } },
-  "com.apple.Photos.SetPlaybackRateIntent": { name: "Set Playback Speed", params: ["playbackRate"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetPlaybackRateIntent" } },
-  "com.apple.Photos.SetSaturationIntent": { name: "Set Saturation", params: ["value", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetSaturationIntent" } },
-  "com.apple.Photos.SetWarmthIntent": { name: "Set Warmth", params: ["value", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWarmthIntent" } },
-  "com.apple.Photos.StraightenIntent": { name: "Straighten", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "StraightenIntent" } },
-  "com.apple.Preview.AutoEnhanceIntent": { name: "Enhance Documents", params: ["target", "OpenWhenRun"], output: "com.apple.Preview.DocumentEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoEnhanceIntent" } },
-  "com.apple.Preview.BookmarkIntent": { name: "Bookmark Pages", params: ["pages", "OpenWhenRun"], output: "com.apple.Preview.PageEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkIntent" } },
-  "com.apple.Preview.CloseIntent": { name: "Close Documents", params: ["documents"], output: "none", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseIntent" } },
-  "com.apple.Preview.DeletePageIntent": { name: "Delete Pages", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeletePageIntent" } },
+  "com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent": { name: "Add Photos to Album", params: ["assets", "album"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosAddAssetsToAlbumAssistantIntent" } },
+  "com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent": { name: "Search Photos", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosAttributedSearchMediaAssistantIntent" } },
+  "com.apple.Photos.PhotosCleanupPhotoAssistantIntent": { name: "Cleanup Photo", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCleanupPhotoAssistantIntent" } },
+  "com.apple.Photos.PhotosCopyEditsAssistantIntent": { name: "Copy Edits", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCopyEditsAssistantIntent" } },
+  "com.apple.Photos.PhotosCreateAlbumAssistantIntent": { name: "Create Album", params: ["name", "OpenWhenRun"], output: "Album", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCreateAlbumAssistantIntent" } },
+  "com.apple.Photos.PhotosCreateAssetsAssistantIntent": { name: "Create Photos", params: ["files"], output: "Photo", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCreateAssetsAssistantIntent" } },
+  "com.apple.Photos.PhotosCropAssistantIntent": { name: "Crop Photo", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosCropAssistantIntent" } },
+  "com.apple.Photos.PhotosDeleteAlbumsAssistantIntent": { name: "Delete Albums", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosDeleteAlbumsAssistantIntent" } },
+  "com.apple.Photos.PhotosDeleteAssetsAssistantIntent": { name: "Delete Photos", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosDeleteAssetsAssistantIntent" } },
+  "com.apple.Photos.PhotosDuplicateAssetsAssistantIntent": { name: "Duplicate Photos", params: ["entities", "OpenWhenRun"], output: "Photo", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosDuplicateAssetsAssistantIntent" } },
+  "com.apple.Photos.PhotosEditAssetAssistantIntent": { name: "Edit Photo", params: ["asset"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosEditAssetAssistantIntent" } },
+  "com.apple.Photos.PhotosEntityCollectionSearchAssistantIntent": { name: "Present Search Results", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosEntityCollectionSearchAssistantIntent" } },
+  "com.apple.Photos.PhotosFavoriteMemoriesAssistantIntent": { name: "Favorite Memories", params: ["memories", "action"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosFavoriteMemoriesAssistantIntent" } },
+  "com.apple.Photos.PhotosFilterLibraryAssistantIntent": { name: "Set Library View", params: ["viewMode"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosFilterLibraryAssistantIntent" } },
+  "com.apple.Photos.PhotosMoveAssetsToPersonalLibraryAssistantIntent": { name: "Move to Personal Library", params: ["assets"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosMoveAssetsToPersonalLibraryAssistantIntent" } },
+  "com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent": { name: "Move to Shared Library", params: ["assets"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosMoveAssetsToSharedLibraryAssistantIntent" } },
+  "com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent": { name: "Create a Memory", params: ["query"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosOpenMemoryCreationViewAssistantIntent" } },
+  "com.apple.Photos.PhotosPasteEditsAssistantIntent": { name: "Paste Edits", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosPasteEditsAssistantIntent" } },
+  "com.apple.Photos.PhotosReliveWidgetFeaturedConfiguration": { name: "Photos Relive Featured Widget Configuration", params: ["alwaysDisplayInFullColor", "enableSpatialEffect"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosReliveWidgetFeaturedConfiguration" } },
+  "com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent": { name: "Remove Photos from Album", params: ["album", "assets"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosRemoveAssetsFromAlbumAssistantIntent" } },
+  "com.apple.Photos.PhotosSearchAssistantIntent": { name: "Search", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSearchAssistantIntent" } },
+  "com.apple.Photos.PhotosSetDepthAssistantIntent": { name: "Set Depth", params: ["target", "value", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetDepthAssistantIntent" } },
+  "com.apple.Photos.PhotosSetExposureAssistantIntent": { name: "Set Exposure", params: ["target", "value", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetExposureAssistantIntent" } },
+  "com.apple.Photos.PhotosSetFilterAssistantIntent": { name: "Apply Filter", params: ["target", "filterType"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetFilterAssistantIntent" } },
+  "com.apple.Photos.PhotosSetRotationAssistantIntent": { name: "Rotate Photo", params: ["target", "direction"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetRotationAssistantIntent" } },
+  "com.apple.Photos.PhotosSetSaturationAssistantIntent": { name: "Set Saturation", params: ["target", "value", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetSaturationAssistantIntent" } },
+  "com.apple.Photos.PhotosSetWarmthAssistantIntent": { name: "Set Warmth", params: ["target", "value", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetWarmthAssistantIntent" } },
+  "com.apple.Photos.PhotosStraightenAssistantIntent": { name: "Straighten Photo", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosStraightenAssistantIntent" } },
+  "com.apple.Photos.PhotosToggleDepthAssistantIntent": { name: "Toggle Depth Effect", params: ["target", "isEnabled", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosToggleDepthAssistantIntent" } },
+  "com.apple.Photos.PhotosToggleSuggestedEditsAssistantIntent": { name: "Enhance Photo", params: ["target", "isEnabled"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosToggleSuggestedEditsAssistantIntent" } },
+  "com.apple.Photos.PhotosUpdateAlbumAssistantIntent": { name: "Rename Album", params: ["target", "name"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosUpdateAlbumAssistantIntent" } },
+  "com.apple.Photos.PhotosUpdateAssetAssistantIntent": { name: "Update Photo", params: ["target", "name", "isFavorite", "isHidden"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosUpdateAssetAssistantIntent" } },
+  "com.apple.Photos.PhotosUpdateRecognizedPersonAssistantIntent": { name: "Update Person", params: ["target", "isFavorite", "name"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosUpdateRecognizedPersonAssistantIntent" } },
+  "com.apple.Photos.RemoveAssetsFromAlbumIntent": { name: "Remove Photos From Album", params: ["album", "assets"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveAssetsFromAlbumIntent" } },
+  "com.apple.Photos.RenameAlbumIntent": { name: "Rename Album", params: ["album", "title"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameAlbumIntent" } },
+  "com.apple.Photos.RenamePersonIntent": { name: "Rename Person", params: ["person", "name"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenamePersonIntent" } },
+  "com.apple.Photos.RevealAlbumsIntent": { name: "REVEAL_ALBUMS_INTENT_TITLE", params: ["albums"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealAlbumsIntent" } },
+  "com.apple.Photos.RevealAssetsIntent": { name: "REVEAL_ASSETS_INTENT_TITLE", params: ["assets", "pluralDestination"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealAssetsIntent" } },
+  "com.apple.Photos.RotateIntent": { name: "Rotate", params: ["assets", "clockwise"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RotateIntent" } },
+  "com.apple.Photos.SetApertureIntent": { name: "Set Aperture", params: ["value", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetApertureIntent" } },
+  "com.apple.Photos.SetAudioMixIntent": { name: "Set Audio Mix", params: ["audioMix"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetAudioMixIntent" } },
+  "com.apple.Photos.SetExposureIntent": { name: "Set Exposure", params: ["value", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetExposureIntent" } },
+  "com.apple.Photos.SetPlaybackRateIntent": { name: "Set Playback Speed", params: ["playbackRate"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetPlaybackRateIntent" } },
+  "com.apple.Photos.SetSaturationIntent": { name: "Set Saturation", params: ["value", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetSaturationIntent" } },
+  "com.apple.Photos.SetWarmthIntent": { name: "Set Warmth", params: ["value", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWarmthIntent" } },
+  "com.apple.Photos.StraightenIntent": { name: "Straighten", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "StraightenIntent" } },
+  "com.apple.Preview.AutoEnhanceIntent": { name: "Enhance Documents", params: ["target", "OpenWhenRun"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoEnhanceIntent" } },
+  "com.apple.Preview.BookmarkIntent": { name: "Bookmark Pages", params: ["pages", "OpenWhenRun"], output: "Page", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkIntent" } },
+  "com.apple.Preview.CloseIntent": { name: "Close Documents", params: ["documents"], output: null, descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseIntent" } },
+  "com.apple.Preview.DeletePageIntent": { name: "Delete Pages", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeletePageIntent" } },
   "com.apple.Preview.DocumentEntity": { name: "Find Document", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "DocumentEntity" } },
-  "com.apple.Preview.ExportIntent": { name: "Export Documents", params: ["documents", "type", "folder", "overwriteIfExists"], output: "file", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "ExportIntent" } },
-  "com.apple.Preview.FlipIntent": { name: "Flip Documents", params: ["documents", "horizontally", "OpenWhenRun"], output: "com.apple.Preview.DocumentEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "FlipIntent" } },
+  "com.apple.Preview.ExportIntent": { name: "Export Documents", params: ["documents", "type", "folder", "overwriteIfExists"], output: null, descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "ExportIntent" } },
+  "com.apple.Preview.FlipIntent": { name: "Flip Documents", params: ["documents", "horizontally", "OpenWhenRun"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "FlipIntent" } },
   "com.apple.Preview.GetPagesIntent": { name: "Get Pages in Documents", params: ["pageSelector", "pages", "documents"], output: "Pages in Documents", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetPagesIntent" } },
-  "com.apple.Preview.InsertPageIntent": { name: "Insert Page", params: ["files", "isAfter", "page"], output: "none", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertPageIntent" } },
-  "com.apple.Preview.OpenIntent": { name: "Open Documents", params: ["files"], output: "com.apple.Preview.DocumentEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenIntent" } },
-  "com.apple.Preview.RemoveBackgroundIntent": { name: "Remove Image Background in Documents", params: ["documents", "OpenWhenRun"], output: "com.apple.Preview.DocumentEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveBackgroundIntent" } },
-  "com.apple.Preview.ResizeIntent": { name: "Resize Documents", params: ["documents", "width", "height", "OpenWhenRun"], output: "com.apple.Preview.DocumentEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResizeIntent" } },
-  "com.apple.Preview.RevealDocumentIntent": { name: "Reveal Document", params: ["target"], output: "com.apple.Preview.DocumentEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealDocumentIntent" } },
-  "com.apple.Preview.RevealPageIntent": { name: "Open Page", params: ["target"], output: "com.apple.Preview.PageEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealPageIntent" } },
-  "com.apple.Preview.RotateIntent": { name: "Rotate Documents", params: ["documents", "isClockwise", "OpenWhenRun"], output: "com.apple.Preview.DocumentEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RotateIntent" } },
-  "com.apple.Preview.RotatePageIntent": { name: "Rotate Pages", params: ["pages", "isClockwise", "OpenWhenRun"], output: "com.apple.Preview.PageEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RotatePageIntent" } },
-  "com.apple.Preview.SaveIntent": { name: "Save Documents", params: ["documents"], output: "com.apple.Preview.DocumentEntity", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveIntent" } },
-  "com.apple.Preview.SearchIntent": { name: "Search Documents", params: ["documents", "criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchIntent" } },
-  "com.apple.Safari.AddHistoryItem": { name: "Add to History", params: ["url", "name", "timeOfVisit"], output: "com.apple.Safari.HistoryEntity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddHistoryItem" } },
+  "com.apple.Preview.InsertPageIntent": { name: "Insert Page", params: ["files", "isAfter", "page"], output: null, descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertPageIntent" } },
+  "com.apple.Preview.OpenIntent": { name: "Open Documents", params: ["files"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenIntent" } },
+  "com.apple.Preview.RemoveBackgroundIntent": { name: "Remove Image Background in Documents", params: ["documents", "OpenWhenRun"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveBackgroundIntent" } },
+  "com.apple.Preview.ResizeIntent": { name: "Resize Documents", params: ["documents", "width", "height", "OpenWhenRun"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResizeIntent" } },
+  "com.apple.Preview.RevealDocumentIntent": { name: "Reveal Document", params: ["target"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealDocumentIntent" } },
+  "com.apple.Preview.RevealPageIntent": { name: "Open Page", params: ["target"], output: "Page", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealPageIntent" } },
+  "com.apple.Preview.RotateIntent": { name: "Rotate Documents", params: ["documents", "isClockwise", "OpenWhenRun"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RotateIntent" } },
+  "com.apple.Preview.RotatePageIntent": { name: "Rotate Pages", params: ["pages", "isClockwise", "OpenWhenRun"], output: "Page", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RotatePageIntent" } },
+  "com.apple.Preview.SaveIntent": { name: "Save Documents", params: ["documents"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveIntent" } },
+  "com.apple.Preview.SearchIntent": { name: "Search Documents", params: ["documents", "criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchIntent" } },
+  "com.apple.Safari.AddHistoryItem": { name: "Add to History", params: ["url", "name", "timeOfVisit"], output: "History Entity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddHistoryItem" } },
   "com.apple.Safari.BookmarkEntity": { name: "Find Bookmarks", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Bookmark", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkEntity" } },
-  "com.apple.Safari.BookmarkTabIntent": { name: "Bookmark Tab", params: ["tab", "name"], output: "com.apple.Safari.BookmarkEntity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkTabIntent" } },
-  "com.apple.Safari.BookmarkURLIntent": { name: "Bookmark URL", params: ["url", "name"], output: "com.apple.Safari.BookmarkEntity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkURLIntent" } },
-  "com.apple.Safari.CloseTab": { name: "Close Tab", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseTab" } },
-  "com.apple.Safari.CloseTabsAssistantIntent": { name: "Close Tabs", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseTabsAssistantIntent" } },
-  "com.apple.Safari.CloseView": { name: "Close View", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseView" } },
-  "com.apple.Safari.CloseWindowsIntent": { name: "Close Windows", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseWindowsIntent" } },
-  "com.apple.Safari.CreateNewBookmark": { name: "Add Bookmark", params: ["name"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewBookmark" } },
-  "com.apple.Safari.CreateNewTab": { name: "Create New Tab", params: [], output: "com.apple.Safari.TabEntity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewTab" } },
-  "com.apple.Safari.CreateNewTabGroup": { name: "Create Tab Group", params: ["contents", "name"], output: "com.apple.Safari.TabGroupEntity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewTabGroup" } },
-  "com.apple.Safari.CreateNewWindow": { name: "Create Window", params: ["isPrivate"], output: "com.apple.Safari.WindowEntity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewWindow" } },
-  "com.apple.Safari.CreateReadingListItem": { name: "Add to Reading List", params: ["name", "title", "url"], output: "com.apple.Safari.ReadingListItemEntity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateReadingListItem" } },
-  "com.apple.Safari.CreateTabAssistantIntent": { name: "Create Tab", params: ["url", "isPrivate"], output: "com.apple.Safari.TabEntity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateTabAssistantIntent" } },
-  "com.apple.Safari.DeleteBookmarks": { name: "Delete Bookmarks", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteBookmarks" } },
-  "com.apple.Safari.DeleteHistoryItems": { name: "Delete History Items", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteHistoryItems" } },
-  "com.apple.Safari.DeleteTabGroups": { name: "Delete Tab Groups", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteTabGroups" } },
-  "com.apple.Safari.FindOnPage": { name: "Find on Page", params: ["searchPhrase", "tab"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindOnPage" } },
-  "com.apple.Safari.GetHistoryItems": { name: "Get History Items", params: [], output: "com.apple.Safari.HistoryEntity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetHistoryItems" } },
+  "com.apple.Safari.BookmarkTabIntent": { name: "Bookmark Tab", params: ["tab", "name"], output: "Bookmark", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkTabIntent" } },
+  "com.apple.Safari.BookmarkURLIntent": { name: "Bookmark URL", params: ["url", "name"], output: "Bookmark", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkURLIntent" } },
+  "com.apple.Safari.CloseTab": { name: "Close Tab", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseTab" } },
+  "com.apple.Safari.CloseTabsAssistantIntent": { name: "Close Tabs", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseTabsAssistantIntent" } },
+  "com.apple.Safari.CloseView": { name: "Close View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseView" } },
+  "com.apple.Safari.CloseWindowsIntent": { name: "Close Windows", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseWindowsIntent" } },
+  "com.apple.Safari.CreateNewBookmark": { name: "Add Bookmark", params: ["name"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewBookmark" } },
+  "com.apple.Safari.CreateNewTab": { name: "Create New Tab", params: [], output: "Tab", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewTab" } },
+  "com.apple.Safari.CreateNewTabGroup": { name: "Create Tab Group", params: ["contents", "name"], output: "Tab Group", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewTabGroup" } },
+  "com.apple.Safari.CreateNewWindow": { name: "Create Window", params: ["isPrivate"], output: "Window", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewWindow" } },
+  "com.apple.Safari.CreateReadingListItem": { name: "Add to Reading List", params: ["name", "title", "url"], output: "Reading List Item", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateReadingListItem" } },
+  "com.apple.Safari.CreateTabAssistantIntent": { name: "Create Tab", params: ["url", "isPrivate"], output: "Tab", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateTabAssistantIntent" } },
+  "com.apple.Safari.DeleteBookmarks": { name: "Delete Bookmarks", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteBookmarks" } },
+  "com.apple.Safari.DeleteHistoryItems": { name: "Delete History Items", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteHistoryItems" } },
+  "com.apple.Safari.DeleteTabGroups": { name: "Delete Tab Groups", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteTabGroups" } },
+  "com.apple.Safari.FindOnPage": { name: "Find on Page", params: ["searchPhrase", "tab"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindOnPage" } },
+  "com.apple.Safari.GetHistoryItems": { name: "Get History Items", params: [], output: "History Entity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetHistoryItems" } },
   "com.apple.Safari.HistoryEntity": { name: "Find History Entity", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "History Entity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "HistoryEntity" } },
-  "com.apple.Safari.LoadURLInTab": { name: "Open Link", params: ["url", "tab"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "LoadURLInTab" } },
-  "com.apple.Safari.MoveTabsToTabGroup": { name: "Move Tabs to Tab Group", params: ["entities", "container"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveTabsToTabGroup" } },
-  "com.apple.Safari.MoveTabsToWindowIntent": { name: "Move Tabs to Window", params: ["entities", "container"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveTabsToWindowIntent" } },
-  "com.apple.Safari.NotifyUserForUpdatedPageIntent": { name: "Notify User in Safari For Page Update", params: ["message", "automationID", "pageURL"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "NotifyUserForUpdatedPageIntent" } },
-  "com.apple.Safari.OpenBookmark": { name: "Open Bookmark", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBookmark" } },
-  "com.apple.Safari.OpenBookmarkAssistantIntent": { name: "Open Bookmark", params: ["target", "tab"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBookmarkAssistantIntent" } },
-  "com.apple.Safari.OpenHistoryItem": { name: "Open History Item", params: ["target"], output: "bool", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHistoryItem" } },
-  "com.apple.Safari.OpenReadingListItem": { name: "Open Reading List Item", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenReadingListItem" } },
-  "com.apple.Safari.OpenTab": { name: "Switch Tab", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTab" } },
-  "com.apple.Safari.OpenTabGroup": { name: "Open Tab Group", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabGroup" } },
-  "com.apple.Safari.OpenTabGroupForFocus": { name: "Set Safari Focus Filter", params: ["Mode", "FocusMode", "type", "profileEntity", "tabGroupEntity", "openLinksInTabGroup"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabGroupForFocus" } },
-  "com.apple.Safari.OpenView": { name: "Open View", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenView" } },
-  "com.apple.Safari.QuickWebsiteSearchIntent": { name: "Search Website", params: ["term", "website"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "QuickWebsiteSearchIntent" } },
+  "com.apple.Safari.LoadURLInTab": { name: "Open Link", params: ["url", "tab"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "LoadURLInTab" } },
+  "com.apple.Safari.MoveTabsToTabGroup": { name: "Move Tabs to Tab Group", params: ["entities", "container"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveTabsToTabGroup" } },
+  "com.apple.Safari.MoveTabsToWindowIntent": { name: "Move Tabs to Window", params: ["entities", "container"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveTabsToWindowIntent" } },
+  "com.apple.Safari.NotifyUserForUpdatedPageIntent": { name: "Notify User in Safari For Page Update", params: ["message", "automationID", "pageURL"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "NotifyUserForUpdatedPageIntent" } },
+  "com.apple.Safari.OpenBookmark": { name: "Open Bookmark", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBookmark" } },
+  "com.apple.Safari.OpenBookmarkAssistantIntent": { name: "Open Bookmark", params: ["target", "tab"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBookmarkAssistantIntent" } },
+  "com.apple.Safari.OpenHistoryItem": { name: "Open History Item", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHistoryItem" } },
+  "com.apple.Safari.OpenReadingListItem": { name: "Open Reading List Item", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenReadingListItem" } },
+  "com.apple.Safari.OpenTab": { name: "Switch Tab", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTab" } },
+  "com.apple.Safari.OpenTabGroup": { name: "Open Tab Group", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabGroup" } },
+  "com.apple.Safari.OpenTabGroupForFocus": { name: "Set Safari Focus Filter", params: ["Mode", "FocusMode", "type", "profileEntity", "tabGroupEntity", "openLinksInTabGroup"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabGroupForFocus" } },
+  "com.apple.Safari.OpenView": { name: "Open View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenView" } },
+  "com.apple.Safari.QuickWebsiteSearchIntent": { name: "Search Website", params: ["term", "website"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "QuickWebsiteSearchIntent" } },
   "com.apple.Safari.QuickWebsiteSearchProviderEntity": { name: "Find Searchable Website", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Searchable Website", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "QuickWebsiteSearchProviderEntity" } },
   "com.apple.Safari.ReadingListItemEntity": { name: "Find Reading List Items", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Reading List Item", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReadingListItemEntity" } },
-  "com.apple.Safari.ReportNotifyMeWhenAutomationResult": { name: "Report NotifyMeWhen Automation Result", params: ["errorMessage", "automationID", "pageURL"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReportNotifyMeWhenAutomationResult" } },
-  "com.apple.Safari.RequestWebPageContextIntent": { name: "Request Web Page Context", params: ["url", "shortcutsAutomationUUID"], output: "com.apple.Safari.WebPageContextResult", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "RequestWebPageContextIntent" } },
-  "com.apple.Safari.SearchTabs": { name: "Search Tabs", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchTabs" } },
-  "com.apple.Safari.ShowWindowIntent": { name: "Show Window", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowWindowIntent" } },
+  "com.apple.Safari.ReportNotifyMeWhenAutomationResult": { name: "Report NotifyMeWhen Automation Result", params: ["errorMessage", "automationID", "pageURL"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReportNotifyMeWhenAutomationResult" } },
+  "com.apple.Safari.RequestWebPageContextIntent": { name: "Request Web Page Context", params: ["url", "shortcutsAutomationUUID"], output: "Web Page Context Result", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "RequestWebPageContextIntent" } },
+  "com.apple.Safari.SearchTabs": { name: "Search Tabs", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchTabs" } },
+  "com.apple.Safari.ShowWindowIntent": { name: "Show Window", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowWindowIntent" } },
   "com.apple.Safari.TabEntity": { name: "Find Tabs", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Tab", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "TabEntity" } },
   "com.apple.Safari.TabGroupEntity": { name: "Find Tab Groups", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Tab Group", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "TabGroupEntity" } },
   "com.apple.Safari.WindowEntity": { name: "Find Window", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Window", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "WindowEntity" } },
@@ -14827,8 +14117,8 @@ export const ACTIONS = {
   "com.apple.Settings.BluetoothPowerEntity-UpdatableEntity": { name: "Update bluetooth_power", params: ["entity", "value"], output: "Bluetooth Power", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "BluetoothPowerEntity-UpdatableEntity" } },
   "com.apple.Settings.BluetoothSettingsDeepLink": { name: "Find Bluetooth Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Bluetooth Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "BluetoothSettingsDeepLink" } },
   "com.apple.Settings.CDsAndDvDsSettingsExtensionSettingsDeepLink": { name: "Find CDs & DVDs Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "CDs & DVDs Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "CDsAndDvDsSettingsExtensionSettingsDeepLink" } },
-  "com.apple.Settings.ChangeMouseTrackingSpeedIntent": { name: "Change Mouse Tracking Speed", params: ["change"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeMouseTrackingSpeedIntent" } },
-  "com.apple.Settings.ChangeTrackpadTrackingSpeedIntent": { name: "Change Trackpad Tracking Speed", params: ["change"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeTrackpadTrackingSpeedIntent" } },
+  "com.apple.Settings.ChangeMouseTrackingSpeedIntent": { name: "Change Mouse Tracking Speed", params: ["change"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeMouseTrackingSpeedIntent" } },
+  "com.apple.Settings.ChangeTrackpadTrackingSpeedIntent": { name: "Change Trackpad Tracking Speed", params: ["change"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeTrackpadTrackingSpeedIntent" } },
   "com.apple.Settings.ClassKitSettingsSettingsDeepLink": { name: "Find Class Progress Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Class Progress Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClassKitSettingsSettingsDeepLink" } },
   "com.apple.Settings.ClassroomDynamicDeepLinks": { name: "Find Classroom Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Classroom Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClassroomDynamicDeepLinks" } },
   "com.apple.Settings.ClockOptionsEntity-UpdatableEntity": { name: "Edit Clock Options", params: ["announceTime", "clockStyle", "entity", "flashSeparators", "showAMPM", "showDate", "showDayOfWeek", "showSeconds", "timeAnnouncementsInterval"], output: "Clock Options", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClockOptionsEntity-UpdatableEntity" } },
@@ -14866,60 +14156,60 @@ export const ACTIONS = {
   "com.apple.Settings.NotificationCenterEntity": { name: "Get Notification Center", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Notification Center", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "NotificationCenterEntity" } },
   "com.apple.Settings.NotificationCenterEntity-UpdatableEntity": { name: "Edit Notification Center", params: ["allowWhenLocked", "allowWhenSharing", "allowWhenSleeping", "entity", "showPreviews", "summarizePreviews"], output: "Notification Center", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "NotificationCenterEntity-UpdatableEntity" } },
   "com.apple.Settings.NotificationsSettingsSettingsDeepLink": { name: "Find Notifications Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Notifications Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "NotificationsSettingsSettingsDeepLink" } },
-  "com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink": { name: "Open Accessibility Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySettingsExtensionSettingsDeepLink" } },
-  "com.apple.Settings.OpenAppleAccountSettingsDeepLink": { name: "Open Apple Account Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppleAccountSettingsDeepLink" } },
-  "com.apple.Settings.OpenApplicationNotificationsSettings": { name: "Open Application Notifications Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenApplicationNotificationsSettings" } },
-  "com.apple.Settings.OpenAutomaticallySetDateTimeSetting": { name: "Open Automatically Set Date & Time Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutomaticallySetDateTimeSetting" } },
-  "com.apple.Settings.OpenAutomaticallySetTimeZoneSetting": { name: "Open Automatically Set Time Zone Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutomaticallySetTimeZoneSetting" } },
-  "com.apple.Settings.OpenBiometricsAndPasswordSettingsEntityDeepLinks": { name: "Open Touch ID & Password Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBiometricsAndPasswordSettingsEntityDeepLinks" } },
-  "com.apple.Settings.OpenBluetoothPowerDeepLink": { name: "Open Bluetooth Power Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBluetoothPowerDeepLink" } },
-  "com.apple.Settings.OpenBluetoothSettingsDeepLink": { name: "Open Bluetooth Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBluetoothSettingsDeepLink" } },
-  "com.apple.Settings.OpenCDsAndDvDsSettingsExtensionSettingsDeepLink": { name: "Open CDs & DVDs Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCDsAndDvDsSettingsExtensionSettingsDeepLink" } },
-  "com.apple.Settings.OpenClassKitSettingsSettingsDeepLink": { name: "Open Class Progress Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenClassKitSettingsSettingsDeepLink" } },
-  "com.apple.Settings.OpenClassroomDynamicDeepLinks": { name: "Open Classroom Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenClassroomDynamicDeepLinks" } },
-  "com.apple.Settings.OpenClockOptionsEntity": { name: "Open Clock Options", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenClockOptionsEntity" } },
-  "com.apple.Settings.OpenConfiguredInternetAccountSettings": { name: "Open an Internet Accountʼs Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenConfiguredInternetAccountSettings" } },
-  "com.apple.Settings.OpenControlCenterModule": { name: "Open Control Center module setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenControlCenterModule" } },
-  "com.apple.Settings.OpenControlCenterSettingsSettingsDeepLink": { name: "Open Menu Bar Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenControlCenterSettingsSettingsDeepLink" } },
-  "com.apple.Settings.OpenCurrentTimeZoneSetting": { name: "Open the Current Time Zone Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCurrentTimeZoneSetting" } },
-  "com.apple.Settings.OpenDateAndTimeExtensionSettingsDeepLink": { name: "Open Date & Time Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDateAndTimeExtensionSettingsDeepLink" } },
-  "com.apple.Settings.OpenDesktopSettingsEntity": { name: "Open Desktop Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDesktopSettingsEntity" } },
-  "com.apple.Settings.OpenDesktopSettingsSettingsDeepLink": { name: "Open Desktop & Dock Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDesktopSettingsSettingsDeepLink" } },
-  "com.apple.Settings.OpenDeviceManagementSettingsDeepLink": { name: "Open Device Management Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDeviceManagementSettingsDeepLink" } },
-  "com.apple.Settings.OpenDockSettingsEntity": { name: "Open Dock Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDockSettingsEntity" } },
-  "com.apple.Settings.OpenFamilyMemberSettings": { name: "Open Family Member Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilyMemberSettings" } },
-  "com.apple.Settings.OpenFamilySettings": { name: "Open Family Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilySettings" } },
-  "com.apple.Settings.OpenFamilySettingsSettingsDeepLink": { name: "Open Family Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilySettingsSettingsDeepLink" } },
-  "com.apple.Settings.OpenFamilySetup": { name: "Set Up Family Sharing", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilySetup" } },
-  "com.apple.Settings.OpenFamilySubscriptions": { name: "Open Family Subscriptions", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilySubscriptions" } },
-  "com.apple.Settings.OpenFocusSettingsExtensionSettingsDeepLink": { name: "Open Focus Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFocusSettingsExtensionSettingsDeepLink" } },
-  "com.apple.Settings.OpenGameCenterMacOsSettingsExtensionSettingsDeepLink": { name: "Open Game Center Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGameCenterMacOsSettingsExtensionSettingsDeepLink" } },
-  "com.apple.Settings.OpenGameControllerMacSettingsSettingsDeepLink": { name: "Open Game Controllers Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGameControllerMacSettingsSettingsDeepLink" } },
-  "com.apple.Settings.OpenInternetAccountsSettings": { name: "Open List of Internet Accounts", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenInternetAccountsSettings" } },
-  "com.apple.Settings.OpenKeyboardSettingsSettingsDeepLink": { name: "Open Keyboard Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenKeyboardSettingsSettingsDeepLink" } },
-  "com.apple.Settings.OpenLocalizationSettingsDeepLink": { name: "Open Language & Region Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenLocalizationSettingsDeepLink" } },
-  "com.apple.Settings.OpenMissionControlSettingsEntity": { name: "Open Mission Control Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMissionControlSettingsEntity" } },
-  "com.apple.Settings.OpenMouseExtensionSettingsDeepLink": { name: "Open Mouse Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMouseExtensionSettingsDeepLink" } },
-  "com.apple.Settings.OpenNotificationCenterEntity": { name: "Open Notification Center Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNotificationCenterEntity" } },
-  "com.apple.Settings.OpenNotificationSummarizationEntity": { name: "Open Notification Summarization Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNotificationSummarizationEntity" } },
-  "com.apple.Settings.OpenNotificationsSettingsSettingsDeepLink": { name: "Open Notifications Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNotificationsSettingsSettingsDeepLink" } },
-  "com.apple.Settings.OpenPasswordsSettingsExtensionSettingsDeepLink": { name: "Open Passwords Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenPasswordsSettingsExtensionSettingsDeepLink" } },
-  "com.apple.Settings.OpenScreenTimeDeepLinksIntent": { name: "Open Screen Time Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenScreenTimeDeepLinksIntent" } },
-  "com.apple.Settings.OpenSiriSetupSettingsDeepLink": { name: "Open Siri Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSiriSetupSettingsDeepLink" } },
-  "com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink": { name: "Open Software Update Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoftwareUpdateSettingsExtensionSettingsDeepLink" } },
-  "com.apple.Settings.OpenSpotlightSettingsDeepLinks": { name: "Open Search Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSpotlightSettingsDeepLinks" } },
-  "com.apple.Settings.OpenStartupDiskSettingsDeepLink": { name: "Open Startup Disk Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStartupDiskSettingsDeepLink" } },
-  "com.apple.Settings.OpenStartupDiskStaticDeepLinks": { name: "Open Startup Disk Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStartupDiskStaticDeepLinks" } },
-  "com.apple.Settings.OpenStorageSettingsDeepLink": { name: "Open Storage Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStorageSettingsDeepLink" } },
-  "com.apple.Settings.OpenTheCurrentDateTimeSetting": { name: "Open the Current Date & Time Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTheCurrentDateTimeSetting" } },
-  "com.apple.Settings.OpenTimeMachineSettingsSettingsDeepLink": { name: "Open Time Machine Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTimeMachineSettingsSettingsDeepLink" } },
-  "com.apple.Settings.OpenTrackpadExtensionSettingsDeepLink": { name: "Open Trackpad Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTrackpadExtensionSettingsDeepLink" } },
-  "com.apple.Settings.OpenTwentyFourHourTimeSetting": { name: "Open 24-Hour Time Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTwentyFourHourTimeSetting" } },
-  "com.apple.Settings.OpenVpnSettingsDeepLink": { name: "Open VPN Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenVpnSettingsDeepLink" } },
-  "com.apple.Settings.OpenWallpaperSettingsDeepLink": { name: "Open Wallpaper Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWallpaperSettingsDeepLink" } },
-  "com.apple.Settings.OpenWiFiSettingsDeepLink": { name: "Open Wi‑Fi Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWiFiSettingsDeepLink" } },
-  "com.apple.Settings.OpenWidgetSettingsEntity": { name: "Open Widget Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWidgetSettingsEntity" } },
-  "com.apple.Settings.OpenWindowsSettingsEntity": { name: "Open Windows Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWindowsSettingsEntity" } },
+  "com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink": { name: "Open Accessibility Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenAppleAccountSettingsDeepLink": { name: "Open Apple Account Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppleAccountSettingsDeepLink" } },
+  "com.apple.Settings.OpenApplicationNotificationsSettings": { name: "Open Application Notifications Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenApplicationNotificationsSettings" } },
+  "com.apple.Settings.OpenAutomaticallySetDateTimeSetting": { name: "Open Automatically Set Date & Time Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutomaticallySetDateTimeSetting" } },
+  "com.apple.Settings.OpenAutomaticallySetTimeZoneSetting": { name: "Open Automatically Set Time Zone Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutomaticallySetTimeZoneSetting" } },
+  "com.apple.Settings.OpenBiometricsAndPasswordSettingsEntityDeepLinks": { name: "Open Touch ID & Password Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBiometricsAndPasswordSettingsEntityDeepLinks" } },
+  "com.apple.Settings.OpenBluetoothPowerDeepLink": { name: "Open Bluetooth Power Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBluetoothPowerDeepLink" } },
+  "com.apple.Settings.OpenBluetoothSettingsDeepLink": { name: "Open Bluetooth Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBluetoothSettingsDeepLink" } },
+  "com.apple.Settings.OpenCDsAndDvDsSettingsExtensionSettingsDeepLink": { name: "Open CDs & DVDs Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCDsAndDvDsSettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenClassKitSettingsSettingsDeepLink": { name: "Open Class Progress Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenClassKitSettingsSettingsDeepLink" } },
+  "com.apple.Settings.OpenClassroomDynamicDeepLinks": { name: "Open Classroom Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenClassroomDynamicDeepLinks" } },
+  "com.apple.Settings.OpenClockOptionsEntity": { name: "Open Clock Options", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenClockOptionsEntity" } },
+  "com.apple.Settings.OpenConfiguredInternetAccountSettings": { name: "Open an Internet Accountʼs Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenConfiguredInternetAccountSettings" } },
+  "com.apple.Settings.OpenControlCenterModule": { name: "Open Control Center module setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenControlCenterModule" } },
+  "com.apple.Settings.OpenControlCenterSettingsSettingsDeepLink": { name: "Open Menu Bar Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenControlCenterSettingsSettingsDeepLink" } },
+  "com.apple.Settings.OpenCurrentTimeZoneSetting": { name: "Open the Current Time Zone Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCurrentTimeZoneSetting" } },
+  "com.apple.Settings.OpenDateAndTimeExtensionSettingsDeepLink": { name: "Open Date & Time Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDateAndTimeExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenDesktopSettingsEntity": { name: "Open Desktop Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDesktopSettingsEntity" } },
+  "com.apple.Settings.OpenDesktopSettingsSettingsDeepLink": { name: "Open Desktop & Dock Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDesktopSettingsSettingsDeepLink" } },
+  "com.apple.Settings.OpenDeviceManagementSettingsDeepLink": { name: "Open Device Management Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDeviceManagementSettingsDeepLink" } },
+  "com.apple.Settings.OpenDockSettingsEntity": { name: "Open Dock Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDockSettingsEntity" } },
+  "com.apple.Settings.OpenFamilyMemberSettings": { name: "Open Family Member Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilyMemberSettings" } },
+  "com.apple.Settings.OpenFamilySettings": { name: "Open Family Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilySettings" } },
+  "com.apple.Settings.OpenFamilySettingsSettingsDeepLink": { name: "Open Family Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilySettingsSettingsDeepLink" } },
+  "com.apple.Settings.OpenFamilySetup": { name: "Set Up Family Sharing", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilySetup" } },
+  "com.apple.Settings.OpenFamilySubscriptions": { name: "Open Family Subscriptions", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFamilySubscriptions" } },
+  "com.apple.Settings.OpenFocusSettingsExtensionSettingsDeepLink": { name: "Open Focus Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFocusSettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenGameCenterMacOsSettingsExtensionSettingsDeepLink": { name: "Open Game Center Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGameCenterMacOsSettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenGameControllerMacSettingsSettingsDeepLink": { name: "Open Game Controllers Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGameControllerMacSettingsSettingsDeepLink" } },
+  "com.apple.Settings.OpenInternetAccountsSettings": { name: "Open List of Internet Accounts", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenInternetAccountsSettings" } },
+  "com.apple.Settings.OpenKeyboardSettingsSettingsDeepLink": { name: "Open Keyboard Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenKeyboardSettingsSettingsDeepLink" } },
+  "com.apple.Settings.OpenLocalizationSettingsDeepLink": { name: "Open Language & Region Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenLocalizationSettingsDeepLink" } },
+  "com.apple.Settings.OpenMissionControlSettingsEntity": { name: "Open Mission Control Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMissionControlSettingsEntity" } },
+  "com.apple.Settings.OpenMouseExtensionSettingsDeepLink": { name: "Open Mouse Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMouseExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenNotificationCenterEntity": { name: "Open Notification Center Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNotificationCenterEntity" } },
+  "com.apple.Settings.OpenNotificationSummarizationEntity": { name: "Open Notification Summarization Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNotificationSummarizationEntity" } },
+  "com.apple.Settings.OpenNotificationsSettingsSettingsDeepLink": { name: "Open Notifications Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNotificationsSettingsSettingsDeepLink" } },
+  "com.apple.Settings.OpenPasswordsSettingsExtensionSettingsDeepLink": { name: "Open Passwords Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenPasswordsSettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenScreenTimeDeepLinksIntent": { name: "Open Screen Time Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenScreenTimeDeepLinksIntent" } },
+  "com.apple.Settings.OpenSiriSetupSettingsDeepLink": { name: "Open Siri Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSiriSetupSettingsDeepLink" } },
+  "com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink": { name: "Open Software Update Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoftwareUpdateSettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenSpotlightSettingsDeepLinks": { name: "Open Search Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSpotlightSettingsDeepLinks" } },
+  "com.apple.Settings.OpenStartupDiskSettingsDeepLink": { name: "Open Startup Disk Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStartupDiskSettingsDeepLink" } },
+  "com.apple.Settings.OpenStartupDiskStaticDeepLinks": { name: "Open Startup Disk Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStartupDiskStaticDeepLinks" } },
+  "com.apple.Settings.OpenStorageSettingsDeepLink": { name: "Open Storage Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStorageSettingsDeepLink" } },
+  "com.apple.Settings.OpenTheCurrentDateTimeSetting": { name: "Open the Current Date & Time Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTheCurrentDateTimeSetting" } },
+  "com.apple.Settings.OpenTimeMachineSettingsSettingsDeepLink": { name: "Open Time Machine Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTimeMachineSettingsSettingsDeepLink" } },
+  "com.apple.Settings.OpenTrackpadExtensionSettingsDeepLink": { name: "Open Trackpad Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTrackpadExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenTwentyFourHourTimeSetting": { name: "Open 24-Hour Time Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTwentyFourHourTimeSetting" } },
+  "com.apple.Settings.OpenVpnSettingsDeepLink": { name: "Open VPN Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenVpnSettingsDeepLink" } },
+  "com.apple.Settings.OpenWallpaperSettingsDeepLink": { name: "Open Wallpaper Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWallpaperSettingsDeepLink" } },
+  "com.apple.Settings.OpenWiFiSettingsDeepLink": { name: "Open Wi‑Fi Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWiFiSettingsDeepLink" } },
+  "com.apple.Settings.OpenWidgetSettingsEntity": { name: "Open Widget Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWidgetSettingsEntity" } },
+  "com.apple.Settings.OpenWindowsSettingsEntity": { name: "Open Windows Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWindowsSettingsEntity" } },
   "com.apple.Settings.PasswordsSettingsExtensionSettingsDeepLink": { name: "Find Passwords Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Passwords Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PasswordsSettingsExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink": { name: "Find About Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "About Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderAboutExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink": { name: "Find AirDrop & Continuity Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "AirDrop & Continuity Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderAirDropHandoffExtensionSettingsDeepLink" } },
@@ -14928,19 +14218,19 @@ export const ACTIONS = {
   "com.apple.Settings.PlaceholderLockScreenSettingsDeepLink": { name: "Find Lock Screen Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Lock Screen Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderLockScreenSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderLoginItemsSettingsDeepLink": { name: "Find Login Items Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Login Items Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderLoginItemsSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderNetworkSettingsDeepLink": { name: "Find Network Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Network Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderNetworkSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenAboutExtensionSettingsDeepLink": { name: "Open About Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenAboutExtensionSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink": { name: "Open AirDrop & Continuity Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenAppearanceSettingsDeepLink": { name: "Open Appearance Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenAppearanceSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenDisplaysExtSettingsDeepLink": { name: "Open Displays Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenDisplaysExtSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenLockScreenSettingsDeepLink": { name: "Open Lock Screen Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenLockScreenSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenLoginItemsSettingsDeepLink": { name: "Open Login Items Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenLoginItemsSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenNetworkSettingsDeepLink": { name: "Open Network Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenNetworkSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenPrinterScannerSettingsSettingsDeepLink": { name: "Open Printers & Scanners Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenPrinterScannerSettingsSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink": { name: "Open Privacy & Security Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink": { name: "Open Sharing Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenSharingSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink": { name: "Open Sound Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenSoundSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenTransferResetExtensionSettingsDeepLink": { name: "Open Transfer or Reset Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenTransferResetExtensionSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenUsersGroupsSettingsDeepLink": { name: "Open Users & Groups Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenUsersGroupsSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenAboutExtensionSettingsDeepLink": { name: "Open About Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenAboutExtensionSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink": { name: "Open AirDrop & Continuity Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenAppearanceSettingsDeepLink": { name: "Open Appearance Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenAppearanceSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenDisplaysExtSettingsDeepLink": { name: "Open Displays Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenDisplaysExtSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenLockScreenSettingsDeepLink": { name: "Open Lock Screen Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenLockScreenSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenLoginItemsSettingsDeepLink": { name: "Open Login Items Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenLoginItemsSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenNetworkSettingsDeepLink": { name: "Open Network Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenNetworkSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenPrinterScannerSettingsSettingsDeepLink": { name: "Open Printers & Scanners Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenPrinterScannerSettingsSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink": { name: "Open Privacy & Security Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink": { name: "Open Sharing Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenSharingSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink": { name: "Open Sound Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenSoundSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenTransferResetExtensionSettingsDeepLink": { name: "Open Transfer or Reset Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenTransferResetExtensionSettingsDeepLink" } },
+  "com.apple.Settings.PlaceholderOpenUsersGroupsSettingsDeepLink": { name: "Open Users & Groups Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenUsersGroupsSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderPrinterScannerSettingsSettingsDeepLink": { name: "Find Printers & Scanners Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Printers & Scanners Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderPrinterScannerSettingsSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderSecurityPrivacyExtensionSettingsDeepLink": { name: "Find Privacy & Security Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Privacy & Security Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderSecurityPrivacyExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderSharingSettingsDeepLink": { name: "Find Sharing Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Sharing Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderSharingSettingsDeepLink" } },
@@ -14948,7 +14238,7 @@ export const ACTIONS = {
   "com.apple.Settings.PlaceholderTransferResetExtensionSettingsDeepLink": { name: "Find Transfer or Reset Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Transfer or Reset Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderTransferResetExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderUsersGroupsSettingsDeepLink": { name: "Find Users & Groups Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Users & Groups Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderUsersGroupsSettingsDeepLink" } },
   "com.apple.Settings.PrefPanesDeepLink": { name: "Find Legacy Preference Pane Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Legacy Preference Pane Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrefPanesDeepLink" } },
-  "com.apple.Settings.PrefPanesOpenDeepLink": { name: "Open Legacy Preference Panes Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrefPanesOpenDeepLink" } },
+  "com.apple.Settings.PrefPanesOpenDeepLink": { name: "Open Legacy Preference Panes Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrefPanesOpenDeepLink" } },
   "com.apple.Settings.RecentDocumentsOptionEntity": { name: "Get Recent documents, applications, and servers", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Recent documents, applications, and servers", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecentDocumentsOptionEntity" } },
   "com.apple.Settings.RecentDocumentsOptionEntity-UpdatableEntity": { name: "Update Recent documents, applications, and servers", params: ["entity", "recentDocuments"], output: "Recent documents, applications, and servers", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecentDocumentsOptionEntity-UpdatableEntity" } },
   "com.apple.Settings.ScreenSaverNameIntent": { name: "Main Display Screen Saver Name", params: [], output: "Screen Saver Name", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ScreenSaverNameIntent" } },
@@ -14957,7 +14247,7 @@ export const ACTIONS = {
   "com.apple.Settings.ScrollDirectionEntity-UpdatableEntity": { name: "Update Natural scrolling", params: ["entity", "value"], output: "Natural scrolling", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ScrollDirectionEntity-UpdatableEntity" } },
   "com.apple.Settings.SecondaryClickEntity": { name: "Get Secondary click", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Secondary click", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SecondaryClickEntity" } },
   "com.apple.Settings.SecondaryClickEntity-UpdatableEntity": { name: "Update Secondary click", params: ["entity", "value"], output: "Secondary click", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SecondaryClickEntity-UpdatableEntity" } },
-  "com.apple.Settings.SetFocusState": { name: "Set Focus", params: ["enable", "focus", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetFocusState" } },
+  "com.apple.Settings.SetFocusState": { name: "Set Focus", params: ["enable", "focus", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetFocusState" } },
   "com.apple.Settings.SettingsEntity": { name: "Find Touch ID & Password Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Touch ID & Password Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SettingsEntity" } },
   "com.apple.Settings.SetupFamilyDeepLink": { name: "Find SetupFamilyDeepLink", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "SetupFamilyDeepLink", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetupFamilyDeepLink" } },
   "com.apple.Settings.ShowAsScreenSaverEntity": { name: "Get Show wallpaper as screen saver on main display", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Show wallpaper as screen saver on main display", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowAsScreenSaverEntity" } },
@@ -14974,7 +14264,7 @@ export const ACTIONS = {
   "com.apple.Settings.SiriSetupSettingsDeepLink": { name: "Find Siri Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Siri Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriSetupSettingsDeepLink" } },
   "com.apple.Settings.SmartZoomEntity": { name: "Get Smart zoom", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Smart zoom", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SmartZoomEntity" } },
   "com.apple.Settings.SmartZoomEntity-UpdatableEntity": { name: "Update Smart zoom", params: ["entity", "value"], output: "Smart zoom", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SmartZoomEntity-UpdatableEntity" } },
-  "com.apple.Settings.SoftwareUpdateSettingsExtensionIntents": { name: "SoftwareUpdateSettingsExtensionIntents", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoftwareUpdateSettingsExtensionIntents" } },
+  "com.apple.Settings.SoftwareUpdateSettingsExtensionIntents": { name: "SoftwareUpdateSettingsExtensionIntents", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoftwareUpdateSettingsExtensionIntents" } },
   "com.apple.Settings.SoftwareUpdateSettingsExtensionSettingsDeepLink": { name: "Find Software Update Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Software Update Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoftwareUpdateSettingsExtensionSettingsDeepLink" } },
   "com.apple.Settings.SpotlightSettingsDeepLinks": { name: "Find Search Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Search Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SpotlightSettingsDeepLinks" } },
   "com.apple.Settings.StartupDiskSettingsDeepLink": { name: "Find Startup Disk Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Startup Disk Settings", descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartupDiskSettingsDeepLink" } },
@@ -15029,39 +14319,39 @@ export const ACTIONS = {
   "com.apple.ShortcutsActions.CellularPlanEntity": { name: "Find Cellular Plan", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Cellular Plan", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "CellularPlanEntity" } },
   "com.apple.ShortcutsActions.ChargeLimit": { name: "Find Charge Limit", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Charge Limit", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChargeLimit" } },
   "com.apple.ShortcutsActions.GetMultitaskingModeAction": { name: "Get Multitasking Mode", params: [], output: "Multitasking Mode", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetMultitaskingModeAction" } },
-  "com.apple.ShortcutsActions.GetOrientationAction": { name: "Get Orientation", params: [], output: "com.apple.ShortcutsActions.Orientation", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetOrientationAction" } },
+  "com.apple.ShortcutsActions.GetOrientationAction": { name: "Get Orientation", params: [], output: "Orientation", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetOrientationAction" } },
   "com.apple.ShortcutsActions.GetPhysicalActivity": { name: "Get Physical Activity", params: [], output: "Physical Activity", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetPhysicalActivity" } },
-  "com.apple.ShortcutsActions.PlayMusicTopHitAction": { name: "Play Music", params: ["music"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayMusicTopHitAction" } },
-  "com.apple.ShortcutsActions.PlayPodcastTopHitAction": { name: "Play Podcast", params: ["podcast"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayPodcastTopHitAction" } },
-  "com.apple.ShortcutsActions.ResetCellularDataStatisticsAction": { name: "Reset Cellular Data Statistics", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetCellularDataStatisticsAction" } },
-  "com.apple.ShortcutsActions.SetBatteryChargeLimitAction": { name: "Set Battery Charge Limit", params: ["limit", "setUntilTomorrow"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetBatteryChargeLimitAction" } },
-  "com.apple.ShortcutsActions.SetDataRoamingAction": { name: "Set Data Roaming", params: ["plan", "operation", "state"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDataRoamingAction" } },
-  "com.apple.ShortcutsActions.SetDefaultCellularPlanAction": { name: "Set Default Line", params: ["type", "plan", "allowCellularDataSwitching"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDefaultCellularPlanAction" } },
-  "com.apple.ShortcutsActions.SetMultitaskingModeAction": { name: "Set Multitasking Mode", params: ["mode", "automaticallyShowAndHideDock", "showRecentApps"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetMultitaskingModeAction" } },
-  "com.apple.ShortcutsActions.SetSilentModeAction": { name: "Set Silent Mode", params: ["operation", "state"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetSilentModeAction" } },
-  "com.apple.ShortcutsActions.SetVoiceDataModeAction": { name: "Set Voice & Data", params: ["sim", "ratMode"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetVoiceDataModeAction" } },
-  "com.apple.ShortcutsActions.ShowControlCenterAction": { name: "Show Control Center", params: ["operation"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowControlCenterAction" } },
-  "com.apple.ShortcutsActions.StartCallTopHitAction": { name: "Start Call", params: ["person"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCallTopHitAction" } },
-  "com.apple.ShortcutsActions.StartFaceTimeAudioCallTopHitAction": { name: "Start FaceTime Audio Call", params: ["faceTimeContact"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeAudioCallTopHitAction" } },
-  "com.apple.ShortcutsActions.StartFaceTimeCallTopHitAction": { name: "Start Call", params: ["faceTimeContact"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeCallTopHitAction" } },
-  "com.apple.ShortcutsActions.StartFaceTimeVideoCallTopHitAction": { name: "Start FaceTime Video Call", params: ["faceTimeContact"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeVideoCallTopHitAction" } },
-  "com.apple.ShortcutsActions.TimeMachineAction": { name: "Start Time Machine Backup", params: ["mode", "destination"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "TimeMachineAction" } },
-  "com.apple.ShortcutsActions.ToggleCellularPlanAction": { name: "Toggle Cellular Plan", params: ["plan", "operation", "state"], output: "none", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleCellularPlanAction" } },
+  "com.apple.ShortcutsActions.PlayMusicTopHitAction": { name: "Play Music", params: ["music"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayMusicTopHitAction" } },
+  "com.apple.ShortcutsActions.PlayPodcastTopHitAction": { name: "Play Podcast", params: ["podcast"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayPodcastTopHitAction" } },
+  "com.apple.ShortcutsActions.ResetCellularDataStatisticsAction": { name: "Reset Cellular Data Statistics", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetCellularDataStatisticsAction" } },
+  "com.apple.ShortcutsActions.SetBatteryChargeLimitAction": { name: "Set Battery Charge Limit", params: ["limit", "setUntilTomorrow"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetBatteryChargeLimitAction" } },
+  "com.apple.ShortcutsActions.SetDataRoamingAction": { name: "Set Data Roaming", params: ["plan", "operation", "state"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDataRoamingAction" } },
+  "com.apple.ShortcutsActions.SetDefaultCellularPlanAction": { name: "Set Default Line", params: ["type", "plan", "allowCellularDataSwitching"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDefaultCellularPlanAction" } },
+  "com.apple.ShortcutsActions.SetMultitaskingModeAction": { name: "Set Multitasking Mode", params: ["mode", "automaticallyShowAndHideDock", "showRecentApps"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetMultitaskingModeAction" } },
+  "com.apple.ShortcutsActions.SetSilentModeAction": { name: "Set Silent Mode", params: ["operation", "state"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetSilentModeAction" } },
+  "com.apple.ShortcutsActions.SetVoiceDataModeAction": { name: "Set Voice & Data", params: ["sim", "ratMode"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetVoiceDataModeAction" } },
+  "com.apple.ShortcutsActions.ShowControlCenterAction": { name: "Show Control Center", params: ["operation"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowControlCenterAction" } },
+  "com.apple.ShortcutsActions.StartCallTopHitAction": { name: "Start Call", params: ["person"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCallTopHitAction" } },
+  "com.apple.ShortcutsActions.StartFaceTimeAudioCallTopHitAction": { name: "Start FaceTime Audio Call", params: ["faceTimeContact"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeAudioCallTopHitAction" } },
+  "com.apple.ShortcutsActions.StartFaceTimeCallTopHitAction": { name: "Start Call", params: ["faceTimeContact"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeCallTopHitAction" } },
+  "com.apple.ShortcutsActions.StartFaceTimeVideoCallTopHitAction": { name: "Start FaceTime Video Call", params: ["faceTimeContact"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeVideoCallTopHitAction" } },
+  "com.apple.ShortcutsActions.TimeMachineAction": { name: "Start Time Machine Backup", params: ["mode", "destination"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "TimeMachineAction" } },
+  "com.apple.ShortcutsActions.ToggleCellularPlanAction": { name: "Toggle Cellular Plan", params: ["plan", "operation", "state"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleCellularPlanAction" } },
   "com.apple.ShortcutsActions.TranscribeAudioAction": { name: "Transcribe Audio", params: ["audioFile"], output: "Transcribed Audio", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "TranscribeAudioAction" } },
-  "com.apple.Spotlight.ClearSpotlightIntent": { name: "Clear Current Search", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClearSpotlightIntent" } },
+  "com.apple.Spotlight.ClearSpotlightIntent": { name: "Clear Current Search", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClearSpotlightIntent" } },
   "com.apple.Spotlight.SearchFieldEntity": { name: "Get Current Search Query", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Search Query", descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchFieldEntity" } },
-  "com.apple.Spotlight.SearchSpotlightIntent": { name: "Open Search", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntent" } },
-  "com.apple.Spotlight.SearchSpotlightIntentInternal": { name: "Open Search", params: ["criteria", "queryKind", "filterTitle", "searchTopLevelFilter", "searchEntityFilter"], output: "none", descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntentInternal" } },
-  "com.apple.Spotlight.SearchUIContinuationIntent": { name: "Continue Search in App", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIContinuationIntent" } },
-  "com.apple.Spotlight.SearchUIOpenKnowledgeIntent": { name: "Open Siri Knowledge Page", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIOpenKnowledgeIntent" } },
-  "com.apple.Spotlight.ToggleSpotlightIntent": { name: "Show Search", params: ["action"], output: "none", descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleSpotlightIntent" } },
-  "com.apple.SystemIntents.CloseApplicationIntent": { name: "Close an App", params: ["application"], output: "none", descriptor: { BundleIdentifier: "com.apple.SystemIntents", Name: "SystemIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseApplicationIntent" } },
-  "com.apple.SystemIntents.LaunchApplicationIntent": { name: "Launch an App", params: ["application", "url"], output: "none", descriptor: { BundleIdentifier: "com.apple.SystemIntents", Name: "SystemIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "LaunchApplicationIntent" } },
-  "com.apple.SystemIntents.ShowHomeScreenIntent": { name: "Show Desktop", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.SystemIntents", Name: "SystemIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowHomeScreenIntent" } },
-  "com.apple.TransparencySettingsIntents.OpenTransparencyPublicVerificationCodeDeepLink": { name: "Open Contact Key Verification Public Verification Code Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.TransparencySettingsIntents", Name: "TransparencySettingsIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTransparencyPublicVerificationCodeDeepLink" } },
-  "com.apple.TransparencySettingsIntents.OpenTransparencyStatusDeepLink": { name: "Open Contact Key Verification Status Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.TransparencySettingsIntents", Name: "TransparencySettingsIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTransparencyStatusDeepLink" } },
+  "com.apple.Spotlight.SearchSpotlightIntent": { name: "Open Search", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntent" } },
+  "com.apple.Spotlight.SearchSpotlightIntentInternal": { name: "Open Search", params: ["criteria", "queryKind", "filterTitle", "searchTopLevelFilter", "searchEntityFilter"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntentInternal" } },
+  "com.apple.Spotlight.SearchUIContinuationIntent": { name: "Continue Search in App", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIContinuationIntent" } },
+  "com.apple.Spotlight.SearchUIOpenKnowledgeIntent": { name: "Open Siri Knowledge Page", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIOpenKnowledgeIntent" } },
+  "com.apple.Spotlight.ToggleSpotlightIntent": { name: "Show Search", params: ["action"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleSpotlightIntent" } },
+  "com.apple.SystemIntents.CloseApplicationIntent": { name: "Close an App", params: ["application"], output: null, descriptor: { BundleIdentifier: "com.apple.SystemIntents", Name: "SystemIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseApplicationIntent" } },
+  "com.apple.SystemIntents.LaunchApplicationIntent": { name: "Launch an App", params: ["application", "url"], output: null, descriptor: { BundleIdentifier: "com.apple.SystemIntents", Name: "SystemIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "LaunchApplicationIntent" } },
+  "com.apple.SystemIntents.ShowHomeScreenIntent": { name: "Show Desktop", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.SystemIntents", Name: "SystemIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowHomeScreenIntent" } },
+  "com.apple.TransparencySettingsIntents.OpenTransparencyPublicVerificationCodeDeepLink": { name: "Open Contact Key Verification Public Verification Code Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.TransparencySettingsIntents", Name: "TransparencySettingsIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTransparencyPublicVerificationCodeDeepLink" } },
+  "com.apple.TransparencySettingsIntents.OpenTransparencyStatusDeepLink": { name: "Open Contact Key Verification Status Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.TransparencySettingsIntents", Name: "TransparencySettingsIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTransparencyStatusDeepLink" } },
   "com.apple.TransparencySettingsIntents.TransparencyPublicVerificationCodeEntity": { name: "Get Contact Key Verification Public Verification Code", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Contact Key Verification Public Verification Code", descriptor: { BundleIdentifier: "com.apple.TransparencySettingsIntents", Name: "TransparencySettingsIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "TransparencyPublicVerificationCodeEntity" } },
-  "com.apple.TransparencySettingsIntents.TransparencySettingsIntents": { name: "TransparencySettingsIntents", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.TransparencySettingsIntents", Name: "TransparencySettingsIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "TransparencySettingsIntents" } },
+  "com.apple.TransparencySettingsIntents.TransparencySettingsIntents": { name: "TransparencySettingsIntents", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.TransparencySettingsIntents", Name: "TransparencySettingsIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "TransparencySettingsIntents" } },
   "com.apple.TransparencySettingsIntents.TransparencyStatusEntity": { name: "Get Contact Key Verification Status", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Contact Key Verification Status", descriptor: { BundleIdentifier: "com.apple.TransparencySettingsIntents", Name: "TransparencySettingsIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "TransparencyStatusEntity" } },
   "com.apple.VisionAppIntents.DetectBarcodesIntent": { name: "Scan QR or Barcode", params: ["imageFile"], output: "QR/Barcodes", descriptor: { BundleIdentifier: "com.apple.VisionAppIntents", Name: "VisionAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectBarcodesIntent" } },
   "com.apple.VisionAppIntents.FindSimilarImagesIntent": { name: "Find Similar Images", params: ["referenceImageFile", "imageFiles", "maxImages", "threshold"], output: "Image", descriptor: { BundleIdentifier: "com.apple.VisionAppIntents", Name: "VisionAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindSimilarImagesIntent" } },
@@ -15069,36 +14359,36 @@ export const ACTIONS = {
   "com.apple.VisionAppIntents.RemoveBackgroundIntent": { name: "Remove Background from Image", params: ["imageFiles", "crop"], output: "Images without Background", descriptor: { BundleIdentifier: "com.apple.VisionAppIntents", Name: "VisionAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveBackgroundIntent" } },
   "com.apple.VoiceMemos.AudioQualityEntity": { name: "Get Audio Quality", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Audio Quality", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "AudioQualityEntity" } },
   "com.apple.VoiceMemos.AudioQualityEntity-UpdatableEntity": { name: "Edit Audio Quality", params: ["entity", "value"], output: "Audio Quality", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "AudioQualityEntity-UpdatableEntity" } },
-  "com.apple.VoiceMemos.ChangeRecordingPlaybackSetting": { name: "Change Recording Playback Setting", params: ["changeOperation", "setting"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeRecordingPlaybackSetting" } },
+  "com.apple.VoiceMemos.ChangeRecordingPlaybackSetting": { name: "Change Recording Playback Setting", params: ["changeOperation", "setting"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeRecordingPlaybackSetting" } },
   "com.apple.VoiceMemos.ClearDeletedEntity": { name: "Get Clear Deleted", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Clear Deleted", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClearDeletedEntity" } },
   "com.apple.VoiceMemos.ClearDeletedEntity-UpdatableEntity": { name: "Edit Clear Deleted", params: ["entity", "value"], output: "Clear Deleted", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClearDeletedEntity-UpdatableEntity" } },
-  "com.apple.VoiceMemos.CreateFolder": { name: "Create Folder", params: ["name", "ShowWhenRun"], output: "com.apple.VoiceMemos.RCFolderEntity", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateFolder" } },
-  "com.apple.VoiceMemos.DeleteFolder": { name: "Delete Folders", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteFolder" } },
-  "com.apple.VoiceMemos.DeleteRecording": { name: "Delete Recordings", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteRecording" } },
+  "com.apple.VoiceMemos.CreateFolder": { name: "Create Folder", params: ["name", "ShowWhenRun"], output: "Folders", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateFolder" } },
+  "com.apple.VoiceMemos.DeleteFolder": { name: "Delete Folders", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteFolder" } },
+  "com.apple.VoiceMemos.DeleteRecording": { name: "Delete Recordings", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteRecording" } },
   "com.apple.VoiceMemos.LocationBasedNamingEntity": { name: "Get Location-based Naming", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Location-based Naming", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "LocationBasedNamingEntity" } },
   "com.apple.VoiceMemos.LocationBasedNamingEntity-UpdatableEntity": { name: "Edit Location-based Naming", params: ["entity", "value"], output: "Location-based Naming", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "LocationBasedNamingEntity-UpdatableEntity" } },
-  "com.apple.VoiceMemos.OpenFolder": { name: "Open Folder", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFolder" } },
-  "com.apple.VoiceMemos.OpenResetAnalyticsIdentifierEntity": { name: "Open Reset Identifier", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenResetAnalyticsIdentifierEntity" } },
-  "com.apple.VoiceMemos.PlaybackVoiceMemoIntent": { name: "Play Recording", params: ["playbackType", "entity"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaybackVoiceMemoIntent" } },
-  "com.apple.VoiceMemos.RCCombineRecordings": { name: "Combine Recordings", params: ["firstRecording", "secondRecording"], output: "com.apple.VoiceMemos.RCRecordingEntity", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCCombineRecordings" } },
-  "com.apple.VoiceMemos.RCControlCenterToggleRecording": { name: "CONTROL_CENTER_TOGGLE_RECORDING_INTENT_TITLE", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCControlCenterToggleRecording" } },
-  "com.apple.VoiceMemos.RCImportRecording": { name: "Import Recording", params: ["audioFile", "title"], output: "com.apple.VoiceMemos.RCRecordingEntity", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCImportRecording" } },
+  "com.apple.VoiceMemos.OpenFolder": { name: "Open Folder", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFolder" } },
+  "com.apple.VoiceMemos.OpenResetAnalyticsIdentifierEntity": { name: "Open Reset Identifier", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenResetAnalyticsIdentifierEntity" } },
+  "com.apple.VoiceMemos.PlaybackVoiceMemoIntent": { name: "Play Recording", params: ["playbackType", "entity"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaybackVoiceMemoIntent" } },
+  "com.apple.VoiceMemos.RCCombineRecordings": { name: "Combine Recordings", params: ["firstRecording", "secondRecording"], output: "Recording", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCCombineRecordings" } },
+  "com.apple.VoiceMemos.RCControlCenterToggleRecording": { name: "CONTROL_CENTER_TOGGLE_RECORDING_INTENT_TITLE", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCControlCenterToggleRecording" } },
+  "com.apple.VoiceMemos.RCImportRecording": { name: "Import Recording", params: ["audioFile", "title"], output: "Recording", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCImportRecording" } },
   "com.apple.VoiceMemos.RCRecordingEntity": { name: "Find Recordings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Recordings", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCRecordingEntity" } },
-  "com.apple.VoiceMemos.RecordVoiceMemoIntent": { name: "Create Recording", params: ["name"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecordVoiceMemoIntent" } },
+  "com.apple.VoiceMemos.RecordVoiceMemoIntent": { name: "Create Recording", params: ["name"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecordVoiceMemoIntent" } },
   "com.apple.VoiceMemos.ResetAnalyticsIdentifierEntity": { name: "Get Reset Identifier", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Reset Identifier", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetAnalyticsIdentifierEntity" } },
-  "com.apple.VoiceMemos.SearchRecordings": { name: "Search in Voice Memos", params: ["searchPhrase"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchRecordings" } },
-  "com.apple.VoiceMemos.SelectRecording": { name: "Select Recording", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectRecording" } },
-  "com.apple.VoiceMemos.StopRecording": { name: "Stop Recording", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopRecording" } },
-  "com.apple.VoiceMemos.ToggleRecording": { name: "Voice Memo", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleRecording" } },
+  "com.apple.VoiceMemos.SearchRecordings": { name: "Search in Voice Memos", params: ["searchPhrase"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchRecordings" } },
+  "com.apple.VoiceMemos.SelectRecording": { name: "Select Recording", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectRecording" } },
+  "com.apple.VoiceMemos.StopRecording": { name: "Stop Recording", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopRecording" } },
+  "com.apple.VoiceMemos.ToggleRecording": { name: "Voice Memo", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleRecording" } },
   "com.apple.VoiceMemos.WFAppSettingEntityUpdaterAction": { name: "Change Voice Memos Settings", params: ["entity", "AudioQualityEntity", "ClearDeletedEntity", "LocationBasedNamingEntity"], output: "Audio Quality", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFAppSettingEntityUpdaterAction" } },
   "com.apple.VoiceMemos.WFGetAppSettingAction": { name: "Get Voice Memos Settings", params: ["entity"], output: "Audio Quality", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFGetAppSettingAction" } },
-  "com.apple.WindowManager.AppExposeAction": { name: "Application Windows", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "AppExposeAction" } },
-  "com.apple.WindowManager.CornersTileAction": { name: "Tile Windows to Corners", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "CornersTileAction" } },
-  "com.apple.WindowManager.MissionControlAction": { name: "Mission Control", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "MissionControlAction" } },
-  "com.apple.WindowManager.ShowDesktopAction": { name: "Show Desktop", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowDesktopAction" } },
-  "com.apple.WindowManager.StageManagerToggleIntent": { name: "Enable Stage Manager", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "StageManagerToggleIntent" } },
-  "com.apple.WindowManager.ThreeUpTileAction": { name: "Tile Windows Left & Corners", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "ThreeUpTileAction" } },
-  "com.apple.WindowManager.TwoUpTileAction": { name: "Tile Windows Left & Right", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "TwoUpTileAction" } },
+  "com.apple.WindowManager.AppExposeAction": { name: "Application Windows", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "AppExposeAction" } },
+  "com.apple.WindowManager.CornersTileAction": { name: "Tile Windows to Corners", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "CornersTileAction" } },
+  "com.apple.WindowManager.MissionControlAction": { name: "Mission Control", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "MissionControlAction" } },
+  "com.apple.WindowManager.ShowDesktopAction": { name: "Show Desktop", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowDesktopAction" } },
+  "com.apple.WindowManager.StageManagerToggleIntent": { name: "Enable Stage Manager", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "StageManagerToggleIntent" } },
+  "com.apple.WindowManager.ThreeUpTileAction": { name: "Tile Windows Left & Corners", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "ThreeUpTileAction" } },
+  "com.apple.WindowManager.TwoUpTileAction": { name: "Tile Windows Left & Right", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "TwoUpTileAction" } },
   "com.apple.WritingTools.WritingToolsAppIntentsExtension.AdjustToneIntent": { name: "Adjust Tone of Text", params: ["text", "tone"], output: "Text", descriptor: { BundleIdentifier: "com.apple.WritingTools.WritingToolsAppIntentsExtension", Name: "Writing Tools App Intents", TeamIdentifier: "0000000000", AppIntentIdentifier: "AdjustToneIntent" } },
   "com.apple.WritingTools.WritingToolsAppIntentsExtension.ComposeIntent": { name: "Compose Text", params: ["prompt", "selectedText", "context"], output: "Text", descriptor: { BundleIdentifier: "com.apple.WritingTools.WritingToolsAppIntentsExtension", Name: "Writing Tools App Intents", TeamIdentifier: "0000000000", AppIntentIdentifier: "ComposeIntent" } },
   "com.apple.WritingTools.WritingToolsAppIntentsExtension.FormatListIntent": { name: "Make List from Text", params: ["text"], output: "List", descriptor: { BundleIdentifier: "com.apple.WritingTools.WritingToolsAppIntentsExtension", Name: "Writing Tools App Intents", TeamIdentifier: "0000000000", AppIntentIdentifier: "FormatListIntent" } },
@@ -15107,240 +14397,240 @@ export const ACTIONS = {
   "com.apple.WritingTools.WritingToolsAppIntentsExtension.QuestionAnswerIntent": { name: "Ask a Question about Text", params: ["question", "selectedText", "context"], output: "Answer", descriptor: { BundleIdentifier: "com.apple.WritingTools.WritingToolsAppIntentsExtension", Name: "Writing Tools App Intents", TeamIdentifier: "0000000000", AppIntentIdentifier: "QuestionAnswerIntent" } },
   "com.apple.WritingTools.WritingToolsAppIntentsExtension.RewriteTextIntent": { name: "Rewrite Text", params: ["text"], output: "Text", descriptor: { BundleIdentifier: "com.apple.WritingTools.WritingToolsAppIntentsExtension", Name: "Writing Tools App Intents", TeamIdentifier: "0000000000", AppIntentIdentifier: "RewriteTextIntent" } },
   "com.apple.WritingTools.WritingToolsAppIntentsExtension.SummarizeTextIntent": { name: "Summarize Text", params: ["text", "summaryType"], output: "Text", descriptor: { BundleIdentifier: "com.apple.WritingTools.WritingToolsAppIntentsExtension", Name: "Writing Tools App Intents", TeamIdentifier: "0000000000", AppIntentIdentifier: "SummarizeTextIntent" } },
-  "com.apple.calculator.LaunchCalculatorOpenIntent": { name: "Calculator", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.calculator", Name: "Calculator", TeamIdentifier: "0000000000", AppIntentIdentifier: "LaunchCalculatorOpenIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.AnswerCallIntent": { name: "Answer the call", params: ["call"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "AnswerCallIntent" } },
+  "com.apple.calculator.LaunchCalculatorOpenIntent": { name: "Calculator", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.calculator", Name: "Calculator", TeamIdentifier: "0000000000", AppIntentIdentifier: "LaunchCalculatorOpenIntent" } },
+  "com.apple.calls.PhoneAppIntentsExtension.AnswerCallIntent": { name: "Answer the call", params: ["call"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "AnswerCallIntent" } },
   "com.apple.calls.PhoneAppIntentsExtension.CallEmergencyDestination": { name: "Find Emergency Destination", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Emergency Destination", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallEmergencyDestination" } },
   "com.apple.calls.PhoneAppIntentsExtension.CallMessage": { name: "Find Call Message", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Call Message", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallMessage" } },
   "com.apple.calls.PhoneAppIntentsExtension.CallRecord": { name: "Find Call Record", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Call Record", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallRecord" } },
-  "com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent": { name: "Create a conference call", params: ["audioVisualMode", "destination"], output: "com.apple.calls.PhoneAppIntentsExtension.ConferenceCall", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateConferenceCallIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.EndCallIntent": { name: "Ends the call", params: ["call"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "EndCallIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.PrepareCallMessagesIntent": { name: "Prepare call messages to read", params: ["messages"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareCallMessagesIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.PrepareReadCallRecordsIntent": { name: "Prepare read call records", params: ["records"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareReadCallRecordsIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent": { name: "Set audio route for an ongoing call", params: ["audioRoute"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetCallAudioRouteIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.StartEmergencyCallIntent": { name: "Start an emergency call", params: ["destination"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartEmergencyCallIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.StartFaceTimeCallIntent": { name: "Start a FaceTime call", params: ["audioVisualMode", "destination"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeCallIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.StartTelephonyCallIntent": { name: "Start a Telephony call", params: ["audioVisualMode", "destination"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartTelephonyCallIntent" } },
-  "com.apple.campo.ClearSpotlightIntent": { name: "Clear Current Search", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClearSpotlightIntent" } },
-  "com.apple.campo.ResumeConversationIntent": { name: "Resume Conversation", params: ["target"], output: "com.apple.campo.ConversationEntity", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResumeConversationIntent" } },
+  "com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent": { name: "Create a conference call", params: ["audioVisualMode", "destination"], output: "Conference Call", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateConferenceCallIntent" } },
+  "com.apple.calls.PhoneAppIntentsExtension.EndCallIntent": { name: "Ends the call", params: ["call"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "EndCallIntent" } },
+  "com.apple.calls.PhoneAppIntentsExtension.PrepareCallMessagesIntent": { name: "Prepare call messages to read", params: ["messages"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareCallMessagesIntent" } },
+  "com.apple.calls.PhoneAppIntentsExtension.PrepareReadCallRecordsIntent": { name: "Prepare read call records", params: ["records"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareReadCallRecordsIntent" } },
+  "com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent": { name: "Set audio route for an ongoing call", params: ["audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetCallAudioRouteIntent" } },
+  "com.apple.calls.PhoneAppIntentsExtension.StartEmergencyCallIntent": { name: "Start an emergency call", params: ["destination"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartEmergencyCallIntent" } },
+  "com.apple.calls.PhoneAppIntentsExtension.StartFaceTimeCallIntent": { name: "Start a FaceTime call", params: ["audioVisualMode", "destination"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeCallIntent" } },
+  "com.apple.calls.PhoneAppIntentsExtension.StartTelephonyCallIntent": { name: "Start a Telephony call", params: ["audioVisualMode", "destination"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartTelephonyCallIntent" } },
+  "com.apple.campo.ClearSpotlightIntent": { name: "Clear Current Search", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClearSpotlightIntent" } },
+  "com.apple.campo.ResumeConversationIntent": { name: "Resume Conversation", params: ["target"], output: "Conversation", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResumeConversationIntent" } },
   "com.apple.campo.SearchFieldEntity": { name: "Get Current Search Query", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Search Query", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchFieldEntity" } },
-  "com.apple.campo.SearchSpotlightIntent": { name: "Open Search", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntent" } },
-  "com.apple.campo.SearchSpotlightIntentInternal": { name: "Open Search", params: ["criteria", "queryKind", "filterTitle", "searchTopLevelFilter", "searchEntityFilter"], output: "none", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntentInternal" } },
-  "com.apple.campo.SearchUIContinuationIntent": { name: "Continue Search in App", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIContinuationIntent" } },
-  "com.apple.campo.SearchUIOpenKnowledgeIntent": { name: "Open Siri Knowledge Page", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIOpenKnowledgeIntent" } },
-  "com.apple.campo.ToggleSpotlightIntent": { name: "Show Search", params: ["action"], output: "none", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleSpotlightIntent" } },
-  "com.apple.clock.AddWorldClockIntent": { name: "Add City", params: ["city", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddWorldClockIntent" } },
+  "com.apple.campo.SearchSpotlightIntent": { name: "Open Search", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntent" } },
+  "com.apple.campo.SearchSpotlightIntentInternal": { name: "Open Search", params: ["criteria", "queryKind", "filterTitle", "searchTopLevelFilter", "searchEntityFilter"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntentInternal" } },
+  "com.apple.campo.SearchUIContinuationIntent": { name: "Continue Search in App", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIContinuationIntent" } },
+  "com.apple.campo.SearchUIOpenKnowledgeIntent": { name: "Open Siri Knowledge Page", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIOpenKnowledgeIntent" } },
+  "com.apple.campo.ToggleSpotlightIntent": { name: "Show Search", params: ["action"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleSpotlightIntent" } },
+  "com.apple.clock.AddWorldClockIntent": { name: "Add City", params: ["city", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddWorldClockIntent" } },
   "com.apple.clock.AssistantAlarmEntity": { name: "Find Alarm", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Alarm", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantAlarmEntity" } },
-  "com.apple.clock.AssistantCancelTimerIntent": { name: "Cancel Timers", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantCancelTimerIntent" } },
-  "com.apple.clock.AssistantCreateAlarmIntent": { name: "Add Alarm", params: ["time", "label", "recurrenceDays", "canSnooze"], output: "com.apple.clock.AssistantAlarmEntity", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantCreateAlarmIntent" } },
-  "com.apple.clock.AssistantCreateTimerIntent": { name: "Start Timer", params: ["duration", "label", "isSleepTimer"], output: "com.apple.clock.TimerEntity", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantCreateTimerIntent" } },
-  "com.apple.clock.AssistantDeleteAlarmIntent": { name: "Delete Alarms", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantDeleteAlarmIntent" } },
-  "com.apple.clock.AssistantLapStopwatchIntent": { name: "Lap Stopwatch", params: ["stopwatch"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantLapStopwatchIntent" } },
-  "com.apple.clock.AssistantPauseTimerIntent": { name: "Pause Timer", params: ["timer"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantPauseTimerIntent" } },
-  "com.apple.clock.AssistantResetStopwatchIntent": { name: "Reset Stopwatch", params: ["stopwatch"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantResetStopwatchIntent" } },
-  "com.apple.clock.AssistantResumeTimerIntent": { name: "Resume Timer", params: ["timer"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantResumeTimerIntent" } },
-  "com.apple.clock.AssistantStartStopwatchIntent": { name: "Start Stopwatch", params: ["stopwatch"], output: "com.apple.clock.StopwatchEntity", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantStartStopwatchIntent" } },
-  "com.apple.clock.AssistantStopStopwatchIntent": { name: "Stop Stopwatch", params: ["stopwatch"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantStopStopwatchIntent" } },
-  "com.apple.clock.CancelTimerIntent": { name: "Cancel Timer", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "CancelTimerIntent" } },
-  "com.apple.clock.DeleteAlarmIntent": { name: "Delete Alarms", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAlarmIntent" } },
-  "com.apple.clock.DismissAlarmIntent": { name: "Dismiss Alarm", params: ["alarm"], output: "com.apple.clock.AssistantAlarmEntity", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "DismissAlarmIntent" } },
-  "com.apple.clock.GetCurrentTimerDetailsIntent": { name: "Get Current Timer", params: ["mode"], output: "measurement_duration", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetCurrentTimerDetailsIntent" } },
-  "com.apple.clock.GetTimeForCityIntent": { name: "Get Time for City", params: ["city"], output: "string", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetTimeForCityIntent" } },
-  "com.apple.clock.LapStopwatchIntent": { name: "Lap Stopwatch", params: ["OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "LapStopwatchIntent" } },
-  "com.apple.clock.OpenAlarmIntent": { name: "Opens Alarm", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAlarmIntent" } },
-  "com.apple.clock.OpenTab": { name: "Open Tab", params: ["tab"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTab" } },
-  "com.apple.clock.OpenTabIntent": { name: "Open Clock Tab", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabIntent" } },
-  "com.apple.clock.PauseTimerIntent": { name: "Pause Timer", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "PauseTimerIntent" } },
-  "com.apple.clock.RemoveWorldClockIntent": { name: "Remove City", params: ["entities", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveWorldClockIntent" } },
-  "com.apple.clock.ResetStopwatchIntent": { name: "Reset Stopwatch", params: ["OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetStopwatchIntent" } },
-  "com.apple.clock.ResumeTimerIntent": { name: "Resume Timer", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResumeTimerIntent" } },
-  "com.apple.clock.SnoozeAlarmIntent": { name: "Snooze Alarm", params: ["alarm", "duration"], output: "com.apple.clock.AssistantAlarmEntity", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "SnoozeAlarmIntent" } },
-  "com.apple.clock.StartStopwatchIntent": { name: "Start Stopwatch", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartStopwatchIntent" } },
-  "com.apple.clock.StopStopwatchIntent": { name: "Stop the Stopwatch", params: ["OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopStopwatchIntent" } },
+  "com.apple.clock.AssistantCancelTimerIntent": { name: "Cancel Timers", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantCancelTimerIntent" } },
+  "com.apple.clock.AssistantCreateAlarmIntent": { name: "Add Alarm", params: ["time", "label", "recurrenceDays", "canSnooze"], output: "Alarm", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantCreateAlarmIntent" } },
+  "com.apple.clock.AssistantCreateTimerIntent": { name: "Start Timer", params: ["duration", "label", "isSleepTimer"], output: "Timer", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantCreateTimerIntent" } },
+  "com.apple.clock.AssistantDeleteAlarmIntent": { name: "Delete Alarms", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantDeleteAlarmIntent" } },
+  "com.apple.clock.AssistantLapStopwatchIntent": { name: "Lap Stopwatch", params: ["stopwatch"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantLapStopwatchIntent" } },
+  "com.apple.clock.AssistantPauseTimerIntent": { name: "Pause Timer", params: ["timer"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantPauseTimerIntent" } },
+  "com.apple.clock.AssistantResetStopwatchIntent": { name: "Reset Stopwatch", params: ["stopwatch"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantResetStopwatchIntent" } },
+  "com.apple.clock.AssistantResumeTimerIntent": { name: "Resume Timer", params: ["timer"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantResumeTimerIntent" } },
+  "com.apple.clock.AssistantStartStopwatchIntent": { name: "Start Stopwatch", params: ["stopwatch"], output: "Stopwatch", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantStartStopwatchIntent" } },
+  "com.apple.clock.AssistantStopStopwatchIntent": { name: "Stop Stopwatch", params: ["stopwatch"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssistantStopStopwatchIntent" } },
+  "com.apple.clock.CancelTimerIntent": { name: "Cancel Timer", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "CancelTimerIntent" } },
+  "com.apple.clock.DeleteAlarmIntent": { name: "Delete Alarms", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAlarmIntent" } },
+  "com.apple.clock.DismissAlarmIntent": { name: "Dismiss Alarm", params: ["alarm"], output: "Alarm", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "DismissAlarmIntent" } },
+  "com.apple.clock.GetCurrentTimerDetailsIntent": { name: "Get Current Timer", params: ["mode"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetCurrentTimerDetailsIntent" } },
+  "com.apple.clock.GetTimeForCityIntent": { name: "Get Time for City", params: ["city"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetTimeForCityIntent" } },
+  "com.apple.clock.LapStopwatchIntent": { name: "Lap Stopwatch", params: ["OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "LapStopwatchIntent" } },
+  "com.apple.clock.OpenAlarmIntent": { name: "Opens Alarm", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAlarmIntent" } },
+  "com.apple.clock.OpenTab": { name: "Open Tab", params: ["tab"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTab" } },
+  "com.apple.clock.OpenTabIntent": { name: "Open Clock Tab", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabIntent" } },
+  "com.apple.clock.PauseTimerIntent": { name: "Pause Timer", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "PauseTimerIntent" } },
+  "com.apple.clock.RemoveWorldClockIntent": { name: "Remove City", params: ["entities", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveWorldClockIntent" } },
+  "com.apple.clock.ResetStopwatchIntent": { name: "Reset Stopwatch", params: ["OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetStopwatchIntent" } },
+  "com.apple.clock.ResumeTimerIntent": { name: "Resume Timer", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResumeTimerIntent" } },
+  "com.apple.clock.SnoozeAlarmIntent": { name: "Snooze Alarm", params: ["alarm", "duration"], output: "Alarm", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "SnoozeAlarmIntent" } },
+  "com.apple.clock.StartStopwatchIntent": { name: "Start Stopwatch", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartStopwatchIntent" } },
+  "com.apple.clock.StopStopwatchIntent": { name: "Stop the Stopwatch", params: ["OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopStopwatchIntent" } },
   "com.apple.clock.TimerEntity": { name: "Find Timer", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Timer", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "TimerEntity" } },
-  "com.apple.clock.UpdateAlarmIntent": { name: "Update Alarm", params: ["alarm", "isEnabled", "time", "label", "recurrenceDays", "allowsSnooze"], output: "com.apple.clock.AssistantAlarmEntity", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateAlarmIntent" } },
-  "com.apple.clock.UpdateTimerIntent": { name: "Update Timer", params: ["timer", "duration", "label", "isSleepTimer"], output: "com.apple.clock.TimerEntity", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateTimerIntent" } },
-  "com.apple.controlcenter.DisplaySleepIntent": { name: "Put Display to Sleep", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "DisplaySleepIntent" } },
-  "com.apple.controlcenter.LockScreenIntent": { name: "Lock the screen", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "LockScreenIntent" } },
-  "com.apple.controlcenter.ScreenSaverIntent": { name: "Start Screen Saver", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "ScreenSaverIntent" } },
-  "com.apple.controlcenter.SetDarkModeEnabledIntent": { name: "Enable or disable Dark Mode", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDarkModeEnabledIntent" } },
-  "com.apple.controlcenter.SetNightShiftEnabledIntent": { name: "Enable or disable Night Shift", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetNightShiftEnabledIntent" } },
-  "com.apple.controlcenter.SetTrueToneEnabledIntent": { name: "Enable or disable True Tone", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetTrueToneEnabledIntent" } },
-  "com.apple.dock.SetDockAutoHideEnabledIntent": { name: "Automatically hide and show the Dock", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.dock", Name: "Dock", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDockAutoHideEnabledIntent" } },
-  "com.apple.finder.CompressItemsIntent": { name: "Compress Items", params: ["sources", "format", "destination", "OpenWhenRun"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "CompressItemsIntent" } },
-  "com.apple.finder.CopyItemsIntent": { name: "Copy and Move Items", params: ["sources", "destination", "overwriteConflicts", "OpenWhenRun"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "CopyItemsIntent" } },
-  "com.apple.finder.CreateFolderIntent": { name: "Create Folder", params: ["fileName", "target", "OpenWhenRun"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateFolderIntent" } },
-  "com.apple.finder.DuplicateItemsIntent": { name: "Duplicate Items", params: ["sources", "OpenWhenRun"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "DuplicateItemsIntent" } },
-  "com.apple.finder.GetInfoIntent": { name: "Get Info", params: ["targets"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetInfoIntent" } },
-  "com.apple.finder.GetLocationIntent": { name: "Get Location", params: ["location"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetLocationIntent" } },
-  "com.apple.finder.GetSelectedItemsIntent": { name: "Get Selected Items", params: [], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetSelectedItemsIntent" } },
-  "com.apple.finder.GoToEnclosingFolderIntent": { name: "Go To Enclosing Folder", params: [], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GoToEnclosingFolderIntent" } },
-  "com.apple.finder.GoToFolderIntent": { name: "Go To Folder", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GoToFolderIntent" } },
-  "com.apple.finder.GoToLocationIntent": { name: "Go To Location", params: ["location"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GoToLocationIntent" } },
-  "com.apple.finder.MoveItemsIntent": { name: "Move Items to Folder", params: ["entities", "destinationFolder", "overwriteConflicts", "OpenWhenRun"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveItemsIntent" } },
-  "com.apple.finder.OpenItemIntent": { name: "Open Item", params: ["target"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenItemIntent" } },
-  "com.apple.finder.RenameItemIntent": { name: "Rename Item", params: ["target", "newName", "overwriteExtension", "OpenWhenRun"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameItemIntent" } },
-  "com.apple.finder.RevealItemsIntent": { name: "Reveal Items", params: ["targets", "openInNewWindow"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealItemsIntent" } },
-  "com.apple.finder.SearchInBrowserIntent": { name: "Search in Finder", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchInBrowserIntent" } },
-  "com.apple.finder.TrashItemsIntent": { name: "Trash Items", params: ["entities", "OpenWhenRun"], output: "com.apple.finder.FINodeEntity", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrashItemsIntent" } },
-  "com.apple.findmy.FriendSelectorIntent": { name: "Choose Person", params: ["contact"], output: "none", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "FriendSelectorIntent" } },
-  "com.apple.findmy.Intent": { name: "Preview_Intent_Only", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "Intent" } },
+  "com.apple.clock.UpdateAlarmIntent": { name: "Update Alarm", params: ["alarm", "isEnabled", "time", "label", "recurrenceDays", "allowsSnooze"], output: "Alarm", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateAlarmIntent" } },
+  "com.apple.clock.UpdateTimerIntent": { name: "Update Timer", params: ["timer", "duration", "label", "isSleepTimer"], output: "Timer", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateTimerIntent" } },
+  "com.apple.controlcenter.DisplaySleepIntent": { name: "Put Display to Sleep", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "DisplaySleepIntent" } },
+  "com.apple.controlcenter.LockScreenIntent": { name: "Lock the screen", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "LockScreenIntent" } },
+  "com.apple.controlcenter.ScreenSaverIntent": { name: "Start Screen Saver", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "ScreenSaverIntent" } },
+  "com.apple.controlcenter.SetDarkModeEnabledIntent": { name: "Enable or disable Dark Mode", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDarkModeEnabledIntent" } },
+  "com.apple.controlcenter.SetNightShiftEnabledIntent": { name: "Enable or disable Night Shift", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetNightShiftEnabledIntent" } },
+  "com.apple.controlcenter.SetTrueToneEnabledIntent": { name: "Enable or disable True Tone", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.controlcenter", Name: "ControlCenter", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetTrueToneEnabledIntent" } },
+  "com.apple.dock.SetDockAutoHideEnabledIntent": { name: "Automatically hide and show the Dock", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.dock", Name: "Dock", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDockAutoHideEnabledIntent" } },
+  "com.apple.finder.CompressItemsIntent": { name: "Compress Items", params: ["sources", "format", "destination", "OpenWhenRun"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "CompressItemsIntent" } },
+  "com.apple.finder.CopyItemsIntent": { name: "Copy and Move Items", params: ["sources", "destination", "overwriteConflicts", "OpenWhenRun"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "CopyItemsIntent" } },
+  "com.apple.finder.CreateFolderIntent": { name: "Create Folder", params: ["fileName", "target", "OpenWhenRun"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateFolderIntent" } },
+  "com.apple.finder.DuplicateItemsIntent": { name: "Duplicate Items", params: ["sources", "OpenWhenRun"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "DuplicateItemsIntent" } },
+  "com.apple.finder.GetInfoIntent": { name: "Get Info", params: ["targets"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetInfoIntent" } },
+  "com.apple.finder.GetLocationIntent": { name: "Get Location", params: ["location"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetLocationIntent" } },
+  "com.apple.finder.GetSelectedItemsIntent": { name: "Get Selected Items", params: [], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetSelectedItemsIntent" } },
+  "com.apple.finder.GoToEnclosingFolderIntent": { name: "Go To Enclosing Folder", params: [], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GoToEnclosingFolderIntent" } },
+  "com.apple.finder.GoToFolderIntent": { name: "Go To Folder", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GoToFolderIntent" } },
+  "com.apple.finder.GoToLocationIntent": { name: "Go To Location", params: ["location"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GoToLocationIntent" } },
+  "com.apple.finder.MoveItemsIntent": { name: "Move Items to Folder", params: ["entities", "destinationFolder", "overwriteConflicts", "OpenWhenRun"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveItemsIntent" } },
+  "com.apple.finder.OpenItemIntent": { name: "Open Item", params: ["target"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenItemIntent" } },
+  "com.apple.finder.RenameItemIntent": { name: "Rename Item", params: ["target", "newName", "overwriteExtension", "OpenWhenRun"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameItemIntent" } },
+  "com.apple.finder.RevealItemsIntent": { name: "Reveal Items", params: ["targets", "openInNewWindow"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealItemsIntent" } },
+  "com.apple.finder.SearchInBrowserIntent": { name: "Search in Finder", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchInBrowserIntent" } },
+  "com.apple.finder.TrashItemsIntent": { name: "Trash Items", params: ["entities", "OpenWhenRun"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrashItemsIntent" } },
+  "com.apple.findmy.FriendSelectorIntent": { name: "Choose Person", params: ["contact"], output: null, descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "FriendSelectorIntent" } },
+  "com.apple.findmy.Intent": { name: "Preview_Intent_Only", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "Intent" } },
   "com.apple.findmy.ItemEntity": { name: "Find Item", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Item", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "ItemEntity" } },
-  "com.apple.findmy.ItemSelectorIntent": { name: "Choose Item", params: ["source"], output: "none", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "ItemSelectorIntent" } },
+  "com.apple.findmy.ItemSelectorIntent": { name: "Choose Item", params: ["source"], output: null, descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "ItemSelectorIntent" } },
   "com.apple.findmy.PersonEntity": { name: "Find Person", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Person", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "PersonEntity" } },
   "com.apple.findmy.WidgetItemEntity": { name: "Find Item", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Item", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetItemEntity" } },
   "com.apple.findmy.WidgetPersonEntity": { name: "Find Person", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Person", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetPersonEntity" } },
-  "com.apple.freeform.CRLAddItemToBoardIntent": { name: "Add Item to Board", params: ["target", "itemType", "text", "mediaItems", "url", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddItemToBoardIntent" } },
-  "com.apple.freeform.CRLAddStickyNoteToBoardIntent": { name: "Add Sticky Note to Board", params: ["board", "string", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddStickyNoteToBoardIntent" } },
-  "com.apple.freeform.CRLAddTextToBoardIntent": { name: "Add Text to Board", params: ["board", "string", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddTextToBoardIntent" } },
+  "com.apple.freeform.CRLAddItemToBoardIntent": { name: "Add Item to Board", params: ["target", "itemType", "text", "mediaItems", "url", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddItemToBoardIntent" } },
+  "com.apple.freeform.CRLAddStickyNoteToBoardIntent": { name: "Add Sticky Note to Board", params: ["board", "string", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddStickyNoteToBoardIntent" } },
+  "com.apple.freeform.CRLAddTextToBoardIntent": { name: "Add Text to Board", params: ["board", "string", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddTextToBoardIntent" } },
   "com.apple.freeform.CRLBoardEntity": { name: "Find Board", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLBoardEntity" } },
-  "com.apple.freeform.CRLChangeBoardCanvasGridIntent": { name: "Show/Hide Dot Grid", params: ["entity", "operation", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeBoardCanvasGridIntent" } },
-  "com.apple.freeform.CRLChangeBoardObjectConnectorsIntent": { name: "Show/Hide Object Connectors", params: ["entity", "operation", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeBoardObjectConnectorsIntent" } },
-  "com.apple.freeform.CRLChangeSelectionColorIntent": { name: "Change Fill Color", params: ["board", "color"], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeSelectionColorIntent" } },
-  "com.apple.freeform.CRLChangeSelectionFontSizeIntent": { name: "Change Font Size", params: ["board", "size"], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeSelectionFontSizeIntent" } },
-  "com.apple.freeform.CRLChangeSelectionFontStyleIntent": { name: "Change Font Style", params: ["board", "style"], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeSelectionFontStyleIntent" } },
-  "com.apple.freeform.CRLCreateBoardIntent": { name: "Create Board", params: ["title", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLCreateBoardIntent" } },
-  "com.apple.freeform.CRLDeleteBoardIntent": { name: "Delete Boards", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLDeleteBoardIntent" } },
-  "com.apple.freeform.CRLFavoriteBoardIntent_v2": { name: "Favorite/Unfavorite Board", params: ["entity", "operation"], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLFavoriteBoardIntent_v2" } },
-  "com.apple.freeform.CRLInsertFilesToBoardIntent": { name: "Add Files to Board", params: ["board", "files", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertFilesToBoardIntent" } },
-  "com.apple.freeform.CRLInsertPhotosToBoardIntent": { name: "Add Photos to Board", params: ["board", "images", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertPhotosToBoardIntent" } },
-  "com.apple.freeform.CRLInsertShapeToBoardIntent": { name: "Add Shape to Board", params: ["board", "shapes", "string", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertShapeToBoardIntent" } },
-  "com.apple.freeform.CRLInsertTextToBoardIntent": { name: "Insert Text", params: ["board", "strings", "container", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertTextToBoardIntent" } },
-  "com.apple.freeform.CRLInsertURLToBoardIntent": { name: "Add Link to Board", params: ["board", "url", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertURLToBoardIntent" } },
-  "com.apple.freeform.CRLOpenBoardIntent": { name: "Open Board", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLOpenBoardIntent" } },
-  "com.apple.freeform.CRLRenameBoardIntent": { name: "Rename Board", params: ["entity", "property", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLRenameBoardIntent" } },
-  "com.apple.freeform.CRLResizeSelectionFontIntent": { name: "Resize Text", params: ["board", "behavior"], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLResizeSelectionFontIntent" } },
-  "com.apple.freeform.CRLResizeSelectionFontIntent_v2": { name: "Resize Text", params: ["board", "operation"], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLResizeSelectionFontIntent_v2" } },
-  "com.apple.freeform.CRLUpdateBoardIntent": { name: "Rename Board", params: ["target", "title", "OpenWhenRun"], output: "com.apple.freeform.CRLBoardEntity", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLUpdateBoardIntent" } },
-  "com.apple.freeform.CRLUtilitiesIntent": { name: "Utilities Intent", params: ["arguments", "operation"], output: "string", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLUtilitiesIntent" } },
-  "com.apple.freeform.CRLiOSCreateBoardIntent": { name: "Create New Freeform Board", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLiOSCreateBoardIntent" } },
-  "com.apple.freeform.CRLiOSOpenBoardIntent": { name: "Open Freeform Board", params: ["board"], output: "none", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLiOSOpenBoardIntent" } },
-  "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateKnowledgeResponseIntent": { name: "Generate Knowledge Response", params: ["explicitInvocation", "partner", "userQuery", "additionalInfo", "ShowWhenRun"], output: "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateKnowledgeResponseIntent" } },
-  "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentFromMediaIntent": { name: "Generate Rich Content From Media", params: ["explicitInvocation", "partner", "directInvocationClient", "additionalInfo", "userQuery", "ShowWhenRun"], output: "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateRichContentFromMediaIntent" } },
-  "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentIntent": { name: "Generate Rich Content", params: ["explicitInvocation", "partner", "userQuery", "additionalInfo", "ShowWhenRun"], output: "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateRichContentIntent" } },
-  "com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentIntent": { name: "On Screen Content Intent", params: [], output: "com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OnScreenContentIntent" } },
-  "com.apple.generativeassistanttools.GenerativeAssistantExtension.PrewarmGenerativeAssistantExtensionIntent": { name: "Prewarm GenerativeAssistantExtension", params: [], output: "bool", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrewarmGenerativeAssistantExtensionIntent" } },
-  "com.apple.gms.GenerativePartnerPrototypeExtension.GenerativePartnerPrototypeIntentChatGPT": { name: "Generative Partner Prototype", params: ["prompt", "conversationIdentifier", "configuration"], output: "com.apple.AppIntents.AppIntents._ModelDelegationResultEntity", descriptor: { BundleIdentifier: "com.apple.gms.GenerativePartnerPrototypeExtension", Name: "GenerativePartnerPrototypeExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerativePartnerPrototypeIntentChatGPT" } },
-  "com.apple.helpviewer.CollectionOpenIntent": { name: "Open Collection", params: ["collection"], output: "none", descriptor: { BundleIdentifier: "com.apple.helpviewer", Name: "Tips", TeamIdentifier: "0000000000", AppIntentIdentifier: "CollectionOpenIntent" } },
+  "com.apple.freeform.CRLChangeBoardCanvasGridIntent": { name: "Show/Hide Dot Grid", params: ["entity", "operation", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeBoardCanvasGridIntent" } },
+  "com.apple.freeform.CRLChangeBoardObjectConnectorsIntent": { name: "Show/Hide Object Connectors", params: ["entity", "operation", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeBoardObjectConnectorsIntent" } },
+  "com.apple.freeform.CRLChangeSelectionColorIntent": { name: "Change Fill Color", params: ["board", "color"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeSelectionColorIntent" } },
+  "com.apple.freeform.CRLChangeSelectionFontSizeIntent": { name: "Change Font Size", params: ["board", "size"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeSelectionFontSizeIntent" } },
+  "com.apple.freeform.CRLChangeSelectionFontStyleIntent": { name: "Change Font Style", params: ["board", "style"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeSelectionFontStyleIntent" } },
+  "com.apple.freeform.CRLCreateBoardIntent": { name: "Create Board", params: ["title", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLCreateBoardIntent" } },
+  "com.apple.freeform.CRLDeleteBoardIntent": { name: "Delete Boards", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLDeleteBoardIntent" } },
+  "com.apple.freeform.CRLFavoriteBoardIntent_v2": { name: "Favorite/Unfavorite Board", params: ["entity", "operation"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLFavoriteBoardIntent_v2" } },
+  "com.apple.freeform.CRLInsertFilesToBoardIntent": { name: "Add Files to Board", params: ["board", "files", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertFilesToBoardIntent" } },
+  "com.apple.freeform.CRLInsertPhotosToBoardIntent": { name: "Add Photos to Board", params: ["board", "images", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertPhotosToBoardIntent" } },
+  "com.apple.freeform.CRLInsertShapeToBoardIntent": { name: "Add Shape to Board", params: ["board", "shapes", "string", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertShapeToBoardIntent" } },
+  "com.apple.freeform.CRLInsertTextToBoardIntent": { name: "Insert Text", params: ["board", "strings", "container", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertTextToBoardIntent" } },
+  "com.apple.freeform.CRLInsertURLToBoardIntent": { name: "Add Link to Board", params: ["board", "url", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertURLToBoardIntent" } },
+  "com.apple.freeform.CRLOpenBoardIntent": { name: "Open Board", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLOpenBoardIntent" } },
+  "com.apple.freeform.CRLRenameBoardIntent": { name: "Rename Board", params: ["entity", "property", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLRenameBoardIntent" } },
+  "com.apple.freeform.CRLResizeSelectionFontIntent": { name: "Resize Text", params: ["board", "behavior"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLResizeSelectionFontIntent" } },
+  "com.apple.freeform.CRLResizeSelectionFontIntent_v2": { name: "Resize Text", params: ["board", "operation"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLResizeSelectionFontIntent_v2" } },
+  "com.apple.freeform.CRLUpdateBoardIntent": { name: "Rename Board", params: ["target", "title", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLUpdateBoardIntent" } },
+  "com.apple.freeform.CRLUtilitiesIntent": { name: "Utilities Intent", params: ["arguments", "operation"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLUtilitiesIntent" } },
+  "com.apple.freeform.CRLiOSCreateBoardIntent": { name: "Create New Freeform Board", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLiOSCreateBoardIntent" } },
+  "com.apple.freeform.CRLiOSOpenBoardIntent": { name: "Open Freeform Board", params: ["board"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLiOSOpenBoardIntent" } },
+  "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateKnowledgeResponseIntent": { name: "Generate Knowledge Response", params: ["explicitInvocation", "partner", "userQuery", "additionalInfo", "ShowWhenRun"], output: "GenerativeResponse AppEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateKnowledgeResponseIntent" } },
+  "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentFromMediaIntent": { name: "Generate Rich Content From Media", params: ["explicitInvocation", "partner", "directInvocationClient", "additionalInfo", "userQuery", "ShowWhenRun"], output: "GenerativeResponse AppEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateRichContentFromMediaIntent" } },
+  "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentIntent": { name: "Generate Rich Content", params: ["explicitInvocation", "partner", "userQuery", "additionalInfo", "ShowWhenRun"], output: "GenerativeResponse AppEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateRichContentIntent" } },
+  "com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentIntent": { name: "On Screen Content Intent", params: [], output: "GenerativeResponse AppEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OnScreenContentIntent" } },
+  "com.apple.generativeassistanttools.GenerativeAssistantExtension.PrewarmGenerativeAssistantExtensionIntent": { name: "Prewarm GenerativeAssistantExtension", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrewarmGenerativeAssistantExtensionIntent" } },
+  "com.apple.gms.GenerativePartnerPrototypeExtension.GenerativePartnerPrototypeIntentChatGPT": { name: "Generative Partner Prototype", params: ["prompt", "conversationIdentifier", "configuration"], output: "Model Delegation Response", descriptor: { BundleIdentifier: "com.apple.gms.GenerativePartnerPrototypeExtension", Name: "GenerativePartnerPrototypeExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerativePartnerPrototypeIntentChatGPT" } },
+  "com.apple.helpviewer.CollectionOpenIntent": { name: "Open Collection", params: ["collection"], output: null, descriptor: { BundleIdentifier: "com.apple.helpviewer", Name: "Tips", TeamIdentifier: "0000000000", AppIntentIdentifier: "CollectionOpenIntent" } },
   "com.apple.iBooksX.AudiobookAppEntity": { name: "Find Audiobook", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Audiobook", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "AudiobookAppEntity" } },
   "com.apple.iBooksX.AudiobookEntity": { name: "Find Audiobook", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Audiobook", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "AudiobookEntity" } },
-  "com.apple.iBooksX.AudiobookSleepTimerIntent": { name: "Set Audiobook Sleep Timer", params: ["option", "duration", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "AudiobookSleepTimerIntent" } },
+  "com.apple.iBooksX.AudiobookSleepTimerIntent": { name: "Set Audiobook Sleep Timer", params: ["option", "duration", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "AudiobookSleepTimerIntent" } },
   "com.apple.iBooksX.BookAppEntity": { name: "Find Books", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Book", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookAppEntity" } },
-  "com.apple.iBooksX.BookReaderChangeThemeIntent": { name: "Change Book Appearance", params: ["changeOperation", "setting"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookReaderChangeThemeIntent" } },
-  "com.apple.iBooksX.BookReaderNavigatePageInBookIntent": { name: "Turn Page", params: ["direction", "target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookReaderNavigatePageInBookIntent" } },
-  "com.apple.iBooksX.BookReaderNavigatePagesIntent": { name: "Turn Page", params: ["direction"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookReaderNavigatePagesIntent" } },
+  "com.apple.iBooksX.BookReaderChangeThemeIntent": { name: "Change Book Appearance", params: ["changeOperation", "setting"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookReaderChangeThemeIntent" } },
+  "com.apple.iBooksX.BookReaderNavigatePageInBookIntent": { name: "Turn Page", params: ["direction", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookReaderNavigatePageInBookIntent" } },
+  "com.apple.iBooksX.BookReaderNavigatePagesIntent": { name: "Turn Page", params: ["direction"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookReaderNavigatePagesIntent" } },
   "com.apple.iBooksX.BookSettingsEntity": { name: "Get Book Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Book Settings", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookSettingsEntity" } },
   "com.apple.iBooksX.BookSettingsEntity-UpdatableEntity": { name: "Edit Book Settings", params: ["entity", "font", "fontSize", "isAllowMultipleColumns", "isTextJustified", "pageNavigationSetting", "theme"], output: "Book Settings", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookSettingsEntity-UpdatableEntity" } },
-  "com.apple.iBooksX.ChangeFontSizeIntent": { name: "Change Text Size", params: ["changeOperation", "target", "book"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeFontSizeIntent" } },
-  "com.apple.iBooksX.CloseBookIntent": { name: "Close Book", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseBookIntent" } },
-  "com.apple.iBooksX.DeepLinkIntent": { name: "Open View or Collection in Books App", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeepLinkIntent" } },
+  "com.apple.iBooksX.ChangeFontSizeIntent": { name: "Change Text Size", params: ["changeOperation", "target", "book"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeFontSizeIntent" } },
+  "com.apple.iBooksX.CloseBookIntent": { name: "Close Book", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseBookIntent" } },
+  "com.apple.iBooksX.DeepLinkIntent": { name: "Open View or Collection in Books App", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeepLinkIntent" } },
   "com.apple.iBooksX.DefaultCollectionEntity": { name: "Find Standard Collection", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Standard Collection", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "DefaultCollectionEntity" } },
-  "com.apple.iBooksX.OpenAudioIntent": { name: "Open Audio Item", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAudioIntent" } },
-  "com.apple.iBooksX.OpenBookIntent": { name: "Open Book", params: ["mode", "target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBookIntent" } },
-  "com.apple.iBooksX.OpenDefaultCollectionIntent": { name: "Open Default Collection", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDefaultCollectionIntent" } },
-  "com.apple.iBooksX.OpenMostRecentBookIntent": { name: "Open Most Recent Book", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMostRecentBookIntent" } },
-  "com.apple.iBooksX.OpenSpecificBookIntent": { name: "Open Specific Book", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSpecificBookIntent" } },
-  "com.apple.iBooksX.OpenTabBarItemIntent": { name: "Open View in Books App", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabBarItemIntent" } },
-  "com.apple.iBooksX.OpenTableOfContentsIntent": { name: "Open Table of Contents", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTableOfContentsIntent" } },
-  "com.apple.iBooksX.PauseCurrentAudiobookIntent": { name: "Pause Current Audiobook", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PauseCurrentAudiobookIntent" } },
-  "com.apple.iBooksX.PlayAudioIntent": { name: "Play Audio Item", params: ["warmupAudioQueueResult", "audioEntity", "playbackAttributes", "queueLocation"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayAudioIntent" } },
-  "com.apple.iBooksX.PlayAudiobookIntent": { name: "Play Audiobook", params: ["mode", "target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayAudiobookIntent" } },
-  "com.apple.iBooksX.PlayMostRecentAudiobookIntent": { name: "Play Most Recent Audiobook", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayMostRecentAudiobookIntent" } },
-  "com.apple.iBooksX.PlaySpecificAudiobookIntent": { name: "Play Specific Audiobook", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaySpecificAudiobookIntent" } },
-  "com.apple.iBooksX.SearchBooksAppIntent": { name: "Search in the Books App", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchBooksAppIntent" } },
-  "com.apple.iBooksX.SearchBooksIntent": { name: "Search in Books", params: ["searchPhrase"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchBooksIntent" } },
-  "com.apple.iBooksX.UpdateBookSettingsIntent": { name: "UpdateReaderIntent", params: ["target", "font", "theme", "pageNavigationSetting", "isTextJustified", "isAllowMultipleColumns"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateBookSettingsIntent" } },
-  "com.apple.iCal.CreateCalendarIntent": { name: "Create Calendar", params: ["name", "source", "OpenWhenRun"], output: "com.apple.iCal.CalendarEntity", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateCalendarIntent" } },
-  "com.apple.iCal.CreateEventIntent": { name: "Create Event", params: ["title", "startDate", "endDate", "isAllDay", "recurrence", "calendar", "location", "note", "alarms", "attendees", "privacyLevel", "availability", "travelTime", "url", "floatingTimeZoneID", "virtualConferenceType", "OpenWhenRun"], output: "com.apple.iCal.EventEntity", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateEventIntent" } },
-  "com.apple.iCal.DeleteCalendarsIntent": { name: "Delete Calendars", params: ["entities", "reportJunk"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteCalendarsIntent" } },
-  "com.apple.iCal.DeleteEventIntent": { name: "Delete Events", params: ["entity", "span"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteEventIntent" } },
-  "com.apple.iCal.EditEventIntent": { name: "Edit Event", params: ["event", "title", "startDate", "endDate", "isAllDay", "calendar", "privacyLevel", "status", "availability", "location", "note", "recurrence", "travelTime", "alarms", "url", "participationStatus", "attendees", "span", "locationPredictionAction", "virtualConferenceType", "OpenWhenRun"], output: "com.apple.iCal.EventEntity", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditEventIntent" } },
-  "com.apple.iCal.EmailAttendeesIntent": { name: "Email Attendees", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmailAttendeesIntent" } },
-  "com.apple.iCal.EmailOrganizerIntent": { name: "Email Organizer", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmailOrganizerIntent" } },
+  "com.apple.iBooksX.OpenAudioIntent": { name: "Open Audio Item", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAudioIntent" } },
+  "com.apple.iBooksX.OpenBookIntent": { name: "Open Book", params: ["mode", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBookIntent" } },
+  "com.apple.iBooksX.OpenDefaultCollectionIntent": { name: "Open Default Collection", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDefaultCollectionIntent" } },
+  "com.apple.iBooksX.OpenMostRecentBookIntent": { name: "Open Most Recent Book", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMostRecentBookIntent" } },
+  "com.apple.iBooksX.OpenSpecificBookIntent": { name: "Open Specific Book", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSpecificBookIntent" } },
+  "com.apple.iBooksX.OpenTabBarItemIntent": { name: "Open View in Books App", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabBarItemIntent" } },
+  "com.apple.iBooksX.OpenTableOfContentsIntent": { name: "Open Table of Contents", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTableOfContentsIntent" } },
+  "com.apple.iBooksX.PauseCurrentAudiobookIntent": { name: "Pause Current Audiobook", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PauseCurrentAudiobookIntent" } },
+  "com.apple.iBooksX.PlayAudioIntent": { name: "Play Audio Item", params: ["warmupAudioQueueResult", "audioEntity", "playbackAttributes", "queueLocation"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayAudioIntent" } },
+  "com.apple.iBooksX.PlayAudiobookIntent": { name: "Play Audiobook", params: ["mode", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayAudiobookIntent" } },
+  "com.apple.iBooksX.PlayMostRecentAudiobookIntent": { name: "Play Most Recent Audiobook", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayMostRecentAudiobookIntent" } },
+  "com.apple.iBooksX.PlaySpecificAudiobookIntent": { name: "Play Specific Audiobook", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaySpecificAudiobookIntent" } },
+  "com.apple.iBooksX.SearchBooksAppIntent": { name: "Search in the Books App", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchBooksAppIntent" } },
+  "com.apple.iBooksX.SearchBooksIntent": { name: "Search in Books", params: ["searchPhrase"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchBooksIntent" } },
+  "com.apple.iBooksX.UpdateBookSettingsIntent": { name: "UpdateReaderIntent", params: ["target", "font", "theme", "pageNavigationSetting", "isTextJustified", "isAllowMultipleColumns"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateBookSettingsIntent" } },
+  "com.apple.iCal.CreateCalendarIntent": { name: "Create Calendar", params: ["name", "source", "OpenWhenRun"], output: "Calendar", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateCalendarIntent" } },
+  "com.apple.iCal.CreateEventIntent": { name: "Create Event", params: ["title", "startDate", "endDate", "isAllDay", "recurrence", "calendar", "location", "note", "alarms", "attendees", "privacyLevel", "availability", "travelTime", "url", "floatingTimeZoneID", "virtualConferenceType", "OpenWhenRun"], output: "Event", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateEventIntent" } },
+  "com.apple.iCal.DeleteCalendarsIntent": { name: "Delete Calendars", params: ["entities", "reportJunk"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteCalendarsIntent" } },
+  "com.apple.iCal.DeleteEventIntent": { name: "Delete Events", params: ["entity", "span"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteEventIntent" } },
+  "com.apple.iCal.EditEventIntent": { name: "Edit Event", params: ["event", "title", "startDate", "endDate", "isAllDay", "calendar", "privacyLevel", "status", "availability", "location", "note", "recurrence", "travelTime", "alarms", "url", "participationStatus", "attendees", "span", "locationPredictionAction", "virtualConferenceType", "OpenWhenRun"], output: "Event", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditEventIntent" } },
+  "com.apple.iCal.EmailAttendeesIntent": { name: "Email Attendees", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmailAttendeesIntent" } },
+  "com.apple.iCal.EmailOrganizerIntent": { name: "Email Organizer", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmailOrganizerIntent" } },
   "com.apple.iCal.EventEntity": { name: "Find Event", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Event", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EventEntity" } },
-  "com.apple.iCal.FetchTransferableEventByURLIntent": { name: "Fetch Transferable Event By URL Intent", params: ["url"], output: "com.apple.iCal.TransferableEventEntity", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchTransferableEventByURLIntent" } },
-  "com.apple.iCal.FetchTransferableEventsInRangeIntent": { name: "Fetch Transferable Events In Range Intent <no loc>", params: ["rangeStart", "rangeEnd"], output: "com.apple.iCal.TransferableEventEntity", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchTransferableEventsInRangeIntent" } },
-  "com.apple.iCal.HighlightEventIntent": { name: "Highlight Event", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "HighlightEventIntent" } },
+  "com.apple.iCal.FetchTransferableEventByURLIntent": { name: "Fetch Transferable Event By URL Intent", params: ["url"], output: "TransferableEventEntity <no loc>", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchTransferableEventByURLIntent" } },
+  "com.apple.iCal.FetchTransferableEventsInRangeIntent": { name: "Fetch Transferable Events In Range Intent <no loc>", params: ["rangeStart", "rangeEnd"], output: "TransferableEventEntity <no loc>", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchTransferableEventsInRangeIntent" } },
+  "com.apple.iCal.HighlightEventIntent": { name: "Highlight Event", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "HighlightEventIntent" } },
   "com.apple.iCal.InboxItemEntity": { name: "Find Inbox Item", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Inbox Item", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "InboxItemEntity" } },
-  "com.apple.iCal.JoinEventIntent": { name: "Join Event", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "JoinEventIntent" } },
-  "com.apple.iCal.ListEventsIntent": { name: "List Events Intent <no loc>", params: ["description", "target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "ListEventsIntent" } },
-  "com.apple.iCal.OpenCalendarEditorIntent": { name: "Open Calendar Editor", params: ["target", "enableDoneInitially"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCalendarEditorIntent" } },
-  "com.apple.iCal.OpenCalendarViewIntent": { name: "Open Calendar View", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCalendarViewIntent" } },
-  "com.apple.iCal.OpenDateIntent": { name: "Open Date", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDateIntent" } },
-  "com.apple.iCal.OpenEventDetailsIntent": { name: "Open Event Details", params: ["title", "caption", "target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEventDetailsIntent" } },
-  "com.apple.iCal.OpenEventEditorIntent": { name: "Open Event Editor", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEventEditorIntent" } },
-  "com.apple.iCal.RespondToInboxItemIntent": { name: "Respond to Inbox Item", params: ["target", "response"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "RespondToInboxItemIntent" } },
-  "com.apple.iCal.SetCalendarFocusConfiguration": { name: "Set Calendar Focus Filter", params: ["Mode", "FocusMode", "calendars"], output: "none", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetCalendarFocusConfiguration" } },
-  "com.apple.iCal.TestComposeEngineIntent": { name: "Test Compose Engine", params: ["input", "requestedDetails", "rangeStart", "rangeEnd", "maxResults", "dataSources", "dateNow"], output: "string", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "TestComposeEngineIntent" } },
+  "com.apple.iCal.JoinEventIntent": { name: "Join Event", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "JoinEventIntent" } },
+  "com.apple.iCal.ListEventsIntent": { name: "List Events Intent <no loc>", params: ["description", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "ListEventsIntent" } },
+  "com.apple.iCal.OpenCalendarEditorIntent": { name: "Open Calendar Editor", params: ["target", "enableDoneInitially"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCalendarEditorIntent" } },
+  "com.apple.iCal.OpenCalendarViewIntent": { name: "Open Calendar View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCalendarViewIntent" } },
+  "com.apple.iCal.OpenDateIntent": { name: "Open Date", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDateIntent" } },
+  "com.apple.iCal.OpenEventDetailsIntent": { name: "Open Event Details", params: ["title", "caption", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEventDetailsIntent" } },
+  "com.apple.iCal.OpenEventEditorIntent": { name: "Open Event Editor", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEventEditorIntent" } },
+  "com.apple.iCal.RespondToInboxItemIntent": { name: "Respond to Inbox Item", params: ["target", "response"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "RespondToInboxItemIntent" } },
+  "com.apple.iCal.SetCalendarFocusConfiguration": { name: "Set Calendar Focus Filter", params: ["Mode", "FocusMode", "calendars"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetCalendarFocusConfiguration" } },
+  "com.apple.iCal.TestComposeEngineIntent": { name: "Test Compose Engine", params: ["input", "requestedDetails", "rangeStart", "rangeEnd", "maxResults", "dataSources", "dateNow"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "TestComposeEngineIntent" } },
   "com.apple.iCal.TransferableCalendarEntity": { name: "Find TransferableCalendarEntity <no loc>", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "TransferableCalendarEntity <no loc>", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "TransferableCalendarEntity" } },
   "com.apple.iCal.TransferableSourceEntity": { name: "Find TransferableSourceEntity <no loc>", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "TransferableSourceEntity <no loc>", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "TransferableSourceEntity" } },
-  "com.apple.iWork.Keynote.KNDocumentBackgroundExportIntent": { name: "Export Presentation in Background", params: ["document", "format", "sourcePassword", "password"], output: "file", descriptor: { BundleIdentifier: "com.apple.iWork.Keynote", Name: "Keynote", TeamIdentifier: "0000000000", AppIntentIdentifier: "KNDocumentBackgroundExportIntent" } },
-  "com.apple.iWork.Keynote.KNNewDocumentIntent": { name: "Create New Presentation", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.iWork.Keynote", Name: "Keynote", TeamIdentifier: "0000000000", AppIntentIdentifier: "KNNewDocumentIntent" } },
-  "com.apple.iWork.Numbers.TNDocumentBackgroundExportIntent": { name: "Export Spreadsheet in Background", params: ["document", "format", "sourcePassword", "password"], output: "file", descriptor: { BundleIdentifier: "com.apple.iWork.Numbers", Name: "Numbers", TeamIdentifier: "0000000000", AppIntentIdentifier: "TNDocumentBackgroundExportIntent" } },
-  "com.apple.iWork.Numbers.TNNewDocumentIntent": { name: "Create New Spreadsheet", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.iWork.Numbers", Name: "Numbers", TeamIdentifier: "0000000000", AppIntentIdentifier: "TNNewDocumentIntent" } },
-  "com.apple.iWork.Pages.TPDocumentBackgroundExportIntent": { name: "Export Document in Background", params: ["document", "format", "sourcePassword", "password"], output: "file", descriptor: { BundleIdentifier: "com.apple.iWork.Pages", Name: "Pages", TeamIdentifier: "0000000000", AppIntentIdentifier: "TPDocumentBackgroundExportIntent" } },
-  "com.apple.iWork.Pages.TPNewDocumentIntent": { name: "Create New Document", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.iWork.Pages", Name: "Pages", TeamIdentifier: "0000000000", AppIntentIdentifier: "TPNewDocumentIntent" } },
-  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps": { name: "Start Navigation", params: ["origin", "destinations", "transportationType", "preferences"], output: "none", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "Maps" } },
-  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps": { name: "Update Navigation Waypoints", params: ["waypoints", "navigation"], output: "none", descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "Maps" } },
-  "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin.GetCurrentLocationFlowToolPlugin.GetCurrentLocationTool": { name: "GetCurrentLocationTool", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin", Name: "GetCurrentLocationFlowToolPlugin", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetCurrentLocationTool" } },
-  "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenApplication": { name: "Open Application", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension", Name: "IntelligenceFlowAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenApplication" } },
-  "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenFile": { name: "Open File", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension", Name: "IntelligenceFlowAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFile" } },
-  "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenURL": { name: "Open URL", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension", Name: "IntelligenceFlowAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenURL" } },
+  "com.apple.iWork.Keynote.KNDocumentBackgroundExportIntent": { name: "Export Presentation in Background", params: ["document", "format", "sourcePassword", "password"], output: null, descriptor: { BundleIdentifier: "com.apple.iWork.Keynote", Name: "Keynote", TeamIdentifier: "0000000000", AppIntentIdentifier: "KNDocumentBackgroundExportIntent" } },
+  "com.apple.iWork.Keynote.KNNewDocumentIntent": { name: "Create New Presentation", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.iWork.Keynote", Name: "Keynote", TeamIdentifier: "0000000000", AppIntentIdentifier: "KNNewDocumentIntent" } },
+  "com.apple.iWork.Numbers.TNDocumentBackgroundExportIntent": { name: "Export Spreadsheet in Background", params: ["document", "format", "sourcePassword", "password"], output: null, descriptor: { BundleIdentifier: "com.apple.iWork.Numbers", Name: "Numbers", TeamIdentifier: "0000000000", AppIntentIdentifier: "TNDocumentBackgroundExportIntent" } },
+  "com.apple.iWork.Numbers.TNNewDocumentIntent": { name: "Create New Spreadsheet", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.iWork.Numbers", Name: "Numbers", TeamIdentifier: "0000000000", AppIntentIdentifier: "TNNewDocumentIntent" } },
+  "com.apple.iWork.Pages.TPDocumentBackgroundExportIntent": { name: "Export Document in Background", params: ["document", "format", "sourcePassword", "password"], output: null, descriptor: { BundleIdentifier: "com.apple.iWork.Pages", Name: "Pages", TeamIdentifier: "0000000000", AppIntentIdentifier: "TPDocumentBackgroundExportIntent" } },
+  "com.apple.iWork.Pages.TPNewDocumentIntent": { name: "Create New Document", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.iWork.Pages", Name: "Pages", TeamIdentifier: "0000000000", AppIntentIdentifier: "TPNewDocumentIntent" } },
+  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps": { name: "Start Navigation", params: ["origin", "destinations", "transportationType", "preferences"], output: null, descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "Maps" } },
+  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps": { name: "Update Navigation Waypoints", params: ["waypoints", "navigation"], output: null, descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "Maps" } },
+  "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin.GetCurrentLocationFlowToolPlugin.GetCurrentLocationTool": { name: "GetCurrentLocationTool", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin", Name: "GetCurrentLocationFlowToolPlugin", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetCurrentLocationTool" } },
+  "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenApplication": { name: "Open Application", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension", Name: "IntelligenceFlowAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenApplication" } },
+  "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenFile": { name: "Open File", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension", Name: "IntelligenceFlowAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFile" } },
+  "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenURL": { name: "Open URL", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension", Name: "IntelligenceFlowAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenURL" } },
   "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.CalculateAppUsageIntent": { name: "Get App & Website Activity", params: ["during", "selectedDevice", "activityType", "startTime", "endTime"], output: "Activity", descriptor: { BundleIdentifier: "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension", Name: "IntelligencePlatformDataActionsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CalculateAppUsageIntent" } },
   "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.FindSportsEvents": { name: "Get Upcoming Sports Events", params: ["sportsTeamAppEntity"], output: "Events", descriptor: { BundleIdentifier: "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension", Name: "IntelligencePlatformDataActionsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindSportsEvents" } },
   "com.apple.journal.AddCurrentLocationEntity": { name: "Get Add Current Location", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Add Current Location", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddCurrentLocationEntity" } },
   "com.apple.journal.AddCurrentLocationEntity-UpdatableEntity": { name: "Update Add Current Location", params: ["entity", "value"], output: "Add Current Location", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddCurrentLocationEntity-UpdatableEntity" } },
-  "com.apple.journal.AddCurrentLocationIntent": { name: "Open Add Current Location Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddCurrentLocationIntent" } },
+  "com.apple.journal.AddCurrentLocationIntent": { name: "Open Add Current Location Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddCurrentLocationIntent" } },
   "com.apple.journal.AlwaysUseMomentDateEntity": { name: "Get Always Use Moment Date", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Always Use Moment Date", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "AlwaysUseMomentDateEntity" } },
   "com.apple.journal.AlwaysUseMomentDateEntity-UpdatableEntity": { name: "Update Always Use Moment Date", params: ["entity", "value"], output: "Always Use Moment Date", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "AlwaysUseMomentDateEntity-UpdatableEntity" } },
-  "com.apple.journal.AlwaysUseMomentDateIntent": { name: "Open Always Use Moment Date Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "AlwaysUseMomentDateIntent" } },
-  "com.apple.journal.CreateEntryAudioIntent": { name: "Create Audio Entry", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateEntryAudioIntent" } },
-  "com.apple.journal.CreateEntryIntent": { name: "Create Entry", params: ["message", "title", "locationName", "mediaItems", "location", "entryBookmark", "entryDate", "OpenWhenRun"], output: "com.apple.journal.JournalEntity", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateEntryIntent" } },
-  "com.apple.journal.OpenEntryEntityIntent": { name: "Open Entry", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEntryEntityIntent" } },
-  "com.apple.journal.OpenJournalSettingsDeeplinks": { name: "Open Journal Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenJournalSettingsDeeplinks" } },
-  "com.apple.journal.RefreshIntent": { name: "StartWritingRefreshIntent", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "RefreshIntent" } },
+  "com.apple.journal.AlwaysUseMomentDateIntent": { name: "Open Always Use Moment Date Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "AlwaysUseMomentDateIntent" } },
+  "com.apple.journal.CreateEntryAudioIntent": { name: "Create Audio Entry", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateEntryAudioIntent" } },
+  "com.apple.journal.CreateEntryIntent": { name: "Create Entry", params: ["message", "title", "locationName", "mediaItems", "location", "entryBookmark", "entryDate", "OpenWhenRun"], output: "Journal Entry", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateEntryIntent" } },
+  "com.apple.journal.OpenEntryEntityIntent": { name: "Open Entry", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEntryEntityIntent" } },
+  "com.apple.journal.OpenJournalSettingsDeeplinks": { name: "Open Journal Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenJournalSettingsDeeplinks" } },
+  "com.apple.journal.RefreshIntent": { name: "StartWritingRefreshIntent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "RefreshIntent" } },
   "com.apple.journal.SaveToPhotosEntity": { name: "Get Save To Photos", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Save To Photos", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveToPhotosEntity" } },
   "com.apple.journal.SaveToPhotosEntity-UpdatableEntity": { name: "Update Save To Photos", params: ["entity", "value"], output: "Save To Photos", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveToPhotosEntity-UpdatableEntity" } },
-  "com.apple.journal.SaveToPhotosIntent": { name: "Open Save to Photos Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveToPhotosIntent" } },
-  "com.apple.journal.SearchEntriesIntent": { name: "Search Entries", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchEntriesIntent" } },
+  "com.apple.journal.SaveToPhotosIntent": { name: "Open Save to Photos Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveToPhotosIntent" } },
+  "com.apple.journal.SearchEntriesIntent": { name: "Search Entries", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchEntriesIntent" } },
   "com.apple.journal.ShowWritingPromptsEntity": { name: "Get Show Writing Prompts", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Show Writing Prompts", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowWritingPromptsEntity" } },
   "com.apple.journal.ShowWritingPromptsEntity-UpdatableEntity": { name: "Update Show Writing Prompts", params: ["entity", "value"], output: "Show Writing Prompts", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowWritingPromptsEntity-UpdatableEntity" } },
-  "com.apple.journal.ShowWritingPromptsIntent": { name: "Open Show Writing Prompts Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowWritingPromptsIntent" } },
+  "com.apple.journal.ShowWritingPromptsIntent": { name: "Open Show Writing Prompts Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowWritingPromptsIntent" } },
   "com.apple.journal.SkipJournalingSuggestionsEntity": { name: "Get Show Suggested Moments", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Show Suggested Moments", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SkipJournalingSuggestionsEntity" } },
   "com.apple.journal.SkipJournalingSuggestionsEntity-UpdatableEntity": { name: "Update Show Suggested Moments", params: ["entity", "value"], output: "Show Suggested Moments", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SkipJournalingSuggestionsEntity-UpdatableEntity" } },
-  "com.apple.journal.SkipJournalingSuggestionsIntent": { name: "Open Show Suggested Moments Setting", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SkipJournalingSuggestionsIntent" } },
-  "com.apple.journal.StreaksWidgetConfigurationIntent": { name: "Streaks", params: ["visualization"], output: "none", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "StreaksWidgetConfigurationIntent" } },
-  "com.apple.mail.ArchiveMessageIntent": { name: "Archive Message", params: ["entities", "ShowWhenRun"], output: "com.apple.mail.MailMessageEntity", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ArchiveMessageIntent" } },
-  "com.apple.mail.CommitSearchSuggestionIntent": { name: "Commit Search Suggestion", params: ["query", "suggestionIndex"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "CommitSearchSuggestionIntent" } },
-  "com.apple.mail.ComposeMessageIntent": { name: "Compose Message", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments"], output: "com.apple.mail.DraftMessageEntity", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ComposeMessageIntent" } },
-  "com.apple.mail.DeleteDraftIntent": { name: "Delete Draft", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteDraftIntent" } },
-  "com.apple.mail.DeleteMessageIntent": { name: "Delete Message", params: ["entities"], output: "com.apple.mail.MailMessageEntity", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteMessageIntent" } },
+  "com.apple.journal.SkipJournalingSuggestionsIntent": { name: "Open Show Suggested Moments Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SkipJournalingSuggestionsIntent" } },
+  "com.apple.journal.StreaksWidgetConfigurationIntent": { name: "Streaks", params: ["visualization"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "StreaksWidgetConfigurationIntent" } },
+  "com.apple.mail.ArchiveMessageIntent": { name: "Archive Message", params: ["entities", "ShowWhenRun"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ArchiveMessageIntent" } },
+  "com.apple.mail.CommitSearchSuggestionIntent": { name: "Commit Search Suggestion", params: ["query", "suggestionIndex"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "CommitSearchSuggestionIntent" } },
+  "com.apple.mail.ComposeMessageIntent": { name: "Compose Message", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ComposeMessageIntent" } },
+  "com.apple.mail.DeleteDraftIntent": { name: "Delete Draft", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteDraftIntent" } },
+  "com.apple.mail.DeleteMessageIntent": { name: "Delete Message", params: ["entities"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteMessageIntent" } },
   "com.apple.mail.DraftMessageEntity": { name: "Find Draft Message", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "DraftMessageEntity" } },
-  "com.apple.mail.ForwardMessageIntent": { name: "Forward Message", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: "com.apple.mail.DraftMessageEntity", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ForwardMessageIntent" } },
-  "com.apple.mail.MailFocusConfigurationAction": { name: "Set Mail Focus Filter", params: ["Mode", "FocusMode", "accounts"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "MailFocusConfigurationAction" } },
+  "com.apple.mail.ForwardMessageIntent": { name: "Forward Message", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ForwardMessageIntent" } },
+  "com.apple.mail.MailFocusConfigurationAction": { name: "Set Mail Focus Filter", params: ["Mode", "FocusMode", "accounts"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "MailFocusConfigurationAction" } },
   "com.apple.mail.MailMessage": { name: "Find Message", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "MailMessage" } },
   "com.apple.mail.MailMessageEntity": { name: "Find Message", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "MailMessageEntity" } },
-  "com.apple.mail.OpenDraftComposerIntent": { name: "Open Draft", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDraftComposerIntent" } },
-  "com.apple.mail.OpenDraftURLIntent": { name: "Open Draft", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDraftURLIntent" } },
-  "com.apple.mail.OpenMessageURLIntent": { name: "Open Message", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMessageURLIntent" } },
-  "com.apple.mail.OpenSmartMailboxIntent": { name: "Open Smart Mailbox", params: ["name"], output: "com.apple.mail.SmartMailboxEntity", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSmartMailboxIntent" } },
-  "com.apple.mail.ReplyMessageIntent": { name: "Reply Message", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "isReplyAll", "target"], output: "com.apple.mail.DraftMessageEntity", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReplyMessageIntent" } },
-  "com.apple.mail.SaveDraftIntent": { name: "Save Draft", params: ["target", "ShowWhenRun"], output: "com.apple.mail.DraftMessageEntity", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveDraftIntent" } },
-  "com.apple.mail.SearchMailEntityIntent": { name: "Show Siri Search Results", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMailEntityIntent" } },
-  "com.apple.mail.SearchMailIntent": { name: "Search", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMailIntent" } },
-  "com.apple.mail.SearchMailSuggestionsIntent": { name: "Search Mail Suggestions", params: ["query", "progressive"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMailSuggestionsIntent" } },
-  "com.apple.mail.SendDraftIntent": { name: "Send Draft", params: ["sendLaterDate", "target", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendDraftIntent" } },
-  "com.apple.mail.SendMail": { name: "Send an Email", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "inReplyTo"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendMail" } },
-  "com.apple.mail.SetMailMessageIsRead": { name: "Mark Email Read", params: ["message", "read"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetMailMessageIsRead" } },
-  "com.apple.mail.UndoSendMessageIntent": { name: "Undo Send Message", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UndoSendMessageIntent" } },
-  "com.apple.mail.UnsubscribeMessageIntent": { name: "Unsubscribe Message", params: ["messages", "ShowWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsubscribeMessageIntent" } },
-  "com.apple.mail.UpdateDraftIntent": { name: "Update Draft", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: "com.apple.mail.DraftMessageEntity", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateDraftIntent" } },
-  "com.apple.mail.UpdateMessageIntent": { name: "Update Message", params: ["target", "isRead", "isFlagged", "isJunk", "flagColor", "mailbox"], output: "com.apple.mail.MailMessageEntity", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateMessageIntent" } },
-  "com.apple.mobilenotes.SharingExtension": { name: "Create Note", params: ["name", "contents", "folder", "interpretAsMarkdown", "OpenWhenRun"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNoteLinkAction" } },
-  "com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent": { name: "Add Alarm", params: ["dateComponents", "name", "repeats", "allowsSnooze", "OpenWhenRun"], output: "com.apple.clock.AlarmEntity", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateAlarmIntent" } },
+  "com.apple.mail.OpenDraftComposerIntent": { name: "Open Draft", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDraftComposerIntent" } },
+  "com.apple.mail.OpenDraftURLIntent": { name: "Open Draft", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDraftURLIntent" } },
+  "com.apple.mail.OpenMessageURLIntent": { name: "Open Message", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMessageURLIntent" } },
+  "com.apple.mail.OpenSmartMailboxIntent": { name: "Open Smart Mailbox", params: ["name"], output: "Smart Mailbox", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSmartMailboxIntent" } },
+  "com.apple.mail.ReplyMessageIntent": { name: "Reply Message", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "isReplyAll", "target"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReplyMessageIntent" } },
+  "com.apple.mail.SaveDraftIntent": { name: "Save Draft", params: ["target", "ShowWhenRun"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveDraftIntent" } },
+  "com.apple.mail.SearchMailEntityIntent": { name: "Show Siri Search Results", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMailEntityIntent" } },
+  "com.apple.mail.SearchMailIntent": { name: "Search", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMailIntent" } },
+  "com.apple.mail.SearchMailSuggestionsIntent": { name: "Search Mail Suggestions", params: ["query", "progressive"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMailSuggestionsIntent" } },
+  "com.apple.mail.SendDraftIntent": { name: "Send Draft", params: ["sendLaterDate", "target", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendDraftIntent" } },
+  "com.apple.mail.SendMail": { name: "Send an Email", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "inReplyTo"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendMail" } },
+  "com.apple.mail.SetMailMessageIsRead": { name: "Mark Email Read", params: ["message", "read"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetMailMessageIsRead" } },
+  "com.apple.mail.UndoSendMessageIntent": { name: "Undo Send Message", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UndoSendMessageIntent" } },
+  "com.apple.mail.UnsubscribeMessageIntent": { name: "Unsubscribe Message", params: ["messages", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsubscribeMessageIntent" } },
+  "com.apple.mail.UpdateDraftIntent": { name: "Update Draft", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateDraftIntent" } },
+  "com.apple.mail.UpdateMessageIntent": { name: "Update Message", params: ["target", "isRead", "isFlagged", "isJunk", "flagColor", "mailbox"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateMessageIntent" } },
+  "com.apple.mobilenotes.SharingExtension": { name: "Create Note", params: ["name", "contents", "folder", "interpretAsMarkdown", "OpenWhenRun"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNoteLinkAction" } },
+  "com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent": { name: "Add Alarm", params: ["dateComponents", "name", "repeats", "allowsSnooze", "OpenWhenRun"], output: "Alarm", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateAlarmIntent" } },
   "com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent": { name: "Find Alarms", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Alarms", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "MTGetAlarmsIntent" } },
-  "com.apple.mobiletimer-framework.MobileTimerIntents.MTToggleAlarmIntent": { name: "Toggle Alarm", params: ["operation", "state", "alarm", "ShowWhenRun"], output: "com.apple.clock.AlarmEntity", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleAlarmIntent" } },
-  "com.apple.musicrecognition.mac.RecognizeAudioIntent": { name: "Recognize Music", params: ["addToLibrary", "errorIfNotRecognized", "ShowWhenRun"], output: "com.apple.musicrecognition.mac.ShazamSongEntity", descriptor: { BundleIdentifier: "com.apple.musicrecognition.mac", Name: "Music Recognition", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecognizeAudioIntent" } },
-  "com.apple.musicrecognition.mac.ShazamSongEntityOpenIntent": { name: "Open Recognized Song", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.musicrecognition.mac", Name: "Music Recognition", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShazamSongEntityOpenIntent" } },
+  "com.apple.mobiletimer-framework.MobileTimerIntents.MTToggleAlarmIntent": { name: "Toggle Alarm", params: ["operation", "state", "alarm", "ShowWhenRun"], output: "Alarm", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleAlarmIntent" } },
+  "com.apple.musicrecognition.mac.RecognizeAudioIntent": { name: "Recognize Music", params: ["addToLibrary", "errorIfNotRecognized", "ShowWhenRun"], output: "Song", descriptor: { BundleIdentifier: "com.apple.musicrecognition.mac", Name: "Music Recognition", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecognizeAudioIntent" } },
+  "com.apple.musicrecognition.mac.ShazamSongEntityOpenIntent": { name: "Open Recognized Song", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.musicrecognition.mac", Name: "Music Recognition", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShazamSongEntityOpenIntent" } },
   "com.apple.news.AutoDownloadAudioStoriesEntity": { name: "Get Automatically Download Audio Stories", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Automatically Download Audio Stories", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoDownloadAudioStoriesEntity" } },
   "com.apple.news.AutoDownloadAudioStoriesEntity-UpdatableEntity": { name: "Update Automatically Download Audio Stories", params: ["entity", "value"], output: "Automatically Download Audio Stories", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoDownloadAudioStoriesEntity-UpdatableEntity" } },
   "com.apple.news.AutoDownloadEntity": { name: "Get Automatic Downloads", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Automatic Downloads", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoDownloadEntity" } },
@@ -15355,268 +14645,268 @@ export const ACTIONS = {
   "com.apple.news.AutoDownloadSavedStoriesEntity-UpdatableEntity": { name: "Update Automatically Download Saved Stories", params: ["entity", "value"], output: "Automatically Download Saved Stories", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoDownloadSavedStoriesEntity-UpdatableEntity" } },
   "com.apple.news.AutoDownloadStoriesInFeedsEntity": { name: "Get Automatically Download Stories In Feeds", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Automatically Download Stories In Feeds", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoDownloadStoriesInFeedsEntity" } },
   "com.apple.news.AutoDownloadStoriesInFeedsEntity-UpdatableEntity": { name: "Update Automatically Download Stories In Feeds", params: ["entity", "value"], output: "Automatically Download Stories In Feeds", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoDownloadStoriesInFeedsEntity-UpdatableEntity" } },
-  "com.apple.news.BlockIntent": { name: "Block Channel or Topic", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "BlockIntent" } },
-  "com.apple.news.DecreaseTextSizeIntent": { name: "Decrease Text Size", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "DecreaseTextSizeIntent" } },
-  "com.apple.news.FollowIntent": { name: "Follow Channel or Topic", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowIntent" } },
+  "com.apple.news.BlockIntent": { name: "Block Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "BlockIntent" } },
+  "com.apple.news.DecreaseTextSizeIntent": { name: "Decrease Text Size", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "DecreaseTextSizeIntent" } },
+  "com.apple.news.FollowIntent": { name: "Follow Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowIntent" } },
   "com.apple.news.GameCenterEntity": { name: "Get Game Center", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Game Center", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GameCenterEntity" } },
   "com.apple.news.GameCenterEntity-UpdatableEntity": { name: "Update Game Center", params: ["entity", "value"], output: "Game Center", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GameCenterEntity-UpdatableEntity" } },
-  "com.apple.news.GetIngredientsAppIntent": { name: "Get Ingredients", params: ["recipe"], output: "com.apple.news.IngredientEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetIngredientsAppIntent" } },
-  "com.apple.news.GetRecentRecipesAppIntent": { name: "Get Recent Recipes", params: [], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetRecentRecipesAppIntent" } },
-  "com.apple.news.GetSavedRecipesAppIntent": { name: "Get Saved Recipes", params: [], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetSavedRecipesAppIntent" } },
-  "com.apple.news.IncreaseTextSizeIntent": { name: "Increase Text Size", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "IncreaseTextSizeIntent" } },
+  "com.apple.news.GetIngredientsAppIntent": { name: "Get Ingredients", params: ["recipe"], output: "Recipe Ingredient", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetIngredientsAppIntent" } },
+  "com.apple.news.GetRecentRecipesAppIntent": { name: "Get Recent Recipes", params: [], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetRecentRecipesAppIntent" } },
+  "com.apple.news.GetSavedRecipesAppIntent": { name: "Get Saved Recipes", params: [], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetSavedRecipesAppIntent" } },
+  "com.apple.news.IncreaseTextSizeIntent": { name: "Increase Text Size", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "IncreaseTextSizeIntent" } },
   "com.apple.news.NewsSettingsAutomaticDownloadDynamicDeepLinks": { name: "Find News Automatic Download Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "News Automatic Download Settings", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewsSettingsAutomaticDownloadDynamicDeepLinks" } },
   "com.apple.news.NewsSettingsDynamicDeepLinks": { name: "Find News Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "News Settings", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewsSettingsDynamicDeepLinks" } },
   "com.apple.news.NewsTabDeepLink": { name: "Find News Tab Deep Links", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "News Tab Deep Links", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewsTabDeepLink" } },
-  "com.apple.news.OpenArticleIntent": { name: "Open Article", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenArticleIntent" } },
-  "com.apple.news.OpenFeedIntent": { name: "Open Channel or Topic", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFeedIntent" } },
-  "com.apple.news.OpenHistoryIntent": { name: "Open History Feed", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHistoryIntent" } },
-  "com.apple.news.OpenNewsSettingsDynamicDeepLinks": { name: "Open Main Page of News Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNewsSettingsDynamicDeepLinks" } },
-  "com.apple.news.OpenRecipeIntent": { name: "Open Recipe", params: ["target"], output: "com.apple.news.NewsRecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenRecipeIntent" } },
-  "com.apple.news.OpenSavedIntent": { name: "Open Saved Feed", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSavedIntent" } },
-  "com.apple.news.OpenSavedRecipesIntent": { name: "Open Saved Recipes", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSavedRecipesIntent" } },
-  "com.apple.news.OpenStaticFeed": { name: "Open News Feed", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStaticFeed" } },
+  "com.apple.news.OpenArticleIntent": { name: "Open Article", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenArticleIntent" } },
+  "com.apple.news.OpenFeedIntent": { name: "Open Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFeedIntent" } },
+  "com.apple.news.OpenHistoryIntent": { name: "Open History Feed", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHistoryIntent" } },
+  "com.apple.news.OpenNewsSettingsDynamicDeepLinks": { name: "Open Main Page of News Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNewsSettingsDynamicDeepLinks" } },
+  "com.apple.news.OpenRecipeIntent": { name: "Open Recipe", params: ["target"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenRecipeIntent" } },
+  "com.apple.news.OpenSavedIntent": { name: "Open Saved Feed", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSavedIntent" } },
+  "com.apple.news.OpenSavedRecipesIntent": { name: "Open Saved Recipes", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSavedRecipesIntent" } },
+  "com.apple.news.OpenStaticFeed": { name: "Open News Feed", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStaticFeed" } },
   "com.apple.news.OptimizeStorageEntity": { name: "Get Optimize Storage", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Optimize Storage", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OptimizeStorageEntity" } },
   "com.apple.news.OptimizeStorageEntity-UpdatableEntity": { name: "Update Optimize Storage", params: ["entity", "value"], output: "Optimize Storage", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "OptimizeStorageEntity-UpdatableEntity" } },
-  "com.apple.news.PlayArticleIntent": { name: "Play Article", params: ["article"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayArticleIntent" } },
+  "com.apple.news.PlayArticleIntent": { name: "Play Article", params: ["article"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayArticleIntent" } },
   "com.apple.news.RestrictStoriesInTodaySettingEntity": { name: "Get Restrict Stories in Today", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Restrict Stories in Today", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "RestrictStoriesInTodaySettingEntity" } },
   "com.apple.news.RestrictStoriesInTodaySettingEntity-UpdatableEntity": { name: "Update Restrict Stories in Today", params: ["entity", "value"], output: "Restrict Stories in Today", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "RestrictStoriesInTodaySettingEntity-UpdatableEntity" } },
-  "com.apple.news.SaveArticleIntent": { name: "Save Article", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveArticleIntent" } },
-  "com.apple.news.SaveRecipeAppIntent": { name: "Save Recipe", params: ["recipe"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveRecipeAppIntent" } },
-  "com.apple.news.SelectIngredientAppIntent": { name: "Select Ingredient", params: ["recipe", "ingredient"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectIngredientAppIntent" } },
-  "com.apple.news.ShowDetailsAppIntent": { name: "Show Details", params: ["recipe"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowDetailsAppIntent" } },
-  "com.apple.news.ShowIngredientsAppIntent": { name: "Show Ingredients", params: ["recipe"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowIngredientsAppIntent" } },
-  "com.apple.news.ShowInstructionsAppIntent": { name: "Show Instructions", params: ["recipe"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowInstructionsAppIntent" } },
-  "com.apple.news.ShowNextStepAppIntent": { name: "Show Next Step", params: ["recipe"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowNextStepAppIntent" } },
-  "com.apple.news.ShowPreviousStepAppIntent": { name: "Show Previous Step", params: ["recipe"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowPreviousStepAppIntent" } },
-  "com.apple.news.ShowSpecificStepIntent": { name: "Show Specific Step", params: ["recipe", "step"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowSpecificStepIntent" } },
-  "com.apple.news.StartCookingAppIntent": { name: "Start Cooking", params: ["recipe"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCookingAppIntent" } },
-  "com.apple.news.StopCookingAppIntent": { name: "Stop Cooking", params: ["recipe"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopCookingAppIntent" } },
-  "com.apple.news.ToggleAudioPlaybackIntent": { name: "Play Audio Article", params: ["articleID"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleAudioPlaybackIntent" } },
-  "com.apple.news.UnblockIntent": { name: "Unblock Channel or Topic", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnblockIntent" } },
-  "com.apple.news.UnsaveArticleIntent": { name: "Unsave Article", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsaveArticleIntent" } },
-  "com.apple.news.UnsaveRecipeAppIntent": { name: "Unsave Recipe", params: ["recipe"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsaveRecipeAppIntent" } },
-  "com.apple.news.UnselectIngredientAppIntent": { name: "Unselect Ingredient", params: ["recipe", "ingredient"], output: "com.apple.news.RecipeEntity", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnselectIngredientAppIntent" } },
+  "com.apple.news.SaveArticleIntent": { name: "Save Article", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveArticleIntent" } },
+  "com.apple.news.SaveRecipeAppIntent": { name: "Save Recipe", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveRecipeAppIntent" } },
+  "com.apple.news.SelectIngredientAppIntent": { name: "Select Ingredient", params: ["recipe", "ingredient"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectIngredientAppIntent" } },
+  "com.apple.news.ShowDetailsAppIntent": { name: "Show Details", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowDetailsAppIntent" } },
+  "com.apple.news.ShowIngredientsAppIntent": { name: "Show Ingredients", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowIngredientsAppIntent" } },
+  "com.apple.news.ShowInstructionsAppIntent": { name: "Show Instructions", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowInstructionsAppIntent" } },
+  "com.apple.news.ShowNextStepAppIntent": { name: "Show Next Step", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowNextStepAppIntent" } },
+  "com.apple.news.ShowPreviousStepAppIntent": { name: "Show Previous Step", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowPreviousStepAppIntent" } },
+  "com.apple.news.ShowSpecificStepIntent": { name: "Show Specific Step", params: ["recipe", "step"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowSpecificStepIntent" } },
+  "com.apple.news.StartCookingAppIntent": { name: "Start Cooking", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCookingAppIntent" } },
+  "com.apple.news.StopCookingAppIntent": { name: "Stop Cooking", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopCookingAppIntent" } },
+  "com.apple.news.ToggleAudioPlaybackIntent": { name: "Play Audio Article", params: ["articleID"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleAudioPlaybackIntent" } },
+  "com.apple.news.UnblockIntent": { name: "Unblock Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnblockIntent" } },
+  "com.apple.news.UnsaveArticleIntent": { name: "Unsave Article", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsaveArticleIntent" } },
+  "com.apple.news.UnsaveRecipeAppIntent": { name: "Unsave Recipe", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsaveRecipeAppIntent" } },
+  "com.apple.news.UnselectIngredientAppIntent": { name: "Unselect Ingredient", params: ["recipe", "ingredient"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnselectIngredientAppIntent" } },
   "com.apple.news.WFAppSettingEntityUpdaterAction": { name: "Change News Settings", params: ["entity", "AutoDownloadAudioStoriesEntity", "AutoDownloadEntity", "AutoDownloadMagazineIssuesEntity", "AutoDownloadPuzzlesEntity", "AutoDownloadRecipesEntity", "AutoDownloadSavedStoriesEntity", "AutoDownloadStoriesInFeedsEntity", "GameCenterEntity", "OptimizeStorageEntity", "RestrictStoriesInTodaySettingEntity"], output: "Automatically Download Audio Stories", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFAppSettingEntityUpdaterAction" } },
   "com.apple.news.WFGetAppSettingAction": { name: "Get News Settings", params: ["entity"], output: "Automatically Download Audio Stories", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFGetAppSettingAction" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenFlightReservationEntityIntent": { name: "Open Flight Reservation Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFlightReservationEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenGenericEventEntityIntent": { name: "Open Generic Event Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGenericEventEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenHotelReservationEntityIntent": { name: "Open Hotel Reservation Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHotelReservationEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenIDCardBusinessEntityIntent": { name: "Open Business ID Card Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenIDCardBusinessEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenIDCardPersonalEntityIntent": { name: "Open Personal ID Card Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenIDCardPersonalEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenMediaEntityIntent": { name: "Open Media Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMediaEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenRestaurantReservationEntityIntent": { name: "Open Restaurant Reservation Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenRestaurantReservationEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenSearchSpotlightEntityIntent": { name: "Open Search Spotlight Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSearchSpotlightEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenTicketedShowEntityIntent": { name: "Open Ticketed Show Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTicketedShowEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenTicketedTransportationEntityIntent": { name: "Open Ticketed Transportation Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTicketedTransportationEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenVehicleReservationEntityIntent": { name: "Open Vehicle Reservation Entity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenVehicleReservationEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenFlightReservationEntityIntent": { name: "Open Flight Reservation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFlightReservationEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenGenericEventEntityIntent": { name: "Open Generic Event Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGenericEventEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenHotelReservationEntityIntent": { name: "Open Hotel Reservation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHotelReservationEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenIDCardBusinessEntityIntent": { name: "Open Business ID Card Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenIDCardBusinessEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenIDCardPersonalEntityIntent": { name: "Open Personal ID Card Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenIDCardPersonalEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenMediaEntityIntent": { name: "Open Media Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMediaEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenRestaurantReservationEntityIntent": { name: "Open Restaurant Reservation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenRestaurantReservationEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenSearchSpotlightEntityIntent": { name: "Open Search Spotlight Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSearchSpotlightEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenTicketedShowEntityIntent": { name: "Open Ticketed Show Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTicketedShowEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenTicketedTransportationEntityIntent": { name: "Open Ticketed Transportation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTicketedTransportationEntityIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.OpenVehicleReservationEntityIntent": { name: "Open Vehicle Reservation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenVehicleReservationEntityIntent" } },
   "com.apple.omniSearch.SearchToolExtension.SearchTool": { name: "Search", params: ["rawQuery", "rewrittenQuery", "simplifiedQuery", "structuredQuery", "typeIdentifiers", "context", "matchedEntities", "isFirstToolInvocation", "isOnScreenReference", "isSingleStepSearch", "invocationClient", "requestedProperties", "disambiguatedEntity", "ShowWhenRun"], output: "Search results", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchTool" } },
   "com.apple.omniSearch.SearchToolExtension.SearchToolControl": { name: "SearchTool Control", params: ["command", "originatorPID", "useMiniMC"], output: "SearchTool control command result", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchToolControl" } },
   "com.apple.omniSearch.SearchToolExtension.SearchToolMCGrounding": { name: "Search Tool Memory Creation Grounding", params: ["rawQueries", "quParses"], output: "SearchTool Memory Creation QU result", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchToolMCGrounding" } },
   "com.apple.omniSearch.SearchToolExtension.SearchToolMCQU": { name: "SearchTool MC QU", params: ["query", "originatorPID", "useMiniMC", "personNames", "petNames", "locations", "currentTime"], output: "SearchTool MC QU result", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchToolMCQU" } },
-  "com.apple.podcasts.AddAudioToLibraryIntent": { name: "Add Audio to Library", params: ["audioEntity"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddAudioToLibraryIntent" } },
+  "com.apple.podcasts.AddAudioToLibraryIntent": { name: "Add Audio to Library", params: ["audioEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddAudioToLibraryIntent" } },
   "com.apple.podcasts.EpisodeEntity": { name: "Find Podcast Episode", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Podcast Episode", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "EpisodeEntity" } },
-  "com.apple.podcasts.FollowShowAppIntent": { name: "Follow Show", params: ["show", "OpenWhenRun"], output: "com.apple.podcasts.ShowEntity", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowShowAppIntent" } },
-  "com.apple.podcasts.OpenAppLocationAppIntent": { name: "Open App Location", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppLocationAppIntent" } },
-  "com.apple.podcasts.OpenAudioAppIntent": { name: "Open Audio Intent", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAudioAppIntent" } },
-  "com.apple.podcasts.OpenChannelAppIntent": { name: "Open Channel", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenChannelAppIntent" } },
-  "com.apple.podcasts.OpenEpisodeAppIntent": { name: "Open Episode", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEpisodeAppIntent" } },
-  "com.apple.podcasts.OpenShowAppIntent": { name: "Open Show", params: ["target", "notice"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenShowAppIntent" } },
-  "com.apple.podcasts.PlayAudioIntent": { name: "Play Episode", params: ["warmupAudioQueueResult", "playbackAttributes", "queueLocation", "audioEntity", "requestIdentifierOverride"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayAudioIntent" } },
-  "com.apple.podcasts.PlayPauseStationAppIntent": { name: "Play or Pause Station", params: ["station", "firstEpisode"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayPauseStationAppIntent" } },
-  "com.apple.podcasts.PlayPauseWidgetIntent": { name: "Play or Pause Episode", params: ["episode", "episodePlaylist", "playbackAccountDSID"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayPauseWidgetIntent" } },
+  "com.apple.podcasts.FollowShowAppIntent": { name: "Follow Show", params: ["show", "OpenWhenRun"], output: "Podcast Show", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowShowAppIntent" } },
+  "com.apple.podcasts.OpenAppLocationAppIntent": { name: "Open App Location", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppLocationAppIntent" } },
+  "com.apple.podcasts.OpenAudioAppIntent": { name: "Open Audio Intent", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAudioAppIntent" } },
+  "com.apple.podcasts.OpenChannelAppIntent": { name: "Open Channel", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenChannelAppIntent" } },
+  "com.apple.podcasts.OpenEpisodeAppIntent": { name: "Open Episode", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEpisodeAppIntent" } },
+  "com.apple.podcasts.OpenShowAppIntent": { name: "Open Show", params: ["target", "notice"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenShowAppIntent" } },
+  "com.apple.podcasts.PlayAudioIntent": { name: "Play Episode", params: ["warmupAudioQueueResult", "playbackAttributes", "queueLocation", "audioEntity", "requestIdentifierOverride"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayAudioIntent" } },
+  "com.apple.podcasts.PlayPauseStationAppIntent": { name: "Play or Pause Station", params: ["station", "firstEpisode"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayPauseStationAppIntent" } },
+  "com.apple.podcasts.PlayPauseWidgetIntent": { name: "Play or Pause Episode", params: ["episode", "episodePlaylist", "playbackAccountDSID"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayPauseWidgetIntent" } },
   "com.apple.podcasts.PodcastCollectionEntity": { name: "Find Podcast Collection", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Podcast Collection", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "PodcastCollectionEntity" } },
-  "com.apple.podcasts.SearchPodcastsAppIntent": { name: "Search Podcasts", params: ["criteria"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchPodcastsAppIntent" } },
-  "com.apple.podcasts.SelectLibraryListAppIntent": { name: "Select a Library List", params: ["list"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectLibraryListAppIntent" } },
-  "com.apple.podcasts.SelectWidgetShowAppIntent": { name: "Select a Podcast Show", params: ["show"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectWidgetShowAppIntent" } },
+  "com.apple.podcasts.SearchPodcastsAppIntent": { name: "Search Podcasts", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchPodcastsAppIntent" } },
+  "com.apple.podcasts.SelectLibraryListAppIntent": { name: "Select a Library List", params: ["list"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectLibraryListAppIntent" } },
+  "com.apple.podcasts.SelectWidgetShowAppIntent": { name: "Select a Podcast Show", params: ["show"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectWidgetShowAppIntent" } },
   "com.apple.podcasts.ShowEntity": { name: "Find Podcast Show", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Podcast Show", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowEntity" } },
-  "com.apple.podcasts.WarmupAudioQueueIntent": { name: "Warmup Audio Queue", params: ["audioEntity", "requestIdentifierOverride", "playbackAttributes"], output: "com.apple.podcasts.WarmupAudioQueueResult", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "WarmupAudioQueueIntent" } },
-  "com.apple.printcenter.CancelPrintJob": { name: "Cancel Print Job", params: ["jobContextIdentifier"], output: "none", descriptor: { BundleIdentifier: "com.apple.printcenter", Name: "Print Center", TeamIdentifier: "0000000000", AppIntentIdentifier: "CancelPrintJob" } },
-  "com.apple.printcenter.LaunchPrintCenterAppIntent": { name: "Open Print Center", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.printcenter", Name: "Print Center", TeamIdentifier: "0000000000", AppIntentIdentifier: "LaunchPrintCenterAppIntent" } },
-  "com.apple.printcenter.PrintDocuments": { name: "Print Documents", params: ["documents", "printer"], output: "none", descriptor: { BundleIdentifier: "com.apple.printcenter", Name: "Print Center", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrintDocuments" } },
-  "com.apple.reminders.AddOrRemoveTagsAppIntent": { name: "Add or Remove Tags", params: ["operation", "reminders", "tags", "OpenWhenRun"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddOrRemoveTagsAppIntent" } },
-  "com.apple.reminders.CompleteReminderAppIntent": { name: "Set Reminder completion state", params: ["reminder", "isCompleted", "completeSubtasks", "OpenWhenRun"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CompleteReminderAppIntent" } },
-  "com.apple.reminders.CompleteRemindersAppIntent": { name: "Set Reminders completion state <no loc>", params: ["reminders", "isCompleted", "completeSubtasks"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CompleteRemindersAppIntent" } },
-  "com.apple.reminders.CreateCustomSmartListAppIntent": { name: "Open New Custom Smart List", params: ["name"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateCustomSmartListAppIntent" } },
-  "com.apple.reminders.CreateGroupAppIntent": { name: "Create Group", params: ["name", "lists"], output: "com.apple.reminders.GroupEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateGroupAppIntent" } },
-  "com.apple.reminders.CreateSectionAppIntent": { name: "Create Section", params: ["list", "name", "OpenWhenRun"], output: "com.apple.reminders.SectionEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateSectionAppIntent" } },
-  "com.apple.reminders.DeleteListsAppIntent": { name: "Delete Lists", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteListsAppIntent" } },
-  "com.apple.reminders.DeleteRemindersAppIntent": { name: "Delete Reminders and Subtasks", params: ["entities", "deleteSubtasks", "deleteRecurringReminders"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteRemindersAppIntent" } },
-  "com.apple.reminders.DeleteRemindersListGroupsAppIntent": { name: "Delete Groups", params: ["entities", "deleteSublists"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteRemindersListGroupsAppIntent" } },
-  "com.apple.reminders.DeleteSectionsAppIntent": { name: "Delete Sections", params: ["entities", "deleteReminders"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteSectionsAppIntent" } },
-  "com.apple.reminders.GetDefaultListAppIntent": { name: "Get Default List <no loc>", params: ["requireCloudKitAccount"], output: "com.apple.reminders.ListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetDefaultListAppIntent" } },
+  "com.apple.podcasts.WarmupAudioQueueIntent": { name: "Warmup Audio Queue", params: ["audioEntity", "requestIdentifierOverride", "playbackAttributes"], output: "Warmup Audio Queue Result", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "WarmupAudioQueueIntent" } },
+  "com.apple.printcenter.CancelPrintJob": { name: "Cancel Print Job", params: ["jobContextIdentifier"], output: null, descriptor: { BundleIdentifier: "com.apple.printcenter", Name: "Print Center", TeamIdentifier: "0000000000", AppIntentIdentifier: "CancelPrintJob" } },
+  "com.apple.printcenter.LaunchPrintCenterAppIntent": { name: "Open Print Center", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.printcenter", Name: "Print Center", TeamIdentifier: "0000000000", AppIntentIdentifier: "LaunchPrintCenterAppIntent" } },
+  "com.apple.printcenter.PrintDocuments": { name: "Print Documents", params: ["documents", "printer"], output: null, descriptor: { BundleIdentifier: "com.apple.printcenter", Name: "Print Center", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrintDocuments" } },
+  "com.apple.reminders.AddOrRemoveTagsAppIntent": { name: "Add or Remove Tags", params: ["operation", "reminders", "tags", "OpenWhenRun"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddOrRemoveTagsAppIntent" } },
+  "com.apple.reminders.CompleteReminderAppIntent": { name: "Set Reminder completion state", params: ["reminder", "isCompleted", "completeSubtasks", "OpenWhenRun"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CompleteReminderAppIntent" } },
+  "com.apple.reminders.CompleteRemindersAppIntent": { name: "Set Reminders completion state <no loc>", params: ["reminders", "isCompleted", "completeSubtasks"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CompleteRemindersAppIntent" } },
+  "com.apple.reminders.CreateCustomSmartListAppIntent": { name: "Open New Custom Smart List", params: ["name"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateCustomSmartListAppIntent" } },
+  "com.apple.reminders.CreateGroupAppIntent": { name: "Create Group", params: ["name", "lists"], output: "Group", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateGroupAppIntent" } },
+  "com.apple.reminders.CreateSectionAppIntent": { name: "Create Section", params: ["list", "name", "OpenWhenRun"], output: "Section", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateSectionAppIntent" } },
+  "com.apple.reminders.DeleteListsAppIntent": { name: "Delete Lists", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteListsAppIntent" } },
+  "com.apple.reminders.DeleteRemindersAppIntent": { name: "Delete Reminders and Subtasks", params: ["entities", "deleteSubtasks", "deleteRecurringReminders"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteRemindersAppIntent" } },
+  "com.apple.reminders.DeleteRemindersListGroupsAppIntent": { name: "Delete Groups", params: ["entities", "deleteSublists"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteRemindersListGroupsAppIntent" } },
+  "com.apple.reminders.DeleteSectionsAppIntent": { name: "Delete Sections", params: ["entities", "deleteReminders"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteSectionsAppIntent" } },
+  "com.apple.reminders.GetDefaultListAppIntent": { name: "Get Default List <no loc>", params: ["requireCloudKitAccount"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetDefaultListAppIntent" } },
   "com.apple.reminders.GroupEntity": { name: "Find Group", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Group", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "GroupEntity" } },
   "com.apple.reminders.GroupEntity-UpdatableEntity": { name: "Change Reminders Group Name", params: ["entity", "nameUpdatableProperty"], output: "Group", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "GroupEntity-UpdatableEntity" } },
   "com.apple.reminders.ListEntity": { name: "Find List", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "ListEntity" } },
   "com.apple.reminders.ListEntity-UpdatableEntity": { name: "Edit List", params: ["badge", "color", "entity", "parent"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "ListEntity-UpdatableEntity" } },
-  "com.apple.reminders.MoveRemindersAppIntent": { name: "Move Reminders", params: ["reminders", "position", "targetType", "list", "section", "parentReminder", "OpenWhenRun"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersAppIntent" } },
-  "com.apple.reminders.MoveRemindersToListAppIntent": { name: "Move Reminders to a Reminders List <no loc>", params: ["reminders", "position", "targetList", "OpenWhenRun"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersToListAppIntent" } },
-  "com.apple.reminders.MoveRemindersToParentReminderAppIntent": { name: "Move Reminders to become Subtasks of a Parent Reminder <no loc>", params: ["reminders", "position", "parentReminder"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersToParentReminderAppIntent" } },
-  "com.apple.reminders.MoveRemindersToSectionAppIntent": { name: "Move Reminders to a Reminders List Section <no loc>", params: ["reminders", "position", "targetSection"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersToSectionAppIntent" } },
-  "com.apple.reminders.OpenGroupAppIntent": { name: "Open Group", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGroupAppIntent" } },
-  "com.apple.reminders.OpenReminderAppIntent": { name: "Open Reminder In List", params: ["target", "showDetail", "title", "caption", "inSmartList"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenReminderAppIntent" } },
-  "com.apple.reminders.OpenSmartListAppIntent": { name: "Open Smart List", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSmartListAppIntent" } },
+  "com.apple.reminders.MoveRemindersAppIntent": { name: "Move Reminders", params: ["reminders", "position", "targetType", "list", "section", "parentReminder", "OpenWhenRun"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersAppIntent" } },
+  "com.apple.reminders.MoveRemindersToListAppIntent": { name: "Move Reminders to a Reminders List <no loc>", params: ["reminders", "position", "targetList", "OpenWhenRun"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersToListAppIntent" } },
+  "com.apple.reminders.MoveRemindersToParentReminderAppIntent": { name: "Move Reminders to become Subtasks of a Parent Reminder <no loc>", params: ["reminders", "position", "parentReminder"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersToParentReminderAppIntent" } },
+  "com.apple.reminders.MoveRemindersToSectionAppIntent": { name: "Move Reminders to a Reminders List Section <no loc>", params: ["reminders", "position", "targetSection"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersToSectionAppIntent" } },
+  "com.apple.reminders.OpenGroupAppIntent": { name: "Open Group", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGroupAppIntent" } },
+  "com.apple.reminders.OpenReminderAppIntent": { name: "Open Reminder In List", params: ["target", "showDetail", "title", "caption", "inSmartList"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenReminderAppIntent" } },
+  "com.apple.reminders.OpenSmartListAppIntent": { name: "Open Smart List", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSmartListAppIntent" } },
   "com.apple.reminders.ReminderEntity": { name: "Find Reminder", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReminderEntity" } },
   "com.apple.reminders.RemotePreferencesEntity": { name: "Get User Defaults Entity", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "User Defaults Entity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemotePreferencesEntity" } },
   "com.apple.reminders.SectionEntity": { name: "Find Section", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Section", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SectionEntity" } },
   "com.apple.reminders.SectionEntity-UpdatableEntity": { name: "Update section collapsed state", params: ["entity", "isCollapsed"], output: "Section", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SectionEntity-UpdatableEntity" } },
   "com.apple.reminders.SmartListEntity": { name: "Find Smart List", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Reminders Smart Lists", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SmartListEntity" } },
-  "com.apple.reminders.SnoozeRemindersAppIntent": { name: "Snooze Reminders", params: ["entities", "nextTriggerTime"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SnoozeRemindersAppIntent" } },
-  "com.apple.reminders.TTRCreateListAppIntent": { name: "Create List", params: ["name", "type", "group", "OpenWhenRun"], output: "com.apple.reminders.ListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateListAppIntent" } },
-  "com.apple.reminders.TTRCreateReminderAppIntent": { name: "Create Reminder", params: ["title", "note", "isFlagged", "images", "tags", "urls", "dueDate", "recurrence", "locationTrigger", "list", "section", "isAllDay", "earlyAlert", "vehicleTrigger", "priorityLevel", "parentReminder", "contactPerson", "assignedPerson", "subtasks"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateReminderAppIntent" } },
-  "com.apple.reminders.TTROpenListAppIntent": { name: "Open List", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTROpenListAppIntent" } },
-  "com.apple.reminders.TTROpenSmartListAppIntent": { name: "Open List", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTROpenSmartListAppIntent" } },
-  "com.apple.reminders.TTRReminderSetCompletedIntent": { name: "Toggle Reminder completion", params: ["reminder", "isCompleted", "isFromUrgentReminderActivity"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRReminderSetCompletedIntent" } },
-  "com.apple.reminders.TTRSearchRemindersAppIntent": { name: "Search in Reminders", params: ["searchPhrase"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRSearchRemindersAppIntent" } },
-  "com.apple.reminders.UpdateGroupAppIntent": { name: "Update reminders group properties", params: ["name", "target", "lists"], output: "com.apple.reminders.GroupEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateGroupAppIntent" } },
-  "com.apple.reminders.UpdateListAppIntent": { name: "Edit List", params: ["target", "name", "type", "color", "badge", "parent", "propertyToUpdate"], output: "com.apple.reminders.ListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListAppIntent" } },
-  "com.apple.reminders.UpdateListAutoCategorizeAppIntent": { name: "Auto-Categorize Reminders List", params: ["target", "autoCategorize", "OpenWhenRun"], output: "com.apple.reminders.ListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListAutoCategorizeAppIntent" } },
-  "com.apple.reminders.UpdateListIsPinnedAppIntent": { name: "Pin/Unpin Reminders List", params: ["target", "isPinned", "OpenWhenRun"], output: "com.apple.reminders.ListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListIsPinnedAppIntent" } },
-  "com.apple.reminders.UpdateListLayoutAppIntent": { name: "Change Reminders List Layout", params: ["target", "listLayout", "OpenWhenRun"], output: "com.apple.reminders.ListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListLayoutAppIntent" } },
-  "com.apple.reminders.UpdateListShowsCompletedAppIntent": { name: "Show/Hide Completed Reminders", params: ["target", "showsCompleted", "OpenWhenRun"], output: "com.apple.reminders.ListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListShowsCompletedAppIntent" } },
-  "com.apple.reminders.UpdateListSortingStyleAppIntent": { name: "Change Reminders List Sorting Style", params: ["target", "sortingStyle", "OpenWhenRun"], output: "com.apple.reminders.ListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListSortingStyleAppIntent" } },
-  "com.apple.reminders.UpdateReminderAppIntent": { name: "Update Reminder properties", params: ["target", "isCompleted", "isFlagged", "title", "note", "images", "tags", "urls", "dueDate", "recurrence", "locationTrigger", "subtasks", "list", "section", "earlyAlert", "vehicleTrigger", "contactPerson", "assignedPerson", "priorityLevel", "parent"], output: "com.apple.reminders.ReminderEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateReminderAppIntent" } },
-  "com.apple.reminders.UpdateSectionAppIntent": { name: "Update section properties", params: ["target", "name", "isCollapsed"], output: "com.apple.reminders.SectionEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateSectionAppIntent" } },
-  "com.apple.reminders.UpdateSmartListAppIntent": { name: "Update reminders system smart list properties", params: ["target", "isHidden"], output: "com.apple.reminders.SmartListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateSmartListAppIntent" } },
-  "com.apple.reminders.UpdateSmartListIsHiddenAppIntent": { name: "Show/Hide Reminders System Smart List", params: ["entity", "property", "OpenWhenRun"], output: "com.apple.reminders.SmartListEntity", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateSmartListIsHiddenAppIntent" } },
-  "com.apple.screenshot.launcher.CaptureScreenIntent": { name: "Capture Screen", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CaptureScreenIntent" } },
-  "com.apple.screenshot.launcher.CaptureSelectionIntent": { name: "Capture Selection", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CaptureSelectionIntent" } },
-  "com.apple.screenshot.launcher.CaptureSelectionWithVisualIntelligenceIntent": { name: "Capture Selection with Visual Intelligence", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CaptureSelectionWithVisualIntelligenceIntent" } },
-  "com.apple.screenshot.launcher.CustomCaptureConfiguration": { name: "Capture Configuration", params: ["name", "selectionStyle", "destination", "timer", "showMousePointer", "hdr"], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomCaptureConfiguration" } },
-  "com.apple.screenshot.launcher.CustomCaptureIntent": { name: "Custom Capture", params: ["arguments"], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomCaptureIntent" } },
-  "com.apple.screenshot.launcher.CustomRecordConfiguration": { name: "Screen Recording Configuration", params: ["name", "selectionStyle", "destination", "timer", "showMouseClicks", "hdr"], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomRecordConfiguration" } },
-  "com.apple.screenshot.launcher.CustomRecordIntent": { name: "Custom Capture", params: ["value", "arguments"], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomRecordIntent" } },
-  "com.apple.screenshot.launcher.RecordScreenIntent": { name: "Record Screen", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecordScreenIntent" } },
-  "com.apple.screenshot.launcher.RecordSelectionIntent": { name: "Record Selection", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecordSelectionIntent" } },
-  "com.apple.screenshot.launcher.ScreenshotToolbarIntent": { name: "Screenshot Toolbar", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "ScreenshotToolbarIntent" } },
-  "com.apple.shortcuts.AddShortcutToHomeScreenAction": { name: "Add Shortcut to Home Screen", params: ["shortcut", "title", "image"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddShortcutToHomeScreenAction" } },
-  "com.apple.shortcuts.ChangeShortcutIconAction": { name: "Change Shortcut Icon", params: ["shortcut"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeShortcutIconAction" } },
-  "com.apple.shortcuts.CreateFolderAction": { name: "Create Folder", params: ["name", "OpenWhenRun"], output: "com.apple.shortcuts.RootNavigationDestination", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateFolderAction" } },
-  "com.apple.shortcuts.CreateShortcutiCloudLinkAction": { name: "Create iCloud Link for Shortcut", params: ["shortcut"], output: "url", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateShortcutiCloudLinkAction" } },
-  "com.apple.shortcuts.CreateWorkflowAction": { name: "Create Shortcut", params: ["name", "OpenWhenRun"], output: "com.apple.shortcuts.WFWorkflowReference", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateWorkflowAction" } },
-  "com.apple.shortcuts.DeleteWorkflowAction": { name: "Delete Shortcuts", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteWorkflowAction" } },
-  "com.apple.shortcuts.GenerateShortcutAction": { name: "Generate Shortcut", params: ["prompt", "answer"], output: "com.apple.shortcuts.WFWorkflowReference", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateShortcutAction" } },
-  "com.apple.shortcuts.GetShortcutAttributesAction": { name: "Get Shortcut Attributes", params: ["attribute", "shortcut", "OpenWhenRun"], output: "bool", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetShortcutAttributesAction" } },
-  "com.apple.shortcuts.MoveShortcutToFolderAction": { name: "Move Shortcut", params: ["shortcuts", "folder", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveShortcutToFolderAction" } },
-  "com.apple.shortcuts.OpenAppIntent": { name: "Open App", params: ["app"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppIntent" } },
-  "com.apple.shortcuts.OpenNavigationDestinationAction": { name: "Open Folder", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNavigationDestinationAction" } },
-  "com.apple.shortcuts.OpenShortcutsStaticDeepLinks": { name: "Open Shortcuts Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenShortcutsStaticDeepLinks" } },
-  "com.apple.shortcuts.OpenWorkflowAction": { name: "Open Shortcut", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWorkflowAction" } },
-  "com.apple.shortcuts.RenameShortcutAction": { name: "Rename Shortcut", params: ["shortcut", "name", "OpenWhenRun"], output: "com.apple.shortcuts.WFWorkflowReference", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameShortcutAction" } },
-  "com.apple.shortcuts.RunShortcutConfigurationIntent": { name: "Shortcut", params: ["shortcut"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunShortcutConfigurationIntent" } },
-  "com.apple.shortcuts.RunShortcutFromCollectionIntent": { name: "Run Shortcut from Folder", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunShortcutFromCollectionIntent" } },
-  "com.apple.shortcuts.RunShortcutIntent": { name: "Run Shortcut", params: ["shortcut"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunShortcutIntent" } },
-  "com.apple.shortcuts.SearchActionDrawerAction": { name: "Search Shortcuts Actions", params: ["query"], output: "com.apple.shortcuts.ShortcutsActionEntity", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchActionDrawerAction" } },
-  "com.apple.shortcuts.SearchShortcutsAction": { name: "Search in Shortcuts", params: ["searchPhrase", "folder"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchShortcutsAction" } },
-  "com.apple.shortcuts.SetShortcutAttributesAction": { name: "Set Shortcut Attributes", params: ["operation", "attribute", "shortcut", "state", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetShortcutAttributesAction" } },
-  "com.apple.shortcuts.ShortcutsFolderConfigurationIntent": { name: "Shortcuts Folder", params: ["collection"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShortcutsFolderConfigurationIntent" } },
-  "com.apple.shortcuts.StopWorkflowAction": { name: "Stop Shortcut", params: ["runningContextIdentifier"], output: "none", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopWorkflowAction" } },
-  "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent": { name: "Add Audio Item to Library", params: ["audioEntity"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitAddAudioToLibraryIntent" } },
-  "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent": { name: "Add Audio Item to Playlist", params: ["audioEntity", "playlist"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitAddAudioToPlaylistIntent" } },
-  "com.apple.siri.AudioAppIntentsExtension.SiriKitPlayAudioIntent": { name: "Play Audio Item", params: ["audioEntity", "playbackAttributes", "queueLocation", "warmupAudioQueueResult"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitPlayAudioIntent" } },
-  "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent": { name: "Like Audio Item", params: ["target", "affinityState"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitUpdateAudioAffinityIntent" } },
-  "com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent": { name: "Whole House Audio Placeholder Intent", params: ["destinations"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "WholeHouseAudioPlaceholderIntent" } },
-  "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos": { name: "EditPhotoWarmth", params: ["target", "adjustmentType", "value", "isPercentage"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "Photos" } },
-  "com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool": { name: "InteractiveInstallApplicationTool", params: ["applications", "isUpdate"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriAppLaunchFlowTools", Name: "SiriAppLaunchFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "InteractiveInstallApplicationTool" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music": { name: "AddAudioToLibrary", params: ["audioEntity"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts": { name: "AddAudioToLibrary", params: ["audioEntity"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "podcasts" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music": { name: "AddAudioToPlaylist", params: ["audioEntity", "playlist"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: "none", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "iBooksX" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: "none", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "podcasts" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { name: "UpdateAudioAffinity", params: ["target", "affinityState"], output: "none", descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriCrisisAppIntentsExtension._SiriCrisisPlaceholderIntent": { name: "Placeholder", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriCrisisAppIntentsExtension", Name: "SiriCrisisAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "_SiriCrisisPlaceholderIntent" } },
-  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool": { name: "CrisisDialog", params: ["situation"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriCrisisFlowTools", Name: "SiriCrisisFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CrisisDialogFlowTool" } },
+  "com.apple.reminders.SnoozeRemindersAppIntent": { name: "Snooze Reminders", params: ["entities", "nextTriggerTime"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SnoozeRemindersAppIntent" } },
+  "com.apple.reminders.TTRCreateListAppIntent": { name: "Create List", params: ["name", "type", "group", "OpenWhenRun"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateListAppIntent" } },
+  "com.apple.reminders.TTRCreateReminderAppIntent": { name: "Create Reminder", params: ["title", "note", "isFlagged", "images", "tags", "urls", "dueDate", "recurrence", "locationTrigger", "list", "section", "isAllDay", "earlyAlert", "vehicleTrigger", "priorityLevel", "parentReminder", "contactPerson", "assignedPerson", "subtasks"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateReminderAppIntent" } },
+  "com.apple.reminders.TTROpenListAppIntent": { name: "Open List", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTROpenListAppIntent" } },
+  "com.apple.reminders.TTROpenSmartListAppIntent": { name: "Open List", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTROpenSmartListAppIntent" } },
+  "com.apple.reminders.TTRReminderSetCompletedIntent": { name: "Toggle Reminder completion", params: ["reminder", "isCompleted", "isFromUrgentReminderActivity"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRReminderSetCompletedIntent" } },
+  "com.apple.reminders.TTRSearchRemindersAppIntent": { name: "Search in Reminders", params: ["searchPhrase"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRSearchRemindersAppIntent" } },
+  "com.apple.reminders.UpdateGroupAppIntent": { name: "Update reminders group properties", params: ["name", "target", "lists"], output: "Group", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateGroupAppIntent" } },
+  "com.apple.reminders.UpdateListAppIntent": { name: "Edit List", params: ["target", "name", "type", "color", "badge", "parent", "propertyToUpdate"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListAppIntent" } },
+  "com.apple.reminders.UpdateListAutoCategorizeAppIntent": { name: "Auto-Categorize Reminders List", params: ["target", "autoCategorize", "OpenWhenRun"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListAutoCategorizeAppIntent" } },
+  "com.apple.reminders.UpdateListIsPinnedAppIntent": { name: "Pin/Unpin Reminders List", params: ["target", "isPinned", "OpenWhenRun"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListIsPinnedAppIntent" } },
+  "com.apple.reminders.UpdateListLayoutAppIntent": { name: "Change Reminders List Layout", params: ["target", "listLayout", "OpenWhenRun"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListLayoutAppIntent" } },
+  "com.apple.reminders.UpdateListShowsCompletedAppIntent": { name: "Show/Hide Completed Reminders", params: ["target", "showsCompleted", "OpenWhenRun"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListShowsCompletedAppIntent" } },
+  "com.apple.reminders.UpdateListSortingStyleAppIntent": { name: "Change Reminders List Sorting Style", params: ["target", "sortingStyle", "OpenWhenRun"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListSortingStyleAppIntent" } },
+  "com.apple.reminders.UpdateReminderAppIntent": { name: "Update Reminder properties", params: ["target", "isCompleted", "isFlagged", "title", "note", "images", "tags", "urls", "dueDate", "recurrence", "locationTrigger", "subtasks", "list", "section", "earlyAlert", "vehicleTrigger", "contactPerson", "assignedPerson", "priorityLevel", "parent"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateReminderAppIntent" } },
+  "com.apple.reminders.UpdateSectionAppIntent": { name: "Update section properties", params: ["target", "name", "isCollapsed"], output: "Section", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateSectionAppIntent" } },
+  "com.apple.reminders.UpdateSmartListAppIntent": { name: "Update reminders system smart list properties", params: ["target", "isHidden"], output: "Smart List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateSmartListAppIntent" } },
+  "com.apple.reminders.UpdateSmartListIsHiddenAppIntent": { name: "Show/Hide Reminders System Smart List", params: ["entity", "property", "OpenWhenRun"], output: "Smart List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateSmartListIsHiddenAppIntent" } },
+  "com.apple.screenshot.launcher.CaptureScreenIntent": { name: "Capture Screen", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CaptureScreenIntent" } },
+  "com.apple.screenshot.launcher.CaptureSelectionIntent": { name: "Capture Selection", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CaptureSelectionIntent" } },
+  "com.apple.screenshot.launcher.CaptureSelectionWithVisualIntelligenceIntent": { name: "Capture Selection with Visual Intelligence", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CaptureSelectionWithVisualIntelligenceIntent" } },
+  "com.apple.screenshot.launcher.CustomCaptureConfiguration": { name: "Capture Configuration", params: ["name", "selectionStyle", "destination", "timer", "showMousePointer", "hdr"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomCaptureConfiguration" } },
+  "com.apple.screenshot.launcher.CustomCaptureIntent": { name: "Custom Capture", params: ["arguments"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomCaptureIntent" } },
+  "com.apple.screenshot.launcher.CustomRecordConfiguration": { name: "Screen Recording Configuration", params: ["name", "selectionStyle", "destination", "timer", "showMouseClicks", "hdr"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomRecordConfiguration" } },
+  "com.apple.screenshot.launcher.CustomRecordIntent": { name: "Custom Capture", params: ["value", "arguments"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomRecordIntent" } },
+  "com.apple.screenshot.launcher.RecordScreenIntent": { name: "Record Screen", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecordScreenIntent" } },
+  "com.apple.screenshot.launcher.RecordSelectionIntent": { name: "Record Selection", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecordSelectionIntent" } },
+  "com.apple.screenshot.launcher.ScreenshotToolbarIntent": { name: "Screenshot Toolbar", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "ScreenshotToolbarIntent" } },
+  "com.apple.shortcuts.AddShortcutToHomeScreenAction": { name: "Add Shortcut to Home Screen", params: ["shortcut", "title", "image"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddShortcutToHomeScreenAction" } },
+  "com.apple.shortcuts.ChangeShortcutIconAction": { name: "Change Shortcut Icon", params: ["shortcut"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeShortcutIconAction" } },
+  "com.apple.shortcuts.CreateFolderAction": { name: "Create Folder", params: ["name", "OpenWhenRun"], output: "Folder", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateFolderAction" } },
+  "com.apple.shortcuts.CreateShortcutiCloudLinkAction": { name: "Create iCloud Link for Shortcut", params: ["shortcut"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateShortcutiCloudLinkAction" } },
+  "com.apple.shortcuts.CreateWorkflowAction": { name: "Create Shortcut", params: ["name", "OpenWhenRun"], output: "Shortcut", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateWorkflowAction" } },
+  "com.apple.shortcuts.DeleteWorkflowAction": { name: "Delete Shortcuts", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteWorkflowAction" } },
+  "com.apple.shortcuts.GenerateShortcutAction": { name: "Generate Shortcut", params: ["prompt", "answer"], output: "Shortcut", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateShortcutAction" } },
+  "com.apple.shortcuts.GetShortcutAttributesAction": { name: "Get Shortcut Attributes", params: ["attribute", "shortcut", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetShortcutAttributesAction" } },
+  "com.apple.shortcuts.MoveShortcutToFolderAction": { name: "Move Shortcut", params: ["shortcuts", "folder", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveShortcutToFolderAction" } },
+  "com.apple.shortcuts.OpenAppIntent": { name: "Open App", params: ["app"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppIntent" } },
+  "com.apple.shortcuts.OpenNavigationDestinationAction": { name: "Open Folder", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNavigationDestinationAction" } },
+  "com.apple.shortcuts.OpenShortcutsStaticDeepLinks": { name: "Open Shortcuts Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenShortcutsStaticDeepLinks" } },
+  "com.apple.shortcuts.OpenWorkflowAction": { name: "Open Shortcut", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWorkflowAction" } },
+  "com.apple.shortcuts.RenameShortcutAction": { name: "Rename Shortcut", params: ["shortcut", "name", "OpenWhenRun"], output: "Shortcut", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameShortcutAction" } },
+  "com.apple.shortcuts.RunShortcutConfigurationIntent": { name: "Shortcut", params: ["shortcut"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunShortcutConfigurationIntent" } },
+  "com.apple.shortcuts.RunShortcutFromCollectionIntent": { name: "Run Shortcut from Folder", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunShortcutFromCollectionIntent" } },
+  "com.apple.shortcuts.RunShortcutIntent": { name: "Run Shortcut", params: ["shortcut"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunShortcutIntent" } },
+  "com.apple.shortcuts.SearchActionDrawerAction": { name: "Search Shortcuts Actions", params: ["query"], output: "Shortcuts Action", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchActionDrawerAction" } },
+  "com.apple.shortcuts.SearchShortcutsAction": { name: "Search in Shortcuts", params: ["searchPhrase", "folder"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchShortcutsAction" } },
+  "com.apple.shortcuts.SetShortcutAttributesAction": { name: "Set Shortcut Attributes", params: ["operation", "attribute", "shortcut", "state", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetShortcutAttributesAction" } },
+  "com.apple.shortcuts.ShortcutsFolderConfigurationIntent": { name: "Shortcuts Folder", params: ["collection"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShortcutsFolderConfigurationIntent" } },
+  "com.apple.shortcuts.StopWorkflowAction": { name: "Stop Shortcut", params: ["runningContextIdentifier"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopWorkflowAction" } },
+  "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent": { name: "Add Audio Item to Library", params: ["audioEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitAddAudioToLibraryIntent" } },
+  "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent": { name: "Add Audio Item to Playlist", params: ["audioEntity", "playlist"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitAddAudioToPlaylistIntent" } },
+  "com.apple.siri.AudioAppIntentsExtension.SiriKitPlayAudioIntent": { name: "Play Audio Item", params: ["audioEntity", "playbackAttributes", "queueLocation", "warmupAudioQueueResult"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitPlayAudioIntent" } },
+  "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent": { name: "Like Audio Item", params: ["target", "affinityState"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitUpdateAudioAffinityIntent" } },
+  "com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent": { name: "Whole House Audio Placeholder Intent", params: ["destinations"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "WholeHouseAudioPlaceholderIntent" } },
+  "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos": { name: "EditPhotoWarmth", params: ["target", "adjustmentType", "value", "isPercentage"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "Photos" } },
+  "com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool": { name: "InteractiveInstallApplicationTool", params: ["applications", "isUpdate"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriAppLaunchFlowTools", Name: "SiriAppLaunchFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "InteractiveInstallApplicationTool" } },
+  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music": { name: "AddAudioToLibrary", params: ["audioEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
+  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts": { name: "AddAudioToLibrary", params: ["audioEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "podcasts" } },
+  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music": { name: "AddAudioToPlaylist", params: ["audioEntity", "playlist"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
+  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
+  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "iBooksX" } },
+  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "podcasts" } },
+  "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { name: "UpdateAudioAffinity", params: ["target", "affinityState"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
+  "com.apple.siri.SiriCrisisAppIntentsExtension._SiriCrisisPlaceholderIntent": { name: "Placeholder", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriCrisisAppIntentsExtension", Name: "SiriCrisisAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "_SiriCrisisPlaceholderIntent" } },
+  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool": { name: "CrisisDialog", params: ["situation"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriCrisisFlowTools", Name: "SiriCrisisFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CrisisDialogFlowTool" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": { name: "Get Current Location", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Location", descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CurrentLocationEntity" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity": { name: "Get Current Route", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Route", descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "NavigationSessionEntity" } },
-  "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.SiriGeoAppIntent": { name: "SiriGeoAppIntent", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriGeoAppIntent" } },
-  "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent": { name: "Start Navigation for Third Party Apps", params: ["origin", "destinations", "transportationType", "preferences", "ShowWhenRun"], output: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity", descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "ThirdPartyStartNavigationIntent" } },
-  "com.apple.siri.SiriIdentityInternal.SiriIdentityInternal.WhoAmITool": { name: "WhoAmITool", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriIdentityInternal", Name: "SiriIdentityInternal", TeamIdentifier: "0000000000", AppIntentIdentifier: "WhoAmITool" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail": { name: "CreateDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail": { name: "ForwardDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail": { name: "ReplyDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target", "isReplyAll"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail": { name: "SendDraftMailTool", params: ["sendLaterDate", "target"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail": { name: "UpdateDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: "none", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriNotebookAppIntentsExtension.SiriNotebookAppIntentsExtension": { name: "SiriNotebookAppIntentsExtension", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriNotebookAppIntentsExtension", Name: "SiriNotebookAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriNotebookAppIntentsExtension" } },
-  "com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent": { name: "Prepare notifications", params: ["notifications", "isReadLatest", "isCatchMeUp", "app"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsAppIntentsExtension", Name: "SiriNotificationsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareNotificationsIntent" } },
-  "com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension": { name: "SiriNotificationsAppIntentsExtension", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsAppIntentsExtension", Name: "SiriNotificationsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriNotificationsAppIntentsExtension" } },
-  "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool": { name: "Prepare Notifications", params: ["notifications", "isReadLatest", "isCatchMeUp"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsFlowTools", Name: "SiriNotificationsFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareNotificationsTool" } },
-  "com.apple.siri.SiriPhoneAppIntentsExtension.ReadCallMessageIntent": { name: "ReadCallMessageIntent", params: ["message"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReadCallMessageIntent" } },
-  "com.apple.siri.SiriPhoneAppIntentsExtension.SiriKitStartCallIntent": { name: "SiriKitStartCallIntent", params: ["destination", "audioVisualMode"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitStartCallIntent" } },
-  "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent": { name: "SiriPhonePunchoutIntent", params: ["url", "uniqueID", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriPhonePunchoutIntent" } },
-  "com.apple.siri.SiriPhoneAppIntentsExtension.StartCrisisHelplineCallIntent": { name: "StartCrisisHelplineCallIntent", params: ["crisisResourceType"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCrisisHelplineCallIntent" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { name: "Answer an incoming call", params: ["call", "audioRoute"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhoneAppIntentsExtension" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool": { name: "Call Emergency Contact Flow Tool", params: ["audioRoute"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallEmergencyContactFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool": { name: "Callback Flow Tool", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallbackFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool": { name: "Prepare Call Messages Flow Tool", params: ["messages"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareCallMessagesFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool": { name: "Prepare Read Call Records", params: ["records"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareReadCallRecordsFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool": { name: "Read Call Message Flow Tool", params: ["message"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReadCallMessageFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.RedialFlowTool": { name: "Redial Flow Tool", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "RedialFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime": { name: "Start a call", params: ["destination", "audioVisualMode", "audioRoute"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "FaceTime" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone": { name: "Start a call", params: ["destination", "audioVisualMode", "audioRoute"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "mobilephone" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool": { name: "Start Crisis Helpline Call Flow Tool", params: ["crisisResourceType", "audioRoute"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCrisisHelplineCallFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { name: "Start Emergency Call", params: ["destination", "audioRoute"], output: "none", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhoneAppIntentsExtension" } },
-  "com.apple.siri.SiriPhotosAppIntentsExtension.SiriPhotosAppIntentsExtension": { name: "SiriPhotosAppIntentsExtension", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhotosAppIntentsExtension", Name: "SiriPhotosAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriPhotosAppIntentsExtension" } },
-  "com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool": { name: "Update Photo Warmth", params: ["target", "adjustmentType", "value", "isPercentage"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriPhotosAppIntentsExtension", Name: "SiriPhotosAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdatePhotoWarmthTool" } },
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock": { name: "CancelTimer", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "clock" } },
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock": { name: "DismissAlarm", params: ["alarm"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "clock" } },
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock": { name: "SnoozeAlarm", params: ["alarm", "duration"], output: "none", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "clock" } },
-  "com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool": { name: "Translate Text", params: ["phrase", "targetLanguage", "sourceLanguage"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriTranslationFlowTools", Name: "SiriTranslationFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "TranslateTextFlowTool" } },
-  "com.apple.siri.SiriVideoAppIntents.CrossDevicePlaceholderIntent": { name: "Cross Device Placeholder Intent", params: ["route"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "CrossDevicePlaceholderIntent" } },
-  "com.apple.siri.SiriVideoAppIntents.InternalFindFreeformVideoIntent": { name: "Finds a freeform video", params: ["entity"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalFindFreeformVideoIntent" } },
-  "com.apple.siri.SiriVideoAppIntents.InternalFindVideoIntent": { name: "Finds a video", params: ["content"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalFindVideoIntent" } },
-  "com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent": { name: "Plays a video", params: ["content"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalPlayContentIntent" } },
-  "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool": { name: "Find Video content", params: ["content"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoFlowTools", Name: "SiriVideoFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindVideoContentTool" } },
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent": { name: "Messages Post Reading Action Tool", params: ["readableMessages"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "MessagesPostReadActionAppIntent" } },
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent": { name: "Prepare To Read Conversation Tool", params: ["conversation"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareToReadConversationAppIntent" } },
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitEditLastMessageIntent": { name: "SiriKitEditLastMessageIntent", params: ["content", "message"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitEditLastMessageIntent" } },
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitPrepareMessagesForReadingIntent": { name: "Prepare Messages for Reading", params: ["message", "isRead"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitPrepareMessagesForReadingIntent" } },
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitSendMessageIntent": { name: "SiriKitSendMessageIntent", params: ["destination", "subject", "content", "audioMessage", "attachments", "locations", "links", "scheduledDate"], output: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitMessageEntity", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitSendMessageIntent" } },
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent": { name: "SiriKitUnsendLastMessageIntent", params: ["message"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitUnsendLastMessageIntent" } },
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriMessagesAppIntent": { name: "SiriMessagesAppIntent", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriMessagesAppIntent" } },
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool": { name: "Update a Draft", params: ["draft", "recipients", "subject", "content", "isAudioMessage"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateDraftTool" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS": { name: "Create Draft", params: ["destination", "subject", "content", "attachments", "locations", "links", "audioMessage", "isAudioMessage", "scheduledDate"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool": { name: "Edit Last Message Sent With Siri", params: ["content"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditLastMessageSentWithSiriTool" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool": { name: "PerformMessagesPostReadActionFlowTool", params: ["readableMessages"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PerformMessagesPostReadActionFlowTool" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS": { name: "Prepare Conversation", params: ["conversation"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension": { name: "Prepare Conversation", params: ["conversation"], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriMessagesAppIntentsExtension" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS": { name: "Prepare Messages", params: ["message"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS": { name: "Send Draft Message", params: ["draft"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS": { name: "Send Message Reaction", params: ["message", "reaction"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UnsendLastMessageSentWithSiriTool": { name: "Unsend Last Message Sent With Siri", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsendLastMessageSentWithSiriTool" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS": { name: "Update Draft", params: ["draft", "destination", "subject", "content", "attachments", "locations", "links", "audioMessage", "isAudioMessage", "scheduledDate"], output: "none", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders": { name: "Create List and Reminder", params: ["title", "note", "tags", "urls", "dueDate", "recurrence", "list", "isFlagged", "locationTrigger", "name", "type"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders": { name: "Create Reminder", params: ["title", "note", "tags", "urls", "dueDate", "recurrence", "list", "isFlagged", "locationTrigger"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders": { name: "Prepare Read Reminders", params: ["target", "list"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders": { name: "Update Reminder", params: ["target", "isCompleted", "title", "note", "tags", "urls", "dueDate", "recurrence", "list", "isFlagged", "locationTrigger"], output: "none", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
-  "com.apple.sociallayerd.CollaborationIntent": { name: "Share and Collaborate", params: ["recipients"], output: "none", descriptor: { BundleIdentifier: "com.apple.sociallayerd", Name: "sociallayerd", TeamIdentifier: "0000000000", AppIntentIdentifier: "CollaborationIntent" } },
-  "com.apple.stocks.AddSymbolToWatchlistIntent": { name: "Add Symbol to Watchlist", params: ["symbol", "watchlist", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddSymbolToWatchlistIntent" } },
-  "com.apple.stocks.BlockIntent": { name: "Block Channel or Topic", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "BlockIntent" } },
-  "com.apple.stocks.DecreaseTextSizeIntent": { name: "Decrease Text Size", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "DecreaseTextSizeIntent" } },
-  "com.apple.stocks.DeleteSymbolFromWatchlistIntent": { name: "Delete Symbol from Watchlist", params: ["symbol", "watchlist", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteSymbolFromWatchlistIntent" } },
-  "com.apple.stocks.DeleteWatchlistsIntent": { name: "Delete Watchlist", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteWatchlistsIntent" } },
-  "com.apple.stocks.FollowIntent": { name: "Follow Channel or Topic", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowIntent" } },
-  "com.apple.stocks.GetSymbolQuoteIntent": { name: "Get Symbol Quote", params: ["symbol", "OpenWhenRun"], output: "com.apple.stocks.SymbolQuoteEntity", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetSymbolQuoteIntent" } },
-  "com.apple.stocks.IncreaseTextSizeIntent": { name: "Increase Text Size", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "IncreaseTextSizeIntent" } },
-  "com.apple.stocks.NewWatchlistIntent": { name: "Create Watchlist", params: ["name", "symbols", "OpenWhenRun"], output: "com.apple.stocks.WatchlistEntity", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewWatchlistIntent" } },
+  "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.SiriGeoAppIntent": { name: "SiriGeoAppIntent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriGeoAppIntent" } },
+  "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent": { name: "Start Navigation for Third Party Apps", params: ["origin", "destinations", "transportationType", "preferences", "ShowWhenRun"], output: "Current Route", descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "ThirdPartyStartNavigationIntent" } },
+  "com.apple.siri.SiriIdentityInternal.SiriIdentityInternal.WhoAmITool": { name: "WhoAmITool", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriIdentityInternal", Name: "SiriIdentityInternal", TeamIdentifier: "0000000000", AppIntentIdentifier: "WhoAmITool" } },
+  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail": { name: "CreateDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
+  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail": { name: "ForwardDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
+  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail": { name: "ReplyDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target", "isReplyAll"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
+  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail": { name: "SendDraftMailTool", params: ["sendLaterDate", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
+  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail": { name: "UpdateDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
+  "com.apple.siri.SiriNotebookAppIntentsExtension.SiriNotebookAppIntentsExtension": { name: "SiriNotebookAppIntentsExtension", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriNotebookAppIntentsExtension", Name: "SiriNotebookAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriNotebookAppIntentsExtension" } },
+  "com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent": { name: "Prepare notifications", params: ["notifications", "isReadLatest", "isCatchMeUp", "app"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsAppIntentsExtension", Name: "SiriNotificationsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareNotificationsIntent" } },
+  "com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension": { name: "SiriNotificationsAppIntentsExtension", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsAppIntentsExtension", Name: "SiriNotificationsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriNotificationsAppIntentsExtension" } },
+  "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool": { name: "Prepare Notifications", params: ["notifications", "isReadLatest", "isCatchMeUp"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsFlowTools", Name: "SiriNotificationsFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareNotificationsTool" } },
+  "com.apple.siri.SiriPhoneAppIntentsExtension.ReadCallMessageIntent": { name: "ReadCallMessageIntent", params: ["message"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReadCallMessageIntent" } },
+  "com.apple.siri.SiriPhoneAppIntentsExtension.SiriKitStartCallIntent": { name: "SiriKitStartCallIntent", params: ["destination", "audioVisualMode"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitStartCallIntent" } },
+  "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent": { name: "SiriPhonePunchoutIntent", params: ["url", "uniqueID", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriPhonePunchoutIntent" } },
+  "com.apple.siri.SiriPhoneAppIntentsExtension.StartCrisisHelplineCallIntent": { name: "StartCrisisHelplineCallIntent", params: ["crisisResourceType"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCrisisHelplineCallIntent" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { name: "Answer an incoming call", params: ["call", "audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhoneAppIntentsExtension" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool": { name: "Call Emergency Contact Flow Tool", params: ["audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallEmergencyContactFlowTool" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool": { name: "Callback Flow Tool", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallbackFlowTool" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool": { name: "Prepare Call Messages Flow Tool", params: ["messages"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareCallMessagesFlowTool" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool": { name: "Prepare Read Call Records", params: ["records"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareReadCallRecordsFlowTool" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool": { name: "Read Call Message Flow Tool", params: ["message"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReadCallMessageFlowTool" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.RedialFlowTool": { name: "Redial Flow Tool", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "RedialFlowTool" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime": { name: "Start a call", params: ["destination", "audioVisualMode", "audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "FaceTime" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone": { name: "Start a call", params: ["destination", "audioVisualMode", "audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "mobilephone" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool": { name: "Start Crisis Helpline Call Flow Tool", params: ["crisisResourceType", "audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCrisisHelplineCallFlowTool" } },
+  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { name: "Start Emergency Call", params: ["destination", "audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhoneAppIntentsExtension" } },
+  "com.apple.siri.SiriPhotosAppIntentsExtension.SiriPhotosAppIntentsExtension": { name: "SiriPhotosAppIntentsExtension", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhotosAppIntentsExtension", Name: "SiriPhotosAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriPhotosAppIntentsExtension" } },
+  "com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool": { name: "Update Photo Warmth", params: ["target", "adjustmentType", "value", "isPercentage"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhotosAppIntentsExtension", Name: "SiriPhotosAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdatePhotoWarmthTool" } },
+  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock": { name: "CancelTimer", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "clock" } },
+  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock": { name: "DismissAlarm", params: ["alarm"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "clock" } },
+  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock": { name: "SnoozeAlarm", params: ["alarm", "duration"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "clock" } },
+  "com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool": { name: "Translate Text", params: ["phrase", "targetLanguage", "sourceLanguage"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriTranslationFlowTools", Name: "SiriTranslationFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "TranslateTextFlowTool" } },
+  "com.apple.siri.SiriVideoAppIntents.CrossDevicePlaceholderIntent": { name: "Cross Device Placeholder Intent", params: ["route"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "CrossDevicePlaceholderIntent" } },
+  "com.apple.siri.SiriVideoAppIntents.InternalFindFreeformVideoIntent": { name: "Finds a freeform video", params: ["entity"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalFindFreeformVideoIntent" } },
+  "com.apple.siri.SiriVideoAppIntents.InternalFindVideoIntent": { name: "Finds a video", params: ["content"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalFindVideoIntent" } },
+  "com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent": { name: "Plays a video", params: ["content"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalPlayContentIntent" } },
+  "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool": { name: "Find Video content", params: ["content"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoFlowTools", Name: "SiriVideoFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindVideoContentTool" } },
+  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent": { name: "Messages Post Reading Action Tool", params: ["readableMessages"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "MessagesPostReadActionAppIntent" } },
+  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent": { name: "Prepare To Read Conversation Tool", params: ["conversation"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareToReadConversationAppIntent" } },
+  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitEditLastMessageIntent": { name: "SiriKitEditLastMessageIntent", params: ["content", "message"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitEditLastMessageIntent" } },
+  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitPrepareMessagesForReadingIntent": { name: "Prepare Messages for Reading", params: ["message", "isRead"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitPrepareMessagesForReadingIntent" } },
+  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitSendMessageIntent": { name: "SiriKitSendMessageIntent", params: ["destination", "subject", "content", "audioMessage", "attachments", "locations", "links", "scheduledDate"], output: "Message", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitSendMessageIntent" } },
+  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent": { name: "SiriKitUnsendLastMessageIntent", params: ["message"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitUnsendLastMessageIntent" } },
+  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriMessagesAppIntent": { name: "SiriMessagesAppIntent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriMessagesAppIntent" } },
+  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool": { name: "Update a Draft", params: ["draft", "recipients", "subject", "content", "isAudioMessage"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateDraftTool" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS": { name: "Create Draft", params: ["destination", "subject", "content", "attachments", "locations", "links", "audioMessage", "isAudioMessage", "scheduledDate"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool": { name: "Edit Last Message Sent With Siri", params: ["content"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditLastMessageSentWithSiriTool" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool": { name: "PerformMessagesPostReadActionFlowTool", params: ["readableMessages"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PerformMessagesPostReadActionFlowTool" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS": { name: "Prepare Conversation", params: ["conversation"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension": { name: "Prepare Conversation", params: ["conversation"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriMessagesAppIntentsExtension" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS": { name: "Prepare Messages", params: ["message"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS": { name: "Send Draft Message", params: ["draft"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS": { name: "Send Message Reaction", params: ["message", "reaction"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UnsendLastMessageSentWithSiriTool": { name: "Unsend Last Message Sent With Siri", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsendLastMessageSentWithSiriTool" } },
+  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS": { name: "Update Draft", params: ["draft", "destination", "subject", "content", "attachments", "locations", "links", "audioMessage", "isAudioMessage", "scheduledDate"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
+  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders": { name: "Create List and Reminder", params: ["title", "note", "tags", "urls", "dueDate", "recurrence", "list", "isFlagged", "locationTrigger", "name", "type"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
+  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders": { name: "Create Reminder", params: ["title", "note", "tags", "urls", "dueDate", "recurrence", "list", "isFlagged", "locationTrigger"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
+  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders": { name: "Prepare Read Reminders", params: ["target", "list"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
+  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders": { name: "Update Reminder", params: ["target", "isCompleted", "title", "note", "tags", "urls", "dueDate", "recurrence", "list", "isFlagged", "locationTrigger"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
+  "com.apple.sociallayerd.CollaborationIntent": { name: "Share and Collaborate", params: ["recipients"], output: null, descriptor: { BundleIdentifier: "com.apple.sociallayerd", Name: "sociallayerd", TeamIdentifier: "0000000000", AppIntentIdentifier: "CollaborationIntent" } },
+  "com.apple.stocks.AddSymbolToWatchlistIntent": { name: "Add Symbol to Watchlist", params: ["symbol", "watchlist", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddSymbolToWatchlistIntent" } },
+  "com.apple.stocks.BlockIntent": { name: "Block Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "BlockIntent" } },
+  "com.apple.stocks.DecreaseTextSizeIntent": { name: "Decrease Text Size", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "DecreaseTextSizeIntent" } },
+  "com.apple.stocks.DeleteSymbolFromWatchlistIntent": { name: "Delete Symbol from Watchlist", params: ["symbol", "watchlist", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteSymbolFromWatchlistIntent" } },
+  "com.apple.stocks.DeleteWatchlistsIntent": { name: "Delete Watchlist", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteWatchlistsIntent" } },
+  "com.apple.stocks.FollowIntent": { name: "Follow Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowIntent" } },
+  "com.apple.stocks.GetSymbolQuoteIntent": { name: "Get Symbol Quote", params: ["symbol", "OpenWhenRun"], output: "Symbol Quote", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetSymbolQuoteIntent" } },
+  "com.apple.stocks.IncreaseTextSizeIntent": { name: "Increase Text Size", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "IncreaseTextSizeIntent" } },
+  "com.apple.stocks.NewWatchlistIntent": { name: "Create Watchlist", params: ["name", "symbols", "OpenWhenRun"], output: "Watchlist", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewWatchlistIntent" } },
   "com.apple.stocks.NewsTabDeepLink": { name: "Find News Tab Deep Links", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "News Tab Deep Links", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewsTabDeepLink" } },
-  "com.apple.stocks.OpenArticleIntent": { name: "Open Article", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenArticleIntent" } },
-  "com.apple.stocks.OpenBusinessNewsIntent": { name: "Open Business News", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBusinessNewsIntent" } },
-  "com.apple.stocks.OpenFeedIntent": { name: "Open Channel or Topic", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFeedIntent" } },
-  "com.apple.stocks.OpenHistoryIntent": { name: "Open History Feed", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHistoryIntent" } },
-  "com.apple.stocks.OpenRecipeIntent": { name: "Open Recipe", params: ["target"], output: "com.apple.stocks.NewsRecipeEntity", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenRecipeIntent" } },
-  "com.apple.stocks.OpenSavedIntent": { name: "Open Saved Feed", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSavedIntent" } },
-  "com.apple.stocks.OpenSavedRecipesIntent": { name: "Open Saved Recipes", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSavedRecipesIntent" } },
-  "com.apple.stocks.OpenStaticFeed": { name: "Open News Feed", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStaticFeed" } },
-  "com.apple.stocks.OpenSymbolIntent": { name: "Open Symbol", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSymbolIntent" } },
-  "com.apple.stocks.OpenWatchlistIntent": { name: "Open Watchlist", params: ["target", "symbol"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWatchlistIntent" } },
-  "com.apple.stocks.PlayArticleIntent": { name: "Play Article", params: ["article"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayArticleIntent" } },
-  "com.apple.stocks.SaveArticleIntent": { name: "Save Article", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveArticleIntent" } },
-  "com.apple.stocks.StockIntent": { name: "Show Symbol Price", params: ["stock", "newsDisplayConfiguration", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "StockIntent" } },
-  "com.apple.stocks.StocksOverviewIntent": { name: "Show Watchlist", params: ["selectedWatchlist", "newsDisplayConfiguration", "showWatchlistNameValue", "showMoreDataValue", "showMoreSymbolsValue", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "StocksOverviewIntent" } },
+  "com.apple.stocks.OpenArticleIntent": { name: "Open Article", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenArticleIntent" } },
+  "com.apple.stocks.OpenBusinessNewsIntent": { name: "Open Business News", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBusinessNewsIntent" } },
+  "com.apple.stocks.OpenFeedIntent": { name: "Open Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFeedIntent" } },
+  "com.apple.stocks.OpenHistoryIntent": { name: "Open History Feed", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHistoryIntent" } },
+  "com.apple.stocks.OpenRecipeIntent": { name: "Open Recipe", params: ["target"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenRecipeIntent" } },
+  "com.apple.stocks.OpenSavedIntent": { name: "Open Saved Feed", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSavedIntent" } },
+  "com.apple.stocks.OpenSavedRecipesIntent": { name: "Open Saved Recipes", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSavedRecipesIntent" } },
+  "com.apple.stocks.OpenStaticFeed": { name: "Open News Feed", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStaticFeed" } },
+  "com.apple.stocks.OpenSymbolIntent": { name: "Open Symbol", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSymbolIntent" } },
+  "com.apple.stocks.OpenWatchlistIntent": { name: "Open Watchlist", params: ["target", "symbol"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWatchlistIntent" } },
+  "com.apple.stocks.PlayArticleIntent": { name: "Play Article", params: ["article"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayArticleIntent" } },
+  "com.apple.stocks.SaveArticleIntent": { name: "Save Article", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveArticleIntent" } },
+  "com.apple.stocks.StockIntent": { name: "Show Symbol Price", params: ["stock", "newsDisplayConfiguration", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "StockIntent" } },
+  "com.apple.stocks.StocksOverviewIntent": { name: "Show Watchlist", params: ["selectedWatchlist", "newsDisplayConfiguration", "showWatchlistNameValue", "showMoreDataValue", "showMoreSymbolsValue", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "StocksOverviewIntent" } },
   "com.apple.stocks.SymbolEntity": { name: "Find Symbol", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Symbol", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "SymbolEntity" } },
   "com.apple.stocks.SymbolWidgetEntity": { name: "Find Symbol", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Symbol", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "SymbolWidgetEntity" } },
-  "com.apple.stocks.UnblockIntent": { name: "Unblock Channel or Topic", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnblockIntent" } },
-  "com.apple.stocks.UnsaveArticleIntent": { name: "Unsave Article", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsaveArticleIntent" } },
+  "com.apple.stocks.UnblockIntent": { name: "Unblock Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnblockIntent" } },
+  "com.apple.stocks.UnsaveArticleIntent": { name: "Unsave Article", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsaveArticleIntent" } },
   "com.apple.stocks.WatchlistEntity": { name: "Find Watchlist", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Watchlist", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "WatchlistEntity" } },
   "com.apple.systempreferences.AccentColorEntity": { name: "Get Accent color", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Accent color", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AccentColorEntity" } },
   "com.apple.systempreferences.AccentColorEntity-UpdatableEntity": { name: "Update Accent color", params: ["entity", "value"], output: "Accent color", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AccentColorEntity-UpdatableEntity" } },
@@ -15965,67 +15255,67 @@ export const ACTIONS = {
   "com.apple.systempreferences.LoginWindowShowsButtonsIntent": { name: "Login Window Shows Buttons", params: [], output: "Login Window Shows Buttons", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "LoginWindowShowsButtonsIntent" } },
   "com.apple.systempreferences.MagicEdgeEntity": { name: "Get Push through the edge of a display to connect a nearby Mac or iPad", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Push through the edge of a display to connect a nearby Mac or iPad", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "MagicEdgeEntity" } },
   "com.apple.systempreferences.MagicEdgeEntity-UpdatableEntity": { name: "Update Push through the edge of a display to connect a nearby Mac or iPad", params: ["entity", "value"], output: "Push through the edge of a display to connect a nearby Mac or iPad", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "MagicEdgeEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.OpenAboutSettingsStaticDeepLinks": { name: "Open About", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAboutSettingsStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityAudioDescriptionsStaticDeepLinks": { name: "Open Accessibility Audio Descriptions Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityAudioDescriptionsStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityAudioStaticDeepLinks": { name: "Open Accessibility Audio Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityAudioStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityDisplayStaticDeepLinks": { name: "Open Accessibility Display Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityDisplayStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityHearingDevicesStaticDeepLinks": { name: "Open Accessibility Hearing Devices Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityHearingDevicesStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityHoverTextStaticDeepLinks": { name: "Open Accessibility Hover Text Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityHoverTextStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityKeyboardStaticDeepLinks": { name: "Open Accessibility Keyboard Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityKeyboardStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityLiveCaptionsStaticDeepLinks": { name: "Open Accessibility Live Captions Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityLiveCaptionsStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityLiveSpeechStaticDeepLinks": { name: "Open Accessibility Live Speech Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityLiveSpeechStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityMotionStaticDeepLinks": { name: "Open Accessibility Motion Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityMotionStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityNameRecognitionStaticDeepLinks": { name: "Open Accessibility Name Recognition Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityNameRecognitionStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityPersonalVoiceStaticDeepLinks": { name: "Open Accessibility Personal Voice Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityPersonalVoiceStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityPointerControlStaticDeepLinks": { name: "Open Accessibility Pointer Control Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityPointerControlStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityRTTStaticDeepLinks": { name: "Open Accessibility RTT Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityRTTStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityRootStaticDeepLinks": { name: "Open Accessibility  Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityRootStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityShortcutStaticDeepLinks": { name: "Open Accessibility Shortcut Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityShortcutStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilitySiriStaticDeepLinks": { name: "Open Accessibility Siri Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySiriStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilitySpokenContentStaticDeepLinks": { name: "Open Accessibility Spoken Content Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySpokenContentStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilitySubtitlesandCaptioningStaticDeepLinks": { name: "Open Accessibility Subtitles and Captioning Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySubtitlesandCaptioningStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilitySwitchControlStaticDeepLinks": { name: "Open Accessibility Switch Control Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySwitchControlStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityVocalShortcutsStaticDeepLinks": { name: "Open Accessibility Vocal Shortcuts Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityVocalShortcutsStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityVoiceControlStaticDeepLinks": { name: "Open Accessibility Voice Control Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityVoiceControlStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityVoiceOverStaticDeepLinks": { name: "Open Accessibility VoiceOver Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityVoiceOverStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks": { name: "Open Accessibility Zoom Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityZoomStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAirDropHandoffDeepLinks": { name: "Open AirDrop & Continuity", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAirDropHandoffDeepLinks" } },
-  "com.apple.systempreferences.OpenAppearanceSettingsDeepLink": { name: "Open Appearance Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppearanceSettingsDeepLink" } },
-  "com.apple.systempreferences.OpenAutoBrightnessEntityDeepLink": { name: "Open Automatically adjust brightness", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutoBrightnessEntityDeepLink" } },
-  "com.apple.systempreferences.OpenAutomaticReconnectEntityDeepLink": { name: "Open Automatically reconnect", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutomaticReconnectEntityDeepLink" } },
-  "com.apple.systempreferences.OpenBatterSettingsDeepLink": { name: "Open Battery Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBatterSettingsDeepLink" } },
-  "com.apple.systempreferences.OpenBatteryHealthPaneDynamicDeepLinks": { name: "Open Battery Health Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBatteryHealthPaneDynamicDeepLinks" } },
-  "com.apple.systempreferences.OpenBatteryOptionsPaneDynamicDeepLinks": { name: "Open Battery Settings Options Pane", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBatteryOptionsPaneDynamicDeepLinks" } },
-  "com.apple.systempreferences.OpenBatterySettingsPaneDynamicDeepLinks": { name: "Open Battery Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBatterySettingsPaneDynamicDeepLinks" } },
-  "com.apple.systempreferences.OpenDisplaysSettingsDeepLinks": { name: "Open Displays", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDisplaysSettingsDeepLinks" } },
-  "com.apple.systempreferences.OpenEnergySaverPaneDynamicDeepLinks": { name: "Open Energy Saver Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEnergySaverPaneDynamicDeepLinks" } },
-  "com.apple.systempreferences.OpenEnergySettingsDeepLink": { name: "Open Energy Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEnergySettingsDeepLink" } },
-  "com.apple.systempreferences.OpenLockScreenDeepLinks": { name: "Lock Screen Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenLockScreenDeepLinks" } },
-  "com.apple.systempreferences.OpenLoginItemsDeepLinks": { name: "Open Login Items", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenLoginItemsDeepLinks" } },
-  "com.apple.systempreferences.OpenMagicEdgeEntityDeepLink": { name: "Open Push through to connect", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMagicEdgeEntityDeepLink" } },
-  "com.apple.systempreferences.OpenNetworkSettingsDeepLinks": { name: "Open Network", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNetworkSettingsDeepLinks" } },
-  "com.apple.systempreferences.OpenNewDeviceOutreachStaticDeepLinks": { name: "Open AppleCare & Warranty", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNewDeviceOutreachStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenPrinterScannerDeepLinks": { name: "Open Printers & Scanners", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenPrinterScannerDeepLinks" } },
-  "com.apple.systempreferences.OpenPrivacySecurityDeepLinks": { name: "Open Privacy & Security", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenPrivacySecurityDeepLinks" } },
-  "com.apple.systempreferences.OpenShareKeyboardEntityDeepLink": { name: "Open Share keyboard and mouse", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenShareKeyboardEntityDeepLink" } },
-  "com.apple.systempreferences.OpenSoundSettingsDeepLinks": { name: "Open Sound", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsDeepLinks" } },
-  "com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity": { name: "Open Feedback Sound Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsFeedbackSoundEntity" } },
-  "com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity": { name: "Open User Interface Sound Effects Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsInterfaceEffectsEntity" } },
-  "com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity": { name: "Open Startup Sound Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsStartupSoundEntity" } },
-  "com.apple.systempreferences.OpenTransferResetDeepLinks": { name: "Open Transfer or Reset", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTransferResetDeepLinks" } },
-  "com.apple.systempreferences.OpenTrueToneEntityDeepLink": { name: "Open True Tone", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTrueToneEntityDeepLink" } },
-  "com.apple.systempreferences.OpenUsersGroupsDeepLinks": { name: "Open Users & Groups", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenUsersGroupsDeepLinks" } },
-  "com.apple.systempreferences.OpenVPNDeepLink": { name: "Open VPN Settings", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenVPNDeepLink" } },
+  "com.apple.systempreferences.OpenAboutSettingsStaticDeepLinks": { name: "Open About", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAboutSettingsStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityAudioDescriptionsStaticDeepLinks": { name: "Open Accessibility Audio Descriptions Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityAudioDescriptionsStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityAudioStaticDeepLinks": { name: "Open Accessibility Audio Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityAudioStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityDisplayStaticDeepLinks": { name: "Open Accessibility Display Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityDisplayStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityHearingDevicesStaticDeepLinks": { name: "Open Accessibility Hearing Devices Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityHearingDevicesStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityHoverTextStaticDeepLinks": { name: "Open Accessibility Hover Text Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityHoverTextStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityKeyboardStaticDeepLinks": { name: "Open Accessibility Keyboard Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityKeyboardStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityLiveCaptionsStaticDeepLinks": { name: "Open Accessibility Live Captions Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityLiveCaptionsStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityLiveSpeechStaticDeepLinks": { name: "Open Accessibility Live Speech Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityLiveSpeechStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityMotionStaticDeepLinks": { name: "Open Accessibility Motion Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityMotionStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityNameRecognitionStaticDeepLinks": { name: "Open Accessibility Name Recognition Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityNameRecognitionStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityPersonalVoiceStaticDeepLinks": { name: "Open Accessibility Personal Voice Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityPersonalVoiceStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityPointerControlStaticDeepLinks": { name: "Open Accessibility Pointer Control Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityPointerControlStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityRTTStaticDeepLinks": { name: "Open Accessibility RTT Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityRTTStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityRootStaticDeepLinks": { name: "Open Accessibility  Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityRootStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityShortcutStaticDeepLinks": { name: "Open Accessibility Shortcut Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityShortcutStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilitySiriStaticDeepLinks": { name: "Open Accessibility Siri Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySiriStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilitySpokenContentStaticDeepLinks": { name: "Open Accessibility Spoken Content Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySpokenContentStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilitySubtitlesandCaptioningStaticDeepLinks": { name: "Open Accessibility Subtitles and Captioning Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySubtitlesandCaptioningStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilitySwitchControlStaticDeepLinks": { name: "Open Accessibility Switch Control Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySwitchControlStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityVocalShortcutsStaticDeepLinks": { name: "Open Accessibility Vocal Shortcuts Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityVocalShortcutsStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityVoiceControlStaticDeepLinks": { name: "Open Accessibility Voice Control Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityVoiceControlStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityVoiceOverStaticDeepLinks": { name: "Open Accessibility VoiceOver Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityVoiceOverStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks": { name: "Open Accessibility Zoom Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityZoomStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenAirDropHandoffDeepLinks": { name: "Open AirDrop & Continuity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAirDropHandoffDeepLinks" } },
+  "com.apple.systempreferences.OpenAppearanceSettingsDeepLink": { name: "Open Appearance Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppearanceSettingsDeepLink" } },
+  "com.apple.systempreferences.OpenAutoBrightnessEntityDeepLink": { name: "Open Automatically adjust brightness", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutoBrightnessEntityDeepLink" } },
+  "com.apple.systempreferences.OpenAutomaticReconnectEntityDeepLink": { name: "Open Automatically reconnect", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutomaticReconnectEntityDeepLink" } },
+  "com.apple.systempreferences.OpenBatterSettingsDeepLink": { name: "Open Battery Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBatterSettingsDeepLink" } },
+  "com.apple.systempreferences.OpenBatteryHealthPaneDynamicDeepLinks": { name: "Open Battery Health Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBatteryHealthPaneDynamicDeepLinks" } },
+  "com.apple.systempreferences.OpenBatteryOptionsPaneDynamicDeepLinks": { name: "Open Battery Settings Options Pane", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBatteryOptionsPaneDynamicDeepLinks" } },
+  "com.apple.systempreferences.OpenBatterySettingsPaneDynamicDeepLinks": { name: "Open Battery Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBatterySettingsPaneDynamicDeepLinks" } },
+  "com.apple.systempreferences.OpenDisplaysSettingsDeepLinks": { name: "Open Displays", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDisplaysSettingsDeepLinks" } },
+  "com.apple.systempreferences.OpenEnergySaverPaneDynamicDeepLinks": { name: "Open Energy Saver Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEnergySaverPaneDynamicDeepLinks" } },
+  "com.apple.systempreferences.OpenEnergySettingsDeepLink": { name: "Open Energy Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEnergySettingsDeepLink" } },
+  "com.apple.systempreferences.OpenLockScreenDeepLinks": { name: "Lock Screen Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenLockScreenDeepLinks" } },
+  "com.apple.systempreferences.OpenLoginItemsDeepLinks": { name: "Open Login Items", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenLoginItemsDeepLinks" } },
+  "com.apple.systempreferences.OpenMagicEdgeEntityDeepLink": { name: "Open Push through to connect", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMagicEdgeEntityDeepLink" } },
+  "com.apple.systempreferences.OpenNetworkSettingsDeepLinks": { name: "Open Network", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNetworkSettingsDeepLinks" } },
+  "com.apple.systempreferences.OpenNewDeviceOutreachStaticDeepLinks": { name: "Open AppleCare & Warranty", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNewDeviceOutreachStaticDeepLinks" } },
+  "com.apple.systempreferences.OpenPrinterScannerDeepLinks": { name: "Open Printers & Scanners", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenPrinterScannerDeepLinks" } },
+  "com.apple.systempreferences.OpenPrivacySecurityDeepLinks": { name: "Open Privacy & Security", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenPrivacySecurityDeepLinks" } },
+  "com.apple.systempreferences.OpenShareKeyboardEntityDeepLink": { name: "Open Share keyboard and mouse", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenShareKeyboardEntityDeepLink" } },
+  "com.apple.systempreferences.OpenSoundSettingsDeepLinks": { name: "Open Sound", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsDeepLinks" } },
+  "com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity": { name: "Open Feedback Sound Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsFeedbackSoundEntity" } },
+  "com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity": { name: "Open User Interface Sound Effects Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsInterfaceEffectsEntity" } },
+  "com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity": { name: "Open Startup Sound Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsStartupSoundEntity" } },
+  "com.apple.systempreferences.OpenTransferResetDeepLinks": { name: "Open Transfer or Reset", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTransferResetDeepLinks" } },
+  "com.apple.systempreferences.OpenTrueToneEntityDeepLink": { name: "Open True Tone", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTrueToneEntityDeepLink" } },
+  "com.apple.systempreferences.OpenUsersGroupsDeepLinks": { name: "Open Users & Groups", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenUsersGroupsDeepLinks" } },
+  "com.apple.systempreferences.OpenVPNDeepLink": { name: "Open VPN Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenVPNDeepLink" } },
   "com.apple.systempreferences.PaperSizeEntity": { name: "Get Printer Paper Size", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Printer Paper Size", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "PaperSizeEntity" } },
   "com.apple.systempreferences.PaperSizeEntity-UpdatableEntity": { name: "Update Printer Paper Size", params: ["entity", "value"], output: "Printer Paper Size", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "PaperSizeEntity-UpdatableEntity" } },
   "com.apple.systempreferences.RequirePasswordDelayIntent": { name: "Get Password Delay", params: [], output: "Password Delay", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "RequirePasswordDelayIntent" } },
   "com.apple.systempreferences.ScreenSaverDelayEntity": { name: "Get Start Screen Saver", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Start Screen Saver", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ScreenSaverDelayEntity" } },
   "com.apple.systempreferences.ScreenSaverDelayEntity-UpdatableEntity": { name: "Update Start Screen Saver", params: ["entity", "value"], output: "Start Screen Saver", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ScreenSaverDelayEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.SettingsNavigationEventDonationIntent": { name: "Setting Navigation", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SettingsNavigationEventDonationIntent" } },
+  "com.apple.systempreferences.SettingsNavigationEventDonationIntent": { name: "Setting Navigation", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SettingsNavigationEventDonationIntent" } },
   "com.apple.systempreferences.ShareKeyboardEntity": { name: "Get Allow your pointer and keyboard to move between any nearby Mac or iPad", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Allow your pointer and keyboard to move between any nearby Mac or iPad", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShareKeyboardEntity" } },
   "com.apple.systempreferences.ShareKeyboardEntity-UpdatableEntity": { name: "Update Allow your pointer and keyboard to move between any nearby Mac or iPad", params: ["entity", "value"], output: "Allow your pointer and keyboard to move between any nearby Mac or iPad", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShareKeyboardEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.SharingSettingsIntents.OpenSharingDeepLinks": { name: "Open Sharing", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences.SharingSettingsIntents", Name: "SharingIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSharingDeepLinks" } },
-  "com.apple.systempreferences.SharingSettingsIntents.SharingIntents": { name: "SharingIntents", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences.SharingSettingsIntents", Name: "SharingIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "SharingIntents" } },
+  "com.apple.systempreferences.SharingSettingsIntents.OpenSharingDeepLinks": { name: "Open Sharing", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences.SharingSettingsIntents", Name: "SharingIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSharingDeepLinks" } },
+  "com.apple.systempreferences.SharingSettingsIntents.SharingIntents": { name: "SharingIntents", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences.SharingSettingsIntents", Name: "SharingIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "SharingIntents" } },
   "com.apple.systempreferences.ShowLargeClockIntent": { name: "Show Large Clock", params: [], output: "Large Clock Option", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowLargeClockIntent" } },
   "com.apple.systempreferences.ShowPasswordHintsIntent": { name: "Show Password Hints", params: [], output: "Show Password Hints", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowPasswordHintsIntent" } },
   "com.apple.systempreferences.ShowScrollBarsEntity": { name: "Get Show scroll bars", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Show scroll bars", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowScrollBarsEntity" } },
@@ -16038,9 +15328,9 @@ export const ACTIONS = {
   "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity-UpdatableEntity": { name: "Update a User Interface Sound Effects Settings's Play user interface sound effects", params: ["entity", "value"], output: "User Interface Sound Effects Settings", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsInterfaceEffectsEntity-UpdatableEntity" } },
   "com.apple.systempreferences.SoundSettingsStartupSoundEntity": { name: "Get Startup Sound Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Startup Sound Settings", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsStartupSoundEntity" } },
   "com.apple.systempreferences.SoundSettingsStartupSoundEntity-UpdatableEntity": { name: "Update a Startup Sound Settings's Play sound on startup", params: ["entity", "value"], output: "Startup Sound Settings", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsStartupSoundEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent": { name: "High Power Mode", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleHighPowerModeBatteryNoBatteryIntent" } },
-  "com.apple.systempreferences.ToggleHighPowerModeOnBatteryIntent": { name: "High Power Mode", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleHighPowerModeOnBatteryIntent" } },
-  "com.apple.systempreferences.ToggleLowPowerModeIntent": { name: "Low Power Mode", params: ["value"], output: "none", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleLowPowerModeIntent" } },
+  "com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent": { name: "High Power Mode", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleHighPowerModeBatteryNoBatteryIntent" } },
+  "com.apple.systempreferences.ToggleHighPowerModeOnBatteryIntent": { name: "High Power Mode", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleHighPowerModeOnBatteryIntent" } },
+  "com.apple.systempreferences.ToggleLowPowerModeIntent": { name: "Low Power Mode", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleLowPowerModeIntent" } },
   "com.apple.systempreferences.TrueToneEntity": { name: "Get True Tone", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "True Tone", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrueToneEntity" } },
   "com.apple.systempreferences.TrueToneEntity-UpdatableEntity": { name: "Update True Tone", params: ["entity", "value"], output: "True Tone", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrueToneEntity-UpdatableEntity" } },
   "com.apple.systempreferences.UserGroupIntent": { name: "Get User’s Group", params: ["userEntity"], output: "Primary Group Name", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "UserGroupIntent" } },
@@ -16051,39 +15341,39 @@ export const ACTIONS = {
   "com.apple.systempreferences.VPNConfigurationEntity-UpdatableEntity": { name: "Update a VPN Configuration's Connect On Demand", params: ["connectOnDemand", "entity"], output: "VPN Configuration", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "VPNConfigurationEntity-UpdatableEntity" } },
   "com.apple.systempreferences.WidgetsAndOnenessEntity": { name: "Get iPhone Widgets", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "iPhone Widgets", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetsAndOnenessEntity" } },
   "com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity": { name: "Update iPhone Widgets", params: ["entity", "useiPhoneWidgets"], output: "iPhone Widgets", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetsAndOnenessEntity-UpdatableEntity" } },
-  "com.apple.usernotificationsd.PrepareUserNotificationIntent": { name: "Prepare notifications to read", params: ["notifications"], output: "none", descriptor: { BundleIdentifier: "com.apple.usernotificationsd", Name: "usernotificationsd", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareUserNotificationIntent" } },
+  "com.apple.usernotificationsd.PrepareUserNotificationIntent": { name: "Prepare notifications to read", params: ["notifications"], output: null, descriptor: { BundleIdentifier: "com.apple.usernotificationsd", Name: "usernotificationsd", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareUserNotificationIntent" } },
   "com.apple.usernotificationsd.UserNotificationEntity": { name: "Find User Notification Type", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "User Notification Type", descriptor: { BundleIdentifier: "com.apple.usernotificationsd", Name: "usernotificationsd", TeamIdentifier: "0000000000", AppIntentIdentifier: "UserNotificationEntity" } },
-  "com.apple.wallpaper.agent.SetWallpaperIntent": { name: "Set Wallpaper", params: ["wallpaper", "showOnAllSpaces", "showAsScreenSaver"], output: "none", descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWallpaperIntent" } },
-  "com.apple.wallpaper.agent.SetWallpaperPhotoIntent": { name: "Set Wallpaper Photo", params: ["photo", "showOnAllSpaces"], output: "none", descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWallpaperPhotoIntent" } },
-  "com.apple.wallpaper.agent.SkipShuffledContentAction": { name: "Skip Wallpaper", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SkipShuffledContentAction" } },
+  "com.apple.wallpaper.agent.SetWallpaperIntent": { name: "Set Wallpaper", params: ["wallpaper", "showOnAllSpaces", "showAsScreenSaver"], output: null, descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWallpaperIntent" } },
+  "com.apple.wallpaper.agent.SetWallpaperPhotoIntent": { name: "Set Wallpaper Photo", params: ["photo", "showOnAllSpaces"], output: null, descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWallpaperPhotoIntent" } },
+  "com.apple.wallpaper.agent.SkipShuffledContentAction": { name: "Skip Wallpaper", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SkipShuffledContentAction" } },
   "com.apple.wallpaper.agent.WallpaperEntity": { name: "Find Wallpapers", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Wallpapers", descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "WallpaperEntity" } },
-  "com.apple.weather.AddSavedLocationIntent": { name: "Add Location to List", params: ["placemark", "OpenWhenRun"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddSavedLocationIntent" } },
+  "com.apple.weather.AddSavedLocationIntent": { name: "Add Location to List", params: ["placemark", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddSavedLocationIntent" } },
   "com.apple.weather.LocationEntity": { name: "Find Location", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Location", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "LocationEntity" } },
   "com.apple.weather.LocationOfInterestEntity": { name: "Find Location of Interest", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Location of Interest", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "LocationOfInterestEntity" } },
   "com.apple.weather.LocationSearchEntity": { name: "Find Location", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Location", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "LocationSearchEntity" } },
-  "com.apple.weather.OpenMoonIntent": { name: "Open Moon Details", params: ["location"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMoonIntent" } },
-  "com.apple.weather.OpenNotificationsConfigurationIntent": { name: "Open Notifications Configuration", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNotificationsConfigurationIntent" } },
-  "com.apple.weather.OpenSunriseSunsetIntent": { name: "Open Sunrise and Sunset Details", params: ["location"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSunriseSunsetIntent" } },
-  "com.apple.weather.OpenUnitsConfigurationIntent": { name: "Open Units Configuration", params: [], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenUnitsConfigurationIntent" } },
-  "com.apple.weather.OpenWeatherAirQualityIntent": { name: "Open Air Quality Details", params: ["location", "position"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWeatherAirQualityIntent" } },
-  "com.apple.weather.OpenWeatherSpecificConditionIntent": { name: "Open Weather Condition Details", params: ["location", "specificCondition", "temperatureKind", "date"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWeatherSpecificConditionIntent" } },
+  "com.apple.weather.OpenMoonIntent": { name: "Open Moon Details", params: ["location"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMoonIntent" } },
+  "com.apple.weather.OpenNotificationsConfigurationIntent": { name: "Open Notifications Configuration", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNotificationsConfigurationIntent" } },
+  "com.apple.weather.OpenSunriseSunsetIntent": { name: "Open Sunrise and Sunset Details", params: ["location"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSunriseSunsetIntent" } },
+  "com.apple.weather.OpenUnitsConfigurationIntent": { name: "Open Units Configuration", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenUnitsConfigurationIntent" } },
+  "com.apple.weather.OpenWeatherAirQualityIntent": { name: "Open Air Quality Details", params: ["location", "position"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWeatherAirQualityIntent" } },
+  "com.apple.weather.OpenWeatherSpecificConditionIntent": { name: "Open Weather Condition Details", params: ["location", "specificCondition", "temperatureKind", "date"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWeatherSpecificConditionIntent" } },
   "com.apple.weather.PreferredUnitsEntity": { name: "Find Preferred Weather Units", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Preferred Weather Units", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "PreferredUnitsEntity" } },
-  "com.apple.weather.RemoveSavedLocationIntent": { name: "Remove Locations from List", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveSavedLocationIntent" } },
-  "com.apple.weather.ResetUnitsIntent": { name: "Reset Unit", params: ["unit"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetUnitsIntent" } },
-  "com.apple.weather.SetDistanceUnitIntent": { name: "Set Distance Unit", params: ["unit"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDistanceUnitIntent" } },
-  "com.apple.weather.SetPrecipitationUnitIntent": { name: "Set Precipitation Unit", params: ["unit"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetPrecipitationUnitIntent" } },
-  "com.apple.weather.SetPressureUnitIntent": { name: "Set Pressure Unit", params: ["unit"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetPressureUnitIntent" } },
-  "com.apple.weather.SetTemperatureUnitIntent": { name: "Set Temperature Unit", params: ["unit"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetTemperatureUnitIntent" } },
-  "com.apple.weather.SetWindUnitIntent": { name: "Set Wind Unit", params: ["unit"], output: "none", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWindUnitIntent" } },
-  "com.apple.weather.SyncDataIntent": { name: "(INTERNAL ONLY) Sync Data", params: ["data"], output: "com.apple.weather.SyncedDataEntity", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SyncDataIntent" } },
+  "com.apple.weather.RemoveSavedLocationIntent": { name: "Remove Locations from List", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveSavedLocationIntent" } },
+  "com.apple.weather.ResetUnitsIntent": { name: "Reset Unit", params: ["unit"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetUnitsIntent" } },
+  "com.apple.weather.SetDistanceUnitIntent": { name: "Set Distance Unit", params: ["unit"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDistanceUnitIntent" } },
+  "com.apple.weather.SetPrecipitationUnitIntent": { name: "Set Precipitation Unit", params: ["unit"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetPrecipitationUnitIntent" } },
+  "com.apple.weather.SetPressureUnitIntent": { name: "Set Pressure Unit", params: ["unit"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetPressureUnitIntent" } },
+  "com.apple.weather.SetTemperatureUnitIntent": { name: "Set Temperature Unit", params: ["unit"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetTemperatureUnitIntent" } },
+  "com.apple.weather.SetWindUnitIntent": { name: "Set Wind Unit", params: ["unit"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWindUnitIntent" } },
+  "com.apple.weather.SyncDataIntent": { name: "(INTERNAL ONLY) Sync Data", params: ["data"], output: "Synced Data", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SyncDataIntent" } },
   "com.apple.weather.SyncedDataEntity": { name: "Find Synced Data", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Synced Data", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SyncedDataEntity" } },
-  "is.workflow.actions.appendnote": { name: "Append to Note", params: ["operation", "entity", "text", "section", "ignoreWhitespace", "interpretAsMarkdown"], output: "com.apple.Notes.NoteEntity", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AppendToNoteLinkAction" } },
-  "is.workflow.actions.deletephotos": { name: "Delete Photos", params: ["entities"], output: "none", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "deletephotos" } },
+  "is.workflow.actions.appendnote": { name: "Append to Note", params: ["operation", "entity", "text", "section", "ignoreWhitespace", "interpretAsMarkdown"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AppendToNoteLinkAction" } },
+  "is.workflow.actions.deletephotos": { name: "Delete Photos", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "deletephotos" } },
   "is.workflow.actions.extracttextfromimage": { name: "Extract Text from Image", params: ["imageFile", "contentType"], output: "Extracted Text", descriptor: { BundleIdentifier: "com.apple.VisionAppIntents", Name: "VisionAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "extracttextfromimage" } },
   "is.workflow.actions.filter.notes": { name: "Find Notes", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "notes" } },
   "is.workflow.actions.image.removebackground": { name: "Remove Image Background", params: ["imageFiles", "crop"], output: "Images without Background", descriptor: { BundleIdentifier: "com.apple.VisionAppIntents", Name: "VisionAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "removebackground" } },
   "is.workflow.actions.scanbarcode": { name: "Scan QR or Barcode", params: ["WFScanCodeActionMode", "imageFile"], output: "QR/Barcodes", descriptor: { BundleIdentifier: "com.apple.VisionAppIntents", Name: "VisionAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "scanbarcode" } },
-  "is.workflow.actions.shownote": { name: "Open Note", params: ["target"], output: "none", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNoteLinkAction" } },
+  "is.workflow.actions.shownote": { name: "Open Note", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNoteLinkAction" } },
 } as const;
 
 /** Accepted value type for every parameter key of every action (see values.ts). */

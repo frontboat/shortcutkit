@@ -495,7 +495,7 @@ Output:  `none`
   
 Creates a new calendar.
   
-Output:  `com.apple.iCal.CalendarEntity`
+Output: Calendar `com.apple.iCal.CalendarEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -509,7 +509,7 @@ Output:  `com.apple.iCal.CalendarEntity`
   
 Creates a new event.
   
-Output:  `com.apple.iCal.EventEntity`
+Output: Event `com.apple.iCal.EventEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -563,7 +563,7 @@ Output:  `none`
   
 Modifies the given event.
   
-Output:  `com.apple.iCal.EventEntity`
+Output: Event `com.apple.iCal.EventEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -633,7 +633,7 @@ Output: Event `com.apple.iCal.EventEntity`
 
 `com.apple.iCal.FetchTransferableEventByURLIntent` · key `calendar_fetch_transferable_event_by_url_intent`
   
-Output:  `com.apple.iCal.TransferableEventEntity`
+Output: TransferableEventEntity <no loc> `com.apple.iCal.TransferableEventEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -643,7 +643,7 @@ Output:  `com.apple.iCal.TransferableEventEntity`
 
 `com.apple.iCal.FetchTransferableEventsInRangeIntent` · key `calendar_fetch_transferable_events_in_range_intent_no_loc`
   
-Output:  `com.apple.iCal.TransferableEventEntity`
+Output: TransferableEventEntity <no loc> `com.apple.iCal.TransferableEventEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -888,7 +888,7 @@ Output:  `none`
   
 Create an alarm
   
-Output:  `com.apple.clock.AssistantAlarmEntity`
+Output: Alarm `com.apple.clock.AssistantAlarmEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -903,7 +903,7 @@ Output:  `com.apple.clock.AssistantAlarmEntity`
   
 Create a timer
   
-Output:  `com.apple.clock.TimerEntity`
+Output: Timer `com.apple.clock.TimerEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -977,7 +977,7 @@ Output:  `none`
   
 Start the stopwatch
   
-Output:  `com.apple.clock.StopwatchEntity`
+Output: Stopwatch `com.apple.clock.StopwatchEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1021,7 +1021,7 @@ Output:  `none`
   
 Dismiss a firing or snoozed alarm
   
-Output:  `com.apple.clock.AssistantAlarmEntity`
+Output: Alarm `com.apple.clock.AssistantAlarmEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1146,7 +1146,7 @@ Output:  `none`
   
 Snooze the firing alarm
   
-Output:  `com.apple.clock.AssistantAlarmEntity`
+Output: Alarm `com.apple.clock.AssistantAlarmEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1195,7 +1195,7 @@ Output: Timer `com.apple.clock.TimerEntity`
   
 Update the alarm, for example, turn on / off the alarm, change the label, time, or repeating schedule
   
-Output:  `com.apple.clock.AssistantAlarmEntity`
+Output: Alarm `com.apple.clock.AssistantAlarmEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1212,7 +1212,7 @@ Output:  `com.apple.clock.AssistantAlarmEntity`
   
 Update the timer’s attributes
   
-Output:  `com.apple.clock.TimerEntity`
+Output: Timer `com.apple.clock.TimerEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1227,7 +1227,7 @@ Output:  `com.apple.clock.TimerEntity`
   
 Creates an Alarm in the Clock app.
   
-Output:  `com.apple.clock.AlarmEntity`
+Output: Alarm `com.apple.clock.AlarmEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1261,7 +1261,7 @@ Output: Alarms `com.apple.clock.AlarmEntity`
   
 Enables or disables an Alarm in the Clock app.
   
-Output:  `com.apple.clock.AlarmEntity`
+Output: Alarm `com.apple.clock.AlarmEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1331,7 +1331,7 @@ Output: Contact `com.apple.AddressBook.ContactEntity`
   
 Create a new contact and open the contact card in the Contacts app
   
-Output:  `com.apple.AddressBook.ContactEntity`
+Output: Contact `com.apple.AddressBook.ContactEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1367,7 +1367,7 @@ Output:  `none`
   
 Fetch Avatars from the contacts database
   
-Output:  `com.apple.AddressBook.ContactAvatarFetchResultEntity`
+Output: Contact Avatar Fetch Result `com.apple.AddressBook.ContactAvatarFetchResultEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1380,7 +1380,7 @@ Output:  `com.apple.AddressBook.ContactAvatarFetchResultEntity`
   
 Fetch contacts from the contacts database
   
-Output:  `com.apple.AddressBook.ContactFetchResultEntity`
+Output: Contact Fetch Result `com.apple.AddressBook.ContactFetchResultEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1405,7 +1405,7 @@ Output:  `none`
   
 Update contact details for a contact
   
-Output:  `com.apple.AddressBook.ContactEntity`
+Output: Contact `com.apple.AddressBook.ContactEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1626,7 +1626,7 @@ Output: Person `com.apple.findmy.WidgetPersonEntity`
   
 Compresses items into an archive
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1641,7 +1641,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Copies items to another location
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1656,7 +1656,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Creates a new folder.
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1670,7 +1670,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Duplicates items in their current locations
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1683,7 +1683,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Shows the Get Info window for an item or items
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1695,7 +1695,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Provides a well-known location on disk
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1707,7 +1707,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Gets the selected Finder items
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 ### Go To Enclosing Folder
 
@@ -1715,7 +1715,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Navigates the front Finder window to its enclosing folder
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 ### Go To Folder
 
@@ -1731,7 +1731,7 @@ Output:  `none`
   
 Navigates to a location in a Finder window
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1743,7 +1743,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Moves existing files or folders.
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1758,7 +1758,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Opens a selected file or folder.
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1770,7 +1770,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Renames an existing file or folder.
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1785,7 +1785,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Shows the items in Finder windows
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1810,7 +1810,7 @@ Output:  `none`
   
 Moves items to the Trash
   
-Output:  `com.apple.finder.FINodeEntity`
+Output: File `com.apple.finder.FINodeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1825,7 +1825,7 @@ Output:  `com.apple.finder.FINodeEntity`
   
 Adds an item to a board.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1842,7 +1842,7 @@ Output:  `com.apple.freeform.CRLBoardEntity`
   
 Adds a sticky note to a board (empty or with text in it).
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1856,7 +1856,7 @@ Output:  `com.apple.freeform.CRLBoardEntity`
   
 Adds a text box to a board (empty or with text in it).
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1886,7 +1886,7 @@ Output: Board `com.apple.freeform.CRLBoardEntity`
   
 Shows or hides the dot grid for a board.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1900,7 +1900,7 @@ Output:  `com.apple.freeform.CRLBoardEntity`
   
 Shows or hides object connectors for a board.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1953,7 +1953,7 @@ Output:  `none`
   
 Creates a new board.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -1991,7 +1991,7 @@ Output:  `none`
   
 Adds one or more files to a board.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2005,7 +2005,7 @@ Output:  `com.apple.freeform.CRLBoardEntity`
   
 Adds one or more photos to a board.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2019,7 +2019,7 @@ Output:  `com.apple.freeform.CRLBoardEntity`
   
 Adds a shape to a board (empty or with text in it).
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2034,7 +2034,7 @@ Output:  `com.apple.freeform.CRLBoardEntity`
   
 Adds text to a board in a text box or a specified container.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2049,7 +2049,7 @@ Output:  `com.apple.freeform.CRLBoardEntity`
   
 Adds a web link to a board.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2075,7 +2075,7 @@ Output:  `none`
   
 Renames a board.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2115,7 +2115,7 @@ Output:  `none`
   
 Renames a board.
   
-Output:  `com.apple.freeform.CRLBoardEntity`
+Output: Board `com.apple.freeform.CRLBoardEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2176,7 +2176,7 @@ Output:  `none`
   
 This intent accepts a knowledge-seeking request and delegates the request to ChatGPT, which actually performs it and propagates back the generative result.
   
-Output:  `com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity`
+Output: GenerativeResponse AppEntity `com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2192,7 +2192,7 @@ Output:  `com.apple.generativeassistanttools.GenerativeAssistantExtension.Genera
   
 This intent answers a user query about on screen content, e.g., image, pdf, webpage, by delegating the request to ChatGPT in order to provide a generative response.
   
-Output:  `com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity`
+Output: GenerativeResponse AppEntity `com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2209,7 +2209,7 @@ Output:  `com.apple.generativeassistanttools.GenerativeAssistantExtension.Genera
   
 This intent accepts a user request to generate a type of text content (for example ‘email’, ‘note’, ‘paragraph’) and delegates the request to ChatGPT, which actually performs it and propagates back the generative result.
   
-Output:  `com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity`
+Output: GenerativeResponse AppEntity `com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2223,7 +2223,7 @@ Output:  `com.apple.generativeassistanttools.GenerativeAssistantExtension.Genera
 
 `com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentIntent` · key `com_apple_generativeassistanttools_generative_assistant_extension_on_screen_content_intent`
   
-Output:  `com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentEntity`
+Output: GenerativeResponse AppEntity `com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentEntity`
 
 ### Prewarm GenerativeAssistantExtension
 
@@ -2237,7 +2237,7 @@ Output:  `bool`
 
 `com.apple.gms.GenerativePartnerPrototypeExtension.GenerativePartnerPrototypeIntentChatGPT` · key `com_apple_gms_generative_partner_prototype_extension_generative_partner_prototype`
   
-Output:  `com.apple.AppIntents.AppIntents._ModelDelegationResultEntity`
+Output: Model Delegation Response `com.apple.AppIntents.AppIntents._ModelDelegationResultEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2261,7 +2261,7 @@ Output:  `none`
 
 `com.apple.Home.ActivateSceneIntent` · key `home_activate_scene`
   
-Output:  `com.apple.Home.SceneResult`
+Output: Scene Result `com.apple.Home.SceneResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2273,7 +2273,7 @@ Output:  `com.apple.Home.SceneResult`
 
 `com.apple.Home.AutomateAttributeValueIntent` · key `home_automate_set_attribute_value`
   
-Output:  `com.apple.Home.AutomationResult`
+Output: Automation Result `com.apple.Home.AutomationResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2317,7 +2317,7 @@ Output: CameraClipEntity `com.apple.Home.CameraClipEntity`
 
 `com.apple.Home.DeltaAttributeValueIntent` · key `home_delta_attribute`
   
-Output:  `com.apple.Home.DeviceResult`
+Output: Device Result `com.apple.Home.DeviceResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2366,7 +2366,7 @@ Output:  `none`
 
 `com.apple.Home.GetAttributeValueIntent` · key `home_get_attribute`
   
-Output:  `com.apple.Home.DeviceResult`
+Output: Device Result `com.apple.Home.DeviceResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2382,7 +2382,7 @@ Output:  `com.apple.Home.DeviceResult`
 
 `com.apple.Home.GetDeviceInfoIntent` · key `home_get_device_info`
   
-Output:  `com.apple.Home.DeviceInfoResult`
+Output: Supported Attributes Result `com.apple.Home.DeviceInfoResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2524,7 +2524,7 @@ Output: Selected Home `com.apple.Home.SelectedHomeEntity`
 
 `com.apple.Home.SetAttributeValueIntent` · key `home_set_attribute`
   
-Output:  `com.apple.Home.DeviceResult`
+Output: Device Result `com.apple.Home.DeviceResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2613,7 +2613,7 @@ Output:  `none`
 
 `com.apple.Home.ToggleAttributeIntent` · key `home_toggle_attribute`
   
-Output:  `com.apple.Home.DeviceResult`
+Output: Device Result `com.apple.Home.DeviceResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -2875,7 +2875,7 @@ Output:  `none`
   
 Creates a new journal entry.
   
-Output:  `com.apple.journal.JournalEntity`
+Output: Journal Entry `com.apple.journal.JournalEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3220,7 +3220,7 @@ Output:  `none`
   
 Archives one or more email messages.
   
-Output:  `com.apple.mail.MailMessageEntity`
+Output: Message `com.apple.mail.MailMessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3244,7 +3244,7 @@ Output:  `none`
   
 Opens an email composer to draft an email. Does not send the email draft.
   
-Output:  `com.apple.mail.DraftMessageEntity`
+Output: Draft Message `com.apple.mail.DraftMessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3274,7 +3274,7 @@ Output:  `none`
   
 Deletes one or more email messages.
   
-Output:  `com.apple.mail.MailMessageEntity`
+Output: Message `com.apple.mail.MailMessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3302,7 +3302,7 @@ Output: Draft Message `com.apple.mail.DraftMessageEntity`
   
 Opens an email composer to forward an email. Does not send the email draft.
   
-Output:  `com.apple.mail.DraftMessageEntity`
+Output: Draft Message `com.apple.mail.DraftMessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3403,7 +3403,7 @@ Output:  `none`
   
 Opens the specified smart mailbox in Mail’s sidebar
   
-Output:  `com.apple.mail.SmartMailboxEntity`
+Output: Smart Mailbox `com.apple.mail.SmartMailboxEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3415,7 +3415,7 @@ Output:  `com.apple.mail.SmartMailboxEntity`
   
 Opens an email composer to reply to an email. Does not send the email draft.
   
-Output:  `com.apple.mail.DraftMessageEntity`
+Output: Draft Message `com.apple.mail.DraftMessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3435,7 +3435,7 @@ Output:  `com.apple.mail.DraftMessageEntity`
   
 Saves an email draft.
   
-Output:  `com.apple.mail.DraftMessageEntity`
+Output: Draft Message `com.apple.mail.DraftMessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3544,7 +3544,7 @@ Output:  `none`
   
 Makes updates to an email draft.
   
-Output:  `com.apple.mail.DraftMessageEntity`
+Output: Draft Message `com.apple.mail.DraftMessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3563,7 +3563,7 @@ Output:  `com.apple.mail.DraftMessageEntity`
   
 Makes updates to one or more existing email messages by modifying the status, flags, and location.
   
-Output:  `com.apple.mail.MailMessageEntity`
+Output: Message `com.apple.mail.MailMessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3671,7 +3671,7 @@ Output:  `none`
   
 Calculate Estimated Time of Arrival
   
-Output:  `com.apple.Maps.ETAEntity`
+Output: ETA `com.apple.Maps.ETAEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3702,7 +3702,7 @@ Output: Current Location `com.apple.Maps.CurrentLocationEntity`
 
 `com.apple.Maps.MapsIntentsDebugDispatch` · key `maps_maps_intents_debug_dispatch`
   
-Output:  `com.apple.Maps.ETAEntity`
+Output: ETA `com.apple.Maps.ETAEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3759,7 +3759,7 @@ Output: Parking Location `com.apple.Maps.ParkingLocationDataEntity`
 
 `com.apple.Maps.SearchPlacesIntent` · key `maps_search_places`
   
-Output:  `com.apple.-GeoToolbox-AppIntents.GeoToolbox.PlaceDescriptorEntity`
+Output: Location `com.apple.-GeoToolbox-AppIntents.GeoToolbox.PlaceDescriptorEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3776,7 +3776,7 @@ Output:  `com.apple.-GeoToolbox-AppIntents.GeoToolbox.PlaceDescriptorEntity`
   
 Start Navigation
   
-Output:  `com.apple.Maps.NavigationSessionEntity`
+Output: Current Route `com.apple.Maps.NavigationSessionEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3790,7 +3790,7 @@ Output:  `com.apple.Maps.NavigationSessionEntity`
 
 `com.apple.Maps.TestStartNavigationIntent` · key `maps_test_drive_to_apple_park`
   
-Output:  `com.apple.Maps.NavigationSessionEntity`
+Output: Current Route `com.apple.Maps.NavigationSessionEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3800,7 +3800,7 @@ Output:  `com.apple.Maps.NavigationSessionEntity`
 
 `com.apple.Maps.TestUpdateNavigationIntent` · key `maps_test_update_navigation_waypoints`
   
-Output:  `com.apple.Maps.NavigationSessionEntity`
+Output: Current Route `com.apple.Maps.NavigationSessionEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -3813,7 +3813,7 @@ Output:  `com.apple.Maps.NavigationSessionEntity`
   
 maps_MapsUpdateNavigationWaypointsIntent_1.0.0_intent_description
   
-Output:  `com.apple.Maps.NavigationSessionEntity`
+Output: Current Route `com.apple.Maps.NavigationSessionEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -4105,7 +4105,7 @@ Output:  `none`
   
 Sends a message with the associated parameters
   
-Output:  `com.apple.MobileSMS.MessageEntity`
+Output: Message `com.apple.MobileSMS.MessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -4124,7 +4124,7 @@ Output:  `com.apple.MobileSMS.MessageEntity`
   
 React to the specified message with a Tapback. To pass a message to this action, use the Find Message action or a Message automation.
   
-Output:  `com.apple.MobileSMS.MessageEntity`
+Output: Message `com.apple.MobileSMS.MessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -4366,7 +4366,7 @@ Output:  `none`
   
 WarmupMusicQueueSiriIntent_Description
   
-Output:  `com.apple.Music.WarmupMusicQueueResultSiriEntity`
+Output: Warmup Audio Queue Result `com.apple.Music.WarmupMusicQueueResultSiriEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -4426,7 +4426,7 @@ Output:  `none`
   
 Find out what song is playing nearby or on your Mac with Shazam.
   
-Output:  `com.apple.musicrecognition.mac.ShazamSongEntity`
+Output: Song `com.apple.musicrecognition.mac.ShazamSongEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -4718,7 +4718,7 @@ Output: Game Center `com.apple.news.GameCenterEntity`
   
 Get the ingredients for a recipe.
   
-Output:  `com.apple.news.IngredientEntity`
+Output: Recipe Ingredient `com.apple.news.IngredientEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -4730,7 +4730,7 @@ Output:  `com.apple.news.IngredientEntity`
   
 Get a list of recently viewed recipes.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 ### Get Saved Recipes
 
@@ -4738,7 +4738,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Get a list of saved recipes.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 ### Increase Text Size
 
@@ -4844,7 +4844,7 @@ Output:  `none`
   
 Shows a recipe in the News app.
   
-Output:  `com.apple.news.NewsRecipeEntity`
+Output: Recipe `com.apple.news.NewsRecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -4966,7 +4966,7 @@ Output:  `none`
   
 Saves a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -4978,7 +4978,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Selects an ingredient in a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -4991,7 +4991,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Shows details for a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5003,7 +5003,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Shows ingredients for a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5015,7 +5015,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Shows instructions for a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5027,7 +5027,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Shows the next step for a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5039,7 +5039,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Shows the previous step for a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5051,7 +5051,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Shows a specific step for a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5064,7 +5064,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Starts Cook Mode.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5076,7 +5076,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Stops Cook Mode.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5124,7 +5124,7 @@ Output:  `none`
   
 Unsaves a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5136,7 +5136,7 @@ Output:  `com.apple.news.RecipeEntity`
   
 Unselects an ingredient in a recipe.
   
-Output:  `com.apple.news.RecipeEntity`
+Output: Recipe `com.apple.news.RecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5185,7 +5185,7 @@ Output: Automatically Download Audio Stories `bool`
   
 Adds an attachment into a note.
   
-Output:  `com.apple.Notes.AttachmentEntity`
+Output: Attachment `com.apple.Notes.AttachmentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5200,7 +5200,7 @@ Output:  `com.apple.Notes.AttachmentEntity`
   
 Adds a link into a note.
   
-Output:  `com.apple.Notes.AttachmentEntity`
+Output: Attachment `com.apple.Notes.AttachmentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5215,7 +5215,7 @@ Output:  `com.apple.Notes.AttachmentEntity`
   
 Lock the given note so that viewing it requires a password, passcode, or biometric authentication, or remove the lock to allow unrestricted access.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5229,7 +5229,7 @@ Output:  `com.apple.Notes.NoteEntity`
   
 Adds tags to notes.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5337,7 +5337,7 @@ Output:  `none`
   
 Adds a checklist item to the end of a note.
   
-Output:  `com.apple.Notes.ChecklistItemEntity`
+Output: Checklist Item `com.apple.Notes.ChecklistItemEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5351,7 +5351,7 @@ Output:  `com.apple.Notes.ChecklistItemEntity`
   
 Creates a new folder.
   
-Output:  `com.apple.Notes.FolderEntity`
+Output: Folder `com.apple.Notes.FolderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5364,7 +5364,7 @@ Output:  `com.apple.Notes.FolderEntity`
   
 Creates a new note.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5381,7 +5381,7 @@ Output:  `com.apple.Notes.NoteEntity`
   
 Adds a table into a note.
   
-Output:  `com.apple.Notes.TableEntity`
+Output: Table `com.apple.Notes.TableEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5396,7 +5396,7 @@ Output:  `com.apple.Notes.TableEntity`
   
 Creates a tag that can be used in notes.
   
-Output:  `com.apple.Notes.TagEntity`
+Output: Tag `com.apple.Notes.TagEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5503,7 +5503,7 @@ Output:  `bool`
   
 Creates a list of notes that are linked to from the specified note.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5515,7 +5515,7 @@ Output:  `com.apple.Notes.NoteEntity`
   
 Insert an all mention into the provided target note, notifying all collaborators.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5527,7 +5527,7 @@ Output:  `com.apple.Notes.NoteEntity`
   
 Mentions another participant or all participants in a shared note.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5540,7 +5540,7 @@ Output:  `com.apple.Notes.NoteEntity`
   
 Adds a link to a note in a note.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5567,7 +5567,7 @@ Output:  `none`
   
 Adds text to the end of a note.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5676,7 +5676,7 @@ Output:  `none`
   
 Pins or unpins notes.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5695,7 +5695,7 @@ Output:  `none`
   
 Removes tags from notes.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5708,7 +5708,7 @@ Output:  `com.apple.Notes.NoteEntity`
   
 Renames a folder in Notes.
   
-Output:  `com.apple.Notes.FolderEntity`
+Output: Folder `com.apple.Notes.FolderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5746,7 +5746,7 @@ Output:  `none`
   
 Checks or unchecks items in a checklist.
   
-Output:  `com.apple.Notes.ChecklistItemEntity`
+Output: Checklist Item `com.apple.Notes.ChecklistItemEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5817,7 +5817,7 @@ Output: Table `com.apple.Notes.TableEntity`
   
 Updates a note in Notes.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5833,7 +5833,7 @@ Output:  `com.apple.Notes.NoteEntity`
   
 Creates a note using the content passed as input.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -5849,7 +5849,7 @@ Output:  `com.apple.Notes.NoteEntity`
   
 Adds text to the end of a note.
   
-Output:  `com.apple.Notes.NoteEntity`
+Output: Note `com.apple.Notes.NoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -6006,7 +6006,7 @@ Output: Call Record `com.apple.calls.PhoneAppIntentsExtension.CallRecord`
   
 Creates a conference call
   
-Output:  `com.apple.calls.PhoneAppIntentsExtension.ConferenceCall`
+Output: Conference Call `com.apple.calls.PhoneAppIntentsExtension.ConferenceCall`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -6253,7 +6253,7 @@ Output:  `none`
   
 Creates an album with the specified name.
   
-Output:  `com.apple.Photos.AlbumEntity`
+Output: Album `com.apple.Photos.AlbumEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -6266,7 +6266,7 @@ Output:  `com.apple.Photos.AlbumEntity`
   
 Adds the specified photos to the photo library.
   
-Output:  `com.apple.Photos.AssetEntity`
+Output: Photo `com.apple.Photos.AssetEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -6311,7 +6311,7 @@ Output:  `none`
   
 Duplicates the specified photos.
   
-Output:  `com.apple.Photos.AssetEntity`
+Output: Photo `com.apple.Photos.AssetEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -6614,7 +6614,7 @@ Output:  `none`
   
 Creates an album.
   
-Output:  `com.apple.Photos.AlbumEntity`
+Output: Album `com.apple.Photos.AlbumEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -6627,7 +6627,7 @@ Output:  `com.apple.Photos.AlbumEntity`
   
 Creates photos from the provided files.
   
-Output:  `com.apple.Photos.AssetEntity`
+Output: Photo `com.apple.Photos.AssetEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -6675,7 +6675,7 @@ Output:  `none`
   
 Duplicates the selected photos.
   
-Output:  `com.apple.Photos.AssetEntity`
+Output: Photo `com.apple.Photos.AssetEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7198,7 +7198,7 @@ Output: Podcast Episode `com.apple.podcasts.EpisodeEntity`
   
 Follow the provided show, adding it to you library
   
-Output:  `com.apple.podcasts.ShowEntity`
+Output: Podcast Show `com.apple.podcasts.ShowEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7375,7 +7375,7 @@ Output: Podcast Show `com.apple.podcasts.ShowEntity`
   
 Warmup a specific audio item to the queue
   
-Output:  `com.apple.podcasts.WarmupAudioQueueResult`
+Output: Warmup Audio Queue Result `com.apple.podcasts.WarmupAudioQueueResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7414,7 +7414,7 @@ Output:  `none`
   
 Enhances the documents.
   
-Output:  `com.apple.Preview.DocumentEntity`
+Output: Document `com.apple.Preview.DocumentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7427,7 +7427,7 @@ Output:  `com.apple.Preview.DocumentEntity`
   
 Bookmark the specified pages.
   
-Output:  `com.apple.Preview.PageEntity`
+Output: Page `com.apple.Preview.PageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7497,7 +7497,7 @@ Output:  `file`
   
 Flip the documents horizontally or vertically.
   
-Output:  `com.apple.Preview.DocumentEntity`
+Output: Document `com.apple.Preview.DocumentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7539,7 +7539,7 @@ Output:  `none`
   
 Opens the specified files in the reader.
   
-Output:  `com.apple.Preview.DocumentEntity`
+Output: Document `com.apple.Preview.DocumentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7551,7 +7551,7 @@ Output:  `com.apple.Preview.DocumentEntity`
   
 Remove the image background from the documents.
   
-Output:  `com.apple.Preview.DocumentEntity`
+Output: Document `com.apple.Preview.DocumentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7564,7 +7564,7 @@ Output:  `com.apple.Preview.DocumentEntity`
   
 Resizes the documents to a particular width and height.
   
-Output:  `com.apple.Preview.DocumentEntity`
+Output: Document `com.apple.Preview.DocumentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7579,7 +7579,7 @@ Output:  `com.apple.Preview.DocumentEntity`
   
 Reveal the specified document.
   
-Output:  `com.apple.Preview.DocumentEntity`
+Output: Document `com.apple.Preview.DocumentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7591,7 +7591,7 @@ Output:  `com.apple.Preview.DocumentEntity`
   
 Opens the app to the specified document page.
   
-Output:  `com.apple.Preview.PageEntity`
+Output: Page `com.apple.Preview.PageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7603,7 +7603,7 @@ Output:  `com.apple.Preview.PageEntity`
   
 Rotates the documents in the specified direction.
   
-Output:  `com.apple.Preview.DocumentEntity`
+Output: Document `com.apple.Preview.DocumentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7617,7 +7617,7 @@ Output:  `com.apple.Preview.DocumentEntity`
   
 Rotates the pages in the specified direction.
   
-Output:  `com.apple.Preview.PageEntity`
+Output: Page `com.apple.Preview.PageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7631,7 +7631,7 @@ Output:  `com.apple.Preview.PageEntity`
   
 Save the documents.
   
-Output:  `com.apple.Preview.DocumentEntity`
+Output: Document `com.apple.Preview.DocumentEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7693,7 +7693,7 @@ Output:  `none`
   
 Add tags to or remove tags from reminders.
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7708,7 +7708,7 @@ Output:  `com.apple.reminders.ReminderEntity`
   
 Set the completion of a specific reminder and its subtasks.
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7721,7 +7721,7 @@ Output:  `com.apple.reminders.ReminderEntity`
 
 `com.apple.reminders.CompleteRemindersAppIntent` · key `reminders_set_reminders_completion_state_no_loc`
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7747,7 +7747,7 @@ Output:  `none`
   
 Creates a group in Reminders.
   
-Output:  `com.apple.reminders.GroupEntity`
+Output: Group `com.apple.reminders.GroupEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7760,7 +7760,7 @@ Output:  `com.apple.reminders.GroupEntity`
   
 Creates a section in a list.
   
-Output:  `com.apple.reminders.SectionEntity`
+Output: Section `com.apple.reminders.SectionEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7824,7 +7824,7 @@ Output:  `none`
 
 `com.apple.reminders.GetDefaultListAppIntent` · key `reminders_get_default_list_no_loc`
   
-Output:  `com.apple.reminders.ListEntity`
+Output: List `com.apple.reminders.ListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7908,7 +7908,7 @@ Output: List `com.apple.reminders.ListEntity`
   
 Move reminders to a list or section, or make them a subtask of a parent reminder.
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7926,7 +7926,7 @@ Output:  `com.apple.reminders.ReminderEntity`
   
 Move Reminders to a given Reminders List, at the given insertion position <no loc>
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7941,7 +7941,7 @@ Output:  `com.apple.reminders.ReminderEntity`
   
 Move Reminders to become Subtasks of a Parent Reminder, or become top-level reminders <no loc>
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -7955,7 +7955,7 @@ Output:  `com.apple.reminders.ReminderEntity`
   
 Move Reminders to a given Reminders List Section, at the given insertion position <no loc>
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8088,7 +8088,7 @@ Output: Reminders Smart Lists `com.apple.reminders.SmartListEntity`
   
 Snooze Reminders and delay the alerts.
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8101,7 +8101,7 @@ Output:  `com.apple.reminders.ReminderEntity`
   
 Creates a list in Reminders.
   
-Output:  `com.apple.reminders.ListEntity`
+Output: List `com.apple.reminders.ListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8116,7 +8116,7 @@ Output:  `com.apple.reminders.ListEntity`
   
 Creates a new reminder.
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8196,7 +8196,7 @@ Output:  `none`
   
 Update reminders group properties.
   
-Output:  `com.apple.reminders.GroupEntity`
+Output: Group `com.apple.reminders.GroupEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8215,7 +8215,7 @@ Edit List
 • Badge
 • Parent Group
   
-Output:  `com.apple.reminders.ListEntity`
+Output: List `com.apple.reminders.ListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8233,7 +8233,7 @@ Output:  `com.apple.reminders.ListEntity`
   
 Auto-Categorize a reminders list.
   
-Output:  `com.apple.reminders.ListEntity`
+Output: List `com.apple.reminders.ListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8247,7 +8247,7 @@ Output:  `com.apple.reminders.ListEntity`
   
 Pin or unpin reminders list.
   
-Output:  `com.apple.reminders.ListEntity`
+Output: List `com.apple.reminders.ListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8261,7 +8261,7 @@ Output:  `com.apple.reminders.ListEntity`
   
 Toggle reminders list layout.
   
-Output:  `com.apple.reminders.ListEntity`
+Output: List `com.apple.reminders.ListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8275,7 +8275,7 @@ Output:  `com.apple.reminders.ListEntity`
   
 Toggle show or hide completed reminders in list.
   
-Output:  `com.apple.reminders.ListEntity`
+Output: List `com.apple.reminders.ListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8289,7 +8289,7 @@ Output:  `com.apple.reminders.ListEntity`
   
 Change reminders list sorting style.
   
-Output:  `com.apple.reminders.ListEntity`
+Output: List `com.apple.reminders.ListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8303,7 +8303,7 @@ Output:  `com.apple.reminders.ListEntity`
   
 Update Reminder properties.
   
-Output:  `com.apple.reminders.ReminderEntity`
+Output: Reminder `com.apple.reminders.ReminderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8334,7 +8334,7 @@ Output:  `com.apple.reminders.ReminderEntity`
   
 Update section properties.
   
-Output:  `com.apple.reminders.SectionEntity`
+Output: Section `com.apple.reminders.SectionEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8348,7 +8348,7 @@ Output:  `com.apple.reminders.SectionEntity`
   
 Update reminders smart list properties.
   
-Output:  `com.apple.reminders.SmartListEntity`
+Output: Smart List `com.apple.reminders.SmartListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8361,7 +8361,7 @@ Output:  `com.apple.reminders.SmartListEntity`
   
 Show or hide reminders system smart list.
   
-Output:  `com.apple.reminders.SmartListEntity`
+Output: Smart List `com.apple.reminders.SmartListEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8452,7 +8452,7 @@ Output:  `none`
 
 `com.apple.Safari.AddHistoryItem` · key `safari_add_to_history`
   
-Output:  `com.apple.Safari.HistoryEntity`
+Output: History Entity `com.apple.Safari.HistoryEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8482,7 +8482,7 @@ Output: Bookmark `com.apple.Safari.BookmarkEntity`
   
 Creates a new bookmark for this tab.
   
-Output:  `com.apple.Safari.BookmarkEntity`
+Output: Bookmark `com.apple.Safari.BookmarkEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8495,7 +8495,7 @@ Output:  `com.apple.Safari.BookmarkEntity`
   
 Creates a new bookmark for a given URL.
   
-Output:  `com.apple.Safari.BookmarkEntity`
+Output: Bookmark `com.apple.Safari.BookmarkEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8568,7 +8568,7 @@ Output:  `none`
   
 Opens a new tab in the current Tab Group.
   
-Output:  `com.apple.Safari.TabEntity`
+Output: Tab `com.apple.Safari.TabEntity`
 
 ### Create Tab Group
 
@@ -8576,7 +8576,7 @@ Output:  `com.apple.Safari.TabEntity`
   
 Creates a new Tab Group, optionally with specified contents.
   
-Output:  `com.apple.Safari.TabGroupEntity`
+Output: Tab Group `com.apple.Safari.TabGroupEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8589,7 +8589,7 @@ Output:  `com.apple.Safari.TabGroupEntity`
   
 Creates a new browser window.
   
-Output:  `com.apple.Safari.WindowEntity`
+Output: Window `com.apple.Safari.WindowEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8601,7 +8601,7 @@ Output:  `com.apple.Safari.WindowEntity`
   
 Adds the current page to Reading List.
   
-Output:  `com.apple.Safari.ReadingListItemEntity`
+Output: Reading List Item `com.apple.Safari.ReadingListItemEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8615,7 +8615,7 @@ Output:  `com.apple.Safari.ReadingListItemEntity`
   
 Creates a new tab with a URL loaded, or blank if omitted.
   
-Output:  `com.apple.Safari.TabEntity`
+Output: Tab `com.apple.Safari.TabEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -8673,7 +8673,7 @@ Output:  `none`
 
 `com.apple.Safari.GetHistoryItems` · key `safari_get_history_items`
   
-Output:  `com.apple.Safari.HistoryEntity`
+Output: History Entity `com.apple.Safari.HistoryEntity`
 
 ### Find History Entity
 
@@ -8903,7 +8903,7 @@ Output:  `none`
 
 `com.apple.Safari.RequestWebPageContextIntent` · key `safari_request_web_page_context`
   
-Output:  `com.apple.Safari.WebPageContextResult`
+Output: Web Page Context Result `com.apple.Safari.WebPageContextResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -12248,7 +12248,7 @@ Output:  `none`
   
 Creates a new Shortcuts folder
   
-Output:  `com.apple.shortcuts.RootNavigationDestination`
+Output: Folder `com.apple.shortcuts.RootNavigationDestination`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -12273,7 +12273,7 @@ Output:  `url`
   
 Creates a new empty shortcut
   
-Output:  `com.apple.shortcuts.WFWorkflowReference`
+Output: Shortcut `com.apple.shortcuts.WFWorkflowReference`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -12298,7 +12298,7 @@ Output:  `none`
   
 Generates a new shortcut from a text description using Apple Intelligence.
   
-Output:  `com.apple.shortcuts.WFWorkflowReference`
+Output: Shortcut `com.apple.shortcuts.WFWorkflowReference`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -12383,7 +12383,7 @@ Output:  `none`
   
 Renames a shortcut to the specified name.
   
-Output:  `com.apple.shortcuts.WFWorkflowReference`
+Output: Shortcut `com.apple.shortcuts.WFWorkflowReference`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -12423,7 +12423,7 @@ Output:  `none`
   
 Search for an available Shortcuts action.
   
-Output:  `com.apple.shortcuts.ShortcutsActionEntity`
+Output: Shortcuts Action `com.apple.shortcuts.ShortcutsActionEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -12530,7 +12530,7 @@ Returns the device’s current orientation on iPhone and iPad.
 
 A result of “Unknown” indicates that the device is not supported.
   
-Output:  `com.apple.ShortcutsActions.Orientation`
+Output: Orientation `com.apple.ShortcutsActions.Orientation`
 
 ### Get Physical Activity
 
@@ -12760,7 +12760,7 @@ Output:  `none`
   
 Resume the specified conversation.
   
-Output:  `com.apple.campo.ConversationEntity`
+Output: Conversation `com.apple.campo.ConversationEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -12929,7 +12929,7 @@ Output:  `none`
   
 Start Navigation
   
-Output:  `com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity`
+Output: Current Route `com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -13003,7 +13003,7 @@ Output:  `none`
   
 Sends a message with the associated parameters
   
-Output:  `com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitMessageEntity`
+Output: Message `com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitMessageEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -13536,7 +13536,7 @@ Output:  `none`
   
 Shows a price quote and performance for the symbol.
   
-Output:  `com.apple.stocks.SymbolQuoteEntity`
+Output: Symbol Quote `com.apple.stocks.SymbolQuoteEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -13557,7 +13557,7 @@ Output:  `none`
   
 Creates a new list of symbols you are interested in.
   
-Output:  `com.apple.stocks.WatchlistEntity`
+Output: Watchlist `com.apple.stocks.WatchlistEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -13627,7 +13627,7 @@ Output:  `none`
   
 Shows a recipe in the News app.
   
-Output:  `com.apple.stocks.NewsRecipeEntity`
+Output: Recipe `com.apple.stocks.NewsRecipeEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -19998,7 +19998,7 @@ Output: Clear Deleted `com.apple.VoiceMemos.ClearDeletedEntity`
   
 Creates a new folder in Voice Memos.
   
-Output:  `com.apple.VoiceMemos.RCFolderEntity`
+Output: Folders `com.apple.VoiceMemos.RCFolderEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20099,7 +20099,7 @@ Output:  `none`
   
 Combine two recordings into a multi-tracks recording.
   
-Output:  `com.apple.VoiceMemos.RCRecordingEntity`
+Output: Recording `com.apple.VoiceMemos.RCRecordingEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20124,7 +20124,7 @@ Output:  `none`
   
 Import an audio file with a specified title.
   
-Output:  `com.apple.VoiceMemos.RCRecordingEntity`
+Output: Recording `com.apple.VoiceMemos.RCRecordingEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20532,7 +20532,7 @@ Output:  `none`
   
 (INTERNAL ONLY) Syncs a set of data from one device to its companion device.
   
-Output:  `com.apple.weather.SyncedDataEntity`
+Output: Synced Data `com.apple.weather.SyncedDataEntity`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20864,7 +20864,7 @@ Output:  `bool`
   
 Invoke Writing Tools and compose text.
   
-Output:  `com.apple.AppKit.WritingToolsResult`
+Output: Writing Tools Result `com.apple.AppKit.WritingToolsResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20878,7 +20878,7 @@ Output:  `com.apple.AppKit.WritingToolsResult`
   
 Invoke Writing Tools and rewrite or compose text with the given prompt.
   
-Output:  `com.apple.AppKit.WritingToolsResult`
+Output: Writing Tools Result `com.apple.AppKit.WritingToolsResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20892,7 +20892,7 @@ Output:  `com.apple.AppKit.WritingToolsResult`
   
 Invoke Writing Tools and compose text.
   
-Output:  `com.apple.AppKit.WritingToolsResult`
+Output: Writing Tools Result `com.apple.AppKit.WritingToolsResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20907,7 +20907,7 @@ Output:  `com.apple.AppKit.WritingToolsResult`
   
 Invoke Writing Tools and proofread the current text.
   
-Output:  `com.apple.AppKit.WritingToolsResult`
+Output: Writing Tools Result `com.apple.AppKit.WritingToolsResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20920,7 +20920,7 @@ Output:  `com.apple.AppKit.WritingToolsResult`
   
 Invoke Writing Tools and rewrite the current text.
   
-Output:  `com.apple.AppKit.WritingToolsResult`
+Output: Writing Tools Result `com.apple.AppKit.WritingToolsResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20935,7 +20935,7 @@ Output:  `com.apple.AppKit.WritingToolsResult`
   
 Invoke Writing Tools and summarize the current text.
   
-Output:  `com.apple.AppKit.WritingToolsResult`
+Output: Writing Tools Result `com.apple.AppKit.WritingToolsResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20948,7 +20948,7 @@ Output:  `com.apple.AppKit.WritingToolsResult`
   
 Invoke Writing Tools and transform the current text into key points.
   
-Output:  `com.apple.AppKit.WritingToolsResult`
+Output: Writing Tools Result `com.apple.AppKit.WritingToolsResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20961,7 +20961,7 @@ Output:  `com.apple.AppKit.WritingToolsResult`
   
 Invoke Writing Tools and transform the current text into a list.
   
-Output:  `com.apple.AppKit.WritingToolsResult`
+Output: Writing Tools Result `com.apple.AppKit.WritingToolsResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|
@@ -20974,7 +20974,7 @@ Output:  `com.apple.AppKit.WritingToolsResult`
   
 Invoke Writing Tools and transform the current text into a table.
   
-Output:  `com.apple.AppKit.WritingToolsResult`
+Output: Writing Tools Result `com.apple.AppKit.WritingToolsResult`
 
 | Key | Name | Kind | Type |
 |---|---|---|---|

@@ -122,7 +122,7 @@ describe("App Intents actions", () => {
     const p = r.WFWorkflowActionParameters as Record<string, unknown>;
     expect(p.AppIntentDescriptor).toEqual({ BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateReminderAppIntent", ActionRequiresAppInstallation: true });
     expect(ACTIONS[actions.reminders_create_reminder].descriptor.BundleIdentifier).toBe("com.apple.reminders");
-    expect(ref(r).Value).toMatchObject({ Type: "ActionOutput", OutputName: "com.apple.reminders.ReminderEntity" });
+    expect(ref(r).Value).toMatchObject({ Type: "ActionOutput", OutputName: "Reminder" });
     // @ts-expect-error a bool parameter does not take a string
     s.action(actions.reminders_create_reminder, { isFlagged: "yes" });
     expect(() => s.action(actions.reminders_create_reminder, { nope: 1 } as never)).toThrow(/unknown parameter/);

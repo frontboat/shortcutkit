@@ -23,7 +23,9 @@ def main(argv):
     encodings = json.load(open(argv[3])) if len(argv) > 3 else {}
     runtime = encodings.get("actionParameters", {})
     engine_outputs = encodings.get("actionOutputNames", {})  # from the action objects themselves
+    defaults = encodings.get("actionDefaults", {})  # engine defaults, to check registry case lists against
     filled = outputs = enums = disagree = 0
+    checked = mismatched = 0
     for ident, d in defs.items():
         reg = names.get(ident)
         if not reg:
@@ -47,12 +49,20 @@ def main(argv):
         for key, cases in (reg.get("enumCases") or {}).items():
             if key in listed or (runtime and key not in known_keys) or not cases:
                 continue
+            dv = defaults.get(ident, {}).get(key)
+            if isinstance(dv, str):
+                checked += 1
+                if dv not in cases:
+                    mismatched += 1
+                    print(f"  warning: {ident}.{key}: engine default {dv!r} is not among the registry's cases {cases[:6]}; skipped", file=sys.stderr)
+                    continue
             d.setdefault("Parameters", []).append({"Key": key, "Items": cases, "Label": (reg.get("labels") or {}).get(key), "Source": "ToolKit"})
             enums += 1
     json.dump(defs, open(defs_path, "w"), indent=2, ensure_ascii=False, sort_keys=True)
     print(f"filled: {filled} names, {outputs} output names, {enums} enumeration case lists; "
           f"{sum(1 for d in defs.values() if not d.get('Name'))} still unnamed; "
-          f"{disagree} definitions whose OutputName differs from the action object's (definition kept)")
+          f"{disagree} definitions whose OutputName differs from the action object's (definition kept); "
+          f"enumeration lists checked against engine defaults: {checked}, mismatched: {mismatched}")
 
 
 if __name__ == "__main__":
