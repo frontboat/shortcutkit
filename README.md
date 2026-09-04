@@ -41,6 +41,21 @@ files you are using.
   parameter classes, required resources); `provenance` says which build produced the data.
 - **Signing.** `Shortcut.sign()` wraps `shortcuts sign` so the output imports on any device.
 
+## How it compares
+
+Every earlier library for writing Shortcuts as code kept its action list by hand, and that is
+how the two most used ones ended: [shortcuts-js](https://github.com/joshfarrant/shortcuts-js)
+(TypeScript, 129 actions, archived 2023) and
+[python-shortcuts](https://github.com/alexander-akhmetov/python-shortcuts) (Python, archived
+2024) both stopped once keeping up with Apple became a chore.
+[Cherri](https://github.com/electrikmilk/cherri) is the active project in this space and takes
+a different shape: a programming language with its own compiler, editor extension and package
+manager, whose actions are defined in that language.
+
+shortcutkit is a library, not a language. You write TypeScript or Python you already know, and
+the action catalogue comes from the Shortcuts engine rather than from a maintainer. All 339
+built-in actions are covered today, and the next macOS update is one `bun run extract` away.
+
 ## Installation
 
 ```bash

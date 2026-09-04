@@ -44,6 +44,18 @@ Both live at https://github.com/frontboat/shortcutkit.
 - **Reference tables.** `CONDITION` codes, `ICON_COLORS`, and `PROVENANCE` recording which
   macOS and Shortcuts build the bundled data came from.
 
+## How it compares
+
+Earlier libraries kept their action lists by hand, and the two most used ones are archived:
+[python-shortcuts](https://github.com/alexander-akhmetov/python-shortcuts) (the `shortcuts`
+package on PyPI, archived 2024) and [shortcuts-js](https://github.com/joshfarrant/shortcuts-js)
+(archived 2023). [Cherri](https://github.com/electrikmilk/cherri) is the active project in this
+space and is a programming language with its own compiler rather than a library.
+
+shortcutkit is a plain Python library whose action catalogue comes from the Shortcuts engine
+rather than from a maintainer. All 339 built-in actions are covered, and the data regenerates
+after each macOS update.
+
 ## Installation
 
 ```bash
