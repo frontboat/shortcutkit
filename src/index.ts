@@ -13,11 +13,14 @@ export type { PlistValue } from "./plist.js";
 export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
 export { provenance, type Provenance } from "./provenance.js";
+export type * from "./generated/params.js";
 
 /** Parameters accepted for an identifier: typed per key for built-in actions, open for anything else. */
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
 
-export type Action = { WFWorkflowActionIdentifier: string; WFWorkflowActionParameters: Record<string, Value>; outputName?: string };
+export type Action = { WFWorkflowActionIdentifier: string; WFWorkflowActionParameters: Record<string, Value>; outputName?: string; outputTypes?: readonly string[] };
+/** Content types an action's output can be (`WFStringContentItem`, `NSURL`, an App Intents entity, …). Shortcuts coerces between many of them at run time, so this describes, it does not restrict. */
+export type OutputTypes<I extends ActionId> = (typeof ACTIONS)[I]["outputTypes"];
 /** What the catalogue knows about an identifier: built-in or App Intent, engine definition or not. */
 export type CatalogEntry = {
   identifier: string;
@@ -29,6 +32,8 @@ export type CatalogEntry = {
   kinds: Record<string, string>;
   /** Output name, or null when the action produces nothing. */
   output: string | null;
+  /** Content types the output can be; empty when the action produces nothing. */
+  outputTypes: readonly string[];
   /** Present for App Intents actions; written as the AppIntentDescriptor parameter. */
   descriptor?: AppIntentDescriptor;
   /** The engine's definition, for built-ins only. */
@@ -40,11 +45,11 @@ export type CatalogEntry = {
  * (App Intents have no engine definition); this covers both with the same shape.
  */
 export function getAction(identifier: string): CatalogEntry | undefined {
-  const entry = (ACTIONS as Record<string, { name: string; params: readonly string[]; output: string | null; descriptor?: AppIntentDescriptor }>)[identifier];
+  const entry = (ACTIONS as Record<string, { name: string; params: readonly string[]; output: string | null; outputTypes: readonly string[]; descriptor?: AppIntentDescriptor }>)[identifier];
   if (!entry) return undefined;
   const kinds = { ...((PARAM_KINDS as Record<string, Record<string, string>>)[identifier] ?? {}) };
   const definition = getDefinition(identifier);
-  return { identifier, name: entry.name, params: entry.params, kinds, output: entry.output, ...(entry.descriptor ? { descriptor: entry.descriptor } : {}), ...(definition ? { definition } : {}) };
+  return { identifier, name: entry.name, params: entry.params, kinds, output: entry.output, outputTypes: entry.outputTypes, ...(entry.descriptor ? { descriptor: entry.descriptor } : {}), ...(definition ? { definition } : {}) };
 }
 
 /** Names the app that provides an App Intents action; written as the AppIntentDescriptor parameter. */
@@ -128,7 +133,7 @@ export class Shortcut {
    */
   action<I extends string>(identifier: I, params: ParamsFor<I> = {} as ParamsFor<I>): Action {
     const definition = getDefinition(identifier);
-    const catalog = (ACTIONS as Record<string, { params: readonly string[]; output: string | null; descriptor?: AppIntentDescriptor }>)[identifier];
+    const catalog = (ACTIONS as Record<string, { params: readonly string[]; output: string | null; outputTypes?: readonly string[]; descriptor?: AppIntentDescriptor }>)[identifier];
     if (!definition && !catalog && identifier.startsWith("is.workflow.")) throw new Error(`unknown built-in action ${identifier}`);
     if (definition || catalog?.descriptor) {
       const known = new Set<string>(META_KEYS);
@@ -154,6 +159,7 @@ export class Shortcut {
       WFWorkflowActionIdentifier: identifier,
       WFWorkflowActionParameters: { UUID: uuid(), ...descriptor, ...normalized },
       outputName: definition?.Output?.OutputName ?? catalog?.output ?? undefined,
+      outputTypes: catalog?.outputTypes ?? definition?.Output?.Types,
     };
     this.actions.push(entry);
     return entry;
@@ -196,7 +202,7 @@ export class Shortcut {
   endMenu(gid: string): void { this.action("is.workflow.actions.choosefrommenu", { GroupingIdentifier: gid, WFControlFlowMode: 2 }); }
 
   toPlist(): Record<string, PlistValue> {
-    const actions = this.actions.map(({ outputName: _o, ...a }) => a as unknown as PlistValue);
+    const actions = this.actions.map(({ outputName: _o, outputTypes: _t, ...a }) => a as unknown as PlistValue);
     return {
       WFWorkflowClientVersion: "4018.0.4",
       WFWorkflowMinimumClientVersion: 900,

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, CONDITION } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 
 describe("shortcutkit", () => {
   test("validates identifiers and parameter keys against the definitions", () => {
@@ -91,6 +91,25 @@ describe("definitions", () => {
     expect(d.IconSymbol).toBe("cylinder.split.1x2.fill");
     expect(getDefinition("com.example.Nope")).toBeUndefined();
     expect(Object.keys(allDefinitions()).length).toBe(434);
+  });
+});
+
+describe("named parameter types and output types", () => {
+  test("every action has a Params alias and output content types", () => {
+    const p: ShowresultParams = { Text: text("hi") };
+    const r: RemindersCreateReminderParams = { title: "x", priorityLevel: "high" };
+    // @ts-expect-error not a key of Show Result
+    const bad: ShowresultParams = { Nope: 1 };
+    void p; void r; void bad;
+    const s = new Shortcut("Out");
+    const js = s.action(actions.runjavascriptonwebpage, { WFJavaScript: "completion(1)" });
+    expect(js.outputTypes).toEqual(["WFDictionaryContentItem", "WFStringContentItem", "WFBooleanContentItem", "WFNumberContentItem"]);
+    expect(ACTIONS[actions.safari_create_new_tab].outputTypes).toEqual(["com.apple.Safari.TabEntity"]);
+    const o: OutputTypes<"is.workflow.actions.safari.geturl"> = ["WFSafariWebPage"];
+    void o;
+    expect(getAction(actions.showresult)!.outputTypes).toEqual([]);
+    const written = (s.toPlist().WFWorkflowActions as unknown as Record<string, unknown>[])[0]!;
+    expect(Object.keys(written)).not.toContain("outputTypes");
   });
 });
 

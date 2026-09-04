@@ -6,6 +6,17 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.7.0 (2026-09-04)
+
+- **A named parameter type for every action**: `ShowresultParams`,
+  `RemindersCreateReminderParams`, … (`src/generated/params.ts`), the same shape as
+  `ParamTypes[identifier]` under a name that reads in hover text and errors.
+- **Output content types**: `ACTIONS[id].outputTypes` (`WFStringContentItem`, `NSURL`, an App
+  Intents entity, …), also on the `Action` returned by `action()`, in `getAction()`, and as the
+  `OutputTypes<I>` type. Descriptive, not restrictive: Shortcuts coerces between many content
+  types at run time, so `ref()` stays accepted everywhere. Python: `outputTypes` in `ACTIONS`
+  and `get_action`.
+
 ## 0.6.2 (2026-09-04)
 
 - `getAction(identifier)` (Python `get_action`) describes any catalogue identifier, built-in or

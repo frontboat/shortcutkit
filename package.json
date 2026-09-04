@@ -1,6 +1,6 @@
 {
   "name": "shortcutkit",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "Build, validate and sign Apple Shortcuts files. Every built-in action typed, straight from the Shortcuts engine.",
   "type": "module",
   "main": "./dist/index.js",

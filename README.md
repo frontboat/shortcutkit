@@ -34,7 +34,9 @@ files you are using.
   typed, and the `AppIntentDescriptor` the file needs is added for you.
 - **Parameters checked before you run anything.** `{ WFStoredContentGlobalValue: "yes" }` is a
   compile error; a switch takes a boolean or a reference. Enumeration choices are suggested.
-  Any plain value slot also accepts an attachment, because that is how Shortcuts works.
+  Any plain value slot also accepts an attachment, because that is how Shortcuts works. Every
+  action has a named parameter type (`ShowresultParams`, `RemindersCreateReminderParams`), and
+  its output content types are on `ACTIONS[id].outputTypes` and on the returned `Action`.
 - **Value helpers that match the engine's serialization.** `ref()` to another action's output,
   `variable()`, `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `text()` for
   strings with embedded references, and `picker()` for variable-picker parameters. A bare

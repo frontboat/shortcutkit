@@ -194,6 +194,7 @@ class Shortcut:
                  "WFWorkflowActionParameters": {**head, **params}}
         output = (definition or {}).get("Output", {})
         entry["_outputName"] = (output.get("OutputName") if isinstance(output, dict) else None) or catalog.get("output")
+        entry["_outputTypes"] = list(catalog.get("outputTypes") or (output.get("Types") if isinstance(output, dict) else []) or [])
         if isinstance(entry["_outputName"], dict):
             entry["_outputName"] = entry["_outputName"].get("format")
         self.actions.append(entry)
@@ -290,7 +291,7 @@ def get_action(identifier, definitions=DEFINITIONS):
     if entry is None:
         return None
     out = {"identifier": identifier, "name": entry["name"], "params": list(entry["params"]),
-           "kinds": dict(PARAM_KINDS.get(identifier, {})), "output": entry.get("output")}
+           "kinds": dict(PARAM_KINDS.get(identifier, {})), "output": entry.get("output"), "outputTypes": list(entry.get("outputTypes", []))}
     if entry.get("descriptor"):
         out["descriptor"] = entry["descriptor"]
     defs = json.load(open(definitions)) if definitions and pathlib.Path(definitions).exists() else {}
@@ -324,4 +325,4 @@ PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "get_action", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "0.6.2"
+__version__ = "0.7.0"
