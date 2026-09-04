@@ -6,6 +6,14 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.1.1 (2026-09-04)
+
+Documentation and metadata only. No code or data changes.
+
+- README leads with why engine-extracted data matters; PyPI and npm pages pick up the new text.
+- Registry keywords widened for Shortcuts and macOS automation searches.
+- Signing requirement documented: `shortcuts sign` needs a Mac signed into iCloud.
+
 ## 0.1.0 (2026-09-04)
 
 First release, published to npm and PyPI.
