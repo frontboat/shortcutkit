@@ -1,0 +1,170 @@
+# The .shortcut file format
+
+Everything a generator needs, as verified on macOS 27 against three sources: Apple's own
+gallery workflows shipped inside WorkflowKit (dump them locally with `tools/dump-gallery.py`; not committed, they are Apple's content), the shortcuts in
+a Mac's own library (`tools/dump-library-encodings.py`), and WorkflowKit's classes asked to
+serialize values directly (`data/encoding-table.json`). The package in `src/` implements it.
+
+## 1. Envelope
+
+A binary plist with these top-level keys (all present in every gallery file):
+
+| Key | Type | Notes |
+|---|---|---|
+| `WFWorkflowActions` | array | the actions, in order |
+| `WFWorkflowClientVersion` | string | e.g. `"4018.0.4"`; the library records `4528.0.4.2` and `5037.0.17` for newer saves |
+| `WFWorkflowMinimumClientVersion` | int | `900` for anything current; `411` on very old shortcuts |
+| `WFWorkflowMinimumClientVersionString` | string | same value as a string |
+| `WFWorkflowIcon` | dict | `WFWorkflowIconStartColor` (int, see palette), `WFWorkflowIconGlyphNumber` (int) |
+| `WFWorkflowTypes` | array | surfaces: `WatchKit`, `ActionExtension`, `NCWidget`, `MenuBar`, `QuickActions`, `Sleep`, `ReceivesOnScreenContent`; `[]` is normal |
+| `WFQuickActionSurfaces` | array | `[]` |
+| `WFWorkflowInputContentItemClasses` | array | content item classes accepted as input, e.g. `WFURLContentItem`, `WFStringContentItem`, `WFSafariWebPageContentItem` |
+| `WFWorkflowOutputContentItemClasses` | array | usually `[]` |
+| `WFWorkflowImportQuestions` | array | usually `[]` |
+| `WFWorkflowHasShortcutInputVariables` | bool | true if any action references `ExtensionInput` |
+| `WFWorkflowHasOutputFallback` | bool | `false` |
+| `WFWorkflowNoInputBehavior` | dict | optional; value `WFWorkflowNoInputBehaviorAskForInput` etc. |
+
+**Icon palette.** `WFWorkflowIconStartColor` is `-[WFWorkflowIcon backgroundColorValue]`, a
+32-bit value. Apple writes it signed (gallery: `-2873601`); the library and community files
+write it unsigned (`4282601983`). Both load. The 15 palette entries, in picker order:
+Red 4282601983, DarkOrange 4251333119, Orange 4271458815, Yellow 4274264319,
+Green 4292093695, Teal 431817727, LightBlue 1440408063, Blue 463140863, DarkBlue 946986751,
+Violet 2071128575, Purple 3679049983, Pink 3980825855, Taupe 255, Gray 3031607807,
+DarkGray 2846468607. Default glyph is 61440 (`+[WFWorkflowIcon defaultGlyphCharacter]`);
+glyphs are private-use codepoints from Shortcuts' icon font.
+
+## 2. Actions
+
+Each element of `WFWorkflowActions`:
+
+```
+{ "WFWorkflowActionIdentifier": "is.workflow.actions.setstoredcontent",
+  "WFWorkflowActionParameters": { "UUID": "…", <parameter key>: <value>, … } }
+```
+
+`UUID` is any uppercase UUID; other actions reference this action's output through it.
+Built-in identifiers, parameter keys and parameter classes: `data/builtin-actions.json`.
+`CustomOutputName` renames the output.
+
+**App-provided actions (App Intents).** Identifier is `<bundle identifier>.<intent type name>`
+(gallery: `com.apple.WritingTools.WritingToolsAppIntentsExtension.SummarizeTextIntent`).
+Parameters are keyed by the intent's Swift parameter names (`text`, `summaryType`). Actions
+from installed apps also carry:
+
+```
+"AppIntentDescriptor": { "TeamIdentifier": "…", "BundleIdentifier": "com.apple.mobilenotes",
+                         "Name": "Notes", "AppIntentIdentifier": "NoteEntity",
+                         "ActionRequiresAppInstallation": true }
+```
+
+`tools/dump-appintents-actions.py` lists every such action on a Mac with these fields filled (output is local, not committed, since it depends on the installed apps).
+Older SiriKit custom intents use `IntentAppDefinition` instead; interchange (x-callback)
+actions use the app's own identifier scheme.
+
+## 3. Parameter values
+
+Which encoding a parameter uses is decided by its state class (`data/parameter-encodings.json`
+maps parameter class to state class; `data/encoding-table.json` shows each state class's output).
+
+**Plain.** string, int, real, bool, array of strings. Enumerations are the choice label as a
+string. Switches are bools. Steppers are ints.
+
+**Attachment** (`WFTextTokenAttachment`) — a reference resolved at run time:
+
+```
+{ "WFSerializationType": "WFTextTokenAttachment", "Value": V }
+V = { "Type": "ActionOutput", "OutputUUID": "<UUID of the action>", "OutputName": "<its output name>" }
+  | { "Type": "Variable", "VariableName": "MyVar" }
+  | { "Type": "ExtensionInput" }            shortcut input
+  | { "Type": "Ask", "Prompt": "…" }         ask each time (Prompt optional)
+  | { "Type": "Clipboard" } | { "Type": "CurrentDate" } | { "Type": "DeviceDetails" } | { "Type": "CurrentApp" }
+```
+`V` may also carry `"Aggrandizements": [{"Type": "WFCoercionVariableAggrandizement", "CoercionItemClass": "WFStringContentItem"}]`
+to coerce the value, or a property aggrandizement to read a field of it.
+
+**Text with references** (`WFTextTokenString`) — used by text inputs, URLs, dates:
+
+```
+{ "WFSerializationType": "WFTextTokenString",
+  "Value": { "string": "Hello ￼!", "attachmentsByRange": { "{6, 1}": V } } }
+```
+Each U+FFFC in `string` is a placeholder; `attachmentsByRange` maps its `{offset, length}` to a `V` as above. The offset is an NSRange location, i.e. counted in UTF-16 code units: `"😀 "` followed by a reference serializes as `{3, 1}`, not `{2, 1}`.
+
+**Variable picker** parameters (`WFVariablePickerParameter`, e.g. `WFInput` on Repeat with
+Each and on If) wrap an attachment: `{ "Type": "Variable", "Variable": <attachment> }`.
+
+**Substitutable states** (`WF*SubstitutableState`) accept either the plain value or an
+attachment in the same slot. This is what lets any text, number, or switch be driven by a
+variable.
+
+**Specialised.** Dictionary: `{"WFSerializationType": "WFDictionaryFieldValue", "Value": {"WFDictionaryFieldValueItems": [ {"WFItemType": 0, "WFKey": <token string>, "WFValue": <token string>} … ]}}`.
+Quantity: `{"WFSerializationType": "WFQuantityFieldValue", "Value": {"Unit": "min", "Magnitude": …}}`.
+Contacts, colors (`WFColorRepresentationType` + components), locations (`{"isCurrentLocation": true}`),
+and file bookmarks (`{"bookmarkData", "displayName", "filename"}`) each have their own dictionary; see the examples in `data/encoding-table.json` and the library dump.
+
+## 4. Control flow
+
+Blocks are separate actions sharing a `GroupingIdentifier` (a UUID) with `WFControlFlowMode`:
+`0` opens the block, `1` is a middle branch, `2` closes it.
+
+- **If**: `is.workflow.actions.conditional` ×2 or ×3. Mode 0 carries the condition; mode 1 is
+  Otherwise; mode 2 is End If. Legacy form (still loaded, and what existing libraries use):
+  `WFInput` (variable picker), `WFCondition` (code below), and one of
+  `WFConditionalActionString`, `WFNumberValue`, `WFBooleanValue`, `WFDate`/`WFAnotherDate`,
+  `WFDuration`, `WFEnumerationValue`. Modern form: a single `WFConditions` value of type
+  `WFContentPredicateTableTemplate` (same template shape as filters, below).
+- **Repeat with Each**: `is.workflow.actions.repeat.each`, mode 0 with `WFInput` (picker), mode 2.
+  Inside, the item is `{"Type": "Variable", "VariableName": "Repeat Item"}` and the index `"Repeat Index"`.
+- **Repeat N times**: `is.workflow.actions.repeat.count`, mode 0 with `WFRepeatCount`, mode 2.
+- **Choose from Menu**: `is.workflow.actions.choosefrommenu`, mode 0 with `WFMenuPrompt` and
+  `WFMenuItems` (array of titles); one mode 1 per item carrying `WFMenuItemTitle`; mode 2.
+
+**Condition codes** (`WFCondition`, and `Operator` in filter templates):
+
+| code | meaning | evidence |
+|---|---|---|
+| 100 | has any value | `supportedComparisonOperators` on every subject state |
+| 101 | does not have any value | same; library |
+| 99 | contains | gallery filter "Name contains …" |
+| 999 | does not contain | community |
+| 4 / 5 | is / is not | community |
+| 8 / 9 | begins with / ends with | community (Swift types `BeginsWithStringOperator`, `EndsWithStringOperator` exist) |
+| 0 / 1 | is less than / is less than or equal to | library uses 0 with a number |
+| 2 / 3 | is greater than / is greater than or equal to | library uses 2 with a number |
+| 1003 | is between | community |
+| 1002 | is in the next (dates) | gallery: Start Date, Unit 16, Number "7" |
+| 1000 / 1001 | is today / is in the last (dates) | community |
+
+The labels for these are not in any strings table on disk; only "is", "contains", "does not
+contain", "is before", "is after" appear. Codes marked community come from shortcuts-js and
+Cherri and are consistent with every observed use.
+
+**Filter templates** (`WFContentItemFilter` on Filter actions, `WFConditions` on modern If):
+
+```
+{ "WFSerializationType": "WFContentPredicateTableTemplate",
+  "Value": { "WFActionParameterFilterPrefix": 1,            1 = all conditions, 0 = any
+             "WFContentPredicateBoundedDate": false,
+             "WFActionParameterFilterTemplates": [
+               { "Property": "Name", "Operator": 99, "Removable": true,
+                 "Values": { "Unit": 4, "String": <token string> } },
+               { "Property": "Start Date", "Operator": 1002, "Removable": false, "Bounded": true,
+                 "Values": { "Unit": 16, "Number": "7" } } ] } }
+```
+
+## 5. Naming, signing and import
+
+The plist has no name key. Shortcuts names an imported shortcut after the file, so
+`Morning Report.shortcut` imports as "Morning Report".
+
+Shortcuts rejects unsigned files. `shortcuts sign --mode anyone --input in.shortcut --output
+out.shortcut` wraps the plist in an AEA container (magic `AEA1`). `open out.shortcut` presents
+the import sheet; `shortcuts run "<name>"` runs it once added. The Shortcuts app also stores
+each library entry's action list as this same plist in `~/Library/Shortcuts/Shortcuts.sqlite`.
+
+**Running from the command line.** `shortcuts run "<name>"` hands whatever flows out of the
+last action back to the caller as output, and macOS asks "Allow … to output N items?" the
+first time. Always Allow silences it per shortcut. To make a generated shortcut produce no
+output at all, end it with `is.workflow.actions.nothing`. Neither prompt appears when the
+shortcut runs from the app, Spotlight, or a widget.

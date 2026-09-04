@@ -1,0 +1,12 @@
+{
+  "extractedAt": "2026-09-04T09:32:49Z",
+  "macOS": { "version": "27.0", "build": "26A5421a", "arch": "arm64" },
+  "shortcutsApp": { "version": "10.0", "build": "5037.0.17" },
+  "workflowKit": "10.0",
+  "counts": {
+    "builtinActions": 339,
+    "identifierStrings": 411,
+    "appProvidedActions": 264
+  },
+  "note": "appProvidedActions counts the App Intents actions of apps installed on the extracting machine; that dump is local and not committed."
+}

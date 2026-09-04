@@ -1,0 +1,629 @@
+{
+  "conditionalSubjectOperators" : {
+    "WFConditionalSubjectParameterState" : {
+      "operators" : [
+        100,
+        101
+      ],
+      "subjectType" : "Default"
+    },
+    "WFHomeAccessoryConditionalSubjectState" : {
+      "operators" : [
+        100,
+        101
+      ],
+      "subjectType" : "HomeAccessory"
+    },
+    "WFVariableConditionalSubjectState" : {
+      "operators" : [
+        100,
+        101
+      ],
+      "subjectType" : "Variable"
+    }
+  },
+  "defaultGlyphCharacter" : 61440,
+  "iconPalette" : [
+    {
+      "color" : "Red:1.000000 Green:0.262745 Blue:0.317647",
+      "palette" : 0,
+      "signed" : -12365313,
+      "WFWorkflowIconStartColor" : 4282601983
+    },
+    {
+      "color" : "Red:0.992157 Green:0.400000 Blue:0.192157",
+      "palette" : 1,
+      "signed" : -43634177,
+      "WFWorkflowIconStartColor" : 4251333119
+    },
+    {
+      "color" : "Red:0.996078 Green:0.600000 Blue:0.286275",
+      "palette" : 2,
+      "signed" : -23508481,
+      "WFWorkflowIconStartColor" : 4271458815
+    },
+    {
+      "color" : "Red:0.996078 Green:0.768627 Blue:0.094118",
+      "palette" : 3,
+      "signed" : -20702977,
+      "WFWorkflowIconStartColor" : 4274264319
+    },
+    {
+      "color" : "Red:1.000000 Green:0.831373 Blue:0.149020",
+      "palette" : 4,
+      "signed" : -2873601,
+      "WFWorkflowIconStartColor" : 4292093695
+    },
+    {
+      "color" : "Red:0.098039 Green:0.741176 Blue:0.011765",
+      "palette" : 5,
+      "signed" : 431817727,
+      "WFWorkflowIconStartColor" : 431817727
+    },
+    {
+      "color" : "Red:0.333333 Green:0.854902 Blue:0.882353",
+      "palette" : 6,
+      "signed" : 1440408063,
+      "WFWorkflowIconStartColor" : 1440408063
+    },
+    {
+      "color" : "Red:0.105882 Green:0.603922 Blue:0.968627",
+      "palette" : 7,
+      "signed" : 463140863,
+      "WFWorkflowIconStartColor" : 463140863
+    },
+    {
+      "color" : "Red:0.219608 Green:0.443137 Blue:0.870588",
+      "palette" : 8,
+      "signed" : 946986751,
+      "WFWorkflowIconStartColor" : 946986751
+    },
+    {
+      "color" : "Red:0.482353 Green:0.447059 Blue:0.913725",
+      "palette" : 9,
+      "signed" : 2071128575,
+      "WFWorkflowIconStartColor" : 2071128575
+    },
+    {
+      "color" : "Red:0.858824 Green:0.286275 Blue:0.847059",
+      "palette" : 10,
+      "signed" : -615917313,
+      "WFWorkflowIconStartColor" : 3679049983
+    },
+    {
+      "color" : "Red:0.929412 Green:0.274510 Blue:0.580392",
+      "palette" : 11,
+      "signed" : -314141441,
+      "WFWorkflowIconStartColor" : 3980825855
+    },
+    {
+      "color" : "Red:0.000000 Green:0.000000 Blue:0.000000",
+      "palette" : 12,
+      "signed" : 255,
+      "WFWorkflowIconStartColor" : 255
+    },
+    {
+      "color" : "Red:0.705882 Green:0.698039 Blue:0.662745",
+      "palette" : 13,
+      "signed" : -1263359489,
+      "WFWorkflowIconStartColor" : 3031607807
+    },
+    {
+      "color" : "Red:0.662745 Green:0.662745 Blue:0.662745",
+      "palette" : 14,
+      "signed" : -1448498689,
+      "WFWorkflowIconStartColor" : 2846468607
+    }
+  ],
+  "stateClasses" : {
+    "WFAppDescriptorParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFBooleanSubstitutableState" : {
+      "bool:YES" : true,
+      "number:5" : 5,
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFCalendarSubstitutableState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFColorParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFDateFieldParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "attachmentsByRange" : {
+            "{0, 1}" : {
+              "OutputName" : "Stored Content",
+              "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+              "Type" : "ActionOutput"
+            }
+          },
+          "string" : "￼"
+        },
+        "WFSerializationType" : "WFTextTokenString"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "attachmentsByRange" : {
+            "{0, 1}" : {
+              "Type" : "Variable",
+              "VariableName" : "MyVar"
+            }
+          },
+          "string" : "￼"
+        },
+        "WFSerializationType" : "WFTextTokenString"
+      },
+      "variableString:Hello <MyVar>!" : {
+        "Value" : {
+          "attachmentsByRange" : {
+            "{6, 1}" : {
+              "Type" : "Variable",
+              "VariableName" : "MyVar"
+            }
+          },
+          "string" : "Hello ￼!"
+        },
+        "WFSerializationType" : "WFTextTokenString"
+      }
+    },
+    "WFDictionaryParameterState" : {
+      "keyValuePairs:[]" : {
+        "Value" : {
+          "WFDictionaryFieldValueItems" : [
+
+          ]
+        },
+        "WFSerializationType" : "WFDictionaryFieldValue"
+      }
+    },
+    "WFFileParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFFontParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFHMCharacteristicSubstitutableState" : {
+      "value:bool" : {
+
+      },
+      "value:number" : {
+
+      },
+      "value:string" : {
+
+      },
+      "variable:ActionOutput" : {
+
+      },
+      "variable:MyVar" : {
+
+      }
+    },
+    "WFINObjectSubstitutableState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFINPaymentMethodParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFIntentDescriptorParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFLocationParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFMediaItemState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFNSUnitSubstitutableState" : {
+      "value:bool" : null,
+      "value:number" : null,
+      "value:string" : null,
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFNumberParameterState" : {
+      "number:5" : 5
+    },
+    "WFNumberStringSubstitutableState" : {
+      "value:bool" : true,
+      "value:number" : 5,
+      "value:string" : "hello",
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFNumberSubstitutableState" : {
+      "number:5" : 5,
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFQuantityParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "Magnitude" : {
+            "OutputName" : "Stored Content",
+            "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+            "Type" : "ActionOutput"
+          }
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Magnitude" : {
+            "Type" : "Variable",
+            "VariableName" : "MyVar"
+          }
+        },
+        "WFSerializationType" : "WFQuantityFieldValue"
+      }
+    },
+    "WFStringParameterState" : {
+      "string:hello" : "hello"
+    },
+    "WFStringSubstitutableState" : {
+      "value:string" : "hello",
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFURLStringParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "attachmentsByRange" : {
+            "{0, 1}" : {
+              "OutputName" : "Stored Content",
+              "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+              "Type" : "ActionOutput"
+            }
+          },
+          "string" : "￼"
+        },
+        "WFSerializationType" : "WFTextTokenString"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "attachmentsByRange" : {
+            "{0, 1}" : {
+              "Type" : "Variable",
+              "VariableName" : "MyVar"
+            }
+          },
+          "string" : "￼"
+        },
+        "WFSerializationType" : "WFTextTokenString"
+      },
+      "variableString:Hello <MyVar>!" : {
+        "Value" : {
+          "attachmentsByRange" : {
+            "{6, 1}" : {
+              "Type" : "Variable",
+              "VariableName" : "MyVar"
+            }
+          },
+          "string" : "Hello ￼!"
+        },
+        "WFSerializationType" : "WFTextTokenString"
+      }
+    },
+    "WFVariableParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    },
+    "WFVariableStringParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "attachmentsByRange" : {
+            "{0, 1}" : {
+              "OutputName" : "Stored Content",
+              "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+              "Type" : "ActionOutput"
+            }
+          },
+          "string" : "￼"
+        },
+        "WFSerializationType" : "WFTextTokenString"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "attachmentsByRange" : {
+            "{0, 1}" : {
+              "Type" : "Variable",
+              "VariableName" : "MyVar"
+            }
+          },
+          "string" : "￼"
+        },
+        "WFSerializationType" : "WFTextTokenString"
+      },
+      "variableString:Hello <MyVar>!" : {
+        "Value" : {
+          "attachmentsByRange" : {
+            "{6, 1}" : {
+              "Type" : "Variable",
+              "VariableName" : "MyVar"
+            }
+          },
+          "string" : "Hello ￼!"
+        },
+        "WFSerializationType" : "WFTextTokenString"
+      }
+    },
+    "WFWorkflowParameterState" : {
+      "variable:ActionOutput" : {
+        "Value" : {
+          "OutputName" : "Stored Content",
+          "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+          "Type" : "ActionOutput"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      },
+      "variable:MyVar" : {
+        "Value" : {
+          "Type" : "Variable",
+          "VariableName" : "MyVar"
+        },
+        "WFSerializationType" : "WFTextTokenAttachment"
+      }
+    }
+  },
+  "variables" : {
+    "WFActionOutputVariable" : {
+      "OutputName" : "Stored Content",
+      "OutputUUID" : "11111111-2222-3333-4444-555555555555",
+      "Type" : "ActionOutput"
+    },
+    "WFAskEachTimeVariable(prompt)" : {
+      "Prompt" : "Which one?",
+      "Type" : "Ask"
+    },
+    "WFClipboardVariable" : {
+      "Type" : "Clipboard"
+    },
+    "WFCurrentAppVariable" : {
+      "Type" : "CurrentApp"
+    },
+    "WFCurrentDateVariable" : {
+      "Type" : "CurrentDate"
+    },
+    "WFDeviceDetailsVariable" : {
+      "Type" : "DeviceDetails"
+    },
+    "WFShortcutInputVariable" : {
+      "Type" : "ExtensionInput"
+    },
+    "WFUserDefinedVariable(MyVar)" : {
+      "Type" : "Variable",
+      "VariableName" : "MyVar"
+    }
+  },
+  "variableString(Hello <MyVar>!)" : {
+    "attachmentsByRange" : {
+      "{6, 1}" : {
+        "Type" : "Variable",
+        "VariableName" : "MyVar"
+      }
+    },
+    "string" : "Hello ￼!"
+  }
+}

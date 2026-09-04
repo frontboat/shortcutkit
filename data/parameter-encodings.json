@@ -1,0 +1,5155 @@
+{
+  "actionParameters" : {
+    "com.apple.mobileslideshow.StreamShareService" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "ImageInput"
+      }
+    ],
+    "com.apple.musicrecognition.RecognizeMusicIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFShazamMediaActionShowWhenRun"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFShazamMediaActionErrorIfNotRecognized"
+      }
+    ],
+    "com.apple.TVRemoteUIService.LaunchApplicationIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.LaunchRemoteIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.LaunchScreenSaverIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.PauseContentIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.SkipContentIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.SleepAppleTVIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.SwitchUserAccountIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.ToggleCaptionsIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.TVRemoteUIService.WakeAppleTVIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.panic.iOS.Transmit.Share" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "TransmitSaveTo"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "TransmitFavoriteName"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "TransmitPath"
+      }
+    ],
+    "is.workflow.actions.addframetogif" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFImage"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInputGIF"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFGIFDelayTime"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFGIFAutoSize"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFGIFManualSizeWidth"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFGIFManualSizeHeight"
+      }
+    ],
+    "is.workflow.actions.additemtolist" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFListItem"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFInsertPosition"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFItemIndex"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFListVariable"
+      }
+    ],
+    "is.workflow.actions.addmusictoupnext" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFWhenToPlay"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFMusic"
+      }
+    ],
+    "is.workflow.actions.addnewcalendar" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "CalendarName"
+      }
+    ],
+    "is.workflow.actions.addnewreminder" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFCalendarItemTitle"
+      },
+      {
+        "class" : "WFRemindersListPickerParameter",
+        "key" : "WFCalendarDescriptor"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFAlertEnabled"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFAlertCondition"
+      },
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFAlertLocation"
+      },
+      {
+        "class" : "WFContactFieldParameter",
+        "key" : "WFAlertPerson"
+      },
+      {
+        "class" : "WFUnitQuantityFieldParameter",
+        "key" : "WFAlertLocationRadius"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFAlertCustomTime"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPriority"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFUrgent"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFFlag"
+      },
+      {
+        "class" : "WFURLParameter",
+        "key" : "WFURL"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFImages"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFParentTask"
+      },
+      {
+        "class" : "WFTagFieldParameter",
+        "key" : "WFTags"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFCalendarItemNotes"
+      }
+    ],
+    "is.workflow.actions.addquickreminder" : [
+
+    ],
+    "is.workflow.actions.address" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFAddressLine1"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFAddressLine2"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFCity"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFState"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPostalCode"
+      }
+    ],
+    "is.workflow.actions.addtoplaylist" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.adjustdate" : [
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFDate"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFAdjustOperation"
+      },
+      {
+        "class" : "WFDurationQuantityFieldParameter",
+        "key" : "WFDuration"
+      }
+    ],
+    "is.workflow.actions.airdropdocument" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.airplanemode.set" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.appearance" : [
+
+    ],
+    "is.workflow.actions.appendvariable" : [
+      {
+        "class" : "WFVariableFieldParameter",
+        "key" : "WFVariableName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.askllm" : [
+      {
+        "class" : "WFAskLLMModelParameter",
+        "key" : "WFLLMModel"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFLLMPrompt"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAllowWebSearch"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "FollowUp"
+      }
+    ],
+    "is.workflow.actions.avairyeditphoto" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFDocument"
+      }
+    ],
+    "is.workflow.actions.base64encode" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFEncodeMode"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFBase64LineBreakMode"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.bluetooth.set" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.calculateexpression" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "Input"
+      }
+    ],
+    "is.workflow.actions.cellulardata.set" : [
+
+    ],
+    "is.workflow.actions.choosefrommenu" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFMenuPrompt"
+      },
+      {
+        "class" : "WFChooseFromMenuArrayParameter",
+        "key" : "WFMenuItems"
+      }
+    ],
+    "is.workflow.actions.clearupnext" : [
+
+    ],
+    "is.workflow.actions.cloudapp.upload" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCloudAppPrivacyType"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.comment" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFCommentActionText"
+      }
+    ],
+    "is.workflow.actions.compresspdf" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.conditional" : [
+      {
+        "class" : "WFTableTemplateParameter",
+        "key" : "WFConditions"
+      }
+    ],
+    "is.workflow.actions.connecttoservers" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.contacts" : [
+      {
+        "class" : "WFContactFieldParameter",
+        "key" : "WFContact"
+      }
+    ],
+    "is.workflow.actions.createplaylist" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPlaylistName"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPlaylistAuthor"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPlaylistDescription"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFPlaylistItems"
+      }
+    ],
+    "is.workflow.actions.debug.contentattribution" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "Input"
+      }
+    ],
+    "is.workflow.actions.deletestoredcontent" : [
+      {
+        "class" : "WFStoredValueVariableFieldParameter",
+        "key" : "WFStoredContentKey"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFStoredContentGlobalValue"
+      }
+    ],
+    "is.workflow.actions.deskconnect.send" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.address" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.contacts" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.date" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.dictionary" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.emailaddress" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.images" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.link" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.number" : [
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.phonenumber" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detect.text" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.detectlanguage" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.dictatetext" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFDictateTextStopListening"
+      }
+    ],
+    "is.workflow.actions.dictionary" : [
+      {
+        "class" : "WFDictionaryParameter",
+        "key" : "WFItems"
+      }
+    ],
+    "is.workflow.actions.dismisssiri" : [
+
+    ],
+    "is.workflow.actions.display.always-on.set" : [
+
+    ],
+    "is.workflow.actions.dnd.getfocus" : [
+
+    ],
+    "is.workflow.actions.dnd.set" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "Operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "Enabled"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "AssertionType"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "Event"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "Time"
+      },
+      {
+        "class" : "WFFocusModesPickerParameter",
+        "key" : "FocusModes"
+      }
+    ],
+    "is.workflow.actions.documentpicker.open" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFFileErrorIfNotFound"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFGetFolderContents"
+      },
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFile"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFGetFilePath"
+      }
+    ],
+    "is.workflow.actions.documentpicker.save" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFolder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAskWhereToSave"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFFileDestinationPath"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFSaveFileOverwrite"
+      }
+    ],
+    "is.workflow.actions.downloadurl" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFURL"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFHTTPMethod"
+      },
+      {
+        "class" : "WFExpandingParameter",
+        "key" : "ShowHeaders"
+      },
+      {
+        "class" : "WFDictionaryParameter",
+        "key" : "WFHTTPHeaders"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFHTTPBodyType"
+      },
+      {
+        "class" : "WFDictionaryParameter",
+        "key" : "WFFormValues"
+      },
+      {
+        "class" : "WFDictionaryParameter",
+        "key" : "WFJSONValues"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFRequestVariable"
+      }
+    ],
+    "is.workflow.actions.dropbox.appendfile" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFFilePath"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFAppendFileWriteMode"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAppendOnNewLine"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.dropbox.createfolder" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFFilePath"
+      }
+    ],
+    "is.workflow.actions.dropbox.open" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFShowFilePicker"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "SelectMultiple"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFGetFilePath"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFGetFileInitialDirectoryPath"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFFileErrorIfNotFound"
+      }
+    ],
+    "is.workflow.actions.dropbox.savefile" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAskWhereToSave"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFFileDestinationPath"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFSaveFileOverwrite"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.ejectdisk" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.email" : [
+      {
+        "class" : "WFEmailAddressFieldParameter",
+        "key" : "WFEmailAddress"
+      }
+    ],
+    "is.workflow.actions.encodemedia" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFMedia"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFMediaAudioOnly"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFMediaAudioFormat"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFMediaSize"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFMediaSpeed"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFMediaPreserveTransparency"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFMediaCustomSpeed"
+      },
+      {
+        "class" : "WFExpandingParameter",
+        "key" : "Metadata"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFMetadataTitle"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFMetadataArtist"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFMetadataAlbum"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFMetadataGenre"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFMetadataYear"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFMetadataArtwork"
+      }
+    ],
+    "is.workflow.actions.evernote.append" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFEvernoteNotesTitleSearch"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFEvernoteWriteMode"
+      }
+    ],
+    "is.workflow.actions.evernote.delete" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.evernote.get" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFEvernoteNotesTitleSearch"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFEvernoteNotesCount"
+      }
+    ],
+    "is.workflow.actions.evernote.getlink" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFEvernoteShareInAppLink"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.evernote.new" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFEvernoteNoteTitle"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.exit" : [
+
+    ],
+    "is.workflow.actions.exportsong" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFExportSongActionSelectMultiple"
+      }
+    ],
+    "is.workflow.actions.facebook.messenger.send" : [
+
+    ],
+    "is.workflow.actions.file" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFile"
+      }
+    ],
+    "is.workflow.actions.file.append" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFile"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFFilePath"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFAppendFileWriteMode"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAppendOnNewLine"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.file.createfolder" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFFilePath"
+      },
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFolder"
+      }
+    ],
+    "is.workflow.actions.file.delete" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFDeleteImmediatelyDelete"
+      }
+    ],
+    "is.workflow.actions.file.getfoldercontents" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFolder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "Recursive"
+      }
+    ],
+    "is.workflow.actions.file.getlink" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFFile"
+      }
+    ],
+    "is.workflow.actions.file.label" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.file.move" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFile"
+      },
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFolder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFReplaceExisting"
+      }
+    ],
+    "is.workflow.actions.file.rename" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFile"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFNewFilename"
+      }
+    ],
+    "is.workflow.actions.file.reveal" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFFile"
+      }
+    ],
+    "is.workflow.actions.file.select" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPickingMode"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "SelectMultiple"
+      }
+    ],
+    "is.workflow.actions.filter.apps" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFContentItemFilterEnumerationParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.articles" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.calendarevents" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFContentItemFilterEnumerationParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.contacts" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFContentItemFilterEnumerationParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.displays" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFContentItemFilterEnumerationParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.eventattendees" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.files" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.health.quantity" : [
+
+    ],
+    "is.workflow.actions.filter.images" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.locations" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.music" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFContentItemFilterEnumerationParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.photos" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFContentItemFilterEnumerationParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.reminders" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFContentItemFilterEnumerationParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.filter.windows" : [
+      {
+        "class" : "WFTableTemplateContentItemFilterParameter",
+        "key" : "WFContentItemFilter"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemSortProperty"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemSortOrder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFContentItemLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFContentItemLimitNumber"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCompoundType"
+      },
+      {
+        "class" : "WFContentItemFilterEnumerationParameter",
+        "key" : "WFContentItemInputParameter"
+      }
+    ],
+    "is.workflow.actions.finder.getselectedfiles" : [
+
+    ],
+    "is.workflow.actions.flashlight" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.format.filesize" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFFileSizeFormat"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFFileSizeIncludeUnits"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFFileSize"
+      }
+    ],
+    "is.workflow.actions.generatebarcode" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFText"
+      },
+      {
+        "class" : "WFColorPickerParameter",
+        "key" : "WFQRForegroundColor"
+      },
+      {
+        "class" : "WFColorPickerParameter",
+        "key" : "WFQRBackgroundColor"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFQRRounded"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFQRErrorCorrectionLevel"
+      }
+    ],
+    "is.workflow.actions.get.playlist" : [
+
+    ],
+    "is.workflow.actions.getarticle" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFWebPage"
+      }
+    ],
+    "is.workflow.actions.getclassaction" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "Class"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "Input"
+      }
+    ],
+    "is.workflow.actions.getcurrentlocation" : [
+      {
+        "class" : "WFLocationAccuracyParameter",
+        "key" : "Accuracy"
+      }
+    ],
+    "is.workflow.actions.getcurrentsong" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "Subject"
+      }
+    ],
+    "is.workflow.actions.getdevicedetails" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFDeviceDetail"
+      }
+    ],
+    "is.workflow.actions.getdirections" : [
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFLocation"
+      },
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFDestination"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFGetDirectionsActionMode"
+      }
+    ],
+    "is.workflow.actions.getdistance" : [
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFGetDirectionsCustomLocation"
+      },
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFGetDistanceDestination"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFGetDirectionsActionMode"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAvoidTolls"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAvoidHighways"
+      },
+      {
+        "class" : "WFLocationAccuracyParameter",
+        "key" : "Accuracy"
+      }
+    ],
+    "is.workflow.actions.getepisodesforpodcast" : [
+
+    ],
+    "is.workflow.actions.getframesfromimage" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFImage"
+      }
+    ],
+    "is.workflow.actions.gethalfwaypoint" : [
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFGetHalfwayPointFirstLocation"
+      },
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFGetHalfwayPointSecondLocation"
+      }
+    ],
+    "is.workflow.actions.gethomeaccessorystate" : [
+      {
+        "class" : "WFHomePickerParameter",
+        "key" : "WFHome"
+      },
+      {
+        "class" : "WFHomeServicePickerParameter",
+        "key" : "WFHMService"
+      },
+      {
+        "class" : "WFHomeCharacteristicPickerParameter",
+        "key" : "WFHMCharacteristic"
+      }
+    ],
+    "is.workflow.actions.gethtmlfromrichtext" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFMakeFullDocument"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.getipaddress" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFIPAddressSourceOption"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFIPAddressTypeOption"
+      }
+    ],
+    "is.workflow.actions.getitemfromlist" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFItemSpecifier"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFItemIndex"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFItemRangeStart"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFItemRangeEnd"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.getitemname" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "GetWebPageTitle"
+      }
+    ],
+    "is.workflow.actions.getitemtype" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.getlastphoto" : [
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFGetLatestPhotoCount"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFGetLatestPhotosActionIncludeScreenshots"
+      }
+    ],
+    "is.workflow.actions.getlastscreenshot" : [
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFGetLatestPhotoCount"
+      }
+    ],
+    "is.workflow.actions.getlastvideo" : [
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFGetLatestPhotoCount"
+      }
+    ],
+    "is.workflow.actions.getlatestbursts" : [
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFGetLatestPhotoCount"
+      }
+    ],
+    "is.workflow.actions.getlatestlivephotos" : [
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFGetLatestPhotoCount"
+      }
+    ],
+    "is.workflow.actions.getlatestphotoimport" : [
+
+    ],
+    "is.workflow.actions.getmapslink" : [
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.getmarkdownfromrichtext" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.getmyworkflows" : [
+      {
+        "class" : "WFWorkflowFolderPickerParameter",
+        "key" : "Folder"
+      }
+    ],
+    "is.workflow.actions.getonscreencontent" : [
+
+    ],
+    "is.workflow.actions.getonscreencontext" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFOnScreenContextScope"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFOnScreenContextLimitEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFOnScreenContextLimit"
+      }
+    ],
+    "is.workflow.actions.getparentdirectory" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.getparkedcarlocation" : [
+
+    ],
+    "is.workflow.actions.getpodcastsfromlibrary" : [
+
+    ],
+    "is.workflow.actions.getrichtextfromhtml" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFHTML"
+      }
+    ],
+    "is.workflow.actions.getrichtextfrommarkdown" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.getselectedtext" : [
+
+    ],
+    "is.workflow.actions.getstoredcontent" : [
+      {
+        "class" : "WFStoredValueVariableFieldParameter",
+        "key" : "WFStoredContentKey"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFStoredContentGlobalValue"
+      }
+    ],
+    "is.workflow.actions.gettext" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFTextActionText"
+      }
+    ],
+    "is.workflow.actions.gettextfrompdf" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFGetTextFromPDFTextType"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFGetTextFromPDFPageHeader"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFGetTextFromPDFPageFooter"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFCombinePages"
+      }
+    ],
+    "is.workflow.actions.gettraveltime" : [
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFGetDirectionsCustomLocation"
+      },
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFDestination"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFGetDirectionsActionMode"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAvoidTolls"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAvoidHighways"
+      }
+    ],
+    "is.workflow.actions.gettypeaction" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFFileType"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.getupcomingevents" : [
+      {
+        "class" : "WFCalendarPickerParameter",
+        "key" : "WFGetUpcomingItemCalendar"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFGetUpcomingItemCount"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFDateSpecifier"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFSpecifiedDate"
+      }
+    ],
+    "is.workflow.actions.getupcomingreminders" : [
+      {
+        "class" : "WFRemindersListPickerParameter",
+        "key" : "WFGetUpcomingItemCalendar"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFGetUpcomingItemCount"
+      }
+    ],
+    "is.workflow.actions.geturlcomponent" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFURL"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFURLComponent"
+      }
+    ],
+    "is.workflow.actions.getvariable" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFVariable"
+      }
+    ],
+    "is.workflow.actions.getwebpagecontents" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.getwifi" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFWiFiDetail"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCellularDetail"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFEthernetDetail"
+      }
+    ],
+    "is.workflow.actions.giphy" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFGiphyQuery"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFGiphyShowPicker"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFGiphyLimit"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFGiphySelectMultiple"
+      }
+    ],
+    "is.workflow.actions.goodreader.open" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.handoff" : [
+
+    ],
+    "is.workflow.actions.handoffplayback" : [
+
+    ],
+    "is.workflow.actions.hash" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFHashType"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.health.quantity.log" : [
+
+    ],
+    "is.workflow.actions.health.workout.log" : [
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFWorkoutDate"
+      },
+      {
+        "class" : "WFDurationQuantityFieldParameter",
+        "key" : "WFWorkoutDuration"
+      }
+    ],
+    "is.workflow.actions.hide.app" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFHideAppMode"
+      },
+      {
+        "class" : "WFAppPickerParameter",
+        "key" : "WFApp"
+      },
+      {
+        "class" : "WFAppPickerParameter",
+        "key" : "WFAppsExcept"
+      }
+    ],
+    "is.workflow.actions.homeaccessory" : [
+      {
+        "class" : "WFHomePickerParameter",
+        "key" : "WFHome"
+      },
+      {
+        "class" : "WFHomeAccessoryPickerParameter",
+        "key" : "WFHomeTriggerActionSets"
+      }
+    ],
+    "is.workflow.actions.image.combine" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFImageCombineMode"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageCombineSpacing"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.image.convert" : [
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFImageCompressionQuality"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFImagePreserveMetadata"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.image.convert.finder" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFPreserveMetadata"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFImage"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFFileFormat"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFSize"
+      }
+    ],
+    "is.workflow.actions.image.crop" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFImageCropPosition"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageCropX"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageCropY"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageCropWidth"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageCropHeight"
+      }
+    ],
+    "is.workflow.actions.image.flip" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFImageFlipDirection"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.image.mask" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFMaskType"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFMaskCornerRadius"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFCustomMaskImage"
+      }
+    ],
+    "is.workflow.actions.image.resize" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFImageResizeKey"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageResizeWidth"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageResizeHeight"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageResizePercentage"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageResizeLength"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFImage"
+      }
+    ],
+    "is.workflow.actions.imgur.upload" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFImgurAnonymous"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFImgurDirectLink"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFImgurAlbum"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFImgurAlbumLayout"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFImgurAlbumPrivacy"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFImgurTitle"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFImgurDescription"
+      }
+    ],
+    "is.workflow.actions.importaudiofiles" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFImportAudioFilesReencode"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFImportAudioFilesEncoder"
+      }
+    ],
+    "is.workflow.actions.input" : [
+      {
+        "class" : "WFInputTypeParameter",
+        "key" : "WFInputType"
+      },
+      {
+        "class" : "WFInputSurfaceParameter",
+        "key" : "WFInputSurface"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFNoInputBehavior"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFStopAndRespondResponse"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFAskForType"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPickingMode"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "SelectMultiple"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPhotoPickerTypes"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFSelectMultiplePhotos"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFSelectMultiple"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFExportSongActionSelectMultiple"
+      }
+    ],
+    "is.workflow.actions.instapaper.add" : [
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFInstapaperFolder"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInputURL"
+      }
+    ],
+    "is.workflow.actions.instapaper.get" : [
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFInstapaperFolder"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFBookmarkCount"
+      }
+    ],
+    "is.workflow.actions.lightroom.import" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "applyPreset"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "presetGroup"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.list" : [
+      {
+        "class" : "WFContentArrayParameter",
+        "key" : "WFItems"
+      }
+    ],
+    "is.workflow.actions.listeningmode.set" : [
+
+    ],
+    "is.workflow.actions.location" : [
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFLocation"
+      }
+    ],
+    "is.workflow.actions.lowpowermode.set" : [
+
+    ],
+    "is.workflow.actions.makediskimage" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "VolumeName"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "EncryptImage"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "SizeToFit"
+      },
+      {
+        "class" : "WFUnitQuantityFieldParameter",
+        "key" : "ImageSize"
+      }
+    ],
+    "is.workflow.actions.makegif" : [
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFMakeGIFActionDelayTime"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFMakeGIFActionLoopEnabled"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFMakeGIFActionLoopCount"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFMakeGIFActionAutoSize"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFMakeGIFActionManualSizeWidth"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFMakeGIFActionManualSizeHeight"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.makeimagefrompdfpage" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFMakeImageFromPDFPageResolution"
+      }
+    ],
+    "is.workflow.actions.makeimagefromrichtext" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFWidth"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFHeight"
+      }
+    ],
+    "is.workflow.actions.makepdf" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFPDFIncludeMargin"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPDFIncludedPages"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFPDFSinglePage"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFPDFPageRangeStart"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFPDFPageRangeEnd"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPDFDocumentMergeBehavior"
+      }
+    ],
+    "is.workflow.actions.makespokenaudiofromtext" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFSpeakTextRate"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFSpeakTextPitch"
+      }
+    ],
+    "is.workflow.actions.makevideofromgif" : [
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFMakeVideoFromGIFActionLoopCount"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInputGIF"
+      }
+    ],
+    "is.workflow.actions.makezip" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFZIPName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.math" : [
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFMathOperation"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFScientificMathOperation"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFMathOperand"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFScientificMathOperand"
+      }
+    ],
+    "is.workflow.actions.measurement.convert" : [
+      {
+        "class" : "WFMeasurementUnitPickerParameter",
+        "key" : "WFMeasurementUnit"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.measurement.create" : [
+      {
+        "class" : "WFUnitQuantityFieldParameter",
+        "key" : "WFMeasurementUnit"
+      }
+    ],
+    "is.workflow.actions.mountdiskimage" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.movewindow" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPosition"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFXCoordinate"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFYCoordinate"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFWindow"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFBringToFront"
+      }
+    ],
+    "is.workflow.actions.nightshift.set" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.nothing" : [
+
+    ],
+    "is.workflow.actions.notification" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFNotificationActionTitle"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFNotificationActionBody"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFNotificationActionSound"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.number" : [
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFNumberActionNumber"
+      }
+    ],
+    "is.workflow.actions.number.random" : [
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFRandomNumberMinimum"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFRandomNumberMaximum"
+      }
+    ],
+    "is.workflow.actions.openapp" : [
+      {
+        "class" : "WFAppPickerParameter",
+        "key" : "WFSelectedApp"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFAppName"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFWindowingFormat"
+      }
+    ],
+    "is.workflow.actions.openin" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFOpenInAskWhenRun"
+      },
+      {
+        "class" : "WFAppPickerParameter",
+        "key" : "WFSelectedApp"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFAppName"
+      },
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.openurl" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.openxcallbackurl" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFXCallbackCustomCallbackEnabled"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFXCallbackCustomSuccessKey"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFXCallbackCustomCancelKey"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFXCallbackCustomErrorKey"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFXCallbackCustomSuccessURLEnabled"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFXCallbackCustomSuccessURL"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFXCallbackURL"
+      }
+    ],
+    "is.workflow.actions.orientationlock.set" : [
+
+    ],
+    "is.workflow.actions.output" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFOutput"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFNoOutputSurfaceBehavior"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFResponse"
+      }
+    ],
+    "is.workflow.actions.overlayimageonimage" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFImage"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFShouldShowImageEditor"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFImagePosition"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageWidth"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageHeight"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageX"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFImageY"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFRotation"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFOverlayImageOpacity"
+      }
+    ],
+    "is.workflow.actions.overlaytext" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFText"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFImage"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFTextPosition"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFTextX"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFPercentageTextX"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFTextY"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFPercentageTextY"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFTextOffset"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFPercentageTextOffset"
+      },
+      {
+        "class" : "WFFontPickerParameter",
+        "key" : "WFFont"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFFontSize"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFPercentageFontSize"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFTextAlignment"
+      },
+      {
+        "class" : "WFColorPickerParameter",
+        "key" : "WFTextColor"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFTextRotation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFTextOutlineEnabled"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFTextStrokeWidth"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFPercentageTextStrokeWidth"
+      },
+      {
+        "class" : "WFColorPickerParameter",
+        "key" : "WFTextStrokeColor"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFTextBoxWidth"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFPercentageTextBoxWidth"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFSizingMethod"
+      }
+    ],
+    "is.workflow.actions.pausemusic" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPlayPauseBehavior"
+      }
+    ],
+    "is.workflow.actions.personalhotspot.set" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.phonenumber" : [
+      {
+        "class" : "WFPhoneNumberFieldParameter",
+        "key" : "WFPhoneNumber"
+      }
+    ],
+    "is.workflow.actions.photos.createalbum" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "AlbumName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.pinboard.add" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPinTitle"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPinTags"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFPinPublic"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFPinUnread"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPinDescription"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPinboardURL"
+      }
+    ],
+    "is.workflow.actions.pinboard.get" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPinTags"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFBookmarkCount"
+      }
+    ],
+    "is.workflow.actions.playmusic" : [
+      {
+        "class" : "WFMediaPickerParameter",
+        "key" : "WFMediaItems"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPlayMusicActionShuffle"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPlayMusicActionRepeat"
+      }
+    ],
+    "is.workflow.actions.playpodcast" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPodcastPlaybackOrder"
+      }
+    ],
+    "is.workflow.actions.playsound" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.pocket.add" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPocketTags"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInputURL"
+      }
+    ],
+    "is.workflow.actions.pocket.get" : [
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFPocketItemCount"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPocketItemState"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPocketItemSearchTerm"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPocketItemSearchTags"
+      }
+    ],
+    "is.workflow.actions.podcasts.subscribe" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.postonfacebook" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "FacebookContent"
+      }
+    ],
+    "is.workflow.actions.previewdocument" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFQuickLookActionFullScreen"
+      }
+    ],
+    "is.workflow.actions.print" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.appearance" : [
+
+    ],
+    "is.workflow.actions.properties.appstore" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.articles" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.calendarevents" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.contacts" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.eventattendees" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.files" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.health.quantity" : [
+
+    ],
+    "is.workflow.actions.properties.images" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.itunesartist" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.itunesstore" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.locations" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.music" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.parkedcar" : [
+
+    ],
+    "is.workflow.actions.properties.podcast" : [
+
+    ],
+    "is.workflow.actions.properties.podcastshow" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.reminders" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.ridestatus" : [
+
+    ],
+    "is.workflow.actions.properties.safariwebpage" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.properties.shazam" : [
+
+    ],
+    "is.workflow.actions.properties.trello" : [
+
+    ],
+    "is.workflow.actions.properties.ulysses.sheet" : [
+
+    ],
+    "is.workflow.actions.properties.weather.conditions" : [
+
+    ],
+    "is.workflow.actions.properties.workflow" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.quit.app" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFQuitAppMode"
+      },
+      {
+        "class" : "WFAppPickerParameter",
+        "key" : "WFAppsExcept"
+      },
+      {
+        "class" : "WFAppPickerParameter",
+        "key" : "WFApp"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFAskToSaveChanges"
+      }
+    ],
+    "is.workflow.actions.readinglist" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFURL"
+      }
+    ],
+    "is.workflow.actions.recordaudio" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFRecordingCompression"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFRecordingStart"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFRecordingEnd"
+      },
+      {
+        "class" : "WFDurationQuantityFieldParameter",
+        "key" : "WFRecordingTimeInterval"
+      }
+    ],
+    "is.workflow.actions.reminders.showlist" : [
+      {
+        "class" : "WFRemindersListPickerParameter",
+        "key" : "WFList"
+      }
+    ],
+    "is.workflow.actions.removeevents" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFCalendarIncludeFutureEvents"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInputEvents"
+      }
+    ],
+    "is.workflow.actions.removefromalbum" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.removereminders" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInputReminders"
+      }
+    ],
+    "is.workflow.actions.repeat.count" : [
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFRepeatCount"
+      }
+    ],
+    "is.workflow.actions.repeat.each" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.resizewindow" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFConfiguration"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFWidth"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFHeight"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFWindow"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFBringToFront"
+      }
+    ],
+    "is.workflow.actions.returntohomescreen" : [
+
+    ],
+    "is.workflow.actions.ride.requestride" : [
+      {
+        "class" : "WFIntentAppPickerParameter",
+        "key" : "IntentAppDefinition"
+      },
+      {
+        "class" : "WFLocationParameter",
+        "key" : "PickupLocation"
+      },
+      {
+        "class" : "WFLocationParameter",
+        "key" : "DropOffLocation"
+      },
+      {
+        "class" : "WFPaymentMethodParameter",
+        "key" : "PaymentMethod"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "PartySize"
+      }
+    ],
+    "is.workflow.actions.round" : [
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFRoundTo"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFRoundMode"
+      },
+      {
+        "class" : "WFNumberFieldParameter",
+        "key" : "TenToThePowerOf"
+      }
+    ],
+    "is.workflow.actions.rss" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFRSSFeedURL"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFRSSItemQuantity"
+      }
+    ],
+    "is.workflow.actions.rss.extract" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFURLs"
+      }
+    ],
+    "is.workflow.actions.runapplescript" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "Input"
+      },
+      {
+        "class" : "WFOSAScriptEditorParameter",
+        "key" : "Script"
+      }
+    ],
+    "is.workflow.actions.runextension" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFAppPickerParameter",
+        "key" : "WFApp"
+      }
+    ],
+    "is.workflow.actions.runjavascriptforautomation" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "Input"
+      },
+      {
+        "class" : "WFOSAScriptEditorParameter",
+        "key" : "Script"
+      }
+    ],
+    "is.workflow.actions.runjavascriptonwebpage" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFJavaScript"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.runshellscript" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "Script"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "Shell"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "Input"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "InputMode"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "RunAsRoot"
+      }
+    ],
+    "is.workflow.actions.runsshscript" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSSHScript"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSSHHost"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSSHPort"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSSHUser"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFSSHAuthenticationType"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSSHPassword"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.runworkflow" : [
+      {
+        "class" : "WFWorkflowPickerParameter",
+        "key" : "WFWorkflow"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.safari.geturl" : [
+
+    ],
+    "is.workflow.actions.savetocameraroll" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.searchappstore" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSearchTerm"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFAttribute"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFEntity"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFItemLimit"
+      }
+    ],
+    "is.workflow.actions.searchitunes" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSearchTerm"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFMediaType"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFAttribute"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFEntity"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFItemLimit"
+      }
+    ],
+    "is.workflow.actions.searchlocalbusinesses" : [
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSearchQuery"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFSearchSortOrder"
+      }
+    ],
+    "is.workflow.actions.searchmaps" : [
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.searchpodcasts" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSearchTerm"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFAttribute"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFEntity"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFItemLimit"
+      }
+    ],
+    "is.workflow.actions.searchweb" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFSearchWebDestination"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInputText"
+      }
+    ],
+    "is.workflow.actions.seek" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFSeekBehavior"
+      },
+      {
+        "class" : "WFDurationQuantityFieldParameter",
+        "key" : "WFTimeInterval"
+      }
+    ],
+    "is.workflow.actions.selectcontacts" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFSelectMultiple"
+      }
+    ],
+    "is.workflow.actions.selectemail" : [
+
+    ],
+    "is.workflow.actions.selectphone" : [
+
+    ],
+    "is.workflow.actions.selectphoto" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPhotoPickerTypes"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFSelectMultiplePhotos"
+      }
+    ],
+    "is.workflow.actions.sendemail" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSendEmailActionFrom"
+      },
+      {
+        "class" : "WFEmailAddressFieldParameter",
+        "key" : "WFSendEmailActionToRecipients"
+      },
+      {
+        "class" : "WFEmailAddressFieldParameter",
+        "key" : "WFSendEmailActionCcRecipients"
+      },
+      {
+        "class" : "WFEmailAddressFieldParameter",
+        "key" : "WFSendEmailActionBccRecipients"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSendEmailActionSubject"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSendEmailActionInputAttachments"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFSendEmailActionSaveAsDraft"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFSendEmailActionShowComposeSheet"
+      }
+    ],
+    "is.workflow.actions.sendmessage" : [
+      {
+        "class" : "WFIntentAppPickerParameter",
+        "key" : "IntentAppDefinition"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      },
+      {
+        "class" : "WFContactHandleFieldParameter",
+        "key" : "WFSendMessageActionRecipients"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSendMessageContent"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSendMessagePrefix"
+      }
+    ],
+    "is.workflow.actions.setbrightness" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.setitemname" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFName"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFDontIncludeFileExtension"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.setparkedcar" : [
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFLocation"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFSetParkedCarNotes"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFImage"
+      }
+    ],
+    "is.workflow.actions.setplaybackdestination" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFMediaRouteOperation"
+      }
+    ],
+    "is.workflow.actions.setstoredcontent" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFStoredValueVariableFieldParameter",
+        "key" : "WFStoredContentKey"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFStoredContentGlobalValue"
+      }
+    ],
+    "is.workflow.actions.setters.calendarevents" : [
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "Mode"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "RemoveSpecifiedValue"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFCalendarEventContentItemAttachments"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFCalendarEventContentItemIsAllDay"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFCalendarEventContentItemNotes"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFCalendarEventContentItemTitle"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFCalendarEventContentItemLocation"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFCalendarEventContentItemEndDate"
+      },
+      {
+        "class" : "WFDurationQuantityFieldParameter",
+        "key" : "WFCalendarEventContentItemDuration"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFCalendarEventContentItemStartDate"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCalendarEventContentItemMyStatus"
+      },
+      {
+        "class" : "WFEmailAddressFieldParameter",
+        "key" : "WFCalendarEventContentItemAttendees"
+      },
+      {
+        "class" : "WFURLParameter",
+        "key" : "WFCalendarEventContentItemURL"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ValueLabel"
+      }
+    ],
+    "is.workflow.actions.setters.contacts" : [
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "Mode"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "RemoveSpecifiedValue"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemPrefix"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemPhoneticLastName"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemJobTitle"
+      },
+      {
+        "class" : "WFURLParameter",
+        "key" : "WFContactContentItemURLs"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemCompany"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemDepartment"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemLastName"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemEmailAddresses"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFContactContentItemGroup"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemPhoneticFirstName"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemMiddleName"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemPhoneNumbers"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemSuffix"
+      },
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFContactContentItemStreetAddresses"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemFirstName"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFContactContentItemBirthday"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFContactContentItemContactPhoto"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemNickname"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemPhoneticMiddleName"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFContactContentItemNotes"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "ValueLabel"
+      }
+    ],
+    "is.workflow.actions.setters.reminders" : [
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFContentItemPropertyName"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "Mode"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "RemoveSpecifiedValue"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFReminderContentItemPriority"
+      },
+      {
+        "class" : "WFContactFieldParameter",
+        "key" : "WFReminderContentItemWhenMessagingPerson"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFReminderContentItemIsCompleted"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFReminderContentItemImages"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFReminderContentItemParentReminder"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFReminderContentItemDueDate"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFReminderContentItemList"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFReminderContentItemTags"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFReminderContentItemTitle"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFReminderContentItemSubtasks"
+      },
+      {
+        "class" : "WFURLParameter",
+        "key" : "WFReminderContentItemURL"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFReminderContentItemIsFlagged"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFReminderContentItemNotes"
+      }
+    ],
+    "is.workflow.actions.setvalueforkey" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFDictionaryKey"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFDictionaryValue"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFDictionary"
+      }
+    ],
+    "is.workflow.actions.setvariable" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFVariableFieldParameter",
+        "key" : "WFVariableName"
+      }
+    ],
+    "is.workflow.actions.setvolume" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFVolumeSetting"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFVolume"
+      }
+    ],
+    "is.workflow.actions.share" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.shazamMedia" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFShazamMediaActionShowWhenRun"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFShazamMediaActionErrorIfNotRecognized"
+      }
+    ],
+    "is.workflow.actions.showdefinition" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "Word"
+      }
+    ],
+    "is.workflow.actions.showinblindsquare" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFBlindSquareSimulation"
+      },
+      {
+        "class" : "WFLocationParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.showinstore" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFProduct"
+      }
+    ],
+    "is.workflow.actions.showresult" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "Text"
+      }
+    ],
+    "is.workflow.actions.showwebpage" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFEnterSafariReader"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFURL"
+      }
+    ],
+    "is.workflow.actions.silenceunknowncallers.set" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.sirikit.donation.handle" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.skipback" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFSkipBackBehavior"
+      }
+    ],
+    "is.workflow.actions.skipforward" : [
+
+    ],
+    "is.workflow.actions.slack.send" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFSlackInput"
+      }
+    ],
+    "is.workflow.actions.speaktext" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFSpeakTextWait"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFSpeakTextRate"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFSpeakTextPitch"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFText"
+      }
+    ],
+    "is.workflow.actions.splitpdf" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.splitscreen" : [
+      {
+        "class" : "WFAppPickerParameter",
+        "key" : "WFPrimaryAppIdentifier"
+      },
+      {
+        "class" : "WFAppPickerParameter",
+        "key" : "WFSecondaryAppIdentifier"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFAppRatio"
+      }
+    ],
+    "is.workflow.actions.spotlightsearch" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInputText"
+      },
+      {
+        "class" : "WFStepperParameter",
+        "key" : "WFSpotlightSearchLimit"
+      }
+    ],
+    "is.workflow.actions.stagemanager.set" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.startscreensaver" : [
+
+    ],
+    "is.workflow.actions.statistics" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFStatisticsOperation"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "Input"
+      }
+    ],
+    "is.workflow.actions.takevideo" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCameraCaptureDevice"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFCameraCaptureQuality"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFRecordingStart"
+      }
+    ],
+    "is.workflow.actions.text.replace" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFReplaceTextFind"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFReplaceTextReplace"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFReplaceTextCaseSensitive"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFReplaceTextRegularExpression"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.text.trimwhitespace" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.timer.start" : [
+      {
+        "class" : "WFIntentAppPickerParameter",
+        "key" : "IntentAppDefinition"
+      },
+      {
+        "class" : "WFDurationQuantityFieldParameter",
+        "key" : "WFDuration"
+      }
+    ],
+    "is.workflow.actions.todoist.add" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFTodoistContent"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFTodoistDueDate"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFTodoistReminder"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFTodoistReminderType"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFTodoistPriority"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFTodoistNotes"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFTodoistFile"
+      }
+    ],
+    "is.workflow.actions.trello.add.board" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFTrelloName"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFTrelloDescription"
+      }
+    ],
+    "is.workflow.actions.trello.add.card" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFTrelloName"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "WFTrelloDueDate"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFTrelloCardPosition"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFTrelloAttachments"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFTrelloDescription"
+      }
+    ],
+    "is.workflow.actions.trello.add.list" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFTrelloName"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFTrelloPosition"
+      }
+    ],
+    "is.workflow.actions.trello.get" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFTrelloItemType"
+      }
+    ],
+    "is.workflow.actions.trimvideo" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInputMedia"
+      }
+    ],
+    "is.workflow.actions.truetone.set" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "is.workflow.actions.tumblr.post" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "WFPostType"
+      },
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFPostState"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPostTitle"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPostSource"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPostCaption"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPostTags"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFPostDescription"
+      }
+    ],
+    "is.workflow.actions.tweet" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "TweetInput"
+      }
+    ],
+    "is.workflow.actions.unzip" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFArchive"
+      }
+    ],
+    "is.workflow.actions.url.getheaders" : [
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.urlencode" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFEncodeMode"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.useractivity.open" : [
+
+    ],
+    "is.workflow.actions.venmo.pay" : [
+      {
+        "class" : "WFIntentAppPickerParameter",
+        "key" : "IntentAppDefinition"
+      },
+      {
+        "class" : "WFContactHandleFieldParameter",
+        "key" : "WFVenmoActionRecipients"
+      },
+      {
+        "class" : "WFCurrencyQuantityFieldParameter",
+        "key" : "WFVenmoActionAmount"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFVenmoActionAppSwitch"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFVenmoActionNote"
+      }
+    ],
+    "is.workflow.actions.venmo.request" : [
+      {
+        "class" : "WFIntentAppPickerParameter",
+        "key" : "IntentAppDefinition"
+      },
+      {
+        "class" : "WFContactHandleFieldParameter",
+        "key" : "WFVenmoActionRecipients"
+      },
+      {
+        "class" : "WFCurrencyQuantityFieldParameter",
+        "key" : "WFVenmoActionAmount"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "WFVenmoActionAppSwitch"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "WFVenmoActionNote"
+      }
+    ],
+    "is.workflow.actions.vibrate" : [
+      {
+        "class" : "WFEnumerationParameter",
+        "key" : "WFVibrateHapticType"
+      }
+    ],
+    "is.workflow.actions.viewresult" : [
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.waittoreturn" : [
+
+    ],
+    "is.workflow.actions.watchmedo" : [
+      {
+        "class" : "WFUIRecordingEventParameter",
+        "key" : "WFUserEvent"
+      },
+      {
+        "class" : "WFSliderParameter",
+        "key" : "WFPlaybackSpeed"
+      }
+    ],
+    "is.workflow.actions.wifi.set" : [
+
+    ],
+    "is.workflow.actions.wordpress.post" : [
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "Blog"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "Title"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "Type"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "Format"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "Status"
+      },
+      {
+        "class" : "WFDynamicTagFieldParameter",
+        "key" : "Categories"
+      },
+      {
+        "class" : "WFDynamicTagFieldParameter",
+        "key" : "Tags"
+      },
+      {
+        "class" : "WFExpandingParameter",
+        "key" : "Advanced"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "AllowComments"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "Slug"
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "Excerpt"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "Date"
+      },
+      {
+        "class" : "WFDynamicEnumerationParameter",
+        "key" : "Template"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "ThumbnailImage"
+      },
+      {
+        "class" : "WFExpandingParameter",
+        "key" : "ShowCustomFields"
+      },
+      {
+        "class" : "WFDictionaryParameter",
+        "key" : "CustomFields"
+      },
+      {
+        "class" : "WFVariablePickerParameter",
+        "key" : "WFInput"
+      }
+    ],
+    "is.workflow.actions.workout.end" : [
+      {
+        "class" : "WFIntentAppPickerParameter",
+        "key" : "IntentAppDefinition"
+      }
+    ],
+    "is.workflow.actions.workout.start" : [
+      {
+        "class" : "WFIntentAppPickerParameter",
+        "key" : "IntentAppDefinition"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "isOpenEnded"
+      }
+    ]
+  },
+  "parameterClasses" : {
+    "WFAppPickerParameter" : {
+      "count" : 9,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFAppDescriptorParameterState",
+      "usedBy" : [
+        "is.workflow.actions.hide.app",
+        "is.workflow.actions.openapp",
+        "is.workflow.actions.openin",
+        "is.workflow.actions.quit.app",
+        "is.workflow.actions.runextension"
+      ]
+    },
+    "WFAskLLMModelParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+        "Apple Intelligence"
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.askllm"
+      ]
+    },
+    "WFCalendarPickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFCalendarSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.getupcomingevents"
+      ]
+    },
+    "WFChooseFromMenuArrayParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : null,
+      "usedBy" : [
+        "is.workflow.actions.choosefrommenu"
+      ]
+    },
+    "WFColorPickerParameter" : {
+      "count" : 4,
+      "defaultExamples" : [
+        {
+          "alphaComponent" : 1,
+          "blueComponent" : 0,
+          "greenComponent" : 0,
+          "redComponent" : 0,
+          "WFColorRepresentationType" : "WFColorRepresentationTypeCGColor"
+        },
+        {
+          "alphaComponent" : 1,
+          "blueComponent" : 1,
+          "greenComponent" : 1,
+          "redComponent" : 1,
+          "WFColorRepresentationType" : "WFColorRepresentationTypeCGColor"
+        },
+        {
+          "WFColorRepresentationType" : "WFColorRepresentationTypeSystem",
+          "WFSystemColor" : "WFSystemColorBlack"
+        }
+      ],
+      "stateClass" : "WFColorParameterState",
+      "usedBy" : [
+        "is.workflow.actions.generatebarcode",
+        "is.workflow.actions.overlaytext"
+      ]
+    },
+    "WFContactFieldParameter" : {
+      "count" : 3,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFContactFieldEntry",
+      "usedBy" : [
+        "is.workflow.actions.addnewreminder",
+        "is.workflow.actions.contacts",
+        "is.workflow.actions.setters.reminders"
+      ]
+    },
+    "WFContactHandleFieldParameter" : {
+      "count" : 3,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFContactFieldEntry",
+      "usedBy" : [
+        "is.workflow.actions.sendmessage",
+        "is.workflow.actions.venmo.pay",
+        "is.workflow.actions.venmo.request"
+      ]
+    },
+    "WFContentArrayParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : null,
+      "usedBy" : [
+        "is.workflow.actions.list"
+      ]
+    },
+    "WFContentItemFilterEnumerationParameter" : {
+      "count" : 8,
+      "defaultExamples" : [
+        "Library"
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.filter.apps",
+        "is.workflow.actions.filter.calendarevents",
+        "is.workflow.actions.filter.contacts",
+        "is.workflow.actions.filter.displays",
+        "is.workflow.actions.filter.music"
+      ]
+    },
+    "WFCurrencyQuantityFieldParameter" : {
+      "count" : 2,
+      "defaultExamples" : [
+        {
+          "Value" : {
+            "Unit" : "USD"
+          },
+          "WFSerializationType" : "WFQuantityFieldValue"
+        }
+      ],
+      "stateClass" : "WFQuantityParameterState",
+      "usedBy" : [
+        "is.workflow.actions.venmo.pay",
+        "is.workflow.actions.venmo.request"
+      ]
+    },
+    "WFDateFieldParameter" : {
+      "count" : 13,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFDateFieldParameterState",
+      "usedBy" : [
+        "is.workflow.actions.addnewreminder",
+        "is.workflow.actions.adjustdate",
+        "is.workflow.actions.dnd.set",
+        "is.workflow.actions.getupcomingevents",
+        "is.workflow.actions.health.workout.log"
+      ]
+    },
+    "WFDictionaryParameter" : {
+      "count" : 5,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFDictionaryParameterState",
+      "usedBy" : [
+        "is.workflow.actions.dictionary",
+        "is.workflow.actions.downloadurl",
+        "is.workflow.actions.wordpress.post"
+      ]
+    },
+    "WFDurationQuantityFieldParameter" : {
+      "count" : 6,
+      "defaultExamples" : [
+        {
+          "Value" : {
+            "Unit" : "sec"
+          },
+          "WFSerializationType" : "WFQuantityFieldValue"
+        },
+        {
+          "Value" : {
+            "Unit" : "min"
+          },
+          "WFSerializationType" : "WFQuantityFieldValue"
+        }
+      ],
+      "stateClass" : "WFQuantityParameterState",
+      "usedBy" : [
+        "is.workflow.actions.adjustdate",
+        "is.workflow.actions.health.workout.log",
+        "is.workflow.actions.recordaudio",
+        "is.workflow.actions.seek",
+        "is.workflow.actions.setters.calendarevents"
+      ]
+    },
+    "WFDynamicEnumerationParameter" : {
+      "count" : 37,
+      "defaultExamples" : [
+        "Driving",
+        "Set"
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.filter.apps",
+        "is.workflow.actions.filter.articles",
+        "is.workflow.actions.filter.calendarevents",
+        "is.workflow.actions.filter.contacts",
+        "is.workflow.actions.filter.displays"
+      ]
+    },
+    "WFDynamicTagFieldParameter" : {
+      "count" : 2,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.wordpress.post"
+      ]
+    },
+    "WFEmailAddressFieldParameter" : {
+      "count" : 5,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFContactFieldEntry",
+      "usedBy" : [
+        "is.workflow.actions.email",
+        "is.workflow.actions.sendemail",
+        "is.workflow.actions.setters.calendarevents"
+      ]
+    },
+    "WFEnumerationParameter" : {
+      "count" : 145,
+      "defaultExamples" : [
+        "Remote",
+        "End",
+        "Next"
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "com.panic.iOS.Transmit.Share",
+        "is.workflow.actions.additemtolist",
+        "is.workflow.actions.addmusictoupnext",
+        "is.workflow.actions.addnewreminder",
+        "is.workflow.actions.adjustdate"
+      ]
+    },
+    "WFExpandingParameter" : {
+      "count" : 4,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFNumberParameterState",
+      "usedBy" : [
+        "is.workflow.actions.downloadurl",
+        "is.workflow.actions.encodemedia",
+        "is.workflow.actions.wordpress.post"
+      ]
+    },
+    "WFFilePickerParameter" : {
+      "count" : 22,
+      "defaultExamples" : [
+        {
+          "displayName" : "Shortcuts",
+          "fileLocation" : {
+            "relativeSubpath" : "",
+            "WFFileLocationType" : "Shortcuts"
+          },
+          "filename" : "Documents"
+        }
+      ],
+      "stateClass" : "WFFileParameterState",
+      "usedBy" : [
+        "is.workflow.actions.compresspdf",
+        "is.workflow.actions.documentpicker.open",
+        "is.workflow.actions.documentpicker.save",
+        "is.workflow.actions.ejectdisk",
+        "is.workflow.actions.file"
+      ]
+    },
+    "WFFocusModesPickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFINObjectSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.dnd.set"
+      ]
+    },
+    "WFFontPickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFFontParameterState",
+      "usedBy" : [
+        "is.workflow.actions.overlaytext"
+      ]
+    },
+    "WFHomeAccessoryPickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFHFTriggerActionSetsBuilderParameterState",
+      "usedBy" : [
+        "is.workflow.actions.homeaccessory"
+      ]
+    },
+    "WFHomeCharacteristicPickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFHMCharacteristicSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.gethomeaccessorystate"
+      ]
+    },
+    "WFHomePickerParameter" : {
+      "count" : 2,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.gethomeaccessorystate",
+        "is.workflow.actions.homeaccessory"
+      ]
+    },
+    "WFHomeServicePickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFHMServiceParameterState",
+      "usedBy" : [
+        "is.workflow.actions.gethomeaccessorystate"
+      ]
+    },
+    "WFInputSurfaceParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+        ""
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.input"
+      ]
+    },
+    "WFInputTypeParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.input"
+      ]
+    },
+    "WFIntentAppPickerParameter" : {
+      "count" : 7,
+      "defaultExamples" : [
+        {
+          "BundleIdentifier" : "com.apple.MobileSMS"
+        },
+        {
+          "BundleIdentifier" : "com.apple.mobiletimer-framework.MobileTimerIntents"
+        },
+        {
+          "BundleIdentifier" : "com.apple.PassKit.PassKitIntentsExtension"
+        }
+      ],
+      "stateClass" : "WFIntentDescriptorParameterState",
+      "usedBy" : [
+        "is.workflow.actions.ride.requestride",
+        "is.workflow.actions.sendmessage",
+        "is.workflow.actions.timer.start",
+        "is.workflow.actions.venmo.pay",
+        "is.workflow.actions.venmo.request"
+      ]
+    },
+    "WFLocationAccuracyParameter" : {
+      "count" : 2,
+      "defaultExamples" : [
+        "HundredMeters"
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.getcurrentlocation",
+        "is.workflow.actions.getdistance"
+      ]
+    },
+    "WFLocationParameter" : {
+      "count" : 18,
+      "defaultExamples" : [
+        {
+          "isCurrentLocation" : true
+        }
+      ],
+      "stateClass" : "WFLocationParameterState",
+      "usedBy" : [
+        "is.workflow.actions.addnewreminder",
+        "is.workflow.actions.getdirections",
+        "is.workflow.actions.getdistance",
+        "is.workflow.actions.gethalfwaypoint",
+        "is.workflow.actions.getmapslink"
+      ]
+    },
+    "WFMeasurementUnitPickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFNSUnitSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.measurement.convert"
+      ]
+    },
+    "WFMediaPickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFMediaItemState",
+      "usedBy" : [
+        "is.workflow.actions.playmusic"
+      ]
+    },
+    "WFNumberFieldParameter" : {
+      "count" : 54,
+      "defaultExamples" : [
+        0.25,
+        0,
+        100
+      ],
+      "stateClass" : "WFNumberStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.addframetogif",
+        "is.workflow.actions.additemtolist",
+        "is.workflow.actions.detect.number",
+        "is.workflow.actions.encodemedia",
+        "is.workflow.actions.format.filesize"
+      ]
+    },
+    "WFOSAScriptEditorParameter" : {
+      "count" : 2,
+      "defaultExamples" : [
+        "on run {input, parameters}\n    (* Your script goes here *)\n    return input\nend run",
+        "function run(input, parameters) {\n    \/\/ Your script goes here\n    return input;\n}"
+      ],
+      "stateClass" : "WFStringParameterState",
+      "usedBy" : [
+        "is.workflow.actions.runapplescript",
+        "is.workflow.actions.runjavascriptforautomation"
+      ]
+    },
+    "WFPaymentMethodParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFINPaymentMethodParameterState",
+      "usedBy" : [
+        "is.workflow.actions.ride.requestride"
+      ]
+    },
+    "WFPhoneNumberFieldParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFContactFieldEntry",
+      "usedBy" : [
+        "is.workflow.actions.phonenumber"
+      ]
+    },
+    "WFRemindersListPickerParameter" : {
+      "count" : 3,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFCalendarSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.addnewreminder",
+        "is.workflow.actions.getupcomingreminders",
+        "is.workflow.actions.reminders.showlist"
+      ]
+    },
+    "WFSliderParameter" : {
+      "count" : 13,
+      "defaultExamples" : [
+        0.75,
+        0.5,
+        1
+      ],
+      "stateClass" : "WFNumberSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.image.convert",
+        "is.workflow.actions.makespokenaudiofromtext",
+        "is.workflow.actions.overlaytext",
+        "is.workflow.actions.setvolume",
+        "is.workflow.actions.speaktext"
+      ]
+    },
+    "WFStepperParameter" : {
+      "count" : 35,
+      "defaultExamples" : [
+        1,
+        5,
+        10
+      ],
+      "stateClass" : "WFNumberSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.evernote.get",
+        "is.workflow.actions.filter.apps",
+        "is.workflow.actions.filter.articles",
+        "is.workflow.actions.filter.calendarevents",
+        "is.workflow.actions.filter.contacts"
+      ]
+    },
+    "WFStoredValueVariableFieldParameter" : {
+      "count" : 3,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFVariableStringParameterState",
+      "usedBy" : [
+        "is.workflow.actions.deletestoredcontent",
+        "is.workflow.actions.getstoredcontent",
+        "is.workflow.actions.setstoredcontent"
+      ]
+    },
+    "WFSwitchParameter" : {
+      "count" : 129,
+      "defaultExamples" : [
+        true,
+        false
+      ],
+      "stateClass" : "WFBooleanSubstitutableState",
+      "usedBy" : [
+        "com.apple.TVRemoteUIService.LaunchApplicationIntent",
+        "com.apple.TVRemoteUIService.LaunchRemoteIntent",
+        "com.apple.TVRemoteUIService.LaunchScreenSaverIntent",
+        "com.apple.TVRemoteUIService.PauseContentIntent",
+        "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent"
+      ]
+    },
+    "WFTableTemplateContentItemFilterParameter" : {
+      "count" : 13,
+      "defaultExamples" : [
+        {
+          "Value" : {
+            "WFActionParameterFilterPrefix" : 1,
+            "WFActionParameterFilterTemplates" : [
+
+            ],
+            "WFContentPredicateBoundedDate" : false
+          },
+          "WFSerializationType" : "WFContentPredicateTableTemplate"
+        },
+        {
+          "Value" : {
+            "WFActionParameterFilterPrefix" : 1,
+            "WFActionParameterFilterTemplates" : [
+              {
+                "Bounded" : true,
+                "Operator" : 1000,
+                "Property" : "Start Date",
+                "Removable" : false,
+                "Values" : {
+                  "Number" : "7",
+                  "Unit" : 16
+                }
+              }
+            ],
+            "WFContentPredicateBoundedDate" : false
+          },
+          "WFSerializationType" : "WFContentPredicateTableTemplate"
+        }
+      ],
+      "stateClass" : "_TtGC11WorkflowKitP10$2b85ed53038_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_35RowTemplateFindFilterParameterState__",
+      "usedBy" : [
+        "is.workflow.actions.filter.apps",
+        "is.workflow.actions.filter.articles",
+        "is.workflow.actions.filter.calendarevents",
+        "is.workflow.actions.filter.contacts",
+        "is.workflow.actions.filter.displays"
+      ]
+    },
+    "WFTableTemplateParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+        {
+          "Value" : {
+            "WFActionParameterFilterPrefix" : 1,
+            "WFActionParameterFilterTemplates" : [
+
+            ],
+            "WFContentPredicateBoundedDate" : false
+          },
+          "WFSerializationType" : "WFContentPredicateTableTemplate"
+        }
+      ],
+      "stateClass" : "_TtGC11WorkflowKitP10$2b85ed53038_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_36RowTemplateConditionalParameterState__",
+      "usedBy" : [
+        "is.workflow.actions.conditional"
+      ]
+    },
+    "WFTagFieldParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFStringSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.addnewreminder"
+      ]
+    },
+    "WFTextInputParameter" : {
+      "count" : 160,
+      "defaultExamples" : [
+        "",
+        "public.rtf",
+        "x-success"
+      ],
+      "stateClass" : "WFVariableStringParameterState",
+      "usedBy" : [
+        "com.panic.iOS.Transmit.Share",
+        "is.workflow.actions.additemtolist",
+        "is.workflow.actions.addnewcalendar",
+        "is.workflow.actions.addnewreminder",
+        "is.workflow.actions.address"
+      ]
+    },
+    "WFUIRecordingEventParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+        {
+
+        }
+      ],
+      "stateClass" : "WFUIRecordingEventState",
+      "usedBy" : [
+        "is.workflow.actions.watchmedo"
+      ]
+    },
+    "WFUnitQuantityFieldParameter" : {
+      "count" : 3,
+      "defaultExamples" : [
+        {
+          "Value" : {
+            "Magnitude" : "1000",
+            "Unit" : "ft"
+          },
+          "WFSerializationType" : "WFQuantityFieldValue"
+        },
+        {
+          "Value" : {
+            "Magnitude" : "1",
+            "Unit" : "GB"
+          },
+          "WFSerializationType" : "WFQuantityFieldValue"
+        }
+      ],
+      "stateClass" : "WFQuantityParameterState",
+      "usedBy" : [
+        "is.workflow.actions.addnewreminder",
+        "is.workflow.actions.makediskimage",
+        "is.workflow.actions.measurement.create"
+      ]
+    },
+    "WFURLParameter" : {
+      "count" : 4,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFURLStringParameterState",
+      "usedBy" : [
+        "is.workflow.actions.addnewreminder",
+        "is.workflow.actions.setters.calendarevents",
+        "is.workflow.actions.setters.contacts",
+        "is.workflow.actions.setters.reminders"
+      ]
+    },
+    "WFVariableFieldParameter" : {
+      "count" : 2,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFStringParameterState",
+      "usedBy" : [
+        "is.workflow.actions.appendvariable",
+        "is.workflow.actions.setvariable"
+      ]
+    },
+    "WFVariablePickerParameter" : {
+      "count" : 132,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFVariableParameterState",
+      "usedBy" : [
+        "com.apple.mobileslideshow.StreamShareService",
+        "is.workflow.actions.addframetogif",
+        "is.workflow.actions.additemtolist",
+        "is.workflow.actions.addmusictoupnext",
+        "is.workflow.actions.addnewreminder"
+      ]
+    },
+    "WFWorkflowFolderPickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+        {
+          "DisplayString" : "All Shortcuts",
+          "Identifier" : "AllShortcuts"
+        }
+      ],
+      "stateClass" : "WFINObjectSubstitutableState",
+      "usedBy" : [
+        "is.workflow.actions.getmyworkflows"
+      ]
+    },
+    "WFWorkflowPickerParameter" : {
+      "count" : 1,
+      "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFWorkflowParameterState",
+      "usedBy" : [
+        "is.workflow.actions.runworkflow"
+      ]
+    }
+  },
+  "stateClassSelectors" : {
+    "_TtGC11WorkflowKitP10$2b85ed53038_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_35RowTemplateFindFilterParameterState__" : [
+      "initWithVariable:",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "init",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "_TtGC11WorkflowKitP10$2b85ed53038_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_36RowTemplateConditionalParameterState__" : [
+      "initWithVariable:",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "init",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFAppDescriptorParameterState" : [
+      "legacySerializedRepresentation",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFBooleanSubstitutableState" : [
+      "initWithBoolValue:",
+      "initWithNumberSubstitutableState:",
+      "initWithNumber:",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFCalendarSubstitutableState" : [
+      "initWithCalendar:",
+      "initWithRemindersList:",
+      "legacySerializedRepresentation",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFColorParameterState" : [
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFContactFieldEntry" : [
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithContact:",
+      "initWithPhoneNumber:",
+      "initWithCoder:",
+      "initWithEmailAddress:",
+      "initWithCustomHandle:",
+      "initWithHandleString:",
+      "initWithHandleString:allowsCustomHandles:",
+      "initWithMessageGroup:"
+    ],
+    "WFDateFieldParameterState" : [
+      "initWithVariable:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithVariableString:",
+      "initWithVariableString:userInputInsertionIndex:",
+      "shouldSerializeAsPlainString"
+    ],
+    "WFDictionaryParameterState" : [
+      "serializedRepresentation",
+      "initWithKeyValuePairs:",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithKeyValuePairs:identity:"
+    ],
+    "WFFileParameterState" : [
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFFontParameterState" : [
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFHFTriggerActionSetsBuilderParameterState" : [
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithActionSets:homeIdentifier:",
+      "initWithSerializedActionSets:homeIdentifier:",
+      "serializedActionSets"
+    ],
+    "WFHMCharacteristicSubstitutableState" : [
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithCharacteristic:homeIdentifier:",
+      "serializedCharacteristic",
+      "setSerializedCharacteristic:",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFHMServiceParameterState" : [
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithService:homeIdentifier:",
+      "initWithSerializedService:homeIdentifier:",
+      "serializedService",
+      "setSerializedService:"
+    ],
+    "WFINObjectSubstitutableState" : [
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFINPaymentMethodParameterState" : [
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFIntentDescriptorParameterState" : [
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFLocationParameterState" : [
+      "initWithValue:",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFMediaItemState" : [
+      "initWithMediaType:persistentID:",
+      "initWithMediaType:persistentID:storeID:",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFNSUnitSubstitutableState" : [
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFNumberParameterState" : [
+      "initWithNumber:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFNumberStringSubstitutableState" : [
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFNumberSubstitutableState" : [
+      "initWithNumber:",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFQuantityParameterState" : [
+      "initWithVariable:",
+      "serializedRepresentation",
+      "initWithMagnitudeState:unitString:",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithMagnitudeState:unitString:variable:"
+    ],
+    "WFStringParameterState" : [
+      "serializedRepresentation",
+      "initWithString:",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFStringSubstitutableState" : [
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFUIRecordingEventState" : [
+      "initWithEvent:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFURLStringParameterState" : [
+      "initWithVariable:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithVariableString:",
+      "initWithVariableString:userInputInsertionIndex:",
+      "shouldSerializeAsPlainString"
+    ],
+    "WFVariableParameterState" : [
+      "initWithVariable:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFVariableStringParameterState" : [
+      "initWithVariable:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithVariableString:",
+      "initWithVariableString:userInputInsertionIndex:",
+      "shouldSerializeAsPlainString"
+    ],
+    "WFWorkflowParameterState" : [
+      "legacySerializedRepresentation",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ]
+  }
+}

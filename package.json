@@ -1,0 +1,52 @@
+{
+  "name": "shortcutkit",
+  "version": "0.1.0",
+  "description": "Build, validate and sign Apple Shortcuts files. Every built-in action typed, straight from the Shortcuts engine.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node --format esm && tsc -p tsconfig.build.json",
+    "prepare": "bun run build",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit -p .",
+    "demo": "bun run src/cli.ts demo",
+    "extract": "./tools/extract-builtin-actions.sh",
+    "diff-data": "python3 tools/diff-data.py",
+    "changelog": "python3 tools/diff-data.py --changelog"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4",
+    "typescript": "^5"
+  },
+  "license": "MIT",
+  "author": "frontboat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frontboat/shortcutkit"
+  },
+  "homepage": "https://github.com/frontboat/shortcutkit#readme",
+  "keywords": [
+    "apple",
+    "shortcuts",
+    "workflow",
+    "automation",
+    "macos",
+    "ios",
+    "plist"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}
