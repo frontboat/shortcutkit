@@ -91,6 +91,10 @@ export const currentDate = (): Attachment => attachment({ Type: "CurrentDate" })
 export const ask = (prompt?: string): Attachment => attachment(prompt ? { Type: "Ask", Prompt: prompt } : { Type: "Ask" });
 /** Wrap an attachment for WFVariablePickerParameter keys (Repeat with Each, If). */
 export const picker = (a: Attachment): Picker => ({ Type: "Variable", Variable: a });
+/** The current item inside a Repeat with Each block. */
+export const repeatItem = (): Attachment => attachment({ Type: "Variable", VariableName: "Repeat Item" });
+/** The current index (1-based) inside a Repeat block. */
+export const repeatIndex = (): Attachment => attachment({ Type: "Variable", VariableName: "Repeat Index" });
 
 const isAttachment = (v: unknown): v is Attachment =>
   typeof v === "object" && v !== null && (v as Attachment).WFSerializationType === "WFTextTokenAttachment";
@@ -192,14 +196,24 @@ export class Shortcut {
     this.action("is.workflow.actions.repeat.each", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFInput: picker(items) });
     return gid;
   }
-  endRepeatEach(gid: string): void { this.action("is.workflow.actions.repeat.each", { GroupingIdentifier: gid, WFControlFlowMode: 2 }); }
+  /** Close a Repeat with Each block. The returned action is the block's output: `ref()` it for the collected "Repeat Results". */
+  endRepeatEach(gid: string): Action {
+    const a = this.action("is.workflow.actions.repeat.each", { GroupingIdentifier: gid, WFControlFlowMode: 2 });
+    a.outputName = "Repeat Results";
+    return a;
+  }
   /** Open a Repeat block that runs `count` times; returns the grouping identifier for endRepeatCount(). */
   repeatCount(count: number | Attachment): string {
     const gid = uuid();
     this.action("is.workflow.actions.repeat.count", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFRepeatCount: count });
     return gid;
   }
-  endRepeatCount(gid: string): void { this.action("is.workflow.actions.repeat.count", { GroupingIdentifier: gid, WFControlFlowMode: 2 }); }
+  /** Close a Repeat block. The returned action is the block's output: `ref()` it for the collected "Repeat Results". */
+  endRepeatCount(gid: string): Action {
+    const a = this.action("is.workflow.actions.repeat.count", { GroupingIdentifier: gid, WFControlFlowMode: 2 });
+    a.outputName = "Repeat Results";
+    return a;
+  }
   /**
    * Open a Choose from Menu block. Follow with one menuItem() per title, in order, each with the
    * actions of that branch, then endMenu(). Returns the grouping identifier.

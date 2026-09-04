@@ -6,6 +6,13 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.7.2 (2026-09-04)
+
+- `repeatItem()` and `repeatIndex()` (Python `repeat_item`, `repeat_index`) for the current
+  item and index inside a Repeat block. `endRepeatEach()` and `endRepeatCount()` now return
+  the closing action, whose `ref()` is the block's "Repeat Results", as Apple's gallery files
+  reference it.
+
 ## 0.7.1 (2026-09-04)
 
 - `Shortcut` takes `types` (Python `types=`), the surfaces a shortcut is offered in:

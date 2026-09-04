@@ -129,6 +129,16 @@ def ask(prompt=None):
     return _attachment({"Type": "Ask", **({"Prompt": prompt} if prompt else {})})
 
 
+def repeat_item():
+    """The current item inside a Repeat with Each block."""
+    return _attachment({"Type": "Variable", "VariableName": "Repeat Item"})
+
+
+def repeat_index():
+    """The current index (1-based) inside a Repeat block."""
+    return _attachment({"Type": "Variable", "VariableName": "Repeat Index"})
+
+
 def picker(attachment):
     """Wrap an attachment for WFVariablePickerParameter keys (e.g. WFInput on Repeat with Each)."""
     return {"Type": "Variable", "Variable": attachment}
@@ -230,7 +240,10 @@ class Shortcut:
         return gid
 
     def end_repeat_each(self, gid):
-        self.action("is.workflow.actions.repeat.each", GroupingIdentifier=gid, WFControlFlowMode=2)
+        """Close a Repeat with Each block. The returned action is the block's output: ref() it for "Repeat Results"."""
+        a = self.action("is.workflow.actions.repeat.each", GroupingIdentifier=gid, WFControlFlowMode=2)
+        a["_outputName"] = "Repeat Results"
+        return a
 
     def repeat_count(self, count):
         """Open a Repeat block that runs `count` times; returns the grouping identifier for end_repeat_count()."""
@@ -239,7 +252,10 @@ class Shortcut:
         return gid
 
     def end_repeat_count(self, gid):
-        self.action("is.workflow.actions.repeat.count", GroupingIdentifier=gid, WFControlFlowMode=2)
+        """Close a Repeat block. The returned action is the block's output: ref() it for "Repeat Results"."""
+        a = self.action("is.workflow.actions.repeat.count", GroupingIdentifier=gid, WFControlFlowMode=2)
+        a["_outputName"] = "Repeat Results"
+        return a
 
     def choose_from_menu(self, prompt, items):
         """Open a Choose from Menu block. Follow with one menu_item() per title, in order, each with
@@ -327,6 +343,6 @@ from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES  # noqa: E402
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
-__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "get_action", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
+__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "get_action", "repeat_item", "repeat_index", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "0.7.1"
+__version__ = "0.7.2"

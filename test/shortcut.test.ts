@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, repeatItem, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 
 describe("shortcutkit", () => {
   test("validates identifiers and parameter keys against the definitions", () => {
@@ -91,6 +91,21 @@ describe("definitions", () => {
     expect(d.IconSymbol).toBe("cylinder.split.1x2.fill");
     expect(getDefinition("com.example.Nope")).toBeUndefined();
     expect(Object.keys(allDefinitions()).length).toBe(434);
+  });
+});
+
+describe("repeat results", () => {
+  test("closing a block returns the action whose output is Repeat Results", () => {
+    const s = new Shortcut("Loop");
+    const list = s.action(actions.getstoredcontent, { WFStoredContentKey: "urls" });
+    const gid = s.repeatEach(ref(list));
+    s.action(actions.downloadurl, { WFURL: repeatItem() });
+    const done = s.endRepeatEach(gid);
+    const r = ref(done);
+    expect(r.Value).toMatchObject({ Type: "ActionOutput", OutputName: "Repeat Results", OutputUUID: done.WFWorkflowActionParameters.UUID });
+    const dl = s.actions[2]!.WFWorkflowActionParameters.WFURL as { WFSerializationType: string; Value: { attachmentsByRange: Record<string, { VariableName: string }> } };
+    expect(dl.WFSerializationType).toBe("WFTextTokenString");
+    expect(dl.Value.attachmentsByRange["{0, 1}"]!.VariableName).toBe("Repeat Item");
   });
 });
 
