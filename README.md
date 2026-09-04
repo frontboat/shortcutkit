@@ -49,9 +49,10 @@ pip install shortcutkit
 
 - Node 20 or newer, or Bun, for the TypeScript package. The published package is plain ES
   module JavaScript with type declarations. Python 3.9 or newer for the Python package.
-- macOS for `sign()`, which runs `shortcuts sign`. `write()` converts the plist to binary with
-  `plutil` when it is present and otherwise leaves the XML form, which Shortcuts also accepts.
-  Building and validating a shortcut in memory works anywhere.
+- A Mac signed into iCloud for `sign()`. It runs `shortcuts sign`, which refuses to work
+  without an iCloud login even in `anyone` mode, so it cannot run on CI runners. `write()`
+  converts the plist to binary with `plutil` when present and otherwise leaves the XML form.
+  Building, validating and writing the unsigned file works anywhere.
 
 ## Usage
 
@@ -140,8 +141,9 @@ cd python && python3 -m venv .venv && .venv/bin/pip install -e .
 .venv/bin/python -m shortcutkit demo /tmp/Demo.shortcut
 ```
 
-CI runs the type check, the tests, a Node import of the built package, a Python install and a
-build-and-sign of the demo shortcut on macOS.
+CI runs the type check, the tests, a Node import of the built package, a Python install and an
+unsigned build of the demo shortcut on macOS. Signing is not exercised in CI because the runner
+has no iCloud login.
 
 ### Repository layout
 

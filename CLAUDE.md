@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-`shortcutkit` builds, validates and signs Apple Shortcuts (`.shortcut`) files from TypeScript (Bun) and Python. The action catalogue and value encodings in `data/` were extracted from WorkflowKit (the private Shortcuts engine) on a Mac, and both packages are generated from that data. macOS is required for `plutil` conversion, `shortcuts sign`, and re-extraction; everything else is portable.
+`shortcutkit` builds, validates and signs Apple Shortcuts (`.shortcut`) files from TypeScript (Bun) and Python. The action catalogue and value encodings in `data/` were extracted from WorkflowKit (the private Shortcuts engine) on a Mac, and both packages are generated from that data. macOS is required for `plutil` conversion, `shortcuts sign` (which additionally needs an iCloud login, so it cannot run on CI runners), and re-extraction; everything else is portable.
 
 ## Commands
 
@@ -26,7 +26,7 @@ bun run diff-data             # committed data vs working tree; recommends semve
 bun run changelog             # same diff as a CHANGELOG section
 ```
 
-CI (`.github/workflows/ci.yml`) runs typecheck, `bun test`, builds `dist/` and imports it from Node 20, installs the Python package, and builds+signs a demo shortcut, all on `macos-latest`.
+CI (`.github/workflows/ci.yml`) runs typecheck, `bun test`, builds `dist/` and imports it from Node 20, installs the Python package, and writes an unsigned demo shortcut, all on `macos-latest`. Signing is not covered by CI: `shortcuts sign` fails with "you must be signed into iCloud" on GitHub runners.
 
 ## Architecture
 

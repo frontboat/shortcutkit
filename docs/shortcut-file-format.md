@@ -159,7 +159,9 @@ The plist has no name key. Shortcuts names an imported shortcut after the file, 
 `Morning Report.shortcut` imports as "Morning Report".
 
 Shortcuts rejects unsigned files. `shortcuts sign --mode anyone --input in.shortcut --output
-out.shortcut` wraps the plist in an AEA container (magic `AEA1`). `open out.shortcut` presents
+out.shortcut` wraps the plist in an AEA container (magic `AEA1`). The command requires the Mac
+to be signed into iCloud, even in `anyone` mode; on a machine without one (a CI runner, for
+instance) it fails with "In order to do this, you must be signed into iCloud." `open out.shortcut` presents
 the import sheet; `shortcuts run "<name>"` runs it once added. The Shortcuts app also stores
 each library entry's action list as this same plist in `~/Library/Shortcuts/Shortcuts.sqlite`.
 

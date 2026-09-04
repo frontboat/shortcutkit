@@ -44,8 +44,9 @@ pip install shortcutkit
 ### Requirements
 
 - Python 3.9 or newer.
-- macOS for `Shortcut.sign()`, which runs `shortcuts sign`. Building and writing the unsigned
-  file works on any platform.
+- A Mac signed into iCloud for `Shortcut.sign()`. It runs `shortcuts sign`, which refuses to
+  work without an iCloud login even in `anyone` mode. Building and writing the unsigned file
+  works on any platform.
 
 ## Usage
 

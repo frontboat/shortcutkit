@@ -116,7 +116,8 @@ action whose `Script` is a plain string and whose `Input` is an `ExtensionInput`
 ### Signing
 
 Shortcuts refuses unsigned files. `shortcuts sign --mode anyone --input in.shortcut --output
-out.shortcut` produces an importable file; opening it hands it to Shortcuts.app.
+out.shortcut` produces an importable file; opening it hands it to Shortcuts.app. Signing needs
+an iCloud login on the Mac, so it cannot run on GitHub-hosted runners; CI stops at the unsigned file.
 
 ## Building shortcuts
 

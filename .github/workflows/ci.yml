@@ -42,5 +42,19 @@ jobs:
           cd python
           python3 -m venv .venv && .venv/bin/pip install -q -e .
           .venv/bin/python -c "from shortcutkit import ACTIONS; assert len(ACTIONS) > 300"
-      - name: Build and sign a shortcut
-        run: bun run demo "$RUNNER_TEMP/CI Demo.shortcut" && head -c 4 "$RUNNER_TEMP/CI Demo.shortcut" | grep -q AEA1
+      - name: Build the demo shortcut with Bun (unsigned; shortcuts sign needs an iCloud login)
+        run: |
+          cd "$RUNNER_TEMP"
+          bun -e '
+            import { Shortcut, actions, ref, text } from "'"$GITHUB_WORKSPACE"'/src/index.ts";
+            const s = new Shortcut("CI Demo", { color: "Teal" });
+            s.action(actions.setstoredcontent, { WFInput: "hello from ci", WFStoredContentKey: "demo", WFStoredContentGlobalValue: false });
+            const got = s.action(actions.getstoredcontent, { WFStoredContentKey: "demo" });
+            const gid = s.if(ref(got), "has_any_value");
+            s.action(actions.showresult, { Text: text("Stored value: ", ref(got)) });
+            s.otherwise(gid);
+            s.action(actions.showresult, { Text: text("Nothing stored") });
+            s.endIf(gid);
+            console.log("wrote", await s.write(), s.actions.length, "actions");
+          '
+          head -c 6 "CI Demo.shortcut" | grep -q bplist
