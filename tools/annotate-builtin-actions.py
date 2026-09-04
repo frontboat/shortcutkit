@@ -23,6 +23,10 @@ def main(argv):
     encodings = json.load(open(argv[3])) if len(argv) > 3 else {}
     runtime = encodings.get("actionParameters", {})
     engine_outputs = encodings.get("actionOutputNames", {})  # from the action objects themselves
+    unavailable = 0
+    for ident in encodings.get("unavailableActions", []):
+        if ident in defs:
+            defs[ident]["Unavailable"] = True; unavailable += 1
     defaults = encodings.get("actionDefaults", {})  # engine defaults, to check registry case lists against
     filled = outputs = enums = disagree = 0
     checked = mismatched = 0
@@ -61,6 +65,7 @@ def main(argv):
     json.dump(defs, open(defs_path, "w"), indent=2, ensure_ascii=False, sort_keys=True)
     print(f"filled: {filled} names, {outputs} output names, {enums} enumeration case lists; "
           f"{sum(1 for d in defs.values() if not d.get('Name'))} still unnamed; "
+          f"{unavailable} definitions the engine loads as missing actions (Unavailable); "
           f"{disagree} definitions whose OutputName differs from the action object's (definition kept); "
           f"enumeration lists checked against engine defaults: {checked}, mismatched: {mismatched}")
 

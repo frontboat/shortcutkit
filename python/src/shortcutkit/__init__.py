@@ -25,7 +25,7 @@ Value helpers return the exact structures WorkflowKit's state classes serialize:
   current_date()     WFTextTokenAttachment  -> current date
   ask("Prompt")      WFTextTokenAttachment  -> ask each time
   text("a ", ref(x)) WFTextTokenString      -> text with embedded references
-  picker(att)        {"Type": "Variable", "Variable": att}  (variable-picker parameters)
+  subject(att)       {"Type": "Variable", "Variable": att}  (the If condition's subject; pickers take the bare attachment)
 Plain str / int / float / bool / list are written as-is.
 """
 import json
@@ -95,7 +95,9 @@ def _check_kind(kind, value):
     if kind in ("string", "text", "plainString") and not isinstance(value, str):
         return f"expected a string{'' if kind == 'plainString' else ' or a reference'}, got {type(value).__name__}"
     if kind == "picker":
-        return "expected picker(<attachment>) or an attachment"
+        return "expected a reference (ref(), variable(), shortcut_input(), ...)"
+    if kind == "subject" and not (isinstance(value, dict) and value.get("Type") == "Variable" and "Variable" in value):
+        return "expected a reference or subject(<reference>)"
     return None
 
 
@@ -129,6 +131,29 @@ def ask(prompt=None):
     return _attachment({"Type": "Ask", **({"Prompt": prompt} if prompt else {})})
 
 
+def device_details():
+    """Device Details (name, model, OS version, ...); the app usually adds a property aggrandizement."""
+    return _attachment({"Type": "DeviceDetails"})
+
+
+def current_app():
+    """The app the shortcut was run from."""
+    return _attachment({"Type": "CurrentApp"})
+
+
+def _reference_types(value):
+    """The variable types (Ask, ActionOutput, Variable, ...) referenced anywhere in a value."""
+    if not isinstance(value, dict):
+        return []
+    if value.get("WFSerializationType") == "WFTextTokenAttachment":
+        return [str(value.get("Value", {}).get("Type"))]
+    if value.get("WFSerializationType") == "WFTextTokenString":
+        return [str(a.get("Type")) for a in value.get("Value", {}).get("attachmentsByRange", {}).values()]
+    if value.get("Type") == "Variable" and isinstance(value.get("Variable"), dict):
+        return _reference_types(value["Variable"])
+    return []
+
+
 def repeat_item():
     """The current item inside a Repeat with Each block."""
     return _attachment({"Type": "Variable", "VariableName": "Repeat Item"})
@@ -139,7 +164,14 @@ def repeat_index():
     return _attachment({"Type": "Variable", "VariableName": "Repeat Index"})
 
 
+def subject(attachment):
+    """Wrap a reference as the subject of an If condition, the form the app writes for WFInput on
+    is.workflow.actions.conditional. Variable-picker parameters take the bare reference instead."""
+    return {"Type": "Variable", "Variable": attachment}
+
+
 def picker(attachment):
+    """Deprecated, misnamed: this is the If-subject form. Pass a bare reference to picker parameters."""
     """Wrap an attachment for WFVariablePickerParameter keys (e.g. WFInput on Repeat with Each)."""
     return {"Type": "Variable", "Variable": attachment}
 
@@ -171,8 +203,9 @@ class Shortcut:
         self.actions = []
         self.defs = json.load(open(definitions)) if pathlib.Path(definitions).exists() else {}
 
-    def action(self, identifier, **params):
-        """Append an action. Unknown identifiers or parameter keys raise ValueError."""
+    def action(self, identifier, /, **params):
+        """Append an action. Unknown identifiers or parameter keys raise ValueError.
+        `identifier` is positional-only so a parameter key of that name can be passed as a keyword."""
         definition = self.defs.get(identifier)
         catalog = ACTIONS.get(identifier) or {}
         descriptor = catalog.get("descriptor")
@@ -192,13 +225,20 @@ class Shortcut:
             if unknown and known - {"UUID", "GroupingIdentifier", "WFControlFlowMode", "CustomOutputName"}:
                 raise ValueError(f"{identifier}: unknown parameter(s) {sorted(unknown)}; known: {sorted(known)}")
         kinds = PARAM_KINDS.get(identifier, {})
+        restricted = PARAM_VARIABLE_TYPES.get(identifier, {})
         for key, value in params.items():
             problem = _check_kind(kinds.get(key, "any"), value)
             if problem:
                 raise ValueError(f"{identifier}.{key}: {problem}")
+            # Keys the engine reads no reference for (or only Ask): the same rule as the TypeScript types, at run time.
+            if key in restricted:
+                bad = [t for t in _reference_types(value) if t not in restricted[key]]
+                if bad:
+                    raise ValueError(f"{identifier}.{key}: the engine does not read a {'/'.join(bad)} reference here (it reads {', '.join(restricted[key]) if restricted[key] else 'only a plain value'})")
         # Text parameters never hold a bare attachment: the engine writes a lone variable as a
         # token string with one placeholder. Wrap it so ref() works for text keys too.
-        params = {k: (text(v) if kinds.get(k) == "text" and isinstance(v, dict) and v.get("WFSerializationType") == "WFTextTokenAttachment" else v)
+        params = {k: (text(v) if kinds.get(k) == "text" and _is_reference(v) and v.get("WFSerializationType") == "WFTextTokenAttachment"
+                      else subject(v) if kinds.get(k) == "subject" and _is_reference(v) and v.get("WFSerializationType") == "WFTextTokenAttachment" else v)
                   for k, v in params.items()}
         # App Intents actions carry a descriptor naming the app that provides them.
         head = {"UUID": str(uuid.uuid4()).upper()}
@@ -216,9 +256,13 @@ class Shortcut:
 
     # Control flow: each block is a group sharing a GroupingIdentifier, with
     # WFControlFlowMode 0 = start, 1 = middle (Otherwise / menu item), 2 = end.
+    @staticmethod
+    def _subject(value):
+        return value if isinstance(value, dict) and value.get("Type") == "Variable" and "Variable" in value else subject(value)
+
     def if_(self, subject, condition, value=None):
         gid = str(uuid.uuid4()).upper()
-        params = {"GroupingIdentifier": gid, "WFControlFlowMode": 0, "WFInput": picker(subject),
+        params = {"GroupingIdentifier": gid, "WFControlFlowMode": 0, "WFInput": self._subject(subject),
                   "WFCondition": CONDITION[condition] if isinstance(condition, str) else condition}
         if isinstance(value, (int, float)) and not isinstance(value, bool):
             params["WFNumberValue"] = value
@@ -236,7 +280,7 @@ class Shortcut:
     def repeat_each(self, items):
         """Open a Repeat with Each block; returns the grouping identifier to pass to end_repeat_each()."""
         gid = str(uuid.uuid4()).upper()
-        self.action("is.workflow.actions.repeat.each", GroupingIdentifier=gid, WFControlFlowMode=0, WFInput=picker(items))
+        self.action("is.workflow.actions.repeat.each", GroupingIdentifier=gid, WFControlFlowMode=0, WFInput=items)
         return gid
 
     def end_repeat_each(self, gid):
@@ -338,11 +382,11 @@ def demo(out):
 
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
-from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES  # noqa: E402
+from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES  # noqa: E402
 
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
-__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "get_action", "repeat_item", "repeat_index", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
+__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "0.7.2"
+__version__ = "0.8.0"

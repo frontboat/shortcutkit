@@ -238,7 +238,8 @@ that resolves at run time. Observed in a Mac's library (`dump-library-encodings.
   `{"WFSerializationType": "WFTextTokenString", "Value": {"string": "…\ufffc…",
   "attachmentsByRange": {"{offset, 1}": attachment}}}`. Each U+FFFC in the string is a
   placeholder; the dictionary maps its range to the attachment that fills it.
-- A variable-picker parameter wraps an attachment as `{"Type": "Variable", "Variable": {…}}`.
+- A variable-picker parameter takes the bare attachment. The wrapped `{"Type": "Variable",
+  "Variable": {…}}` form belongs to one parameter only, the If condition's subject.
 - Specialised shapes exist for quantities (`WFQuantityFieldValue`), dictionaries
   (`WFDictionaryFieldValue`), contacts (`WFContactFieldValue`), colors, locations, and file
   bookmarks. Their state classes are listed in `docs/parameter-encodings.md`.
@@ -256,6 +257,60 @@ action whose `Script` is a plain string and whose `Input` is an `ExtensionInput`
 Shortcuts refuses unsigned files. `shortcuts sign --mode anyone --input in.shortcut --output
 out.shortcut` produces an importable file; opening it hands it to Shortcuts.app. Signing needs
 an iCloud login on the Mac, so it cannot run on GitHub-hosted runners; CI stops at the unsigned file.
+
+### Round-tripping the library's own output through the engine
+
+Knowing an encoding is not the same as writing it correctly, and the tests compare the library
+against its author's expectations. `tools/verify-encodings.js` closes that loop: for every
+parameter state class it feeds each value form the library can write (plain string, number,
+bool, bare attachment, token string, the wrapped If subject) to the class's own
+`-initWithSerializedRepresentation:variableProvider:parameter:` and reads
+`-serializedRepresentation` back. A class that returns nil does not read that form, and the
+editor shows an empty placeholder for it. The matrix is `data/encoding-roundtrips.json`, and the
+pipeline fails if a form the library emits for a value kind is rejected by the state behind
+it. It is how the picker mistake was proven: `WFVariableParameterState` accepts the bare
+attachment and rejects `{Type: "Variable", Variable: …}`, which only the two conditional-subject
+states accept; every text state rejects a bare attachment and accepts a token string.
+
+### Loading everything the library writes through the engine
+
+The round trip above checks value forms against state classes in isolation. `bun run verify`
+(`test/verify/run.sh`, also a CI step) checks the library's actual output:
+
+1. `test/verify/fixture.ts` and `test/verify/fixture.py` drive each package over every
+   catalogue action, every parameter key and every value form the types admit: the plain
+   sample (the engine's own default for the key when it has one, else its first choice), a
+   token string with an embedded reference, and every reference helper (`ref`, `shortcutInput`,
+   `variable`, `clipboard`, `currentDate`, `ask`, `deviceDetails`, `currentApp`), plus whole
+   shortcuts built through every block helper (`if` in each form, `repeatEach`, `repeatCount`,
+   `chooseFromMenu`, the share-sheet envelope). Forms the library refuses for a key are written
+   raw too, so the refusal can be checked.
+2. `test/verify/parity.py` diffs the two fixtures: the packages must write the same bytes.
+3. `tools/verify-library-output.js` loads each case through the engine's own action object
+   (`-copyWithSerializedParameters:`) and asks `-parameterStateForKey:` whether the value was
+   read; App Intents actions, which cannot be built without linkd, are checked against the
+   state-class round-trip table. Whole shortcuts go through
+   `-[WFWorkflowFile initWithDictionary:name:performMigration:]`, which is how the app imports a
+   file. A form the library refuses must not be read either, or the restriction is too tight.
+
+The verifier fails on any case the engine does not read. Three outcomes are reported rather than
+failed, each counted and named in the summary: keys on actions the engine itself loads as
+missing (`unavailableActions` in `data/parameter-encodings.json`, retired integrations such as
+CloudApp, Dropbox and Slack, marked `Unavailable` in the definitions); plain values the engine
+validates against the device (a locale identifier, a HomeKit home, a contacts group, a reminders
+list), which no fixture can satisfy on every Mac; and keys with no engine data at all.
+
+**Which references a key reads.** The first run of this verifier found the types too wide: the
+Filter actions' sort keys, and a few enumerations, read no reference at all, and every variable
+picker reads no Ask reference. The editor's picker list (`-supportedVariableTypes`, recorded as
+`variableTypes`) turned out to be the wrong source, narrower than the engine for many
+enumerations that offer only Ask yet read any reference. So `tools/extract-parameter-encodings.js`
+now loads each of the eight reference kinds through every parameter and records the ones that
+produce a state as `reads`, and a plain sample as `readsPlain`. The generator turns `reads` into
+`PARAM_VARIABLE_TYPES` (only keys that read fewer than all eight, so an absent key reads any
+attachment) and into the compile-time types: `Attachment<T>` is generic over the variable type,
+each helper returns its narrow type, and a key's type names the references the engine reads for
+it. `Shortcut.action()` applies the same table at run time in both packages.
 
 ## Building shortcuts
 

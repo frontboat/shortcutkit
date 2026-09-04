@@ -36,6 +36,9 @@ python3 "$here/render-parameter-encodings.py" "$data/parameter-encodings.json" "
 echo "serializing variables, token strings, state classes, palette, App Intents value types"
 jxa extract-encoding-table "$data/encoding-table.json" "$data/parameter-encodings.json"
 
+echo "round-tripping every value form through the engine's parsers"
+jxa verify-encodings "$data/parameter-encodings.json" "$data/encoding-table.json" "$data/encoding-roundtrips.json"
+
 echo "reading the Shortcuts app's action registry"
 python3 "$here/dump-toolkit-registry.py" "$data"
 python3 "$here/render-apple-app-intents.py" "$data/apple-app-intents.json" "$docs/apple-app-intents-reference.md"

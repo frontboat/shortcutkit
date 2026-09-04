@@ -4,11 +4,11 @@ import { spawnSync } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition, type ActionDefinition } from "./definitions.js";
-import { ACTIONS, PARAM_KINDS } from "./generated/actions.js";
+import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
-import type { Attachment, Picker, TokenString, Value } from "./values.js";
+import type { AskAttachment, Attachment, ConditionSubject, TokenString, Value, VariableType } from "./values.js";
 
-export { actions, ACTIONS, PARAM_KINDS, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
+export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
 export type { PlistValue } from "./plist.js";
 export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
@@ -28,7 +28,7 @@ export type CatalogEntry = {
   name: string;
   /** Parameter keys the action accepts, in the editor's order. */
   params: readonly string[];
-  /** Value kind per key: bool, number, string, text, picker, plainString, plainNumber, dictionary, quantity, filter, any. */
+  /** Value kind per key: bool, number, string, text, picker, subject, plainString, plainNumber, dictionary, quantity, filter, any. */
   kinds: Record<string, string>;
   /** Output name, or null when the action produces nothing. */
   output: string | null;
@@ -79,23 +79,38 @@ const LEGACY_KEYS: Record<string, string[]> = {
 };
 
 const uuid = () => crypto.randomUUID().toUpperCase();
-const attachment = (value: Record<string, PlistValue>): Attachment => ({ WFSerializationType: "WFTextTokenAttachment", Value: value });
+const attachment = <T extends VariableType>(value: { Type: T } & Record<string, PlistValue>): Attachment<T> => ({ WFSerializationType: "WFTextTokenAttachment", Value: value });
 
 /** Reference another action's output. */
-export const ref = (action: Action, outputName?: string): Attachment =>
+export const ref = (action: Action, outputName?: string): Attachment<"ActionOutput"> =>
   attachment({ Type: "ActionOutput", OutputUUID: action.WFWorkflowActionParameters.UUID as string, OutputName: outputName ?? action.outputName ?? "Output" });
-export const variable = (name: string): Attachment => attachment({ Type: "Variable", VariableName: name });
-export const shortcutInput = (): Attachment => attachment({ Type: "ExtensionInput" });
-export const clipboard = (): Attachment => attachment({ Type: "Clipboard" });
-export const currentDate = (): Attachment => attachment({ Type: "CurrentDate" });
-export const ask = (prompt?: string): Attachment => attachment(prompt ? { Type: "Ask", Prompt: prompt } : { Type: "Ask" });
-/** Wrap an attachment for WFVariablePickerParameter keys (Repeat with Each, If). */
-export const picker = (a: Attachment): Picker => ({ Type: "Variable", Variable: a });
+export const variable = (name: string): Attachment<"Variable"> => attachment({ Type: "Variable", VariableName: name });
+export const shortcutInput = (): Attachment<"ExtensionInput"> => attachment({ Type: "ExtensionInput" });
+export const clipboard = (): Attachment<"Clipboard"> => attachment({ Type: "Clipboard" });
+export const currentDate = (): Attachment<"CurrentDate"> => attachment({ Type: "CurrentDate" });
+export const ask = (prompt?: string): AskAttachment => attachment(prompt ? { Type: "Ask", Prompt: prompt } : { Type: "Ask" });
+/** Device Details (name, model, OS version, …); the app usually adds a property aggrandizement. */
+export const deviceDetails = (): Attachment<"DeviceDetails"> => attachment({ Type: "DeviceDetails" });
+/** The app the shortcut was run from. */
+export const currentApp = (): Attachment<"CurrentApp"> => attachment({ Type: "CurrentApp" });
+/** Wrap an attachment as the subject of an If condition, the form the app writes for `WFInput` on `is.workflow.actions.conditional`. Variable-picker parameters (Repeat with Each, Filter, Quick Look, …) take the bare attachment instead. */
+export const subject = (a: Attachment): ConditionSubject => ({ Type: "Variable", Variable: a });
+/** @deprecated Misnamed: this produces the If-subject form. Pass a bare `ref()` to variable-picker parameters; use `subject()` for If. */
+export const picker = subject;
 /** The current item inside a Repeat with Each block. */
-export const repeatItem = (): Attachment => attachment({ Type: "Variable", VariableName: "Repeat Item" });
+export const repeatItem = (): Attachment<"Variable"> => attachment({ Type: "Variable", VariableName: "Repeat Item" });
 /** The current index (1-based) inside a Repeat block. */
-export const repeatIndex = (): Attachment => attachment({ Type: "Variable", VariableName: "Repeat Index" });
+export const repeatIndex = (): Attachment<"Variable"> => attachment({ Type: "Variable", VariableName: "Repeat Index" });
 
+/** The variable types (Ask, ActionOutput, Variable, …) referenced anywhere in a value: a bare attachment, a token string's attachments, or a wrapped If subject. */
+function referenceTypes(v: unknown): string[] {
+  if (isAttachment(v)) return [String(v.Value.Type)];
+  if (v && typeof v === "object" && (v as TokenString).WFSerializationType === "WFTextTokenString") {
+    return Object.values((v as TokenString).Value.attachmentsByRange ?? {}).map((a) => String(a.Type));
+  }
+  if (v && typeof v === "object" && (v as ConditionSubject).Type === "Variable" && isAttachment((v as ConditionSubject).Variable)) return referenceTypes((v as ConditionSubject).Variable);
+  return [];
+}
 const isAttachment = (v: unknown): v is Attachment =>
   typeof v === "object" && v !== null && (v as Attachment).WFSerializationType === "WFTextTokenAttachment";
 
@@ -166,8 +181,17 @@ export class Shortcut {
     // never hold a bare attachment: the engine writes a lone variable as a token string with one
     // placeholder. Wrap it here so ref() works for text keys as it does everywhere else.
     const kinds = (PARAM_KINDS as Record<string, Record<string, string>>)[identifier] ?? {};
+    const restricted = (PARAM_VARIABLE_TYPES as Record<string, Record<string, readonly string[]>>)[identifier] ?? {};
     const normalized: Record<string, Value> = {};
-    for (const [k, v] of Object.entries(params as Record<string, Value>)) normalized[k] = kinds[k] === "text" && isAttachment(v) ? text(v) : v;
+    for (const [k, v] of Object.entries(params as Record<string, Value>)) {
+      // Keys the engine reads no reference for (or only Ask): the same rule the compiler applies, at run time.
+      const allowed = restricted[k];
+      if (allowed) {
+        const bad = referenceTypes(v).filter((t) => !allowed.includes(t));
+        if (bad.length > 0) throw new Error(`${identifier}.${k}: the engine does not read a ${bad.join("/")} reference here (it reads ${allowed.length ? allowed.join(", ") : "only a plain value"})`);
+      }
+      normalized[k] = kinds[k] === "text" && isAttachment(v) ? text(v) : kinds[k] === "subject" && isAttachment(v) ? subject(v) : v;
+    }
     // App Intents actions carry a descriptor naming the app that provides them (see docs/shortcut-file-format.md §2).
     const descriptor: Record<string, Value> = catalog?.descriptor ? { AppIntentDescriptor: { ...catalog.descriptor, ActionRequiresAppInstallation: true } } : {};
     const entry: Action = {
@@ -181,9 +205,9 @@ export class Shortcut {
   }
 
   // Control flow: a block is a group sharing GroupingIdentifier; WFControlFlowMode 0 opens, 1 is a middle branch, 2 closes.
-  if(subject: Attachment, condition: Condition | number, value?: string | number): string {
+  if(subject_: Attachment, condition: Condition | number, value?: string | number): string {
     const gid = uuid();
-    const params: Record<string, Value> = { GroupingIdentifier: gid, WFControlFlowMode: 0, WFInput: picker(subject), WFCondition: typeof condition === "number" ? condition : CONDITION[condition] };
+    const params: Record<string, Value> = { GroupingIdentifier: gid, WFControlFlowMode: 0, WFInput: subject(subject_), WFCondition: typeof condition === "number" ? condition : CONDITION[condition] };
     if (typeof value === "number") params.WFNumberValue = value;
     else if (value !== undefined) params.WFConditionalActionString = value;
     this.action("is.workflow.actions.conditional", params);
@@ -191,9 +215,9 @@ export class Shortcut {
   }
   otherwise(gid: string): void { this.action("is.workflow.actions.conditional", { GroupingIdentifier: gid, WFControlFlowMode: 1 }); }
   endIf(gid: string): void { this.action("is.workflow.actions.conditional", { GroupingIdentifier: gid, WFControlFlowMode: 2 }); }
-  repeatEach(items: Attachment): string {
+  repeatEach(items: ParamTypes["is.workflow.actions.repeat.each"]["WFInput"]): string {
     const gid = uuid();
-    this.action("is.workflow.actions.repeat.each", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFInput: picker(items) });
+    this.action("is.workflow.actions.repeat.each", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFInput: items });
     return gid;
   }
   /** Close a Repeat with Each block. The returned action is the block's output: `ref()` it for the collected "Repeat Results". */
@@ -203,7 +227,7 @@ export class Shortcut {
     return a;
   }
   /** Open a Repeat block that runs `count` times; returns the grouping identifier for endRepeatCount(). */
-  repeatCount(count: number | Attachment): string {
+  repeatCount(count: ParamTypes["is.workflow.actions.repeat.count"]["WFRepeatCount"]): string {
     const gid = uuid();
     this.action("is.workflow.actions.repeat.count", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFRepeatCount: count });
     return gid;

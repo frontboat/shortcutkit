@@ -3723,7 +3723,8 @@
   ],
   "RequiredResources": [
    "WFUnavailableResource"
-  ]
+  ],
+  "Unavailable": true
  },
  "is.workflow.actions.comment": {
   "ActionClass": "WFCommentAction",
@@ -4234,6 +4235,7 @@
   "RequiredResources": [
    "WFUserInteractionResource"
   ],
+  "Unavailable": true,
   "UserInterfaceClasses": {
    "AppKit": "WFCatalystHostingActionUserInterface",
    "UIKit": "WFContentAttributionSetDebuggerActionUIKitUserInterface"
@@ -5702,7 +5704,8 @@
    "WFDropboxAccessResource",
    "WFRemoteServerAccessResource"
   ],
-  "SuggestedAsInitialAction": false
+  "SuggestedAsInitialAction": false,
+  "Unavailable": true
  },
  "is.workflow.actions.dropbox.open": {
   "ActionClass": "WFGetDropboxFileAction",
@@ -6590,6 +6593,7 @@
    "WFUserInteractionResource",
    "WFRemoteServerAccessResource"
   ],
+  "Unavailable": true,
   "UserInterfaces": [
    "UIKit"
   ]
@@ -7561,6 +7565,7 @@
   ],
   "RequiresUnlock": true,
   "SuggestedAsInitialAction": false,
+  "Unavailable": true,
   "WFContentItemClass": "WFHKSampleContentItem",
   "WFContentItemDefaultProperty": "Value"
  },
@@ -17044,6 +17049,7 @@
   "RequiredResources": [
    "WFHealthKitResource"
   ],
+  "Unavailable": true,
   "WFContentItemClass": "WFHKSampleContentItem"
  },
  "is.workflow.actions.properties.images": {
@@ -21343,7 +21349,8 @@
     "WFAccountClass": "WFSlackAccount",
     "WFResourceClass": "WFAccountAccessResource"
    }
-  ]
+  ],
+  "Unavailable": true
  },
  "is.workflow.actions.sleep": {
   "ActionClass": "WFSleepDeviceAction",
@@ -24385,7 +24392,8 @@
    {
     "resource": "WFDeviceIdiomResource"
    }
-  ]
+  ],
+  "Unavailable": true
  },
  "is.workflow.actions.workout.start": {
   "ActionClass": "WFStartWorkoutIntentAction",
@@ -24510,6 +24518,7 @@
    {
     "resource": "WFDeviceIdiomResource"
    }
-  ]
+  ],
+  "Unavailable": true
  }
 }

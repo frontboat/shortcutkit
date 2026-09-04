@@ -37,11 +37,13 @@ Both live at https://github.com/frontboat/shortcutkit.
   `AppIntentDescriptor` the file needs added for you.
 - **Parameters checked before you write anything.** `ACTIONS[identifier]` gives the name,
   parameter keys and output name; `PARAM_KINDS[identifier]` gives the value kind each key
-  accepts. Unknown keys and wrong kinds raise `ValueError`. Attachments and token strings are
-  accepted wherever a plain value is, because that is how Shortcuts works.
+  accepts. Unknown keys and wrong kinds raise `ValueError`, and so does a reference on a key
+  the engine reads none for (`PARAM_VARIABLE_TYPES`: a Filter action's sort key takes no
+  reference, a variable picker takes any except Ask).
 - **Value helpers that match the engine's serialization.** `ref()` to another action's output,
-  `variable()`, `shortcut_input()`, `clipboard()`, `current_date()`, `ask()`, `text()` for
-  strings with embedded references, and `picker()` for variable-picker parameters.
+  `variable()`, `shortcut_input()`, `clipboard()`, `current_date()`, `ask()`,
+  `device_details()`, `current_app()`, `text()` for strings with embedded references. A bare `ref()` is what every picker parameter takes; text
+  parameters and the If subject wrap it the way the app does.
 - **Control flow.** `if_()` / `otherwise()` / `end_if()`, `repeat_each()` / `end_repeat_each()`,
   `repeat_count()` / `end_repeat_count()` and `choose_from_menu()` / `menu_item()` / `end_menu()`
   manage the grouping identifiers for you.

@@ -1,6 +1,6 @@
 {
   "name": "shortcutkit",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "description": "Build, validate and sign Apple Shortcuts files. Every built-in action typed, straight from the Shortcuts engine.",
   "type": "module",
   "main": "./dist/index.js",
@@ -24,7 +24,8 @@
     "demo": "bun run src/cli.ts demo",
     "extract": "./tools/extract-builtin-actions.sh",
     "diff-data": "python3 tools/diff-data.py",
-    "changelog": "python3 tools/diff-data.py --changelog"
+    "changelog": "python3 tools/diff-data.py --changelog",
+    "verify": "./test/verify/run.sh"
   },
   "devDependencies": {
     "@types/bun": "^1.4",

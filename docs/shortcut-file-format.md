@@ -108,15 +108,29 @@ whose `string` is one U+FFFC (`data/encoding-table.json`, `variable:MyVar` under
 `Shortcut.action()` wraps a bare `ref()` given for a text key accordingly. Every other
 substitutable state takes the bare attachment.
 
-**Variable picker** parameters (`WFVariablePickerParameter`, e.g. `WFInput` on Repeat with
-Each and on If) take either form: the app writes `{ "Type": "Variable", "Variable": <attachment> }`
-into the library, while the engine's own state (`WFVariableParameterState`, `variable:ActionOutput`
-in `data/encoding-table.json`) and Apple's gallery files write the bare attachment. Both load;
-`picker()` produces the first, a bare `ref()` the second.
+**Variable picker** parameters (`WFVariablePickerParameter`: `WFInput` on Repeat with Each,
+Quick Look, Get Images from Input, `WFContentItemInputParameter` on Filter actions, …) take the
+bare attachment. The engine's state (`WFVariableParameterState`, `variable:ActionOutput` in
+`data/encoding-table.json`), Apple's gallery files and the app's own library all write it that
+way; the wrapped form is not read as a connection (the editor shows the empty placeholder).
+
+**If subject.** `WFInput` on `is.workflow.actions.conditional` is a different class (a
+conditional-subject parameter) and is the one place the app writes the wrapped form
+`{ "Type": "Variable", "Variable": <attachment> }`. `subject()` produces it; `Shortcut.action()`
+wraps a bare reference given for that key.
 
 **Substitutable states** (`WF*SubstitutableState`) accept either the plain value or an
 attachment in the same slot. This is what lets any text, number, or switch be driven by a
 variable.
+
+**Which references a key reads** is decided by the parameter, not the state: the Filter
+actions' sort keys (`WFContentItemSortProperty`, `WFContentItemSortOrder`) and a few
+enumerations read no attachment at all, variable pickers read every kind except Ask, and some
+enumerations read only output, input, variable and Ask references. `reads` in
+`data/parameter-encodings.json` lists, per key, the kinds the engine produced a state for when
+each was loaded through the action; `PARAM_VARIABLE_TYPES` in both packages carries the keys
+that read fewer than all eight, and the TypeScript `ParamTypes` name them
+(`Attachment<"ActionOutput" | "ExtensionInput" | …>`).
 
 **Specialised.** Dictionary: `{"WFSerializationType": "WFDictionaryFieldValue", "Value": {"WFDictionaryFieldValueItems": [ {"WFItemType": 0, "WFKey": <token string>, "WFValue": <token string>} … ]}}`.
 Quantity: `{"WFSerializationType": "WFQuantityFieldValue", "Value": {"Unit": "min", "Magnitude": …}}`.

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, repeatItem, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 
 describe("shortcutkit", () => {
   test("validates identifiers and parameter keys against the definitions", () => {
@@ -77,7 +77,12 @@ describe("typed parameter values", () => {
     s.action(actions.additemtolist, { WFInsertPosition: "SomethingNew" });        // still a string: choice lists are not proven exhaustive
     // @ts-expect-error a stepper takes a number or an attachment
     s.action(actions.repeat_count, { WFRepeatCount: "3" });
-    s.action(actions.repeat_each, { WFInput: { Type: "Variable", Variable: shortcutInput() } });
+    s.action(actions.repeat_each, { WFInput: shortcutInput() });                 // a picker takes the bare reference
+    // The same rule at run time, from PARAM_VARIABLE_TYPES: what the engine reads for the key.
+    // @ts-expect-error the engine reads no Ask reference for a variable picker
+    expect(() => s.action(actions.repeat_each, { WFInput: ask() })).toThrow("does not read a Ask reference");
+    // @ts-expect-error Filter's sort key reads no reference at all
+    expect(() => s.action(actions.filter_images, { WFContentItemSortProperty: shortcutInput() })).toThrow("only a plain value");
     expect(s.actions.length).toBe(7);
   });
 });
@@ -91,6 +96,26 @@ describe("definitions", () => {
     expect(d.IconSymbol).toBe("cylinder.split.1x2.fill");
     expect(getDefinition("com.example.Nope")).toBeUndefined();
     expect(Object.keys(allDefinitions()).length).toBe(434);
+  });
+});
+
+describe("variable pickers and the If subject", () => {
+  test("pickers take the bare reference; only the If subject is wrapped", () => {
+    const s = new Shortcut("Pick");
+    const list = s.action(actions.getstoredcontent, { WFStoredContentKey: "k" });
+    const gid = s.repeatEach(ref(list));
+    expect(s.actions[1]!.WFWorkflowActionParameters.WFInput).toEqual(ref(list));
+    s.endRepeatEach(gid);
+    const look = s.action(actions.previewdocument, { WFInput: ref(list) });
+    expect((look.WFWorkflowActionParameters.WFInput as { WFSerializationType: string }).WFSerializationType).toBe("WFTextTokenAttachment");
+    const cond = s.if(ref(list), "has_any_value");
+    const opened = s.actions.find((a) => a.WFWorkflowActionParameters.GroupingIdentifier === cond)!;
+    expect(opened.WFWorkflowActionParameters.WFInput).toEqual({ Type: "Variable", Variable: ref(list) });
+    // a bare reference given directly to the If subject key is wrapped, like text keys
+    const raw = s.action("is.workflow.actions.conditional", { WFInput: ref(list), WFCondition: 100, GroupingIdentifier: "X", WFControlFlowMode: 0 });
+    expect(raw.WFWorkflowActionParameters.WFInput).toEqual({ Type: "Variable", Variable: ref(list) });
+    expect(PARAM_KINDS["is.workflow.actions.repeat.each"].WFInput).toBe("picker");
+    expect(PARAM_KINDS["is.workflow.actions.conditional"].WFInput).toBe("subject");
   });
 });
 

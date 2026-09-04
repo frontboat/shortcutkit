@@ -6,6 +6,42 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.8.0 (2026-09-04)
+
+- **Variable pickers take the bare reference.** The wrapped `{Type: "Variable", Variable: …}`
+  form is the encoding of one parameter only, the If condition's subject; the engine's state,
+  Apple's gallery and the app's own library all write pickers (Repeat with Each, Quick Look,
+  Filter inputs, …) as the bare attachment, and the editor shows the wrapped form as an empty
+  placeholder. `repeatEach()` now writes the bare form. `subject()` replaces `picker()`, which
+  stays as a deprecated alias; `PickerValue` is `Attachment`, and the If subject has its own
+  kind `subject` (`SubjectValue`) that `action()` wraps for you.
+- Breaking for anyone who passed `picker(ref(x))` to a picker parameter: pass `ref(x)`.
+- **Engine-verified encodings.** `tools/verify-encodings.js` round-trips every value form the
+  library writes through each state class's own parser and fails the pipeline if one is
+  rejected (`data/encoding-roundtrips.json`). It reproduces the picker mistake directly:
+  pickers reject the wrapped form, only the If subject accepts it, text states reject a bare
+  attachment.
+- **Everything the library writes is loaded through the engine.** `bun run verify` (also a CI
+  step) drives both packages over every action, key and value form the types admit, diffs the
+  two packages' output, loads each case through the engine's own action objects and asks
+  whether the value was read, and imports whole shortcuts built through every block helper the
+  way the app does. Forms the library refuses are written raw and must be refused by the engine
+  too.
+- **Which references a key reads is now in the data and the types.** The engine reads no
+  reference at all for the Filter actions' sort keys and a few enumerations, no Ask reference
+  for any variable picker, and only output, input, variable and Ask references for some
+  enumerations. Each of the eight reference kinds was loaded through every parameter
+  (`reads` in `data/parameter-encodings.json`); `PARAM_VARIABLE_TYPES` in both packages lists
+  the keys that read fewer than all eight, `Attachment<T>` is generic over the variable type
+  and each helper returns its narrow type, so `repeatEach(ask())` or a reference on a sort key
+  is a compile error in TypeScript and a `ValueError`/`Error` at run time in both.
+- `deviceDetails()` and `currentApp()` (Python `device_details`, `current_app`), the two
+  engine variables the helpers lacked. `ask()` returns `AskAttachment`. `PARAM_CHOICES` is
+  exported from the TypeScript package as it already was from Python.
+- Definitions the engine loads as missing actions on the extraction Mac (CloudApp, Dropbox,
+  Slack, Facebook Messenger, Workout, the Health quantity filters) are marked `Unavailable`
+  and say so in their hover documentation.
+
 ## 0.7.2 (2026-09-04)
 
 - `repeatItem()` and `repeatIndex()` (Python `repeat_item`, `repeat_index`) for the current

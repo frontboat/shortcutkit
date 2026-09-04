@@ -26,7 +26,7 @@ ROOT = HERE.parent
 META = ["UUID", "GroupingIdentifier", "WFControlFlowMode", "CustomOutputName"]
 # Keys Shortcuts accepts that the current definitions do not list, with their value kinds.
 LEGACY = {
-    "is.workflow.actions.conditional": {"WFConditions": "filter", "WFInput": "picker", "WFCondition": "plainNumber", "WFConditionalActionString": "text",
+    "is.workflow.actions.conditional": {"WFConditions": "filter", "WFInput": "subject", "WFCondition": "plainNumber", "WFConditionalActionString": "text",
                                         "WFNumberValue": "number", "WFConditionalLegacyComparisonBehavior": "bool", "WFEnumerationValue": "text",
                                         "WFBooleanValue": "bool", "WFDate": "text", "WFAnotherDate": "text", "WFDuration": "any"},
     "is.workflow.actions.choosefrommenu": {"WFMenuPrompt": "text", "WFMenuItems": "any", "WFMenuItemTitle": "plainString", "WFMenuItemAttributedTitle": "any"},
@@ -42,7 +42,7 @@ STATE_KIND = {
     # entities are dictionaries the app defines.
     "WFLinkEnumerationSubstitutableState": "string", "WFLinkDynamicOptionSubstitutableState": "any",
 }
-KIND_TS = {"bool": "BoolValue", "number": "NumberValue", "string": "StringValue", "text": "TextValue", "picker": "PickerValue",
+KIND_TS = {"bool": "BoolValue", "number": "NumberValue", "string": "StringValue", "text": "TextValue", "picker": "PickerValue", "subject": "SubjectValue",
            "plainString": "PlainString", "plainNumber": "PlainNumber", "dictionary": "DictionaryValue", "quantity": "QuantityValue",
            "filter": "FilterTemplateValue", "any": "AnyValue"}
 META_TYPES = {"UUID": "string", "GroupingIdentifier": "string", "WFControlFlowMode": "0 | 1 | 2", "CustomOutputName": "string"}
@@ -62,6 +62,31 @@ def load_state_map():
             if isinstance(e, dict) and e.get("parameterClass") and e.get("stateClass"):
                 state_map.setdefault(e["parameterClass"], e["stateClass"])
     return state_map, enc.get("actionParameters", {})
+
+
+VARIABLE_TYPES = ["ActionOutput", "ExtensionInput", "Variable", "Clipboard", "CurrentDate", "Ask", "DeviceDetails", "CurrentApp"]
+
+
+def references(info):
+    """The variable types the engine reads for a key (the probe loaded each one through the action), or
+    None when every one is read or there is no engine data (definition-only, legacy and App Intents keys)."""
+    reads = info.get("reads")
+    return None if reads is None or set(reads) >= set(VARIABLE_TYPES) else sorted(reads, key=VARIABLE_TYPES.index)
+
+
+def ts_type(info):
+    """TypeScript value type for a key: the state class's kind, narrowed to the references the engine reads."""
+    kind, reads = info["kind"], references(info)
+    if reads is None or kind not in ("bool", "number", "string", "text", "picker"):
+        if kind == "string" and info["choices"]:
+            return "EnumValue<" + " | ".join(js_str(c) for c in info["choices"]) + ">"
+        return KIND_TS[kind]
+    att = ("Attachment<" + " | ".join(js_str(t) for t in reads) + ">") if reads else None
+    if kind == "picker":
+        return att or "never"
+    plain = {"bool": "boolean", "number": "number", "text": "string | TokenString",
+             "string": ("Loose<" + " | ".join(js_str(c) for c in info["choices"]) + ">") if info["choices"] else "string"}[kind]
+    return plain + (f" | {att}" if att else "")
 
 
 def kind_for(param_class, state_map):
@@ -95,7 +120,7 @@ def entries(defs):
         for rp in runtime_params.get(ident, []):
             k = rp.get("key")
             if k and k not in kinds:
-                params.append(k); kinds[k] = {"kind": kind_for(rp.get("class"), state_map), "choices": choices.get(k, []), "class": rp.get("class")}
+                params.append(k); kinds[k] = {"kind": kind_for(rp.get("class"), state_map), "choices": choices.get(k, []), "class": rp.get("class"), "reads": rp.get("reads")}
         # 2. anything the definition lists that the run-time walk did not
         for p in pdefs:
             if p["Key"] not in kinds:
@@ -114,7 +139,7 @@ def entries(defs):
             "key": key_for(ident), "identifier": ident, "name": text(a.get("Name")) or ident,
             "description": text(desc.get("DescriptionSummary")) or "", "params": params,
             "output": text(outp.get("OutputName")), "outputTypes": [t for t in (outp.get("Types") or []) if isinstance(t, str)],
-            "summary": text(a.get("ParameterSummary")), "kinds": kinds,
+            "summary": text(a.get("ParameterSummary")), "kinds": kinds, "unavailable": bool(a.get("Unavailable")),
         })
     seen = {}
     for e in out:  # keys are unique by construction; guard anyway
@@ -200,6 +225,8 @@ def jsdoc(e):
         lines.append(f"Output: {e['output']}")
     if e["params"]:
         lines.append("Parameters: " + ", ".join(f"`{p}`" for p in e["params"]))
+    if e.get("unavailable"):
+        lines.append("Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.")
     body = "\n".join(f"   * {l}" for l in lines)
     return f"  /**\n{body}\n   */\n"
 
@@ -211,7 +238,9 @@ def write_ts(es, path):
             used.add("DictionaryValue")
         for k in e["params"]:
             info = e["kinds"].get(k, {"kind": "any", "choices": []})
-            used.add("EnumValue" if info["kind"] == "string" and info["choices"] else KIND_TS[info["kind"]])
+            for name in re.findall(r"[A-Za-z]+", ts_type(info)):
+                if name in ("Loose", "Attachment", "TokenString", "EnumValue") or name in KIND_TS.values():
+                    used.add(name)
     lines = ["// Generated by tools/generate-action-catalog.py from data/builtin-actions.json. Do not edit.",
              "import type { " + ", ".join(sorted(used)) + " } from \"../values.js\";", "",
              "/** Action identifiers by short key. Use with Shortcut.action() for typed parameter keys. */",
@@ -231,16 +260,25 @@ def write_ts(es, path):
     for e in es:
         if e["kinds"]:
             lines.append(f"  {js_str(e['identifier'])}: {{ {', '.join(f'{js_str(k)}: {js_str(v['kind'])}' for k, v in e['kinds'].items())} }},")
+    lines += ["} as const;", "", "/** Choice labels for enumeration parameters, as the engine and the Shortcuts app's registry list them. */", "export const PARAM_CHOICES = {"]
+    for e in es:
+        ch = {k: v["choices"] for k, v in e["kinds"].items() if v["choices"]}
+        if ch:
+            lines.append(f"  {js_str(e['identifier'])}: {{ {', '.join(f'{js_str(k)}: [{", ".join(js_str(c) for c in v)}]' for k, v in ch.items())} }},")
+    lines += ["} as const;", "", "/** Parameter keys the engine does not read every reference for, with the variable types it does read",
+              " *  (each one was loaded through the action; see docs/extraction.md). [] means only a plain value. Keys absent",
+              " *  here read any attachment. ParamTypes encodes this for the compiler; Shortcut.action() enforces it at run time. */",
+              "export const PARAM_VARIABLE_TYPES = {"]
+    for e in es:
+        restricted = {k: references(v) for k, v in e["kinds"].items() if references(v) is not None}
+        if restricted:
+            lines.append(f"  {js_str(e['identifier'])}: {{ {', '.join(f'{js_str(k)}: [{", ".join(js_str(t) for t in v)}]' for k, v in restricted.items())} }},")
     lines += ["} as const;", "", "/** Accepted value type for every parameter key of every action (see values.ts). */", "export type ParamTypes = {"]
     for e in es:
         fields = []
         for k in e["params"]:
             info = e["kinds"].get(k, {"kind": "any", "choices": []})
-            if info["kind"] == "string" and info["choices"]:
-                t = "EnumValue<" + " | ".join(js_str(c) for c in info["choices"]) + ">"
-            else:
-                t = KIND_TS[info["kind"]]
-            fields.append(f"{js_str(k)}: {t}")
+            fields.append(f"{js_str(k)}: {ts_type(info)}")
         if e.get("descriptor"):
             fields.append('"AppIntentDescriptor"?: DictionaryValue')
         lines.append(f"  {js_str(e['identifier'])}: {{ {'; '.join(fields)} }};")
@@ -284,9 +322,15 @@ def write_py(es, path):
     for e in es:
         desc = f", \"descriptor\": {json.dumps(e['descriptor'], ensure_ascii=False)}" if e.get("descriptor") else ""
         lines.append(f"    {json.dumps(e['identifier'])}: {{\"name\": {json.dumps(e['name'], ensure_ascii=False)}, \"params\": {json.dumps(e['params'])}, \"output\": {json.dumps(e['output']) if e['output'] else 'None'}, \"outputTypes\": {json.dumps(e.get('outputTypes', []))}{desc}}},")
-    lines += ["}", "", "# Accepted value kind per parameter key: bool, number, string, text, picker, plainString, plainNumber, dictionary, quantity, filter, any.", "PARAM_KINDS = {"]
+    lines += ["}", "", "# Accepted value kind per parameter key: bool, number, string, text, picker, subject, plainString, plainNumber, dictionary, quantity, filter, any.", "PARAM_KINDS = {"]
     for e in es:
         lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps({k: v['kind'] for k, v in e['kinds'].items()})},")
+    lines += ["}", "", "# Parameter keys the engine does not read every reference for, with the variable types it does read.",
+              "# [] means only a plain value. Keys absent here read any attachment.", "PARAM_VARIABLE_TYPES = {"]
+    for e in es:
+        restricted = {k: references(v) for k, v in e["kinds"].items() if references(v) is not None}
+        if restricted:
+            lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps(restricted)},")
     lines += ["}", "", "# Choice labels for enumeration parameters.", "PARAM_CHOICES = {"]
     for e in es:
         ch = {k: v["choices"] for k, v in e["kinds"].items() if v["choices"]}

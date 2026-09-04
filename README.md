@@ -34,13 +34,16 @@ files you are using.
   typed, and the `AppIntentDescriptor` the file needs is added for you.
 - **Parameters checked before you run anything.** `{ WFStoredContentGlobalValue: "yes" }` is a
   compile error; a switch takes a boolean or a reference. Enumeration choices are suggested.
-  Any plain value slot also accepts an attachment, because that is how Shortcuts works. Every
-  action has a named parameter type (`ShowresultParams`, `RemindersCreateReminderParams`), and
-  its output content types are on `ACTIONS[id].outputTypes` and on the returned `Action`.
+  A plain value slot also accepts a reference where the engine reads one, and the type says
+  which: a Filter action's sort key takes none, a variable picker takes any except Ask, and the
+  engine was asked about every key (`PARAM_VARIABLE_TYPES`). Every action has a named
+  parameter type (`ShowresultParams`, `RemindersCreateReminderParams`), and its output content
+  types are on `ACTIONS[id].outputTypes` and on the returned `Action`.
 - **Value helpers that match the engine's serialization.** `ref()` to another action's output,
-  `variable()`, `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `text()` for
-  strings with embedded references, and `picker()` for variable-picker parameters. A bare
-  `ref()` given to a text parameter is wrapped into the token string the engine writes.
+  `variable()`, `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `deviceDetails()`,
+  `currentApp()`, `text()` for strings with embedded references. A bare `ref()` is what every
+  picker parameter takes; for a text parameter it is wrapped into the token string the engine
+  writes, and for an If subject into the form the app writes.
 - **Control flow.** `if()` / `otherwise()` / `endIf()`, `repeatEach()` / `endRepeatEach()`,
   `repeatCount()` / `endRepeatCount()` and `chooseFromMenu()` / `menuItem()` / `endMenu()`
   manage the grouping identifiers for you.
@@ -204,9 +207,23 @@ cd python && python3 -m venv .venv && .venv/bin/pip install -e .
 .venv/bin/python -m shortcutkit demo /tmp/Demo.shortcut
 ```
 
-CI runs the type check, the tests, a Node import of the built package, a Python install and an
-unsigned build of the demo shortcut on macOS. Signing is not exercised in CI because the runner
-has no iCloud login.
+CI runs the type check, the tests, a Node import of the built package, a Python install, the
+engine verification below and an unsigned build of the demo shortcut on macOS. Signing is not
+exercised in CI because the runner has no iCloud login.
+
+### Verifying against the engine
+
+```bash
+bun run verify        # ~3 min on a Mac that has opened Shortcuts.app once
+```
+
+Both packages are driven over every action, every parameter key and every value form their
+types admit, and the results are diffed against each other and then loaded through the
+Shortcuts engine's own action objects, which report whether each value was read. Forms the
+library refuses are written raw too, and the engine must refuse them as well. Whole shortcuts
+built through every block helper are imported the way the app imports a file. The run fails on
+any case the engine does not read; see `docs/extraction.md` for what it reports instead of
+failing.
 
 ### Repository layout
 
