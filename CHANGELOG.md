@@ -6,6 +6,13 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.6.1 (2026-09-04)
+
+- `action()` wraps a bare attachment given for a text parameter (string, URL and date fields)
+  into the token string the engine writes for a lone variable; `TextValue` had admitted the
+  bare form, which the engine never produces. Both packages. TypeScript now exports
+  `PARAM_KINDS`, the per-parameter value kinds Python already had.
+
 ## 0.6.0 (2026-09-04)
 
 - **140 App Intents entries removed** that are not actions a shortcut can run: 29 widget,

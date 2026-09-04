@@ -37,7 +37,8 @@ files you are using.
   Any plain value slot also accepts an attachment, because that is how Shortcuts works.
 - **Value helpers that match the engine's serialization.** `ref()` to another action's output,
   `variable()`, `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `text()` for
-  strings with embedded references, and `picker()` for variable-picker parameters.
+  strings with embedded references, and `picker()` for variable-picker parameters. A bare
+  `ref()` given to a text parameter is wrapped into the token string the engine writes.
 - **Control flow.** `if()` / `otherwise()` / `endIf()`, `repeatEach()` / `endRepeatEach()`,
   `repeatCount()` / `endRepeatCount()` and `chooseFromMenu()` / `menuItem()` / `endMenu()`
   manage the grouping identifiers for you.

@@ -4,11 +4,11 @@ import { spawnSync } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition } from "./definitions.js";
-import { ACTIONS } from "./generated/actions.js";
+import { ACTIONS, PARAM_KINDS } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
 import type { Attachment, Picker, TokenString, Value } from "./values.js";
 
-export { actions, ACTIONS, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
+export { actions, ACTIONS, PARAM_KINDS, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
 export type { PlistValue } from "./plist.js";
 export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
@@ -113,11 +113,17 @@ export class Shortcut {
         throw new Error(`${identifier}: unknown parameter(s) ${unknown.join(", ")}; known: ${[...known].sort().join(", ")}`);
       }
     }
+    // Text parameters (WFVariableStringParameterState, WFURLStringParameterState, WFDateFieldParameterState)
+    // never hold a bare attachment: the engine writes a lone variable as a token string with one
+    // placeholder. Wrap it here so ref() works for text keys as it does everywhere else.
+    const kinds = (PARAM_KINDS as Record<string, Record<string, string>>)[identifier] ?? {};
+    const normalized: Record<string, Value> = {};
+    for (const [k, v] of Object.entries(params as Record<string, Value>)) normalized[k] = kinds[k] === "text" && isAttachment(v) ? text(v) : v;
     // App Intents actions carry a descriptor naming the app that provides them (see docs/shortcut-file-format.md §2).
     const descriptor: Record<string, Value> = catalog?.descriptor ? { AppIntentDescriptor: { ...catalog.descriptor, ActionRequiresAppInstallation: true } } : {};
     const entry: Action = {
       WFWorkflowActionIdentifier: identifier,
-      WFWorkflowActionParameters: { UUID: uuid(), ...descriptor, ...(params as Record<string, Value>) },
+      WFWorkflowActionParameters: { UUID: uuid(), ...descriptor, ...normalized },
       outputName: definition?.Output?.OutputName ?? catalog?.output ?? undefined,
     };
     this.actions.push(entry);

@@ -177,10 +177,15 @@ class Shortcut:
             unknown = set(params) - known
             if unknown and known - {"UUID", "GroupingIdentifier", "WFControlFlowMode", "CustomOutputName"}:
                 raise ValueError(f"{identifier}: unknown parameter(s) {sorted(unknown)}; known: {sorted(known)}")
+        kinds = PARAM_KINDS.get(identifier, {})
         for key, value in params.items():
-            problem = _check_kind(PARAM_KINDS.get(identifier, {}).get(key, "any"), value)
+            problem = _check_kind(kinds.get(key, "any"), value)
             if problem:
                 raise ValueError(f"{identifier}.{key}: {problem}")
+        # Text parameters never hold a bare attachment: the engine writes a lone variable as a
+        # token string with one placeholder. Wrap it so ref() works for text keys too.
+        params = {k: (text(v) if kinds.get(k) == "text" and isinstance(v, dict) and v.get("WFSerializationType") == "WFTextTokenAttachment" else v)
+                  for k, v in params.items()}
         # App Intents actions carry a descriptor naming the app that provides them.
         head = {"UUID": str(uuid.uuid4()).upper()}
         if descriptor and "AppIntentDescriptor" not in params:
@@ -303,4 +308,4 @@ PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "0.6.0"
+__version__ = "0.6.1"

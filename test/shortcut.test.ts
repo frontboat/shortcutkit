@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { Shortcut, actions, ACTIONS, getDefinition, allDefinitions, ref, text, variable, shortcutInput, CONDITION } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, allDefinitions, ref, text, variable, shortcutInput, CONDITION } from "../src/index";
 
 describe("shortcutkit", () => {
   test("validates identifiers and parameter keys against the definitions", () => {
@@ -91,6 +91,22 @@ describe("definitions", () => {
     expect(d.IconSymbol).toBe("cylinder.split.1x2.fill");
     expect(getDefinition("com.example.Nope")).toBeUndefined();
     expect(Object.keys(allDefinitions()).length).toBe(434);
+  });
+});
+
+describe("text parameters", () => {
+  test("wrap a bare attachment into a token string, as the engine does", () => {
+    const s = new Shortcut("Wrap");
+    const got = s.action(actions.getstoredcontent, { WFStoredContentKey: "k" });
+    const shown = s.action(actions.showresult, { Text: ref(got) });
+    const v = shown.WFWorkflowActionParameters.Text as { WFSerializationType: string; Value: { string: string; attachmentsByRange: Record<string, unknown> } };
+    expect(v.WFSerializationType).toBe("WFTextTokenString");
+    expect(v.Value.string).toBe("\ufffc");
+    expect(Object.keys(v.Value.attachmentsByRange)).toEqual(["{0, 1}"]);
+    // a string-kind parameter (enumeration) keeps the bare attachment, which is its encoding
+    const enumd = s.action(actions.ask, { WFInputType: ref(got) as never });
+    expect((enumd.WFWorkflowActionParameters.WFInputType as { WFSerializationType: string }).WFSerializationType).toBe("WFTextTokenAttachment");
+    expect(PARAM_KINDS["is.workflow.actions.showresult"].Text).toBe("text");
   });
 });
 

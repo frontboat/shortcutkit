@@ -102,6 +102,11 @@ to coerce the value, or a property aggrandizement to read a field of it.
   "Value": { "string": "Hello ￼!", "attachmentsByRange": { "{6, 1}": V } } }
 ```
 Each U+FFFC in `string` is a placeholder; `attachmentsByRange` maps its `{offset, length}` to a `V` as above. The offset is an NSRange location, i.e. counted in UTF-16 code units: `"😀 "` followed by a reference serializes as `{3, 1}`, not `{2, 1}`.
+A text parameter never holds a bare attachment: a lone variable is written as a token string
+whose `string` is one U+FFFC (`data/encoding-table.json`, `variable:MyVar` under
+`WFVariableStringParameterState`, `WFURLStringParameterState`, `WFDateFieldParameterState`).
+`Shortcut.action()` wraps a bare `ref()` given for a text key accordingly. Every other
+substitutable state takes the bare attachment.
 
 **Variable picker** parameters (`WFVariablePickerParameter`, e.g. `WFInput` on Repeat with
 Each and on If) wrap an attachment: `{ "Type": "Variable", "Variable": <attachment> }`.
