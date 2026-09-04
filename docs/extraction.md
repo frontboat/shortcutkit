@@ -180,9 +180,16 @@ date components `WFDateFieldParameter`, placemark `WFLocationParameter`, enumera
 `WFLinkEnumerationParameter` (case id as a string) and entities
 `WFLinkDynamicOptionsEnumerationParameter`; arrays use their member's class. The registry
 dump stamps each App Intent parameter with that class, and the generator derives the kind
-from it exactly as for built-ins. 4,489 of 4,989 parameters are typed this way; files,
-people, apps and a few unknown tags (`LNIntentsValueType`, not constructible from a client)
-stay `any`. The gallery confirms the on-disk form: values are plain, not wrapped
+from it exactly as for built-ins. The SiriKit-era types (`LNIntentsValueType`) take the
+numeric identifier the apps' metadata uses: app (0) is `WFAppPickerParameter`, file (12)
+`WFFilePickerParameter` (a file bookmark dictionary on disk), payment method (13) and
+currency amount (14) their own classes; person (3) and the entity-like ones (calendar event,
+note, task, media item, …) have no WorkflowKit parameter class at all. 4,563 of 4,989
+parameters carry an engine class; file and app parameters keep the kind `any` because their
+values are dictionaries, and people, arrays of people and a few unknown tags stay untyped.
+Apple's developer documentation for these types (`tools/fetch-apple-docs.py`: `IntentFile`,
+`IntentPerson`) describes what the app receives, not the on-disk form; that comes from the
+engine. The gallery confirms the on-disk form: values are plain, not wrapped
 (`summaryType: "createKeyPoints"`, `text` as a `WFTextTokenString`).
 
 Requirement: Shortcuts.app must have run once on the extracting Mac so the index exists. The

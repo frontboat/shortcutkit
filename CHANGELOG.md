@@ -6,6 +6,14 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.5.1 (2026-09-04)
+
+- The encoding table covers the SiriKit-era value types too: app parameters map to
+  `WFAppPickerParameter`, file parameters to `WFFilePickerParameter`, plus payment method and
+  currency amount; person and the entity-like ones have no WorkflowKit parameter class. 4,563
+  of 4,989 App Intent parameters now carry an engine class. No generated type changes: file
+  and app values are dictionaries and keep the kind `any`.
+
 ## 0.5.0 (2026-09-04)
 
 - **App Intent parameters typed by the engine.** WorkflowKit's mapping from each LinkMetadata
