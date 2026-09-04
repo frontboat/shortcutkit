@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render data/parameter-encodings.json (from extract-parameter-encodings.m) as markdown.
+"""Render data/parameter-encodings.json (from extract-parameter-encodings.js) as markdown.
 
 usage: render-parameter-encodings.py IN.json OUT.md
 """

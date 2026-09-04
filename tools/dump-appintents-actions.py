@@ -10,6 +10,10 @@ action, what a .shortcut file needs:
       AppIntentDescriptor = {TeamIdentifier, BundleIdentifier, Name, AppIntentIdentifier,
                              ActionRequiresAppInstallation}
 This matches the encoding used by Apple's gallery shortcuts (see dump-gallery.py).
+For Apple's own apps the authoritative list is data/apple-app-intents.json, read from the
+Shortcuts app's registry by dump-toolkit-registry.py, which also covers installed third-party
+apps locally (data/toolkit-registry.json); this script reads the on-disk metadata directly and
+does not need Shortcuts.app to have run.
 
 usage: dump-appintents-actions.py [OUT.json]
 """

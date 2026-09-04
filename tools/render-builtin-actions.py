@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Render data/builtin-actions.json (from extract-builtin-actions.m) into a markdown reference.
+"""Render data/builtin-actions.json (from extract-builtin-actions.js, annotated by
+annotate-builtin-actions.py) into a markdown reference.
 
-Also normalises one wart the ObjC dumper cannot fix: enumeration parameter choice
-lists (Parameters[].Items) arrive as Swift arrays boxed in __SwiftValue, which
-only expose a description string. This script parses the English defaults out of
-that string and rewrites the JSON field as a plain list of labels.
+Enumeration choice lists (Parameters[].Items) are plain lists now that the JXA probe walks
+Swift arrays. The unbox step below is kept for the one shape the bridge still cannot enter,
+a description string of boxed localized values; it parses the English defaults out of that
+string and rewrites the field as a plain list of labels.
 
 usage: render-builtin-actions.py IN.json OUT.md
 """
