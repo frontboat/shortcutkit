@@ -1,6 +1,7 @@
 #!/bin/bash
 # Regenerate data/builtin-actions.json, docs/builtin-actions-reference.md,
-# data/parameter-encodings.json, docs/parameter-encodings.md, data/encoding-table.json and
+# data/parameter-encodings.json, docs/parameter-encodings.md, data/encoding-table.json,
+# data/apple-app-intents.json, docs/apple-app-intents-reference.md and
 # data/builtin-action-identifiers.txt from the Shortcuts engine on this Mac.
 #
 #   bun run extract          # or ./tools/extract-builtin-actions.sh from the repo root
@@ -25,6 +26,14 @@ jxa() { local name="$1"; shift; cat "$here/jxa-prelude.js" "$here/$name.js" > "$
 echo "querying WorkflowKit and ActionKit"
 jxa extract-builtin-actions "$data/builtin-actions.json"
 
+# The Shortcuts app's own action index (~/Library/Shortcuts/ToolKit) is the only readable copy of
+# linkd's registry: Apple's App Intents with their exact identifiers, plus English names for the
+# definitions the engine leaves unnamed. Requires Shortcuts.app to have run once on this Mac.
+echo "reading the Shortcuts app's action registry"
+python3 "$here/dump-toolkit-registry.py" "$data"
+python3 "$here/annotate-builtin-actions.py" "$data/builtin-actions.json" "$data/toolkit-names.json"
+python3 "$here/render-apple-app-intents.py" "$data/apple-app-intents.json" "$docs/apple-app-intents-reference.md"
+
 echo "rendering markdown"
 python3 "$here/render-builtin-actions.py" "$data/builtin-actions.json" "$docs/builtin-actions-reference.md"
 
@@ -40,7 +49,7 @@ mkdir -p "$out/python/src/shortcutkit/data" && cp "$data/builtin-actions.json" "
 [ -f "$data/provenance.json" ] && cp "$data/provenance.json" "$out/python/src/shortcutkit/data/provenance.json"
 
 echo "generating typed action catalogues"
-python3 "$here/generate-action-catalog.py" "$data/builtin-actions.json"
+python3 "$here/generate-action-catalog.py" "$data/builtin-actions.json" "$data/apple-app-intents.json"
 if [ -d "$out/node_modules" ]; then (cd "$out" && bunx tsc -p tsconfig.build.json); fi
 
 echo "dumping Apple's gallery workflows and installed apps' App Intents actions"
@@ -69,12 +78,14 @@ cat > "$data/provenance.json" <<JSON
   "shortcutsApp": { "version": "$shortcuts_version", "build": "$shortcuts_build" },
   "workflowKit": "$(defaults read /System/Library/PrivateFrameworks/WorkflowKit.framework/Versions/A/Resources/Info.plist CFBundleShortVersionString 2>/dev/null || echo unknown)",
   "actionKit": "$(defaults read /System/Library/PrivateFrameworks/ActionKit.framework/Versions/A/Resources/Info.plist CFBundleShortVersionString 2>/dev/null || echo unknown)",
+  "toolKit": $(python3 -c "import json;print(json.dumps(json.load(open('$data/apple-app-intents.json'))['provenance']))"),
   "counts": {
     "builtinActions": $(python3 -c "import json;print(len(json.load(open('$data/builtin-actions.json'))))"),
+    "appleAppIntents": $(python3 -c "import json;print(len(json.load(open('$data/apple-app-intents.json'))['actions']))"),
     "identifierStrings": $(wc -l < "$data/builtin-action-identifiers.txt" | tr -d ' '),
     "appProvidedActions": $(python3 -c "import json;print(len(json.load(open('$data/app-provided-actions.json'))))")
   },
-  "note": "appProvidedActions counts the App Intents actions of apps installed on the extracting machine; that dump is local and not committed."
+  "note": "appProvidedActions counts the App Intents actions of apps installed on the extracting machine; that dump and toolkit-registry.json are local and not committed."
 }
 JSON
 cp "$data/provenance.json" "$out/python/src/shortcutkit/data/provenance.json"

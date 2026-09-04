@@ -10,7 +10,8 @@ Build, validate and sign Apple Shortcuts (`.shortcut`) files from TypeScript or 
 Apple has never documented the `.shortcut` format or what its actions accept. shortcutkit
 does not guess at either. The tools in this repository load WorkflowKit and ActionKit, the private
 frameworks behind the Shortcuts app, and ask their own classes to describe and serialize
-every built-in action. Every action identifier, parameter key, value encoding, icon colour, and even the
+every built-in action. Apple's own apps' actions come from the Shortcuts app's action index,
+the only readable copy of the App Intents registry. Every action identifier, parameter key, value encoding, icon colour, and even the
 UTF-16 offset rule for embedded references came out of the engine, not from a person reading
 files. The package cannot disagree with the app.
 
@@ -25,8 +26,12 @@ files you are using.
 
 ## Features
 
-- **Every built-in action, typed.** `actions.*` lists all 392 identifiers, with each action's
+- **Every built-in action, typed.** `actions.*` lists all 434 identifiers, with each action's
   name, description, summary, output and parameter keys as hover documentation.
+- **Apple's apps too.** 1,581 App Intents actions from 80 Apple apps and system components,
+  Create Reminder, Create Note, Send Message, the System Settings toggles, under the keys the
+  Shortcuts app itself assigns them: `actions.reminders_create_reminder`. Enumeration cases are
+  typed, and the `AppIntentDescriptor` the file needs is added for you.
 - **Parameters checked before you run anything.** `{ WFStoredContentGlobalValue: "yes" }` is a
   compile error; a switch takes a boolean or a reference. Enumeration choices are suggested.
   Any plain value slot also accepts an attachment, because that is how Shortcuts works.
@@ -53,8 +58,9 @@ a different shape: a programming language with its own compiler, editor extensio
 manager, whose actions are defined in that language.
 
 shortcutkit is a library, not a language. You write TypeScript or Python you already know, and
-the action catalogue comes from the Shortcuts engine rather than from a maintainer. All 392
-built-in actions are covered today, and the next macOS update is one `bun run extract` away.
+the action catalogue comes from the Shortcuts engine rather than from a maintainer. All 434
+built-in actions and 1,581 Apple App Intents are covered today, and the next macOS update is
+one `bun run extract` away.
 
 ## Installation
 
@@ -104,10 +110,22 @@ s.action(actions.showresult, { Text: text("Nothing stored") });
 s.endIf(gid);
 ```
 
+### Apple's apps
+
+Apple's App Intents actions are in the catalogue under the Shortcuts app's own keys. Their
+parameters are typed like the built-ins, and the `AppIntentDescriptor` every such action
+carries in the file is added automatically:
+
+```ts
+const r = s.action(actions.reminders_create_reminder, { title: text("Buy milk"), priorityLevel: "high" });
+s.action(actions.notes_create_note, { name: "Shopping", content: text("Added ", ref(r)) });
+```
+
 ### Actions from other apps
 
-App Intents actions are not in the catalogue, so pass the identifier as a string. Parameter
-keys are then typed as `Record<string, Value>` and passed through as given:
+Third-party App Intents actions are not in the catalogue, so pass the identifier as a string
+and the descriptor yourself. Parameter keys are then typed as `Record<string, Value>` and
+passed through as given:
 
 ```ts
 s.action("com.example.app.CreateNote", { title: text("Hello"), body: ref(got) });
@@ -144,8 +162,10 @@ python -m shortcutkit demo out.shortcut
 
 - [`docs/shortcut-file-format.md`](docs/shortcut-file-format.md): the `.shortcut` format end
   to end, every field.
-- [`docs/builtin-actions-reference.md`](docs/builtin-actions-reference.md): all 392 built-in
+- [`docs/builtin-actions-reference.md`](docs/builtin-actions-reference.md): all 434 built-in
   actions with their parameters.
+- [`docs/apple-app-intents-reference.md`](docs/apple-app-intents-reference.md): the 1,581 App
+  Intents actions of Apple's apps, by app, with parameter kinds and enumeration cases.
 - [`docs/parameter-encodings.md`](docs/parameter-encodings.md): how each parameter class is
   serialized.
 - [`docs/extraction.md`](docs/extraction.md): how the data was obtained, what did not work,
@@ -174,7 +194,7 @@ has no iCloud login.
 |---|---|
 | `src/` | The TypeScript package source. `src/generated/actions.ts` is produced by the tools. `bun run build` bundles it into `dist/`, which is what npm ships. |
 | `python/` | The Python package. `actions.py` and `data/` are produced by the tools. |
-| `data/` | Everything extracted from the engine: definitions, parameter encodings, serialization table, and `provenance.json`. |
+| `data/` | Everything extracted from the engine: definitions, parameter encodings, serialization table, `apple-app-intents.json` from the Shortcuts app's registry, and `provenance.json`. |
 | `docs/` | The format reference, action reference, encodings reference and extraction notes. |
 | `tools/` | The extraction pipeline. |
 
@@ -184,9 +204,11 @@ Never hand-edit the generated files. Change the generator or the data and re-run
 
 The extracted data is committed on purpose. It can only be produced on a Mac, through private
 API that changes between releases, so committing it is what makes the package reproducible.
-To refresh after a macOS update, on any Mac. No Xcode is needed: the probes are JavaScript
-for Automation scripts run by `osascript`, because ActionKit, which defines about a quarter of
-the built-in actions, only loads into Apple's own platform binaries.
+To refresh after a macOS update, on any Mac that has opened Shortcuts.app at least once. No
+Xcode is needed: the probes are JavaScript for Automation scripts run by `osascript`, because
+ActionKit, which defines about a quarter of the built-in actions, only loads into Apple's own
+platform binaries. Apple's App Intents come from the Shortcuts app's action index, which
+Shortcuts writes on launch.
 
 ```bash
 bun run extract        # ~10 s: loads WorkflowKit and ActionKit in osascript, dumps and serializes everything

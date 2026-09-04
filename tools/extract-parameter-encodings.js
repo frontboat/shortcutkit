@@ -17,10 +17,17 @@ function run(argv) {
   let allActions;
   try { allActions = items(provider.createAllAvailableActionsIncludingMissingActions(true)); }
   catch (e) { throw new Error("createAll threw: " + e.message); }
-  console.log("createAllAvailableActionsIncludingMissingActions: " + count(allActions) + " actions");
+  const intentActions = items(klass("WFIntentActionProvider").alloc.init.createAllAvailableActions);
+  console.log("createAllAvailableActionsIncludingMissingActions: " + count(allActions) + " bundled + " + count(intentActions) + " intent-provider actions");
   // Walk in identifier order so usedBy/defaultExamples are deterministic across runs.
   const actions = [];
   for (let i = 0; i < count(allActions); i++) actions.push(allActions.objectAtIndex(i));
+  for (let i = 0; i < count(intentActions); i++) {
+    const a = intentActions.objectAtIndex(i);
+    const def = a.definition; const app = isNil(def) ? null : def.valueForKey("_definition").objectForKey("AppDefinition");
+    const bundle = isNil(app) ? null : app.objectForKey("BundleIdentifier");
+    if (isSystemBundle(isNil(bundle) ? null : str(bundle))) actions.push(a);
+  }
   actions.sort((a, b) => str(a.identifier).localeCompare(str(b.identifier)));
   const byParamClass = {}, actionParameters = {};
   let created = 0, params = 0, failed = 0;

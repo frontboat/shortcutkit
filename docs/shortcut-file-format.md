@@ -47,20 +47,27 @@ Each element of `WFWorkflowActions`:
 Built-in identifiers, parameter keys and parameter classes: `data/builtin-actions.json`.
 `CustomOutputName` renames the output.
 
-**App-provided actions (App Intents).** Identifier is `<bundle identifier>.<intent type name>`
-(gallery: `com.apple.WritingTools.WritingToolsAppIntentsExtension.SummarizeTextIntent`).
-Parameters are keyed by the intent's Swift parameter names (`text`, `summaryType`). Actions
-from installed apps also carry:
+**App-provided actions (App Intents).** Identifier is `<app bundle identifier>.<intent type name>`
+(gallery: `com.apple.WritingTools.WritingToolsAppIntentsExtension.SummarizeTextIntent`; Mac:
+`com.apple.reminders.TTRCreateReminderAppIntent`). The bundle identifier is the app's even when
+the intent is implemented in a framework the app loads, as Reminders' are. Parameters are keyed
+by the intent's Swift parameter names (`title`, `isFlagged`); strings take a plain string or a
+`WFTextTokenString`, booleans a plain bool, enumerations the case identifier (`"high"`, not the
+title "High"), and entities a dictionary the app understands. Every such action also carries:
 
 ```
-"AppIntentDescriptor": { "TeamIdentifier": "…", "BundleIdentifier": "com.apple.mobilenotes",
-                         "Name": "Notes", "AppIntentIdentifier": "NoteEntity",
+"AppIntentDescriptor": { "TeamIdentifier": "0000000000", "BundleIdentifier": "com.apple.reminders",
+                         "Name": "Reminders", "AppIntentIdentifier": "TTRCreateReminderAppIntent",
                          "ActionRequiresAppInstallation": true }
 ```
 
-`tools/dump-appintents-actions.py` lists every such action on a Mac with these fields filled (output is local, not committed, since it depends on the installed apps).
-Older SiriKit custom intents use `IntentAppDefinition` instead; interchange (x-callback)
-actions use the app's own identifier scheme.
+`TeamIdentifier` is ten zeros for Apple's own apps. `data/apple-app-intents.json` lists every
+App Intents action of Apple's apps and system components with these fields, read from the
+Shortcuts app's own action index (see `docs/extraction.md`); `Shortcut.action()` adds the
+descriptor for them. `tools/dump-appintents-actions.py` lists third-party apps' actions on a
+Mac (local, not committed, since it depends on the installed apps). Older SiriKit custom
+intents use `IntentAppDefinition` instead; interchange (x-callback) actions use the app's own
+identifier scheme.
 
 ## 3. Parameter values
 

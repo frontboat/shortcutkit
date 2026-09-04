@@ -6,6 +6,91 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.3.0 (2026-09-04)
+
+Apple's own apps' actions, and the rest of the built-ins.
+
+- **1,581 App Intents actions from 80 Apple apps and system components**: Create Reminder,
+  Create Note, Send Message, Photos, Mail, Safari, the System Settings toggles. They come from
+  the Shortcuts app's own action index, the only readable copy of the App Intents registry
+  (`linkd` refuses unentitled callers), so identifiers are exactly what Shortcuts writes,
+  including for intents hosted in frameworks. Keys are the ones the Shortcuts app assigns
+  (`actions.reminders_create_reminder`); parameters are typed, enumeration cases included; the
+  `AppIntentDescriptor` is added by `action()`.
+- **42 more built-in actions** from `WFIntentActionProvider`: Apple Watch settings,
+  Accessibility toggles, Notes folder. 434 built-in definitions in total.
+- **Every built-in now has a display name.** 76 definitions the engine leaves unnamed (Ask for
+  Input, Show Alert, …) take theirs from the same index, marked `NameSource: "ToolKit"`.
+- `docs/apple-app-intents-reference.md`, `provenance.toolKit` and `counts.appleAppIntents`.
+- Regenerating now also needs Shortcuts.app to have run once on the Mac.
+
+### Data: macOS 27.0 (26A5421a), Shortcuts 10.0 build 5037.0.17, extracted 2026-09-04T12:13:25Z
+
+Recommended bump: **minor**
+
+- Added actions (1623):
+  - `com.apple.NanoSettings.NPRFPingMyPhoneIntent`
+  - `com.apple.NanoSettings.NPRFSetAlwaysOnIntent`
+  - `com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent`
+  - `com.apple.NanoSettings.NPRFSetFlashLightIntent`
+  - `com.apple.NanoSettings.NPRFSetSchoolTimeIntent`
+  - `com.apple.NanoSettings.NPRFSetSilentModeIntent`
+  - `com.apple.NanoSettings.NPRFSetTheaterModeIntent`
+  - `com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent`
+  - `com.apple.NanoSettings.NPRFSetWaterLockIntent`
+  - `com.apple.Notes.ICNotesFolderIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent`
+  - `com.apple.news.TagIntent`
+  - `com.apple.news.TodayIntent`
+  - `com.apple.weather.WeatherIntent`
+  - `com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent`
+  - `com.apple.AddressBook.ContactEntity`
+  - `com.apple.AddressBook.CreateContactIntent`
+  - `com.apple.AddressBook.DeleteContactIntent`
+  - `com.apple.AddressBook.FetchContactAvatarIntent`
+  - `com.apple.AddressBook.FetchContactIntent`
+  - `com.apple.AddressBook.SearchInContactsIntent`
+  - `com.apple.AddressBook.UpdateContactIntent`
+  - `com.apple.AddressBook.ViewContactCardIntent`
+  - `com.apple.AppKit.FetchIntelligenceCommands`
+  - `com.apple.AppKit.InsertIntelligenceText`
+  - `com.apple.AppKit.PresentWritingToolsResult`
+  - `com.apple.AppKit.RequestEditingContext`
+  - `com.apple.AppKit.RunIntelligenceCommand`
+  - `com.apple.AppKit.RunIntelligenceCommandForKey`
+  - `com.apple.AppKit.WindowTabActivateIntent`
+  - `com.apple.AppKit.WindowTabEntity`
+  - `com.apple.AppKit.WritingToolsCanPerformIntent`
+  - … 1563 more
+
 ## 0.2.0 (2026-09-04)
 
 53 more built-in actions, including Ask for Input, Show Alert, Count, Choose from List, Date,

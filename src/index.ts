@@ -4,6 +4,7 @@ import { spawnSync } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition } from "./definitions.js";
+import { ACTIONS } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
 import type { Attachment, Picker, TokenString, Value } from "./values.js";
 
@@ -17,6 +18,8 @@ export { provenance, type Provenance } from "./provenance.js";
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
 
 export type Action = { WFWorkflowActionIdentifier: string; WFWorkflowActionParameters: Record<string, Value>; outputName?: string };
+/** Names the app that provides an App Intents action; written as the AppIntentDescriptor parameter. */
+export type AppIntentDescriptor = { BundleIdentifier: string; Name: string; TeamIdentifier: string; AppIntentIdentifier: string };
 
 
 /** WFWorkflowIcon.backgroundColorValue for palette colors 0-14, unsigned as the plist stores it. */
@@ -96,21 +99,26 @@ export class Shortcut {
    */
   action<I extends string>(identifier: I, params: ParamsFor<I> = {} as ParamsFor<I>): Action {
     const definition = getDefinition(identifier);
-    if (!definition && identifier.startsWith("is.workflow.")) throw new Error(`unknown built-in action ${identifier}`);
-    if (definition) {
+    const catalog = (ACTIONS as Record<string, { params: readonly string[]; output: string | null; descriptor?: AppIntentDescriptor }>)[identifier];
+    if (!definition && !catalog && identifier.startsWith("is.workflow.")) throw new Error(`unknown built-in action ${identifier}`);
+    if (definition || catalog?.descriptor) {
       const known = new Set<string>(META_KEYS);
-      for (const p of definition.Parameters ?? []) if (p.Key) known.add(p.Key);
-      if (definition.Input?.ParameterKey) known.add(definition.Input.ParameterKey);
+      for (const p of definition?.Parameters ?? []) if (p.Key) known.add(p.Key);
+      if (definition?.Input?.ParameterKey) known.add(definition.Input.ParameterKey);
       for (const k of LEGACY_KEYS[identifier] ?? []) known.add(k);
+      for (const k of catalog?.params ?? []) known.add(k);
+      if (catalog?.descriptor) known.add("AppIntentDescriptor");
       const unknown = Object.keys(params as Record<string, Value>).filter((k) => !known.has(k));
       if (unknown.length > 0 && known.size > META_KEYS.size) {
         throw new Error(`${identifier}: unknown parameter(s) ${unknown.join(", ")}; known: ${[...known].sort().join(", ")}`);
       }
     }
+    // App Intents actions carry a descriptor naming the app that provides them (see docs/shortcut-file-format.md §2).
+    const descriptor: Record<string, Value> = catalog?.descriptor ? { AppIntentDescriptor: { ...catalog.descriptor, ActionRequiresAppInstallation: true } } : {};
     const entry: Action = {
       WFWorkflowActionIdentifier: identifier,
-      WFWorkflowActionParameters: { UUID: uuid(), ...(params as Record<string, Value>) },
-      outputName: definition?.Output?.OutputName,
+      WFWorkflowActionParameters: { UUID: uuid(), ...descriptor, ...(params as Record<string, Value>) },
+      outputName: definition?.Output?.OutputName ?? catalog?.output ?? undefined,
     };
     this.actions.push(entry);
     return entry;

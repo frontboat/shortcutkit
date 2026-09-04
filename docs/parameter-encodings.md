@@ -1,17 +1,17 @@
 # Shortcuts parameter value encodings
 
-How each built-in action parameter is serialized inside a `.shortcut` file. Every `WFParameter` subclass names a state class; that class's `serializedRepresentation` is the on-disk form. Defaults below are the parameter's own `defaultSerializedRepresentation`. 98 parameter classes, 47 state classes. See docs/shortcut-file-format.md for the general shapes and docs/extraction.md for how this was produced.
+How each built-in action parameter is serialized inside a `.shortcut` file. Every `WFParameter` subclass names a state class; that class's `serializedRepresentation` is the on-disk form. Defaults below are the parameter's own `defaultSerializedRepresentation`. 99 parameter classes, 48 state classes. See docs/shortcut-file-format.md for the general shapes and docs/extraction.md for how this was produced.
 
 ## State classes
 
 ### WFStringSubstitutableState
 
-- parameter uses: 284
+- parameter uses: 329
 - selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithVariable:`, `serializedRepresentation`
 - parameter classes:
   - `WFEnumerationParameter` (176 uses) default e.g. `"Video"`; used by `facetime`, `Share`, `additemtolist`
+  - `WFCustomIntentEnumerationParameter` (66 uses) default e.g. `"off"`; used by `NPRFPingMyPhoneIntent`, `NPRFSetAlwaysOnIntent`, `NPRFSetAutoLaunchAudioAppsIntent`
   - `WFDynamicEnumerationParameter` (38 uses) default e.g. `"Driving"`; used by `apps`, `articles`, `calendarevents`
-  - `WFCustomIntentEnumerationParameter` (21 uses) default e.g. `"set"`; used by `set`, `set`, `appearance`
   - `WFContentItemFilterEnumerationParameter` (9 uses) default e.g. `"Library"`; used by `apps`, `calendarevents`, `contacts`
   - `WFAccountPickerParameter` (2 uses) default e.g. `none`; used by `send`, `post`
   - `WFDateActionPickerModeParameter` (2 uses) default e.g. `"Current Date"`; used by `date`, `input`
@@ -43,6 +43,14 @@ How each built-in action parameter is serialized inside a `.shortcut` file. Ever
   - `WFTagFieldParameter` (1 uses) default e.g. `none`; used by `addnewreminder`
   - `WFTodoistProjectPickerParameter` (1 uses) default e.g. `"Inbox"`; used by `add`
 
+### WFBooleanSubstitutableState
+
+- parameter uses: 250
+- selectors: `initWithBoolValue:`, `initWithNumber:`, `initWithNumberSubstitutableState:`, `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithVariable:`, `serializedRepresentation`
+- parameter classes:
+  - `WFSwitchParameter` (249 uses) default e.g. `true`; used by `RecognizeMusicIntent`, `NPRFPingMyPhoneIntent`, `NPRFSetAlwaysOnIntent`
+  - `WFTumblrComposeInAppParameter` (1 uses) default e.g. `false`; used by `post`
+
 ### WFVariableStringParameterState
 
 - parameter uses: 194
@@ -53,14 +61,6 @@ How each built-in action parameter is serialized inside a `.shortcut` file. Ever
   - `WFCountryFieldParameter` (1 uses) default e.g. `"United States"`; used by `address`
   - `WFCustomDateFormatParameter` (1 uses) default e.g. `"EEE, dd MMM yyyy HH:mm:ss Z"`; used by `date`
   - `WFRegexFieldParameter` (1 uses) default e.g. `"[0-9a-zA-Z]"`; used by `match`
-
-### WFBooleanSubstitutableState
-
-- parameter uses: 181
-- selectors: `initWithBoolValue:`, `initWithNumber:`, `initWithNumberSubstitutableState:`, `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithVariable:`, `serializedRepresentation`
-- parameter classes:
-  - `WFSwitchParameter` (180 uses) default e.g. `true`; used by `RecognizeMusicIntent`, `LaunchApplicationIntent`, `LaunchRemoteIntent`
-  - `WFTumblrComposeInAppParameter` (1 uses) default e.g. `false`; used by `post`
 
 ### WFVariableParameterState
 
@@ -78,19 +78,19 @@ How each built-in action parameter is serialized inside a `.shortcut` file. Ever
 
 ### WFNumberSubstitutableState
 
-- parameter uses: 55
+- parameter uses: 56
 - selectors: `initWithNumber:`, `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithVariable:`, `serializedRepresentation`
 - parameter classes:
   - `WFStepperParameter` (39 uses) default e.g. `1`; used by `delay`, `get`, `apps`
-  - `WFSliderParameter` (15 uses) default e.g. `0.5`; used by `flashlight`, `convert`, `makespokenaudiofromtext`
+  - `WFSliderParameter` (16 uses) default e.g. `10`; used by `UASetBackgroundSoundsVolumeIntent`, `flashlight`, `convert`
   - `WFFileLabelColorPickerParameter` (1 uses) default e.g. `none`; used by `label`
 
 ### WFDateFieldParameterState
 
-- parameter uses: 25
+- parameter uses: 26
 - selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithVariable:`, `initWithVariableString:`, `initWithVariableString:userInputInsertionIndex:`, `serializedRepresentation`, `shouldSerializeAsPlainString`
 - parameter classes:
-  - `WFDateFieldParameter` (25 uses) default e.g. `none`; used by `addnewevent`, `addnewreminder`, `adjustdate`
+  - `WFDateFieldParameter` (26 uses) default e.g. `none`; used by `UASetBackgroundSoundsTimerIntent`, `addnewevent`, `addnewreminder`
 
 ### WFFileParameterState
 
@@ -125,10 +125,10 @@ How each built-in action parameter is serialized inside a `.shortcut` file. Ever
 
 ### WFQuantityParameterState
 
-- parameter uses: 12
+- parameter uses: 13
 - selectors: `initWithMagnitudeState:unitString:`, `initWithMagnitudeState:unitString:variable:`, `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithVariable:`, `serializedRepresentation`
 - parameter classes:
-  - `WFDurationQuantityFieldParameter` (6 uses) default e.g. `{"Value": {"Unit": "sec"}, "WFSerializationType": "WFQuantityFieldValue"}`; used by `adjustdate`, `log`, `recordaudio`
+  - `WFDurationQuantityFieldParameter` (7 uses) default e.g. `{"Value": {"Magnitude": "15", "Unit": "min"}, "WFSerializationType": "WFQuantityFieldValue"}`; used by `UASetBackgroundSoundsTimerIntent`, `adjustdate`, `log`
   - `WFUnitQuantityFieldParameter` (3 uses) default e.g. `{"Value": {"Magnitude": "1000", "Unit": "ft"}, "WFSerializationType": "WFQuantityFieldValue"}`; used by `addnewreminder`, `makediskimage`, `create`
   - `WFCurrencyQuantityFieldParameter` (2 uses) default e.g. `{"Value": {"Unit": "USD"}, "WFSerializationType": "WFQuantityFieldValue"}`; used by `pay`, `request`
   - `WFSearchLocalBusinessesRadiusParameter` (1 uses) default e.g. `{"Value": {"Magnitude": "1", "Unit": "mi"}, "WFSerializationType": "WFQuantityFieldValue"}`; used by `searchlocalbusinesses`
@@ -197,6 +197,13 @@ How each built-in action parameter is serialized inside a `.shortcut` file. Ever
 - parameter classes:
   - `WFOSAScriptEditorParameter` (2 uses) default e.g. `"on run {input, parameters}\n    (* Your script goes here *)\n    return input\nend run"`; used by `runapplescript`, `runjavascriptforautomation`
   - `WFVariableFieldParameter` (2 uses) default e.g. `none`; used by `appendvariable`, `setvariable`
+
+### WFCodableAttributeBackedSubstitutableState
+
+- parameter uses: 3
+- selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithValue:codableAttribute:stringLocalizer:`, `initWithVariable:`, `serializedRepresentation`
+- parameter classes:
+  - `WFCustomIntentDynamicEnumerationParameter` (3 uses) default e.g. `none`; used by `TagIntent`, `ICNotesFolderIntent`, `WeatherIntent`
 
 ### WFINObjectSubstitutableState
 

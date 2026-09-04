@@ -8,7 +8,9 @@ export interface Provenance {
   workflowKit: string;
   /** ActionKit.framework version; it defines the built-in actions WorkflowKit does not (Ask for Input, Show Alert, Count, ...). */
   actionKit?: string;
-  counts: { builtinActions: number; identifierStrings: number; appProvidedActions: number };
+  /** The Shortcuts app's action index the App Intents catalogue was read from. */
+  toolKit?: { source: string; osVersion: string; indexerSource: string; toolkitVersion: string; launchServicesSequence: number };
+  counts: { builtinActions: number; appleAppIntents?: number; identifierStrings: number; appProvidedActions: number };
   note?: string;
 }
 

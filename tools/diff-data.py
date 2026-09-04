@@ -14,15 +14,34 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "builtin-actions.json"
+APPS = ROOT / "data" / "apple-app-intents.json"
 PROV = ROOT / "data" / "provenance.json"
 
 
-def load_old():
+def load_old(rel="data/builtin-actions.json"):
     try:
-        out = subprocess.run(["git", "-C", str(ROOT), "show", "HEAD:data/builtin-actions.json"], capture_output=True, check=True)
+        out = subprocess.run(["git", "-C", str(ROOT), "show", f"HEAD:{rel}"], capture_output=True, check=True)
         return json.loads(out.stdout)
     except subprocess.CalledProcessError:
         return {}
+
+
+def app_keys(action):
+    return {p["key"]: p.get("kind") for p in action.get("parameters", []) if p.get("key")}
+
+
+def diff_apps(old, new):
+    """Same rules for the App Intents catalogue: parameter kinds are the type surface there."""
+    added = sorted(set(new) - set(old)); removed = sorted(set(old) - set(new))
+    key_added, key_removed, kind_changed = [], [], []
+    for ident in sorted(set(old) & set(new)):
+        ok, nk = app_keys(old[ident]), app_keys(new[ident])
+        key_added += [f"{ident}.{k}" for k in sorted(set(nk) - set(ok))]
+        key_removed += [f"{ident}.{k}" for k in sorted(set(ok) - set(nk))]
+        kind_changed += [f"{ident}.{k}: {ok[k]} -> {nk[k]}" for k in sorted(set(ok) & set(nk)) if ok[k] != nk[k]]
+    breaking = removed or key_removed or kind_changed
+    bump = "major" if breaking else ("minor" if (added or key_added) else "patch")
+    return {"bump": bump, "added": added, "removed": removed, "key_added": key_added, "key_removed": key_removed, "kind_changed": kind_changed, "renamed": []}
 
 
 def keys(action):
@@ -52,6 +71,13 @@ def main(argv):
     old = json.load(open(argv[0])) if len(argv) == 2 else load_old()
     new = json.load(open(argv[1])) if len(argv) == 2 else json.load(open(DATA))
     d = diff(old, new)
+    if len(argv) != 2 and APPS.exists():
+        a = diff_apps(load_old("data/apple-app-intents.json").get("actions", {}), json.load(open(APPS)).get("actions", {}))
+        order = ["patch", "minor", "major"]
+        d["bump"] = order[max(order.index(d["bump"]), order.index(a["bump"]))]
+        for k in ("added", "removed", "key_added", "key_removed", "kind_changed"):
+            d[k] = d[k] + a[k]
+        d["apps"] = a
     prov = json.load(open(PROV)) if PROV.exists() else {}
     src = f"macOS {prov.get('macOS', {}).get('version', '?')} ({prov.get('macOS', {}).get('build', '?')}), Shortcuts {prov.get('shortcutsApp', {}).get('version', '?')} build {prov.get('shortcutsApp', {}).get('build', '?')}, extracted {prov.get('extractedAt', '?')}"
     if changelog:

@@ -160,13 +160,18 @@ class Shortcut:
     def action(self, identifier, **params):
         """Append an action. Unknown identifiers or parameter keys raise ValueError."""
         definition = self.defs.get(identifier)
-        if self.defs and definition is None and identifier.startswith("is.workflow."):
+        catalog = ACTIONS.get(identifier) or {}
+        descriptor = catalog.get("descriptor")
+        if self.defs and definition is None and not catalog and identifier.startswith("is.workflow."):
             raise ValueError(f"unknown built-in action {identifier}")
-        if definition:
-            known = {p.get("Key") for p in definition.get("Parameters", []) if isinstance(p, dict)}
+        if definition or descriptor:
+            known = {p.get("Key") for p in (definition or {}).get("Parameters", []) if isinstance(p, dict)}
             known |= {"UUID", "GroupingIdentifier", "WFControlFlowMode", "CustomOutputName"}
             known |= LEGACY_KEYS.get(identifier, set())
-            inp = definition.get("Input")
+            known |= set(catalog.get("params", []))
+            if descriptor:
+                known.add("AppIntentDescriptor")
+            inp = (definition or {}).get("Input")
             if isinstance(inp, dict) and inp.get("ParameterKey"):
                 known.add(inp["ParameterKey"])
             unknown = set(params) - known
@@ -176,10 +181,14 @@ class Shortcut:
             problem = _check_kind(PARAM_KINDS.get(identifier, {}).get(key, "any"), value)
             if problem:
                 raise ValueError(f"{identifier}.{key}: {problem}")
+        # App Intents actions carry a descriptor naming the app that provides them.
+        head = {"UUID": str(uuid.uuid4()).upper()}
+        if descriptor and "AppIntentDescriptor" not in params:
+            head["AppIntentDescriptor"] = dict(descriptor, ActionRequiresAppInstallation=True)
         entry = {"WFWorkflowActionIdentifier": identifier,
-                 "WFWorkflowActionParameters": {"UUID": str(uuid.uuid4()).upper(), **params}}
+                 "WFWorkflowActionParameters": {**head, **params}}
         output = (definition or {}).get("Output", {})
-        entry["_outputName"] = output.get("OutputName") if isinstance(output, dict) else None
+        entry["_outputName"] = (output.get("OutputName") if isinstance(output, dict) else None) or catalog.get("output")
         if isinstance(entry["_outputName"], dict):
             entry["_outputName"] = entry["_outputName"].get("format")
         self.actions.append(entry)
@@ -272,4 +281,4 @@ PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PROVENANCE", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "0.2.0"
+__version__ = "0.3.0"

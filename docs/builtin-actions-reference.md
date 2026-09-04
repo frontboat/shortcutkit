@@ -1,6 +1,6 @@
 # Shortcuts built-in actions (from WorkflowKit's action registry)
 
-Extracted by loading WorkflowKit and asking WFBundledActionProvider for every definition. 392 actions. Field names are Apple's own (ActionClass, Parameters[].Class, etc.). Full structured data: data/builtin-actions.json. See docs/extraction.md for how this was produced.
+Extracted by loading WorkflowKit and asking WFBundledActionProvider for every definition. 434 actions. Field names are Apple's own (ActionClass, Parameters[].Class, etc.). Full structured data: data/builtin-actions.json. See docs/extraction.md for how this was produced.
 
 ## Add Frame to GIF
 
@@ -260,6 +260,15 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFAppendOnNewLine` (Switch) Make New Line default=true
   - `WFInput` (TextInput) Text
 
+## Ask for Input
+
+- identifier: `is.workflow.actions.ask`  ·  class `WFAskForInputAction`
+- Displays a dialog prompting the user to enter a piece of information.
+- summary: `Ask for ${WFInputType} with ${WFAskActionPrompt}`
+- output:  NSString, NSDecimalNumber, NSURL, NSDate
+- keywords: ask, prompt, show, dialog, keyboard, text, number, url, date, time
+- icon: plus.bubble.fill (Cyan)
+
 ## Base64 Encode
 
 - identifier: `is.workflow.actions.base64encode`  ·  class `WFBase64EncodingAction`
@@ -332,6 +341,20 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `IntentAppDefinition` (IntentAppPicker) App default={"BundleIdentifier": "com.apple.TelephonyUtilities.PhoneIntentHandler"}
   - `WFCallContact` (PhoneNumberField) Contact
 
+## Change Background Sound
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent`  ·  class `None`
+- Change the background sound that will play when background sounds is turned on. Background sounds mask unwanted environmental noise. Background sounds can also be enabled under Accessibility in Settings.
+
+## Change Case
+
+- identifier: `is.workflow.actions.text.changecase`  ·  class `WFHandleCustomIntentAction`
+- Changes the case of the text passed into the action to UPPERCASE, lowercase, or Title Case.
+- output:
+- keywords: uppercase, lowercase, title, transform, text, capitalize
+- icon: textformat (Yellow_Accessibility)
+- ResidentCompatible: True
+
 ## Change Playback Destination
 
 - identifier: `is.workflow.actions.setplaybackdestination`  ·  class `WFChangePlaybackDestinationAction`
@@ -384,65 +407,6 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - keywords: song, music, itunes, up next, apple, album, next, play, clear
 - InputPassthrough: True
 
-## com.apple.TVRemoteUIService.LaunchApplicationIntent
-
-- identifier: `com.apple.TVRemoteUIService.LaunchApplicationIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-
-## com.apple.TVRemoteUIService.LaunchRemoteIntent
-
-- identifier: `com.apple.TVRemoteUIService.LaunchRemoteIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-- icon: appletvremote.gen4.fill (Black)
-
-## com.apple.TVRemoteUIService.LaunchScreenSaverIntent
-
-- identifier: `com.apple.TVRemoteUIService.LaunchScreenSaverIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-- icon: tv.fill (Black)
-
-## com.apple.TVRemoteUIService.PauseContentIntent
-
-- identifier: `com.apple.TVRemoteUIService.PauseContentIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-- icon: playpause.fill (Black)
-
-## com.apple.TVRemoteUIService.ReduceLoudSoundsIntent
-
-- identifier: `com.apple.TVRemoteUIService.ReduceLoudSoundsIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-- icon: ear.trianglebadge.exclamationmark (Black)
-
-## com.apple.TVRemoteUIService.SkipContentIntent
-
-- identifier: `com.apple.TVRemoteUIService.SkipContentIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-- icon: forward.fill (Black)
-
-## com.apple.TVRemoteUIService.SleepAppleTVIntent
-
-- identifier: `com.apple.TVRemoteUIService.SleepAppleTVIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-- icon: sleep (Black)
-
-## com.apple.TVRemoteUIService.SwitchUserAccountIntent
-
-- identifier: `com.apple.TVRemoteUIService.SwitchUserAccountIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-- icon: person.crop.circle (Black)
-
-## com.apple.TVRemoteUIService.ToggleCaptionsIntent
-
-- identifier: `com.apple.TVRemoteUIService.ToggleCaptionsIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-- icon: captions.bubble.fill (Black)
-
-## com.apple.TVRemoteUIService.WakeAppleTVIntent
-
-- identifier: `com.apple.TVRemoteUIService.WakeAppleTVIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
-- icon: power (Black)
-
 ## Combine Images
 
 - identifier: `is.workflow.actions.image.combine`  ·  class `WFImageCombineAction`
@@ -458,6 +422,14 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFImageCombineMode` (Enumeration) Mode default="Horizontally" choices=["Horizontally", "Vertically", "In a Grid"]
   - `WFImageCombineSpacing` (NumberField) Spacing default=0 — The number of pixels of transparent space to place between consecutive images.
   - `WFInput` (VariablePicker) Images
+
+## Combine Text
+
+- identifier: `is.workflow.actions.text.combine`  ·  class `WFTextComponentsAction`
+- Joins the text together, inserting the separator between each join.
+- output:
+- keywords: separate, delimiter, append
+- ResidentCompatible: True
 
 ## Comment
 
@@ -588,6 +560,14 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFExpirationDate` (DateField) Expire At — When set, the clipboard contents will expire and be automatically deleted at the specified time. Optional.
   - `WFInput` (VariablePicker) Content
 
+## Correct Spelling
+
+- identifier: `is.workflow.actions.correctspelling`  ·  class `WFHandleCustomIntentAction`
+- Autocorrects the spelling of text passed into the action.
+- output:
+- keywords: text, spell, spelling, correct, autocorrect
+- ResidentCompatible: True
+
 ## Count
 
 - identifier: `is.workflow.actions.count`  ·  class `WFCountAction`
@@ -679,8 +659,8 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - ResidentCompatible: True
 - parameters:
   - `WFText` (TextInput) Text
-  - `WFQRForegroundColor` (ColorPicker) Foreground Color default={"alphaComponent": 1, "blueComponent": 0, "greenComponent": 0, "redComponent": 0, "WFColorRepresentationType": "WFColorRepresentationTypeCGColor"}
-  - `WFQRBackgroundColor` (ColorPicker) Background Color default={"alphaComponent": 1, "blueComponent": 1, "greenComponent": 1, "redComponent": 1, "WFColorRepresentationType": "WFColorRepresentationTypeCGColor"}
+  - `WFQRForegroundColor` (ColorPicker) Foreground Color default={"WFColorRepresentationType": "WFColorRepresentationTypeCGColor", "alphaComponent": 1, "blueComponent": 0, "greenComponent": 0, "redComponent": 0}
+  - `WFQRBackgroundColor` (ColorPicker) Background Color default={"WFColorRepresentationType": "WFColorRepresentationTypeCGColor", "alphaComponent": 1, "blueComponent": 1, "greenComponent": 1, "redComponent": 1}
   - `WFQRRounded` (Switch) Rounded default=false
   - `WFQRErrorCorrectionLevel` (Enumeration) Error Correction default="Medium" choices=["Low", "Medium", "Quartile", "High"]
 
@@ -1702,6 +1682,14 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFImage` (VariablePicker) Image
 
+## Get Group from Matched Text
+
+- identifier: `is.workflow.actions.text.match.getgroup`  ·  class `WFHandleCustomIntentAction`
+- Gets the text that matched a particular capture group or all of the capture groups from the output of a Match Text action.
+- output:
+- keywords: finding, matching, searching, regular, expression, regexp
+- ResidentCompatible: True
+
 ## Get Halfway Point
 
 - identifier: `is.workflow.actions.gethalfwaypoint`  ·  class `WFGetHalfwayPointAction`
@@ -2400,189 +2388,6 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFHome` (HomeAreaPicker) Home
   - `WFInput` (TextInput) Message — The message to announce using Intercom. Any input exceeding 60 seconds in duration will be trimmed.
 
-## is.workflow.actions.airplanemode.set
-
-- identifier: `is.workflow.actions.airplanemode.set`  ·  class `WFHandleCustomIntentAction`
-- keywords: airport, wi-fi, bluetooth, cellular, turn, toggle
-- icon: airplane (Orange)
-- InputPassthrough: True
-
-## is.workflow.actions.announcenotifications.set
-
-- identifier: `is.workflow.actions.announcenotifications.set`  ·  class `WFHandleCustomIntentAction`
-
-## is.workflow.actions.appearance
-
-- identifier: `is.workflow.actions.appearance`  ·  class `WFSetAppearanceAction`
-- keywords: style, mode, dark, appearance
-- icon: appearance (Blue)
-- ResidentCompatible: False
-
-## is.workflow.actions.ask
-
-- identifier: `is.workflow.actions.ask`  ·  class `WFAskForInputAction`
-- Displays a dialog prompting the user to enter a piece of information.
-- summary: `Ask for ${WFInputType} with ${WFAskActionPrompt}`
-- output:  NSString, NSDecimalNumber, NSURL, NSDate
-- keywords: ask, prompt, show, dialog, keyboard, text, number, url, date, time
-- icon: plus.bubble.fill (Cyan)
-
-## is.workflow.actions.bluetooth.set
-
-- identifier: `is.workflow.actions.bluetooth.set`  ·  class `WFHandleCustomIntentAction`
-- keywords: wireless, accessories, accessory, turn
-- icon: bluetooth (Blue)
-- InputPassthrough: True
-
-## is.workflow.actions.cellulardata.set
-
-- identifier: `is.workflow.actions.cellulardata.set`  ·  class `WFSetCellularDataAction`
-- keywords: service, phone, airplane, turn
-- icon: antenna.radiowaves.left.and.right (Green)
-- InputPassthrough: True
-
-## is.workflow.actions.correctspelling
-
-- identifier: `is.workflow.actions.correctspelling`  ·  class `WFHandleCustomIntentAction`
-- output:
-- keywords: text, spell, spelling, correct, autocorrect
-- ResidentCompatible: True
-
-## is.workflow.actions.display.always-on.set
-
-- identifier: `is.workflow.actions.display.always-on.set`  ·  class `WFSetAlwaysOnDisplayAction`
-- Sets the Always On Display setting of your iPhone to on or off.
-- keywords: display, aod
-- icon: iphone.always.on.display (Blue)
-- InputPassthrough: True
-
-## is.workflow.actions.flashlight
-
-- identifier: `is.workflow.actions.flashlight`  ·  class `WFHandleCustomIntentAction`
-- summary variants:
-  - `${operation} flashlight ${state}`
-  - `${operation} flashlight ${state}`
-  - `${operation} flashlight`
-- keywords: flash, torch, turn
-- icon: flashlight.on.fill (Blue)
-- InputPassthrough: True
-
-## is.workflow.actions.lowpowermode.set
-
-- identifier: `is.workflow.actions.lowpowermode.set`  ·  class `WFSetLowPowerModeAction`
-- keywords: battery, life, charge, turn
-- icon: battery.50 (Orange)
-- InputPassthrough: True
-
-## is.workflow.actions.nightshift.set
-
-- identifier: `is.workflow.actions.nightshift.set`  ·  class `WFHandleCustomIntentAction`
-- keywords: display, brightness, blue light
-- icon: nightshift (Orange)
-- InputPassthrough: True
-
-## is.workflow.actions.orientationlock.set
-
-- identifier: `is.workflow.actions.orientationlock.set`  ·  class `WFSetOrientationLockAction`
-- keywords: rotation, rotate
-- icon: lock.rotation (Red)
-- InputPassthrough: True
-
-## is.workflow.actions.personalhotspot.set
-
-- identifier: `is.workflow.actions.personalhotspot.set`  ·  class `WFHandleCustomIntentAction`
-- Sets the device’s Personal Hotspot to on or off.
-- note: When turning Personal Hotspot on, this action will make the hotspot discoverable for only a short period of time, in order to preserve battery life.
-- keywords: wireless, accessories, accessory, turn, tethering, cellular, internet, sharing, data, 3g, 4g, 5g
-- icon: personalhotspot (Green)
-- InputPassthrough: True
-
-## is.workflow.actions.runjavascriptonwebpage
-
-- identifier: `is.workflow.actions.runjavascriptonwebpage`  ·  class `WFRunJavaScriptOnWebPageAction`
-- Runs JavaScript on a Safari web page passed in as input
-- input: Safari web pages
-- result: The output from the JavaScript (JSON)
-- note: Safari Web Page items are only available when running your shortcut as an Action Extension in Safari.
-- input: WFSafariWebPageContentItem (required)
-- output: JavaScript Result WFDictionaryContentItem, WFStringContentItem, WFBooleanContentItem, WFNumberContentItem
-- keywords: script, safari, java, javascript, web page, webkit, browser, json, web, page, website
-- InputPassthrough: False
-- parameters:
-  - `WFJavaScript` (TextInput) JavaScript default="var result = [];\\n// Get all links from the page\\nvar elements = document.querySelectorAll(\\\"a\\\");\\nfor (let element of elements) {\\n    result.push({\\n        \\\"url\\\": element.href,\\n        \\\"text\\\": element.innerText\\n    });\\n}\\n\\n// Call completion to finish\\ncompletion(result);"
-  - `WFInput` (VariablePicker) Web Page
-
-## is.workflow.actions.setbrightness
-
-- identifier: `is.workflow.actions.setbrightness`  ·  class `WFHandleCustomIntentAction`
-- keywords: screen, display, backlight
-- icon: sun.max.fill (Blue)
-- InputPassthrough: True
-
-## is.workflow.actions.silenceunknowncallers.set
-
-- identifier: `is.workflow.actions.silenceunknowncallers.set`  ·  class `WFHandleCustomIntentAction`
-- keywords: phone, spam, scam
-- icon: phone.arrow.down.left.fill (Green)
-- InputPassthrough: True
-
-## is.workflow.actions.stagemanager.set
-
-- identifier: `is.workflow.actions.stagemanager.set`  ·  class `WFHandleCustomIntentAction`
-- keywords: window, set
-- icon: squares.leading.rectangle (Blue)
-
-## is.workflow.actions.text.changecase
-
-- identifier: `is.workflow.actions.text.changecase`  ·  class `WFHandleCustomIntentAction`
-- output:
-- keywords: uppercase, lowercase, title, transform, text, capitalize
-- icon: textformat (Yellow_Accessibility)
-- ResidentCompatible: True
-
-## is.workflow.actions.text.combine
-
-- identifier: `is.workflow.actions.text.combine`  ·  class `WFTextComponentsAction`
-- output:
-- keywords: separate, delimiter, append
-- ResidentCompatible: True
-
-## is.workflow.actions.text.match
-
-- identifier: `is.workflow.actions.text.match`  ·  class `WFHandleCustomIntentAction`
-- result: A list of text items that matched the regular expression
-- output:
-- keywords: finding, matching, searching, regular, expression, regexp
-- ResidentCompatible: True
-
-## is.workflow.actions.text.match.getgroup
-
-- identifier: `is.workflow.actions.text.match.getgroup`  ·  class `WFHandleCustomIntentAction`
-- output:
-- keywords: finding, matching, searching, regular, expression, regexp
-- ResidentCompatible: True
-
-## is.workflow.actions.text.split
-
-- identifier: `is.workflow.actions.text.split`  ·  class `WFTextComponentsAction`
-- output:
-- keywords: separate, delimiter
-- ResidentCompatible: True
-
-## is.workflow.actions.truetone.set
-
-- identifier: `is.workflow.actions.truetone.set`  ·  class `WFHandleCustomIntentAction`
-- keywords: display, brightness
-- icon: truetone (Blue)
-- InputPassthrough: True
-
-## is.workflow.actions.wifi.set
-
-- identifier: `is.workflow.actions.wifi.set`  ·  class `WFSetWiFiAction`
-- keywords: airport, wifi, wi-fi, wireless, internet, network, wlan, turn
-- icon: wifi (Blue)
-- InputPassthrough: True
-
 ## Label Files
 
 - identifier: `is.workflow.actions.file.label`  ·  class `WFLabelFilesAction`
@@ -2908,6 +2713,15 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFMaskType` (Enumeration) Type default="Rounded Rectangle" choices=["Rounded Rectangle", "Ellipse", "Icon", "Custom Image"]
   - `WFMaskCornerRadius` (NumberField) Corner Radius — A radius to apply to each corner of the source image in pixels.
   - `WFCustomMaskImage` (VariablePicker) Custom Image — An alpha mask to apply to the source image, where darker colors become transparent and lighter colors remain opaque. If the mask is sized differently than the source image, the mask is resized to match the dimensions of the source image.
+
+## Match Text
+
+- identifier: `is.workflow.actions.text.match`  ·  class `WFHandleCustomIntentAction`
+- Searches text passed into the action for matches to a regular expression.
+- result: A list of text items that matched the regular expression
+- output:
+- keywords: finding, matching, searching, regular, expression, regexp
+- ResidentCompatible: True
 
 ## Measurement
 
@@ -3303,6 +3117,13 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - ResidentCompatible: True
 - parameters:
   - `WFPhoneNumber` (PhoneNumberField) Phone Number
+
+## Ping My iPhone
+
+- identifier: `com.apple.NanoSettings.NPRFPingMyPhoneIntent`  ·  class `None`
+- Plays a sound on your paired iPhone.
+
+You can also choose to have the flashlight pulse.
 
 ## Play Music
 
@@ -3767,6 +3588,21 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `Input` (VariablePicker) Input
   - `Script` (OSAScriptEditor) default="function run(input, parameters) {\\n    // Your script goes here\\n    return input;\\n}"
 
+## Run JavaScript on Active Safari Tab
+
+- identifier: `is.workflow.actions.runjavascriptonwebpage`  ·  class `WFRunJavaScriptOnWebPageAction`
+- Runs JavaScript on a Safari web page passed in as input
+- input: Safari web pages
+- result: The output from the JavaScript (JSON)
+- note: Safari Web Page items are only available when running your shortcut as an Action Extension in Safari.
+- input: WFSafariWebPageContentItem (required)
+- output: JavaScript Result WFDictionaryContentItem, WFStringContentItem, WFBooleanContentItem, WFNumberContentItem
+- keywords: script, safari, java, javascript, web page, webkit, browser, json, web, page, website
+- InputPassthrough: False
+- parameters:
+  - `WFJavaScript` (TextInput) JavaScript default="var result = [];\\n// Get all links from the page\\nvar elements = document.querySelectorAll(\\\"a\\\");\\nfor (let element of elements) {\\n    result.push({\\n        \\\"url\\\": element.href,\\n        \\\"text\\\": element.innerText\\n    });\\n}\\n\\n// Call completion to finish\\ncompletion(result);"
+  - `WFInput` (VariablePicker) Web Page
+
 ## Run Script Over SSH
 
 - identifier: `is.workflow.actions.runsshscript`  ·  class `WFRunSSHScriptAction`
@@ -4060,6 +3896,11 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - keywords: messenger, facebook, fb, send, text, gif, image, video
 - InputPassthrough: True
 
+## Set Accessibility Keyboard
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent`  ·  class `None`
+- Enable or disable the Accessibility Keyboard, allowing typing by clicking on the screen.
+
 ## Set AirDrop Receiving
 
 - identifier: `is.workflow.actions.setairdropreceiving`  ·  class `WFSetAirDropReceivingAction`
@@ -4067,11 +3908,113 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFAirDropState` (AirDropVisibility) State
 
+## Set Airplane Mode
+
+- identifier: `is.workflow.actions.airplanemode.set`  ·  class `WFHandleCustomIntentAction`
+- Sets the device’s Airplane Mode to on or off.
+- keywords: airport, wi-fi, bluetooth, cellular, turn, toggle
+- icon: airplane (Orange)
+- InputPassthrough: True
+
+## Set Alternate Pointer Actions
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent`  ·  class `None`
+- Enable or disable Alternate Pointer Actions, allowing the use of switches or gesture to trigger mouse actions such as clicks.
+
+## Set Always On
+
+- identifier: `com.apple.NanoSettings.NPRFSetAlwaysOnIntent`  ·  class `None`
+- Sets the Always On display setting of your Apple Watch to on or off.
+
+When Always On is activated, your Apple Watch face will be visible even when your wrist is down.
+
+## Set Always On Display
+
+- identifier: `is.workflow.actions.display.always-on.set`  ·  class `WFSetAlwaysOnDisplayAction`
+- Sets the Always On Display setting of your iPhone to on or off.
+- keywords: display, aod
+- icon: iphone.always.on.display (Blue)
+- InputPassthrough: True
+
+## Set Announce Notifications
+
+- identifier: `is.workflow.actions.announcenotifications.set`  ·  class `WFHandleCustomIntentAction`
+- Sets Announce Notifications to on or off. When on, Siri will announce notifications from new apps that send Time Sensitive notifications or direct messages.
+
+## Set Appearance
+
+- identifier: `is.workflow.actions.appearance`  ·  class `WFSetAppearanceAction`
+- Changes system appearance.
+- keywords: style, mode, dark, appearance
+- icon: appearance (Blue)
+- ResidentCompatible: False
+
 ## Set Appearance on Apple TV
 
 - identifier: `com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent`  ·  class `WFHandleCustomIntentAction`
 - output:
 - icon: appearance.darkmode (Black)
+
+## Set Audio Descriptions
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent`  ·  class `None`
+- Automatically play audio descriptions. Audio Descriptions can also be enabled under Accessibility in Settings.
+
+## Set Auto-Launch Audio Apps
+
+- identifier: `com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent`  ·  class `None`
+- Sets the Auto-Launch Audio Apps setting of your Apple Watch to on or off.
+
+When Auto-Launch Audio Apps is on, the app actively playing media will be shown when your Apple Watch wakes.
+
+## Set Background Sounds Timer Interval
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent`  ·  class `None`
+- Sets the timer interval for background sounds. Background sounds mask unwanted environmental noise and can be used when media is playing. Background sounds can also be enabled under Accessibility in Settings.
+
+## Set Background Sounds Volume
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent`  ·  class `None`
+- Sets the volume for background sounds.
+
+## Set Bluetooth
+
+- identifier: `is.workflow.actions.bluetooth.set`  ·  class `WFHandleCustomIntentAction`
+- Sets the device’s Bluetooth to on or off.
+- keywords: wireless, accessories, accessory, turn
+- icon: bluetooth (Blue)
+- InputPassthrough: True
+
+## Set Brightness
+
+- identifier: `is.workflow.actions.setbrightness`  ·  class `WFHandleCustomIntentAction`
+- Sets the device brightness.
+- keywords: screen, display, backlight
+- icon: sun.max.fill (Blue)
+- InputPassthrough: True
+
+## Set Cellular Data
+
+- identifier: `is.workflow.actions.cellulardata.set`  ·  class `WFSetCellularDataAction`
+- Sets the device’s Cellular Data to on or off.
+- keywords: service, phone, airplane, turn
+- icon: antenna.radiowaves.left.and.right (Green)
+- InputPassthrough: True
+
+## Set Classic Invert
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent`  ·  class `None`
+- Reverses the colors of the display. Classic Invert can also be enabled under Accessibility in Settings.
+
+## Set Closed Captions+SDH
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent`  ·  class `None`
+- Use closed captions for the deaf and hard of hearing. Closed captions can also be enabled under Accessibility in Settings.
+
+## Set Color Filters
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent`  ·  class `None`
+- Enable or disable Color Filters, allowing the display's colors to be adjusted as desired.
 
 ## Set Dictionary Value
 
@@ -4087,6 +4030,23 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFDictionaryKey` (TextInput) Key
   - `WFDictionaryValue` (TextInput) Value
   - `WFDictionary` (VariablePicker) Dictionary
+
+## Set Flashlight
+
+- identifier: `com.apple.NanoSettings.NPRFSetFlashLightIntent`  ·  class `None`
+- Enables Flashlight.
+
+## Set Flashlight
+
+- identifier: `is.workflow.actions.flashlight`  ·  class `WFHandleCustomIntentAction`
+- Turns on or off the flashlight near the device's camera.
+- summary variants:
+  - `${operation} flashlight ${state}`
+  - `${operation} flashlight ${state}`
+  - `${operation} flashlight`
+- keywords: flash, torch, turn
+- icon: flashlight.on.fill (Blue)
+- InputPassthrough: True
 
 ## Set Focus
 
@@ -4110,6 +4070,16 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `Time` (DateField) Time — The time after which to turn off the Focus
   - `FocusModes` (FocusModesPicker) Focus
 
+## Set Full Keyboard Access
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent`  ·  class `None`
+- Enable or disable Full Keyboard Access, allowing use of the device with only a keyboard.
+
+## Set Head Pointer
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent`  ·  class `None`
+- Enable or disable Head Pointer, allowing movement of the mouse cursor using your head.
+
 ## Set Hotspot Password
 
 - identifier: `is.workflow.actions.personalhotspot.password.set`  ·  class `WFSetHotspotPasswordAction`
@@ -4120,6 +4090,54 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - icon: personalhotspot (Green)
 - parameters:
   - `WFInput` (TextInput) Password
+
+## Set Hover Text
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent`  ·  class `None`
+- Enable or disable Hover Text.
+
+## Set Hover Typing
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent`  ·  class `None`
+- Enable or disable Hover Typing.
+
+## Set Increase Contrast
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent`  ·  class `None`
+- Increase color contrast between app foreground and background colors. Increase Contrast can also be enabled under Accessibility in Settings.
+
+## Set Live Captions
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent`  ·  class `None`
+- Enable or disable Live Captions.
+
+## Set Live Speech
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent`  ·  class `None`
+- Enable or disable Live Speech.
+
+## Set Low Power Mode
+
+- identifier: `is.workflow.actions.lowpowermode.set`  ·  class `WFSetLowPowerModeAction`
+- Sets the device’s Low Power Mode to on or off.
+- keywords: battery, life, charge, turn
+- icon: battery.50 (Orange)
+- InputPassthrough: True
+
+## Set Mono Audio
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent`  ·  class `None`
+- Mono Audio enables the left and right speakers to play the same content. Mono Audio can also be enabled under Accessibility in Settings.
+
+## Set Motion Cues
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent`  ·  class `None`
+- Enable or disable Motion Cues.
+
+## Set Mouse Keys
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent`  ·  class `None`
+- Enable or disable Mouse Keys, allowing the movement of the mouse cursor using the keyboard.
 
 ## Set Name
 
@@ -4136,6 +4154,14 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFDontIncludeFileExtension` (Switch) Don’t Include File Extension — By default, Shortcuts will automatically include a file extension if one isn’t specified. Turn this on if you want to create a file with no extension.
   - `WFInput` (VariablePicker) Input
 
+## Set Night Shift
+
+- identifier: `is.workflow.actions.nightshift.set`  ·  class `WFHandleCustomIntentAction`
+- Enables or disables Night Shift. When enabled, the colors of your display will be shifted to the warmer end of the color spectrum after dark. This may help you get a better night’s sleep.
+- keywords: display, brightness, blue light
+- icon: nightshift (Orange)
+- InputPassthrough: True
+
 ## Set Noise Control Mode
 
 - identifier: `is.workflow.actions.listeningmode.set`  ·  class `WFSetListeningModeAction`
@@ -4148,6 +4174,14 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFRoute` (MediaRoutePicker) Device
   - `WFListeningMode` (ListeningModePicker) Noise Control Mode
+
+## Set Orientation Lock
+
+- identifier: `is.workflow.actions.orientationlock.set`  ·  class `WFSetOrientationLockAction`
+- Turns on or off orientation lock on your device.
+- keywords: rotation, rotate
+- icon: lock.rotation (Red)
+- InputPassthrough: True
 
 ## Set Parked Car
 
@@ -4164,6 +4198,89 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFSetParkedCarNotes` (TextInput) Notes — Optional text that will be stored along with your parked car.
   - `WFImage` (VariablePicker) Image — An optional image of the location where you parked the car.
 
+## Set Personal Hotspot
+
+- identifier: `is.workflow.actions.personalhotspot.set`  ·  class `WFHandleCustomIntentAction`
+- Sets the device’s Personal Hotspot to on or off.
+- note: When turning Personal Hotspot on, this action will make the hotspot discoverable for only a short period of time, in order to preserve battery life.
+- keywords: wireless, accessories, accessory, turn, tethering, cellular, internet, sharing, data, 3g, 4g, 5g
+- icon: personalhotspot (Green)
+- InputPassthrough: True
+
+## Set Reduce Motion
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent`  ·  class `None`
+- Reduce the motion of the user interface, including the parallax effect of icons. Reduce Motion can also be enabled under Accessibility in Settings.
+
+## Set Reduce Transparency
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent`  ·  class `None`
+- Improve contrast by reducing transparency and blurs on some backgrounds to increase legibility. Reduce Transparency can also be enabled under Accessibility in Settings.
+
+## Set Schooltime
+
+- identifier: `com.apple.NanoSettings.NPRFSetSchoolTimeIntent`  ·  class `None`
+- Sets Schooltime on your Apple Watch to on or off.
+
+Schooltime limits Apple Watch features during school hours.
+
+## Set Silence Unknown Callers
+
+- identifier: `is.workflow.actions.silenceunknowncallers.set`  ·  class `WFHandleCustomIntentAction`
+- Sets Silence Unknown Callers to on or off. When on, calls from unknown numbers will be silenced and sent to voicemail. Calls will still be displayed on the Recents list. Incoming calls will continue to ring from people in your contacts, recent outgoing calls, and Siri Suggestions.
+- keywords: phone, spam, scam
+- icon: phone.arrow.down.left.fill (Green)
+- InputPassthrough: True
+
+## Set Silent Mode
+
+- identifier: `com.apple.NanoSettings.NPRFSetSilentModeIntent`  ·  class `None`
+- Sets Silent Mode on your Apple Watch to on or off.
+
+Silent Mode mutes most Apple Watch sounds.
+
+## Set Slow Keys
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent`  ·  class `None`
+- Enable or disable Slow Keys, allowing the keyboard to avoid recognizing rapid key presses.
+
+## Set Smart Invert
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent`  ·  class `None`
+- Reverses the colors of the display except for images, media and some apps that use dark color styles. Smart Invert can also be enabled under Accessibility in Settings.
+
+## Set Stage Manager
+
+- identifier: `is.workflow.actions.stagemanager.set`  ·  class `WFHandleCustomIntentAction`
+- Enables or disables Stage Manager on the device.
+- keywords: window, set
+- icon: squares.leading.rectangle (Blue)
+
+## Set Sticky Keys
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent`  ·  class `None`
+- Enable or disable Sticky Keys, making it easier to press keyboard modifier keys.
+
+## Set Switch Control
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent`  ·  class `None`
+- Switch Control highlights items on the screen to control through an adaptive accessory. Switch Control can also be enabled under Accessibility in Settings.
+
+## Set Theater Mode
+
+- identifier: `com.apple.NanoSettings.NPRFSetTheaterModeIntent`  ·  class `None`
+- Sets Theater Mode on your Apple Watch to on or off.
+
+Theater Mode mutes most Apple Watch sounds and limits display activity.
+
+## Set True Tone
+
+- identifier: `is.workflow.actions.truetone.set`  ·  class `WFHandleCustomIntentAction`
+- Enables or disables True Tone. When enabled, your device display will automatically adapt based on ambient lighting conditions to make colors appear consistent in different environments.
+- keywords: display, brightness
+- icon: truetone (Blue)
+- InputPassthrough: True
+
 ## Set Variable
 
 - identifier: `is.workflow.actions.setvariable`  ·  class `WFSetVariableAction`
@@ -4176,6 +4293,16 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFInput` (VariablePicker) Input
   - `WFVariableName` (VariableField) Variable
+
+## Set Voice Control
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent`  ·  class `None`
+- Voice Control allows you to use your voice to control your iOS device. Voice Control can also be enabled under Accessibility in Settings.
+
+## Set VoiceOver
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent`  ·  class `None`
+- VoiceOver speaks items on the screen. VoiceOver can also be enabled under Accessibility in Settings.
 
 ## Set Volume
 
@@ -4211,6 +4338,13 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFOnDemandValue` (Switch) Set On Demand To default=true
   - `WFVPN` (VPNPicker) VPN — The VPNs that will be configured by running this action.
 
+## Set Wake on Wrist Raise
+
+- identifier: `com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent`  ·  class `None`
+- Sets the Wake on Wrist Raise setting of your Apple Watch to on or off.
+
+When Wake on Wrist Raise is on, the screen will wake when you raise your wrist.
+
 ## Set Wallpaper Photo
 
 - identifier: `is.workflow.actions.wallpaper.set`  ·  class `WFSetWallpaperAction`
@@ -4230,6 +4364,26 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFSelectedPoster` (PosterPicker) Wallpaper
   - `WFWallpaperSmartCrop` (Switch) Crop to Subject default=true
   - `WFWallpaperLegibilityBlur` (Switch) Legibility Blur default=true
+
+## Set Water Lock
+
+- identifier: `com.apple.NanoSettings.NPRFSetWaterLockIntent`  ·  class `None`
+- Sets the Water Lock setting on your Apple Watch to on or off.
+
+Water Lock protects against accidental input when you use your Apple Watch in water.
+
+## Set Wi-Fi
+
+- identifier: `is.workflow.actions.wifi.set`  ·  class `WFSetWiFiAction`
+- Sets the device’s Wi-Fi to on or off.
+- keywords: airport, wifi, wi-fi, wireless, internet, network, wlan, turn
+- icon: wifi (Blue)
+- InputPassthrough: True
+
+## Set Zoom
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent`  ·  class `None`
+- Zoom magnifies the entire screen. Zoom can also be enabled under Accessibility in Settings.
 
 ## Share
 
@@ -4339,6 +4493,11 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFProduct` (VariablePicker) Product
 
+## Show Notes Folder
+
+- identifier: `com.apple.Notes.ICNotesFolderIntent`  ·  class `None`
+- Get quick access to one of your Notes folders.
+
 ## Show Notification
 
 - identifier: `is.workflow.actions.notification`  ·  class `WFNotificationAction`
@@ -4361,6 +4520,21 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - Opens the Quick Reminder view.
 - output:
 - InputPassthrough: False
+
+## Show Today Feed
+
+- identifier: `com.apple.news.TodayIntent`  ·  class `None`
+- Shows stories from the Today feed in Apple News.
+
+## Show Topic
+
+- identifier: `com.apple.news.TagIntent`  ·  class `None`
+- Shows stories about the topic you choose.
+
+## Show Weather
+
+- identifier: `com.apple.weather.WeatherIntent`  ·  class `None`
+- Shows and gets the current weather for the specified location.
 
 ## Show Web View
 
@@ -4459,6 +4633,14 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFPrimaryAppIdentifier` (AppPicker) App
   - `WFSecondaryAppIdentifier` (AppPicker) App
   - `WFAppRatio` (Enumeration) Ratio default="\u00bd + \u00bd" choices=["\u00bd + \u00bd", "\u2154 + \u2153"]
+
+## Split Text
+
+- identifier: `is.workflow.actions.text.split`  ·  class `WFTextComponentsAction`
+- Separates text passed into the action into a list.
+- output:
+- keywords: separate, delimiter
+- ResidentCompatible: True
 
 ## Start Screen Saver
 
@@ -4622,6 +4804,11 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - parameters:
   - `WFTextActionText` (TextInput) Text default=""
 
+## Toggle Background Sounds
+
+- identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent`  ·  class `None`
+- Enable or disable Background Sounds.
+
 ## Translate Text
 
 - identifier: `is.workflow.actions.text.translate`  ·  class `WFTranslateTextAction`
@@ -4675,6 +4862,65 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - keywords: twitter, tweet, social, media, sharing, share
 - parameters:
   - `TweetInput` (TextInput) Tweet
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.LaunchApplicationIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.LaunchRemoteIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+- icon: appletvremote.gen4.fill (Black)
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.LaunchScreenSaverIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+- icon: tv.fill (Black)
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.PauseContentIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+- icon: playpause.fill (Black)
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.ReduceLoudSoundsIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+- icon: ear.trianglebadge.exclamationmark (Black)
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.SkipContentIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+- icon: forward.fill (Black)
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.SleepAppleTVIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+- icon: sleep (Black)
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.SwitchUserAccountIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+- icon: person.crop.circle (Black)
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.ToggleCaptionsIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+- icon: captions.bubble.fill (Black)
+
+## Unknown Action
+
+- identifier: `com.apple.TVRemoteUIService.WakeAppleTVIntent`  ·  class `WFHandleCustomIntentAction`
+- output:
+- icon: power (Black)
 
 ## Unknown Intent
 

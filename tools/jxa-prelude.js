@@ -7,6 +7,7 @@
 // frameworks and call Objective-C through the bridge. A platform process refuses to map any
 // non-platform code, so the probes cannot be compiled; they are written in JavaScript.
 ObjC.import("Foundation");
+ObjC.import("AppKit");
 ObjC.bindFunction("dlopen", ["void *", ["string", "int"]]);
 ObjC.bindFunction("objc_getClass", ["void *", ["string"]]);
 ObjC.bindFunction("class_getSuperclass", ["void *", ["void *"]]);
@@ -57,6 +58,15 @@ function makeBool(className, selector, b) {
 function makeUInts(className, selector, a, b) {
   ObjC.bindFunction("objc_msgSend", ["void *", ["void *", "void *", "unsigned long", "unsigned short"]]);
   return ObjC.castRefToObject($.objc_msgSend(allocRef(className), $.sel_registerName(selector), a, b));
+}
+// WFIntentActionProvider also lists SiriKit intents of whatever App Store apps are installed
+// (Keynote, Pages, ...). Only intents whose app ships with macOS belong in committed data:
+// those resolve to /System or to no app at all (Apple Watch settings, Accessibility).
+function isSystemBundle(bundleId) {
+  if (!bundleId) return true;
+  const url = $.NSWorkspace.sharedWorkspace.URLForApplicationWithBundleIdentifier(bundleId);
+  if (isNil(url)) return true;
+  return str(url.path).startsWith("/System/");
 }
 function methodNames(className) {
   const out = [];

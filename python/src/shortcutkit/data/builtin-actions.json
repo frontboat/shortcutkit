@@ -1,4 +1,144 @@
 {
+ "com.apple.NanoSettings.NPRFPingMyPhoneIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.NanoSettings"
+  },
+  "Description": {
+   "DescriptionSummary": "Plays a sound on your paired iPhone.\n\nYou can also choose to have the flashlight pulse."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFPingMyPhoneIntent",
+  "IntentName": "NPRFPingMyPhoneIntent",
+  "Name": "Ping My iPhone",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.NanoSettings.NPRFSetAlwaysOnIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.NanoSettings"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets the Always On display setting of your Apple Watch to on or off.\n\nWhen Always On is activated, your Apple Watch face will be visible even when your wrist is down."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetAlwaysOnIntent",
+  "IntentName": "NPRFSetAlwaysOnIntent",
+  "Name": "Set Always On",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.NanoSettings"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets the Auto-Launch Audio Apps setting of your Apple Watch to on or off.\n\nWhen Auto-Launch Audio Apps is on, the app actively playing media will be shown when your Apple Watch wakes."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent",
+  "IntentName": "NPRFSetAutoLaunchAudioAppsIntent",
+  "Name": "Set Auto-Launch Audio Apps",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.NanoSettings.NPRFSetFlashLightIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.NanoSettings"
+  },
+  "Description": {
+   "DescriptionSummary": "Enables Flashlight."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetFlashLightIntent",
+  "IntentName": "NPRFSetFlashLightIntent",
+  "Name": "Set Flashlight",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.NanoSettings.NPRFSetSchoolTimeIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.NanoSettings"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets Schooltime on your Apple Watch to on or off.\n\nSchooltime limits Apple Watch features during school hours."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetSchoolTimeIntent",
+  "IntentName": "NPRFSetSchoolTimeIntent",
+  "Name": "Set Schooltime",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.NanoSettings.NPRFSetSilentModeIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.NanoSettings"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets Silent Mode on your Apple Watch to on or off.\n\nSilent Mode mutes most Apple Watch sounds."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetSilentModeIntent",
+  "IntentName": "NPRFSetSilentModeIntent",
+  "Name": "Set Silent Mode",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.NanoSettings.NPRFSetTheaterModeIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.NanoSettings"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets Theater Mode on your Apple Watch to on or off.\n\nTheater Mode mutes most Apple Watch sounds and limits display activity."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetTheaterModeIntent",
+  "IntentName": "NPRFSetTheaterModeIntent",
+  "Name": "Set Theater Mode",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.NanoSettings"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets the Wake on Wrist Raise setting of your Apple Watch to on or off.\n\nWhen Wake on Wrist Raise is on, the screen will wake when you raise your wrist."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent",
+  "IntentName": "NPRFSetWakeOnWristRaiseIntent",
+  "Name": "Set Wake on Wrist Raise",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.NanoSettings.NPRFSetWaterLockIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.NanoSettings"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets the Water Lock setting on your Apple Watch to on or off.\n\nWater Lock protects against accidental input when you use your Apple Watch in water."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetWaterLockIntent",
+  "IntentName": "NPRFSetWaterLockIntent",
+  "Name": "Set Water Lock",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.Notes.ICNotesFolderIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.Notes"
+  },
+  "Description": {
+   "DescriptionSummary": "Get quick access to one of your Notes folders."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.Notes.ICNotesFolderIntent",
+  "IntentName": "ICNotesFolderIntent",
+  "Name": "Show Notes Folder",
+  "NameSource": "ToolKit"
+ },
  "com.apple.TVRemoteUIService.LaunchApplicationIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
   "AppDefinition": {
@@ -7,6 +147,8 @@
   "FillingProvider": "WFBundledActionProvider",
   "IconName": "TVRemote_OpenApp",
   "IntentName": "LaunchApplicationIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
@@ -20,6 +162,8 @@
   "IconColor": "Black",
   "IconSymbol": "appletvremote.gen4.fill",
   "IntentName": "LaunchRemoteIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
@@ -33,6 +177,8 @@
   "IconColor": "Black",
   "IconSymbol": "tv.fill",
   "IntentName": "LaunchScreenSaverIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
@@ -47,6 +193,8 @@
   "IconColor": "Black",
   "IconSymbol": "playpause.fill",
   "IntentName": "PauseContentIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
@@ -61,6 +209,8 @@
   "IconColor": "Black",
   "IconSymbol": "ear.trianglebadge.exclamationmark",
   "IntentName": "ReduceLoudSoundsIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
@@ -75,6 +225,8 @@
   "IconColor": "Black",
   "IconSymbol": "forward.fill",
   "IntentName": "SkipContentIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
@@ -88,6 +240,8 @@
   "IconColor": "Black",
   "IconSymbol": "sleep",
   "IntentName": "SleepAppleTVIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
@@ -101,6 +255,8 @@
   "IconColor": "Black",
   "IconSymbol": "person.crop.circle",
   "IntentName": "SwitchUserAccountIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
@@ -115,6 +271,8 @@
   "IconColor": "Black",
   "IconSymbol": "captions.bubble.fill",
   "IntentName": "ToggleCaptionsIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
@@ -142,9 +300,417 @@
   "IconColor": "Black",
   "IconSymbol": "power",
   "IntentName": "WakeAppleTVIntent",
+  "Name": "Unknown Action",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   }
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Change the background sound that will play when background sounds is turned on. Background sounds mask unwanted environmental noise. Background sounds can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent",
+  "IntentName": "UASetBackgroundSoundIntent",
+  "Name": "Change Background Sound",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets the timer interval for background sounds. Background sounds mask unwanted environmental noise and can be used when media is playing. Background sounds can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent",
+  "IntentName": "UASetBackgroundSoundsTimerIntent",
+  "Name": "Set Background Sounds Timer Interval",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Sets the volume for background sounds."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent",
+  "IntentName": "UASetBackgroundSoundsVolumeIntent",
+  "Name": "Set Background Sounds Volume",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable the Accessibility Keyboard, allowing typing by clicking on the screen."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent",
+  "IntentName": "UAToggleAccessibilityKeyboardIntent",
+  "Name": "Set Accessibility Keyboard",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Alternate Pointer Actions, allowing the use of switches or gesture to trigger mouse actions such as clicks."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent",
+  "IntentName": "UAToggleAlternatePointerActionsIntent",
+  "Name": "Set Alternate Pointer Actions",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Automatically play audio descriptions. Audio Descriptions can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent",
+  "IntentName": "UAToggleAudioDescriptionsIntent",
+  "Name": "Set Audio Descriptions",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Background Sounds."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent",
+  "IntentName": "UAToggleBackgroundSoundsIntent",
+  "Name": "Toggle Background Sounds",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Use closed captions for the deaf and hard of hearing. Closed captions can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent",
+  "IntentName": "UAToggleCaptionsIntent",
+  "Name": "Set Closed Captions+SDH",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Reverses the colors of the display. Classic Invert can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent",
+  "IntentName": "UAToggleClassicInvertIntent",
+  "Name": "Set Classic Invert",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Color Filters, allowing the display's colors to be adjusted as desired."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent",
+  "IntentName": "UAToggleColorFiltersIntent",
+  "Name": "Set Color Filters",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Increase color contrast between app foreground and background colors. Increase Contrast can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent",
+  "IntentName": "UAToggleContrastIntent",
+  "Name": "Set Increase Contrast",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Full Keyboard Access, allowing use of the device with only a keyboard."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent",
+  "IntentName": "UAToggleFullKeyboardAccessIntent",
+  "Name": "Set Full Keyboard Access",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Head Pointer, allowing movement of the mouse cursor using your head."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent",
+  "IntentName": "UAToggleHeadPointerIntent",
+  "Name": "Set Head Pointer",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Hover Text."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent",
+  "IntentName": "UAToggleHoverTextIntent",
+  "Name": "Set Hover Text",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Hover Typing."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent",
+  "IntentName": "UAToggleHoverTypingIntent",
+  "Name": "Set Hover Typing",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Live Captions."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent",
+  "IntentName": "UAToggleLiveCaptionsIntent",
+  "Name": "Set Live Captions",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Live Speech."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent",
+  "IntentName": "UAToggleLiveSpeechIntent",
+  "Name": "Set Live Speech",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Mono Audio enables the left and right speakers to play the same content. Mono Audio can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent",
+  "IntentName": "UAToggleMonoAudioIntent",
+  "Name": "Set Mono Audio",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Motion Cues."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent",
+  "IntentName": "UAToggleMotionCuesIntent",
+  "Name": "Set Motion Cues",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Mouse Keys, allowing the movement of the mouse cursor using the keyboard."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent",
+  "IntentName": "UAToggleMouseKeysIntent",
+  "Name": "Set Mouse Keys",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Reduce the motion of the user interface, including the parallax effect of icons. Reduce Motion can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent",
+  "IntentName": "UAToggleReduceMotionIntent",
+  "Name": "Set Reduce Motion",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Slow Keys, allowing the keyboard to avoid recognizing rapid key presses."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent",
+  "IntentName": "UAToggleSlowKeysIntent",
+  "Name": "Set Slow Keys",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Reverses the colors of the display except for images, media and some apps that use dark color styles. Smart Invert can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent",
+  "IntentName": "UAToggleSmartInvertIntent",
+  "Name": "Set Smart Invert",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Enable or disable Sticky Keys, making it easier to press keyboard modifier keys."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent",
+  "IntentName": "UAToggleStickyKeysIntent",
+  "Name": "Set Sticky Keys",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Switch Control highlights items on the screen to control through an adaptive accessory. Switch Control can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent",
+  "IntentName": "UAToggleSwitchControlIntent",
+  "Name": "Set Switch Control",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Improve contrast by reducing transparency and blurs on some backgrounds to increase legibility. Reduce Transparency can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent",
+  "IntentName": "UAToggleTransparencyIntent",
+  "Name": "Set Reduce Transparency",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Voice Control allows you to use your voice to control your iOS device. Voice Control can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent",
+  "IntentName": "UAToggleVoiceControlIntent",
+  "Name": "Set Voice Control",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "VoiceOver speaks items on the screen. VoiceOver can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent",
+  "IntentName": "UAToggleVoiceOverIntent",
+  "Name": "Set VoiceOver",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.systempreferences"
+  },
+  "Description": {
+   "DescriptionSummary": "Zoom magnifies the entire screen. Zoom can also be enabled under Accessibility in Settings."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent",
+  "IntentName": "UAToggleZoomIntent",
+  "Name": "Set Zoom",
+  "NameSource": "ToolKit"
  },
  "com.apple.facetime.facetime": {
   "ActionClass": "WFStartCallAction",
@@ -367,6 +933,51 @@
    "UIKit": "WFShazamMediaActionUIKitUserInterface",
    "Watch": "WFShazamMediaActionWatchUserInterface"
   }
+ },
+ "com.apple.news.TagIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.news"
+  },
+  "Description": {
+   "DescriptionSummary": "Shows stories about the topic you choose."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.news.TagIntent",
+  "IntentName": "TagIntent",
+  "Name": "Show Topic",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.news.TodayIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.news"
+  },
+  "Description": {
+   "DescriptionSummary": "Shows stories from the Today feed in Apple News."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.news.TodayIntent",
+  "IntentName": "TodayIntent",
+  "Name": "Show Today Feed",
+  "NameSource": "ToolKit"
+ },
+ "com.apple.weather.WeatherIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.weather"
+  },
+  "Description": {
+   "DescriptionSummary": "Shows and gets the current weather for the specified location."
+  },
+  "DisabledOnPlatforms": [
+   "Watch"
+  ],
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.weather.WeatherIntent",
+  "IntentName": "WeatherIntent",
+  "Name": "Show Weather",
+  "NameSource": "ToolKit"
  },
  "com.panic.iOS.Transmit.Share": {
   "ActionClass": "WFShareExtensionAction",
@@ -1662,6 +2273,9 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Sets the device\u2019s Airplane Mode to on or off."
+  },
   "DisabledOnPlatforms": [
    "Desktop"
   ],
@@ -1670,6 +2284,8 @@
   "IconSymbol": "airplane",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetAirplaneModeIntent",
+  "Name": "Set Airplane Mode",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"
@@ -1731,12 +2347,17 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Sets Announce Notifications to on or off. When on, Siri will announce notifications from new apps that send Time Sensitive notifications or direct messages."
+  },
   "DisabledOnPlatforms": [
    "Desktop"
   ],
   "FillingProvider": "WFBundledActionProvider",
   "IconName": "Siri",
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetAnnounceNotificationsIntent",
+  "Name": "Set Announce Notifications",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"
@@ -1752,6 +2373,7 @@
   "ActionClass": "WFSetAppearanceAction",
   "ActionKeywords": "style|mode|dark|appearance",
   "Description": {
+   "DescriptionSummary": "Changes system appearance.",
    "FocusFilterDescription": "Set appearance to either light or dark when this Focus turns on."
   },
   "DisabledOnPlatforms": [
@@ -1761,6 +2383,8 @@
   "IconColor": "Blue",
   "IconSymbol": "appearance",
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetAppearanceIntent",
+  "Name": "Set Appearance",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "style": {
     "Label": "Appearance",
@@ -1827,6 +2451,8 @@
   "IconColor": "Cyan",
   "IconSymbol": "plus.bubble.fill",
   "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFAskForInputIntent",
+  "Name": "Ask for Input",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public",
    "Multiple": false,
@@ -2212,11 +2838,16 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Sets the device\u2019s Bluetooth to on or off."
+  },
   "FillingProvider": "WFBundledActionProvider",
   "IconColor": "Blue",
   "IconSymbol": "bluetooth",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetBluetoothIntent",
+  "Name": "Set Bluetooth",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"
@@ -2272,11 +2903,16 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Sets the device\u2019s Cellular Data to on or off."
+  },
   "FillingProvider": "WFBundledActionProvider",
   "IconColor": "Green",
   "IconSymbol": "antenna.radiowaves.left.and.right",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetCellularDataIntent",
+  "Name": "Set Cellular Data",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"
@@ -2730,10 +3366,15 @@
  "is.workflow.actions.correctspelling": {
   "ActionClass": "WFHandleCustomIntentAction",
   "ActionKeywords": "text|spell|spelling|correct|autocorrect",
+  "Description": {
+   "DescriptionSummary": "Autocorrects the spelling of text passed into the action."
+  },
   "FillingProvider": "WFBundledActionProvider",
   "IconName": "Text",
   "InProcess": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFCorrectSpellingIntent",
+  "Name": "Correct Spelling",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   },
@@ -3701,6 +4342,8 @@
   "IconSymbol": "iphone.always.on.display",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetAlwaysOnDisplayIntent",
+  "Name": "Set Always On Display",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue",
@@ -6266,6 +6909,9 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Turns on or off the flashlight near the device's camera."
+  },
   "DisabledOnPlatforms": [
    "Desktop"
   ],
@@ -6274,6 +6920,8 @@
   "IconSymbol": "flashlight.on.fill",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetFlashlightIntent",
+  "Name": "Set Flashlight",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "value": {
     "Key": "WFFlashlightLevel",
@@ -11588,6 +12236,7 @@
    "BundleIdentifier": "com.apple.Preferences"
   },
   "Description": {
+   "DescriptionSummary": "Sets the device\u2019s Low Power Mode to on or off.",
    "FocusFilterDescription": "Low Power Mode will turn on or off with this Focus."
   },
   "DisabledOnPlatforms": [
@@ -11598,6 +12247,8 @@
   "IconSymbol": "battery.50",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetLowPowerModeIntent",
+  "Name": "Set Low Power Mode",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue",
@@ -12646,6 +13297,9 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Enables or disables Night Shift. When enabled, the colors of your display will be shifted to the warmer end of the color spectrum after dark. This may help you get a better night\u2019s sleep."
+  },
   "DisabledOnPlatforms": [
    "Watch"
   ],
@@ -12654,6 +13308,8 @@
   "IconSymbol": "nightshift",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetNightShiftIntent",
+  "Name": "Set Night Shift",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"
@@ -13202,6 +13858,9 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Turns on or off orientation lock on your device."
+  },
   "DisabledOnPlatforms": [
    "Watch"
   ],
@@ -13210,6 +13869,8 @@
   "IconSymbol": "lock.rotation",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetOrientationLockIntent",
+  "Name": "Set Orientation Lock",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"
@@ -14162,6 +14823,8 @@
   "IconSymbol": "personalhotspot",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetPersonalHotspotIntent",
+  "Name": "Set Personal Hotspot",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"
@@ -16460,6 +17123,8 @@
    ]
   },
   "InputPassthrough": false,
+  "Name": "Run JavaScript on Active Safari Tab",
+  "NameSource": "ToolKit",
   "Output": {
    "Multiple": false,
    "OutputName": "JavaScript Result",
@@ -17831,11 +18496,16 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Sets the device brightness."
+  },
   "FillingProvider": "WFBundledActionProvider",
   "IconColor": "Blue",
   "IconSymbol": "sun.max.fill",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetBrightnessIntent",
+  "Name": "Set Brightness",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "value": {
     "Description": "If you set the brightness using a variable, use a number between 0 and 1 (for example, pass 0.5 for half brightness).",
@@ -18756,6 +19426,9 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Sets Silence Unknown Callers to on or off. When on, calls from unknown numbers will be silenced and sent to voicemail. Calls will still be displayed on the Recents list. Incoming calls will continue to ring from people in your contacts, recent outgoing calls, and Siri Suggestions."
+  },
   "DisabledOnPlatforms": [
    "Watch",
    "Desktop"
@@ -18765,6 +19438,8 @@
   "IconSymbol": "phone.arrow.down.left.fill",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetSilenceUnknownCallersIntent",
+  "Name": "Set Silence Unknown Callers",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"
@@ -19193,6 +19868,9 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Enables or disables Stage Manager on the device."
+  },
   "DisabledOnPlatforms": [
    "Watch"
   ],
@@ -19203,6 +19881,8 @@
   "IconColor": "Blue",
   "IconSymbol": "squares.leading.rectangle",
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetStageManagerIntent",
+  "Name": "Set Stage Manager",
+  "NameSource": "ToolKit",
   "RequiredResources": [
    {
     "resource": "WFDeviceCapabilityResource"
@@ -19573,11 +20253,16 @@
  "is.workflow.actions.text.changecase": {
   "ActionClass": "WFHandleCustomIntentAction",
   "ActionKeywords": "uppercase|lowercase|title|transform|text|capitalize",
+  "Description": {
+   "DescriptionSummary": "Changes the case of the text passed into the action to UPPERCASE, lowercase, or Title Case."
+  },
   "FillingProvider": "WFBundledActionProvider",
   "IconColor": "Yellow_Accessibility",
   "IconSymbol": "textformat",
   "InProcess": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFChangeCaseIntent",
+  "Name": "Change Case",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   },
@@ -19599,10 +20284,15 @@
  "is.workflow.actions.text.combine": {
   "ActionClass": "WFTextComponentsAction",
   "ActionKeywords": "separate|delimiter|append",
+  "Description": {
+   "DescriptionSummary": "Joins the text together, inserting the separator between each join."
+  },
   "FillingProvider": "WFBundledActionProvider",
   "IconName": "Text",
   "InProcess": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFCombineTextIntent",
+  "Name": "Combine Text",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   },
@@ -19626,12 +20316,15 @@
   "ActionClass": "WFHandleCustomIntentAction",
   "ActionKeywords": "finding|matching|searching|regular|expression|regexp",
   "Description": {
-   "DescriptionResult": "A list of text items that matched the regular expression"
+   "DescriptionResult": "A list of text items that matched the regular expression",
+   "DescriptionSummary": "Searches text passed into the action for matches to a regular expression."
   },
   "FillingProvider": "WFBundledActionProvider",
   "IconName": "Text",
   "InProcess": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFMatchTextIntent",
+  "Name": "Match Text",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   },
@@ -19650,10 +20343,15 @@
  "is.workflow.actions.text.match.getgroup": {
   "ActionClass": "WFHandleCustomIntentAction",
   "ActionKeywords": "finding|matching|searching|regular|expression|regexp",
+  "Description": {
+   "DescriptionSummary": "Gets the text that matched a particular capture group or all of the capture groups from the output of a Match Text action."
+  },
   "FillingProvider": "WFBundledActionProvider",
   "IconName": "Text",
   "InProcess": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFMatchTextGetGroupIntent",
+  "Name": "Get Group from Matched Text",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public"
   },
@@ -19744,10 +20442,15 @@
  "is.workflow.actions.text.split": {
   "ActionClass": "WFTextComponentsAction",
   "ActionKeywords": "separate|delimiter",
+  "Description": {
+   "DescriptionSummary": "Separates text passed into the action into a list."
+  },
   "FillingProvider": "WFBundledActionProvider",
   "IconName": "Text",
   "InProcess": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.WorkflowKit.ShortcutsIntents.WFSplitTextIntent",
+  "Name": "Split Text",
+  "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public",
    "Multiple": true
@@ -20333,6 +21036,9 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Enables or disables True Tone. When enabled, your device display will automatically adapt based on ambient lighting conditions to make colors appear consistent in different environments."
+  },
   "DisabledOnPlatforms": [
    "Watch"
   ],
@@ -20341,6 +21047,8 @@
   "IconSymbol": "truetone",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetTrueToneIntent",
+  "Name": "Set True Tone",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"
@@ -21556,11 +22264,16 @@
   "AppDefinition": {
    "BundleIdentifier": "com.apple.Preferences"
   },
+  "Description": {
+   "DescriptionSummary": "Sets the device\u2019s Wi-Fi to on or off."
+  },
   "FillingProvider": "WFBundledActionProvider",
   "IconColor": "Blue",
   "IconSymbol": "wifi",
   "InputPassthrough": true,
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetWiFiIntent",
+  "Name": "Set Wi-Fi",
+  "NameSource": "ToolKit",
   "ParameterOverrides": {
    "state": {
     "Key": "OnValue"

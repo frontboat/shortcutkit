@@ -43,3 +43,5 @@ __pycache__/
 data/gallery-workflows.json
 data/app-provided-actions.json
 data/builtin-action-identifiers.txt
+data/toolkit-registry.json
+data/toolkit-names.json

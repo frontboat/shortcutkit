@@ -10,10 +10,12 @@ Build, validate and sign Apple Shortcuts (`.shortcut`) files from Python.
 Apple has never documented the `.shortcut` format or what its actions accept. shortcutkit
 does not guess at either. Its data was produced by loading WorkflowKit and ActionKit, the private
 frameworks behind the Shortcuts app, and asking their own classes to describe and serialize
-every built-in action. Every identifier, parameter key and value encoding came out of the engine, not from a
+every built-in action, plus the Shortcuts app's own action index for the App Intents of
+Apple's apps. Every identifier, parameter key and value encoding came out of the engine, not from a
 person reading files, so the package cannot disagree with the app.
 
-All 392 built-in actions are bundled with the value kind each parameter accepts, and
+All 434 built-in actions and 1,581 Apple App Intents actions are bundled with the value kind
+each parameter accepts, and
 `action()` checks your call against them before anything is written. A wrong key or a string
 where a boolean belongs raises `ValueError`. A file built from plain code signs, imports and
 runs. Pure Python, no dependencies. Signing shells out to the macOS `shortcuts` command;
@@ -28,8 +30,11 @@ Both live at https://github.com/frontboat/shortcutkit.
 
 ## Features
 
-- **Every built-in action, as a constant.** `actions.SETSTOREDCONTENT` and 338 more, so a
+- **Every built-in action, as a constant.** `actions.SETSTOREDCONTENT` and 433 more, so a
   typo is an `AttributeError` rather than a silent bad file.
+- **Apple's apps too.** `actions.REMINDERS_CREATE_REMINDER`, `actions.NOTES_CREATE_NOTE` and
+  1,579 more App Intents actions from 80 Apple apps and system components, with the
+  `AppIntentDescriptor` the file needs added for you.
 - **Parameters checked before you write anything.** `ACTIONS[identifier]` gives the name,
   parameter keys and output name; `PARAM_KINDS[identifier]` gives the value kind each key
   accepts. Unknown keys and wrong kinds raise `ValueError`. Attachments and token strings are
@@ -53,7 +58,7 @@ package on PyPI, archived 2024) and [shortcuts-js](https://github.com/joshfarran
 space and is a programming language with its own compiler rather than a library.
 
 shortcutkit is a plain Python library whose action catalogue comes from the Shortcuts engine
-rather than from a maintainer. All 392 built-in actions are covered, and the data regenerates
+rather than from a maintainer. All 434 built-in actions and 1,581 Apple App Intents are covered, and the data regenerates
 after each macOS update.
 
 ## Installation
@@ -96,9 +101,16 @@ s.action(actions.SHOWRESULT, Text=text("Nothing stored"))
 s.end_if(gid)
 ```
 
+### Apple's apps
+
+```python
+r = s.action(actions.REMINDERS_CREATE_REMINDER, title=text("Buy milk"), priorityLevel="high")
+s.action(actions.NOTES_CREATE_NOTE, name="Shopping", content=text("Added ", ref(r)))
+```
+
 ### Actions from other apps
 
-App Intents actions are not in the catalogue, so pass the identifier as a string:
+Third-party App Intents actions are not in the catalogue, so pass the identifier as a string:
 
 ```python
 s.action("com.example.app.CreateNote", title=text("Hello"), body=ref(got))
@@ -118,7 +130,9 @@ python -m shortcutkit demo out.shortcut
 - [Shortcut file format](https://github.com/frontboat/shortcutkit/blob/main/docs/shortcut-file-format.md):
   the `.shortcut` format end to end, every field.
 - [Built-in actions reference](https://github.com/frontboat/shortcutkit/blob/main/docs/builtin-actions-reference.md):
-  all 392 built-in actions with their parameters.
+  all 434 built-in actions with their parameters.
+- [Apple App Intents reference](https://github.com/frontboat/shortcutkit/blob/main/docs/apple-app-intents-reference.md):
+  the 1,581 App Intents actions of Apple's apps, by app.
 - [Parameter encodings](https://github.com/frontboat/shortcutkit/blob/main/docs/parameter-encodings.md):
   how each parameter class is serialized.
 - [Extraction notes](https://github.com/frontboat/shortcutkit/blob/main/docs/extraction.md):

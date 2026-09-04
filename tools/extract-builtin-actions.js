@@ -72,13 +72,26 @@ function sanitize(v, depth) {
 }
 
 function run(argv) {
-  if (argv.length < 1) { throw new Error("usage: extract-builtin-actions.js out.json"); }
+  if (argv.length < 1) throw new Error("usage: extract-builtin-actions.js out.json");
   loadEngine();
-  if (!hasClass("WFBundledActionProvider")) { throw new Error("WFBundledActionProvider not found; WorkflowKit internals changed"); }
+  if (!hasClass("WFBundledActionProvider")) throw new Error("WFBundledActionProvider not found; WorkflowKit internals changed");
   const provider = klass("WFBundledActionProvider").alloc.init;
   const ids = provider.availableActionIdentifiers;
   const defs = provider.actionDefinitionsWithIdentifiers(ids);
-  if (!isA(defs, "NSDictionary")) { throw new Error("unexpected definitions type " + cls(defs)); }
-  writeJSON(argv[0], sanitize(defs, 0));
-  console.log(defs.count + " actions -> " + argv[0]);
+  if (!isA(defs, "NSDictionary")) throw new Error("unexpected definitions type " + cls(defs));
+  const out = sanitize(defs, 0);
+  const bundled = Object.keys(out).length;
+  // WFIntentActionProvider serves Apple's SiriKit custom intents (Apple Watch settings, Notes
+  // folders, Accessibility toggles, ...). It has no definitions call; each created action
+  // carries its WFActionDefinition.
+  const intents = items(klass("WFIntentActionProvider").alloc.init.createAllAvailableActions);
+  for (let i = 0; i < count(intents); i++) {
+    const a = intents.objectAtIndex(i); const id = str(a.identifier);
+    if (id in out) continue;
+    const def = sanitize(a.definition, 0);
+    if (!isSystemBundle(def.AppDefinition && def.AppDefinition.BundleIdentifier)) continue;
+    out[id] = def;
+  }
+  writeJSON(argv[0], out);
+  console.log(Object.keys(out).length + " actions (" + bundled + " bundled, " + (Object.keys(out).length - bundled) + " intent provider) -> " + argv[0]);
 }

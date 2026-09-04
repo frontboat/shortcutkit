@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Generate typed action catalogues for both packages from data/builtin-actions.json.
+"""Generate typed action catalogues for both packages from data/builtin-actions.json and
+data/apple-app-intents.json.
 
 TypeScript: src/generated/actions.ts
   export const actions = { setstoredcontent: "is.workflow.actions.setstoredcontent", ... } as const
@@ -9,9 +10,11 @@ Python: python/src/shortcutkit/actions.py
   SETSTOREDCONTENT = "is.workflow.actions.setstoredcontent"; ACTIONS = {identifier: {...}}
 
 Keys are the identifier's tail after "is.workflow.actions." with dots turned into underscores;
-non-standard identifiers keep their full form sanitized. Run by extract-builtin-actions.sh.
+non-standard identifiers keep their full form sanitized. App Intents use the snake_case key the
+Shortcuts app assigns them (e.g. reminders_create_reminder), falling back to the sanitized
+identifier when it is missing or shared. Run by extract-builtin-actions.sh.
 
-usage: generate-action-catalog.py [data/builtin-actions.json]
+usage: generate-action-catalog.py [data/builtin-actions.json] [data/apple-app-intents.json]
 """
 import json
 import pathlib
@@ -110,6 +113,61 @@ def entries(defs):
     return out
 
 
+APP_INTENT_KIND_TS = {"text": "TextValue", "bool": "BoolValue", "number": "NumberValue", "string": "StringValue", "any": "AnyValue"}
+APPLE_TEAM = "0000000000"  # what Apple's own gallery shortcuts write for system apps
+
+
+def app_intent_entries(catalog):
+    """Entries for Apple's App Intents, from the Shortcuts app's registry (dump-toolkit-registry.py)."""
+    out = []
+    for ident in sorted(catalog):
+        t = catalog[ident]
+        params, kinds = [], {}
+        for p in t.get("parameters", []):
+            k = p["key"]
+            choices = [c["id"] for c in p.get("type", {}).get("cases", [])] if p.get("kind") == "string" else []
+            params.append(k); kinds[k] = {"kind": p.get("kind", "any"), "choices": choices, "class": p.get("type", {}).get("kind")}
+        app = t.get("app") or {}
+        summary = ", ".join(f"{p.get('name') or p['key']}" for p in t.get("parameters", [])[:6])
+        out.append({
+            "key": t.get("key") or key_for(ident), "identifier": ident, "name": t.get("name") or ident,
+            "description": (t.get("description") or "") + (f" ({app.get('name')})" if app.get("name") else ""),
+            "params": params, "output": t.get("outputName") or (t.get("outputTypes") or [None])[0], "summary": None, "kinds": kinds,
+            "descriptor": {"BundleIdentifier": app.get("bundleIdentifier"), "Name": app.get("name"), "TeamIdentifier": app.get("teamId") or APPLE_TEAM,
+                           "AppIntentIdentifier": t.get("appIntentIdentifier") or ident.rsplit(".", 1)[-1]},
+        })
+    return out
+
+
+VARIANT = ("AssistantIntent", "WidgetConfiguration", "SharingExtension", "ConfigurationIntent")
+
+
+def dedupe_keys(es):
+    """Keys must be unique across both catalogues. The Shortcuts app gives an intent and its
+    variants (assistant-only twin, widget configuration, sharing extension, migrated legacy
+    identifier) the same snake_case key; the plain intent keeps it and the variants fall back
+    to their sanitized identifier."""
+    groups = {}
+    for e in es:
+        groups.setdefault(e["key"], []).append(e)
+    for key, group in groups.items():
+        if len(group) < 2:
+            continue
+        def rank(e):
+            i = e["identifier"]
+            return (i.startswith("is.workflow.") or any(v in i for v in VARIANT), i)
+        winner = min(group, key=rank)
+        for e in group:
+            if e is not winner:
+                e["key"] = key_for(e["identifier"])
+    seen = set()
+    for e in es:  # guard against a sanitized identifier colliding with an existing key
+        if e["key"] in seen:
+            e["key"] += "_" + re.sub(r"[^A-Za-z0-9]", "", e["identifier"])[-6:]
+        seen.add(e["key"])
+    return es
+
+
 def js_str(s):
     return json.dumps(s, ensure_ascii=False)
 
@@ -131,6 +189,8 @@ def jsdoc(e):
 def write_ts(es, path):
     used = set()
     for e in es:
+        if e.get("descriptor"):
+            used.add("DictionaryValue")
         for k in e["params"]:
             info = e["kinds"].get(k, {"kind": "any", "choices": []})
             used.add("EnumValue" if info["kind"] == "string" and info["choices"] else KIND_TS[info["kind"]])
@@ -140,10 +200,12 @@ def write_ts(es, path):
              "export const actions = {"]
     for e in es:
         lines.append(jsdoc(e) + f"  {e['key']}: {js_str(e['identifier'])},")
-    lines += ["} as const;", "", "/** Per-identifier metadata: display name, parameter keys, output name. */", "export const ACTIONS = {"]
+    lines += ["} as const;", "", "/** Per-identifier metadata: display name, parameter keys, output name, and for App Intents the descriptor the file needs. */", "export const ACTIONS = {"]
     for e in es:
         params = "[" + ", ".join(js_str(p) for p in e["params"]) + "]"
-        lines.append(f"  {js_str(e['identifier'])}: {{ name: {js_str(e['name'])}, params: {params}, output: {js_str(e['output']) if e['output'] else 'null'} }},")
+        desc = e.get("descriptor")
+        extra = f", descriptor: {{ {', '.join(f'{k}: {js_str(v)}' for k, v in desc.items())} }}" if desc else ""
+        lines.append(f"  {js_str(e['identifier'])}: {{ name: {js_str(e['name'])}, params: {params}, output: {js_str(e['output']) if e['output'] else 'null'}{extra} }},")
     lines += ["} as const;", "", "/** Accepted value type for every parameter key of every action (see values.ts). */", "export type ParamTypes = {"]
     for e in es:
         fields = []
@@ -154,6 +216,8 @@ def write_ts(es, path):
             else:
                 t = KIND_TS[info["kind"]]
             fields.append(f"{js_str(k)}: {t}")
+        if e.get("descriptor"):
+            fields.append('"AppIntentDescriptor"?: DictionaryValue')
         lines.append(f"  {js_str(e['identifier'])}: {{ {'; '.join(fields)} }};")
     lines += ["};", "", "export type MetaParams = { " + "; ".join(f"{k}: {v}" for k, v in META_TYPES.items()) + " };", "",
               "export type ActionId = keyof typeof ACTIONS;",
@@ -169,9 +233,10 @@ def write_py(es, path):
              "# Identifier constants. Each entry's docstring-style comment gives the display name.", ""]
     for e in es:
         lines.append(f"{e['key'].upper()} = {json.dumps(e['identifier'])}  # {e['name']}")
-    lines += ["", "# Per-identifier metadata: display name, parameter keys, output name.", "ACTIONS = {"]
+    lines += ["", "# Per-identifier metadata: display name, parameter keys, output name, and for App Intents the descriptor the file needs.", "ACTIONS = {"]
     for e in es:
-        lines.append(f"    {json.dumps(e['identifier'])}: {{\"name\": {json.dumps(e['name'], ensure_ascii=False)}, \"params\": {json.dumps(e['params'])}, \"output\": {json.dumps(e['output']) if e['output'] else 'None'}}},")
+        desc = f", \"descriptor\": {json.dumps(e['descriptor'], ensure_ascii=False)}" if e.get("descriptor") else ""
+        lines.append(f"    {json.dumps(e['identifier'])}: {{\"name\": {json.dumps(e['name'], ensure_ascii=False)}, \"params\": {json.dumps(e['params'])}, \"output\": {json.dumps(e['output']) if e['output'] else 'None'}{desc}}},")
     lines += ["}", "", "# Accepted value kind per parameter key: bool, number, string, text, picker, plainString, plainNumber, dictionary, quantity, filter, any.", "PARAM_KINDS = {"]
     for e in es:
         lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps({k: v['kind'] for k, v in e['kinds'].items()})},")
@@ -187,10 +252,15 @@ def write_py(es, path):
 
 def main(argv):
     src = pathlib.Path(argv[1]) if len(argv) > 1 else ROOT / "data" / "builtin-actions.json"
+    apps = pathlib.Path(argv[2]) if len(argv) > 2 else ROOT / "data" / "apple-app-intents.json"
     es = entries(json.load(open(src)))
+    n_builtin = len(es)
+    if apps.exists():
+        es += app_intent_entries(json.load(open(apps)).get("actions", {}))
+    es = dedupe_keys(es)
     write_ts(es, ROOT / "src/generated/actions.ts")
     write_py(es, ROOT / "python/src/shortcutkit/actions.py")
-    print(f"{len(es)} actions -> src/generated/actions.ts, python/src/shortcutkit/actions.py")
+    print(f"{n_builtin} built-in + {len(es) - n_builtin} App Intents actions -> src/generated/actions.ts, python/src/shortcutkit/actions.py")
 
 
 if __name__ == "__main__":

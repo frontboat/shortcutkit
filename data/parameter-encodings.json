@@ -40,6 +40,154 @@
         "key" : "WFShazamMediaActionErrorIfNotRecognized"
       }
     ],
+    "com.apple.NanoSettings.NPRFPingMyPhoneIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.NanoSettings.NPRFSetAlwaysOnIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.NanoSettings.NPRFSetFlashLightIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.NanoSettings.NPRFSetSchoolTimeIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.NanoSettings.NPRFSetSilentModeIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.NanoSettings.NPRFSetTheaterModeIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.NanoSettings.NPRFSetWaterLockIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.news.TagIntent" : [
+      {
+        "class" : "WFCustomIntentDynamicEnumerationParameter",
+        "key" : "tag"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.news.TodayIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.Notes.ICNotesFolderIntent" : [
+      {
+        "class" : "WFCustomIntentDynamicEnumerationParameter",
+        "key" : "folder"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
     "com.apple.TVRemoteUIService.LaunchApplicationIntent" : [
       {
         "class" : "WFSwitchParameter",
@@ -101,6 +249,422 @@
       }
     ],
     "com.apple.TVRemoteUIService.WakeAppleTVIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "backgroundSound"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "interval"
+      },
+      {
+        "class" : "WFDurationQuantityFieldParameter",
+        "key" : "duration"
+      },
+      {
+        "class" : "WFDateFieldParameter",
+        "key" : "endInterval"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "always"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent" : [
+      {
+        "class" : "WFSliderParameter",
+        "key" : "volumeValue"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent" : [
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "operation"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "state"
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun"
+      }
+    ],
+    "com.apple.weather.WeatherIntent" : [
+      {
+        "class" : "WFCustomIntentDynamicEnumerationParameter",
+        "key" : "location"
+      },
       {
         "class" : "WFSwitchParameter",
         "key" : "ShowWhenRun"
@@ -5506,20 +6070,32 @@
         "is.workflow.actions.format.date"
       ]
     },
-    "WFCustomIntentEnumerationParameter" : {
-      "count" : 21,
+    "WFCustomIntentDynamicEnumerationParameter" : {
+      "count" : 3,
       "defaultExamples" : [
+
+      ],
+      "stateClass" : "WFCodableAttributeBackedSubstitutableState",
+      "usedBy" : [
+        "com.apple.news.TagIntent",
+        "com.apple.Notes.ICNotesFolderIntent",
+        "com.apple.weather.WeatherIntent"
+      ]
+    },
+    "WFCustomIntentEnumerationParameter" : {
+      "count" : 66,
+      "defaultExamples" : [
+        "off",
         "set",
-        "dark",
-        "Text"
+        "on"
       ],
       "stateClass" : "WFStringSubstitutableState",
       "usedBy" : [
-        "is.workflow.actions.airplanemode.set",
-        "is.workflow.actions.announcenotifications.set",
-        "is.workflow.actions.appearance",
-        "is.workflow.actions.ask",
-        "is.workflow.actions.bluetooth.set"
+        "com.apple.NanoSettings.NPRFPingMyPhoneIntent",
+        "com.apple.NanoSettings.NPRFSetAlwaysOnIntent",
+        "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent",
+        "com.apple.NanoSettings.NPRFSetFlashLightIntent",
+        "com.apple.NanoSettings.NPRFSetSchoolTimeIntent"
       ]
     },
     "WFDateActionPickerModeParameter" : {
@@ -5545,17 +6121,17 @@
       ]
     },
     "WFDateFieldParameter" : {
-      "count" : 25,
+      "count" : 26,
       "defaultExamples" : [
 
       ],
       "stateClass" : "WFDateFieldParameterState",
       "usedBy" : [
+        "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent",
         "is.workflow.actions.addnewevent",
         "is.workflow.actions.addnewreminder",
         "is.workflow.actions.adjustdate",
-        "is.workflow.actions.ask",
-        "is.workflow.actions.converttimezone"
+        "is.workflow.actions.ask"
       ]
     },
     "WFDictateTextLanguagePickerParameter" : {
@@ -5591,8 +6167,15 @@
       ]
     },
     "WFDurationQuantityFieldParameter" : {
-      "count" : 6,
+      "count" : 7,
       "defaultExamples" : [
+        {
+          "Value" : {
+            "Magnitude" : "15",
+            "Unit" : "min"
+          },
+          "WFSerializationType" : "WFQuantityFieldValue"
+        },
         {
           "Value" : {
             "Unit" : "sec"
@@ -5608,11 +6191,11 @@
       ],
       "stateClass" : "WFQuantityParameterState",
       "usedBy" : [
+        "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent",
         "is.workflow.actions.adjustdate",
         "is.workflow.actions.health.workout.log",
         "is.workflow.actions.recordaudio",
-        "is.workflow.actions.seek",
-        "is.workflow.actions.setters.calendarevents"
+        "is.workflow.actions.seek"
       ]
     },
     "WFDynamicEnumerationParameter" : {
@@ -6171,19 +6754,19 @@
       ]
     },
     "WFSliderParameter" : {
-      "count" : 15,
+      "count" : 16,
       "defaultExamples" : [
+        10,
         0.5,
-        0.75,
-        1
+        0.75
       ],
       "stateClass" : "WFNumberSubstitutableState",
       "usedBy" : [
+        "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent",
         "is.workflow.actions.flashlight",
         "is.workflow.actions.image.convert",
         "is.workflow.actions.makespokenaudiofromtext",
-        "is.workflow.actions.overlaytext",
-        "is.workflow.actions.setbrightness"
+        "is.workflow.actions.overlaytext"
       ]
     },
     "WFSpeakTextLanguagePickerParameter" : {
@@ -6268,18 +6851,19 @@
       ]
     },
     "WFSwitchParameter" : {
-      "count" : 180,
+      "count" : 249,
       "defaultExamples" : [
         true,
-        false
+        false,
+        0
       ],
       "stateClass" : "WFBooleanSubstitutableState",
       "usedBy" : [
         "com.apple.musicrecognition.RecognizeMusicIntent",
-        "com.apple.TVRemoteUIService.LaunchApplicationIntent",
-        "com.apple.TVRemoteUIService.LaunchRemoteIntent",
-        "com.apple.TVRemoteUIService.LaunchScreenSaverIntent",
-        "com.apple.TVRemoteUIService.PauseContentIntent"
+        "com.apple.NanoSettings.NPRFPingMyPhoneIntent",
+        "com.apple.NanoSettings.NPRFSetAlwaysOnIntent",
+        "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent",
+        "com.apple.NanoSettings.NPRFSetFlashLightIntent"
       ]
     },
     "WFTableTemplateContentItemFilterParameter" : {
@@ -6621,6 +7205,15 @@
       "initWithCalendar:",
       "initWithRemindersList:",
       "legacySerializedRepresentation",
+      "initWithVariable:",
+      "initWithValue:",
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
+    ],
+    "WFCodableAttributeBackedSubstitutableState" : [
+      "serializedRepresentation",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "initWithValue:codableAttribute:stringLocalizer:",
       "initWithVariable:",
       "initWithValue:",
       "serializedRepresentation",
