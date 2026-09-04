@@ -38,7 +38,8 @@ files you are using.
 - **Value helpers that match the engine's serialization.** `ref()` to another action's output,
   `variable()`, `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `text()` for
   strings with embedded references, and `picker()` for variable-picker parameters.
-- **Control flow.** `if()` / `otherwise()` / `endIf()` and `repeatEach()` / `endRepeatEach()`
+- **Control flow.** `if()` / `otherwise()` / `endIf()`, `repeatEach()` / `endRepeatEach()`,
+  `repeatCount()` / `endRepeatCount()` and `chooseFromMenu()` / `menuItem()` / `endMenu()`
   manage the grouping identifiers for you.
 - **App Intents from installed apps.** Any identifier outside the built-in set is accepted;
   built-in identifiers and their parameter keys are also validated at run time.

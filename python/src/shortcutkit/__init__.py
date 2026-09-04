@@ -222,6 +222,28 @@ class Shortcut:
     def end_repeat_each(self, gid):
         self.action("is.workflow.actions.repeat.each", GroupingIdentifier=gid, WFControlFlowMode=2)
 
+    def repeat_count(self, count):
+        """Open a Repeat block that runs `count` times; returns the grouping identifier for end_repeat_count()."""
+        gid = str(uuid.uuid4()).upper()
+        self.action("is.workflow.actions.repeat.count", GroupingIdentifier=gid, WFControlFlowMode=0, WFRepeatCount=count)
+        return gid
+
+    def end_repeat_count(self, gid):
+        self.action("is.workflow.actions.repeat.count", GroupingIdentifier=gid, WFControlFlowMode=2)
+
+    def choose_from_menu(self, prompt, items):
+        """Open a Choose from Menu block. Follow with one menu_item() per title, in order, each with
+        the actions of that branch, then end_menu(). Returns the grouping identifier."""
+        gid = str(uuid.uuid4()).upper()
+        self.action("is.workflow.actions.choosefrommenu", GroupingIdentifier=gid, WFControlFlowMode=0, WFMenuPrompt=prompt, WFMenuItems=list(items))
+        return gid
+
+    def menu_item(self, gid, title):
+        self.action("is.workflow.actions.choosefrommenu", GroupingIdentifier=gid, WFControlFlowMode=1, WFMenuItemTitle=title)
+
+    def end_menu(self, gid):
+        self.action("is.workflow.actions.choosefrommenu", GroupingIdentifier=gid, WFControlFlowMode=2)
+
     def to_plist(self):
         actions = []
         for a in self.actions:
@@ -274,11 +296,11 @@ def demo(out):
 
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
-from .actions import ACTIONS, PARAM_KINDS  # noqa: E402
+from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES  # noqa: E402
 
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
-__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PROVENANCE", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
+__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "0.3.0"
+__version__ = "0.4.0"

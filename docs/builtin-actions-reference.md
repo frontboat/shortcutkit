@@ -265,9 +265,11 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - identifier: `is.workflow.actions.ask`  ·  class `WFAskForInputAction`
 - Displays a dialog prompting the user to enter a piece of information.
 - summary: `Ask for ${WFInputType} with ${WFAskActionPrompt}`
-- output:  NSString, NSDecimalNumber, NSURL, NSDate
+- output: Ask for Input NSString, NSDecimalNumber, NSURL, NSDate
 - keywords: ask, prompt, show, dialog, keyboard, text, number, url, date, time
 - icon: plus.bubble.fill (Cyan)
+- parameters:
+  - `WFInputType` () Input Type choices=["Date", "Date and Time", "Number", "Text", "Time", "URL"]
 
 ## Base64 Encode
 
@@ -345,15 +347,19 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent`  ·  class `None`
 - Change the background sound that will play when background sounds is turned on. Background sounds mask unwanted environmental noise. Background sounds can also be enabled under Accessibility in Settings.
+- parameters:
+  - `backgroundSound` () Background Sound choices=["Airplane", "Babble", "BalancedNoise", "Boat", "BrightNoise", "Bus", "DarkNoise", "Fire", "Night", "Ocean", "QuietNight", "Rain", "RainOnRoof", "Steam", "Stream", "Train"]
 
 ## Change Case
 
 - identifier: `is.workflow.actions.text.changecase`  ·  class `WFHandleCustomIntentAction`
 - Changes the case of the text passed into the action to UPPERCASE, lowercase, or Title Case.
-- output:
+- output: Updated Text
 - keywords: uppercase, lowercase, title, transform, text, capitalize
 - icon: textformat (Yellow_Accessibility)
 - ResidentCompatible: True
+- parameters:
+  - `WFCaseType` () Case choices=["Capitalize Every Word", "Capitalize with Title Case", "Capitalize with sentence case", "UPPERCASE", "cApItAlIzE wItH aLtErNaTiNg cAsE", "lowercase"]
 
 ## Change Playback Destination
 
@@ -427,9 +433,11 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 
 - identifier: `is.workflow.actions.text.combine`  ·  class `WFTextComponentsAction`
 - Joins the text together, inserting the separator between each join.
-- output:
+- output: Combined Text
 - keywords: separate, delimiter, append
 - ResidentCompatible: True
+- parameters:
+  - `WFTextSeparator` () Separator choices=["Custom", "New Lines", "Spaces"]
 
 ## Comment
 
@@ -564,7 +572,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 
 - identifier: `is.workflow.actions.correctspelling`  ·  class `WFHandleCustomIntentAction`
 - Autocorrects the spelling of text passed into the action.
-- output:
+- output: Corrected Spelling
 - keywords: text, spell, spelling, correct, autocorrect
 - ResidentCompatible: True
 
@@ -800,6 +808,8 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 
 - identifier: `is.workflow.actions.setters.calendarevents`  ·  class `WFContentItemSetterAction`
 - ResidentCompatible: True
+- parameters:
+  - `WFCalendarEventContentItemMyStatus` () Value choices=["Accepted", "Completed", "Declined", "Delegated", "In Process", "Pending", "Tentative", "Unknown"]
 
 ## Edit Contact
 
@@ -810,6 +820,9 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 
 - identifier: `is.workflow.actions.setters.reminders`  ·  class `WFContentItemSetterAction`
 - ResidentCompatible: True
+- parameters:
+  - `WFReminderContentItemList` () Value choices=["Reminders"]
+  - `WFReminderContentItemPriority` () Value choices=["High", "Low", "Medium", "None"]
 
 ## Eject Disk
 
@@ -925,18 +938,27 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 ## Filter Articles
 
 - identifier: `is.workflow.actions.filter.articles`  ·  class `WFContentItemFilterAction`
-- output:
+- output: Articles
 - icon: line.3.horizontal.decrease.circle.fill (Orange)
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemSortProperty` () Sort by choices=["Author", "Name", "Number of Words", "Published Date", "Random", "Title"]
 
 ## Filter Event Attendees
 
 - identifier: `is.workflow.actions.filter.eventattendees`  ·  class `WFContentItemFilterAction`
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemSortProperty` () Sort by choices=["Email Address", "Name", "Random", "Role", "Status", "Type"]
 
 ## Filter Files
 
 - identifier: `is.workflow.actions.filter.files`  ·  class `WFContentItemFilterAction`
 - input: public.data
 - icon: line.3.horizontal.decrease.circle.fill (Tint)
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemSortProperty` () Sort by choices=["Creation Date", "File Extension", "File Path", "File Size", "Last Modified Date", "Name", "Random"]
 
 ## Filter Images
 
@@ -944,13 +966,19 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - input: WFPhotoMediaContentItem, WFImageContentItem, WFAVAssetContentItem
 - icon: line.horizontal.3.decrease.circle.fill (Blue)
 - ResidentCompatible: True
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemSortProperty` () Sort by choices=["Creation Date", "Date Taken", "Duration", "File Extension", "File Path", "File Size", "Frame Rate", "Height", "Last Modified Date", "Name", "Orientation", "Random", "Time Taken", "Width"]
 
 ## Filter Locations
 
 - identifier: `is.workflow.actions.filter.locations`  ·  class `WFContentItemFilterAction`
-- output:
+- output: Locations
 - icon: line.3.horizontal.decrease.circle.fill (Tint)
 - ResidentCompatible: True
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemSortProperty` () Sort by choices=["Altitude", "City", "Country", "Label", "Latitude", "Longitude", "Name", "Phone Number", "Random", "State", "Street", "ZIP Code"]
 
 ## Find App Store Apps
 
@@ -972,20 +1000,36 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 
 - identifier: `is.workflow.actions.filter.apps`  ·  class `WFContentItemFilterAction`
 - input: WFAppContentItem
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemInputParameter` () apps choices=["Library"]
+  - `WFContentItemSortProperty` () Sort by choices=["Bundle Identifier", "Launch Date", "Name", "Process Identifier", "Random"]
 
 ## Find Calendar Events
 
 - identifier: `is.workflow.actions.filter.calendarevents`  ·  class `WFContentItemFilterAction`
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemInputParameter` () calendar events choices=["Library"]
+  - `WFContentItemSortProperty` () Sort by choices=["Calendar", "Creation Date", "Duration", "End Date", "File Extension", "File Path", "Last Modified Date", "My Status", "Name", "Number of Attendees", "Random", "Start Date", "Title"]
 
 ## Find Contacts
 
 - identifier: `is.workflow.actions.filter.contacts`  ·  class `WFContentItemFilterAction`
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemInputParameter` () contacts choices=["Library"]
+  - `WFContentItemSortProperty` () Sort by choices=["Birthday", "Company", "Creation Date", "Department", "File Extension", "File Path", "First Name", "Job Title", "Last Modified Date", "Last Name", "Middle Name", "Name", "Nickname", "Phonetic First Name", "Phonetic Last Name", "Phonetic Middle Name", "Prefix", "Random", "Suffix"]
 
 ## Find Displays
 
 - identifier: `is.workflow.actions.filter.displays`  ·  class `WFContentItemFilterAction`
 - input: WFDisplayContentItem
 - icon: display.2 (Blue)
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemInputParameter` () displays choices=["Library"]
+  - `WFContentItemSortProperty` () Sort by choices=["Name", "Random", "Scale"]
 
 ## Find Giphy GIFs
 
@@ -1027,11 +1071,19 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 
 - identifier: `is.workflow.actions.filter.music`  ·  class `WFContentItemFilterAction`
 - input: WFMPMediaContentItem, WFAVAssetContentItem, WFGenericFileContentItem
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemInputParameter` () music choices=["Library"]
+  - `WFContentItemSortProperty` () Sort by choices=["Album", "Album Artist", "Album Track #", "Artist", "Composer", "Date Added", "Disc #", "Duration", "File Path", "Genre", "Last Played Date", "Media Kind", "Name", "Play Count", "Random", "Rating", "Release Date", "Skip Count", "Title"]
 
 ## Find Photos
 
 - identifier: `is.workflow.actions.filter.photos`  ·  class `WFContentItemFilterAction`
 - input: WFPhotoMediaContentItem, WFImageContentItem, WFAVAssetContentItem, WFGenericFileContentItem
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemInputParameter` () photos choices=["Library"]
+  - `WFContentItemSortProperty` () Sort by choices=["Creation Date", "Date Taken", "Duration", "File Extension", "File Path", "Frame Rate", "Height", "Last Modified Date", "Media Type", "Name", "Random", "Time Taken", "Width"]
 
 ## Find Places
 
@@ -1067,6 +1119,10 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 ## Find Reminders
 
 - identifier: `is.workflow.actions.filter.reminders`  ·  class `WFContentItemFilterAction`
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemInputParameter` () reminders choices=["Library"]
+  - `WFContentItemSortProperty` () Sort by choices=["Completion Date", "Creation Date", "Due Date", "File Extension", "File Path", "Last Modified Date", "List", "Name", "Priority", "Random", "Title"]
 
 ## Find VPNs
 
@@ -1076,11 +1132,19 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - output: Found VPNs WFVPNConfiguration
 - keywords: virtual, private, network, secure, connect, tunnel
 - icon: network.connected.to.line.below.fill (Blue)
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemInputParameter` () VPNs choices=["Library"]
+  - `WFContentItemSortProperty` () Sort by choices=["Name", "Random", "Server Address"]
 
 ## Find Windows
 
 - identifier: `is.workflow.actions.filter.windows`  ·  class `WFContentItemFilterAction`
 - input: WFWindowContentItem
+- parameters:
+  - `WFCompoundType` () choices=["0", "1"]
+  - `WFContentItemInputParameter` () windows choices=["Library"]
+  - `WFContentItemSortProperty` () Sort by choices=["App Name", "Height", "Name", "Random", "Width", "Window Index", "X Position", "Y Position"]
 
 ## Flip Image
 
@@ -1316,7 +1380,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - summary variants:
   - `Get ${WFVisibleAppScope} app`  when {"WFVisibleAppScope": "Current"}
   - `Get ${WFVisibleAppScope} apps`  when {"WFVisibleAppScope": "Visible"}
-- output:  WFApp
+- output: Current App WFApp
 - keywords: app, foreground, visible, topmost
 - parameters:
   - `WFVisibleAppScope` (Enumeration) Scope default="Current" choices=["Current", "Visible"]
@@ -1411,33 +1475,45 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 ## Get Details of App Store App
 
 - identifier: `is.workflow.actions.properties.appstore`  ·  class `WFContentItemPropertiesAction`
-- output:
+- output: Details of App Store Apps
 - ResidentCompatible: True
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["# of Ratings", "# of Ratings (This Version)", "Artist", "Artwork", "Artwork URL", "Bundle Identifier", "Category", "Content Rating", "Currency Code", "Description", "Download Size", "Formatted Price", "Is Universal", "Last Updated", "Minimum OS Version", "Name", "Price", "Rating", "Rating (This Version)", "Release Date", "Release Notes", "Screenshot URLs", "Store ID", "Store URL", "Supported Devices", "Supported Languages", "Supports Game Center", "Version", "iPad Screenshot URLs"]
 
 ## Get Details of Appearance
 
 - identifier: `is.workflow.actions.properties.appearance`  ·  class `WFContentItemPropertiesAction`
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Dark Mode Is On", "Inverse Appearance", "Name"]
 
 ## Get Details of Article
 
 - identifier: `is.workflow.actions.properties.articles`  ·  class `WFContentItemPropertiesAction`
-- output:
+- output: Details of Articles
 - icon: doc.richtext.fill (Orange)
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Author", "Body", "Excerpt", "Main Image URL", "Name", "Number of Words", "Published Date", "Title", "URL"]
 
 ## Get Details of Calendar Events
 
 - identifier: `is.workflow.actions.properties.calendarevents`  ·  class `WFContentItemPropertiesAction`
-- output:
+- output: Details of Calendar Events
 - ResidentCompatible: True
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Attachments", "Attendees", "Calendar", "Canceled", "Creation Date", "Duration", "End Date", "File Extension", "File Path", "File Size", "Has Alarms", "Is All Day", "Last Modified Date", "Location", "My Status", "Name", "Notes", "Number of Attendees", "Organizer", "Organizer Is Me", "Start Date", "Title", "URL"]
 
 ## Get Details of Contacts
 
 - identifier: `is.workflow.actions.properties.contacts`  ·  class `WFContentItemPropertiesAction`
 - ResidentCompatible: True
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Birthday", "Company", "Contact Photo", "Creation Date", "Department", "Email Addresses", "File Extension", "File Path", "File Size", "First Name", "Job Title", "Last Modified Date", "Last Name", "Middle Name", "Name", "Nickname", "Notes", "Phone Numbers", "Phonetic First Name", "Phonetic Last Name", "Phonetic Middle Name", "Prefix", "Relationship to Me", "Street Addresses", "Suffix", "URLs"]
 
 ## Get Details of Event Attendees
 
 - identifier: `is.workflow.actions.properties.eventattendees`  ·  class `WFContentItemPropertiesAction`
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Email Address", "Is Me", "Name", "Role", "Status", "Type"]
 
 ## Get Details of Files
 
@@ -1445,6 +1521,8 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - input: public.data
 - icon: doc.fill.badge.ellipsis (Tint)
 - ResidentCompatible: True
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Creation Date", "File Extension", "File Path", "File Size", "Last Modified Date", "Name"]
 
 ## Get Details of Health Sample
 
@@ -1457,18 +1535,24 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - keywords: photo, video, media
 - icon: photo.fill (Blue)
 - ResidentCompatible: True
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Album", "Camera Make", "Camera Model", "Creation Date", "Date Taken", "Duration", "File Extension", "File Path", "File Size", "Frame Rate", "Height", "Is Favorite", "Is a Screen Recording", "Is a Screenshot", "Last Modified Date", "Location", "Media Type", "Metadata Dictionary", "Name", "Orientation", "Photo Type", "Width"]
 
 ## Get Details of iTunes Artist
 
 - identifier: `is.workflow.actions.properties.itunesartist`  ·  class `WFContentItemPropertiesAction`
-- output:
+- output: Details of Itunes Artists
 - ResidentCompatible: True
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Artwork", "Artwork URL", "Genre", "Name", "Store ID", "Store URL", "Type"]
 
 ## Get Details of iTunes Product
 
 - identifier: `is.workflow.actions.properties.itunesstore`  ·  class `WFContentItemPropertiesAction`
-- output:
+- output: Details of Itunes Products
 - ResidentCompatible: True
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Artist", "Artwork", "Artwork URL", "Currency Code", "Description", "Duration", "Formatted Price", "Genre", "Is Explicit", "Name", "Price", "Release Date", "Store ID", "Store URL", "Streamable"]
 
 ## Get Details of Locations
 
@@ -1476,64 +1560,90 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - keywords: geocode, latitude, longitude
 - icon: mappin (Tint)
 - ResidentCompatible: True
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Altitude", "City", "Country", "Label", "Latitude", "Longitude", "Name", "Phone Number", "State", "Street", "URL", "ZIP Code"]
 
 ## Get Details of Music
 
 - identifier: `is.workflow.actions.properties.music`  ·  class `WFContentItemPropertiesAction`
 - input: WFMPMediaContentItem, WFAVAssetContentItem
-- output:
+- output: Artist
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Album", "Album Artist", "Album Artwork", "Album Track #", "Artist", "Comments", "Composer", "Date Added", "Disc #", "Duration", "File Path", "Genre", "Is Cloud Item", "Is Explicit", "Last Played Date", "Lyrics", "Media Kind", "Name", "Play Count", "Rating", "Release Date", "Skip Count", "Title"]
 
 ## Get Details of Parked Car
 
 - identifier: `is.workflow.actions.properties.parkedcar`  ·  class `WFContentItemPropertiesAction`
 - icon: car.fill (Tint)
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Date", "Location", "Name", "Notes", "Photo", "Was Location Set by User"]
 
 ## Get Details of Podcast
 
 - identifier: `is.workflow.actions.properties.podcastshow`  ·  class `WFContentItemPropertiesAction`
-- output:
+- output: Details of Podcasts
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Artist", "Artwork", "Artwork URL", "Episode Count", "Feed URL", "Genre", "Name", "Store ID", "Store URL"]
 
 ## Get Details of Podcast Episode
 
 - identifier: `is.workflow.actions.properties.podcast`  ·  class `WFContentItemPropertiesAction`
-- output:
+- output: Details of Podcast Episodes
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Artwork", "Artwork URL", "Author", "Description", "Duration", "Genres", "Name", "Release Date", "Store ID", "Store URL", "Title"]
 
 ## Get Details of Reminders
 
 - identifier: `is.workflow.actions.properties.reminders`  ·  class `WFContentItemPropertiesAction`
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Completion Date", "Creation Date", "Due Date", "File Extension", "File Path", "File Size", "Has Alarms", "Has Subtasks", "Images", "Is Completed", "Is Flagged", "Last Modified Date", "List", "Name", "Notes", "Parent Reminder", "Priority", "Reminder Location", "Subtasks", "Tags", "Title", "URL"]
 
 ## Get Details of Ride Status
 
 - identifier: `is.workflow.actions.properties.ridestatus`  ·  class `WFContentItemPropertiesAction`
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Driver", "Drop Off Location", "Drop Off Time", "Maximum Price", "Minimum Price", "Name", "Pickup Location", "Pickup Time", "Ride Option Name", "Vehicle Information"]
 
 ## Get Details of Safari Web Page
 
 - identifier: `is.workflow.actions.properties.safariwebpage`  ·  class `WFContentItemPropertiesAction`
 - note: Safari Web Page items are only available when running your shortcut as an Action Extension in Safari.
-- output:
+- output: Details of Safari Web Pages
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Name", "Page Contents", "Page Selection", "Page URL"]
 
 ## Get Details of Shazam
 
 - identifier: `is.workflow.actions.properties.shazam`  ·  class `WFContentItemPropertiesAction`
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Apple Music ID", "Apple Music URL", "Artist", "Artwork", "Is Explicit", "Lyric Snippet Synced", "Lyrics Snippet", "Name", "Shazam URL", "Title", "Video URL"]
 
 ## Get Details of Shortcut
 
 - identifier: `is.workflow.actions.properties.workflow`  ·  class `WFContentItemPropertiesAction`
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Action Count", "Creation Date", "File Extension", "File Path", "File Size", "Folder", "Icon", "Last Modified Date", "Name"]
 
 ## Get Details of Trello Item
 
 - identifier: `is.workflow.actions.properties.trello`  ·  class `WFContentItemPropertiesAction`
 - input: WFTrelloBoardContentItem, WFTrelloListContentItem, WFTrelloCardContentItem (required)
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Card Attachments", "Card Due Date", "Description", "Name", "URL"]
 
 ## Get Details of Ulysses Sheet
 
 - identifier: `is.workflow.actions.properties.ulysses.sheet`  ·  class `WFContentItemPropertiesAction`
 - input: WFUlyssesSheetContentItem (required)
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Contents", "Identifier", "Keywords", "Name", "Notes", "Title"]
 
 ## Get Details of Weather Conditions
 
 - identifier: `is.workflow.actions.properties.weather.conditions`  ·  class `WFContentItemPropertiesAction`
 - ResidentCompatible: True
+- parameters:
+  - `WFContentItemPropertyName` () Detail choices=["Air Pollutants", "Air Quality Category", "Air Quality Index", "Condition", "Date", "Dewpoint", "Feels Like", "High", "Humidity", "Location", "Low", "Name", "Precipitation Amount", "Precipitation Chance", "Pressure", "Sunrise Time", "Sunset Time", "Temperature", "UV Index", "Visibility", "Wind Direction", "Wind Speed"]
 
 ## Get Device Details
 
@@ -1686,9 +1796,11 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 
 - identifier: `is.workflow.actions.text.match.getgroup`  ·  class `WFHandleCustomIntentAction`
 - Gets the text that matched a particular capture group or all of the capture groups from the output of a Match Text action.
-- output:
+- output: Text
 - keywords: finding, matching, searching, regular, expression, regexp
 - ResidentCompatible: True
+- parameters:
+  - `WFGetGroupType` () Get choices=["All Groups", "Group At Index"]
 
 ## Get Halfway Point
 
@@ -2374,6 +2486,9 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `WFNoInputBehavior` (Enumeration) If there’s no input default="Stop and Respond" choices=["Stop and Respond", "Ask For", "Get Clipboard", "Continue"]
   - `WFStopAndRespondResponse` (TextInput) Response
   - `WFAskForType` (Enumeration) Type default="Photos" choices=["Files", "Text", "Date", "Photos", "Contacts", "Email Address", "Music", "Phone Number"]
+  - `WFEventOccurrenceMode` () Occurrence choices=["Next Occurrence", "Specified Year"]
+  - `WFPhotoPickerTypes` () Include choices=["Images", "Live Photos", "Videos"]
+  - `WFPickingMode` () Type choices=["Files", "Folders"]
 
 ## Intercom
 
@@ -2719,7 +2834,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - identifier: `is.workflow.actions.text.match`  ·  class `WFHandleCustomIntentAction`
 - Searches text passed into the action for matches to a regular expression.
 - result: A list of text items that matched the regular expression
-- output:
+- output: Matches
 - keywords: finding, matching, searching, regular, expression, regexp
 - ResidentCompatible: True
 
@@ -3124,6 +3239,8 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - Plays a sound on your paired iPhone.
 
 You can also choose to have the flashlight pulse.
+- parameters:
+  - `state` () State choices=["off", "on"]
 
 ## Play Music
 
@@ -3900,6 +4017,8 @@ You can also choose to have the flashlight pulse.
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent`  ·  class `None`
 - Enable or disable the Accessibility Keyboard, allowing typing by clicking on the screen.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set AirDrop Receiving
 
@@ -3915,11 +4034,15 @@ You can also choose to have the flashlight pulse.
 - keywords: airport, wi-fi, bluetooth, cellular, turn, toggle
 - icon: airplane (Orange)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Alternate Pointer Actions
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent`  ·  class `None`
 - Enable or disable Alternate Pointer Actions, allowing the use of switches or gesture to trigger mouse actions such as clicks.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Always On
 
@@ -3927,6 +4050,9 @@ You can also choose to have the flashlight pulse.
 - Sets the Always On display setting of your Apple Watch to on or off.
 
 When Always On is activated, your Apple Watch face will be visible even when your wrist is down.
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
+  - `state` () State choices=["off", "on"]
 
 ## Set Always On Display
 
@@ -3935,11 +4061,15 @@ When Always On is activated, your Apple Watch face will be visible even when you
 - keywords: display, aod
 - icon: iphone.always.on.display (Blue)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Announce Notifications
 
 - identifier: `is.workflow.actions.announcenotifications.set`  ·  class `WFHandleCustomIntentAction`
 - Sets Announce Notifications to on or off. When on, Siri will announce notifications from new apps that send Time Sensitive notifications or direct messages.
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Appearance
 
@@ -3948,6 +4078,9 @@ When Always On is activated, your Apple Watch face will be visible even when you
 - keywords: style, mode, dark, appearance
 - icon: appearance (Blue)
 - ResidentCompatible: False
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
+  - `style` () Appearance choices=["dark", "light"]
 
 ## Set Appearance on Apple TV
 
@@ -3959,6 +4092,8 @@ When Always On is activated, your Apple Watch face will be visible even when you
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent`  ·  class `None`
 - Automatically play audio descriptions. Audio Descriptions can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Auto-Launch Audio Apps
 
@@ -3966,11 +4101,16 @@ When Always On is activated, your Apple Watch face will be visible even when you
 - Sets the Auto-Launch Audio Apps setting of your Apple Watch to on or off.
 
 When Auto-Launch Audio Apps is on, the app actively playing media will be shown when your Apple Watch wakes.
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
+  - `state` () state choices=["off", "on"]
 
 ## Set Background Sounds Timer Interval
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent`  ·  class `None`
 - Sets the timer interval for background sounds. Background sounds mask unwanted environmental noise and can be used when media is playing. Background sounds can also be enabled under Accessibility in Settings.
+- parameters:
+  - `interval` () Interval choices=["duration", "endInterval"]
 
 ## Set Background Sounds Volume
 
@@ -3984,6 +4124,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - keywords: wireless, accessories, accessory, turn
 - icon: bluetooth (Blue)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Brightness
 
@@ -4000,21 +4142,29 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - keywords: service, phone, airplane, turn
 - icon: antenna.radiowaves.left.and.right (Green)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Classic Invert
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent`  ·  class `None`
 - Reverses the colors of the display. Classic Invert can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Closed Captions+SDH
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent`  ·  class `None`
 - Use closed captions for the deaf and hard of hearing. Closed captions can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Color Filters
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent`  ·  class `None`
 - Enable or disable Color Filters, allowing the display's colors to be adjusted as desired.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Dictionary Value
 
@@ -4035,6 +4185,9 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 
 - identifier: `com.apple.NanoSettings.NPRFSetFlashLightIntent`  ·  class `None`
 - Enables Flashlight.
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
+  - `state` () State choices=["off", "on"]
 
 ## Set Flashlight
 
@@ -4047,6 +4200,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - keywords: flash, torch, turn
 - icon: flashlight.on.fill (Blue)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Focus
 
@@ -4074,11 +4229,15 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent`  ·  class `None`
 - Enable or disable Full Keyboard Access, allowing use of the device with only a keyboard.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Head Pointer
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent`  ·  class `None`
 - Enable or disable Head Pointer, allowing movement of the mouse cursor using your head.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Hotspot Password
 
@@ -4095,26 +4254,36 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent`  ·  class `None`
 - Enable or disable Hover Text.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Hover Typing
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent`  ·  class `None`
 - Enable or disable Hover Typing.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Increase Contrast
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent`  ·  class `None`
 - Increase color contrast between app foreground and background colors. Increase Contrast can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Live Captions
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent`  ·  class `None`
 - Enable or disable Live Captions.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Live Speech
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent`  ·  class `None`
 - Enable or disable Live Speech.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Low Power Mode
 
@@ -4123,21 +4292,29 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - keywords: battery, life, charge, turn
 - icon: battery.50 (Orange)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Mono Audio
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent`  ·  class `None`
 - Mono Audio enables the left and right speakers to play the same content. Mono Audio can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Motion Cues
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent`  ·  class `None`
 - Enable or disable Motion Cues.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Mouse Keys
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent`  ·  class `None`
 - Enable or disable Mouse Keys, allowing the movement of the mouse cursor using the keyboard.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Name
 
@@ -4161,6 +4338,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - keywords: display, brightness, blue light
 - icon: nightshift (Orange)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Noise Control Mode
 
@@ -4182,6 +4361,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - keywords: rotation, rotate
 - icon: lock.rotation (Red)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Parked Car
 
@@ -4206,16 +4387,22 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - keywords: wireless, accessories, accessory, turn, tethering, cellular, internet, sharing, data, 3g, 4g, 5g
 - icon: personalhotspot (Green)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Reduce Motion
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent`  ·  class `None`
 - Reduce the motion of the user interface, including the parallax effect of icons. Reduce Motion can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Reduce Transparency
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent`  ·  class `None`
 - Improve contrast by reducing transparency and blurs on some backgrounds to increase legibility. Reduce Transparency can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Schooltime
 
@@ -4223,6 +4410,9 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Sets Schooltime on your Apple Watch to on or off.
 
 Schooltime limits Apple Watch features during school hours.
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
+  - `state` () State choices=["off", "on"]
 
 ## Set Silence Unknown Callers
 
@@ -4231,6 +4421,8 @@ Schooltime limits Apple Watch features during school hours.
 - keywords: phone, spam, scam
 - icon: phone.arrow.down.left.fill (Green)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Silent Mode
 
@@ -4238,16 +4430,23 @@ Schooltime limits Apple Watch features during school hours.
 - Sets Silent Mode on your Apple Watch to on or off.
 
 Silent Mode mutes most Apple Watch sounds.
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
+  - `state` () State choices=["off", "on"]
 
 ## Set Slow Keys
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent`  ·  class `None`
 - Enable or disable Slow Keys, allowing the keyboard to avoid recognizing rapid key presses.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Smart Invert
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent`  ·  class `None`
 - Reverses the colors of the display except for images, media and some apps that use dark color styles. Smart Invert can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Stage Manager
 
@@ -4255,16 +4454,22 @@ Silent Mode mutes most Apple Watch sounds.
 - Enables or disables Stage Manager on the device.
 - keywords: window, set
 - icon: squares.leading.rectangle (Blue)
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Sticky Keys
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent`  ·  class `None`
 - Enable or disable Sticky Keys, making it easier to press keyboard modifier keys.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Switch Control
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent`  ·  class `None`
 - Switch Control highlights items on the screen to control through an adaptive accessory. Switch Control can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Theater Mode
 
@@ -4272,6 +4477,9 @@ Silent Mode mutes most Apple Watch sounds.
 - Sets Theater Mode on your Apple Watch to on or off.
 
 Theater Mode mutes most Apple Watch sounds and limits display activity.
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
+  - `state` () State choices=["off", "on"]
 
 ## Set True Tone
 
@@ -4280,6 +4488,8 @@ Theater Mode mutes most Apple Watch sounds and limits display activity.
 - keywords: display, brightness
 - icon: truetone (Blue)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Variable
 
@@ -4298,11 +4508,15 @@ Theater Mode mutes most Apple Watch sounds and limits display activity.
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent`  ·  class `None`
 - Voice Control allows you to use your voice to control your iOS device. Voice Control can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set VoiceOver
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent`  ·  class `None`
 - VoiceOver speaks items on the screen. VoiceOver can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Set Volume
 
@@ -4344,6 +4558,9 @@ Theater Mode mutes most Apple Watch sounds and limits display activity.
 - Sets the Wake on Wrist Raise setting of your Apple Watch to on or off.
 
 When Wake on Wrist Raise is on, the screen will wake when you raise your wrist.
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
+  - `state` () state choices=["off", "on"]
 
 ## Set Wallpaper Photo
 
@@ -4371,6 +4588,9 @@ When Wake on Wrist Raise is on, the screen will wake when you raise your wrist.
 - Sets the Water Lock setting on your Apple Watch to on or off.
 
 Water Lock protects against accidental input when you use your Apple Watch in water.
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
+  - `state` () State choices=["off", "on"]
 
 ## Set Wi-Fi
 
@@ -4379,11 +4599,15 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 - keywords: airport, wifi, wi-fi, wireless, internet, network, wlan, turn
 - icon: wifi (Blue)
 - InputPassthrough: True
+- parameters:
+  - `operation` () Operation choices=["set", "toggle"]
 
 ## Set Zoom
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent`  ·  class `None`
 - Zoom magnifies the entire screen. Zoom can also be enabled under Accessibility in Settings.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Share
 
@@ -4638,9 +4862,11 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 
 - identifier: `is.workflow.actions.text.split`  ·  class `WFTextComponentsAction`
 - Separates text passed into the action into a list.
-- output:
+- output: Split Text
 - keywords: separate, delimiter
 - ResidentCompatible: True
+- parameters:
+  - `WFTextSeparator` () Separator choices=["Custom", "Every Character", "New Lines", "Spaces"]
 
 ## Start Screen Saver
 
@@ -4808,6 +5034,8 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent`  ·  class `None`
 - Enable or disable Background Sounds.
+- parameters:
+  - `operation` () Operation choices=["toggle", "turn"]
 
 ## Translate Text
 

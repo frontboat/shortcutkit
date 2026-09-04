@@ -6,6 +6,84 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.4.0 (2026-09-04)
+
+- **Control flow helpers**: `repeatCount()` / `endRepeatCount()` and `chooseFromMenu()` /
+  `menuItem()` / `endMenu()` (Python: `repeat_count`, `choose_from_menu`, `menu_item`,
+  `end_menu`).
+- **ActionKit built-ins completed from the registry**: 19 output names (`ref()` of Ask for
+  Input now reads "Ask for Input" rather than "Output") and 132 enumeration case lists, so
+  keys like Ask for Input's `WFInputType` are typed as their cases instead of any string.
+  Additions to the type surface, hence minor.
+- Python exports `PARAM_CHOICES`.
+
+### Data: macOS 27.0 (26A5421a), Shortcuts 10.0 build 5037.0.17, extracted 2026-09-04T12:23:11Z
+
+Recommended bump: **minor**
+
+- Added parameters (132):
+  - `com.apple.NanoSettings.NPRFPingMyPhoneIntent.state`
+  - `com.apple.NanoSettings.NPRFSetAlwaysOnIntent.operation`
+  - `com.apple.NanoSettings.NPRFSetAlwaysOnIntent.state`
+  - `com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent.operation`
+  - `com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent.state`
+  - `com.apple.NanoSettings.NPRFSetFlashLightIntent.operation`
+  - `com.apple.NanoSettings.NPRFSetFlashLightIntent.state`
+  - `com.apple.NanoSettings.NPRFSetSchoolTimeIntent.operation`
+  - `com.apple.NanoSettings.NPRFSetSchoolTimeIntent.state`
+  - `com.apple.NanoSettings.NPRFSetSilentModeIntent.operation`
+  - `com.apple.NanoSettings.NPRFSetSilentModeIntent.state`
+  - `com.apple.NanoSettings.NPRFSetTheaterModeIntent.operation`
+  - `com.apple.NanoSettings.NPRFSetTheaterModeIntent.state`
+  - `com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent.operation`
+  - `com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent.state`
+  - `com.apple.NanoSettings.NPRFSetWaterLockIntent.operation`
+  - `com.apple.NanoSettings.NPRFSetWaterLockIntent.state`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent.backgroundSound`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent.interval`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent.operation`
+  - `com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent.operation`
+  - `is.workflow.actions.airplanemode.set.operation`
+  - `is.workflow.actions.announcenotifications.set.operation`
+  - `is.workflow.actions.appearance.operation`
+  - `is.workflow.actions.appearance.style`
+  - `is.workflow.actions.ask.WFInputType`
+  - `is.workflow.actions.bluetooth.set.operation`
+  - `is.workflow.actions.cellulardata.set.operation`
+  - `is.workflow.actions.display.always-on.set.operation`
+  - `is.workflow.actions.filter.apps.WFCompoundType`
+  - `is.workflow.actions.filter.apps.WFContentItemInputParameter`
+  - `is.workflow.actions.filter.apps.WFContentItemSortProperty`
+  - `is.workflow.actions.filter.articles.WFCompoundType`
+  - `is.workflow.actions.filter.articles.WFContentItemSortProperty`
+  - `is.workflow.actions.filter.calendarevents.WFCompoundType`
+  - `is.workflow.actions.filter.calendarevents.WFContentItemInputParameter`
+  - … 72 more
+
 ## 0.3.0 (2026-09-04)
 
 Apple's own apps' actions, and the rest of the built-ins.

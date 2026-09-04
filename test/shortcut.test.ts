@@ -94,6 +94,27 @@ describe("definitions", () => {
   });
 });
 
+describe("repeat count and menu blocks", () => {
+  test("share a grouping identifier with modes 0/1/2", () => {
+    const s = new Shortcut("Blocks");
+    const r = s.repeatCount(3);
+    s.action(actions.showresult, { Text: text("tick") });
+    s.endRepeatCount(r);
+    const m = s.chooseFromMenu("Pick one", ["A", "B"]);
+    s.menuItem(m, "A"); s.action(actions.showresult, { Text: text("a") });
+    s.menuItem(m, "B"); s.action(actions.showresult, { Text: text("b") });
+    s.endMenu(m);
+    const p = s.actions.map((a) => a.WFWorkflowActionParameters);
+    expect(p[0]).toMatchObject({ GroupingIdentifier: r, WFControlFlowMode: 0, WFRepeatCount: 3 });
+    expect(p[2]).toMatchObject({ GroupingIdentifier: r, WFControlFlowMode: 2 });
+    expect(p[3]).toMatchObject({ GroupingIdentifier: m, WFControlFlowMode: 0, WFMenuPrompt: "Pick one", WFMenuItems: ["A", "B"] });
+    expect(p[4]).toMatchObject({ GroupingIdentifier: m, WFControlFlowMode: 1, WFMenuItemTitle: "A" });
+    expect(p[6]).toMatchObject({ GroupingIdentifier: m, WFControlFlowMode: 1, WFMenuItemTitle: "B" });
+    expect(p[8]).toMatchObject({ GroupingIdentifier: m, WFControlFlowMode: 2 });
+    expect(s.actions.filter((a) => a.WFWorkflowActionIdentifier === "is.workflow.actions.choosefrommenu").length).toBe(4);
+  });
+});
+
 describe("App Intents actions", () => {
   test("carry the app descriptor and typed parameters", () => {
     const s = new Shortcut("Reminders");

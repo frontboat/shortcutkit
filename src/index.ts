@@ -141,6 +141,24 @@ export class Shortcut {
     return gid;
   }
   endRepeatEach(gid: string): void { this.action("is.workflow.actions.repeat.each", { GroupingIdentifier: gid, WFControlFlowMode: 2 }); }
+  /** Open a Repeat block that runs `count` times; returns the grouping identifier for endRepeatCount(). */
+  repeatCount(count: number | Attachment): string {
+    const gid = uuid();
+    this.action("is.workflow.actions.repeat.count", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFRepeatCount: count });
+    return gid;
+  }
+  endRepeatCount(gid: string): void { this.action("is.workflow.actions.repeat.count", { GroupingIdentifier: gid, WFControlFlowMode: 2 }); }
+  /**
+   * Open a Choose from Menu block. Follow with one menuItem() per title, in order, each with the
+   * actions of that branch, then endMenu(). Returns the grouping identifier.
+   */
+  chooseFromMenu(prompt: string | TokenString, items: string[]): string {
+    const gid = uuid();
+    this.action("is.workflow.actions.choosefrommenu", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFMenuPrompt: prompt, WFMenuItems: items });
+    return gid;
+  }
+  menuItem(gid: string, title: string): void { this.action("is.workflow.actions.choosefrommenu", { GroupingIdentifier: gid, WFControlFlowMode: 1, WFMenuItemTitle: title }); }
+  endMenu(gid: string): void { this.action("is.workflow.actions.choosefrommenu", { GroupingIdentifier: gid, WFControlFlowMode: 2 }); }
 
   toPlist(): Record<string, PlistValue> {
     const actions = this.actions.map(({ outputName: _o, ...a }) => a as unknown as PlistValue);

@@ -133,9 +133,12 @@ readable form. `tools/dump-toolkit-registry.py` reads it:
   joining the index against the apps' own `extract.actionsdata`. Entities carry bundle and
   type name; enumerations list their cases (`EnumerationCases`: the case id that is stored and
   the title the app shows).
-- `ToolLocalizations`, `ParameterLocalizations`: English names and descriptions, including
-  for the ActionKit built-ins whose engine definitions have no `Name` (`Ask for Input`).
-  `tools/annotate-builtin-actions.py` fills those in and marks them `NameSource: "ToolKit"`.
+- `ToolLocalizations`, `ParameterLocalizations`: English names, output names and descriptions,
+  including for the ActionKit built-ins whose engine definitions have no `Name`, no
+  `OutputName` and no `Parameters` list (`Ask for Input`, `Combine Text`: they declare
+  parameters in code). `tools/annotate-builtin-actions.py` fills the name, the output name
+  and each enumeration's cases into the definition, marked `NameSource`, `OutputNameSource`
+  and `Source: "ToolKit"`; enumeration entries only for keys the run-time walk reports.
 
 The committed `data/apple-app-intents.json` keeps the `WFLinkActionProvider` tools whose
 container is an Apple bundle; those ship with macOS. The full index, third-party apps

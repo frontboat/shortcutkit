@@ -483,6 +483,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Ask for Input**
    * Displays a dialog prompting the user to enter a piece of information.
    * Summary: `Ask for ${WFInputType} with ${WFAskActionPrompt}`
+   * Output: Ask for Input
    * Parameters: `WFAskActionPrompt`, `WFInputType`, `WFAskActionDefaultAnswer`, `WFAskActionDefaultAnswerNumber`, `urlAnswer`, `WFAskActionDefaultAnswerURL`, `WFAskActionDefaultAnswerDate`, `WFAskActionDefaultAnswerTime`, `WFAskActionDefaultAnswerDateAndTime`, `WFAskActionAllowsDecimalNumbers`, `WFAskActionAllowsNegativeNumbers`, `WFAllowsMultilineText`, `ShowWhenRun`
    */
   ask: "is.workflow.actions.ask",
@@ -604,6 +605,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Correct Spelling**
    * Autocorrects the spelling of text passed into the action.
+   * Output: Corrected Spelling
    * Parameters: `text`, `ShowWhenRun`
    */
   correctspelling: "is.workflow.actions.correctspelling",
@@ -1016,6 +1018,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   filter_apps: "is.workflow.actions.filter.apps",
   /**
    * **Filter Articles**
+   * Output: Articles
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_articles: "is.workflow.actions.filter.articles",
@@ -1055,6 +1058,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   filter_images: "is.workflow.actions.filter.images",
   /**
    * **Filter Locations**
+   * Output: Locations
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_locations: "is.workflow.actions.filter.locations",
@@ -1171,6 +1175,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Get Current App**
    * Gets the current visible app.
+   * Output: Current App
    * Parameters: `WFVisibleAppScope`
    */
   getcurrentapp: "is.workflow.actions.getcurrentapp",
@@ -2079,16 +2084,19 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   properties_appearance: "is.workflow.actions.properties.appearance",
   /**
    * **Get Details of App Store App**
+   * Output: Details of App Store Apps
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_appstore: "is.workflow.actions.properties.appstore",
   /**
    * **Get Details of Article**
+   * Output: Details of Articles
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_articles: "is.workflow.actions.properties.articles",
   /**
    * **Get Details of Calendar Events**
+   * Output: Details of Calendar Events
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_calendarevents: "is.workflow.actions.properties.calendarevents",
@@ -2118,11 +2126,13 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   properties_images: "is.workflow.actions.properties.images",
   /**
    * **Get Details of iTunes Artist**
+   * Output: Details of Itunes Artists
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_itunesartist: "is.workflow.actions.properties.itunesartist",
   /**
    * **Get Details of iTunes Product**
+   * Output: Details of Itunes Products
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_itunesstore: "is.workflow.actions.properties.itunesstore",
@@ -2133,6 +2143,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   properties_locations: "is.workflow.actions.properties.locations",
   /**
    * **Get Details of Music**
+   * Output: Artist
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_music: "is.workflow.actions.properties.music",
@@ -2143,11 +2154,13 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   properties_parkedcar: "is.workflow.actions.properties.parkedcar",
   /**
    * **Get Details of Podcast Episode**
+   * Output: Details of Podcast Episodes
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_podcast: "is.workflow.actions.properties.podcast",
   /**
    * **Get Details of Podcast**
+   * Output: Details of Podcasts
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_podcastshow: "is.workflow.actions.properties.podcastshow",
@@ -2163,6 +2176,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   properties_ridestatus: "is.workflow.actions.properties.ridestatus",
   /**
    * **Get Details of Safari Web Page**
+   * Output: Details of Safari Web Pages
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_safariwebpage: "is.workflow.actions.properties.safariwebpage",
@@ -2723,24 +2737,28 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Change Case**
    * Changes the case of the text passed into the action to UPPERCASE, lowercase, or Title Case.
+   * Output: Updated Text
    * Parameters: `text`, `WFCaseType`, `ShowWhenRun`
    */
   text_changecase: "is.workflow.actions.text.changecase",
   /**
    * **Combine Text**
    * Joins the text together, inserting the separator between each join.
+   * Output: Combined Text
    * Parameters: `text`, `WFTextSeparator`, `WFTextCustomSeparator`, `ShowWhenRun`
    */
   text_combine: "is.workflow.actions.text.combine",
   /**
    * **Match Text**
    * Searches text passed into the action for matches to a regular expression.
+   * Output: Matches
    * Parameters: `text`, `WFMatchTextPattern`, `WFMatchTextCaseSensitive`, `ShowWhenRun`
    */
   text_match: "is.workflow.actions.text.match",
   /**
    * **Get Group from Matched Text**
    * Gets the text that matched a particular capture group or all of the capture groups from the output of a Match Text action.
+   * Output: Text
    * Parameters: `matches`, `WFGetGroupType`, `WFGroupIndex`, `ShowWhenRun`
    */
   text_match_getgroup: "is.workflow.actions.text.match.getgroup",
@@ -2755,6 +2773,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Split Text**
    * Separates text passed into the action into a list.
+   * Output: Split Text
    * Parameters: `text`, `WFTextSeparator`, `WFTextCustomSeparator`, `ShowWhenRun`
    */
   text_split: "is.workflow.actions.text.split",
@@ -14104,7 +14123,7 @@ export const ACTIONS = {
   "is.workflow.actions.announcenotifications.set": { name: "Set Announce Notifications", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
   "is.workflow.actions.appearance": { name: "Set Appearance", params: ["operation", "style", "ShowWhenRun"], output: null },
   "is.workflow.actions.appendvariable": { name: "Add to Variable", params: ["WFVariableName", "WFInput"], output: "Variable" },
-  "is.workflow.actions.ask": { name: "Ask for Input", params: ["WFAskActionPrompt", "WFInputType", "WFAskActionDefaultAnswer", "WFAskActionDefaultAnswerNumber", "urlAnswer", "WFAskActionDefaultAnswerURL", "WFAskActionDefaultAnswerDate", "WFAskActionDefaultAnswerTime", "WFAskActionDefaultAnswerDateAndTime", "WFAskActionAllowsDecimalNumbers", "WFAskActionAllowsNegativeNumbers", "WFAllowsMultilineText", "ShowWhenRun"], output: null },
+  "is.workflow.actions.ask": { name: "Ask for Input", params: ["WFAskActionPrompt", "WFInputType", "WFAskActionDefaultAnswer", "WFAskActionDefaultAnswerNumber", "urlAnswer", "WFAskActionDefaultAnswerURL", "WFAskActionDefaultAnswerDate", "WFAskActionDefaultAnswerTime", "WFAskActionDefaultAnswerDateAndTime", "WFAskActionAllowsDecimalNumbers", "WFAskActionAllowsNegativeNumbers", "WFAllowsMultilineText", "ShowWhenRun"], output: "Ask for Input" },
   "is.workflow.actions.askllm": { name: "Use Model", params: ["WFLLMModel", "WFLLMPrompt", "WFAllowWebSearch", "WFGenerativeResultType", "FollowUp"], output: "Response" },
   "is.workflow.actions.avairyeditphoto": { name: "Markup", params: ["WFDocument"], output: "Markup Result" },
   "is.workflow.actions.base64encode": { name: "Base64 Encode", params: ["WFEncodeMode", "WFBase64LineBreakMode", "WFInput"], output: "Base64 Encoded" },
@@ -14121,7 +14140,7 @@ export const ACTIONS = {
   "is.workflow.actions.connecttoservers": { name: "Connect to Servers", params: ["WFInput"], output: "Connected Server" },
   "is.workflow.actions.contacts": { name: "Contacts", params: ["WFContact"], output: "Contacts" },
   "is.workflow.actions.converttimezone": { name: "Convert Time Zone", params: ["Date", "SourceTimeZone", "DestinationTimeZone"], output: "Converted Date" },
-  "is.workflow.actions.correctspelling": { name: "Correct Spelling", params: ["text", "ShowWhenRun"], output: null },
+  "is.workflow.actions.correctspelling": { name: "Correct Spelling", params: ["text", "ShowWhenRun"], output: "Corrected Spelling" },
   "is.workflow.actions.count": { name: "Count", params: ["WFCountType", "Input"], output: "Count" },
   "is.workflow.actions.createplaylist": { name: "Create Playlist", params: ["WFPlaylistName", "WFPlaylistAuthor", "WFPlaylistDescription", "WFPlaylistItems"], output: "New Playlist" },
   "is.workflow.actions.date": { name: "Date", params: ["WFDateActionMode", "WFDateActionDate", "WFEventOccurrenceMode", "WFEventOccurrenceSpecifiedYear"], output: "Date" },
@@ -14177,7 +14196,7 @@ export const ACTIONS = {
   "is.workflow.actions.file.reveal": { name: "Reveal Files in Finder", params: ["WFFile"], output: null },
   "is.workflow.actions.file.select": { name: "Select File", params: ["WFPickingMode", "SelectMultiple"], output: "File" },
   "is.workflow.actions.filter.apps": { name: "Find Apps", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
-  "is.workflow.actions.filter.articles": { name: "Filter Articles", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
+  "is.workflow.actions.filter.articles": { name: "Filter Articles", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Articles" },
   "is.workflow.actions.filter.calendarevents": { name: "Find Calendar Events", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
   "is.workflow.actions.filter.contacts": { name: "Find Contacts", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
   "is.workflow.actions.filter.displays": { name: "Find Displays", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
@@ -14185,7 +14204,7 @@ export const ACTIONS = {
   "is.workflow.actions.filter.files": { name: "Filter Files", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
   "is.workflow.actions.filter.health.quantity": { name: "Find Health Samples", params: [], output: null },
   "is.workflow.actions.filter.images": { name: "Filter Images", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
-  "is.workflow.actions.filter.locations": { name: "Filter Locations", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
+  "is.workflow.actions.filter.locations": { name: "Filter Locations", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Locations" },
   "is.workflow.actions.filter.music": { name: "Find Music", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
   "is.workflow.actions.filter.photos": { name: "Find Photos", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
   "is.workflow.actions.filter.reminders": { name: "Find Reminders", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: null },
@@ -14202,7 +14221,7 @@ export const ACTIONS = {
   "is.workflow.actions.getbatterylevel": { name: "Get Battery Status", params: ["Subject"], output: "Battery State" },
   "is.workflow.actions.getclassaction": { name: "Get Object of Class", params: ["Class", "Input"], output: "Object of Class" },
   "is.workflow.actions.getclipboard": { name: "Get Clipboard", params: [], output: "Clipboard" },
-  "is.workflow.actions.getcurrentapp": { name: "Get Current App", params: ["WFVisibleAppScope"], output: null },
+  "is.workflow.actions.getcurrentapp": { name: "Get Current App", params: ["WFVisibleAppScope"], output: "Current App" },
   "is.workflow.actions.getcurrentlocation": { name: "Get Current Location", params: ["Accuracy"], output: "Current Location" },
   "is.workflow.actions.getcurrentsong": { name: "Get Current Song", params: ["Subject"], output: "Current Song" },
   "is.workflow.actions.getdevicedetails": { name: "Get Device Details", params: ["WFDeviceDetail"], output: "Device Details" },
@@ -14326,24 +14345,24 @@ export const ACTIONS = {
   "is.workflow.actions.previewdocument": { name: "Quick Look", params: ["WFInput", "WFQuickLookActionFullScreen"], output: null },
   "is.workflow.actions.print": { name: "Print", params: ["WFInput"], output: null },
   "is.workflow.actions.properties.appearance": { name: "Get Details of Appearance", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.appstore": { name: "Get Details of App Store App", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.articles": { name: "Get Details of Article", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.calendarevents": { name: "Get Details of Calendar Events", params: ["WFContentItemPropertyName", "WFInput"], output: null },
+  "is.workflow.actions.properties.appstore": { name: "Get Details of App Store App", params: ["WFContentItemPropertyName", "WFInput"], output: "Details of App Store Apps" },
+  "is.workflow.actions.properties.articles": { name: "Get Details of Article", params: ["WFContentItemPropertyName", "WFInput"], output: "Details of Articles" },
+  "is.workflow.actions.properties.calendarevents": { name: "Get Details of Calendar Events", params: ["WFContentItemPropertyName", "WFInput"], output: "Details of Calendar Events" },
   "is.workflow.actions.properties.contacts": { name: "Get Details of Contacts", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.eventattendees": { name: "Get Details of Event Attendees", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.files": { name: "Get Details of Files", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.health.quantity": { name: "Get Details of Health Sample", params: [], output: null },
   "is.workflow.actions.properties.images": { name: "Get Details of Images", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.itunesartist": { name: "Get Details of iTunes Artist", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.itunesstore": { name: "Get Details of iTunes Product", params: ["WFContentItemPropertyName", "WFInput"], output: null },
+  "is.workflow.actions.properties.itunesartist": { name: "Get Details of iTunes Artist", params: ["WFContentItemPropertyName", "WFInput"], output: "Details of Itunes Artists" },
+  "is.workflow.actions.properties.itunesstore": { name: "Get Details of iTunes Product", params: ["WFContentItemPropertyName", "WFInput"], output: "Details of Itunes Products" },
   "is.workflow.actions.properties.locations": { name: "Get Details of Locations", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.music": { name: "Get Details of Music", params: ["WFContentItemPropertyName", "WFInput"], output: null },
+  "is.workflow.actions.properties.music": { name: "Get Details of Music", params: ["WFContentItemPropertyName", "WFInput"], output: "Artist" },
   "is.workflow.actions.properties.parkedcar": { name: "Get Details of Parked Car", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.podcast": { name: "Get Details of Podcast Episode", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.podcastshow": { name: "Get Details of Podcast", params: ["WFContentItemPropertyName", "WFInput"], output: null },
+  "is.workflow.actions.properties.podcast": { name: "Get Details of Podcast Episode", params: ["WFContentItemPropertyName", "WFInput"], output: "Details of Podcast Episodes" },
+  "is.workflow.actions.properties.podcastshow": { name: "Get Details of Podcast", params: ["WFContentItemPropertyName", "WFInput"], output: "Details of Podcasts" },
   "is.workflow.actions.properties.reminders": { name: "Get Details of Reminders", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.ridestatus": { name: "Get Details of Ride Status", params: ["WFContentItemPropertyName", "WFInput"], output: null },
-  "is.workflow.actions.properties.safariwebpage": { name: "Get Details of Safari Web Page", params: ["WFContentItemPropertyName", "WFInput"], output: null },
+  "is.workflow.actions.properties.safariwebpage": { name: "Get Details of Safari Web Page", params: ["WFContentItemPropertyName", "WFInput"], output: "Details of Safari Web Pages" },
   "is.workflow.actions.properties.shazam": { name: "Get Details of Shazam", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.trello": { name: "Get Details of Trello Item", params: ["WFContentItemPropertyName", "WFInput"], output: null },
   "is.workflow.actions.properties.ulysses.sheet": { name: "Get Details of Ulysses Sheet", params: ["WFContentItemPropertyName", "WFInput"], output: null },
@@ -14424,12 +14443,12 @@ export const ACTIONS = {
   "is.workflow.actions.takephoto": { name: "Take Photo", params: ["WFCameraCaptureShowPreview", "WFPhotoCount", "WFCameraCaptureDevice"], output: "Photo" },
   "is.workflow.actions.takescreenshot": { name: "Take Screenshot", params: ["WFTakeScreenshotScreenshotType", "WFTakeScreenshotActionInteractiveSelectionType", "WFTakeScreenshotMainMonitorOnly", "WFTakeScreenshotIgnoreContextualAssistanceLayers"], output: "Screenshot" },
   "is.workflow.actions.takevideo": { name: "Take Video", params: ["WFCameraCaptureDevice", "WFCameraCaptureQuality", "WFRecordingStart"], output: "Video" },
-  "is.workflow.actions.text.changecase": { name: "Change Case", params: ["text", "WFCaseType", "ShowWhenRun"], output: null },
-  "is.workflow.actions.text.combine": { name: "Combine Text", params: ["text", "WFTextSeparator", "WFTextCustomSeparator", "ShowWhenRun"], output: null },
-  "is.workflow.actions.text.match": { name: "Match Text", params: ["text", "WFMatchTextPattern", "WFMatchTextCaseSensitive", "ShowWhenRun"], output: null },
-  "is.workflow.actions.text.match.getgroup": { name: "Get Group from Matched Text", params: ["matches", "WFGetGroupType", "WFGroupIndex", "ShowWhenRun"], output: null },
+  "is.workflow.actions.text.changecase": { name: "Change Case", params: ["text", "WFCaseType", "ShowWhenRun"], output: "Updated Text" },
+  "is.workflow.actions.text.combine": { name: "Combine Text", params: ["text", "WFTextSeparator", "WFTextCustomSeparator", "ShowWhenRun"], output: "Combined Text" },
+  "is.workflow.actions.text.match": { name: "Match Text", params: ["text", "WFMatchTextPattern", "WFMatchTextCaseSensitive", "ShowWhenRun"], output: "Matches" },
+  "is.workflow.actions.text.match.getgroup": { name: "Get Group from Matched Text", params: ["matches", "WFGetGroupType", "WFGroupIndex", "ShowWhenRun"], output: "Text" },
   "is.workflow.actions.text.replace": { name: "Replace Text", params: ["WFReplaceTextFind", "WFReplaceTextReplace", "WFReplaceTextCaseSensitive", "WFReplaceTextRegularExpression", "WFInput"], output: "Updated Text" },
-  "is.workflow.actions.text.split": { name: "Split Text", params: ["text", "WFTextSeparator", "WFTextCustomSeparator", "ShowWhenRun"], output: null },
+  "is.workflow.actions.text.split": { name: "Split Text", params: ["text", "WFTextSeparator", "WFTextCustomSeparator", "ShowWhenRun"], output: "Split Text" },
   "is.workflow.actions.text.translate": { name: "Translate Text", params: ["WFSelectedFromLanguage", "WFSelectedLanguage", "WFInputText"], output: "Translated Text" },
   "is.workflow.actions.text.trimwhitespace": { name: "Trim Whitespace", params: ["WFInput"], output: "Updated Text" },
   "is.workflow.actions.timer.start": { name: "Start Timer", params: ["IntentAppDefinition", "WFDuration"], output: null },
@@ -16048,15 +16067,15 @@ export const ACTIONS = {
 
 /** Accepted value type for every parameter key of every action (see values.ts). */
 export type ParamTypes = {
-  "com.apple.NanoSettings.NPRFPingMyPhoneIntent": { "state": StringValue; "ShowWhenRun": BoolValue };
-  "com.apple.NanoSettings.NPRFSetAlwaysOnIntent": { "operation": StringValue; "state": StringValue; "ShowWhenRun": BoolValue };
-  "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent": { "operation": StringValue; "state": StringValue; "ShowWhenRun": BoolValue };
-  "com.apple.NanoSettings.NPRFSetFlashLightIntent": { "operation": StringValue; "state": StringValue; "ShowWhenRun": BoolValue };
-  "com.apple.NanoSettings.NPRFSetSchoolTimeIntent": { "operation": StringValue; "state": StringValue; "ShowWhenRun": BoolValue };
-  "com.apple.NanoSettings.NPRFSetSilentModeIntent": { "operation": StringValue; "state": StringValue; "ShowWhenRun": BoolValue };
-  "com.apple.NanoSettings.NPRFSetTheaterModeIntent": { "operation": StringValue; "state": StringValue; "ShowWhenRun": BoolValue };
-  "com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent": { "operation": StringValue; "state": StringValue; "ShowWhenRun": BoolValue };
-  "com.apple.NanoSettings.NPRFSetWaterLockIntent": { "operation": StringValue; "state": StringValue; "ShowWhenRun": BoolValue };
+  "com.apple.NanoSettings.NPRFPingMyPhoneIntent": { "state": EnumValue<"off" | "on">; "ShowWhenRun": BoolValue };
+  "com.apple.NanoSettings.NPRFSetAlwaysOnIntent": { "operation": EnumValue<"set" | "toggle">; "state": EnumValue<"off" | "on">; "ShowWhenRun": BoolValue };
+  "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent": { "operation": EnumValue<"set" | "toggle">; "state": EnumValue<"off" | "on">; "ShowWhenRun": BoolValue };
+  "com.apple.NanoSettings.NPRFSetFlashLightIntent": { "operation": EnumValue<"set" | "toggle">; "state": EnumValue<"off" | "on">; "ShowWhenRun": BoolValue };
+  "com.apple.NanoSettings.NPRFSetSchoolTimeIntent": { "operation": EnumValue<"set" | "toggle">; "state": EnumValue<"off" | "on">; "ShowWhenRun": BoolValue };
+  "com.apple.NanoSettings.NPRFSetSilentModeIntent": { "operation": EnumValue<"set" | "toggle">; "state": EnumValue<"off" | "on">; "ShowWhenRun": BoolValue };
+  "com.apple.NanoSettings.NPRFSetTheaterModeIntent": { "operation": EnumValue<"set" | "toggle">; "state": EnumValue<"off" | "on">; "ShowWhenRun": BoolValue };
+  "com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent": { "operation": EnumValue<"set" | "toggle">; "state": EnumValue<"off" | "on">; "ShowWhenRun": BoolValue };
+  "com.apple.NanoSettings.NPRFSetWaterLockIntent": { "operation": EnumValue<"set" | "toggle">; "state": EnumValue<"off" | "on">; "ShowWhenRun": BoolValue };
   "com.apple.Notes.ICNotesFolderIntent": { "folder": AnyValue; "ShowWhenRun": BoolValue };
   "com.apple.TVRemoteUIService.LaunchApplicationIntent": { "ShowWhenRun": BoolValue };
   "com.apple.TVRemoteUIService.LaunchRemoteIntent": { "ShowWhenRun": BoolValue };
@@ -16069,35 +16088,35 @@ export type ParamTypes = {
   "com.apple.TVRemoteUIService.ToggleCaptionsIntent": { "ShowWhenRun": BoolValue };
   "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent": { "ShowWhenRun": BoolValue };
   "com.apple.TVRemoteUIService.WakeAppleTVIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent": { "backgroundSound": StringValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent": { "interval": StringValue; "duration": QuantityValue; "endInterval": TextValue; "always": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent": { "backgroundSound": EnumValue<"Airplane" | "Babble" | "BalancedNoise" | "Boat" | "BrightNoise" | "Bus" | "DarkNoise" | "Fire" | "Night" | "Ocean" | "QuietNight" | "Rain" | "RainOnRoof" | "Steam" | "Stream" | "Train">; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent": { "interval": EnumValue<"duration" | "endInterval">; "duration": QuantityValue; "endInterval": TextValue; "always": BoolValue; "ShowWhenRun": BoolValue };
   "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent": { "volumeValue": NumberValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent": { "operation": StringValue; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "ShowWhenRun": BoolValue };
   "com.apple.facetime.facetime": { "IntentAppDefinition": AnyValue; "WFFaceTimeType": EnumValue<"Video" | "Audio">; "WFFaceTimeContact": AnyValue };
   "com.apple.mobilephone.call": { "IntentAppDefinition": AnyValue; "WFCallContact": AnyValue };
   "com.apple.mobileslideshow.StreamShareService": { "ImageInput": PickerValue };
@@ -16118,18 +16137,18 @@ export type ParamTypes = {
   "is.workflow.actions.addtoplaylist": { "WFPlaylistName": AnyValue; "WFInput": PickerValue };
   "is.workflow.actions.adjustdate": { "WFDate": TextValue; "WFAdjustOperation": EnumValue<"Add" | "Subtract" | "Get Start of Minute" | "Get Start of Hour" | "Get Start of Day" | "Get Start of Week" | "Get Start of Month" | "Get Start of Year">; "WFDuration": QuantityValue };
   "is.workflow.actions.airdropdocument": { "WFInput": PickerValue };
-  "is.workflow.actions.airplanemode.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.airplanemode.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.alert": { "WFAlertActionTitle": TextValue; "WFAlertActionMessage": TextValue; "WFAlertActionCancelButtonShown": BoolValue };
-  "is.workflow.actions.announcenotifications.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
-  "is.workflow.actions.appearance": { "operation": StringValue; "style": StringValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.announcenotifications.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.appearance": { "operation": EnumValue<"set" | "toggle">; "style": EnumValue<"dark" | "light">; "ShowWhenRun": BoolValue };
   "is.workflow.actions.appendvariable": { "WFVariableName": PlainString; "WFInput": PickerValue };
-  "is.workflow.actions.ask": { "WFAskActionPrompt": TextValue; "WFInputType": StringValue; "WFAskActionDefaultAnswer": TextValue; "WFAskActionDefaultAnswerNumber": NumberValue; "urlAnswer": TextValue; "WFAskActionDefaultAnswerURL": TextValue; "WFAskActionDefaultAnswerDate": TextValue; "WFAskActionDefaultAnswerTime": TextValue; "WFAskActionDefaultAnswerDateAndTime": TextValue; "WFAskActionAllowsDecimalNumbers": BoolValue; "WFAskActionAllowsNegativeNumbers": BoolValue; "WFAllowsMultilineText": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.ask": { "WFAskActionPrompt": TextValue; "WFInputType": EnumValue<"Date" | "Date and Time" | "Number" | "Text" | "Time" | "URL">; "WFAskActionDefaultAnswer": TextValue; "WFAskActionDefaultAnswerNumber": NumberValue; "urlAnswer": TextValue; "WFAskActionDefaultAnswerURL": TextValue; "WFAskActionDefaultAnswerDate": TextValue; "WFAskActionDefaultAnswerTime": TextValue; "WFAskActionDefaultAnswerDateAndTime": TextValue; "WFAskActionAllowsDecimalNumbers": BoolValue; "WFAskActionAllowsNegativeNumbers": BoolValue; "WFAllowsMultilineText": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.askllm": { "WFLLMModel": StringValue; "WFLLMPrompt": TextValue; "WFAllowWebSearch": BoolValue; "WFGenerativeResultType": StringValue; "FollowUp": BoolValue };
   "is.workflow.actions.avairyeditphoto": { "WFDocument": PickerValue };
   "is.workflow.actions.base64encode": { "WFEncodeMode": EnumValue<"Encode" | "Decode">; "WFBase64LineBreakMode": EnumValue<"None" | "Every 64 Characters" | "Every 76 Characters">; "WFInput": PickerValue };
-  "is.workflow.actions.bluetooth.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.bluetooth.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.calculateexpression": { "Input": TextValue };
-  "is.workflow.actions.cellulardata.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.cellulardata.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.choosefromlist": { "WFInput": PickerValue; "WFChooseFromListActionPrompt": TextValue; "WFChooseFromListActionSelectMultiple": BoolValue; "WFChooseFromListActionSelectAll": BoolValue };
   "is.workflow.actions.choosefrommenu": { "WFMenuPrompt": TextValue; "WFMenuItems": AnyValue; "WFMenuItemTitle": PlainString; "WFMenuItemAttributedTitle": AnyValue };
   "is.workflow.actions.clearupnext": {  };
@@ -16162,7 +16181,7 @@ export type ParamTypes = {
   "is.workflow.actions.dictatetext": { "WFSpeechLanguage": StringValue; "WFDictateTextStopListening": EnumValue<"After Pause" | "After Short Pause" | "On Tap"> };
   "is.workflow.actions.dictionary": { "WFItems": DictionaryValue };
   "is.workflow.actions.dismisssiri": {  };
-  "is.workflow.actions.display.always-on.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.display.always-on.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.displaysleep": {  };
   "is.workflow.actions.dnd.getfocus": {  };
   "is.workflow.actions.dnd.set": { "Operation": EnumValue<"Turn" | "Toggle">; "Enabled": BoolValue; "AssertionType": EnumValue<"Turned Off" | "Time" | "I Leave" | "Event Ends">; "Event": PickerValue; "Time": TextValue; "FocusModes": AnyValue };
@@ -16195,23 +16214,23 @@ export type ParamTypes = {
   "is.workflow.actions.file.rename": { "WFFile": AnyValue; "WFNewFilename": TextValue };
   "is.workflow.actions.file.reveal": { "WFFile": AnyValue };
   "is.workflow.actions.file.select": { "WFPickingMode": EnumValue<"Files" | "Folders">; "SelectMultiple": BoolValue };
-  "is.workflow.actions.filter.apps": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
-  "is.workflow.actions.filter.articles": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": PickerValue };
-  "is.workflow.actions.filter.calendarevents": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
-  "is.workflow.actions.filter.contacts": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
-  "is.workflow.actions.filter.displays": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
-  "is.workflow.actions.filter.eventattendees": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": PickerValue };
-  "is.workflow.actions.filter.files": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": PickerValue };
+  "is.workflow.actions.filter.apps": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Bundle Identifier" | "Launch Date" | "Name" | "Process Identifier" | "Random">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library"> };
+  "is.workflow.actions.filter.articles": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Author" | "Name" | "Number of Words" | "Published Date" | "Random" | "Title">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": PickerValue };
+  "is.workflow.actions.filter.calendarevents": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Calendar" | "Creation Date" | "Duration" | "End Date" | "File Extension" | "File Path" | "Last Modified Date" | "My Status" | "Name" | "Number of Attendees" | "Random" | "Start Date" | "Title">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library"> };
+  "is.workflow.actions.filter.contacts": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Birthday" | "Company" | "Creation Date" | "Department" | "File Extension" | "File Path" | "First Name" | "Job Title" | "Last Modified Date" | "Last Name" | "Middle Name" | "Name" | "Nickname" | "Phonetic First Name" | "Phonetic Last Name" | "Phonetic Middle Name" | "Prefix" | "Random" | "Suffix">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library"> };
+  "is.workflow.actions.filter.displays": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Name" | "Random" | "Scale">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library"> };
+  "is.workflow.actions.filter.eventattendees": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Email Address" | "Name" | "Random" | "Role" | "Status" | "Type">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": PickerValue };
+  "is.workflow.actions.filter.files": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Creation Date" | "File Extension" | "File Path" | "File Size" | "Last Modified Date" | "Name" | "Random">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": PickerValue };
   "is.workflow.actions.filter.health.quantity": {  };
-  "is.workflow.actions.filter.images": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": PickerValue };
-  "is.workflow.actions.filter.locations": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": PickerValue };
-  "is.workflow.actions.filter.music": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
-  "is.workflow.actions.filter.photos": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
-  "is.workflow.actions.filter.reminders": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
-  "is.workflow.actions.filter.vpns": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
-  "is.workflow.actions.filter.windows": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": StringValue; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": StringValue; "WFContentItemInputParameter": StringValue };
+  "is.workflow.actions.filter.images": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Creation Date" | "Date Taken" | "Duration" | "File Extension" | "File Path" | "File Size" | "Frame Rate" | "Height" | "Last Modified Date" | "Name" | "Orientation" | "Random" | "Time Taken" | "Width">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": PickerValue };
+  "is.workflow.actions.filter.locations": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Altitude" | "City" | "Country" | "Label" | "Latitude" | "Longitude" | "Name" | "Phone Number" | "Random" | "State" | "Street" | "ZIP Code">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": PickerValue };
+  "is.workflow.actions.filter.music": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Album" | "Album Artist" | "Album Track #" | "Artist" | "Composer" | "Date Added" | "Disc #" | "Duration" | "File Path" | "Genre" | "Last Played Date" | "Media Kind" | "Name" | "Play Count" | "Random" | "Rating" | "Release Date" | "Skip Count" | "Title">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library"> };
+  "is.workflow.actions.filter.photos": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Creation Date" | "Date Taken" | "Duration" | "File Extension" | "File Path" | "Frame Rate" | "Height" | "Last Modified Date" | "Media Type" | "Name" | "Random" | "Time Taken" | "Width">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library"> };
+  "is.workflow.actions.filter.reminders": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Completion Date" | "Creation Date" | "Due Date" | "File Extension" | "File Path" | "Last Modified Date" | "List" | "Name" | "Priority" | "Random" | "Title">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library"> };
+  "is.workflow.actions.filter.vpns": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"Name" | "Random" | "Server Address">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library"> };
+  "is.workflow.actions.filter.windows": { "WFContentItemFilter": FilterTemplateValue; "WFContentItemSortProperty": EnumValue<"App Name" | "Height" | "Name" | "Random" | "Width" | "Window Index" | "X Position" | "Y Position">; "WFContentItemSortOrder": StringValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library"> };
   "is.workflow.actions.finder.getselectedfiles": {  };
-  "is.workflow.actions.flashlight": { "operation": StringValue; "state": BoolValue; "WFFlashlightLevel": NumberValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.flashlight": { "operation": EnumValue<"set" | "toggle">; "state": BoolValue; "WFFlashlightLevel": NumberValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.format.date": { "WFDateFormatStyle": EnumValue<"None" | "Short" | "Medium" | "Long" | "Relative" | "RFC 2822" | "ISO 8601" | "Custom">; "WFRelativeDateFormatStyle": EnumValue<"Short" | "Medium" | "Long">; "WFTimeFormatStyle": EnumValue<"None" | "Short" | "Medium" | "Long" | "Relative">; "WFISO8601IncludeTime": BoolValue; "WFDateFormat": TextValue; "WFDate": TextValue; "WFLocale": StringValue };
   "is.workflow.actions.format.filesize": { "WFFileSizeFormat": EnumValue<"Automatic" | "Bytes" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB or Higher">; "WFFileSizeIncludeUnits": BoolValue; "WFFileSize": NumberValue };
   "is.workflow.actions.format.number": { "WFNumber": NumberValue; "WFNumberFormatDecimalPlaces": NumberValue };
@@ -16286,7 +16305,7 @@ export type ParamTypes = {
   "is.workflow.actions.image.rotate": { "WFImageRotateAmount": NumberValue; "WFImage": PickerValue };
   "is.workflow.actions.imgur.upload": { "WFInput": PickerValue; "WFImgurAnonymous": BoolValue; "WFImgurDirectLink": BoolValue; "WFImgurAlbum": BoolValue; "WFImgurAlbumLayout": EnumValue<"Blog" | "Grid" | "Horizontal" | "Vertical">; "WFImgurAlbumPrivacy": EnumValue<"Public" | "Hidden" | "Secret">; "WFImgurTitle": TextValue; "WFImgurDescription": TextValue };
   "is.workflow.actions.importaudiofiles": { "WFInput": AnyValue; "WFImportAudioFilesReencode": BoolValue; "WFImportAudioFilesEncoder": EnumValue<"Default" | "AAC" | "AIFF" | "Lossless" | "MP3" | "WAV"> };
-  "is.workflow.actions.input": { "WFOutput": AnyValue; "WFInputType": StringValue; "WFInputSurface": StringValue; "WFNoInputBehavior": EnumValue<"Stop and Respond" | "Ask For" | "Get Clipboard" | "Continue">; "WFStopAndRespondResponse": TextValue; "WFAskForType": EnumValue<"Files" | "Text" | "Date" | "Photos" | "Contacts" | "Email Address" | "Music" | "Phone Number">; "WFPickingMode": StringValue; "SelectMultiple": BoolValue; "WFDateActionMode": StringValue; "WFDateActionDate": TextValue; "WFEventOccurrenceMode": StringValue; "WFEventOccurrenceSpecifiedYear": StringValue; "WFPhotoPickerTypes": StringValue; "WFSelectMultiplePhotos": BoolValue; "WFSelectMultiple": BoolValue; "WFExportSongActionSelectMultiple": BoolValue };
+  "is.workflow.actions.input": { "WFOutput": AnyValue; "WFInputType": StringValue; "WFInputSurface": StringValue; "WFNoInputBehavior": EnumValue<"Stop and Respond" | "Ask For" | "Get Clipboard" | "Continue">; "WFStopAndRespondResponse": TextValue; "WFAskForType": EnumValue<"Files" | "Text" | "Date" | "Photos" | "Contacts" | "Email Address" | "Music" | "Phone Number">; "WFPickingMode": EnumValue<"Files" | "Folders">; "SelectMultiple": BoolValue; "WFDateActionMode": StringValue; "WFDateActionDate": TextValue; "WFEventOccurrenceMode": EnumValue<"Next Occurrence" | "Specified Year">; "WFEventOccurrenceSpecifiedYear": StringValue; "WFPhotoPickerTypes": EnumValue<"Images" | "Live Photos" | "Videos">; "WFSelectMultiplePhotos": BoolValue; "WFSelectMultiple": BoolValue; "WFExportSongActionSelectMultiple": BoolValue };
   "is.workflow.actions.instapaper.add": { "WFInstapaperFolder": StringValue; "WFInputURL": TextValue };
   "is.workflow.actions.instapaper.get": { "WFInstapaperFolder": StringValue; "WFBookmarkCount": NumberValue };
   "is.workflow.actions.intercom": { "WFHome": AnyValue; "WFInput": TextValue };
@@ -16297,7 +16316,7 @@ export type ParamTypes = {
   "is.workflow.actions.lock.app": { "WFLockAppOperation": EnumValue<"Lock" | "Unlock" | "Toggle">; "WFApp": AnyValue };
   "is.workflow.actions.lockscreen": {  };
   "is.workflow.actions.logout": {  };
-  "is.workflow.actions.lowpowermode.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.lowpowermode.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.makediskimage": { "WFInput": AnyValue; "VolumeName": TextValue; "EncryptImage": BoolValue; "SizeToFit": BoolValue; "ImageSize": QuantityValue };
   "is.workflow.actions.makegif": { "WFMakeGIFActionDelayTime": NumberValue; "WFMakeGIFActionLoopEnabled": BoolValue; "WFMakeGIFActionLoopCount": NumberValue; "WFMakeGIFActionAutoSize": BoolValue; "WFMakeGIFActionManualSizeWidth": NumberValue; "WFMakeGIFActionManualSizeHeight": NumberValue; "WFInput": PickerValue };
   "is.workflow.actions.makeimagefrompdfpage": { "WFInput": PickerValue; "WFMakeImageFromPDFPageImageFormat": StringValue; "WFMakeImageFromPDFPageColorspace": StringValue; "WFMakeImageFromPDFPageResolution": NumberValue };
@@ -16311,7 +16330,7 @@ export type ParamTypes = {
   "is.workflow.actions.measurement.create": { "WFMeasurementUnitType": StringValue; "WFMeasurementUnit": QuantityValue };
   "is.workflow.actions.mountdiskimage": { "WFInput": AnyValue };
   "is.workflow.actions.movewindow": { "WFPosition": EnumValue<"Top Left" | "Top Center" | "Top Right" | "Middle Left" | "Center" | "Middle Right" | "Bottom Left" | "Bottom Center" | "Bottom Right" | "Coordinates">; "WFXCoordinate": NumberValue; "WFYCoordinate": NumberValue; "WFWindow": PickerValue; "WFBringToFront": BoolValue; "Display": AnyValue };
-  "is.workflow.actions.nightshift.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.nightshift.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.nothing": {  };
   "is.workflow.actions.notification": { "WFNotificationActionTitle": TextValue; "WFNotificationActionBody": TextValue; "WFNotificationActionSound": BoolValue; "WFInput": PickerValue };
   "is.workflow.actions.number": { "WFNumberActionNumber": NumberValue };
@@ -16321,14 +16340,14 @@ export type ParamTypes = {
   "is.workflow.actions.openpasswords": { "WFShowPasswordsSearchTerm": TextValue };
   "is.workflow.actions.openurl": { "WFInput": TextValue };
   "is.workflow.actions.openxcallbackurl": { "WFXCallbackCustomCallbackEnabled": BoolValue; "WFXCallbackCustomSuccessKey": TextValue; "WFXCallbackCustomCancelKey": TextValue; "WFXCallbackCustomErrorKey": TextValue; "WFXCallbackCustomSuccessURLEnabled": BoolValue; "WFXCallbackCustomSuccessURL": TextValue; "WFXCallbackURL": TextValue };
-  "is.workflow.actions.orientationlock.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.orientationlock.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.output": { "WFOutput": TextValue; "WFNoOutputSurfaceBehavior": EnumValue<"Respond" | "Do Nothing" | "Copy to Clipboard">; "WFResponse": TextValue };
   "is.workflow.actions.overlayimageonimage": { "WFImage": PickerValue; "WFInput": PickerValue; "WFShouldShowImageEditor": BoolValue; "WFImagePosition": EnumValue<"Center" | "Top Left" | "Top Right" | "Bottom Left" | "Bottom Right" | "Custom">; "WFImageWidth": NumberValue; "WFImageHeight": NumberValue; "WFImageX": NumberValue; "WFImageY": NumberValue; "WFRotation": NumberValue; "WFOverlayImageOpacity": NumberValue };
   "is.workflow.actions.overlaytext": { "WFText": TextValue; "WFImage": PickerValue; "WFTextPosition": EnumValue<"Top Left" | "Top Center" | "Top Right" | "Middle Left" | "Center" | "Middle Right" | "Bottom Left" | "Bottom Center" | "Bottom Right" | "Custom Position">; "WFTextX": NumberValue; "WFPercentageTextX": NumberValue; "WFTextY": NumberValue; "WFPercentageTextY": NumberValue; "WFTextOffset": NumberValue; "WFPercentageTextOffset": NumberValue; "WFFont": AnyValue; "WFFontSize": NumberValue; "WFPercentageFontSize": NumberValue; "WFTextAlignment": EnumValue<"Left" | "Center" | "Right">; "WFTextColor": AnyValue; "WFTextRotation": NumberValue; "WFTextOutlineEnabled": BoolValue; "WFTextStrokeWidth": NumberValue; "WFPercentageTextStrokeWidth": NumberValue; "WFTextStrokeColor": AnyValue; "WFTextBoxWidth": NumberValue; "WFPercentageTextBoxWidth": NumberValue; "WFSizingMethod": EnumValue<"Proportional" | "Absolute"> };
   "is.workflow.actions.pausemusic": { "WFPlayPauseBehavior": EnumValue<"Play/Pause" | "Play" | "Pause">; "WFMediaRoute": AnyValue };
   "is.workflow.actions.personalhotspot.password.get": {  };
   "is.workflow.actions.personalhotspot.password.set": { "WFInput": TextValue };
-  "is.workflow.actions.personalhotspot.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.personalhotspot.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.phonenumber": { "WFPhoneNumber": AnyValue };
   "is.workflow.actions.photos.createalbum": { "AlbumName": TextValue; "WFInput": PickerValue };
   "is.workflow.actions.pinboard.add": { "WFPinTitle": TextValue; "WFPinTags": TextValue; "WFPinPublic": BoolValue; "WFPinUnread": BoolValue; "WFPinDescription": TextValue; "WFPinboardURL": TextValue };
@@ -16344,30 +16363,30 @@ export type ParamTypes = {
   "is.workflow.actions.postonfacebook": { "FacebookContent": PickerValue };
   "is.workflow.actions.previewdocument": { "WFInput": PickerValue; "WFQuickLookActionFullScreen": BoolValue };
   "is.workflow.actions.print": { "WFInput": PickerValue };
-  "is.workflow.actions.properties.appearance": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.appstore": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.articles": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.calendarevents": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.contacts": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.eventattendees": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.files": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
+  "is.workflow.actions.properties.appearance": { "WFContentItemPropertyName": EnumValue<"Dark Mode Is On" | "Inverse Appearance" | "Name">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.appstore": { "WFContentItemPropertyName": EnumValue<"# of Ratings" | "# of Ratings (This Version)" | "Artist" | "Artwork" | "Artwork URL" | "Bundle Identifier" | "Category" | "Content Rating" | "Currency Code" | "Description" | "Download Size" | "Formatted Price" | "Is Universal" | "Last Updated" | "Minimum OS Version" | "Name" | "Price" | "Rating" | "Rating (This Version)" | "Release Date" | "Release Notes" | "Screenshot URLs" | "Store ID" | "Store URL" | "Supported Devices" | "Supported Languages" | "Supports Game Center" | "Version" | "iPad Screenshot URLs">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.articles": { "WFContentItemPropertyName": EnumValue<"Author" | "Body" | "Excerpt" | "Main Image URL" | "Name" | "Number of Words" | "Published Date" | "Title" | "URL">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.calendarevents": { "WFContentItemPropertyName": EnumValue<"Attachments" | "Attendees" | "Calendar" | "Canceled" | "Creation Date" | "Duration" | "End Date" | "File Extension" | "File Path" | "File Size" | "Has Alarms" | "Is All Day" | "Last Modified Date" | "Location" | "My Status" | "Name" | "Notes" | "Number of Attendees" | "Organizer" | "Organizer Is Me" | "Start Date" | "Title" | "URL">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.contacts": { "WFContentItemPropertyName": EnumValue<"Birthday" | "Company" | "Contact Photo" | "Creation Date" | "Department" | "Email Addresses" | "File Extension" | "File Path" | "File Size" | "First Name" | "Job Title" | "Last Modified Date" | "Last Name" | "Middle Name" | "Name" | "Nickname" | "Notes" | "Phone Numbers" | "Phonetic First Name" | "Phonetic Last Name" | "Phonetic Middle Name" | "Prefix" | "Relationship to Me" | "Street Addresses" | "Suffix" | "URLs">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.eventattendees": { "WFContentItemPropertyName": EnumValue<"Email Address" | "Is Me" | "Name" | "Role" | "Status" | "Type">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.files": { "WFContentItemPropertyName": EnumValue<"Creation Date" | "File Extension" | "File Path" | "File Size" | "Last Modified Date" | "Name">; "WFInput": PickerValue };
   "is.workflow.actions.properties.health.quantity": {  };
-  "is.workflow.actions.properties.images": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.itunesartist": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.itunesstore": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.locations": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.music": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.parkedcar": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.podcast": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.podcastshow": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.reminders": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.ridestatus": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.safariwebpage": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.shazam": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.trello": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.ulysses.sheet": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.weather.conditions": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
-  "is.workflow.actions.properties.workflow": { "WFContentItemPropertyName": StringValue; "WFInput": PickerValue };
+  "is.workflow.actions.properties.images": { "WFContentItemPropertyName": EnumValue<"Album" | "Camera Make" | "Camera Model" | "Creation Date" | "Date Taken" | "Duration" | "File Extension" | "File Path" | "File Size" | "Frame Rate" | "Height" | "Is Favorite" | "Is a Screen Recording" | "Is a Screenshot" | "Last Modified Date" | "Location" | "Media Type" | "Metadata Dictionary" | "Name" | "Orientation" | "Photo Type" | "Width">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.itunesartist": { "WFContentItemPropertyName": EnumValue<"Artwork" | "Artwork URL" | "Genre" | "Name" | "Store ID" | "Store URL" | "Type">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.itunesstore": { "WFContentItemPropertyName": EnumValue<"Artist" | "Artwork" | "Artwork URL" | "Currency Code" | "Description" | "Duration" | "Formatted Price" | "Genre" | "Is Explicit" | "Name" | "Price" | "Release Date" | "Store ID" | "Store URL" | "Streamable">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.locations": { "WFContentItemPropertyName": EnumValue<"Altitude" | "City" | "Country" | "Label" | "Latitude" | "Longitude" | "Name" | "Phone Number" | "State" | "Street" | "URL" | "ZIP Code">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.music": { "WFContentItemPropertyName": EnumValue<"Album" | "Album Artist" | "Album Artwork" | "Album Track #" | "Artist" | "Comments" | "Composer" | "Date Added" | "Disc #" | "Duration" | "File Path" | "Genre" | "Is Cloud Item" | "Is Explicit" | "Last Played Date" | "Lyrics" | "Media Kind" | "Name" | "Play Count" | "Rating" | "Release Date" | "Skip Count" | "Title">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.parkedcar": { "WFContentItemPropertyName": EnumValue<"Date" | "Location" | "Name" | "Notes" | "Photo" | "Was Location Set by User">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.podcast": { "WFContentItemPropertyName": EnumValue<"Artwork" | "Artwork URL" | "Author" | "Description" | "Duration" | "Genres" | "Name" | "Release Date" | "Store ID" | "Store URL" | "Title">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.podcastshow": { "WFContentItemPropertyName": EnumValue<"Artist" | "Artwork" | "Artwork URL" | "Episode Count" | "Feed URL" | "Genre" | "Name" | "Store ID" | "Store URL">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.reminders": { "WFContentItemPropertyName": EnumValue<"Completion Date" | "Creation Date" | "Due Date" | "File Extension" | "File Path" | "File Size" | "Has Alarms" | "Has Subtasks" | "Images" | "Is Completed" | "Is Flagged" | "Last Modified Date" | "List" | "Name" | "Notes" | "Parent Reminder" | "Priority" | "Reminder Location" | "Subtasks" | "Tags" | "Title" | "URL">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.ridestatus": { "WFContentItemPropertyName": EnumValue<"Driver" | "Drop Off Location" | "Drop Off Time" | "Maximum Price" | "Minimum Price" | "Name" | "Pickup Location" | "Pickup Time" | "Ride Option Name" | "Vehicle Information">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.safariwebpage": { "WFContentItemPropertyName": EnumValue<"Name" | "Page Contents" | "Page Selection" | "Page URL">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.shazam": { "WFContentItemPropertyName": EnumValue<"Apple Music ID" | "Apple Music URL" | "Artist" | "Artwork" | "Is Explicit" | "Lyric Snippet Synced" | "Lyrics Snippet" | "Name" | "Shazam URL" | "Title" | "Video URL">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.trello": { "WFContentItemPropertyName": EnumValue<"Card Attachments" | "Card Due Date" | "Description" | "Name" | "URL">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.ulysses.sheet": { "WFContentItemPropertyName": EnumValue<"Contents" | "Identifier" | "Keywords" | "Name" | "Notes" | "Title">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.weather.conditions": { "WFContentItemPropertyName": EnumValue<"Air Pollutants" | "Air Quality Category" | "Air Quality Index" | "Condition" | "Date" | "Dewpoint" | "Feels Like" | "High" | "Humidity" | "Location" | "Low" | "Name" | "Precipitation Amount" | "Precipitation Chance" | "Pressure" | "Sunrise Time" | "Sunset Time" | "Temperature" | "UV Index" | "Visibility" | "Wind Direction" | "Wind Speed">; "WFInput": PickerValue };
+  "is.workflow.actions.properties.workflow": { "WFContentItemPropertyName": EnumValue<"Action Count" | "Creation Date" | "File Extension" | "File Path" | "File Size" | "Folder" | "Icon" | "Last Modified Date" | "Name">; "WFInput": PickerValue };
   "is.workflow.actions.quit.app": { "WFQuitAppMode": EnumValue<"App" | "All Apps">; "WFAppsExcept": AnyValue; "WFApp": AnyValue; "WFAskToSaveChanges": BoolValue };
   "is.workflow.actions.readinglist": { "WFURL": TextValue };
   "is.workflow.actions.reboot": { "WFShutdownMode": EnumValue<"Shut Down" | "Restart"> };
@@ -16413,9 +16432,9 @@ export type ParamTypes = {
   "is.workflow.actions.setparkedcar": { "WFLocation": AnyValue; "WFSetParkedCarNotes": TextValue; "WFImage": PickerValue };
   "is.workflow.actions.setplaybackdestination": { "WFMediaRouteOperation": EnumValue<"Set" | "Add" | "Remove">; "WFMediaRoute": AnyValue };
   "is.workflow.actions.setstoredcontent": { "WFInput": TextValue; "WFStoredContentKey": TextValue; "WFStoredContentGlobalValue": BoolValue };
-  "is.workflow.actions.setters.calendarevents": { "WFContentItemPropertyName": StringValue; "Mode": StringValue; "WFInput": PickerValue; "RemoveSpecifiedValue": PickerValue; "WFCalendarEventContentItemAttachments": PickerValue; "WFCalendarEventContentItemIsAllDay": BoolValue; "WFCalendarEventContentItemNotes": TextValue; "WFCalendarEventContentItemTitle": TextValue; "WFCalendarEventContentItemLocation": TextValue; "WFCalendarEventContentItemEndDate": TextValue; "WFCalendarEventContentItemDuration": QuantityValue; "WFCalendarEventContentItemStartDate": TextValue; "WFCalendarEventContentItemMyStatus": StringValue; "WFCalendarEventContentItemAttendees": AnyValue; "WFCalendarEventContentItemURL": TextValue; "ValueLabel": BoolValue };
+  "is.workflow.actions.setters.calendarevents": { "WFContentItemPropertyName": StringValue; "Mode": StringValue; "WFInput": PickerValue; "RemoveSpecifiedValue": PickerValue; "WFCalendarEventContentItemAttachments": PickerValue; "WFCalendarEventContentItemIsAllDay": BoolValue; "WFCalendarEventContentItemNotes": TextValue; "WFCalendarEventContentItemTitle": TextValue; "WFCalendarEventContentItemLocation": TextValue; "WFCalendarEventContentItemEndDate": TextValue; "WFCalendarEventContentItemDuration": QuantityValue; "WFCalendarEventContentItemStartDate": TextValue; "WFCalendarEventContentItemMyStatus": EnumValue<"Accepted" | "Completed" | "Declined" | "Delegated" | "In Process" | "Pending" | "Tentative" | "Unknown">; "WFCalendarEventContentItemAttendees": AnyValue; "WFCalendarEventContentItemURL": TextValue; "ValueLabel": BoolValue };
   "is.workflow.actions.setters.contacts": { "WFContentItemPropertyName": StringValue; "Mode": StringValue; "WFInput": PickerValue; "RemoveSpecifiedValue": PickerValue; "WFContactContentItemPrefix": TextValue; "WFContactContentItemPhoneticLastName": TextValue; "WFContactContentItemJobTitle": TextValue; "WFContactContentItemURLs": TextValue; "WFContactContentItemCompany": TextValue; "WFContactContentItemDepartment": TextValue; "WFContactContentItemLastName": TextValue; "WFContactContentItemEmailAddresses": TextValue; "WFContactContentItemGroup": StringValue; "WFContactContentItemPhoneticFirstName": TextValue; "WFContactContentItemMiddleName": TextValue; "WFContactContentItemPhoneNumbers": TextValue; "WFContactContentItemSuffix": TextValue; "WFContactContentItemStreetAddresses": AnyValue; "WFContactContentItemFirstName": TextValue; "WFContactContentItemBirthday": TextValue; "WFContactContentItemContactPhoto": PickerValue; "WFContactContentItemNickname": TextValue; "WFContactContentItemPhoneticMiddleName": TextValue; "WFContactContentItemNotes": TextValue; "ValueLabel": StringValue };
-  "is.workflow.actions.setters.reminders": { "WFContentItemPropertyName": StringValue; "Mode": StringValue; "WFInput": PickerValue; "RemoveSpecifiedValue": PickerValue; "WFReminderContentItemPriority": StringValue; "WFReminderContentItemWhenMessagingPerson": AnyValue; "WFReminderContentItemIsCompleted": BoolValue; "WFReminderContentItemImages": PickerValue; "WFReminderContentItemParentReminder": PickerValue; "WFReminderContentItemDueDate": TextValue; "WFReminderContentItemList": StringValue; "WFReminderContentItemTags": TextValue; "WFReminderContentItemTitle": TextValue; "WFReminderContentItemSubtasks": PickerValue; "WFReminderContentItemURL": TextValue; "WFReminderContentItemIsFlagged": BoolValue; "WFReminderContentItemNotes": TextValue };
+  "is.workflow.actions.setters.reminders": { "WFContentItemPropertyName": StringValue; "Mode": StringValue; "WFInput": PickerValue; "RemoveSpecifiedValue": PickerValue; "WFReminderContentItemPriority": EnumValue<"High" | "Low" | "Medium" | "None">; "WFReminderContentItemWhenMessagingPerson": AnyValue; "WFReminderContentItemIsCompleted": BoolValue; "WFReminderContentItemImages": PickerValue; "WFReminderContentItemParentReminder": PickerValue; "WFReminderContentItemDueDate": TextValue; "WFReminderContentItemList": EnumValue<"Reminders">; "WFReminderContentItemTags": TextValue; "WFReminderContentItemTitle": TextValue; "WFReminderContentItemSubtasks": PickerValue; "WFReminderContentItemURL": TextValue; "WFReminderContentItemIsFlagged": BoolValue; "WFReminderContentItemNotes": TextValue };
   "is.workflow.actions.setvalueforkey": { "WFDictionaryKey": TextValue; "WFDictionaryValue": TextValue; "WFDictionary": PickerValue };
   "is.workflow.actions.setvariable": { "WFInput": PickerValue; "WFVariableName": PlainString };
   "is.workflow.actions.setvolume": { "WFVolumeSetting": EnumValue<"Media" | "Ringtone" | "Alarms & Timers" | "Alerts & System Sounds">; "WFVolume": NumberValue };
@@ -16427,7 +16446,7 @@ export type ParamTypes = {
   "is.workflow.actions.showinstore": { "WFProduct": PickerValue };
   "is.workflow.actions.showresult": { "Text": TextValue };
   "is.workflow.actions.showwebpage": { "WFEnterSafariReader": BoolValue; "WFURL": TextValue };
-  "is.workflow.actions.silenceunknowncallers.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.silenceunknowncallers.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.sirikit.donation.handle": { "ShowWhenRun": BoolValue };
   "is.workflow.actions.skipback": { "WFSkipBackBehavior": EnumValue<"Beginning" | "Previous Song">; "WFMediaRoute": AnyValue };
   "is.workflow.actions.skipforward": { "WFMediaRoute": AnyValue };
@@ -16437,18 +16456,18 @@ export type ParamTypes = {
   "is.workflow.actions.splitpdf": { "WFInput": AnyValue };
   "is.workflow.actions.splitscreen": { "WFPrimaryAppIdentifier": AnyValue; "WFSecondaryAppIdentifier": AnyValue; "WFAppRatio": EnumValue<"½ + ½" | "⅔ + ⅓"> };
   "is.workflow.actions.spotlightsearch": { "WFInputText": TextValue; "WFSpotlightSearchResultType": StringValue; "WFSpotlightSearchLimit": NumberValue };
-  "is.workflow.actions.stagemanager.set": { "operation": StringValue; "state": BoolValue; "showDock": BoolValue; "showRecentApps": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.stagemanager.set": { "operation": EnumValue<"set" | "toggle">; "state": BoolValue; "showDock": BoolValue; "showRecentApps": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.startscreensaver": {  };
   "is.workflow.actions.statistics": { "WFStatisticsOperation": EnumValue<"Average" | "Minimum" | "Maximum" | "Sum" | "Median" | "Mode" | "Range" | "Standard Deviation">; "Input": PickerValue };
   "is.workflow.actions.takephoto": { "WFCameraCaptureShowPreview": BoolValue; "WFPhotoCount": NumberValue; "WFCameraCaptureDevice": EnumValue<"Front" | "Back"> };
   "is.workflow.actions.takescreenshot": { "WFTakeScreenshotScreenshotType": EnumValue<"Full Screen" | "Interactive">; "WFTakeScreenshotActionInteractiveSelectionType": EnumValue<"Window" | "Custom">; "WFTakeScreenshotMainMonitorOnly": BoolValue; "WFTakeScreenshotIgnoreContextualAssistanceLayers": BoolValue };
   "is.workflow.actions.takevideo": { "WFCameraCaptureDevice": EnumValue<"Front" | "Back">; "WFCameraCaptureQuality": EnumValue<"Low" | "Medium" | "High">; "WFRecordingStart": EnumValue<"On Tap" | "Immediately"> };
-  "is.workflow.actions.text.changecase": { "text": TextValue; "WFCaseType": StringValue; "ShowWhenRun": BoolValue };
-  "is.workflow.actions.text.combine": { "text": TextValue; "WFTextSeparator": StringValue; "WFTextCustomSeparator": TextValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.text.changecase": { "text": TextValue; "WFCaseType": EnumValue<"Capitalize Every Word" | "Capitalize with Title Case" | "Capitalize with sentence case" | "UPPERCASE" | "cApItAlIzE wItH aLtErNaTiNg cAsE" | "lowercase">; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.text.combine": { "text": TextValue; "WFTextSeparator": EnumValue<"Custom" | "New Lines" | "Spaces">; "WFTextCustomSeparator": TextValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.text.match": { "text": TextValue; "WFMatchTextPattern": TextValue; "WFMatchTextCaseSensitive": BoolValue; "ShowWhenRun": BoolValue };
-  "is.workflow.actions.text.match.getgroup": { "matches": PickerValue; "WFGetGroupType": StringValue; "WFGroupIndex": NumberValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.text.match.getgroup": { "matches": PickerValue; "WFGetGroupType": EnumValue<"All Groups" | "Group At Index">; "WFGroupIndex": NumberValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.text.replace": { "WFReplaceTextFind": TextValue; "WFReplaceTextReplace": TextValue; "WFReplaceTextCaseSensitive": BoolValue; "WFReplaceTextRegularExpression": BoolValue; "WFInput": TextValue };
-  "is.workflow.actions.text.split": { "text": TextValue; "WFTextSeparator": StringValue; "WFTextCustomSeparator": TextValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.text.split": { "text": TextValue; "WFTextSeparator": EnumValue<"Custom" | "Every Character" | "New Lines" | "Spaces">; "WFTextCustomSeparator": TextValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.text.translate": { "WFSelectedFromLanguage": StringValue; "WFSelectedLanguage": StringValue; "WFInputText": TextValue };
   "is.workflow.actions.text.trimwhitespace": { "WFInput": TextValue };
   "is.workflow.actions.timer.start": { "IntentAppDefinition": AnyValue; "WFDuration": QuantityValue };
@@ -16458,7 +16477,7 @@ export type ParamTypes = {
   "is.workflow.actions.trello.add.list": { "WFTrelloName": TextValue; "WFTrelloBoard": AnyValue; "WFTrelloPosition": EnumValue<"Top" | "Bottom"> };
   "is.workflow.actions.trello.get": { "WFTrelloItemType": EnumValue<"Boards" | "Lists" | "Cards">; "WFTrelloBoard": AnyValue; "WFTrelloList": AnyValue };
   "is.workflow.actions.trimvideo": { "WFInputMedia": PickerValue };
-  "is.workflow.actions.truetone.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.truetone.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.tumblr.post": { "WFInput": PickerValue; "WFComposeInApp": BoolValue; "WFBlogName": AnyValue; "WFPostType": StringValue; "WFPostState": EnumValue<"Post Now" | "Add to Queue" | "Save as Draft" | "Post Privately">; "WFPostTitle": TextValue; "WFPostSource": TextValue; "WFPostCaption": TextValue; "WFPostTags": TextValue; "WFPostDescription": TextValue };
   "is.workflow.actions.tweet": { "TweetInput": TextValue };
   "is.workflow.actions.unzip": { "WFArchive": PickerValue };
@@ -16478,7 +16497,7 @@ export type ParamTypes = {
   "is.workflow.actions.watchmedo": { "WFUserEvent": AnyValue; "WFPlaybackSpeed": NumberValue };
   "is.workflow.actions.weather.currentconditions": { "WFWeatherCustomLocation": AnyValue };
   "is.workflow.actions.weather.forecast": { "WFWeatherCustomLocation": AnyValue; "WFWeatherForecastType": EnumValue<"Hourly" | "Daily"> };
-  "is.workflow.actions.wifi.set": { "operation": StringValue; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.wifi.set": { "operation": EnumValue<"set" | "toggle">; "OnValue": BoolValue; "ShowWhenRun": BoolValue };
   "is.workflow.actions.wordpress.post": { "WFAccount": StringValue; "Blog": StringValue; "Title": TextValue; "Type": StringValue; "Format": StringValue; "Status": StringValue; "Categories": StringValue; "Tags": StringValue; "Advanced": PlainNumber; "AllowComments": BoolValue; "Slug": TextValue; "Excerpt": TextValue; "Date": TextValue; "Template": StringValue; "ThumbnailImage": PickerValue; "ShowCustomFields": PlainNumber; "CustomFields": DictionaryValue; "WFInput": PickerValue };
   "is.workflow.actions.workout.end": { "IntentAppDefinition": AnyValue };
   "is.workflow.actions.workout.start": { "IntentAppDefinition": AnyValue; "isOpenEnded": BoolValue; "workoutName": AnyValue; "WorkoutGoal": AnyValue };

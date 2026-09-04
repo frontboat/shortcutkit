@@ -11,7 +11,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFPingMyPhoneIntent",
   "IntentName": "NPRFPingMyPhoneIntent",
   "Name": "Ping My iPhone",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "off",
+     "on"
+    ],
+    "Key": "state",
+    "Label": "State",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.NanoSettings.NPRFSetAlwaysOnIntent": {
   "AppDefinition": {
@@ -25,7 +36,27 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetAlwaysOnIntent",
   "IntentName": "NPRFSetAlwaysOnIntent",
   "Name": "Set Always On",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "off",
+     "on"
+    ],
+    "Key": "state",
+    "Label": "State",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent": {
   "AppDefinition": {
@@ -39,7 +70,27 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent",
   "IntentName": "NPRFSetAutoLaunchAudioAppsIntent",
   "Name": "Set Auto-Launch Audio Apps",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "off",
+     "on"
+    ],
+    "Key": "state",
+    "Label": "state",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.NanoSettings.NPRFSetFlashLightIntent": {
   "AppDefinition": {
@@ -53,7 +104,27 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetFlashLightIntent",
   "IntentName": "NPRFSetFlashLightIntent",
   "Name": "Set Flashlight",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "off",
+     "on"
+    ],
+    "Key": "state",
+    "Label": "State",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.NanoSettings.NPRFSetSchoolTimeIntent": {
   "AppDefinition": {
@@ -67,7 +138,27 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetSchoolTimeIntent",
   "IntentName": "NPRFSetSchoolTimeIntent",
   "Name": "Set Schooltime",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "off",
+     "on"
+    ],
+    "Key": "state",
+    "Label": "State",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.NanoSettings.NPRFSetSilentModeIntent": {
   "AppDefinition": {
@@ -81,7 +172,27 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetSilentModeIntent",
   "IntentName": "NPRFSetSilentModeIntent",
   "Name": "Set Silent Mode",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "off",
+     "on"
+    ],
+    "Key": "state",
+    "Label": "State",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.NanoSettings.NPRFSetTheaterModeIntent": {
   "AppDefinition": {
@@ -95,7 +206,27 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetTheaterModeIntent",
   "IntentName": "NPRFSetTheaterModeIntent",
   "Name": "Set Theater Mode",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "off",
+     "on"
+    ],
+    "Key": "state",
+    "Label": "State",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent": {
   "AppDefinition": {
@@ -109,7 +240,27 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent",
   "IntentName": "NPRFSetWakeOnWristRaiseIntent",
   "Name": "Set Wake on Wrist Raise",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "off",
+     "on"
+    ],
+    "Key": "state",
+    "Label": "state",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.NanoSettings.NPRFSetWaterLockIntent": {
   "AppDefinition": {
@@ -123,7 +274,27 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.NanoSettings.NPRFSetWaterLockIntent",
   "IntentName": "NPRFSetWaterLockIntent",
   "Name": "Set Water Lock",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "off",
+     "on"
+    ],
+    "Key": "state",
+    "Label": "State",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.Notes.ICNotesFolderIntent": {
   "AppDefinition": {
@@ -318,7 +489,32 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent",
   "IntentName": "UASetBackgroundSoundIntent",
   "Name": "Change Background Sound",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "Airplane",
+     "Babble",
+     "BalancedNoise",
+     "Boat",
+     "BrightNoise",
+     "Bus",
+     "DarkNoise",
+     "Fire",
+     "Night",
+     "Ocean",
+     "QuietNight",
+     "Rain",
+     "RainOnRoof",
+     "Steam",
+     "Stream",
+     "Train"
+    ],
+    "Key": "backgroundSound",
+    "Label": "Background Sound",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent": {
   "AppDefinition": {
@@ -332,7 +528,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent",
   "IntentName": "UASetBackgroundSoundsTimerIntent",
   "Name": "Set Background Sounds Timer Interval",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "duration",
+     "endInterval"
+    ],
+    "Key": "interval",
+    "Label": "Interval",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent": {
   "AppDefinition": {
@@ -360,7 +567,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent",
   "IntentName": "UAToggleAccessibilityKeyboardIntent",
   "Name": "Set Accessibility Keyboard",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent": {
   "AppDefinition": {
@@ -374,7 +592,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent",
   "IntentName": "UAToggleAlternatePointerActionsIntent",
   "Name": "Set Alternate Pointer Actions",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent": {
   "AppDefinition": {
@@ -388,7 +617,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent",
   "IntentName": "UAToggleAudioDescriptionsIntent",
   "Name": "Set Audio Descriptions",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent": {
   "AppDefinition": {
@@ -402,7 +642,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent",
   "IntentName": "UAToggleBackgroundSoundsIntent",
   "Name": "Toggle Background Sounds",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent": {
   "AppDefinition": {
@@ -416,7 +667,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent",
   "IntentName": "UAToggleCaptionsIntent",
   "Name": "Set Closed Captions+SDH",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent": {
   "AppDefinition": {
@@ -430,7 +692,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent",
   "IntentName": "UAToggleClassicInvertIntent",
   "Name": "Set Classic Invert",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent": {
   "AppDefinition": {
@@ -444,7 +717,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent",
   "IntentName": "UAToggleColorFiltersIntent",
   "Name": "Set Color Filters",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent": {
   "AppDefinition": {
@@ -458,7 +742,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent",
   "IntentName": "UAToggleContrastIntent",
   "Name": "Set Increase Contrast",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent": {
   "AppDefinition": {
@@ -472,7 +767,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent",
   "IntentName": "UAToggleFullKeyboardAccessIntent",
   "Name": "Set Full Keyboard Access",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent": {
   "AppDefinition": {
@@ -486,7 +792,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent",
   "IntentName": "UAToggleHeadPointerIntent",
   "Name": "Set Head Pointer",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent": {
   "AppDefinition": {
@@ -500,7 +817,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent",
   "IntentName": "UAToggleHoverTextIntent",
   "Name": "Set Hover Text",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent": {
   "AppDefinition": {
@@ -514,7 +842,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent",
   "IntentName": "UAToggleHoverTypingIntent",
   "Name": "Set Hover Typing",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent": {
   "AppDefinition": {
@@ -528,7 +867,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent",
   "IntentName": "UAToggleLiveCaptionsIntent",
   "Name": "Set Live Captions",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent": {
   "AppDefinition": {
@@ -542,7 +892,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent",
   "IntentName": "UAToggleLiveSpeechIntent",
   "Name": "Set Live Speech",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent": {
   "AppDefinition": {
@@ -556,7 +917,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent",
   "IntentName": "UAToggleMonoAudioIntent",
   "Name": "Set Mono Audio",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent": {
   "AppDefinition": {
@@ -570,7 +942,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent",
   "IntentName": "UAToggleMotionCuesIntent",
   "Name": "Set Motion Cues",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent": {
   "AppDefinition": {
@@ -584,7 +967,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent",
   "IntentName": "UAToggleMouseKeysIntent",
   "Name": "Set Mouse Keys",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent": {
   "AppDefinition": {
@@ -598,7 +992,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent",
   "IntentName": "UAToggleReduceMotionIntent",
   "Name": "Set Reduce Motion",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent": {
   "AppDefinition": {
@@ -612,7 +1017,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent",
   "IntentName": "UAToggleSlowKeysIntent",
   "Name": "Set Slow Keys",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent": {
   "AppDefinition": {
@@ -626,7 +1042,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent",
   "IntentName": "UAToggleSmartInvertIntent",
   "Name": "Set Smart Invert",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent": {
   "AppDefinition": {
@@ -640,7 +1067,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent",
   "IntentName": "UAToggleStickyKeysIntent",
   "Name": "Set Sticky Keys",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent": {
   "AppDefinition": {
@@ -654,7 +1092,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent",
   "IntentName": "UAToggleSwitchControlIntent",
   "Name": "Set Switch Control",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent": {
   "AppDefinition": {
@@ -668,7 +1117,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent",
   "IntentName": "UAToggleTransparencyIntent",
   "Name": "Set Reduce Transparency",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent": {
   "AppDefinition": {
@@ -682,7 +1142,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent",
   "IntentName": "UAToggleVoiceControlIntent",
   "Name": "Set Voice Control",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent": {
   "AppDefinition": {
@@ -696,7 +1167,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent",
   "IntentName": "UAToggleVoiceOverIntent",
   "Name": "Set VoiceOver",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent": {
   "AppDefinition": {
@@ -710,7 +1192,18 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent",
   "IntentName": "UAToggleZoomIntent",
   "Name": "Set Zoom",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "toggle",
+     "turn"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.facetime.facetime": {
   "ActionClass": "WFStartCallAction",
@@ -2290,7 +2783,18 @@
    "state": {
     "Key": "OnValue"
    }
-  }
+  },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "is.workflow.actions.alert": {
   "ActionClass": "WFAlertAction",
@@ -2363,6 +2867,17 @@
     "Key": "OnValue"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceIdiomResource"
@@ -2392,6 +2907,26 @@
     "Prompt": "Style"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "dark",
+     "light"
+    ],
+    "Key": "style",
+    "Label": "Appearance",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": false
  },
  "is.workflow.actions.appendvariable": {
@@ -2456,6 +2991,8 @@
   "Output": {
    "DisclosureLevel": "Public",
    "Multiple": false,
+   "OutputName": "Ask for Input",
+   "OutputNameSource": "ToolKit",
    "Types": [
     "NSString",
     "NSDecimalNumber",
@@ -2545,6 +3082,21 @@
   "ParameterSummary": {
    "format": "Ask for ${WFInputType} with ${WFAskActionPrompt}"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Date",
+     "Date and Time",
+     "Number",
+     "Text",
+     "Time",
+     "URL"
+    ],
+    "Key": "WFInputType",
+    "Label": "Input Type",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    "WFUserInteractionResource"
   ],
@@ -2852,7 +3404,18 @@
    "state": {
     "Key": "OnValue"
    }
-  }
+  },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "is.workflow.actions.calculateexpression": {
   "ActionClass": "WFCalculateExpressionAction",
@@ -2918,6 +3481,17 @@
     "Key": "OnValue"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceCapabilityResource"
@@ -3376,7 +3950,9 @@
   "Name": "Correct Spelling",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Corrected Spelling",
+   "OutputNameSource": "ToolKit"
   },
   "ResidentCompatible": true
  },
@@ -4352,6 +4928,17 @@
     "Prompt": "State"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceCapabilityResource"
@@ -6613,6 +7200,37 @@
   },
   "LocallyProcessesData": true,
   "Name": "Find Apps",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Library"
+    ],
+    "Key": "WFContentItemInputParameter",
+    "Label": "apps",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Bundle Identifier",
+     "Launch Date",
+     "Name",
+     "Process Identifier",
+     "Random"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceIdiomResource"
@@ -6632,8 +7250,34 @@
   "LocallyProcessesData": true,
   "Name": "Filter Articles",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Articles",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Author",
+     "Name",
+     "Number of Words",
+     "Published Date",
+     "Random",
+     "Title"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFArticleContentItem"
  },
  "is.workflow.actions.filter.calendarevents": {
@@ -6644,6 +7288,45 @@
   "FillingProvider": "WFBundledActionProvider",
   "LocallyProcessesData": true,
   "Name": "Find Calendar Events",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Library"
+    ],
+    "Key": "WFContentItemInputParameter",
+    "Label": "calendar events",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Calendar",
+     "Creation Date",
+     "Duration",
+     "End Date",
+     "File Extension",
+     "File Path",
+     "Last Modified Date",
+     "My Status",
+     "Name",
+     "Number of Attendees",
+     "Random",
+     "Start Date",
+     "Title"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    "WFCalendarAccessResource",
    "WFContactAccessResource"
@@ -6660,6 +7343,51 @@
   "FillingProvider": "WFBundledActionProvider",
   "LocallyProcessesData": true,
   "Name": "Find Contacts",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Library"
+    ],
+    "Key": "WFContentItemInputParameter",
+    "Label": "contacts",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Birthday",
+     "Company",
+     "Creation Date",
+     "Department",
+     "File Extension",
+     "File Path",
+     "First Name",
+     "Job Title",
+     "Last Modified Date",
+     "Last Name",
+     "Middle Name",
+     "Name",
+     "Nickname",
+     "Phonetic First Name",
+     "Phonetic Last Name",
+     "Phonetic Middle Name",
+     "Prefix",
+     "Random",
+     "Suffix"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    "WFContactAccessResource"
   ],
@@ -6678,6 +7406,35 @@
   },
   "LocallyProcessesData": true,
   "Name": "Find Displays",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Library"
+    ],
+    "Key": "WFContentItemInputParameter",
+    "Label": "displays",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Name",
+     "Random",
+     "Scale"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceIdiomResource"
@@ -6694,6 +7451,30 @@
   "FillingProvider": "WFBundledActionProvider",
   "LocallyProcessesData": true,
   "Name": "Filter Event Attendees",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Email Address",
+     "Name",
+     "Random",
+     "Role",
+     "Status",
+     "Type"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFEKParticipantContentItem"
  },
  "is.workflow.actions.filter.files": {
@@ -6709,6 +7490,31 @@
   },
   "LocallyProcessesData": true,
   "Name": "Filter Files",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Creation Date",
+     "File Extension",
+     "File Path",
+     "File Size",
+     "Last Modified Date",
+     "Name",
+     "Random"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFGenericFileContentItem"
  },
  "is.workflow.actions.filter.health.quantity": {
@@ -6748,6 +7554,38 @@
   },
   "LocallyProcessesData": true,
   "Name": "Filter Images",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Creation Date",
+     "Date Taken",
+     "Duration",
+     "File Extension",
+     "File Path",
+     "File Size",
+     "Frame Rate",
+     "Height",
+     "Last Modified Date",
+     "Name",
+     "Orientation",
+     "Random",
+     "Time Taken",
+     "Width"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFImageContentItem"
  },
@@ -6760,8 +7598,40 @@
   "LocallyProcessesData": true,
   "Name": "Filter Locations",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Locations",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Altitude",
+     "City",
+     "Country",
+     "Label",
+     "Latitude",
+     "Longitude",
+     "Name",
+     "Phone Number",
+     "Random",
+     "State",
+     "Street",
+     "ZIP Code"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFLocationContentItem"
  },
@@ -6780,6 +7650,51 @@
   },
   "LocallyProcessesData": true,
   "Name": "Find Music",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Library"
+    ],
+    "Key": "WFContentItemInputParameter",
+    "Label": "music",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Album",
+     "Album Artist",
+     "Album Track #",
+     "Artist",
+     "Composer",
+     "Date Added",
+     "Disc #",
+     "Duration",
+     "File Path",
+     "Genre",
+     "Last Played Date",
+     "Media Kind",
+     "Name",
+     "Play Count",
+     "Random",
+     "Rating",
+     "Release Date",
+     "Skip Count",
+     "Title"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    "WFAppleMusicAccessResource"
   ],
@@ -6805,6 +7720,45 @@
   },
   "LocallyProcessesData": true,
   "Name": "Find Photos",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Library"
+    ],
+    "Key": "WFContentItemInputParameter",
+    "Label": "photos",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Creation Date",
+     "Date Taken",
+     "Duration",
+     "File Extension",
+     "File Path",
+     "Frame Rate",
+     "Height",
+     "Last Modified Date",
+     "Media Type",
+     "Name",
+     "Random",
+     "Time Taken",
+     "Width"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    "WFPhotoAccessResource"
   ],
@@ -6820,6 +7774,43 @@
   "FillingProvider": "WFBundledActionProvider",
   "LocallyProcessesData": true,
   "Name": "Find Reminders",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Library"
+    ],
+    "Key": "WFContentItemInputParameter",
+    "Label": "reminders",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Completion Date",
+     "Creation Date",
+     "Due Date",
+     "File Extension",
+     "File Path",
+     "Last Modified Date",
+     "List",
+     "Name",
+     "Priority",
+     "Random",
+     "Title"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    "WFReminderAccessResource"
   ],
@@ -6854,6 +7845,35 @@
     "WFVPNConfiguration"
    ]
   },
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Library"
+    ],
+    "Key": "WFContentItemInputParameter",
+    "Label": "VPNs",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Name",
+     "Random",
+     "Server Address"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "SuggestedAsInitialAction": false,
   "WFContentItemClass": "WFVPNContentItem"
  },
@@ -6870,6 +7890,40 @@
   },
   "LocallyProcessesData": true,
   "Name": "Find Windows",
+  "Parameters": [
+   {
+    "Items": [
+     "0",
+     "1"
+    ],
+    "Key": "WFCompoundType",
+    "Label": null,
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Library"
+    ],
+    "Key": "WFContentItemInputParameter",
+    "Label": "windows",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "App Name",
+     "Height",
+     "Name",
+     "Random",
+     "Width",
+     "Window Index",
+     "X Position",
+     "Y Position"
+    ],
+    "Key": "WFContentItemSortProperty",
+    "Label": "Sort by",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceIdiomResource"
@@ -6957,7 +8011,18 @@
      "key": "operation,WFFlashlightLevel"
     }
    ]
-  }
+  },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "is.workflow.actions.format.date": {
   "ActionClass": "WFFormatDateAction",
@@ -7534,6 +8599,8 @@
   "IconColor": "Indigo",
   "Name": "Get Current App",
   "Output": {
+   "OutputName": "Current App",
+   "OutputNameSource": "ToolKit",
    "Types": [
     "WFApp"
    ]
@@ -11756,6 +12823,34 @@
       "WFResourceClass": "WFParameterRelationResource"
      }
     ]
+   },
+   {
+    "Items": [
+     "Next Occurrence",
+     "Specified Year"
+    ],
+    "Key": "WFEventOccurrenceMode",
+    "Label": "Occurrence",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Images",
+     "Live Photos",
+     "Videos"
+    ],
+    "Key": "WFPhotoPickerTypes",
+    "Label": "Include",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "Files",
+     "Folders"
+    ],
+    "Key": "WFPickingMode",
+    "Label": "Type",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true
@@ -12257,6 +13352,17 @@
     "Prompt": "State"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceIdiomResource"
@@ -13315,6 +14421,17 @@
     "Key": "OnValue"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": []
  },
  "is.workflow.actions.nothing": {
@@ -13876,6 +14993,17 @@
     "Key": "OnValue"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceIdiomResource"
@@ -14830,6 +15958,17 @@
     "Key": "OnValue"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceCapabilityResource"
@@ -15609,6 +16748,18 @@
   "Discoverable": false,
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Get Details of Appearance",
+  "Parameters": [
+   {
+    "Items": [
+     "Dark Mode Is On",
+     "Inverse Appearance",
+     "Name"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFAppearanceSettingContentItem"
  },
  "is.workflow.actions.properties.appstore": {
@@ -15619,8 +16770,48 @@
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Get Details of App Store App",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Details of App Store Apps",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "# of Ratings",
+     "# of Ratings (This Version)",
+     "Artist",
+     "Artwork",
+     "Artwork URL",
+     "Bundle Identifier",
+     "Category",
+     "Content Rating",
+     "Currency Code",
+     "Description",
+     "Download Size",
+     "Formatted Price",
+     "Is Universal",
+     "Last Updated",
+     "Minimum OS Version",
+     "Name",
+     "Price",
+     "Rating",
+     "Rating (This Version)",
+     "Release Date",
+     "Release Notes",
+     "Screenshot URLs",
+     "Store ID",
+     "Store URL",
+     "Supported Devices",
+     "Supported Languages",
+     "Supports Game Center",
+     "Version",
+     "iPad Screenshot URLs"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFAppStoreAppContentItem"
  },
@@ -15634,8 +16825,28 @@
   "IconSymbol": "doc.richtext.fill",
   "Name": "Get Details of Article",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Details of Articles",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Author",
+     "Body",
+     "Excerpt",
+     "Main Image URL",
+     "Name",
+     "Number of Words",
+     "Published Date",
+     "Title",
+     "URL"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFArticleContentItem"
  },
  "is.workflow.actions.properties.calendarevents": {
@@ -15647,8 +16858,42 @@
   "LocallyProcessesData": true,
   "Name": "Get Details of Calendar Events",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Details of Calendar Events",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Attachments",
+     "Attendees",
+     "Calendar",
+     "Canceled",
+     "Creation Date",
+     "Duration",
+     "End Date",
+     "File Extension",
+     "File Path",
+     "File Size",
+     "Has Alarms",
+     "Is All Day",
+     "Last Modified Date",
+     "Location",
+     "My Status",
+     "Name",
+     "Notes",
+     "Number of Attendees",
+     "Organizer",
+     "Organizer Is Me",
+     "Start Date",
+     "Title",
+     "URL"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFCalendarEventContentItem"
  },
@@ -15659,6 +16904,41 @@
   },
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Get Details of Contacts",
+  "Parameters": [
+   {
+    "Items": [
+     "Birthday",
+     "Company",
+     "Contact Photo",
+     "Creation Date",
+     "Department",
+     "Email Addresses",
+     "File Extension",
+     "File Path",
+     "File Size",
+     "First Name",
+     "Job Title",
+     "Last Modified Date",
+     "Last Name",
+     "Middle Name",
+     "Name",
+     "Nickname",
+     "Notes",
+     "Phone Numbers",
+     "Phonetic First Name",
+     "Phonetic Last Name",
+     "Phonetic Middle Name",
+     "Prefix",
+     "Relationship to Me",
+     "Street Addresses",
+     "Suffix",
+     "URLs"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFContactContentItem"
  },
@@ -15670,6 +16950,21 @@
   "FillingProvider": "WFBundledActionProvider",
   "LocallyProcessesData": true,
   "Name": "Get Details of Event Attendees",
+  "Parameters": [
+   {
+    "Items": [
+     "Email Address",
+     "Is Me",
+     "Name",
+     "Role",
+     "Status",
+     "Type"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFEKParticipantContentItem"
  },
  "is.workflow.actions.properties.files": {
@@ -15685,6 +16980,21 @@
   },
   "LocallyProcessesData": true,
   "Name": "Get Details of Files",
+  "Parameters": [
+   {
+    "Items": [
+     "Creation Date",
+     "File Extension",
+     "File Path",
+     "File Size",
+     "Last Modified Date",
+     "Name"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFGenericFileContentItem"
  },
@@ -15716,6 +17026,37 @@
    ]
   },
   "Name": "Get Details of Images",
+  "Parameters": [
+   {
+    "Items": [
+     "Album",
+     "Camera Make",
+     "Camera Model",
+     "Creation Date",
+     "Date Taken",
+     "Duration",
+     "File Extension",
+     "File Path",
+     "File Size",
+     "Frame Rate",
+     "Height",
+     "Is Favorite",
+     "Is a Screen Recording",
+     "Is a Screenshot",
+     "Last Modified Date",
+     "Location",
+     "Media Type",
+     "Metadata Dictionary",
+     "Name",
+     "Orientation",
+     "Photo Type",
+     "Width"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFImageContentItem"
  },
@@ -15727,8 +17068,26 @@
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Get Details of iTunes Artist",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Details of Itunes Artists",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Artwork",
+     "Artwork URL",
+     "Genre",
+     "Name",
+     "Store ID",
+     "Store URL",
+     "Type"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFiTunesArtistContentItem"
  },
@@ -15740,8 +17099,34 @@
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Get Details of iTunes Product",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Details of Itunes Products",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Artist",
+     "Artwork",
+     "Artwork URL",
+     "Currency Code",
+     "Description",
+     "Duration",
+     "Formatted Price",
+     "Genre",
+     "Is Explicit",
+     "Name",
+     "Price",
+     "Release Date",
+     "Store ID",
+     "Store URL",
+     "Streamable"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFiTunesProductContentItem"
  },
@@ -15753,6 +17138,27 @@
   "IconSymbol": "mappin",
   "IconSymbolColor": "Green",
   "Name": "Get Details of Locations",
+  "Parameters": [
+   {
+    "Items": [
+     "Altitude",
+     "City",
+     "Country",
+     "Label",
+     "Latitude",
+     "Longitude",
+     "Name",
+     "Phone Number",
+     "State",
+     "Street",
+     "URL",
+     "ZIP Code"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFLocationContentItem"
  },
@@ -15771,8 +17177,42 @@
   "LocallyProcessesData": true,
   "Name": "Get Details of Music",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Artist",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Album",
+     "Album Artist",
+     "Album Artwork",
+     "Album Track #",
+     "Artist",
+     "Comments",
+     "Composer",
+     "Date Added",
+     "Disc #",
+     "Duration",
+     "File Path",
+     "Genre",
+     "Is Cloud Item",
+     "Is Explicit",
+     "Last Played Date",
+     "Lyrics",
+     "Media Kind",
+     "Name",
+     "Play Count",
+     "Rating",
+     "Release Date",
+     "Skip Count",
+     "Title"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFMPMediaContentItem",
   "WFContentItemDefaultProperty": "Artist"
  },
@@ -15787,6 +17227,21 @@
   "IconSymbolColor": "Green",
   "LocallyProcessesData": true,
   "Name": "Get Details of Parked Car",
+  "Parameters": [
+   {
+    "Items": [
+     "Date",
+     "Location",
+     "Name",
+     "Notes",
+     "Photo",
+     "Was Location Set by User"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceIdiomResource"
@@ -15803,8 +17258,30 @@
   "LocallyProcessesData": true,
   "Name": "Get Details of Podcast Episode",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Details of Podcast Episodes",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Artwork",
+     "Artwork URL",
+     "Author",
+     "Description",
+     "Duration",
+     "Genres",
+     "Name",
+     "Release Date",
+     "Store ID",
+     "Store URL",
+     "Title"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFPodcastEpisodeContentItem"
  },
  "is.workflow.actions.properties.podcastshow": {
@@ -15816,8 +17293,28 @@
   "LocallyProcessesData": true,
   "Name": "Get Details of Podcast",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Details of Podcasts",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Artist",
+     "Artwork",
+     "Artwork URL",
+     "Episode Count",
+     "Feed URL",
+     "Genre",
+     "Name",
+     "Store ID",
+     "Store URL"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFPodcastShowContentItem"
  },
  "is.workflow.actions.properties.reminders": {
@@ -15828,6 +17325,37 @@
   "FillingProvider": "WFBundledActionProvider",
   "LocallyProcessesData": true,
   "Name": "Get Details of Reminders",
+  "Parameters": [
+   {
+    "Items": [
+     "Completion Date",
+     "Creation Date",
+     "Due Date",
+     "File Extension",
+     "File Path",
+     "File Size",
+     "Has Alarms",
+     "Has Subtasks",
+     "Images",
+     "Is Completed",
+     "Is Flagged",
+     "Last Modified Date",
+     "List",
+     "Name",
+     "Notes",
+     "Parent Reminder",
+     "Priority",
+     "Reminder Location",
+     "Subtasks",
+     "Tags",
+     "Title",
+     "URL"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFReminderContentItem",
   "WFContentItemDefaultProperty": "List"
  },
@@ -15836,6 +17364,25 @@
   "Discoverable": false,
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Get Details of Ride Status",
+  "Parameters": [
+   {
+    "Items": [
+     "Driver",
+     "Drop Off Location",
+     "Drop Off Time",
+     "Maximum Price",
+     "Minimum Price",
+     "Name",
+     "Pickup Location",
+     "Pickup Time",
+     "Ride Option Name",
+     "Vehicle Information"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFRideStatusContentItem"
  },
  "is.workflow.actions.properties.safariwebpage": {
@@ -15849,8 +17396,23 @@
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Get Details of Safari Web Page",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Details of Safari Web Pages",
+   "OutputNameSource": "ToolKit"
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Name",
+     "Page Contents",
+     "Page Selection",
+     "Page URL"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFSafariWebPageContentItem"
  },
  "is.workflow.actions.properties.shazam": {
@@ -15858,6 +17420,26 @@
   "Discoverable": false,
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Get Details of Shazam",
+  "Parameters": [
+   {
+    "Items": [
+     "Apple Music ID",
+     "Apple Music URL",
+     "Artist",
+     "Artwork",
+     "Is Explicit",
+     "Lyric Snippet Synced",
+     "Lyrics Snippet",
+     "Name",
+     "Shazam URL",
+     "Title",
+     "Video URL"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFShazamMediaContentItem"
  },
  "is.workflow.actions.properties.trello": {
@@ -15878,6 +17460,20 @@
    ]
   },
   "Name": "Get Details of Trello Item",
+  "Parameters": [
+   {
+    "Items": [
+     "Card Attachments",
+     "Card Due Date",
+     "Description",
+     "Name",
+     "URL"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    "WFTrelloAccessResource"
   ],
@@ -15900,6 +17496,21 @@
    ]
   },
   "Name": "Get Details of Ulysses Sheet",
+  "Parameters": [
+   {
+    "Items": [
+     "Contents",
+     "Identifier",
+     "Keywords",
+     "Name",
+     "Notes",
+     "Title"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFUlyssesSheetContentItem"
  },
  "is.workflow.actions.properties.weather.conditions": {
@@ -15910,6 +17521,37 @@
   "FillingProvider": "WFBundledActionProvider",
   "LocallyProcessesData": true,
   "Name": "Get Details of Weather Conditions",
+  "Parameters": [
+   {
+    "Items": [
+     "Air Pollutants",
+     "Air Quality Category",
+     "Air Quality Index",
+     "Condition",
+     "Date",
+     "Dewpoint",
+     "Feels Like",
+     "High",
+     "Humidity",
+     "Location",
+     "Low",
+     "Name",
+     "Precipitation Amount",
+     "Precipitation Chance",
+     "Pressure",
+     "Sunrise Time",
+     "Sunset Time",
+     "Temperature",
+     "UV Index",
+     "Visibility",
+     "Wind Direction",
+     "Wind Speed"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFContentItemClass": "WFWeatherDataContentItem"
  },
@@ -15922,6 +17564,24 @@
   "FillingProvider": "WFBundledActionProvider",
   "LocallyProcessesData": true,
   "Name": "Get Details of Shortcut",
+  "Parameters": [
+   {
+    "Items": [
+     "Action Count",
+     "Creation Date",
+     "File Extension",
+     "File Path",
+     "File Size",
+     "Folder",
+     "Icon",
+     "Last Modified Date",
+     "Name"
+    ],
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "Source": "ToolKit"
+   }
+  ],
   "WFContentItemClass": "WFWorkflowContentItem"
  },
  "is.workflow.actions.quit.app": {
@@ -18841,6 +20501,23 @@
   },
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Edit Calendar Event",
+  "Parameters": [
+   {
+    "Items": [
+     "Accepted",
+     "Completed",
+     "Declined",
+     "Delegated",
+     "In Process",
+     "Pending",
+     "Tentative",
+     "Unknown"
+    ],
+    "Key": "WFCalendarEventContentItemMyStatus",
+    "Label": "Value",
+    "Source": "ToolKit"
+   }
+  ],
   "RemoteExecuteOnPlatforms": [
    "Watch"
   ],
@@ -18871,6 +20548,27 @@
   },
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Edit Reminder",
+  "Parameters": [
+   {
+    "Items": [
+     "Reminders"
+    ],
+    "Key": "WFReminderContentItemList",
+    "Label": "Value",
+    "Source": "ToolKit"
+   },
+   {
+    "Items": [
+     "High",
+     "Low",
+     "Medium",
+     "None"
+    ],
+    "Key": "WFReminderContentItemPriority",
+    "Label": "Value",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    "WFReminderAccessResource"
   ],
@@ -19445,6 +21143,17 @@
     "Key": "OnValue"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceCapabilityResource"
@@ -19883,6 +21592,17 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.ActionKit.BundledIntentHandler.WFSetStageManagerIntent",
   "Name": "Set Stage Manager",
   "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    {
     "resource": "WFDeviceCapabilityResource"
@@ -20264,7 +21984,9 @@
   "Name": "Change Case",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Updated Text",
+   "OutputNameSource": "ToolKit"
   },
   "ParameterOverrides": {
    "type": {
@@ -20279,6 +22001,21 @@
     "Key": "WFCaseType"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Capitalize Every Word",
+     "Capitalize with Title Case",
+     "Capitalize with sentence case",
+     "UPPERCASE",
+     "cApItAlIzE wItH aLtErNaTiNg cAsE",
+     "lowercase"
+    ],
+    "Key": "WFCaseType",
+    "Label": "Case",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true
  },
  "is.workflow.actions.text.combine": {
@@ -20294,7 +22031,9 @@
   "Name": "Combine Text",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Combined Text",
+   "OutputNameSource": "ToolKit"
   },
   "ParameterOverrides": {
    "customSeparator": {
@@ -20309,6 +22048,18 @@
     "Key": "WFTextSeparator"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Custom",
+     "New Lines",
+     "Spaces"
+    ],
+    "Key": "WFTextSeparator",
+    "Label": "Separator",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFTextComponentsMode": "Combine"
  },
@@ -20326,7 +22077,9 @@
   "Name": "Match Text",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Matches",
+   "OutputNameSource": "ToolKit"
   },
   "ParameterOverrides": {
    "caseSensitive": {
@@ -20353,7 +22106,9 @@
   "Name": "Get Group from Matched Text",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Text",
+   "OutputNameSource": "ToolKit"
   },
   "ParameterOverrides": {
    "groupIndex": {
@@ -20367,6 +22122,17 @@
     "Key": "WFGetGroupType"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "All Groups",
+     "Group At Index"
+    ],
+    "Key": "WFGetGroupType",
+    "Label": "Get",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true
  },
  "is.workflow.actions.text.replace": {
@@ -20453,7 +22219,9 @@
   "NameSource": "ToolKit",
   "Output": {
    "DisclosureLevel": "Public",
-   "Multiple": true
+   "Multiple": true,
+   "OutputName": "Split Text",
+   "OutputNameSource": "ToolKit"
   },
   "ParameterOverrides": {
    "customSeparator": {
@@ -20469,6 +22237,19 @@
     "Key": "WFTextSeparator"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "Custom",
+     "Every Character",
+     "New Lines",
+     "Spaces"
+    ],
+    "Key": "WFTextSeparator",
+    "Label": "Separator",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true,
   "WFTextComponentsMode": "Split"
  },
@@ -21054,6 +22835,17 @@
     "Key": "OnValue"
    }
   },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": []
  },
  "is.workflow.actions.tumblr.post": {
@@ -22278,7 +24070,18 @@
    "state": {
     "Key": "OnValue"
    }
-  }
+  },
+  "Parameters": [
+   {
+    "Items": [
+     "set",
+     "toggle"
+    ],
+    "Key": "operation",
+    "Label": "Operation",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "is.workflow.actions.wordpress.post": {
   "ActionClass": "WFWordPressPostAction",

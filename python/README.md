@@ -42,11 +42,12 @@ Both live at https://github.com/frontboat/shortcutkit.
 - **Value helpers that match the engine's serialization.** `ref()` to another action's output,
   `variable()`, `shortcut_input()`, `clipboard()`, `current_date()`, `ask()`, `text()` for
   strings with embedded references, and `picker()` for variable-picker parameters.
-- **Control flow.** `if_()` / `otherwise()` / `end_if()` and `repeat_each()` /
-  `end_repeat_each()` manage the grouping identifiers for you.
+- **Control flow.** `if_()` / `otherwise()` / `end_if()`, `repeat_each()` / `end_repeat_each()`,
+  `repeat_count()` / `end_repeat_count()` and `choose_from_menu()` / `menu_item()` / `end_menu()`
+  manage the grouping identifiers for you.
 - **App Intents from installed apps.** Any identifier outside the built-in set is accepted and
   its parameters are passed through as given.
-- **Reference tables.** `CONDITION` codes, `ICON_COLORS`, and `PROVENANCE` recording which
+- **Reference tables.** `CONDITION` codes, `ICON_COLORS`, `PARAM_CHOICES`, and `PROVENANCE` recording which
   macOS and Shortcuts build the bundled data came from.
 
 ## How it compares

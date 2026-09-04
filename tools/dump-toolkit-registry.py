@@ -14,8 +14,9 @@ Writes:
                                 (committed; they ship with macOS)
   data/toolkit-registry.json    every tool in the index, third-party apps included
                                 (local only; depends on what is installed)
-  data/toolkit-names.json       English names/descriptions for every identifier
-                                (local; used to fill definitions Apple left unnamed)
+  data/toolkit-names.json       English names, descriptions, output names and enumeration
+                                cases for every identifier (local; used to fill what the
+                                engine's definitions leave out)
 
 usage: dump-toolkit-registry.py [--db PATH] [DATA_DIR]
 """
@@ -123,7 +124,9 @@ def main(argv):
                 "outputTypes": outputs, "keywords": keywords, "appIntentIdentifier": link_ids[0] if link_ids else None, "parameters": params}
         tools.append(tool)
         if loc[0]:
-            names[ident] = {"name": loc[0], "description": loc[2], "outputName": loc[1]}
+            enums = {p["key"]: [c["id"] for c in p["type"].get("cases", [])] for p in params if p["type"].get("kind") == "enum" and p["type"].get("cases")}
+            labels = {p["key"]: p["name"] for p in params if p.get("name")}
+            names[ident] = {"name": loc[0], "description": loc[2], "outputName": loc[1], "enumCases": enums, "labels": labels}
     apple = [t for t in tools if t["provider"] == "WFLinkActionProvider" and str(t["app"].get("bundleIdentifier", "")).startswith("com.apple.")
              and t["app"].get("teamId") in (None, "0000000000")]
     data.mkdir(parents=True, exist_ok=True)
