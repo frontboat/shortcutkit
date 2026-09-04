@@ -103,16 +103,24 @@ function run(argv) {
     const entity = (id) => make("LNEntityValueType", "initWithIdentifier:", id);
     const enumeration = (id) => make("LNLinkEnumerationValueType", "initWithEnumerationIdentifier:", id);
     const array = (member) => make("LNArrayValueType", "initWithMemberValueType:", member);
+    // SiriKit-era value types (IntentFile, IntentPerson, the app type, …) take a numeric type
+    // identifier, the one the apps' extract.actionsdata uses: 0 app, 3 person, 12 file, 13 payment
+    // method, 14 currency amount. Person and the entity-like ones have no WorkflowKit parameter class.
+    const intents = (id) => { ObjC.bindFunction("objc_msgSend", ["void *", ["void *", "void *", "unsigned long", "void *"]]); return ObjC.castRefToObject($.objc_msgSend(allocRef("LNIntentsValueType"), $.sel_registerName("initWithTypeIdentifier:contentType:"), id, NIL())); };
     const valueTypes = {
       string: P.stringValueType, richText: P.attributedStringValueType, bool: P.boolValueType, int: P.intValueType, double: P.doubleValueType,
       url: P.URLValueType, date: P.dateValueType, dateComponents: P.dateComponentsValueType, location: P.placemarkValueType,
       entity: entity("com.apple.reminders.ListEntity"), enum: enumeration("com.apple.reminders.PriorityLevel"),
       "array<string>": array(P.stringValueType), "array<bool>": array(P.boolValueType), "array<entity>": array(entity("com.apple.reminders.ReminderEntity")), "array<enum>": array(enumeration("com.apple.reminders.PriorityLevel")),
+      app: intents(0), person: intents(3), file: intents(12), paymentMethod: intents(13), currencyAmount: intents(14), "array<file>": array(intents(12)),
     };
     for (const [name, vt] of Object.entries(valueTypes)) {
       appIntentValueTypes[name] = attempt(() => {
         const d = vt.wf_parameterDefinitionWithParameterMetadata(metadataFor("p", vt));
-        const e = { definitionClass: cls(d), parameterClass: str($.NSStringFromClass(d.parameterClass)) };
+        if (isNil(d)) return { definitionClass: "(none)", parameterClass: "(none: WorkflowKit has no parameter class for this value type)" };
+        const pcls = d.parameterClass;
+        const e = { definitionClass: cls(d), parameterClass: isNil(pcls) ? "(none: WorkflowKit has no parameter class for this value type)" : str($.NSStringFromClass(pcls)) };
+        if (isNil(pcls)) return e;
         try {
           const p = klass(e.parameterClass).parameterWithDefinition(d.parameterDefinitionDictionary);
           e.stateClass = str($.NSStringFromClass(p.singleStateClass)); e.default = plain(p.defaultSerializedRepresentation, 0);

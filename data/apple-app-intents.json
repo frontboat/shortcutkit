@@ -971,6 +971,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1065,6 +1066,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1171,6 +1173,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1288,6 +1291,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1360,6 +1364,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1433,6 +1438,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1523,6 +1529,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1746,6 +1753,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1800,6 +1808,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1866,6 +1875,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -1932,6 +1942,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -2010,6 +2021,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -2064,6 +2076,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -2189,6 +2202,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -2243,6 +2257,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -2297,6 +2312,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -2351,6 +2367,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -2560,6 +2577,7 @@
      "key": "input_image_path",
      "kind": "any",
      "name": "Photo",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -2653,6 +2671,7 @@
      "key": "image",
      "kind": "any",
      "name": "Photo",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -7435,6 +7454,7 @@
      "key": "file",
      "kind": "any",
      "name": "File",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -9291,6 +9311,7 @@
      "key": "application",
      "kind": "any",
      "name": "Application",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -9892,6 +9913,7 @@
      "key": "audioMessage",
      "kind": "any",
      "name": "Audio Message",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -9903,6 +9925,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -10754,6 +10777,7 @@
      "key": "audioMessage",
      "kind": "any",
      "name": "Audio Message",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -10765,6 +10789,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -11952,6 +11977,7 @@
      "key": "file",
      "kind": "any",
      "name": "File",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -13021,6 +13047,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -15087,6 +15114,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -16081,6 +16109,7 @@
      "key": "files",
      "kind": "any",
      "name": "Photos",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -17698,6 +17727,7 @@
      "key": "criteria",
      "kind": "any",
      "name": "Criteria",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -17883,6 +17913,7 @@
      "key": "files",
      "kind": "any",
      "name": "Files",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -20740,6 +20771,7 @@
      "key": "folder",
      "kind": "any",
      "name": "Folder",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -20961,6 +20993,7 @@
      "key": "files",
      "kind": "any",
      "name": "Documents",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -21028,6 +21061,7 @@
      "key": "files",
      "kind": "any",
      "name": "Documents",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -46165,6 +46199,7 @@
      "key": "audioFile",
      "kind": "any",
      "name": "Audio File",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -46692,6 +46727,7 @@
      "key": "application",
      "kind": "any",
      "name": "Application",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -46734,6 +46770,7 @@
      "key": "application",
      "kind": "any",
      "name": "Application",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -47249,6 +47286,7 @@
      "key": "imageFile",
      "kind": "any",
      "name": "Image",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -47291,6 +47329,7 @@
      "key": "referenceImageFile",
      "kind": "any",
      "name": "Image",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -47302,6 +47341,7 @@
      "key": "imageFiles",
      "kind": "any",
      "name": "From Images",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -47372,6 +47412,7 @@
      "key": "imageFile",
      "kind": "any",
      "name": "Image",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -47446,6 +47487,7 @@
      "key": "imageFiles",
      "kind": "any",
      "name": "Image",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -48658,6 +48700,7 @@
      "key": "audioFile",
      "kind": "any",
      "name": "Audio File",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -55374,6 +55417,7 @@
      "key": "mediaItems",
      "kind": "any",
      "name": "Media",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -56342,6 +56386,7 @@
      "key": "files",
      "kind": "any",
      "name": "Files",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -56409,6 +56454,7 @@
      "key": "images",
      "kind": "any",
      "name": "Photos",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -63227,6 +63273,7 @@
      "key": "target",
      "kind": "any",
      "name": "Application",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -63269,6 +63316,7 @@
      "key": "target",
      "kind": "any",
      "name": "File",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -64134,6 +64182,7 @@
      "key": "mediaItems",
      "kind": "any",
      "name": "Media Items",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -65435,6 +65484,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -65795,6 +65845,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -66487,6 +66538,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -66896,6 +66948,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -67163,6 +67216,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -74558,6 +74612,7 @@
      "key": "documents",
      "kind": "any",
      "name": "Documents",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -77245,6 +77300,7 @@
      "key": "images",
      "kind": "any",
      "name": "Images",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -78375,6 +78431,7 @@
      "key": "images",
      "kind": "any",
      "name": "",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -79481,6 +79538,7 @@
      "key": "image",
      "kind": "any",
      "name": "Image",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -79988,6 +80046,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -82984,6 +83043,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -83096,6 +83156,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -83221,6 +83282,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -83414,6 +83476,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -83536,6 +83599,7 @@
      "key": "app",
      "kind": "any",
      "name": "App",
+     "parameterClass": "WFAppPickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "app"
@@ -85362,6 +85426,7 @@
      "key": "audioMessage",
      "kind": "any",
      "name": "Audio Message",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -85373,6 +85438,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -85661,6 +85727,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -85697,6 +85764,7 @@
      "key": "audioMessage",
      "kind": "any",
      "name": "Audio Message",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -86201,6 +86269,7 @@
      "key": "attachments",
      "kind": "any",
      "name": "Attachments",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -86237,6 +86306,7 @@
      "key": "audioMessage",
      "kind": "any",
      "name": "Audio Message",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -131237,6 +131307,7 @@
      "key": "photo",
      "kind": "any",
      "name": "Image",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -133258,6 +133329,7 @@
      "key": "imageFile",
      "kind": "any",
      "name": "Image",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -133488,6 +133560,7 @@
      "key": "imageFiles",
      "kind": "any",
      "name": "Image",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"
@@ -133559,6 +133632,7 @@
      "key": "imageFile",
      "kind": "any",
      "name": "Image",
+     "parameterClass": "WFFilePickerParameter",
      "type": {
       "kind": "primitive",
       "primitive": "file"

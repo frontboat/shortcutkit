@@ -81,7 +81,7 @@ def load_value_type_table(data):
     if not path.exists():
         return {}
     table = json.load(open(path)).get("appIntentValueTypes", {})
-    return {k: v for k, v in table.items() if isinstance(v, dict) and v.get("parameterClass")}
+    return {k: v for k, v in table.items() if isinstance(v, dict) and v.get("parameterClass") and not v["parameterClass"].startswith("(")}
 
 
 def parameter_class(info, table):
