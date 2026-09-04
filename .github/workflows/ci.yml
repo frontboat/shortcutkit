@@ -43,7 +43,9 @@ jobs:
           python3 -m venv .venv && .venv/bin/pip install -q -e .
           .venv/bin/python -c "from shortcutkit import ACTIONS; assert len(ACTIONS) > 1800 and sum(1 for a in ACTIONS.values() if 'descriptor' in a) > 1400"
       - name: Validate everything the library writes against the engine
+        timeout-minutes: 20
         run: |
+          sw_vers; defaults read /System/Applications/Shortcuts.app/Contents/Info.plist CFBundleShortVersionString
           open -a Shortcuts && sleep 15 && pkill -x Shortcuts || true
           PYTHON="$GITHUB_WORKSPACE/python/.venv/bin/python" bun run verify
       - name: Build the demo shortcut with Bun (unsigned; shortcuts sign needs an iCloud login)
