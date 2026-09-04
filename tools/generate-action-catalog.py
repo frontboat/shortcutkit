@@ -38,6 +38,9 @@ STATE_KIND = {
     "WFStringSubstitutableState": "string", "WFVariableStringParameterState": "text", "WFURLStringParameterState": "text",
     "WFDateFieldParameterState": "text", "WFVariableParameterState": "picker", "WFStringParameterState": "plainString",
     "WFNumberParameterState": "plainNumber", "WFDictionaryParameterState": "dictionary", "WFQuantityParameterState": "quantity",
+    # App Intents (LinkMetadata) value types: enumeration cases are stored as their case id string;
+    # entities are dictionaries the app defines.
+    "WFLinkEnumerationSubstitutableState": "string", "WFLinkDynamicOptionSubstitutableState": "any",
 }
 KIND_TS = {"bool": "BoolValue", "number": "NumberValue", "string": "StringValue", "text": "TextValue", "picker": "PickerValue",
            "plainString": "PlainString", "plainNumber": "PlainNumber", "dictionary": "DictionaryValue", "quantity": "QuantityValue",
@@ -51,7 +54,14 @@ def load_state_map():
     if not path.exists():
         return {}, {}
     enc = json.load(open(path))
-    return {pc: str(e.get("stateClass")) for pc, e in enc["parameterClasses"].items()}, enc.get("actionParameters", {})
+    state_map = {pc: str(e.get("stateClass")) for pc, e in enc["parameterClasses"].items()}
+    # Parameter classes the engine uses for App Intents value types, from the encoding table.
+    table = ROOT / "data" / "encoding-table.json"
+    if table.exists():
+        for e in json.load(open(table)).get("appIntentValueTypes", {}).values():
+            if isinstance(e, dict) and e.get("parameterClass") and e.get("stateClass"):
+                state_map.setdefault(e["parameterClass"], e["stateClass"])
+    return state_map, enc.get("actionParameters", {})
 
 
 def kind_for(param_class, state_map):
@@ -119,14 +129,21 @@ APPLE_TEAM = "0000000000"  # what Apple's own gallery shortcuts write for system
 
 def app_intent_entries(catalog):
     """Entries for Apple's App Intents, from the Shortcuts app's registry (dump-toolkit-registry.py)."""
+    state_map, _ = load_state_map()
     out = []
     for ident in sorted(catalog):
         t = catalog[ident]
         params, kinds = [], {}
         for p in t.get("parameters", []):
             k = p["key"]
-            choices = [c["id"] for c in p.get("type", {}).get("cases", [])] if p.get("kind") == "string" else []
-            params.append(k); kinds[k] = {"kind": p.get("kind", "any"), "choices": choices, "class": p.get("type", {}).get("kind")}
+            # The engine's parameter class for the value type (extract-encoding-table.js) decides the
+            # kind, exactly as for built-ins; the registry's own guess is the fallback.
+            kind = kind_for(p["parameterClass"], state_map) if p.get("parameterClass") else p.get("kind", "any")
+            cases = [c["id"] for c in p.get("type", {}).get("cases", [])]
+            if cases and kind in ("string", "any", "text"):
+                kind = "string"
+            choices = cases if kind == "string" else []
+            params.append(k); kinds[k] = {"kind": kind, "choices": choices, "class": p.get("parameterClass") or p.get("type", {}).get("kind")}
         app = t.get("app") or {}
         summary = ", ".join(f"{p.get('name') or p['key']}" for p in t.get("parameters", [])[:6])
         out.append({

@@ -51,9 +51,14 @@ Built-in identifiers, parameter keys and parameter classes: `data/builtin-action
 (gallery: `com.apple.WritingTools.WritingToolsAppIntentsExtension.SummarizeTextIntent`; Mac:
 `com.apple.reminders.TTRCreateReminderAppIntent`). The bundle identifier is the app's even when
 the intent is implemented in a framework the app loads, as Reminders' are. Parameters are keyed
-by the intent's Swift parameter names (`title`, `isFlagged`); strings take a plain string or a
-`WFTextTokenString`, booleans a plain bool, enumerations the case identifier (`"high"`, not the
-title "High"), and entities a dictionary the app understands. Every such action also carries:
+by the intent's Swift parameter names (`title`, `isFlagged`). Each value type maps to one of the
+built-in parameter classes, so the encodings are the ones in `data/encoding-table.json`:
+strings and rich text `WFTextInputParameter` (plain string or `WFTextTokenString`), booleans
+`WFSwitchParameter`, numbers `WFNumberFieldParameter`, URLs `WFURLParameter`, dates and date
+components `WFDateFieldParameter`, placemarks `WFLocationParameter`, enumerations
+`WFLinkEnumerationParameter` (the case identifier as a string: `"high"`, not the title "High"),
+entities `WFLinkDynamicOptionsEnumerationParameter` (a dictionary the app understands, or a
+variable). `appIntentValueTypes` in the encoding table lists them. Every such action also carries:
 
 ```
 "AppIntentDescriptor": { "TeamIdentifier": "0000000000", "BundleIdentifier": "com.apple.reminders",

@@ -303,4 +303,4 @@ PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PROVENANCE", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "picker", "text",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "0.4.2"
+__version__ = "0.5.0"

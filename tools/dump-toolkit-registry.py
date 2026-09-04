@@ -75,6 +75,30 @@ def type_info(con, type_row_id):
     return info
 
 
+def load_value_type_table(data):
+    """Value type -> WorkflowKit parameter class, as the engine maps them (extract-encoding-table.js)."""
+    path = data / "encoding-table.json"
+    if not path.exists():
+        return {}
+    table = json.load(open(path)).get("appIntentValueTypes", {})
+    return {k: v for k, v in table.items() if isinstance(v, dict) and v.get("parameterClass")}
+
+
+def parameter_class(info, table):
+    """The WorkflowKit parameter class the engine would use for this value type, or None."""
+    if not table:
+        return None
+    kind = info.get("kind")
+    if kind == "primitive":
+        key = {"url": "url", "richText": "richText", "dateComponents": "dateComponents", "location": "location"}.get(info.get("primitive"), info.get("primitive"))
+        return (table.get(key) or {}).get("parameterClass")
+    if kind == "entity":
+        return (table.get("entity") or {}).get("parameterClass")
+    if kind == "enum":
+        return (table.get("enum") or {}).get("parameterClass")
+    return None
+
+
 def value_kind(info):
     if info["kind"] == "primitive":
         return KIND_OF.get(info["primitive"], "any")
@@ -94,6 +118,7 @@ def main(argv):
             sys.exit("no ToolKit index at ~/Library/Shortcuts/ToolKit; open Shortcuts.app once so it builds one")
         db = found[-1]
     con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
+    value_types = load_value_type_table(data)
     meta = dict(con.execute("select key, value from Metadata"))
     containers = {}
     for row_id, cid, team, origin, ctype in con.execute("select rowId, id, teamId, origin, containerType from ContainerMetadata"):
@@ -121,6 +146,9 @@ def main(argv):
             if ploc[2] is not None and info.get("kind") == "primitive" and info.get("primitive") != "bool":
                 info = {"kind": "primitive", "primitive": "bool"}
             p = {"key": key, "name": ploc[0], "description": ploc[1], "kind": value_kind(info), "type": info, "flags": pflags}
+            pc = parameter_class(info, value_types)
+            if pc:
+                p["parameterClass"] = pc
             if len(types) > 1:
                 p["alternativeTypes"] = types[1:]
             params.append(p)

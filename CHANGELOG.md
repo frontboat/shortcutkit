@@ -6,6 +6,86 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.5.0 (2026-09-04)
+
+- **App Intent parameters typed by the engine.** WorkflowKit's mapping from each LinkMetadata
+  value type to its own parameter class is observable without linkd, and the encoding table
+  now records it (`appIntentValueTypes`). 4,489 of 4,989 App Intent parameters take their
+  kind from that class exactly as built-ins do: dates and date components become text
+  (`WFDateFieldParameter`), URLs text, entities dynamic options, enumerations their case ids.
+  Files, people, apps and arrays of those stay `any`. Narrower types than 0.4.x for date
+  parameters, hence the minor bump under 0.x.
+- `diff-data` compares App Intent parameter classes, so future retypes are reported.
+- `docs/extraction.md` explains why the actions themselves cannot be built without linkd and
+  why their encodings can.
+
+### Data: macOS 27.0 (26A5421a), Shortcuts 10.0 build 5037.0.17, extracted 2026-09-04T12:49:37Z
+
+Recommended bump: **major**
+
+- Changed parameter classes (4489):
+  - `com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent.asset: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.ContactEntity.WFCompoundType: string -> WFLinkEnumerationParameter`
+  - `com.apple.AddressBook.ContactEntity.WFContentItemInputParameter: string -> WFLinkEnumerationParameter`
+  - `com.apple.AddressBook.ContactEntity.WFContentItemLimitEnabled: bool -> WFSwitchParameter`
+  - `com.apple.AddressBook.ContactEntity.WFContentItemLimitNumber: number -> WFNumberFieldParameter`
+  - `com.apple.AddressBook.ContactEntity.WFContentItemSortOrder: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.ContactEntity.WFContentItemSortProperty: string -> WFLinkEnumerationParameter`
+  - `com.apple.AddressBook.CreateContactIntent.OpenWhenRun: bool -> WFSwitchParameter`
+  - `com.apple.AddressBook.CreateContactIntent.birthday: any -> WFDateFieldParameter`
+  - `com.apple.AddressBook.CreateContactIntent.contactRelations: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.CreateContactIntent.contactType: string -> WFLinkEnumerationParameter`
+  - `com.apple.AddressBook.CreateContactIntent.dates: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.CreateContactIntent.departmentName: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.CreateContactIntent.emailAddresses: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.CreateContactIntent.jobTitle: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.CreateContactIntent.organizationName: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.CreateContactIntent.phoneNumbers: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.CreateContactIntent.phoneticOrganizationName: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.CreateContactIntent.postalAddresses: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.DeleteContactIntent.entities: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.FetchContactAvatarIntent.identifiers: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.FetchContactAvatarIntent.kinds: string -> WFLinkEnumerationParameter`
+  - `com.apple.AddressBook.FetchContactIntent.identifiers: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.FetchContactIntent.keysToFetch: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.SearchInContactsIntent.criteria: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.OpenWhenRun: bool -> WFSwitchParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.birthday: any -> WFDateFieldParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.contactRelations: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.contactType: string -> WFLinkEnumerationParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.dates: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.departmentName: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.emailAddresses: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.jobTitle: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.organizationName: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.phoneNumbers: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.phoneticOrganizationName: text -> WFTextInputParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.postalAddresses: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.UpdateContactIntent.target: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.ViewContactCardIntent.highlightedPropertyType: string -> WFLinkEnumerationParameter`
+  - `com.apple.AddressBook.ViewContactCardIntent.highlightedValue: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AddressBook.ViewContactCardIntent.shouldEdit: bool -> WFSwitchParameter`
+  - `com.apple.AddressBook.ViewContactCardIntent.target: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - `com.apple.AppKit.FetchIntelligenceCommands.cachedIfAvailable: bool -> WFSwitchParameter`
+  - `com.apple.AppKit.FetchIntelligenceCommands.includeNonPerformable: bool -> WFSwitchParameter`
+  - `com.apple.AppKit.FetchIntelligenceCommands.includeUntitled: bool -> WFSwitchParameter`
+  - `com.apple.AppKit.FetchIntelligenceCommands.processInstanceIdentifier: text -> WFTextInputParameter`
+  - `com.apple.AppKit.InsertIntelligenceText.processInstanceIdentifier: text -> WFTextInputParameter`
+  - `com.apple.AppKit.InsertIntelligenceText.replaceExisting: bool -> WFSwitchParameter`
+  - `com.apple.AppKit.InsertIntelligenceText.targetFrame: text -> WFTextInputParameter`
+  - `com.apple.AppKit.InsertIntelligenceText.targetWindowIdentifier: text -> WFTextInputParameter`
+  - `com.apple.AppKit.InsertIntelligenceText.text: text -> WFTextInputParameter`
+  - `com.apple.AppKit.PresentWritingToolsResult.precomputedCitationsJSON: text -> WFTextInputParameter`
+  - `com.apple.AppKit.PresentWritingToolsResult.precomputedContentAdvisoriesJSON: text -> WFTextInputParameter`
+  - `com.apple.AppKit.PresentWritingToolsResult.replaceExisting: bool -> WFSwitchParameter`
+  - `com.apple.AppKit.PresentWritingToolsResult.targetFrame: text -> WFTextInputParameter`
+  - `com.apple.AppKit.PresentWritingToolsResult.targetWindowIdentifier: text -> WFTextInputParameter`
+  - `com.apple.AppKit.PresentWritingToolsResult.text: text -> WFTextInputParameter`
+  - `com.apple.AppKit.RequestEditingContext.targetFrame: text -> WFTextInputParameter`
+  - `com.apple.AppKit.RequestEditingContext.targetWindowIdentifier: text -> WFTextInputParameter`
+  - `com.apple.AppKit.RunIntelligenceCommand.command: any -> WFLinkDynamicOptionsEnumerationParameter`
+  - … 4429 more
+
 ## 0.4.2 (2026-09-04)
 
 - App Intents output names: where the registry has no result label, the output type's display

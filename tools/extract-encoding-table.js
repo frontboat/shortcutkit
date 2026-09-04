@@ -36,7 +36,7 @@ function run(argv) {
 
   // State classes: plain value and variable forms
   const states = {};
-  const stateNames = new Set(["WFStringSubstitutableState", "WFBooleanSubstitutableState", "WFNumberSubstitutableState", "WFNumberStringSubstitutableState", "WFVariableStringParameterState", "WFVariableParameterState", "WFURLStringParameterState", "WFDateFieldParameterState", "WFStringParameterState", "WFNumberParameterState", "WFDictionaryParameterState", "WFAppDescriptorParameterState", "WFColorParameterState", "WFFileParameterState", "WFLocationParameterState", "WFINObjectSubstitutableState", "WFCalendarSubstitutableState", "WFWorkflowParameterState", "WFQuantityParameterState", "WFContactFieldEntry", "WFFontParameterState", "WFNSUnitSubstitutableState", "WFIntentDescriptorParameterState", "WFMediaItemState"]);
+  const stateNames = new Set(["WFStringSubstitutableState", "WFBooleanSubstitutableState", "WFNumberSubstitutableState", "WFNumberStringSubstitutableState", "WFVariableStringParameterState", "WFVariableParameterState", "WFURLStringParameterState", "WFDateFieldParameterState", "WFStringParameterState", "WFNumberParameterState", "WFDictionaryParameterState", "WFAppDescriptorParameterState", "WFColorParameterState", "WFFileParameterState", "WFLocationParameterState", "WFINObjectSubstitutableState", "WFCalendarSubstitutableState", "WFWorkflowParameterState", "WFQuantityParameterState", "WFContactFieldEntry", "WFFontParameterState", "WFNSUnitSubstitutableState", "WFIntentDescriptorParameterState", "WFMediaItemState", "WFLinkEnumerationSubstitutableState", "WFLinkDynamicOptionSubstitutableState"]);
   if (argv.length > 1) {
     const enc = readJSON(argv[1]);
     for (const e of Object.values(enc.parameterClasses)) if (typeof e.stateClass === "string" && !e.stateClass.startsWith("_TtGC")) stateNames.add(e.stateClass);
@@ -88,6 +88,41 @@ function run(argv) {
   }
   out.conditionalSubjectOperators = ops;
 
+  // App Intents parameters. WorkflowKit maps each LinkMetadata value type to one of its own
+  // parameter classes (-[LNValueType wf_parameterDefinitionWithParameterMetadata:]), whose
+  // state class is the encoding. The metadata daemon is not involved, so this is observable
+  // here; the parameter is then built from the definition to read its state class and default.
+  $.dlopen("/System/Library/PrivateFrameworks/LinkMetadata.framework/LinkMetadata", RTLD_NOW);
+  const appIntentValueTypes = {};
+  if (hasClass("LNPrimitiveValueType") && hasClass("LNActionParameterMetadata")) {
+    const P = klass("LNPrimitiveValueType");
+    const metadataFor = (name, vt) => {
+      ObjC.bindFunction("objc_msgSend", ["void *", ["void *", "void *", "void *", "void *", "bool", "void *", "void *", "void *"]]);
+      return ObjC.castRefToObject($.objc_msgSend(allocRef("LNActionParameterMetadata"), $.sel_registerName("initWithName:valueType:optional:title:resolvableInputTypes:typeSpecificMetadata:"), toRef(name), toRef(vt), true, toRef(name), toRef($([])), toRef($({}))));
+    };
+    const entity = (id) => make("LNEntityValueType", "initWithIdentifier:", id);
+    const enumeration = (id) => make("LNLinkEnumerationValueType", "initWithEnumerationIdentifier:", id);
+    const array = (member) => make("LNArrayValueType", "initWithMemberValueType:", member);
+    const valueTypes = {
+      string: P.stringValueType, richText: P.attributedStringValueType, bool: P.boolValueType, int: P.intValueType, double: P.doubleValueType,
+      url: P.URLValueType, date: P.dateValueType, dateComponents: P.dateComponentsValueType, location: P.placemarkValueType,
+      entity: entity("com.apple.reminders.ListEntity"), enum: enumeration("com.apple.reminders.PriorityLevel"),
+      "array<string>": array(P.stringValueType), "array<bool>": array(P.boolValueType), "array<entity>": array(entity("com.apple.reminders.ReminderEntity")), "array<enum>": array(enumeration("com.apple.reminders.PriorityLevel")),
+    };
+    for (const [name, vt] of Object.entries(valueTypes)) {
+      appIntentValueTypes[name] = attempt(() => {
+        const d = vt.wf_parameterDefinitionWithParameterMetadata(metadataFor("p", vt));
+        const e = { definitionClass: cls(d), parameterClass: str($.NSStringFromClass(d.parameterClass)) };
+        try {
+          const p = klass(e.parameterClass).parameterWithDefinition(d.parameterDefinitionDictionary);
+          e.stateClass = str($.NSStringFromClass(p.singleStateClass)); e.default = plain(p.defaultSerializedRepresentation, 0);
+        } catch (err) { e.stateClass = null; e.note = "parameter could not be built: " + err.message; }
+        return e;
+      });
+    }
+  }
+  out.appIntentValueTypes = appIntentValueTypes;
+
   writeJSON(argv[0], out);
-  console.log(Object.keys(states).length + " state classes, " + Object.keys(vars).length + " variables -> " + argv[0]);
+  console.log(Object.keys(states).length + " state classes, " + Object.keys(vars).length + " variables, " + Object.keys(appIntentValueTypes).length + " App Intents value types -> " + argv[0]);
 }

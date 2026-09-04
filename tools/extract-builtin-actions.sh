@@ -29,22 +29,22 @@ jxa extract-builtin-actions "$data/builtin-actions.json"
 # The Shortcuts app's own action index (~/Library/Shortcuts/ToolKit) is the only readable copy of
 # linkd's registry: Apple's App Intents with their exact identifiers, plus English names for the
 # definitions the engine leaves unnamed. Requires Shortcuts.app to have run once on this Mac.
-echo "reading the Shortcuts app's action registry"
-python3 "$here/dump-toolkit-registry.py" "$data"
-python3 "$here/render-apple-app-intents.py" "$data/apple-app-intents.json" "$docs/apple-app-intents-reference.md"
-
 echo "mapping parameter classes to state classes"
 jxa extract-parameter-encodings "$data/parameter-encodings.json"
 python3 "$here/render-parameter-encodings.py" "$data/parameter-encodings.json" "$docs/parameter-encodings.md"
+
+echo "serializing variables, token strings, state classes, palette, App Intents value types"
+jxa extract-encoding-table "$data/encoding-table.json" "$data/parameter-encodings.json"
+
+echo "reading the Shortcuts app's action registry"
+python3 "$here/dump-toolkit-registry.py" "$data"
+python3 "$here/render-apple-app-intents.py" "$data/apple-app-intents.json" "$docs/apple-app-intents-reference.md"
 
 echo "filling names, output names and enumeration cases the definitions leave out"
 python3 "$here/annotate-builtin-actions.py" "$data/builtin-actions.json" "$data/toolkit-names.json" "$data/parameter-encodings.json"
 
 echo "rendering markdown"
 python3 "$here/render-builtin-actions.py" "$data/builtin-actions.json" "$docs/builtin-actions-reference.md"
-
-echo "serializing variables, token strings, state classes, palette"
-jxa extract-encoding-table "$data/encoding-table.json" "$data/parameter-encodings.json"
 
 echo "refreshing the Python package's bundled definitions"
 mkdir -p "$out/python/src/shortcutkit/data" && cp "$data/builtin-actions.json" "$out/python/src/shortcutkit/data/builtin-actions.json"

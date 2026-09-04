@@ -164,6 +164,27 @@ answer, and for App Intents from the tool's result label or its output type's di
 only what the engine cannot say. `annotate-builtin-actions.py` re-checks the enumeration
 lists on every refresh and warns on a mismatch.
 
+**App Intents parameter encodings, from the engine.** The link action provider cannot build
+an App Intents action without linkd: its only metadata source, `LNMetadataProvider`, is an
+XPC client of the daemon, and there is no local parser of `extract.actionsdata` reachable
+from a client. But the value encoding does not live in linkd. WorkflowKit maps each
+LinkMetadata value type to one of its own parameter classes
+(`-[LNValueType wf_parameterDefinitionWithParameterMetadata:]`), and both the value types
+(`+[LNPrimitiveValueType stringValueType]`, `dateValueType`, …, `LNEntityValueType`,
+`LNLinkEnumerationValueType`, `LNArrayValueType`) and the parameter metadata
+(`-[LNActionParameterMetadata initWithName:valueType:optional:title:resolvableInputTypes:typeSpecificMetadata:]`)
+are constructible locally. `extract-encoding-table.js` does that for every value type and
+records `appIntentValueTypes`: string and rich text are `WFTextInputParameter`, bool
+`WFSwitchParameter`, int and double `WFNumberFieldParameter`, URL `WFURLParameter`, date and
+date components `WFDateFieldParameter`, placemark `WFLocationParameter`, enumerations
+`WFLinkEnumerationParameter` (case id as a string) and entities
+`WFLinkDynamicOptionsEnumerationParameter`; arrays use their member's class. The registry
+dump stamps each App Intent parameter with that class, and the generator derives the kind
+from it exactly as for built-ins. 4,489 of 4,989 parameters are typed this way; files,
+people, apps and a few unknown tags (`LNIntentsValueType`, not constructible from a client)
+stay `any`. The gallery confirms the on-disk form: values are plain, not wrapped
+(`summaryType: "createKeyPoints"`, `text` as a `WFTextTokenString`).
+
 Requirement: Shortcuts.app must have run once on the extracting Mac so the index exists. The
 `toolKit` field of `data/provenance.json` records which index version was read.
 

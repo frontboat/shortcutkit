@@ -27,7 +27,8 @@ def load_old(rel="data/builtin-actions.json"):
 
 
 def app_keys(action):
-    return {p["key"]: p.get("kind") for p in action.get("parameters", []) if p.get("key")}
+    # The engine's parameter class decides the type; the registry's kind is the fallback.
+    return {p["key"]: p.get("parameterClass") or p.get("kind") for p in action.get("parameters", []) if p.get("key")}
 
 
 def diff_apps(old, new):
