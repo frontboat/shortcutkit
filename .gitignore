@@ -7,7 +7,8 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
-.claude/settings.local.json
+.claude/
+skills-lock.json
 CLAUDE.local.md
 
 # Secrets and local config
