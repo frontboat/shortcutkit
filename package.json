@@ -39,10 +39,14 @@
   "homepage": "https://github.com/frontboat/shortcutkit#readme",
   "keywords": [
     "apple",
+    "apple-shortcuts",
     "shortcuts",
+    "shortcuts-app",
+    "workflowkit",
     "workflow",
     "automation",
     "macos",
+    "macos-automation",
     "ios",
     "plist"
   ],

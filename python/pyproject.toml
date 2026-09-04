@@ -11,7 +11,7 @@ readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "frontboat" }]
-keywords = ["apple", "shortcuts", "workflow", "automation", "macos", "ios", "plist"]
+keywords = ["apple", "apple-shortcuts", "shortcuts", "shortcuts-app", "workflowkit", "workflow", "automation", "macos", "macos-automation", "ios", "plist"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
