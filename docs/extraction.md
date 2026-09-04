@@ -146,7 +146,16 @@ readable form. `tools/dump-toolkit-registry.py` reads it:
   "Battery Level", Statistics says "Average").
 
 The committed `data/apple-app-intents.json` keeps the `WFLinkActionProvider` tools whose
-container is an Apple bundle; those ship with macOS. The full index, third-party apps
+container is an Apple bundle; those ship with macOS. Two groups are left out (140 on macOS
+27): tools with `visibilityFlags` 0, which is what the editor on this Mac does not offer
+(among built-ins: iPad-only Stage Manager, the retired Watch Me Do; among App Intents:
+internal helpers such as "Fetch Contact Avatars" and a Photos "workaround" intent), and
+intents whose system protocols mark them as widget, control, Live Activity or Focus
+configurations (`SystemToolProtocols`; see Apple's "App intent types" page), which configure
+a widget rather than run in a shortcut. 473 of the remaining entries carry the
+`synthesizedTool` protocol: "Get …" and "Update …" actions Shortcuts derives from an app's
+entities (most of the System Settings ones); they are offered in the editor and kept, and
+marked `synthesized` in the data. The full index, third-party apps
 included, is written locally to `data/toolkit-registry.json`. The index also shows what the
 provider calls cannot: seven built-ins (`appendnote`, `deletephotos`, `filter.notes`, …) are
 now served through App Intents and appear only there, and fifteen catalogue entries (control

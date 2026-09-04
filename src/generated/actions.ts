@@ -3037,12 +3037,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   workout_start: "is.workflow.actions.workout.start",
   /**
-   * **Workaround for rdar://146914251**
-   *  (com.apple.-Photos-AppIntents)
-   * Parameters: `asset`
-   */
-  com_apple_photos_app_intents_workaround_for_rdar_146914251: "com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent",
-  /**
    * **Find Contact**
    *  (Contacts)
    * Output: Contact
@@ -3062,20 +3056,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `entities`
    */
   contacts_delete_contact: "com.apple.AddressBook.DeleteContactIntent",
-  /**
-   * **Fetch Avatars for Contacts**
-   * Fetch Avatars from the contacts database (Contacts)
-   * Output: Contact Avatar Fetch Result
-   * Parameters: `identifiers`, `kinds`
-   */
-  contacts_fetch_avatars_for_contacts: "com.apple.AddressBook.FetchContactAvatarIntent",
-  /**
-   * **Fetch Contacts**
-   * Fetch contacts from the contacts database (Contacts)
-   * Output: Contact Fetch Result
-   * Parameters: `identifiers`, `keysToFetch`
-   */
-  contacts_fetch_contacts: "com.apple.AddressBook.FetchContactIntent",
   /**
    * **Search in Contacts App**
    * Search for a contact in the Contacts app (Contacts)
@@ -3246,39 +3226,12 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_GenerativePlaygroundApp_GenerateImageIntent: "com.apple.GenerativePlaygroundApp.GenerateImageIntent",
   /**
-   * **Activate Scene**
-   *  (Home)
-   * Output: Scene Result
-   * Parameters: `homeEntity`, `sceneEntity`, `timeout`
-   */
-  home_activate_scene: "com.apple.Home.ActivateSceneIntent",
-  /**
-   * **Automate Set Attribute Value**
-   *  (Home)
-   * Output: Automation Result
-   * Parameters: `attributes`, `devices`, `homeEntity`, `rooms`, `trigger`, `recurrenceWeekdays`, `name`
-   */
-  home_automate_set_attribute_value: "com.apple.Home.AutomateAttributeValueIntent",
-  /**
-   * **Automate Scene**
-   *  (Home)
-   * Parameters: `sceneEntity`, `trigger`, `recurrenceWeekdays`
-   */
-  home_automate_scene: "com.apple.Home.AutomateSceneIntent",
-  /**
    * **Find **
    *  (Home)
    * Output: CameraClipEntity
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   home_find: "com.apple.Home.CameraClipEntity",
-  /**
-   * **Delta Attribute**
-   *  (Home)
-   * Output: Device Result
-   * Parameters: `attribute`, `delta`, `devices`, `homeEntity`, `zoneEntities`, `roomEntities`, `timeout`, `OpenWhenRun`
-   */
-  home_delta_attribute: "com.apple.Home.DeltaAttributeValueIntent",
   /**
    * **Find Device**
    *  (Home)
@@ -3287,65 +3240,10 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   home_find_device: "com.apple.Home.DeviceEntity",
   /**
-   * **Error Intent**
-   *  (Home)
-   */
-  home_error_intent: "com.apple.Home.ErrorIntent",
-  /**
-   * **Show the Grid Forecast for a Home or your location.**
-   *  (Home)
-   * Parameters: `forecastLocationEntity`
-   */
-  home_show_the_grid_forecast_for_a_home_or_your_location: "com.apple.Home.ForecastWidgetConfiguration",
-  /**
-   * **Get Attribute**
-   *  (Home)
-   * Output: Device Result
-   * Parameters: `homeEntity`, `zoneEntities`, `roomEntities`, `devices`, `attributeTypes`, `timeout`, `OpenWhenRun`
-   */
-  home_get_attribute: "com.apple.Home.GetAttributeValueIntent",
-  /**
-   * **Get Device Info**
-   *  (Home)
-   * Output: Supported Attributes Result
-   * Parameters: `devices`, `homeEntity`
-   */
-  home_get_device_info: "com.apple.Home.GetDeviceInfoIntent",
-  /**
-   * **Select Home**
-   *  (Home)
-   * Parameters: `siteDetail`
-   */
-  home_select_home: "com.apple.Home.HistoricalUsageWidgetConfiguration",
-  /**
    * **HomeAppIntentsExtensionTestAppIntent**
    *  (Home)
    */
   com_apple_home_app_intents_extension_home_app_intents_extension_test_app_intent: "com.apple.Home.HomeAppIntentsExtensionTestAppIntent",
-  /**
-   * **Scene or Accessory**
-   * Home (Home)
-   * Parameters: `home`, `item`
-   */
-  home_scene_or_accessory: "com.apple.Home.HomeSingleTileConfigurationIntent",
-  /**
-   * **Accessories**
-   * Quickly control your favorite home accessories or scenes. (Home)
-   * Parameters: `useRecommendations`, `show`, `home`, `items`
-   */
-  home_accessories: "com.apple.Home.HomeXLModuleConfigurationIntent",
-  /**
-   * **Open Accessory or Scene in Home app**
-   * Forwards and opens URLs in the Home app when an in-widget toggle cannot be performed (Home)
-   * Parameters: `url`
-   */
-  home_open_accessory_or_scene_in_home_app: "com.apple.Home.OpenURLInHomeIntent",
-  /**
-   * **Recommended Item**
-   * Recommended Accessory or Scene (Home)
-   * Parameters: `useHomeKitRecommendations`, `home`, `accessoriesAndScenes`
-   */
-  home_recommended_item: "com.apple.Home.RecommendedItemIntent",
   /**
    * **Find Room**
    *  (Home)
@@ -3361,12 +3259,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   home_find_scene: "com.apple.Home.SceneEntity",
   /**
-   * **Toggle Accessory or Scene**
-   * Toggles the state of the specified accessory or scene. (Home)
-   * Parameters: `entity`, `analyticsInfoJSON`
-   */
-  home_toggle_accessory_or_scene: "com.apple.Home.SecureToggleIntent",
-  /**
    * **Find Selected Home**
    *  (Home)
    * Output: Selected Home
@@ -3374,67 +3266,11 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   home_find_selected_home: "com.apple.Home.SelectedHomeEntity",
   /**
-   * **Set Attribute**
-   *  (Home)
-   * Output: Device Result
-   * Parameters: `attributes`, `devices`, `homeEntity`, `zoneEntities`, `roomEntities`, `timeout`, `OpenWhenRun`
-   */
-  home_set_attribute: "com.apple.Home.SetAttributeValueIntent",
-  /**
-   * **Show Device Result**
-   *  (Home)
-   * Parameters: `userSpecificity`, `destination`, `successDeviceIDs`, `failedDeviceIDs`, `failedDeviceIDsToIgnore`, `attributeType`, `oldDeviceResults`, `newDeviceResults`, `secondaryAccessoryControlDestination`
-   */
-  home_show_device_result: "com.apple.Home.ShowDeviceResultIntent",
-  /**
-   * **Show Error**
-   *  (Home)
-   * Parameters: `destination`, `errorDisplayType`
-   */
-  home_show_error: "com.apple.Home.ShowErrorIntent",
-  /**
-   * **Show Navigation**
-   *  (Home)
-   * Parameters: `categoryType`, `dashboardViewType`, `deviceEntities`, `secondaryAccessoryControlDestination`, `homeEntity`, `roomEntity`
-   */
-  home_show_navigation: "com.apple.Home.ShowNavigationIntent",
-  /**
-   * **Show Scene Result**
-   *  (Home)
-   * Parameters: `sceneID`, `hasSiriExecutionFailure`
-   */
-  home_show_scene_result: "com.apple.Home.ShowSceneResultIntent",
-  /**
-   * **ToggleIntentTitle**
-   * ToggleIntentDescription (Home)
-   * Parameters: `value`, `targetIDString`, `homeIDString`, `action`, `uniqueIdentifier`, `widgetKind`, `OpenWhenRun`
-   */
-  home_toggle_intent_title: "com.apple.Home.TileControlAction",
-  /**
-   * **Toggle Attribute**
-   *  (Home)
-   * Output: Device Result
-   * Parameters: `attributeTypes`, `devices`, `homeEntity`, `zoneEntities`, `roomEntities`, `timeout`, `OpenWhenRun`
-   */
-  home_toggle_attribute: "com.apple.Home.ToggleAttributeIntent",
-  /**
-   * **Scene or Accessory**
-   * Home (Home)
-   * Parameters: `home`, `accessoriesAndScenes`
-   */
-  com_apple_Home_ToggleControlConfigurationIntent: "com.apple.Home.ToggleControlConfigurationIntent",
-  /**
    * **Toggle Accessory or Scene**
    * Toggles the state of the specified accessory or scene. (Home)
    * Parameters: `entity`
    */
-  com_apple_Home_ToggleIntent: "com.apple.Home.ToggleIntent",
-  /**
-   * **Select Home**
-   *  (Home)
-   * Parameters: `siteDetail`
-   */
-  com_apple_Home_UtilityRateInfoWidgetConfiguration: "com.apple.Home.UtilityRateInfoWidgetConfiguration",
+  home_toggle_accessory_or_scene: "com.apple.Home.ToggleIntent",
   /**
    * **Find Zone**
    *  (Home)
@@ -3492,11 +3328,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `prompt`
    */
   com_apple_magnifier_follow_up: "com.apple.Magnifier.FollowUpVQAAppIntent",
-  /**
-   * **Magnifier**
-   * Turn your iPhone into a magnifying glass to zoom in on and detect objects near you. (Magnifier)
-   */
-  com_apple_magnifier_magnifier: "com.apple.Magnifier.MagnifierIntent",
   /**
    * **Start Point & Speak**
    * Detect text near your finger. (Magnifier)
@@ -3614,12 +3445,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   messages_find_conversation: "com.apple.MobileSMS.ConversationEntity",
   /**
-   * **Set Messages Focus Filter**
-   * Sets the behavior of the Messages app when the given Focus is enabled. (Messages)
-   * Parameters: `Mode`, `FocusMode`, `enableFocusFiltering`
-   */
-  messages_set_messages_focus_filter: "com.apple.MobileSMS.ConversationListFocusFilterAction",
-  /**
    * **Delete Conversations**
    * Deletes the specified conversations. (Messages)
    * Parameters: `entities`
@@ -3644,22 +3469,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   messages_edit_sent_message: "com.apple.MobileSMS.EditSentMessageIntent",
   /**
-   * **Fetch Conversation Identifier Intent**
-   *  (Messages)
-   * Parameters: `intentPersons`
-   */
-  messages_fetch_conversation_identifier_intent: "com.apple.MobileSMS.FetchConversationIdentifierIntent",
-  /**
-   * **Fetch Downtime Conversation List Intent**
-   *  (Messages)
-   */
-  messages_fetch_downtime_conversation_list_intent: "com.apple.MobileSMS.FetchDowntimeConversationListIntent",
-  /**
-   * **Fetch Muted Conversation List Intent**
-   *  (Messages)
-   */
-  messages_fetch_muted_conversation_list_intent: "com.apple.MobileSMS.FetchMutedConversationListIntent",
-  /**
    * **Mark as Read**
    * Marks a specific conversation as read or unread. (Messages)
    * Parameters: `operation`, `conversation`, `unreadState`, `OpenWhenRun`
@@ -3673,22 +3482,11 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   messages_find_message: "com.apple.MobileSMS.MessageEntity",
   /**
-   * **Mute Conversation Intent**
-   *  (Messages)
-   * Parameters: `conversationIdentifier`, `isMuted`
-   */
-  messages_mute_conversation_intent: "com.apple.MobileSMS.MuteConversationIntent",
-  /**
    * **Open Conversation**
    * Opens a specific conversation in Messages. (Messages)
    * Parameters: `target`
    */
   messages_open_conversation: "com.apple.MobileSMS.OpenConversationIntent",
-  /**
-   * **Open Conversation List**
-   * Opens the conversation list in Messages. (Messages)
-   */
-  messages_open_conversation_list: "com.apple.MobileSMS.OpenConversationListIntent",
   /**
    * **Reveal Message**
    * Shows a specific message in Messages. (Messages)
@@ -3948,12 +3746,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   notes_apply_emphasis_to_selected_text: "com.apple.Notes.EmphasisLinkAction",
   /**
-   * **Generate Fallback PDF**
-   *  (Notes)
-   * Parameters: `attachmentIdentifier`
-   */
-  notes_generate_fallback_pdf: "com.apple.Notes.GenerateFallbackPDF",
-  /**
    * **Get Linked Notes**
    * Creates a list of notes that are linked to from the specified note. (Notes)
    * Output: Note
@@ -4050,11 +3842,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   notes_pin_notes: "com.apple.Notes.PinNotesLinkAction",
   /**
-   * **Quick Note**
-   *  (Notes)
-   */
-  notes_quick_note: "com.apple.Notes.QuickNoteIntent",
-  /**
    * **Remove Tags from Notes**
    * Removes tags from notes. (Notes)
    * Output: Note
@@ -4123,18 +3910,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `name`, `attachments`, `isPinned`, `target`, `folder`
    */
   notes_update_note: "com.apple.Notes.UpdateNoteIntent",
-  /**
-   * **Select Person**
-   *  (Contacts)
-   * Parameters: `person`, `shouldShowButtons`, `messageButton`, `callButton`, `verticalLayoutDT`, `verticalLayoutDF`
-   */
-  com_apple_people_view_service_select_person: "com.apple.PeopleViewService.SelectPersonIntent",
-  /**
-   * **Open URL**
-   *  (Contacts)
-   * Parameters: `url`
-   */
-  com_apple_people_view_service_open_url: "com.apple.PeopleViewService.URLAppIntent",
   /**
    * **Add Photos To Album**
    * Adds photos to the specified album. (Photos)
@@ -4319,12 +4094,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   photos_create_memory: "com.apple.Photos.OpenMemoryCreationViewIntent",
   /**
-   * **Photos Relive Widget Configuration**
-   * Configuration (Photos)
-   * Parameters: `widgetType`, `album`, `alwaysDisplayInFullColor`
-   */
-  photos_photos_relive_widget_configuration: "com.apple.Photos.PLPhotosReliveWidgetConfigurationIntent",
-  /**
    * **Find Person**
    *  (Photos)
    * Output: Person
@@ -4442,12 +4211,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `target`
    */
   photos_paste_edits: "com.apple.Photos.PhotosPasteEditsAssistantIntent",
-  /**
-   * **Photos Relive Featured Widget Configuration**
-   * Configuration (Photos)
-   * Parameters: `alwaysDisplayInFullColor`, `enableSpatialEffect`
-   */
-  photos_photos_relive_featured_widget_configuration: "com.apple.Photos.PhotosReliveWidgetFeaturedConfiguration",
   /**
    * **Remove Photos from Album**
    * Removes the provided photos from the provided album. (Photos)
@@ -4731,13 +4494,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_preview_search_documents: "com.apple.Preview.SearchIntent",
   /**
-   * **Add to History**
-   *  (Safari)
-   * Output: History Entity
-   * Parameters: `url`, `name`, `timeOfVisit`
-   */
-  safari_add_to_history: "com.apple.Safari.AddHistoryItem",
-  /**
    * **Find Bookmarks**
    *  (Safari)
    * Output: Bookmark
@@ -4764,12 +4520,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `target`
    */
   safari_close_tab: "com.apple.Safari.CloseTab",
-  /**
-   * **Close Tabs**
-   * Closes the selected tabs. (Safari)
-   * Parameters: `target`
-   */
-  safari_close_tabs: "com.apple.Safari.CloseTabsAssistantIntent",
   /**
    * **Close View**
    * Closes the view in Safari. (Safari)
@@ -4816,24 +4566,11 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   safari_add_to_reading_list: "com.apple.Safari.CreateReadingListItem",
   /**
-   * **Create Tab**
-   * Creates a new tab with a URL loaded, or blank if omitted. (Safari)
-   * Output: Tab
-   * Parameters: `url`, `isPrivate`
-   */
-  safari_create_tab: "com.apple.Safari.CreateTabAssistantIntent",
-  /**
    * **Delete Bookmarks**
    * Deletes the selected bookmarks. (Safari)
    * Parameters: `entities`
    */
   safari_delete_bookmarks: "com.apple.Safari.DeleteBookmarks",
-  /**
-   * **Delete History Items**
-   *  (Safari)
-   * Parameters: `entities`
-   */
-  safari_delete_history_items: "com.apple.Safari.DeleteHistoryItems",
   /**
    * **Delete Tab Groups**
    * Delete one or more Safari Tab Groups. (Safari)
@@ -4846,12 +4583,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `searchPhrase`, `tab`
    */
   safari_find_on_page: "com.apple.Safari.FindOnPage",
-  /**
-   * **Get History Items**
-   *  (Safari)
-   * Output: History Entity
-   */
-  safari_get_history_items: "com.apple.Safari.GetHistoryItems",
   /**
    * **Find History Entity**
    *  (Safari)
@@ -4878,29 +4609,11 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   safari_move_tabs_to_window: "com.apple.Safari.MoveTabsToWindowIntent",
   /**
-   * **Notify User in Safari For Page Update**
-   *  (Safari)
-   * Parameters: `message`, `automationID`, `pageURL`
-   */
-  safari_notify_user_in_safari_for_page_update: "com.apple.Safari.NotifyUserForUpdatedPageIntent",
-  /**
    * **Open Bookmark**
    * Opens the selected bookmark. (Safari)
    * Parameters: `target`
    */
   safari_open_bookmark: "com.apple.Safari.OpenBookmark",
-  /**
-   * **Open Bookmark**
-   * Opens the specified bookmark. (Safari)
-   * Parameters: `target`, `tab`
-   */
-  com_apple_Safari_OpenBookmarkAssistantIntent: "com.apple.Safari.OpenBookmarkAssistantIntent",
-  /**
-   * **Open History Item**
-   *  (Safari)
-   * Parameters: `target`
-   */
-  safari_open_history_item: "com.apple.Safari.OpenHistoryItem",
   /**
    * **Open Reading List Item**
    * Opens the selected Reading List item. (Safari)
@@ -4919,12 +4632,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `target`
    */
   safari_open_tab_group: "com.apple.Safari.OpenTabGroup",
-  /**
-   * **Set Safari Focus Filter**
-   * Sets the behavior of the Safari app when the given Focus is enabled. (Safari)
-   * Parameters: `Mode`, `FocusMode`, `type`, `profileEntity`, `tabGroupEntity`, `openLinksInTabGroup`
-   */
-  safari_set_safari_focus_filter: "com.apple.Safari.OpenTabGroupForFocus",
   /**
    * **Open View**
    * Opens the view in Safari. (Safari)
@@ -4951,19 +4658,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   safari_find_reading_list_items: "com.apple.Safari.ReadingListItemEntity",
-  /**
-   * **Report NotifyMeWhen Automation Result**
-   *  (Safari)
-   * Parameters: `errorMessage`, `automationID`, `pageURL`
-   */
-  safari_report_notify_me_when_automation_result: "com.apple.Safari.ReportNotifyMeWhenAutomationResult",
-  /**
-   * **Request Web Page Context**
-   *  (Safari)
-   * Output: Web Page Context Result
-   * Parameters: `url`, `shortcutsAutomationUUID`
-   */
-  safari_request_web_page_context: "com.apple.Safari.RequestWebPageContextIntent",
   /**
    * **Search Tabs**
    * Perform a search of tabs in Safari. (Safari)
@@ -6490,18 +6184,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   health_get_physical_activity: "com.apple.ShortcutsActions.GetPhysicalActivity",
   /**
-   * **Play Music**
-   *  (ShortcutsActions)
-   * Parameters: `music`
-   */
-  com_apple_shortcuts_actions_play_music: "com.apple.ShortcutsActions.PlayMusicTopHitAction",
-  /**
-   * **Play Podcast**
-   *  (ShortcutsActions)
-   * Parameters: `podcast`
-   */
-  com_apple_shortcuts_actions_play_podcast: "com.apple.ShortcutsActions.PlayPodcastTopHitAction",
-  /**
    * **Reset Cellular Data Statistics**
    * Resets the cellular data usage counters for the current Data line in Settings. (ShortcutsActions)
    */
@@ -6549,30 +6231,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_shortcuts_actions_show_control_center: "com.apple.ShortcutsActions.ShowControlCenterAction",
   /**
-   * **Start Call**
-   *  (ShortcutsActions)
-   * Parameters: `person`
-   */
-  com_apple_shortcuts_actions_start_call: "com.apple.ShortcutsActions.StartCallTopHitAction",
-  /**
-   * **Start FaceTime Audio Call**
-   *  (ShortcutsActions)
-   * Parameters: `faceTimeContact`
-   */
-  com_apple_shortcuts_actions_start_face_time_audio_call: "com.apple.ShortcutsActions.StartFaceTimeAudioCallTopHitAction",
-  /**
-   * **Start Call**
-   *  (ShortcutsActions)
-   * Parameters: `faceTimeContact`
-   */
-  com_apple_ShortcutsActions_StartFaceTimeCallTopHitAction: "com.apple.ShortcutsActions.StartFaceTimeCallTopHitAction",
-  /**
-   * **Start FaceTime Video Call**
-   *  (ShortcutsActions)
-   * Parameters: `faceTimeContact`
-   */
-  com_apple_shortcuts_actions_start_face_time_video_call: "com.apple.ShortcutsActions.StartFaceTimeVideoCallTopHitAction",
-  /**
    * **Start Time Machine Backup**
    * Initiates or interrupts a Time Machine backup to the given destination. (ShortcutsActions)
    * Parameters: `mode`, `destination`
@@ -6609,12 +6267,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `criteria`
    */
   spotlight_open_search: "com.apple.Spotlight.SearchSpotlightIntent",
-  /**
-   * **Open Search**
-   * Opens Search and performs a search for the specified text. (Spotlight)
-   * Parameters: `criteria`, `queryKind`, `filterTitle`, `searchTopLevelFilter`, `searchEntityFilter`
-   */
-  com_apple_Spotlight_SearchSpotlightIntentInternal: "com.apple.Spotlight.SearchSpotlightIntentInternal",
   /**
    * **Continue Search in App**
    * Continue Search with the same search query in another app (Spotlight)
@@ -6783,37 +6435,11 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   voice_memos_open_folder: "com.apple.VoiceMemos.OpenFolder",
   /**
-   * **Open Reset Identifier**
-   *  (Voice Memos)
-   * Parameters: `target`
-   */
-  settings_open_reset_identifier: "com.apple.VoiceMemos.OpenResetAnalyticsIdentifierEntity",
-  /**
    * **Play Recording**
    * Plays a recording. (Voice Memos)
    * Parameters: `playbackType`, `entity`
    */
   voice_memos_play_recording: "com.apple.VoiceMemos.PlaybackVoiceMemoIntent",
-  /**
-   * **Combine Recordings**
-   * Combine two recordings into a multi-tracks recording. (Voice Memos)
-   * Output: Recording
-   * Parameters: `firstRecording`, `secondRecording`
-   */
-  voice_memos_combine_recordings: "com.apple.VoiceMemos.RCCombineRecordings",
-  /**
-   * **CONTROL_CENTER_TOGGLE_RECORDING_INTENT_TITLE**
-   * CONTROL_CENTER_TOGGLE_RECORDING_INTENT_DESCRIPTION (Voice Memos)
-   * Parameters: `value`
-   */
-  voice_memos_control_center_toggle_recording_intent_title: "com.apple.VoiceMemos.RCControlCenterToggleRecording",
-  /**
-   * **Import Recording**
-   * Import an audio file with a specified title. (Voice Memos)
-   * Output: Recording
-   * Parameters: `audioFile`, `title`
-   */
-  voice_memos_import_recording: "com.apple.VoiceMemos.RCImportRecording",
   /**
    * **Find Recordings**
    *  (Voice Memos)
@@ -6851,11 +6477,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Stops the current recording. (Voice Memos)
    */
   voice_memos_stop_recording: "com.apple.VoiceMemos.StopRecording",
-  /**
-   * **Voice Memo**
-   * Record personal notes, musical ideas, and more. (Voice Memos)
-   */
-  voice_memos_voice_memo: "com.apple.VoiceMemos.ToggleRecording",
   /**
    * **Change Voice Memos Settings**
    * Changes the state of the selected Voice Memos setting. (Voice Memos)
@@ -7009,18 +6630,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_calls_phone_app_intents_extension_ends_the_call: "com.apple.calls.PhoneAppIntentsExtension.EndCallIntent",
   /**
-   * **Prepare call messages to read**
-   * Prepare call messages to read (PhoneAppIntentsExtension)
-   * Parameters: `messages`
-   */
-  com_apple_calls_phone_app_intents_extension_prepare_call_messages_to_read: "com.apple.calls.PhoneAppIntentsExtension.PrepareCallMessagesIntent",
-  /**
-   * **Prepare read call records**
-   * Prepare read call records (PhoneAppIntentsExtension)
-   * Parameters: `records`
-   */
-  com_apple_calls_phone_app_intents_extension_prepare_read_call_records: "com.apple.calls.PhoneAppIntentsExtension.PrepareReadCallRecordsIntent",
-  /**
    * **Set audio route for an ongoing call**
    * Set audio route for an ongoing call (PhoneAppIntentsExtension)
    * Parameters: `audioRoute`
@@ -7069,12 +6678,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `criteria`
    */
   com_apple_campo_open_search: "com.apple.campo.SearchSpotlightIntent",
-  /**
-   * **Open Search**
-   * Opens Search and performs a search for the specified text. (Siri AI)
-   * Parameters: `criteria`, `queryKind`, `filterTitle`, `searchTopLevelFilter`, `searchEntityFilter`
-   */
-  com_apple_campo_SearchSpotlightIntentInternal: "com.apple.campo.SearchSpotlightIntentInternal",
   /**
    * **Continue Search in App**
    * Continue Search with the same search query in another app (Siri AI)
@@ -7217,12 +6820,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `tab`
    */
   clock_open_tab: "com.apple.clock.OpenTab",
-  /**
-   * **Open Clock Tab**
-   * Opens tab in the Clock app. (Clock)
-   * Parameters: `target`
-   */
-  clock_open_clock_tab: "com.apple.clock.OpenTabIntent",
   /**
    * **Pause Timer**
    * Pauses the Timer in the Clock app. (Clock)
@@ -7431,29 +7028,12 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   finder_trash_items: "com.apple.finder.TrashItemsIntent",
   /**
-   * **Choose Person**
-   *  (Find My)
-   * Parameters: `contact`
-   */
-  com_apple_findmy_choose_person: "com.apple.findmy.FriendSelectorIntent",
-  /**
-   * **Preview_Intent_Only**
-   *  (Find My)
-   */
-  com_apple_findmy_preview_intent_only: "com.apple.findmy.Intent",
-  /**
    * **Find Item**
    *  (Find My)
    * Output: Item
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_findmy_find_item: "com.apple.findmy.ItemEntity",
-  /**
-   * **Choose Item**
-   *  (Find My)
-   * Parameters: `source`
-   */
-  com_apple_findmy_choose_item: "com.apple.findmy.ItemSelectorIntent",
   /**
    * **Find Person**
    *  (Find My)
@@ -7482,20 +7062,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `target`, `itemType`, `text`, `mediaItems`, `url`, `OpenWhenRun`
    */
   freeform_add_item_to_board: "com.apple.freeform.CRLAddItemToBoardIntent",
-  /**
-   * **Add Sticky Note to Board**
-   * Adds a sticky note to a board (empty or with text in it). (Freeform)
-   * Output: Board
-   * Parameters: `board`, `string`, `OpenWhenRun`
-   */
-  freeform_add_sticky_note_to_board: "com.apple.freeform.CRLAddStickyNoteToBoardIntent",
-  /**
-   * **Add Text to Board**
-   * Adds a text box to a board (empty or with text in it). (Freeform)
-   * Output: Board
-   * Parameters: `board`, `string`, `OpenWhenRun`
-   */
-  freeform_add_text_to_board: "com.apple.freeform.CRLAddTextToBoardIntent",
   /**
    * **Find Board**
    *  (Freeform)
@@ -7569,75 +7135,24 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   freeform_add_photos_to_board: "com.apple.freeform.CRLInsertPhotosToBoardIntent",
   /**
-   * **Add Shape to Board**
-   * Adds a shape to a board (empty or with text in it). (Freeform)
-   * Output: Board
-   * Parameters: `board`, `shapes`, `string`, `OpenWhenRun`
-   */
-  freeform_add_shape_to_board: "com.apple.freeform.CRLInsertShapeToBoardIntent",
-  /**
-   * **Insert Text**
-   * Adds text to a board in a text box or a specified container. (Freeform)
-   * Output: Board
-   * Parameters: `board`, `strings`, `container`, `OpenWhenRun`
-   */
-  freeform_insert_text: "com.apple.freeform.CRLInsertTextToBoardIntent",
-  /**
-   * **Add Link to Board**
-   * Adds a web link to a board. (Freeform)
-   * Output: Board
-   * Parameters: `board`, `url`, `OpenWhenRun`
-   */
-  freeform_add_link_to_board: "com.apple.freeform.CRLInsertURLToBoardIntent",
-  /**
    * **Open Board**
    * Opens an existing board. (Freeform)
    * Parameters: `target`
    */
   freeform_open_board: "com.apple.freeform.CRLOpenBoardIntent",
   /**
-   * **Rename Board**
-   * Renames a board. (Freeform)
-   * Output: Board
-   * Parameters: `entity`, `property`, `OpenWhenRun`
-   */
-  freeform_rename_board: "com.apple.freeform.CRLRenameBoardIntent",
-  /**
-   * **Resize Text**
-   * Increases or decreases the font size of the text selected on the board. (Freeform)
-   * Parameters: `board`, `behavior`
-   */
-  freeform_resize_text: "com.apple.freeform.CRLResizeSelectionFontIntent",
-  /**
    * **Resize Text**
    * Increases or decreases the font size of the text selected on the board. (Freeform)
    * Parameters: `board`, `operation`
    */
-  com_apple_freeform_CRLResizeSelectionFontIntent_v2: "com.apple.freeform.CRLResizeSelectionFontIntent_v2",
+  freeform_resize_text: "com.apple.freeform.CRLResizeSelectionFontIntent_v2",
   /**
    * **Rename Board**
    * Renames a board. (Freeform)
    * Output: Board
    * Parameters: `target`, `title`, `OpenWhenRun`
    */
-  com_apple_freeform_CRLUpdateBoardIntent: "com.apple.freeform.CRLUpdateBoardIntent",
-  /**
-   * **Utilities Intent**
-   *  (Freeform)
-   * Parameters: `arguments`, `operation`
-   */
-  freeform_utilities_intent: "com.apple.freeform.CRLUtilitiesIntent",
-  /**
-   * **Create New Freeform Board**
-   * Create a new board for Freeform (Freeform)
-   */
-  freeform_create_new_freeform_board: "com.apple.freeform.CRLiOSCreateBoardIntent",
-  /**
-   * **Open Freeform Board**
-   * Open the specified board in Freeform (Freeform)
-   * Parameters: `board`
-   */
-  freeform_open_freeform_board: "com.apple.freeform.CRLiOSOpenBoardIntent",
+  freeform_rename_board: "com.apple.freeform.CRLUpdateBoardIntent",
   /**
    * **Generate Knowledge Response**
    * This intent accepts a knowledge-seeking request and delegates the request to ChatGPT, which actually performs it and propagates back the generative result. (GenerativeAssistantExtension)
@@ -7754,12 +7269,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `changeOperation`, `target`, `book`
    */
   books_change_text_size: "com.apple.iBooksX.ChangeFontSizeIntent",
-  /**
-   * **Close Book**
-   * Close a book you specify, in the Books app. (Books)
-   * Parameters: `target`
-   */
-  books_close_book: "com.apple.iBooksX.CloseBookIntent",
   /**
    * **Open View or Collection in Books App**
    * Opens the Books app to the view you specify. (Books)
@@ -7913,20 +7422,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   calendar_find_event: "com.apple.iCal.EventEntity",
   /**
-   * **Fetch Transferable Event By URL Intent**
-   *  (Calendar)
-   * Output: TransferableEventEntity <no loc>
-   * Parameters: `url`
-   */
-  calendar_fetch_transferable_event_by_url_intent: "com.apple.iCal.FetchTransferableEventByURLIntent",
-  /**
-   * **Fetch Transferable Events In Range Intent <no loc>**
-   *  (Calendar)
-   * Output: TransferableEventEntity <no loc>
-   * Parameters: `rangeStart`, `rangeEnd`
-   */
-  calendar_fetch_transferable_events_in_range_intent_no_loc: "com.apple.iCal.FetchTransferableEventsInRangeIntent",
-  /**
    * **Highlight Event**
    * Jumps to the date of the given event and highlights it. (Calendar)
    * Parameters: `target`
@@ -7945,12 +7440,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `target`
    */
   calendar_join_event: "com.apple.iCal.JoinEventIntent",
-  /**
-   * **List Events Intent <no loc>**
-   *  (Calendar)
-   * Parameters: `description`, `target`
-   */
-  calendar_list_events_intent_no_loc: "com.apple.iCal.ListEventsIntent",
   /**
    * **Open Calendar Editor**
    * Shows an editor for the given calendar. (Calendar)
@@ -7987,18 +7476,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `target`, `response`
    */
   calendar_respond_to_inbox_item: "com.apple.iCal.RespondToInboxItemIntent",
-  /**
-   * **Set Calendar Focus Filter**
-   * Sets the behavior of the Calendar app when the given Focus is enabled. (Calendar)
-   * Parameters: `Mode`, `FocusMode`, `calendars`
-   */
-  calendar_set_calendar_focus_filter: "com.apple.iCal.SetCalendarFocusConfiguration",
-  /**
-   * **Test Compose Engine**
-   *  (Calendar)
-   * Parameters: `input`, `requestedDetails`, `rangeStart`, `rangeEnd`, `maxResults`, `dataSources`, `dateNow`
-   */
-  calendar_test_compose_engine: "com.apple.iCal.TestComposeEngineIntent",
   /**
    * **Find TransferableCalendarEntity <no loc>**
    *  (Calendar)
@@ -8148,22 +7625,11 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_journal_create_entry: "com.apple.journal.CreateEntryIntent",
   /**
-   * **Open Entry**
-   * Opens an existing entry. (Journal)
-   * Parameters: `target`
-   */
-  com_apple_journal_open_entry: "com.apple.journal.OpenEntryEntityIntent",
-  /**
    * **Open Journal Settings**
    * Open Journal settings. (Journal)
    * Parameters: `target`
    */
   com_apple_preferences_open_journal_settings: "com.apple.journal.OpenJournalSettingsDeeplinks",
-  /**
-   * **StartWritingRefreshIntent**
-   *  (Journal)
-   */
-  com_apple_journal_start_writing_refresh_intent: "com.apple.journal.RefreshIntent",
   /**
    * **Get Save To Photos**
    *  (Journal)
@@ -8231,24 +7697,12 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_preferences_open_show_suggested_moments_setting: "com.apple.journal.SkipJournalingSuggestionsIntent",
   /**
-   * **Streaks**
-   * Keep track of your daily or weekly journaling streak. (Journal)
-   * Parameters: `visualization`
-   */
-  com_apple_journal_streaks: "com.apple.journal.StreaksWidgetConfigurationIntent",
-  /**
    * **Archive Message**
    * Archives one or more email messages. (Mail)
    * Output: Message
    * Parameters: `entities`, `ShowWhenRun`
    */
   mail_archive_message: "com.apple.mail.ArchiveMessageIntent",
-  /**
-   * **Commit Search Suggestion**
-   *  (Mail)
-   * Parameters: `query`, `suggestionIndex`
-   */
-  mail_commit_search_suggestion: "com.apple.mail.CommitSearchSuggestionIntent",
   /**
    * **Compose Message**
    * Opens an email composer to draft an email. Does not send the email draft. (Mail)
@@ -8284,12 +7738,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   mail_forward_message: "com.apple.mail.ForwardMessageIntent",
   /**
-   * **Set Mail Focus Filter**
-   * Sets the behavior of the Mail app when the given Focus is enabled. (Mail)
-   * Parameters: `Mode`, `FocusMode`, `accounts`
-   */
-  mail_set_mail_focus_filter: "com.apple.mail.MailFocusConfigurationAction",
-  /**
    * **Find Message**
    *  (Mail)
    * Output: Message
@@ -8303,31 +7751,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_mail_MailMessageEntity: "com.apple.mail.MailMessageEntity",
-  /**
-   * **Open Draft**
-   * Open an email message draft (Mail)
-   * Parameters: `target`
-   */
-  mail_open_draft: "com.apple.mail.OpenDraftComposerIntent",
-  /**
-   * **Open Draft**
-   * Open an email message draft (Mail)
-   * Parameters: `target`
-   */
-  com_apple_mail_OpenDraftURLIntent: "com.apple.mail.OpenDraftURLIntent",
-  /**
-   * **Open Message**
-   * Open an email message (Mail)
-   * Parameters: `target`
-   */
-  mail_open_message: "com.apple.mail.OpenMessageURLIntent",
-  /**
-   * **Open Smart Mailbox**
-   * Opens the specified smart mailbox in Mail’s sidebar (Mail)
-   * Output: Smart Mailbox
-   * Parameters: `name`
-   */
-  mail_open_smart_mailbox: "com.apple.mail.OpenSmartMailboxIntent",
   /**
    * **Reply Message**
    * Opens an email composer to reply to an email. Does not send the email draft. (Mail)
@@ -8354,12 +7777,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `criteria`
    */
   mail_search: "com.apple.mail.SearchMailIntent",
-  /**
-   * **Search Mail Suggestions**
-   *  (Mail)
-   * Parameters: `query`, `progressive`
-   */
-  mail_search_mail_suggestions: "com.apple.mail.SearchMailSuggestionsIntent",
   /**
    * **Send Draft**
    * Sends an email draft or schedules it to be sent later. (Mail)
@@ -8389,13 +7806,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `messages`, `ShowWhenRun`
    */
   mail_unsubscribe_message: "com.apple.mail.UnsubscribeMessageIntent",
-  /**
-   * **Update Draft**
-   * Makes updates to an email draft. (Mail)
-   * Output: Draft Message
-   * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
-   */
-  mail_update_draft: "com.apple.mail.UpdateDraftIntent",
   /**
    * **Update Message**
    * Makes updates to one or more existing email messages by modifying the status, flags, and location. (Mail)
@@ -8549,11 +7959,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   news_block_channel_or_topic: "com.apple.news.BlockIntent",
   /**
-   * **Decrease Text Size**
-   * Decreases the text size for the opened article (News)
-   */
-  news_decrease_text_size: "com.apple.news.DecreaseTextSizeIntent",
-  /**
    * **Follow Channel or Topic**
    * Adds a channel or topic to your Following list (News)
    * Parameters: `target`
@@ -8592,11 +7997,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Output: Recipe
    */
   news_get_saved_recipes: "com.apple.news.GetSavedRecipesAppIntent",
-  /**
-   * **Increase Text Size**
-   * Increases the text size for the opened article (News)
-   */
-  news_increase_text_size: "com.apple.news.IncreaseTextSizeIntent",
   /**
    * **Find News Automatic Download Settings**
    *  (News)
@@ -8775,12 +8175,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   news_stop_cooking: "com.apple.news.StopCookingAppIntent",
   /**
-   * **Play Audio Article**
-   * Toggles playback of the given article. (News)
-   * Parameters: `articleID`
-   */
-  news_play_audio_article: "com.apple.news.ToggleAudioPlaybackIntent",
-  /**
    * **Unblock Channel or Topic**
    * Unblock a channel or topic from appearing (News)
    * Parameters: `target`
@@ -8821,72 +8215,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   news_get_news_settings: "com.apple.news.WFGetAppSettingAction",
   /**
-   * **Open Flight Reservation Entity**
-   * Open Flight Reservation Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_flight_reservation_entity: "com.apple.omniSearch.SearchToolExtension.OpenFlightReservationEntityIntent",
-  /**
-   * **Open Generic Event Entity**
-   * Open Generic Event Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_generic_event_entity: "com.apple.omniSearch.SearchToolExtension.OpenGenericEventEntityIntent",
-  /**
-   * **Open Hotel Reservation Entity**
-   * Open Hotel Reservation Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_hotel_reservation_entity: "com.apple.omniSearch.SearchToolExtension.OpenHotelReservationEntityIntent",
-  /**
-   * **Open Business ID Card Entity**
-   * Open Business ID Card Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_business_id_card_entity: "com.apple.omniSearch.SearchToolExtension.OpenIDCardBusinessEntityIntent",
-  /**
-   * **Open Personal ID Card Entity**
-   * Open Personal ID Card Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_personal_id_card_entity: "com.apple.omniSearch.SearchToolExtension.OpenIDCardPersonalEntityIntent",
-  /**
-   * **Open Media Entity**
-   * Open Media Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_media_entity: "com.apple.omniSearch.SearchToolExtension.OpenMediaEntityIntent",
-  /**
-   * **Open Restaurant Reservation Entity**
-   * Open Restaurant Reservation Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_restaurant_reservation_entity: "com.apple.omniSearch.SearchToolExtension.OpenRestaurantReservationEntityIntent",
-  /**
-   * **Open Search Spotlight Entity**
-   * Open Search Spotlight Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_search_spotlight_entity: "com.apple.omniSearch.SearchToolExtension.OpenSearchSpotlightEntityIntent",
-  /**
-   * **Open Ticketed Show Entity**
-   * Open Ticketed Show Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_ticketed_show_entity: "com.apple.omniSearch.SearchToolExtension.OpenTicketedShowEntityIntent",
-  /**
-   * **Open Ticketed Transportation Entity**
-   * Open Ticketed Transportation Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_ticketed_transportation_entity: "com.apple.omniSearch.SearchToolExtension.OpenTicketedTransportationEntityIntent",
-  /**
-   * **Open Vehicle Reservation Entity**
-   * Open Vehicle Reservation Entity (SearchToolExtension)
-   * Parameters: `target`
-   */
-  com_apple_omni_search_search_tool_extension_open_vehicle_reservation_entity: "com.apple.omniSearch.SearchToolExtension.OpenVehicleReservationEntityIntent",
-  /**
    * **Search**
    * Answer user's query (SearchToolExtension)
    * Output: Search results
@@ -8900,20 +8228,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `command`, `originatorPID`, `useMiniMC`
    */
   com_apple_omni_search_search_tool_extension_search_tool_control: "com.apple.omniSearch.SearchToolExtension.SearchToolControl",
-  /**
-   * **Search Tool Memory Creation Grounding**
-   * Runs Memory Creation grounding in Search Tool Extension (SearchToolExtension)
-   * Output: SearchTool Memory Creation QU result
-   * Parameters: `rawQueries`, `quParses`
-   */
-  com_apple_omni_search_search_tool_extension_search_tool_memory_creation_grounding: "com.apple.omniSearch.SearchToolExtension.SearchToolMCGrounding",
-  /**
-   * **SearchTool MC QU**
-   * Runs Memory Creation QU in Search Tool Extension (SearchToolExtension)
-   * Output: SearchTool MC QU result
-   * Parameters: `query`, `originatorPID`, `useMiniMC`, `personNames`, `petNames`, `locations`, `currentTime`
-   */
-  com_apple_omni_search_search_tool_extension_search_tool_mc_qu: "com.apple.omniSearch.SearchToolExtension.SearchToolMCQU",
   /**
    * **Add Audio to Library**
    * Adds audio item to the user's library (Podcasts)
@@ -8996,18 +8310,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   podcasts_search_podcasts: "com.apple.podcasts.SearchPodcastsAppIntent",
   /**
-   * **Select a Library List**
-   * Selects the list to show in the library widget (Podcasts)
-   * Parameters: `list`
-   */
-  podcasts_select_a_library_list: "com.apple.podcasts.SelectLibraryListAppIntent",
-  /**
-   * **Select a Podcast Show**
-   * Selects the podcast show to display in the library widget (Podcasts)
-   * Parameters: `show`
-   */
-  podcasts_select_a_podcast_show: "com.apple.podcasts.SelectWidgetShowAppIntent",
-  /**
    * **Find Podcast Show**
    *  (Podcasts)
    * Output: Podcast Show
@@ -9054,13 +8356,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   reminders_set_reminder_completion_state: "com.apple.reminders.CompleteReminderAppIntent",
   /**
-   * **Set Reminders completion state <no loc>**
-   *  (Reminders)
-   * Output: Reminder
-   * Parameters: `reminders`, `isCompleted`, `completeSubtasks`
-   */
-  reminders_set_reminders_completion_state_no_loc: "com.apple.reminders.CompleteRemindersAppIntent",
-  /**
    * **Open New Custom Smart List**
    * Creates a list to automatically include reminders filtered by tags, dates, and more. (Reminders)
    * Parameters: `name`
@@ -9104,13 +8399,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `entities`, `deleteReminders`
    */
   reminders_delete_sections: "com.apple.reminders.DeleteSectionsAppIntent",
-  /**
-   * **Get Default List <no loc>**
-   *  (Reminders)
-   * Output: List
-   * Parameters: `requireCloudKitAccount`
-   */
-  reminders_get_default_list_no_loc: "com.apple.reminders.GetDefaultListAppIntent",
   /**
    * **Find Group**
    *  (Reminders)
@@ -9158,27 +8446,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `reminders`, `position`, `targetType`, `list`, `section`, `parentReminder`, `OpenWhenRun`
    */
   reminders_move_reminders: "com.apple.reminders.MoveRemindersAppIntent",
-  /**
-   * **Move Reminders to a Reminders List <no loc>**
-   * Move Reminders to a given Reminders List, at the given insertion position <no loc> (Reminders)
-   * Output: Reminder
-   * Parameters: `reminders`, `position`, `targetList`, `OpenWhenRun`
-   */
-  reminders_move_reminders_to_a_reminders_list_no_loc: "com.apple.reminders.MoveRemindersToListAppIntent",
-  /**
-   * **Move Reminders to become Subtasks of a Parent Reminder <no loc>**
-   * Move Reminders to become Subtasks of a Parent Reminder, or become top-level reminders <no loc> (Reminders)
-   * Output: Reminder
-   * Parameters: `reminders`, `position`, `parentReminder`
-   */
-  reminders_move_reminders_to_become_subtasks_of_a_parent_reminder_no_loc: "com.apple.reminders.MoveRemindersToParentReminderAppIntent",
-  /**
-   * **Move Reminders to a Reminders List Section <no loc>**
-   * Move Reminders to a given Reminders List Section, at the given insertion position <no loc> (Reminders)
-   * Output: Reminder
-   * Parameters: `reminders`, `position`, `targetSection`
-   */
-  reminders_move_reminders_to_a_reminders_list_section_no_loc: "com.apple.reminders.MoveRemindersToSectionAppIntent",
   /**
    * **Open Group**
    * Opens a Group in Reminders. (Reminders)
@@ -9233,13 +8500,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   reminders_find_smart_list: "com.apple.reminders.SmartListEntity",
   /**
-   * **Snooze Reminders**
-   * Snooze Reminders and delay the alerts. (Reminders)
-   * Output: Reminder
-   * Parameters: `entities`, `nextTriggerTime`
-   */
-  reminders_snooze_reminders: "com.apple.reminders.SnoozeRemindersAppIntent",
-  /**
    * **Create List**
    * Creates a list in Reminders. (Reminders)
    * Output: List
@@ -9265,12 +8525,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `target`
    */
   com_apple_reminders_TTROpenSmartListAppIntent: "com.apple.reminders.TTROpenSmartListAppIntent",
-  /**
-   * **Toggle Reminder completion**
-   * Toggles completion of a specific reminder. (Reminders)
-   * Parameters: `reminder`, `isCompleted`, `isFromUrgentReminderActivity`
-   */
-  reminders_toggle_reminder_completion: "com.apple.reminders.TTRReminderSetCompletedIntent",
   /**
    * **Search in Reminders**
    * Search for a reminder. (Reminders)
@@ -9375,23 +8629,11 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_screenshot_launcher_capture_selection_with_visual_intelligence: "com.apple.screenshot.launcher.CaptureSelectionWithVisualIntelligenceIntent",
   /**
-   * **Capture Configuration**
-   *  (Screenshot)
-   * Parameters: `name`, `selectionStyle`, `destination`, `timer`, `showMousePointer`, `hdr`
-   */
-  com_apple_screenshot_launcher_capture_configuration: "com.apple.screenshot.launcher.CustomCaptureConfiguration",
-  /**
    * **Custom Capture**
    *  (Screenshot)
    * Parameters: `arguments`
    */
   com_apple_screenshot_launcher_custom_capture: "com.apple.screenshot.launcher.CustomCaptureIntent",
-  /**
-   * **Screen Recording Configuration**
-   *  (Screenshot)
-   * Parameters: `name`, `selectionStyle`, `destination`, `timer`, `showMouseClicks`, `hdr`
-   */
-  com_apple_screenshot_launcher_screen_recording_configuration: "com.apple.screenshot.launcher.CustomRecordConfiguration",
   /**
    * **Custom Capture**
    *  (Screenshot)
@@ -9473,12 +8715,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_shortcuts_move_shortcut: "com.apple.shortcuts.MoveShortcutToFolderAction",
   /**
-   * **Open App**
-   *  (Shortcuts)
-   * Parameters: `app`
-   */
-  com_apple_shortcuts_open_app: "com.apple.shortcuts.OpenAppIntent",
-  /**
    * **Open Folder**
    * Opens a page within the Shortcuts app (Shortcuts)
    * Parameters: `target`
@@ -9504,23 +8740,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_shortcuts_rename_shortcut: "com.apple.shortcuts.RenameShortcutAction",
   /**
-   * **Shortcut**
-   *  (Shortcuts)
-   * Parameters: `shortcut`
-   */
-  com_apple_shortcuts_shortcut: "com.apple.shortcuts.RunShortcutConfigurationIntent",
-  /**
-   * **Run Shortcut from Folder**
-   *  (Shortcuts)
-   */
-  com_apple_shortcuts_run_shortcut_from_folder: "com.apple.shortcuts.RunShortcutFromCollectionIntent",
-  /**
-   * **Run Shortcut**
-   *  (Shortcuts)
-   * Parameters: `shortcut`
-   */
-  com_apple_shortcuts_run_shortcut: "com.apple.shortcuts.RunShortcutIntent",
-  /**
    * **Search Shortcuts Actions**
    * Search for an available Shortcuts action. (Shortcuts)
    * Output: Shortcuts Action
@@ -9539,12 +8758,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `operation`, `attribute`, `shortcut`, `state`, `OpenWhenRun`
    */
   com_apple_shortcuts_set_shortcut_attributes: "com.apple.shortcuts.SetShortcutAttributesAction",
-  /**
-   * **Shortcuts Folder**
-   *  (Shortcuts)
-   * Parameters: `collection`
-   */
-  com_apple_shortcuts_shortcuts_folder: "com.apple.shortcuts.ShortcutsFolderConfigurationIntent",
   /**
    * **Stop Shortcut**
    * Stops the shortcut if it is currently running. (Shortcuts)
@@ -9636,11 +8849,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_UpdateAudioAffinityTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music",
   /**
-   * **Placeholder**
-   *  (SiriCrisisAppIntentsExtension)
-   */
-  com_apple_siri_siri_crisis_app_intents_extension_placeholder: "com.apple.siri.SiriCrisisAppIntentsExtension._SiriCrisisPlaceholderIntent",
-  /**
    * **CrisisDialog**
    * Handles crisis dialog for emergency and CSAM situations (SiriCrisisFlowTools)
    * Parameters: `situation`
@@ -9708,11 +8916,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_UpdateDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail",
   /**
-   * **SiriNotebookAppIntentsExtension**
-   *  (SiriNotebookAppIntentsExtension)
-   */
-  com_apple_siri_siri_notebook_app_intents_extension_siri_notebook_app_intents_extension: "com.apple.siri.SiriNotebookAppIntentsExtension.SiriNotebookAppIntentsExtension",
-  /**
    * **Prepare notifications**
    * Prepare notifications (SiriNotificationsAppIntentsExtension)
    * Parameters: `notifications`, `isReadLatest`, `isCatchMeUp`, `app`
@@ -9730,29 +8933,11 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_siri_SiriNotificationsFlowTools_SiriNotificationsFlowTools_PrepareNotificationsTool: "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool",
   /**
-   * **ReadCallMessageIntent**
-   *  (SiriPhoneAppIntentsExtension)
-   * Parameters: `message`
-   */
-  com_apple_siri_siriphone_app_intents_extension_read_call_message_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.ReadCallMessageIntent",
-  /**
-   * **SiriKitStartCallIntent**
-   * Starts a call to a person, handle, or named group (SiriPhoneAppIntentsExtension)
-   * Parameters: `destination`, `audioVisualMode`
-   */
-  com_apple_siri_siriphone_app_intents_extension_siri_kit_start_call_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.SiriKitStartCallIntent",
-  /**
    * **SiriPhonePunchoutIntent**
    *  (SiriPhoneAppIntentsExtension)
    * Parameters: `url`, `uniqueID`, `OpenWhenRun`
    */
   phone_siriphone_punchout_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent",
-  /**
-   * **StartCrisisHelplineCallIntent**
-   *  (SiriPhoneAppIntentsExtension)
-   * Parameters: `crisisResourceType`
-   */
-  com_apple_siri_siriphone_app_intents_extension_start_crisis_helpline_call_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.StartCrisisHelplineCallIntent",
   /**
    * **Answer an incoming call**
    * Answer an incoming call looked up in the context and routes the audio to the audio route if it was specified (PhoneAppIntentsExtension)
@@ -9920,11 +9105,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_siri_kit_unsend_last_message_intent: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent",
   /**
-   * **SiriMessagesAppIntent**
-   *  (SiriMessagesAppIntentsExtension)
-   */
-  com_apple_siri_messages_siri_messages_app_intents_extension_siri_messages_app_intent: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriMessagesAppIntent",
-  /**
    * **Update a Draft**
    *  (SiriMessagesAppIntentsExtension)
    * Parameters: `draft`, `recipients`, `subject`, `content`, `isAudioMessage`
@@ -10032,11 +9212,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   stocks_block_channel_or_topic: "com.apple.stocks.BlockIntent",
   /**
-   * **Decrease Text Size**
-   * Decreases the text size for the opened article (Stocks)
-   */
-  stocks_decrease_text_size: "com.apple.stocks.DecreaseTextSizeIntent",
-  /**
    * **Delete Symbol from Watchlist**
    * Delete a symbol from a watchlist. (Stocks)
    * Parameters: `symbol`, `watchlist`, `OpenWhenRun`
@@ -10061,11 +9236,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `symbol`, `OpenWhenRun`
    */
   stocks_get_symbol_quote: "com.apple.stocks.GetSymbolQuoteIntent",
-  /**
-   * **Increase Text Size**
-   * Increases the text size for the opened article (Stocks)
-   */
-  stocks_increase_text_size: "com.apple.stocks.IncreaseTextSizeIntent",
   /**
    * **Create Watchlist**
    * Creates a new list of symbols you are interested in. (Stocks)
@@ -10149,18 +9319,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `target`
    */
   stocks_save_article: "com.apple.stocks.SaveArticleIntent",
-  /**
-   * **Show Symbol Price**
-   * Shows price quotes, trends, and performance data for the symbol you choose. (Stocks)
-   * Parameters: `stock`, `newsDisplayConfiguration`, `OpenWhenRun`
-   */
-  stocks_show_symbol_price: "com.apple.stocks.StockIntent",
-  /**
-   * **Show Watchlist**
-   * Shows the watchlist you choose. (Stocks)
-   * Parameters: `selectedWatchlist`, `newsDisplayConfiguration`, `showWatchlistNameValue`, `showMoreDataValue`, `showMoreSymbolsValue`, `OpenWhenRun`
-   */
-  stocks_show_watchlist: "com.apple.stocks.StocksOverviewIntent",
   /**
    * **Find Symbol**
    * Find Symbols (Stocks)
@@ -13148,12 +12306,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   settings_update_iphone_widgets: "com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity",
   /**
-   * **Prepare notifications to read**
-   * Prepare notifications to read (usernotificationsd)
-   * Parameters: `notifications`
-   */
-  com_apple_usernotificationsd_prepare_notifications_to_read: "com.apple.usernotificationsd.PrepareUserNotificationIntent",
-  /**
    * **Find User Notification Type**
    *  (usernotificationsd)
    * Output: User Notification Type
@@ -13294,13 +12446,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `unit`
    */
   weather_set_wind_unit: "com.apple.weather.SetWindUnitIntent",
-  /**
-   * **(INTERNAL ONLY) Sync Data**
-   * (INTERNAL ONLY) Syncs a set of data from one device to its companion device. (Weather)
-   * Output: Synced Data
-   * Parameters: `data`
-   */
-  weather_internal_only_sync_data: "com.apple.weather.SyncDataIntent",
   /**
    * **Find Synced Data**
    *  (Weather)
@@ -13793,12 +12938,9 @@ export const ACTIONS = {
   "is.workflow.actions.wordpress.post": { name: "Post to WordPress", params: ["WFAccount", "Blog", "Title", "Type", "Format", "Status", "Categories", "Tags", "Advanced", "AllowComments", "Slug", "Excerpt", "Date", "Template", "ThumbnailImage", "ShowCustomFields", "CustomFields", "WFInput"], output: "WordPress Post URL" },
   "is.workflow.actions.workout.end": { name: "End Workout", params: ["IntentAppDefinition"], output: null },
   "is.workflow.actions.workout.start": { name: "Start Workout", params: ["IntentAppDefinition", "isOpenEnded", "workoutName", "WorkoutGoal"], output: null },
-  "com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent": { name: "Workaround for rdar://146914251", params: ["asset"], output: null, descriptor: { BundleIdentifier: "com.apple.-Photos-AppIntents", Name: "com.apple.-Photos-AppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "PHWorkaroundFor146914251Intent" } },
   "com.apple.AddressBook.ContactEntity": { name: "Find Contact", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Contact", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ContactEntity" } },
   "com.apple.AddressBook.CreateContactIntent": { name: "Create Contact", params: ["contactType", "personName", "organizationName", "departmentName", "jobTitle", "phoneticOrganizationName", "phoneNumbers", "emailAddresses", "postalAddresses", "contactRelations", "birthday", "dates", "OpenWhenRun"], output: "Contact", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateContactIntent" } },
   "com.apple.AddressBook.DeleteContactIntent": { name: "Delete Contact", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteContactIntent" } },
-  "com.apple.AddressBook.FetchContactAvatarIntent": { name: "Fetch Avatars for Contacts", params: ["identifiers", "kinds"], output: "Contact Avatar Fetch Result", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchContactAvatarIntent" } },
-  "com.apple.AddressBook.FetchContactIntent": { name: "Fetch Contacts", params: ["identifiers", "keysToFetch"], output: "Contact Fetch Result", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchContactIntent" } },
   "com.apple.AddressBook.SearchInContactsIntent": { name: "Search in Contacts App", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchInContactsIntent" } },
   "com.apple.AddressBook.UpdateContactIntent": { name: "Update Contact Details", params: ["target", "contactType", "personName", "organizationName", "departmentName", "jobTitle", "phoneticOrganizationName", "phoneNumbers", "emailAddresses", "postalAddresses", "contactRelations", "birthday", "dates", "OpenWhenRun"], output: "Contact", descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateContactIntent" } },
   "com.apple.AddressBook.ViewContactCardIntent": { name: "View Contact Card", params: ["target", "highlightedValue", "highlightedPropertyType", "shouldEdit"], output: null, descriptor: { BundleIdentifier: "com.apple.AddressBook", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ViewContactCardIntent" } },
@@ -13824,36 +12966,13 @@ export const ACTIONS = {
   "com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks": { name: "Open Game Center Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.GameCenter.Settings.DeviceExpertExtension", Name: "GameCenterSettingsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGameCenterSettingsDeepLinks" } },
   "com.apple.GenerativePlaygroundApp.CreateImageIntent": { name: "Create Image", params: ["prompt", "style", "input_image_path", "previously_generated_image_id", "ShowWhenRun"], output: "Image", descriptor: { BundleIdentifier: "com.apple.GenerativePlaygroundApp", Name: "Image Playground", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateImageIntent" } },
   "com.apple.GenerativePlaygroundApp.GenerateImageIntent": { name: "Create Image", params: ["prompt", "style", "image", "saveToLibrary"], output: "Image", descriptor: { BundleIdentifier: "com.apple.GenerativePlaygroundApp", Name: "Image Playground", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateImageIntent" } },
-  "com.apple.Home.ActivateSceneIntent": { name: "Activate Scene", params: ["homeEntity", "sceneEntity", "timeout"], output: "Scene Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ActivateSceneIntent" } },
-  "com.apple.Home.AutomateAttributeValueIntent": { name: "Automate Set Attribute Value", params: ["attributes", "devices", "homeEntity", "rooms", "trigger", "recurrenceWeekdays", "name"], output: "Automation Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutomateAttributeValueIntent" } },
-  "com.apple.Home.AutomateSceneIntent": { name: "Automate Scene", params: ["sceneEntity", "trigger", "recurrenceWeekdays"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutomateSceneIntent" } },
   "com.apple.Home.CameraClipEntity": { name: "Find ", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "CameraClipEntity", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "CameraClipEntity" } },
-  "com.apple.Home.DeltaAttributeValueIntent": { name: "Delta Attribute", params: ["attribute", "delta", "devices", "homeEntity", "zoneEntities", "roomEntities", "timeout", "OpenWhenRun"], output: "Device Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeltaAttributeValueIntent" } },
   "com.apple.Home.DeviceEntity": { name: "Find Device", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Device", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeviceEntity" } },
-  "com.apple.Home.ErrorIntent": { name: "Error Intent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ErrorIntent" } },
-  "com.apple.Home.ForecastWidgetConfiguration": { name: "Show the Grid Forecast for a Home or your location.", params: ["forecastLocationEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ForecastWidgetConfiguration" } },
-  "com.apple.Home.GetAttributeValueIntent": { name: "Get Attribute", params: ["homeEntity", "zoneEntities", "roomEntities", "devices", "attributeTypes", "timeout", "OpenWhenRun"], output: "Device Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetAttributeValueIntent" } },
-  "com.apple.Home.GetDeviceInfoIntent": { name: "Get Device Info", params: ["devices", "homeEntity"], output: "Supported Attributes Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetDeviceInfoIntent" } },
-  "com.apple.Home.HistoricalUsageWidgetConfiguration": { name: "Select Home", params: ["siteDetail"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HistoricalUsageWidgetConfiguration" } },
   "com.apple.Home.HomeAppIntentsExtensionTestAppIntent": { name: "HomeAppIntentsExtensionTestAppIntent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HomeAppIntentsExtensionTestAppIntent" } },
-  "com.apple.Home.HomeSingleTileConfigurationIntent": { name: "Scene or Accessory", params: ["home", "item"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HomeSingleTileConfigurationIntent" } },
-  "com.apple.Home.HomeXLModuleConfigurationIntent": { name: "Accessories", params: ["useRecommendations", "show", "home", "items"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "HomeXLModuleConfigurationIntent" } },
-  "com.apple.Home.OpenURLInHomeIntent": { name: "Open Accessory or Scene in Home app", params: ["url"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenURLInHomeIntent" } },
-  "com.apple.Home.RecommendedItemIntent": { name: "Recommended Item", params: ["useHomeKitRecommendations", "home", "accessoriesAndScenes"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecommendedItemIntent" } },
   "com.apple.Home.RoomEntity": { name: "Find Room", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Room", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "RoomEntity" } },
   "com.apple.Home.SceneEntity": { name: "Find Scene", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Scene", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SceneEntity" } },
-  "com.apple.Home.SecureToggleIntent": { name: "Toggle Accessory or Scene", params: ["entity", "analyticsInfoJSON"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SecureToggleIntent" } },
   "com.apple.Home.SelectedHomeEntity": { name: "Find Selected Home", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Selected Home", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectedHomeEntity" } },
-  "com.apple.Home.SetAttributeValueIntent": { name: "Set Attribute", params: ["attributes", "devices", "homeEntity", "zoneEntities", "roomEntities", "timeout", "OpenWhenRun"], output: "Device Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetAttributeValueIntent" } },
-  "com.apple.Home.ShowDeviceResultIntent": { name: "Show Device Result", params: ["userSpecificity", "destination", "successDeviceIDs", "failedDeviceIDs", "failedDeviceIDsToIgnore", "attributeType", "oldDeviceResults", "newDeviceResults", "secondaryAccessoryControlDestination"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowDeviceResultIntent" } },
-  "com.apple.Home.ShowErrorIntent": { name: "Show Error", params: ["destination", "errorDisplayType"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowErrorIntent" } },
-  "com.apple.Home.ShowNavigationIntent": { name: "Show Navigation", params: ["categoryType", "dashboardViewType", "deviceEntities", "secondaryAccessoryControlDestination", "homeEntity", "roomEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowNavigationIntent" } },
-  "com.apple.Home.ShowSceneResultIntent": { name: "Show Scene Result", params: ["sceneID", "hasSiriExecutionFailure"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowSceneResultIntent" } },
-  "com.apple.Home.TileControlAction": { name: "ToggleIntentTitle", params: ["value", "targetIDString", "homeIDString", "action", "uniqueIdentifier", "widgetKind", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "TileControlAction" } },
-  "com.apple.Home.ToggleAttributeIntent": { name: "Toggle Attribute", params: ["attributeTypes", "devices", "homeEntity", "zoneEntities", "roomEntities", "timeout", "OpenWhenRun"], output: "Device Result", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleAttributeIntent" } },
-  "com.apple.Home.ToggleControlConfigurationIntent": { name: "Scene or Accessory", params: ["home", "accessoriesAndScenes"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleControlConfigurationIntent" } },
   "com.apple.Home.ToggleIntent": { name: "Toggle Accessory or Scene", params: ["entity"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleIntent" } },
-  "com.apple.Home.UtilityRateInfoWidgetConfiguration": { name: "Select Home", params: ["siteDetail"], output: null, descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "UtilityRateInfoWidgetConfiguration" } },
   "com.apple.Home.ZoneEntity": { name: "Find Zone", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Zone", descriptor: { BundleIdentifier: "com.apple.Home", Name: "Home", TeamIdentifier: "0000000000", AppIntentIdentifier: "ZoneEntity" } },
   "com.apple.HydraUSDAppIntents.ConvertToUSDZ": { name: "Convert to USDZ", params: ["file"], output: "USDZ File", descriptor: { BundleIdentifier: "com.apple.HydraUSDAppIntents", Name: "USDAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConvertToUSDZ" } },
   "com.apple.Magnifier.AskVQAIntent": { name: "Ask a Question", params: ["prompt"], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "AskVQAIntent" } },
@@ -13864,7 +12983,6 @@ export const ACTIONS = {
   "com.apple.Magnifier.DetectTextIntent": { name: "Detect Text", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectTextIntent" } },
   "com.apple.Magnifier.FindSessionAppIntent": { name: "Find This", params: ["searchTerm"], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindSessionAppIntent" } },
   "com.apple.Magnifier.FollowUpVQAAppIntent": { name: "Follow Up", params: ["prompt"], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowUpVQAAppIntent" } },
-  "com.apple.Magnifier.MagnifierIntent": { name: "Magnifier", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "MagnifierIntent" } },
   "com.apple.Magnifier.PointAndSpeakIntent": { name: "Start Point & Speak", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "PointAndSpeakIntent" } },
   "com.apple.Magnifier.ReaderModeIntent": { name: "Open Reader", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReaderModeIntent" } },
   "com.apple.Magnifier.StartDetectionTypeIntent": { name: "Detect Items", params: ["detectionType"], output: null, descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartDetectionTypeIntent" } },
@@ -13883,19 +13001,13 @@ export const ACTIONS = {
   "com.apple.MediaRemoteAppIntentsExtension.ConnectToSpeakerIntent": { name: "ConnectToSpeakerIntent", params: ["application", "destinations", "requestIdentifierOverride"], output: null, descriptor: { BundleIdentifier: "com.apple.MediaRemoteAppIntentsExtension", Name: "MediaRemoteAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConnectToSpeakerIntent" } },
   "com.apple.MobileSMS.ChangeFilterModeIntent": { name: "Open Inbox", params: ["filterMode"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeFilterModeIntent" } },
   "com.apple.MobileSMS.ConversationEntity": { name: "Find Conversation", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Conversation", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConversationEntity" } },
-  "com.apple.MobileSMS.ConversationListFocusFilterAction": { name: "Set Messages Focus Filter", params: ["Mode", "FocusMode", "enableFocusFiltering"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "ConversationListFocusFilterAction" } },
   "com.apple.MobileSMS.DeleteConversationIntent": { name: "Delete Conversations", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteConversationIntent" } },
   "com.apple.MobileSMS.DeleteMessageIntent": { name: "Delete Messages", params: ["entities", "WFLinkMessagesEntityVariablePickerKey"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteMessageIntent" } },
   "com.apple.MobileSMS.DraftMessageIntent": { name: "Draft Message", params: ["destination", "subject", "content", "audioMessage", "attachments", "locations", "links", "scheduledDate"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "DraftMessageIntent" } },
   "com.apple.MobileSMS.EditSentMessageIntent": { name: "Edit Sent Message", params: ["message", "content"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditSentMessageIntent" } },
-  "com.apple.MobileSMS.FetchConversationIdentifierIntent": { name: "Fetch Conversation Identifier Intent", params: ["intentPersons"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchConversationIdentifierIntent" } },
-  "com.apple.MobileSMS.FetchDowntimeConversationListIntent": { name: "Fetch Downtime Conversation List Intent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchDowntimeConversationListIntent" } },
-  "com.apple.MobileSMS.FetchMutedConversationListIntent": { name: "Fetch Muted Conversation List Intent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchMutedConversationListIntent" } },
   "com.apple.MobileSMS.MarkConversationAsUnreadIntent": { name: "Mark as Read", params: ["operation", "conversation", "unreadState", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MarkConversationAsUnreadIntent" } },
   "com.apple.MobileSMS.MessageEntity": { name: "Find Message", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Message", descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MessageEntity" } },
-  "com.apple.MobileSMS.MuteConversationIntent": { name: "Mute Conversation Intent", params: ["conversationIdentifier", "isMuted"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MuteConversationIntent" } },
   "com.apple.MobileSMS.OpenConversationIntent": { name: "Open Conversation", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenConversationIntent" } },
-  "com.apple.MobileSMS.OpenConversationListIntent": { name: "Open Conversation List", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenConversationListIntent" } },
   "com.apple.MobileSMS.OpenMessageIntent": { name: "Reveal Message", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMessageIntent" } },
   "com.apple.MobileSMS.RemoveTapbackIntent": { name: "Remove Tapback", params: ["message", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveTapbackIntent" } },
   "com.apple.MobileSMS.SearchMessagesIntent": { name: "Search in Messages", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMessagesIntent" } },
@@ -13937,7 +13049,6 @@ export const ACTIONS = {
   "com.apple.Notes.DeleteTablesLinkAction": { name: "Delete Tables", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteTablesLinkAction" } },
   "com.apple.Notes.DeleteTagsLinkAction": { name: "Delete Tags", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteTagsLinkAction" } },
   "com.apple.Notes.EmphasisLinkAction": { name: "Apply Emphasis to Selected Text", params: ["emphasisColor"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmphasisLinkAction" } },
-  "com.apple.Notes.GenerateFallbackPDF": { name: "Generate Fallback PDF", params: ["attachmentIdentifier"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateFallbackPDF" } },
   "com.apple.Notes.GetLinkedNotesLinkAction": { name: "Get Linked Notes", params: ["entity"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetLinkedNotesLinkAction" } },
   "com.apple.Notes.InsertAllMentionLinkAction": { name: "Insert All Mention", params: ["target"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertAllMentionLinkAction" } },
   "com.apple.Notes.InsertMentionLinkAction": { name: "Insert Mention", params: ["target", "mentionText"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "InsertMentionLinkAction" } },
@@ -13953,7 +13064,6 @@ export const ACTIONS = {
   "com.apple.Notes.OpenTagLinkAction": { name: "Open Tag", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTagLinkAction" } },
   "com.apple.Notes.OpenTopLevelFolderLinkAction": { name: "Open Top-Level Folder", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTopLevelFolderLinkAction" } },
   "com.apple.Notes.PinNotesLinkAction": { name: "Pin Notes", params: ["operation", "entities"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "PinNotesLinkAction" } },
-  "com.apple.Notes.QuickNoteIntent": { name: "Quick Note", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "QuickNoteIntent" } },
   "com.apple.Notes.RemoveTagsFromNotesLinkAction": { name: "Remove Tags from Notes", params: ["notes", "tags"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveTagsFromNotesLinkAction" } },
   "com.apple.Notes.RenameFolderLinkAction": { name: "Rename Folder", params: ["entity", "name"], output: "Folder", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameFolderLinkAction" } },
   "com.apple.Notes.ReplaceSelectionLinkAction": { name: "Replace Selected Text", params: ["text"], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReplaceSelectionLinkAction" } },
@@ -13965,8 +13075,6 @@ export const ACTIONS = {
   "com.apple.Notes.StartRecordingLinkAction": { name: "Start Audio Recording", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartRecordingLinkAction" } },
   "com.apple.Notes.TableEntity": { name: "Find Table", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Table", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "TableEntity" } },
   "com.apple.Notes.UpdateNoteIntent": { name: "Update Note", params: ["name", "attachments", "isPinned", "target", "folder"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateNoteIntent" } },
-  "com.apple.PeopleViewService.SelectPersonIntent": { name: "Select Person", params: ["person", "shouldShowButtons", "messageButton", "callButton", "verticalLayoutDT", "verticalLayoutDF"], output: null, descriptor: { BundleIdentifier: "com.apple.PeopleViewService", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectPersonIntent" } },
-  "com.apple.PeopleViewService.URLAppIntent": { name: "Open URL", params: ["url"], output: null, descriptor: { BundleIdentifier: "com.apple.PeopleViewService", Name: "Contacts", TeamIdentifier: "0000000000", AppIntentIdentifier: "URLAppIntent" } },
   "com.apple.Photos.AddAssetsToAlbumIntent": { name: "Add Photos To Album", params: ["assets", "album"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddAssetsToAlbumIntent" } },
   "com.apple.Photos.AlbumEntity": { name: "Find Albums", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Album", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "AlbumEntity" } },
   "com.apple.Photos.ApplyFilterIntent": { name: "Apply Filter", params: ["asset", "effect"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplyFilterIntent" } },
@@ -13997,7 +13105,6 @@ export const ACTIONS = {
   "com.apple.Photos.OpenAssetIntent": { name: "Open Photo", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAssetIntent" } },
   "com.apple.Photos.OpenDestinationIntent": { name: "Open View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDestinationIntent" } },
   "com.apple.Photos.OpenMemoryCreationViewIntent": { name: "Create Memory", params: ["query"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMemoryCreationViewIntent" } },
-  "com.apple.Photos.PLPhotosReliveWidgetConfigurationIntent": { name: "Photos Relive Widget Configuration", params: ["widgetType", "album", "alwaysDisplayInFullColor"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PLPhotosReliveWidgetConfigurationIntent" } },
   "com.apple.Photos.PersonEntity": { name: "Find Person", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Person", descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PersonEntity" } },
   "com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent": { name: "Add Photos to Album", params: ["assets", "album"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosAddAssetsToAlbumAssistantIntent" } },
   "com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent": { name: "Search Photos", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosAttributedSearchMediaAssistantIntent" } },
@@ -14017,7 +13124,6 @@ export const ACTIONS = {
   "com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent": { name: "Move to Shared Library", params: ["assets"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosMoveAssetsToSharedLibraryAssistantIntent" } },
   "com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent": { name: "Create a Memory", params: ["query"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosOpenMemoryCreationViewAssistantIntent" } },
   "com.apple.Photos.PhotosPasteEditsAssistantIntent": { name: "Paste Edits", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosPasteEditsAssistantIntent" } },
-  "com.apple.Photos.PhotosReliveWidgetFeaturedConfiguration": { name: "Photos Relive Featured Widget Configuration", params: ["alwaysDisplayInFullColor", "enableSpatialEffect"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosReliveWidgetFeaturedConfiguration" } },
   "com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent": { name: "Remove Photos from Album", params: ["album", "assets"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosRemoveAssetsFromAlbumAssistantIntent" } },
   "com.apple.Photos.PhotosSearchAssistantIntent": { name: "Search", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSearchAssistantIntent" } },
   "com.apple.Photos.PhotosSetDepthAssistantIntent": { name: "Set Depth", params: ["target", "value", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhotosSetDepthAssistantIntent" } },
@@ -14063,12 +13169,10 @@ export const ACTIONS = {
   "com.apple.Preview.RotatePageIntent": { name: "Rotate Pages", params: ["pages", "isClockwise", "OpenWhenRun"], output: "Page", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "RotatePageIntent" } },
   "com.apple.Preview.SaveIntent": { name: "Save Documents", params: ["documents"], output: "Document", descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveIntent" } },
   "com.apple.Preview.SearchIntent": { name: "Search Documents", params: ["documents", "criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchIntent" } },
-  "com.apple.Safari.AddHistoryItem": { name: "Add to History", params: ["url", "name", "timeOfVisit"], output: "History Entity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddHistoryItem" } },
   "com.apple.Safari.BookmarkEntity": { name: "Find Bookmarks", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Bookmark", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkEntity" } },
   "com.apple.Safari.BookmarkTabIntent": { name: "Bookmark Tab", params: ["tab", "name"], output: "Bookmark", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkTabIntent" } },
   "com.apple.Safari.BookmarkURLIntent": { name: "Bookmark URL", params: ["url", "name"], output: "Bookmark", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkURLIntent" } },
   "com.apple.Safari.CloseTab": { name: "Close Tab", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseTab" } },
-  "com.apple.Safari.CloseTabsAssistantIntent": { name: "Close Tabs", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseTabsAssistantIntent" } },
   "com.apple.Safari.CloseView": { name: "Close View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseView" } },
   "com.apple.Safari.CloseWindowsIntent": { name: "Close Windows", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseWindowsIntent" } },
   "com.apple.Safari.CreateNewBookmark": { name: "Add Bookmark", params: ["name"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewBookmark" } },
@@ -14076,30 +13180,21 @@ export const ACTIONS = {
   "com.apple.Safari.CreateNewTabGroup": { name: "Create Tab Group", params: ["contents", "name"], output: "Tab Group", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewTabGroup" } },
   "com.apple.Safari.CreateNewWindow": { name: "Create Window", params: ["isPrivate"], output: "Window", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNewWindow" } },
   "com.apple.Safari.CreateReadingListItem": { name: "Add to Reading List", params: ["name", "title", "url"], output: "Reading List Item", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateReadingListItem" } },
-  "com.apple.Safari.CreateTabAssistantIntent": { name: "Create Tab", params: ["url", "isPrivate"], output: "Tab", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateTabAssistantIntent" } },
   "com.apple.Safari.DeleteBookmarks": { name: "Delete Bookmarks", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteBookmarks" } },
-  "com.apple.Safari.DeleteHistoryItems": { name: "Delete History Items", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteHistoryItems" } },
   "com.apple.Safari.DeleteTabGroups": { name: "Delete Tab Groups", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteTabGroups" } },
   "com.apple.Safari.FindOnPage": { name: "Find on Page", params: ["searchPhrase", "tab"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindOnPage" } },
-  "com.apple.Safari.GetHistoryItems": { name: "Get History Items", params: [], output: "History Entity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetHistoryItems" } },
   "com.apple.Safari.HistoryEntity": { name: "Find History Entity", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "History Entity", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "HistoryEntity" } },
   "com.apple.Safari.LoadURLInTab": { name: "Open Link", params: ["url", "tab"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "LoadURLInTab" } },
   "com.apple.Safari.MoveTabsToTabGroup": { name: "Move Tabs to Tab Group", params: ["entities", "container"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveTabsToTabGroup" } },
   "com.apple.Safari.MoveTabsToWindowIntent": { name: "Move Tabs to Window", params: ["entities", "container"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveTabsToWindowIntent" } },
-  "com.apple.Safari.NotifyUserForUpdatedPageIntent": { name: "Notify User in Safari For Page Update", params: ["message", "automationID", "pageURL"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "NotifyUserForUpdatedPageIntent" } },
   "com.apple.Safari.OpenBookmark": { name: "Open Bookmark", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBookmark" } },
-  "com.apple.Safari.OpenBookmarkAssistantIntent": { name: "Open Bookmark", params: ["target", "tab"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBookmarkAssistantIntent" } },
-  "com.apple.Safari.OpenHistoryItem": { name: "Open History Item", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHistoryItem" } },
   "com.apple.Safari.OpenReadingListItem": { name: "Open Reading List Item", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenReadingListItem" } },
   "com.apple.Safari.OpenTab": { name: "Switch Tab", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTab" } },
   "com.apple.Safari.OpenTabGroup": { name: "Open Tab Group", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabGroup" } },
-  "com.apple.Safari.OpenTabGroupForFocus": { name: "Set Safari Focus Filter", params: ["Mode", "FocusMode", "type", "profileEntity", "tabGroupEntity", "openLinksInTabGroup"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabGroupForFocus" } },
   "com.apple.Safari.OpenView": { name: "Open View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenView" } },
   "com.apple.Safari.QuickWebsiteSearchIntent": { name: "Search Website", params: ["term", "website"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "QuickWebsiteSearchIntent" } },
   "com.apple.Safari.QuickWebsiteSearchProviderEntity": { name: "Find Searchable Website", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Searchable Website", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "QuickWebsiteSearchProviderEntity" } },
   "com.apple.Safari.ReadingListItemEntity": { name: "Find Reading List Items", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Reading List Item", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReadingListItemEntity" } },
-  "com.apple.Safari.ReportNotifyMeWhenAutomationResult": { name: "Report NotifyMeWhen Automation Result", params: ["errorMessage", "automationID", "pageURL"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReportNotifyMeWhenAutomationResult" } },
-  "com.apple.Safari.RequestWebPageContextIntent": { name: "Request Web Page Context", params: ["url", "shortcutsAutomationUUID"], output: "Web Page Context Result", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "RequestWebPageContextIntent" } },
   "com.apple.Safari.SearchTabs": { name: "Search Tabs", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchTabs" } },
   "com.apple.Safari.ShowWindowIntent": { name: "Show Window", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowWindowIntent" } },
   "com.apple.Safari.TabEntity": { name: "Find Tabs", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Tab", descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "TabEntity" } },
@@ -14321,8 +13416,6 @@ export const ACTIONS = {
   "com.apple.ShortcutsActions.GetMultitaskingModeAction": { name: "Get Multitasking Mode", params: [], output: "Multitasking Mode", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetMultitaskingModeAction" } },
   "com.apple.ShortcutsActions.GetOrientationAction": { name: "Get Orientation", params: [], output: "Orientation", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetOrientationAction" } },
   "com.apple.ShortcutsActions.GetPhysicalActivity": { name: "Get Physical Activity", params: [], output: "Physical Activity", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetPhysicalActivity" } },
-  "com.apple.ShortcutsActions.PlayMusicTopHitAction": { name: "Play Music", params: ["music"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayMusicTopHitAction" } },
-  "com.apple.ShortcutsActions.PlayPodcastTopHitAction": { name: "Play Podcast", params: ["podcast"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayPodcastTopHitAction" } },
   "com.apple.ShortcutsActions.ResetCellularDataStatisticsAction": { name: "Reset Cellular Data Statistics", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetCellularDataStatisticsAction" } },
   "com.apple.ShortcutsActions.SetBatteryChargeLimitAction": { name: "Set Battery Charge Limit", params: ["limit", "setUntilTomorrow"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetBatteryChargeLimitAction" } },
   "com.apple.ShortcutsActions.SetDataRoamingAction": { name: "Set Data Roaming", params: ["plan", "operation", "state"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetDataRoamingAction" } },
@@ -14331,17 +13424,12 @@ export const ACTIONS = {
   "com.apple.ShortcutsActions.SetSilentModeAction": { name: "Set Silent Mode", params: ["operation", "state"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetSilentModeAction" } },
   "com.apple.ShortcutsActions.SetVoiceDataModeAction": { name: "Set Voice & Data", params: ["sim", "ratMode"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetVoiceDataModeAction" } },
   "com.apple.ShortcutsActions.ShowControlCenterAction": { name: "Show Control Center", params: ["operation"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowControlCenterAction" } },
-  "com.apple.ShortcutsActions.StartCallTopHitAction": { name: "Start Call", params: ["person"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCallTopHitAction" } },
-  "com.apple.ShortcutsActions.StartFaceTimeAudioCallTopHitAction": { name: "Start FaceTime Audio Call", params: ["faceTimeContact"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeAudioCallTopHitAction" } },
-  "com.apple.ShortcutsActions.StartFaceTimeCallTopHitAction": { name: "Start Call", params: ["faceTimeContact"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeCallTopHitAction" } },
-  "com.apple.ShortcutsActions.StartFaceTimeVideoCallTopHitAction": { name: "Start FaceTime Video Call", params: ["faceTimeContact"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeVideoCallTopHitAction" } },
   "com.apple.ShortcutsActions.TimeMachineAction": { name: "Start Time Machine Backup", params: ["mode", "destination"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "TimeMachineAction" } },
   "com.apple.ShortcutsActions.ToggleCellularPlanAction": { name: "Toggle Cellular Plan", params: ["plan", "operation", "state"], output: null, descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleCellularPlanAction" } },
   "com.apple.ShortcutsActions.TranscribeAudioAction": { name: "Transcribe Audio", params: ["audioFile"], output: "Transcribed Audio", descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "TranscribeAudioAction" } },
   "com.apple.Spotlight.ClearSpotlightIntent": { name: "Clear Current Search", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClearSpotlightIntent" } },
   "com.apple.Spotlight.SearchFieldEntity": { name: "Get Current Search Query", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Search Query", descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchFieldEntity" } },
   "com.apple.Spotlight.SearchSpotlightIntent": { name: "Open Search", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntent" } },
-  "com.apple.Spotlight.SearchSpotlightIntentInternal": { name: "Open Search", params: ["criteria", "queryKind", "filterTitle", "searchTopLevelFilter", "searchEntityFilter"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntentInternal" } },
   "com.apple.Spotlight.SearchUIContinuationIntent": { name: "Continue Search in App", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIContinuationIntent" } },
   "com.apple.Spotlight.SearchUIOpenKnowledgeIntent": { name: "Open Siri Knowledge Page", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIOpenKnowledgeIntent" } },
   "com.apple.Spotlight.ToggleSpotlightIntent": { name: "Show Search", params: ["action"], output: null, descriptor: { BundleIdentifier: "com.apple.Spotlight", Name: "Spotlight", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleSpotlightIntent" } },
@@ -14368,18 +13456,13 @@ export const ACTIONS = {
   "com.apple.VoiceMemos.LocationBasedNamingEntity": { name: "Get Location-based Naming", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Location-based Naming", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "LocationBasedNamingEntity" } },
   "com.apple.VoiceMemos.LocationBasedNamingEntity-UpdatableEntity": { name: "Edit Location-based Naming", params: ["entity", "value"], output: "Location-based Naming", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "LocationBasedNamingEntity-UpdatableEntity" } },
   "com.apple.VoiceMemos.OpenFolder": { name: "Open Folder", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFolder" } },
-  "com.apple.VoiceMemos.OpenResetAnalyticsIdentifierEntity": { name: "Open Reset Identifier", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenResetAnalyticsIdentifierEntity" } },
   "com.apple.VoiceMemos.PlaybackVoiceMemoIntent": { name: "Play Recording", params: ["playbackType", "entity"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaybackVoiceMemoIntent" } },
-  "com.apple.VoiceMemos.RCCombineRecordings": { name: "Combine Recordings", params: ["firstRecording", "secondRecording"], output: "Recording", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCCombineRecordings" } },
-  "com.apple.VoiceMemos.RCControlCenterToggleRecording": { name: "CONTROL_CENTER_TOGGLE_RECORDING_INTENT_TITLE", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCControlCenterToggleRecording" } },
-  "com.apple.VoiceMemos.RCImportRecording": { name: "Import Recording", params: ["audioFile", "title"], output: "Recording", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCImportRecording" } },
   "com.apple.VoiceMemos.RCRecordingEntity": { name: "Find Recordings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Recordings", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RCRecordingEntity" } },
   "com.apple.VoiceMemos.RecordVoiceMemoIntent": { name: "Create Recording", params: ["name"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecordVoiceMemoIntent" } },
   "com.apple.VoiceMemos.ResetAnalyticsIdentifierEntity": { name: "Get Reset Identifier", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Reset Identifier", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetAnalyticsIdentifierEntity" } },
   "com.apple.VoiceMemos.SearchRecordings": { name: "Search in Voice Memos", params: ["searchPhrase"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchRecordings" } },
   "com.apple.VoiceMemos.SelectRecording": { name: "Select Recording", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectRecording" } },
   "com.apple.VoiceMemos.StopRecording": { name: "Stop Recording", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopRecording" } },
-  "com.apple.VoiceMemos.ToggleRecording": { name: "Voice Memo", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleRecording" } },
   "com.apple.VoiceMemos.WFAppSettingEntityUpdaterAction": { name: "Change Voice Memos Settings", params: ["entity", "AudioQualityEntity", "ClearDeletedEntity", "LocationBasedNamingEntity"], output: "Audio Quality", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFAppSettingEntityUpdaterAction" } },
   "com.apple.VoiceMemos.WFGetAppSettingAction": { name: "Get Voice Memos Settings", params: ["entity"], output: "Audio Quality", descriptor: { BundleIdentifier: "com.apple.VoiceMemos", Name: "Voice Memos", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFGetAppSettingAction" } },
   "com.apple.WindowManager.AppExposeAction": { name: "Application Windows", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.WindowManager", Name: "WindowManager", TeamIdentifier: "0000000000", AppIntentIdentifier: "AppExposeAction" } },
@@ -14404,8 +13487,6 @@ export const ACTIONS = {
   "com.apple.calls.PhoneAppIntentsExtension.CallRecord": { name: "Find Call Record", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Call Record", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallRecord" } },
   "com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent": { name: "Create a conference call", params: ["audioVisualMode", "destination"], output: "Conference Call", descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateConferenceCallIntent" } },
   "com.apple.calls.PhoneAppIntentsExtension.EndCallIntent": { name: "Ends the call", params: ["call"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "EndCallIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.PrepareCallMessagesIntent": { name: "Prepare call messages to read", params: ["messages"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareCallMessagesIntent" } },
-  "com.apple.calls.PhoneAppIntentsExtension.PrepareReadCallRecordsIntent": { name: "Prepare read call records", params: ["records"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareReadCallRecordsIntent" } },
   "com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent": { name: "Set audio route for an ongoing call", params: ["audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetCallAudioRouteIntent" } },
   "com.apple.calls.PhoneAppIntentsExtension.StartEmergencyCallIntent": { name: "Start an emergency call", params: ["destination"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartEmergencyCallIntent" } },
   "com.apple.calls.PhoneAppIntentsExtension.StartFaceTimeCallIntent": { name: "Start a FaceTime call", params: ["audioVisualMode", "destination"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartFaceTimeCallIntent" } },
@@ -14414,7 +13495,6 @@ export const ACTIONS = {
   "com.apple.campo.ResumeConversationIntent": { name: "Resume Conversation", params: ["target"], output: "Conversation", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResumeConversationIntent" } },
   "com.apple.campo.SearchFieldEntity": { name: "Get Current Search Query", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Search Query", descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchFieldEntity" } },
   "com.apple.campo.SearchSpotlightIntent": { name: "Open Search", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntent" } },
-  "com.apple.campo.SearchSpotlightIntentInternal": { name: "Open Search", params: ["criteria", "queryKind", "filterTitle", "searchTopLevelFilter", "searchEntityFilter"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchSpotlightIntentInternal" } },
   "com.apple.campo.SearchUIContinuationIntent": { name: "Continue Search in App", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIContinuationIntent" } },
   "com.apple.campo.SearchUIOpenKnowledgeIntent": { name: "Open Siri Knowledge Page", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchUIOpenKnowledgeIntent" } },
   "com.apple.campo.ToggleSpotlightIntent": { name: "Show Search", params: ["action"], output: null, descriptor: { BundleIdentifier: "com.apple.campo", Name: "Siri AI", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleSpotlightIntent" } },
@@ -14438,7 +13518,6 @@ export const ACTIONS = {
   "com.apple.clock.LapStopwatchIntent": { name: "Lap Stopwatch", params: ["OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "LapStopwatchIntent" } },
   "com.apple.clock.OpenAlarmIntent": { name: "Opens Alarm", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAlarmIntent" } },
   "com.apple.clock.OpenTab": { name: "Open Tab", params: ["tab"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTab" } },
-  "com.apple.clock.OpenTabIntent": { name: "Open Clock Tab", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTabIntent" } },
   "com.apple.clock.PauseTimerIntent": { name: "Pause Timer", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "PauseTimerIntent" } },
   "com.apple.clock.RemoveWorldClockIntent": { name: "Remove City", params: ["entities", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "RemoveWorldClockIntent" } },
   "com.apple.clock.ResetStopwatchIntent": { name: "Reset Stopwatch", params: ["OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "ResetStopwatchIntent" } },
@@ -14472,16 +13551,11 @@ export const ACTIONS = {
   "com.apple.finder.RevealItemsIntent": { name: "Reveal Items", params: ["targets", "openInNewWindow"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealItemsIntent" } },
   "com.apple.finder.SearchInBrowserIntent": { name: "Search in Finder", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchInBrowserIntent" } },
   "com.apple.finder.TrashItemsIntent": { name: "Trash Items", params: ["entities", "OpenWhenRun"], output: "File", descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrashItemsIntent" } },
-  "com.apple.findmy.FriendSelectorIntent": { name: "Choose Person", params: ["contact"], output: null, descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "FriendSelectorIntent" } },
-  "com.apple.findmy.Intent": { name: "Preview_Intent_Only", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "Intent" } },
   "com.apple.findmy.ItemEntity": { name: "Find Item", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Item", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "ItemEntity" } },
-  "com.apple.findmy.ItemSelectorIntent": { name: "Choose Item", params: ["source"], output: null, descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "ItemSelectorIntent" } },
   "com.apple.findmy.PersonEntity": { name: "Find Person", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Person", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "PersonEntity" } },
   "com.apple.findmy.WidgetItemEntity": { name: "Find Item", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Item", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetItemEntity" } },
   "com.apple.findmy.WidgetPersonEntity": { name: "Find Person", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Person", descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetPersonEntity" } },
   "com.apple.freeform.CRLAddItemToBoardIntent": { name: "Add Item to Board", params: ["target", "itemType", "text", "mediaItems", "url", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddItemToBoardIntent" } },
-  "com.apple.freeform.CRLAddStickyNoteToBoardIntent": { name: "Add Sticky Note to Board", params: ["board", "string", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddStickyNoteToBoardIntent" } },
-  "com.apple.freeform.CRLAddTextToBoardIntent": { name: "Add Text to Board", params: ["board", "string", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddTextToBoardIntent" } },
   "com.apple.freeform.CRLBoardEntity": { name: "Find Board", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLBoardEntity" } },
   "com.apple.freeform.CRLChangeBoardCanvasGridIntent": { name: "Show/Hide Dot Grid", params: ["entity", "operation", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeBoardCanvasGridIntent" } },
   "com.apple.freeform.CRLChangeBoardObjectConnectorsIntent": { name: "Show/Hide Object Connectors", params: ["entity", "operation", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeBoardObjectConnectorsIntent" } },
@@ -14493,17 +13567,9 @@ export const ACTIONS = {
   "com.apple.freeform.CRLFavoriteBoardIntent_v2": { name: "Favorite/Unfavorite Board", params: ["entity", "operation"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLFavoriteBoardIntent_v2" } },
   "com.apple.freeform.CRLInsertFilesToBoardIntent": { name: "Add Files to Board", params: ["board", "files", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertFilesToBoardIntent" } },
   "com.apple.freeform.CRLInsertPhotosToBoardIntent": { name: "Add Photos to Board", params: ["board", "images", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertPhotosToBoardIntent" } },
-  "com.apple.freeform.CRLInsertShapeToBoardIntent": { name: "Add Shape to Board", params: ["board", "shapes", "string", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertShapeToBoardIntent" } },
-  "com.apple.freeform.CRLInsertTextToBoardIntent": { name: "Insert Text", params: ["board", "strings", "container", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertTextToBoardIntent" } },
-  "com.apple.freeform.CRLInsertURLToBoardIntent": { name: "Add Link to Board", params: ["board", "url", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLInsertURLToBoardIntent" } },
   "com.apple.freeform.CRLOpenBoardIntent": { name: "Open Board", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLOpenBoardIntent" } },
-  "com.apple.freeform.CRLRenameBoardIntent": { name: "Rename Board", params: ["entity", "property", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLRenameBoardIntent" } },
-  "com.apple.freeform.CRLResizeSelectionFontIntent": { name: "Resize Text", params: ["board", "behavior"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLResizeSelectionFontIntent" } },
   "com.apple.freeform.CRLResizeSelectionFontIntent_v2": { name: "Resize Text", params: ["board", "operation"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLResizeSelectionFontIntent_v2" } },
   "com.apple.freeform.CRLUpdateBoardIntent": { name: "Rename Board", params: ["target", "title", "OpenWhenRun"], output: "Board", descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLUpdateBoardIntent" } },
-  "com.apple.freeform.CRLUtilitiesIntent": { name: "Utilities Intent", params: ["arguments", "operation"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLUtilitiesIntent" } },
-  "com.apple.freeform.CRLiOSCreateBoardIntent": { name: "Create New Freeform Board", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLiOSCreateBoardIntent" } },
-  "com.apple.freeform.CRLiOSOpenBoardIntent": { name: "Open Freeform Board", params: ["board"], output: null, descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLiOSOpenBoardIntent" } },
   "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateKnowledgeResponseIntent": { name: "Generate Knowledge Response", params: ["explicitInvocation", "partner", "userQuery", "additionalInfo", "ShowWhenRun"], output: "GenerativeResponse AppEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateKnowledgeResponseIntent" } },
   "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentFromMediaIntent": { name: "Generate Rich Content From Media", params: ["explicitInvocation", "partner", "directInvocationClient", "additionalInfo", "userQuery", "ShowWhenRun"], output: "GenerativeResponse AppEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateRichContentFromMediaIntent" } },
   "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentIntent": { name: "Generate Rich Content", params: ["explicitInvocation", "partner", "userQuery", "additionalInfo", "ShowWhenRun"], output: "GenerativeResponse AppEntity", descriptor: { BundleIdentifier: "com.apple.generativeassistanttools.GenerativeAssistantExtension", Name: "GenerativeAssistantExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateRichContentIntent" } },
@@ -14521,7 +13587,6 @@ export const ACTIONS = {
   "com.apple.iBooksX.BookSettingsEntity": { name: "Get Book Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Book Settings", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookSettingsEntity" } },
   "com.apple.iBooksX.BookSettingsEntity-UpdatableEntity": { name: "Edit Book Settings", params: ["entity", "font", "fontSize", "isAllowMultipleColumns", "isTextJustified", "pageNavigationSetting", "theme"], output: "Book Settings", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookSettingsEntity-UpdatableEntity" } },
   "com.apple.iBooksX.ChangeFontSizeIntent": { name: "Change Text Size", params: ["changeOperation", "target", "book"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "ChangeFontSizeIntent" } },
-  "com.apple.iBooksX.CloseBookIntent": { name: "Close Book", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseBookIntent" } },
   "com.apple.iBooksX.DeepLinkIntent": { name: "Open View or Collection in Books App", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeepLinkIntent" } },
   "com.apple.iBooksX.DefaultCollectionEntity": { name: "Find Standard Collection", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Standard Collection", descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "DefaultCollectionEntity" } },
   "com.apple.iBooksX.OpenAudioIntent": { name: "Open Audio Item", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAudioIntent" } },
@@ -14547,20 +13612,15 @@ export const ACTIONS = {
   "com.apple.iCal.EmailAttendeesIntent": { name: "Email Attendees", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmailAttendeesIntent" } },
   "com.apple.iCal.EmailOrganizerIntent": { name: "Email Organizer", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmailOrganizerIntent" } },
   "com.apple.iCal.EventEntity": { name: "Find Event", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Event", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EventEntity" } },
-  "com.apple.iCal.FetchTransferableEventByURLIntent": { name: "Fetch Transferable Event By URL Intent", params: ["url"], output: "TransferableEventEntity <no loc>", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchTransferableEventByURLIntent" } },
-  "com.apple.iCal.FetchTransferableEventsInRangeIntent": { name: "Fetch Transferable Events In Range Intent <no loc>", params: ["rangeStart", "rangeEnd"], output: "TransferableEventEntity <no loc>", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "FetchTransferableEventsInRangeIntent" } },
   "com.apple.iCal.HighlightEventIntent": { name: "Highlight Event", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "HighlightEventIntent" } },
   "com.apple.iCal.InboxItemEntity": { name: "Find Inbox Item", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Inbox Item", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "InboxItemEntity" } },
   "com.apple.iCal.JoinEventIntent": { name: "Join Event", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "JoinEventIntent" } },
-  "com.apple.iCal.ListEventsIntent": { name: "List Events Intent <no loc>", params: ["description", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "ListEventsIntent" } },
   "com.apple.iCal.OpenCalendarEditorIntent": { name: "Open Calendar Editor", params: ["target", "enableDoneInitially"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCalendarEditorIntent" } },
   "com.apple.iCal.OpenCalendarViewIntent": { name: "Open Calendar View", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCalendarViewIntent" } },
   "com.apple.iCal.OpenDateIntent": { name: "Open Date", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDateIntent" } },
   "com.apple.iCal.OpenEventDetailsIntent": { name: "Open Event Details", params: ["title", "caption", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEventDetailsIntent" } },
   "com.apple.iCal.OpenEventEditorIntent": { name: "Open Event Editor", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEventEditorIntent" } },
   "com.apple.iCal.RespondToInboxItemIntent": { name: "Respond to Inbox Item", params: ["target", "response"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "RespondToInboxItemIntent" } },
-  "com.apple.iCal.SetCalendarFocusConfiguration": { name: "Set Calendar Focus Filter", params: ["Mode", "FocusMode", "calendars"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetCalendarFocusConfiguration" } },
-  "com.apple.iCal.TestComposeEngineIntent": { name: "Test Compose Engine", params: ["input", "requestedDetails", "rangeStart", "rangeEnd", "maxResults", "dataSources", "dateNow"], output: null, descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "TestComposeEngineIntent" } },
   "com.apple.iCal.TransferableCalendarEntity": { name: "Find TransferableCalendarEntity <no loc>", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "TransferableCalendarEntity <no loc>", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "TransferableCalendarEntity" } },
   "com.apple.iCal.TransferableSourceEntity": { name: "Find TransferableSourceEntity <no loc>", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "TransferableSourceEntity <no loc>", descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "TransferableSourceEntity" } },
   "com.apple.iWork.Keynote.KNDocumentBackgroundExportIntent": { name: "Export Presentation in Background", params: ["document", "format", "sourcePassword", "password"], output: null, descriptor: { BundleIdentifier: "com.apple.iWork.Keynote", Name: "Keynote", TeamIdentifier: "0000000000", AppIntentIdentifier: "KNDocumentBackgroundExportIntent" } },
@@ -14585,9 +13645,7 @@ export const ACTIONS = {
   "com.apple.journal.AlwaysUseMomentDateIntent": { name: "Open Always Use Moment Date Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "AlwaysUseMomentDateIntent" } },
   "com.apple.journal.CreateEntryAudioIntent": { name: "Create Audio Entry", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateEntryAudioIntent" } },
   "com.apple.journal.CreateEntryIntent": { name: "Create Entry", params: ["message", "title", "locationName", "mediaItems", "location", "entryBookmark", "entryDate", "OpenWhenRun"], output: "Journal Entry", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateEntryIntent" } },
-  "com.apple.journal.OpenEntryEntityIntent": { name: "Open Entry", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenEntryEntityIntent" } },
   "com.apple.journal.OpenJournalSettingsDeeplinks": { name: "Open Journal Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenJournalSettingsDeeplinks" } },
-  "com.apple.journal.RefreshIntent": { name: "StartWritingRefreshIntent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "RefreshIntent" } },
   "com.apple.journal.SaveToPhotosEntity": { name: "Get Save To Photos", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Save To Photos", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveToPhotosEntity" } },
   "com.apple.journal.SaveToPhotosEntity-UpdatableEntity": { name: "Update Save To Photos", params: ["entity", "value"], output: "Save To Photos", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveToPhotosEntity-UpdatableEntity" } },
   "com.apple.journal.SaveToPhotosIntent": { name: "Open Save to Photos Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveToPhotosIntent" } },
@@ -14598,32 +13656,23 @@ export const ACTIONS = {
   "com.apple.journal.SkipJournalingSuggestionsEntity": { name: "Get Show Suggested Moments", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Show Suggested Moments", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SkipJournalingSuggestionsEntity" } },
   "com.apple.journal.SkipJournalingSuggestionsEntity-UpdatableEntity": { name: "Update Show Suggested Moments", params: ["entity", "value"], output: "Show Suggested Moments", descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SkipJournalingSuggestionsEntity-UpdatableEntity" } },
   "com.apple.journal.SkipJournalingSuggestionsIntent": { name: "Open Show Suggested Moments Setting", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "SkipJournalingSuggestionsIntent" } },
-  "com.apple.journal.StreaksWidgetConfigurationIntent": { name: "Streaks", params: ["visualization"], output: null, descriptor: { BundleIdentifier: "com.apple.journal", Name: "Journal", TeamIdentifier: "0000000000", AppIntentIdentifier: "StreaksWidgetConfigurationIntent" } },
   "com.apple.mail.ArchiveMessageIntent": { name: "Archive Message", params: ["entities", "ShowWhenRun"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ArchiveMessageIntent" } },
-  "com.apple.mail.CommitSearchSuggestionIntent": { name: "Commit Search Suggestion", params: ["query", "suggestionIndex"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "CommitSearchSuggestionIntent" } },
   "com.apple.mail.ComposeMessageIntent": { name: "Compose Message", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ComposeMessageIntent" } },
   "com.apple.mail.DeleteDraftIntent": { name: "Delete Draft", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteDraftIntent" } },
   "com.apple.mail.DeleteMessageIntent": { name: "Delete Message", params: ["entities"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteMessageIntent" } },
   "com.apple.mail.DraftMessageEntity": { name: "Find Draft Message", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "DraftMessageEntity" } },
   "com.apple.mail.ForwardMessageIntent": { name: "Forward Message", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ForwardMessageIntent" } },
-  "com.apple.mail.MailFocusConfigurationAction": { name: "Set Mail Focus Filter", params: ["Mode", "FocusMode", "accounts"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "MailFocusConfigurationAction" } },
   "com.apple.mail.MailMessage": { name: "Find Message", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "MailMessage" } },
   "com.apple.mail.MailMessageEntity": { name: "Find Message", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "MailMessageEntity" } },
-  "com.apple.mail.OpenDraftComposerIntent": { name: "Open Draft", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDraftComposerIntent" } },
-  "com.apple.mail.OpenDraftURLIntent": { name: "Open Draft", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDraftURLIntent" } },
-  "com.apple.mail.OpenMessageURLIntent": { name: "Open Message", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMessageURLIntent" } },
-  "com.apple.mail.OpenSmartMailboxIntent": { name: "Open Smart Mailbox", params: ["name"], output: "Smart Mailbox", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSmartMailboxIntent" } },
   "com.apple.mail.ReplyMessageIntent": { name: "Reply Message", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "isReplyAll", "target"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReplyMessageIntent" } },
   "com.apple.mail.SaveDraftIntent": { name: "Save Draft", params: ["target", "ShowWhenRun"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveDraftIntent" } },
   "com.apple.mail.SearchMailEntityIntent": { name: "Show Siri Search Results", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMailEntityIntent" } },
   "com.apple.mail.SearchMailIntent": { name: "Search", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMailIntent" } },
-  "com.apple.mail.SearchMailSuggestionsIntent": { name: "Search Mail Suggestions", params: ["query", "progressive"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMailSuggestionsIntent" } },
   "com.apple.mail.SendDraftIntent": { name: "Send Draft", params: ["sendLaterDate", "target", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendDraftIntent" } },
   "com.apple.mail.SendMail": { name: "Send an Email", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "inReplyTo"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SendMail" } },
   "com.apple.mail.SetMailMessageIsRead": { name: "Mark Email Read", params: ["message", "read"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetMailMessageIsRead" } },
   "com.apple.mail.UndoSendMessageIntent": { name: "Undo Send Message", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UndoSendMessageIntent" } },
   "com.apple.mail.UnsubscribeMessageIntent": { name: "Unsubscribe Message", params: ["messages", "ShowWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsubscribeMessageIntent" } },
-  "com.apple.mail.UpdateDraftIntent": { name: "Update Draft", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: "Draft Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateDraftIntent" } },
   "com.apple.mail.UpdateMessageIntent": { name: "Update Message", params: ["target", "isRead", "isFlagged", "isJunk", "flagColor", "mailbox"], output: "Message", descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateMessageIntent" } },
   "com.apple.mobilenotes.SharingExtension": { name: "Create Note", params: ["name", "contents", "folder", "interpretAsMarkdown", "OpenWhenRun"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateNoteLinkAction" } },
   "com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent": { name: "Add Alarm", params: ["dateComponents", "name", "repeats", "allowsSnooze", "OpenWhenRun"], output: "Alarm", descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateAlarmIntent" } },
@@ -14646,14 +13695,12 @@ export const ACTIONS = {
   "com.apple.news.AutoDownloadStoriesInFeedsEntity": { name: "Get Automatically Download Stories In Feeds", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Automatically Download Stories In Feeds", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoDownloadStoriesInFeedsEntity" } },
   "com.apple.news.AutoDownloadStoriesInFeedsEntity-UpdatableEntity": { name: "Update Automatically Download Stories In Feeds", params: ["entity", "value"], output: "Automatically Download Stories In Feeds", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoDownloadStoriesInFeedsEntity-UpdatableEntity" } },
   "com.apple.news.BlockIntent": { name: "Block Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "BlockIntent" } },
-  "com.apple.news.DecreaseTextSizeIntent": { name: "Decrease Text Size", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "DecreaseTextSizeIntent" } },
   "com.apple.news.FollowIntent": { name: "Follow Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowIntent" } },
   "com.apple.news.GameCenterEntity": { name: "Get Game Center", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Game Center", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GameCenterEntity" } },
   "com.apple.news.GameCenterEntity-UpdatableEntity": { name: "Update Game Center", params: ["entity", "value"], output: "Game Center", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GameCenterEntity-UpdatableEntity" } },
   "com.apple.news.GetIngredientsAppIntent": { name: "Get Ingredients", params: ["recipe"], output: "Recipe Ingredient", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetIngredientsAppIntent" } },
   "com.apple.news.GetRecentRecipesAppIntent": { name: "Get Recent Recipes", params: [], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetRecentRecipesAppIntent" } },
   "com.apple.news.GetSavedRecipesAppIntent": { name: "Get Saved Recipes", params: [], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetSavedRecipesAppIntent" } },
-  "com.apple.news.IncreaseTextSizeIntent": { name: "Increase Text Size", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "IncreaseTextSizeIntent" } },
   "com.apple.news.NewsSettingsAutomaticDownloadDynamicDeepLinks": { name: "Find News Automatic Download Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "News Automatic Download Settings", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewsSettingsAutomaticDownloadDynamicDeepLinks" } },
   "com.apple.news.NewsSettingsDynamicDeepLinks": { name: "Find News Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "News Settings", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewsSettingsDynamicDeepLinks" } },
   "com.apple.news.NewsTabDeepLink": { name: "Find News Tab Deep Links", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "News Tab Deep Links", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewsTabDeepLink" } },
@@ -14681,28 +13728,14 @@ export const ACTIONS = {
   "com.apple.news.ShowSpecificStepIntent": { name: "Show Specific Step", params: ["recipe", "step"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowSpecificStepIntent" } },
   "com.apple.news.StartCookingAppIntent": { name: "Start Cooking", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCookingAppIntent" } },
   "com.apple.news.StopCookingAppIntent": { name: "Stop Cooking", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopCookingAppIntent" } },
-  "com.apple.news.ToggleAudioPlaybackIntent": { name: "Play Audio Article", params: ["articleID"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleAudioPlaybackIntent" } },
   "com.apple.news.UnblockIntent": { name: "Unblock Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnblockIntent" } },
   "com.apple.news.UnsaveArticleIntent": { name: "Unsave Article", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsaveArticleIntent" } },
   "com.apple.news.UnsaveRecipeAppIntent": { name: "Unsave Recipe", params: ["recipe"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsaveRecipeAppIntent" } },
   "com.apple.news.UnselectIngredientAppIntent": { name: "Unselect Ingredient", params: ["recipe", "ingredient"], output: "Recipe", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnselectIngredientAppIntent" } },
   "com.apple.news.WFAppSettingEntityUpdaterAction": { name: "Change News Settings", params: ["entity", "AutoDownloadAudioStoriesEntity", "AutoDownloadEntity", "AutoDownloadMagazineIssuesEntity", "AutoDownloadPuzzlesEntity", "AutoDownloadRecipesEntity", "AutoDownloadSavedStoriesEntity", "AutoDownloadStoriesInFeedsEntity", "GameCenterEntity", "OptimizeStorageEntity", "RestrictStoriesInTodaySettingEntity"], output: "Automatically Download Audio Stories", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFAppSettingEntityUpdaterAction" } },
   "com.apple.news.WFGetAppSettingAction": { name: "Get News Settings", params: ["entity"], output: "Automatically Download Audio Stories", descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFGetAppSettingAction" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenFlightReservationEntityIntent": { name: "Open Flight Reservation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFlightReservationEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenGenericEventEntityIntent": { name: "Open Generic Event Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGenericEventEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenHotelReservationEntityIntent": { name: "Open Hotel Reservation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenHotelReservationEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenIDCardBusinessEntityIntent": { name: "Open Business ID Card Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenIDCardBusinessEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenIDCardPersonalEntityIntent": { name: "Open Personal ID Card Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenIDCardPersonalEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenMediaEntityIntent": { name: "Open Media Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMediaEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenRestaurantReservationEntityIntent": { name: "Open Restaurant Reservation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenRestaurantReservationEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenSearchSpotlightEntityIntent": { name: "Open Search Spotlight Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSearchSpotlightEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenTicketedShowEntityIntent": { name: "Open Ticketed Show Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTicketedShowEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenTicketedTransportationEntityIntent": { name: "Open Ticketed Transportation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTicketedTransportationEntityIntent" } },
-  "com.apple.omniSearch.SearchToolExtension.OpenVehicleReservationEntityIntent": { name: "Open Vehicle Reservation Entity", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenVehicleReservationEntityIntent" } },
   "com.apple.omniSearch.SearchToolExtension.SearchTool": { name: "Search", params: ["rawQuery", "rewrittenQuery", "simplifiedQuery", "structuredQuery", "typeIdentifiers", "context", "matchedEntities", "isFirstToolInvocation", "isOnScreenReference", "isSingleStepSearch", "invocationClient", "requestedProperties", "disambiguatedEntity", "ShowWhenRun"], output: "Search results", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchTool" } },
   "com.apple.omniSearch.SearchToolExtension.SearchToolControl": { name: "SearchTool Control", params: ["command", "originatorPID", "useMiniMC"], output: "SearchTool control command result", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchToolControl" } },
-  "com.apple.omniSearch.SearchToolExtension.SearchToolMCGrounding": { name: "Search Tool Memory Creation Grounding", params: ["rawQueries", "quParses"], output: "SearchTool Memory Creation QU result", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchToolMCGrounding" } },
-  "com.apple.omniSearch.SearchToolExtension.SearchToolMCQU": { name: "SearchTool MC QU", params: ["query", "originatorPID", "useMiniMC", "personNames", "petNames", "locations", "currentTime"], output: "SearchTool MC QU result", descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchToolMCQU" } },
   "com.apple.podcasts.AddAudioToLibraryIntent": { name: "Add Audio to Library", params: ["audioEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddAudioToLibraryIntent" } },
   "com.apple.podcasts.EpisodeEntity": { name: "Find Podcast Episode", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Podcast Episode", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "EpisodeEntity" } },
   "com.apple.podcasts.FollowShowAppIntent": { name: "Follow Show", params: ["show", "OpenWhenRun"], output: "Podcast Show", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowShowAppIntent" } },
@@ -14716,8 +13749,6 @@ export const ACTIONS = {
   "com.apple.podcasts.PlayPauseWidgetIntent": { name: "Play or Pause Episode", params: ["episode", "episodePlaylist", "playbackAccountDSID"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayPauseWidgetIntent" } },
   "com.apple.podcasts.PodcastCollectionEntity": { name: "Find Podcast Collection", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Podcast Collection", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "PodcastCollectionEntity" } },
   "com.apple.podcasts.SearchPodcastsAppIntent": { name: "Search Podcasts", params: ["criteria"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchPodcastsAppIntent" } },
-  "com.apple.podcasts.SelectLibraryListAppIntent": { name: "Select a Library List", params: ["list"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectLibraryListAppIntent" } },
-  "com.apple.podcasts.SelectWidgetShowAppIntent": { name: "Select a Podcast Show", params: ["show"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SelectWidgetShowAppIntent" } },
   "com.apple.podcasts.ShowEntity": { name: "Find Podcast Show", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Podcast Show", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowEntity" } },
   "com.apple.podcasts.WarmupAudioQueueIntent": { name: "Warmup Audio Queue", params: ["audioEntity", "requestIdentifierOverride", "playbackAttributes"], output: "Warmup Audio Queue Result", descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "WarmupAudioQueueIntent" } },
   "com.apple.printcenter.CancelPrintJob": { name: "Cancel Print Job", params: ["jobContextIdentifier"], output: null, descriptor: { BundleIdentifier: "com.apple.printcenter", Name: "Print Center", TeamIdentifier: "0000000000", AppIntentIdentifier: "CancelPrintJob" } },
@@ -14725,7 +13756,6 @@ export const ACTIONS = {
   "com.apple.printcenter.PrintDocuments": { name: "Print Documents", params: ["documents", "printer"], output: null, descriptor: { BundleIdentifier: "com.apple.printcenter", Name: "Print Center", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrintDocuments" } },
   "com.apple.reminders.AddOrRemoveTagsAppIntent": { name: "Add or Remove Tags", params: ["operation", "reminders", "tags", "OpenWhenRun"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddOrRemoveTagsAppIntent" } },
   "com.apple.reminders.CompleteReminderAppIntent": { name: "Set Reminder completion state", params: ["reminder", "isCompleted", "completeSubtasks", "OpenWhenRun"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CompleteReminderAppIntent" } },
-  "com.apple.reminders.CompleteRemindersAppIntent": { name: "Set Reminders completion state <no loc>", params: ["reminders", "isCompleted", "completeSubtasks"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CompleteRemindersAppIntent" } },
   "com.apple.reminders.CreateCustomSmartListAppIntent": { name: "Open New Custom Smart List", params: ["name"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateCustomSmartListAppIntent" } },
   "com.apple.reminders.CreateGroupAppIntent": { name: "Create Group", params: ["name", "lists"], output: "Group", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateGroupAppIntent" } },
   "com.apple.reminders.CreateSectionAppIntent": { name: "Create Section", params: ["list", "name", "OpenWhenRun"], output: "Section", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateSectionAppIntent" } },
@@ -14733,15 +13763,11 @@ export const ACTIONS = {
   "com.apple.reminders.DeleteRemindersAppIntent": { name: "Delete Reminders and Subtasks", params: ["entities", "deleteSubtasks", "deleteRecurringReminders"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteRemindersAppIntent" } },
   "com.apple.reminders.DeleteRemindersListGroupsAppIntent": { name: "Delete Groups", params: ["entities", "deleteSublists"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteRemindersListGroupsAppIntent" } },
   "com.apple.reminders.DeleteSectionsAppIntent": { name: "Delete Sections", params: ["entities", "deleteReminders"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteSectionsAppIntent" } },
-  "com.apple.reminders.GetDefaultListAppIntent": { name: "Get Default List <no loc>", params: ["requireCloudKitAccount"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetDefaultListAppIntent" } },
   "com.apple.reminders.GroupEntity": { name: "Find Group", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Group", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "GroupEntity" } },
   "com.apple.reminders.GroupEntity-UpdatableEntity": { name: "Change Reminders Group Name", params: ["entity", "nameUpdatableProperty"], output: "Group", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "GroupEntity-UpdatableEntity" } },
   "com.apple.reminders.ListEntity": { name: "Find List", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "ListEntity" } },
   "com.apple.reminders.ListEntity-UpdatableEntity": { name: "Edit List", params: ["badge", "color", "entity", "parent"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "ListEntity-UpdatableEntity" } },
   "com.apple.reminders.MoveRemindersAppIntent": { name: "Move Reminders", params: ["reminders", "position", "targetType", "list", "section", "parentReminder", "OpenWhenRun"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersAppIntent" } },
-  "com.apple.reminders.MoveRemindersToListAppIntent": { name: "Move Reminders to a Reminders List <no loc>", params: ["reminders", "position", "targetList", "OpenWhenRun"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersToListAppIntent" } },
-  "com.apple.reminders.MoveRemindersToParentReminderAppIntent": { name: "Move Reminders to become Subtasks of a Parent Reminder <no loc>", params: ["reminders", "position", "parentReminder"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersToParentReminderAppIntent" } },
-  "com.apple.reminders.MoveRemindersToSectionAppIntent": { name: "Move Reminders to a Reminders List Section <no loc>", params: ["reminders", "position", "targetSection"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveRemindersToSectionAppIntent" } },
   "com.apple.reminders.OpenGroupAppIntent": { name: "Open Group", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGroupAppIntent" } },
   "com.apple.reminders.OpenReminderAppIntent": { name: "Open Reminder In List", params: ["target", "showDetail", "title", "caption", "inSmartList"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenReminderAppIntent" } },
   "com.apple.reminders.OpenSmartListAppIntent": { name: "Open Smart List", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSmartListAppIntent" } },
@@ -14750,12 +13776,10 @@ export const ACTIONS = {
   "com.apple.reminders.SectionEntity": { name: "Find Section", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Section", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SectionEntity" } },
   "com.apple.reminders.SectionEntity-UpdatableEntity": { name: "Update section collapsed state", params: ["entity", "isCollapsed"], output: "Section", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SectionEntity-UpdatableEntity" } },
   "com.apple.reminders.SmartListEntity": { name: "Find Smart List", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Reminders Smart Lists", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SmartListEntity" } },
-  "com.apple.reminders.SnoozeRemindersAppIntent": { name: "Snooze Reminders", params: ["entities", "nextTriggerTime"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SnoozeRemindersAppIntent" } },
   "com.apple.reminders.TTRCreateListAppIntent": { name: "Create List", params: ["name", "type", "group", "OpenWhenRun"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateListAppIntent" } },
   "com.apple.reminders.TTRCreateReminderAppIntent": { name: "Create Reminder", params: ["title", "note", "isFlagged", "images", "tags", "urls", "dueDate", "recurrence", "locationTrigger", "list", "section", "isAllDay", "earlyAlert", "vehicleTrigger", "priorityLevel", "parentReminder", "contactPerson", "assignedPerson", "subtasks"], output: "Reminder", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateReminderAppIntent" } },
   "com.apple.reminders.TTROpenListAppIntent": { name: "Open List", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTROpenListAppIntent" } },
   "com.apple.reminders.TTROpenSmartListAppIntent": { name: "Open List", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTROpenSmartListAppIntent" } },
-  "com.apple.reminders.TTRReminderSetCompletedIntent": { name: "Toggle Reminder completion", params: ["reminder", "isCompleted", "isFromUrgentReminderActivity"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRReminderSetCompletedIntent" } },
   "com.apple.reminders.TTRSearchRemindersAppIntent": { name: "Search in Reminders", params: ["searchPhrase"], output: null, descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRSearchRemindersAppIntent" } },
   "com.apple.reminders.UpdateGroupAppIntent": { name: "Update reminders group properties", params: ["name", "target", "lists"], output: "Group", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateGroupAppIntent" } },
   "com.apple.reminders.UpdateListAppIntent": { name: "Edit List", params: ["target", "name", "type", "color", "badge", "parent", "propertyToUpdate"], output: "List", descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListAppIntent" } },
@@ -14771,9 +13795,7 @@ export const ACTIONS = {
   "com.apple.screenshot.launcher.CaptureScreenIntent": { name: "Capture Screen", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CaptureScreenIntent" } },
   "com.apple.screenshot.launcher.CaptureSelectionIntent": { name: "Capture Selection", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CaptureSelectionIntent" } },
   "com.apple.screenshot.launcher.CaptureSelectionWithVisualIntelligenceIntent": { name: "Capture Selection with Visual Intelligence", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CaptureSelectionWithVisualIntelligenceIntent" } },
-  "com.apple.screenshot.launcher.CustomCaptureConfiguration": { name: "Capture Configuration", params: ["name", "selectionStyle", "destination", "timer", "showMousePointer", "hdr"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomCaptureConfiguration" } },
   "com.apple.screenshot.launcher.CustomCaptureIntent": { name: "Custom Capture", params: ["arguments"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomCaptureIntent" } },
-  "com.apple.screenshot.launcher.CustomRecordConfiguration": { name: "Screen Recording Configuration", params: ["name", "selectionStyle", "destination", "timer", "showMouseClicks", "hdr"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomRecordConfiguration" } },
   "com.apple.screenshot.launcher.CustomRecordIntent": { name: "Custom Capture", params: ["value", "arguments"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "CustomRecordIntent" } },
   "com.apple.screenshot.launcher.RecordScreenIntent": { name: "Record Screen", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecordScreenIntent" } },
   "com.apple.screenshot.launcher.RecordSelectionIntent": { name: "Record Selection", params: ["value"], output: null, descriptor: { BundleIdentifier: "com.apple.screenshot.launcher", Name: "Screenshot", TeamIdentifier: "0000000000", AppIntentIdentifier: "RecordSelectionIntent" } },
@@ -14787,18 +13809,13 @@ export const ACTIONS = {
   "com.apple.shortcuts.GenerateShortcutAction": { name: "Generate Shortcut", params: ["prompt", "answer"], output: "Shortcut", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "GenerateShortcutAction" } },
   "com.apple.shortcuts.GetShortcutAttributesAction": { name: "Get Shortcut Attributes", params: ["attribute", "shortcut", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetShortcutAttributesAction" } },
   "com.apple.shortcuts.MoveShortcutToFolderAction": { name: "Move Shortcut", params: ["shortcuts", "folder", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveShortcutToFolderAction" } },
-  "com.apple.shortcuts.OpenAppIntent": { name: "Open App", params: ["app"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppIntent" } },
   "com.apple.shortcuts.OpenNavigationDestinationAction": { name: "Open Folder", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNavigationDestinationAction" } },
   "com.apple.shortcuts.OpenShortcutsStaticDeepLinks": { name: "Open Shortcuts Settings", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenShortcutsStaticDeepLinks" } },
   "com.apple.shortcuts.OpenWorkflowAction": { name: "Open Shortcut", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWorkflowAction" } },
   "com.apple.shortcuts.RenameShortcutAction": { name: "Rename Shortcut", params: ["shortcut", "name", "OpenWhenRun"], output: "Shortcut", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RenameShortcutAction" } },
-  "com.apple.shortcuts.RunShortcutConfigurationIntent": { name: "Shortcut", params: ["shortcut"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunShortcutConfigurationIntent" } },
-  "com.apple.shortcuts.RunShortcutFromCollectionIntent": { name: "Run Shortcut from Folder", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunShortcutFromCollectionIntent" } },
-  "com.apple.shortcuts.RunShortcutIntent": { name: "Run Shortcut", params: ["shortcut"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "RunShortcutIntent" } },
   "com.apple.shortcuts.SearchActionDrawerAction": { name: "Search Shortcuts Actions", params: ["query"], output: "Shortcuts Action", descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchActionDrawerAction" } },
   "com.apple.shortcuts.SearchShortcutsAction": { name: "Search in Shortcuts", params: ["searchPhrase", "folder"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchShortcutsAction" } },
   "com.apple.shortcuts.SetShortcutAttributesAction": { name: "Set Shortcut Attributes", params: ["operation", "attribute", "shortcut", "state", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetShortcutAttributesAction" } },
-  "com.apple.shortcuts.ShortcutsFolderConfigurationIntent": { name: "Shortcuts Folder", params: ["collection"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShortcutsFolderConfigurationIntent" } },
   "com.apple.shortcuts.StopWorkflowAction": { name: "Stop Shortcut", params: ["runningContextIdentifier"], output: null, descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopWorkflowAction" } },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent": { name: "Add Audio Item to Library", params: ["audioEntity"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitAddAudioToLibraryIntent" } },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent": { name: "Add Audio Item to Playlist", params: ["audioEntity", "playlist"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitAddAudioToPlaylistIntent" } },
@@ -14814,7 +13831,6 @@ export const ACTIONS = {
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "iBooksX" } },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "podcasts" } },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { name: "UpdateAudioAffinity", params: ["target", "affinityState"], output: null, descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriCrisisAppIntentsExtension._SiriCrisisPlaceholderIntent": { name: "Placeholder", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriCrisisAppIntentsExtension", Name: "SiriCrisisAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "_SiriCrisisPlaceholderIntent" } },
   "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool": { name: "CrisisDialog", params: ["situation"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriCrisisFlowTools", Name: "SiriCrisisFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CrisisDialogFlowTool" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": { name: "Get Current Location", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Location", descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CurrentLocationEntity" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity": { name: "Get Current Route", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Route", descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "NavigationSessionEntity" } },
@@ -14826,14 +13842,10 @@ export const ACTIONS = {
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail": { name: "ReplyDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target", "isReplyAll"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail": { name: "SendDraftMailTool", params: ["sendLaterDate", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail": { name: "UpdateDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: null, descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriNotebookAppIntentsExtension.SiriNotebookAppIntentsExtension": { name: "SiriNotebookAppIntentsExtension", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriNotebookAppIntentsExtension", Name: "SiriNotebookAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriNotebookAppIntentsExtension" } },
   "com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent": { name: "Prepare notifications", params: ["notifications", "isReadLatest", "isCatchMeUp", "app"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsAppIntentsExtension", Name: "SiriNotificationsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareNotificationsIntent" } },
   "com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension": { name: "SiriNotificationsAppIntentsExtension", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsAppIntentsExtension", Name: "SiriNotificationsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriNotificationsAppIntentsExtension" } },
   "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool": { name: "Prepare Notifications", params: ["notifications", "isReadLatest", "isCatchMeUp"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsFlowTools", Name: "SiriNotificationsFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareNotificationsTool" } },
-  "com.apple.siri.SiriPhoneAppIntentsExtension.ReadCallMessageIntent": { name: "ReadCallMessageIntent", params: ["message"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReadCallMessageIntent" } },
-  "com.apple.siri.SiriPhoneAppIntentsExtension.SiriKitStartCallIntent": { name: "SiriKitStartCallIntent", params: ["destination", "audioVisualMode"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitStartCallIntent" } },
   "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent": { name: "SiriPhonePunchoutIntent", params: ["url", "uniqueID", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriPhonePunchoutIntent" } },
-  "com.apple.siri.SiriPhoneAppIntentsExtension.StartCrisisHelplineCallIntent": { name: "StartCrisisHelplineCallIntent", params: ["crisisResourceType"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCrisisHelplineCallIntent" } },
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { name: "Answer an incoming call", params: ["call", "audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhoneAppIntentsExtension" } },
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool": { name: "Call Emergency Contact Flow Tool", params: ["audioRoute"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallEmergencyContactFlowTool" } },
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool": { name: "Callback Flow Tool", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallbackFlowTool" } },
@@ -14862,7 +13874,6 @@ export const ACTIONS = {
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitPrepareMessagesForReadingIntent": { name: "Prepare Messages for Reading", params: ["message", "isRead"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitPrepareMessagesForReadingIntent" } },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitSendMessageIntent": { name: "SiriKitSendMessageIntent", params: ["destination", "subject", "content", "audioMessage", "attachments", "locations", "links", "scheduledDate"], output: "Message", descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitSendMessageIntent" } },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent": { name: "SiriKitUnsendLastMessageIntent", params: ["message"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitUnsendLastMessageIntent" } },
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriMessagesAppIntent": { name: "SiriMessagesAppIntent", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriMessagesAppIntent" } },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool": { name: "Update a Draft", params: ["draft", "recipients", "subject", "content", "isAudioMessage"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateDraftTool" } },
   "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS": { name: "Create Draft", params: ["destination", "subject", "content", "attachments", "locations", "links", "audioMessage", "isAudioMessage", "scheduledDate"], output: null, descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
   "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool": { name: "Edit Last Message Sent With Siri", params: ["content"], output: null, descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditLastMessageSentWithSiriTool" } },
@@ -14881,12 +13892,10 @@ export const ACTIONS = {
   "com.apple.sociallayerd.CollaborationIntent": { name: "Share and Collaborate", params: ["recipients"], output: null, descriptor: { BundleIdentifier: "com.apple.sociallayerd", Name: "sociallayerd", TeamIdentifier: "0000000000", AppIntentIdentifier: "CollaborationIntent" } },
   "com.apple.stocks.AddSymbolToWatchlistIntent": { name: "Add Symbol to Watchlist", params: ["symbol", "watchlist", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddSymbolToWatchlistIntent" } },
   "com.apple.stocks.BlockIntent": { name: "Block Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "BlockIntent" } },
-  "com.apple.stocks.DecreaseTextSizeIntent": { name: "Decrease Text Size", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "DecreaseTextSizeIntent" } },
   "com.apple.stocks.DeleteSymbolFromWatchlistIntent": { name: "Delete Symbol from Watchlist", params: ["symbol", "watchlist", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteSymbolFromWatchlistIntent" } },
   "com.apple.stocks.DeleteWatchlistsIntent": { name: "Delete Watchlist", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteWatchlistsIntent" } },
   "com.apple.stocks.FollowIntent": { name: "Follow Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowIntent" } },
   "com.apple.stocks.GetSymbolQuoteIntent": { name: "Get Symbol Quote", params: ["symbol", "OpenWhenRun"], output: "Symbol Quote", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetSymbolQuoteIntent" } },
-  "com.apple.stocks.IncreaseTextSizeIntent": { name: "Increase Text Size", params: [], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "IncreaseTextSizeIntent" } },
   "com.apple.stocks.NewWatchlistIntent": { name: "Create Watchlist", params: ["name", "symbols", "OpenWhenRun"], output: "Watchlist", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewWatchlistIntent" } },
   "com.apple.stocks.NewsTabDeepLink": { name: "Find News Tab Deep Links", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "News Tab Deep Links", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "NewsTabDeepLink" } },
   "com.apple.stocks.OpenArticleIntent": { name: "Open Article", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenArticleIntent" } },
@@ -14901,8 +13910,6 @@ export const ACTIONS = {
   "com.apple.stocks.OpenWatchlistIntent": { name: "Open Watchlist", params: ["target", "symbol"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWatchlistIntent" } },
   "com.apple.stocks.PlayArticleIntent": { name: "Play Article", params: ["article"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayArticleIntent" } },
   "com.apple.stocks.SaveArticleIntent": { name: "Save Article", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "SaveArticleIntent" } },
-  "com.apple.stocks.StockIntent": { name: "Show Symbol Price", params: ["stock", "newsDisplayConfiguration", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "StockIntent" } },
-  "com.apple.stocks.StocksOverviewIntent": { name: "Show Watchlist", params: ["selectedWatchlist", "newsDisplayConfiguration", "showWatchlistNameValue", "showMoreDataValue", "showMoreSymbolsValue", "OpenWhenRun"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "StocksOverviewIntent" } },
   "com.apple.stocks.SymbolEntity": { name: "Find Symbol", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Symbol", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "SymbolEntity" } },
   "com.apple.stocks.SymbolWidgetEntity": { name: "Find Symbol", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Symbol", descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "SymbolWidgetEntity" } },
   "com.apple.stocks.UnblockIntent": { name: "Unblock Channel or Topic", params: ["target"], output: null, descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnblockIntent" } },
@@ -15341,7 +14348,6 @@ export const ACTIONS = {
   "com.apple.systempreferences.VPNConfigurationEntity-UpdatableEntity": { name: "Update a VPN Configuration's Connect On Demand", params: ["connectOnDemand", "entity"], output: "VPN Configuration", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "VPNConfigurationEntity-UpdatableEntity" } },
   "com.apple.systempreferences.WidgetsAndOnenessEntity": { name: "Get iPhone Widgets", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "iPhone Widgets", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetsAndOnenessEntity" } },
   "com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity": { name: "Update iPhone Widgets", params: ["entity", "useiPhoneWidgets"], output: "iPhone Widgets", descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetsAndOnenessEntity-UpdatableEntity" } },
-  "com.apple.usernotificationsd.PrepareUserNotificationIntent": { name: "Prepare notifications to read", params: ["notifications"], output: null, descriptor: { BundleIdentifier: "com.apple.usernotificationsd", Name: "usernotificationsd", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareUserNotificationIntent" } },
   "com.apple.usernotificationsd.UserNotificationEntity": { name: "Find User Notification Type", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "User Notification Type", descriptor: { BundleIdentifier: "com.apple.usernotificationsd", Name: "usernotificationsd", TeamIdentifier: "0000000000", AppIntentIdentifier: "UserNotificationEntity" } },
   "com.apple.wallpaper.agent.SetWallpaperIntent": { name: "Set Wallpaper", params: ["wallpaper", "showOnAllSpaces", "showAsScreenSaver"], output: null, descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWallpaperIntent" } },
   "com.apple.wallpaper.agent.SetWallpaperPhotoIntent": { name: "Set Wallpaper Photo", params: ["photo", "showOnAllSpaces"], output: null, descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWallpaperPhotoIntent" } },
@@ -15365,7 +14371,6 @@ export const ACTIONS = {
   "com.apple.weather.SetPressureUnitIntent": { name: "Set Pressure Unit", params: ["unit"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetPressureUnitIntent" } },
   "com.apple.weather.SetTemperatureUnitIntent": { name: "Set Temperature Unit", params: ["unit"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetTemperatureUnitIntent" } },
   "com.apple.weather.SetWindUnitIntent": { name: "Set Wind Unit", params: ["unit"], output: null, descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWindUnitIntent" } },
-  "com.apple.weather.SyncDataIntent": { name: "(INTERNAL ONLY) Sync Data", params: ["data"], output: "Synced Data", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SyncDataIntent" } },
   "com.apple.weather.SyncedDataEntity": { name: "Find Synced Data", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Synced Data", descriptor: { BundleIdentifier: "com.apple.weather", Name: "Weather", TeamIdentifier: "0000000000", AppIntentIdentifier: "SyncedDataEntity" } },
   "is.workflow.actions.appendnote": { name: "Append to Note", params: ["operation", "entity", "text", "section", "ignoreWhitespace", "interpretAsMarkdown"], output: "Note", descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AppendToNoteLinkAction" } },
   "is.workflow.actions.deletephotos": { name: "Delete Photos", params: ["entities"], output: null, descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "deletephotos" } },
@@ -15812,12 +14817,9 @@ export type ParamTypes = {
   "is.workflow.actions.wordpress.post": { "WFAccount": StringValue; "Blog": StringValue; "Title": TextValue; "Type": StringValue; "Format": StringValue; "Status": StringValue; "Categories": StringValue; "Tags": StringValue; "Advanced": PlainNumber; "AllowComments": BoolValue; "Slug": TextValue; "Excerpt": TextValue; "Date": TextValue; "Template": StringValue; "ThumbnailImage": PickerValue; "ShowCustomFields": PlainNumber; "CustomFields": DictionaryValue; "WFInput": PickerValue };
   "is.workflow.actions.workout.end": { "IntentAppDefinition": AnyValue };
   "is.workflow.actions.workout.start": { "IntentAppDefinition": AnyValue; "isOpenEnded": BoolValue; "workoutName": AnyValue; "WorkoutGoal": AnyValue };
-  "com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent": { "asset": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.AddressBook.ContactEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.AddressBook.CreateContactIntent": { "contactType": EnumValue<"organization" | "person">; "personName": AnyValue; "organizationName": TextValue; "departmentName": TextValue; "jobTitle": TextValue; "phoneticOrganizationName": TextValue; "phoneNumbers": AnyValue; "emailAddresses": AnyValue; "postalAddresses": AnyValue; "contactRelations": AnyValue; "birthday": TextValue; "dates": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.AddressBook.DeleteContactIntent": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.AddressBook.FetchContactAvatarIntent": { "identifiers": TextValue; "kinds": EnumValue<"avatarImage" | "monogram" | "poster" | "recipe" | "silhouette">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.AddressBook.FetchContactIntent": { "identifiers": TextValue; "keysToFetch": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.AddressBook.SearchInContactsIntent": { "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.AddressBook.UpdateContactIntent": { "target": AnyValue; "contactType": EnumValue<"organization" | "person">; "personName": AnyValue; "organizationName": TextValue; "departmentName": TextValue; "jobTitle": TextValue; "phoneticOrganizationName": TextValue; "phoneNumbers": AnyValue; "emailAddresses": AnyValue; "postalAddresses": AnyValue; "contactRelations": AnyValue; "birthday": TextValue; "dates": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.AddressBook.ViewContactCardIntent": { "target": AnyValue; "highlightedValue": AnyValue; "highlightedPropertyType": EnumValue<"birthday" | "contactRelation" | "custom" | "emailAddress" | "note" | "phoneNumber" | "postalAddress">; "shouldEdit": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -15843,36 +14845,13 @@ export type ParamTypes = {
   "com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks": { "target": EnumValue<"activitySharing" | "allFriends" | "editProfile" | "friendRequests" | "inviteFriends" | "root" | "signIn" | "signOut" | "viewProfile">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.GenerativePlaygroundApp.CreateImageIntent": { "prompt": TextValue; "style": AnyValue; "input_image_path": AnyValue; "previously_generated_image_id": TextValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.GenerativePlaygroundApp.GenerateImageIntent": { "prompt": TextValue; "style": AnyValue; "image": AnyValue; "saveToLibrary": EnumValue<"always" | "askWhenRun" | "never">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.ActivateSceneIntent": { "homeEntity": AnyValue; "sceneEntity": AnyValue; "timeout": NumberValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.AutomateAttributeValueIntent": { "attributes": AnyValue; "devices": AnyValue; "homeEntity": AnyValue; "rooms": AnyValue; "trigger": AnyValue; "recurrenceWeekdays": AnyValue; "name": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.AutomateSceneIntent": { "sceneEntity": AnyValue; "trigger": AnyValue; "recurrenceWeekdays": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Home.CameraClipEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "startDate">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.DeltaAttributeValueIntent": { "attribute": AnyValue; "delta": EnumValue<"decrease" | "increase">; "devices": AnyValue; "homeEntity": AnyValue; "zoneEntities": AnyValue; "roomEntities": AnyValue; "timeout": NumberValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Home.DeviceEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "name">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.ErrorIntent": { "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.ForecastWidgetConfiguration": { "forecastLocationEntity": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.GetAttributeValueIntent": { "homeEntity": AnyValue; "zoneEntities": AnyValue; "roomEntities": AnyValue; "devices": AnyValue; "attributeTypes": EnumValue<"airParticulateDensity" | "airParticulateSize" | "airQuality" | "batteryLevel" | "brightness" | "carbonDioxideDetected" | "carbonDioxideLevel" | "carbonDioxidePeakLevel" | "carbonMonoxideDetected" | "carbonMonoxideLevel" | "carbonMonoxidePeakLevel" | "chargingState" | "childLockEnabled" | "color" | "contactDetected" | "currentAirPurifierState" | "currentDoorState" | "currentHorizontalTilt" | "currentHumidifierDehumidifierMode" | "currentHumidity" | "currentLockState" | "currentPosition" | "currentSecuritySystemState" | "currentTemperature" | "currentThermostatMode" | "currentVerticalTilt" | "filterChangeNeeded" | "filterLifeLevel" | "inUse" | "leakDetected" | "lightLevel" | "lowBattery" | "motionDetected" | "naturalLight" | "nitrogenDioxideDensity" | "none" | "obstructionDetected" | "occupancyDetected" | "ozoneDensity" | "pm10Density" | "pm2_5Density" | "positionState" | "power" | "remainingDuration" | "rotationDirection" | "rotationSpeed" | "rvc" | "setDuration" | "smokeDetected" | "sulphurDioxideDensity" | "swingModeEnabled" | "targetAirPurifierState" | "targetDoorState" | "targetHorizontalTilt" | "targetHumidifierDehumidifierConfiguration" | "targetHumidity" | "targetLockState" | "targetPosition" | "targetSecuritySystemState" | "targetThermostatConfiguration" | "targetVerticalTilt" | "volatileOrganicCompoundDensity" | "waterLevel">; "timeout": NumberValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.GetDeviceInfoIntent": { "devices": AnyValue; "homeEntity": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.HistoricalUsageWidgetConfiguration": { "siteDetail": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Home.HomeAppIntentsExtensionTestAppIntent": { "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.HomeSingleTileConfigurationIntent": { "home": AnyValue; "item": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.HomeXLModuleConfigurationIntent": { "useRecommendations": BoolValue; "show": EnumValue<"accessories" | "all" | "scenes">; "home": AnyValue; "items": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.OpenURLInHomeIntent": { "url": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.RecommendedItemIntent": { "useHomeKitRecommendations": BoolValue; "home": AnyValue; "accessoriesAndScenes": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Home.RoomEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "name">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Home.SceneEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "name">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.SecureToggleIntent": { "entity": AnyValue; "analyticsInfoJSON": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Home.SelectedHomeEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.SetAttributeValueIntent": { "attributes": AnyValue; "devices": AnyValue; "homeEntity": AnyValue; "zoneEntities": AnyValue; "roomEntities": AnyValue; "timeout": NumberValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.ShowDeviceResultIntent": { "userSpecificity": EnumValue<"deviceName" | "deviceType" | "group" | "home" | "room" | "zone">; "destination": EnumValue<"answer" | "deepLink" | "notice" | "search">; "successDeviceIDs": TextValue; "failedDeviceIDs": TextValue; "failedDeviceIDsToIgnore": TextValue; "attributeType": EnumValue<"airParticulateDensity" | "airParticulateSize" | "airQuality" | "batteryLevel" | "brightness" | "carbonDioxideDetected" | "carbonDioxideLevel" | "carbonDioxidePeakLevel" | "carbonMonoxideDetected" | "carbonMonoxideLevel" | "carbonMonoxidePeakLevel" | "chargingState" | "childLockEnabled" | "color" | "contactDetected" | "currentAirPurifierState" | "currentDoorState" | "currentHorizontalTilt" | "currentHumidifierDehumidifierMode" | "currentHumidity" | "currentLockState" | "currentPosition" | "currentSecuritySystemState" | "currentTemperature" | "currentThermostatMode" | "currentVerticalTilt" | "filterChangeNeeded" | "filterLifeLevel" | "inUse" | "leakDetected" | "lightLevel" | "lowBattery" | "motionDetected" | "naturalLight" | "nitrogenDioxideDensity" | "none" | "obstructionDetected" | "occupancyDetected" | "ozoneDensity" | "pm10Density" | "pm2_5Density" | "positionState" | "power" | "remainingDuration" | "rotationDirection" | "rotationSpeed" | "rvc" | "setDuration" | "smokeDetected" | "sulphurDioxideDensity" | "swingModeEnabled" | "targetAirPurifierState" | "targetDoorState" | "targetHorizontalTilt" | "targetHumidifierDehumidifierConfiguration" | "targetHumidity" | "targetLockState" | "targetPosition" | "targetSecuritySystemState" | "targetThermostatConfiguration" | "targetVerticalTilt" | "volatileOrganicCompoundDensity" | "waterLevel">; "oldDeviceResults": AnyValue; "newDeviceResults": AnyValue; "secondaryAccessoryControlDestination": EnumValue<"colorTemperature" | "rgb">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.ShowErrorIntent": { "destination": EnumValue<"answer" | "deepLink" | "notice" | "search">; "errorDisplayType": EnumValue<"generic">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.ShowNavigationIntent": { "categoryType": EnumValue<"0CA6536B-8EAD-4013-AA62-01754F256DD5" | "3E68745D-F0E1-4B73-8FBD-0E8978A33403" | "430C9F25-44E0-4F7E-BE63-1D00B1500545" | "563F7D20-6AFC-44CE-986D-63B28F62C9E3" | "63489665-5E39-4C17-A590-755E1AAC02AE" | "7A5BD1AB-6478-4560-AD68-D91053B75F44" | "7FADD792-61A4-4340-A849-215882E2F008" | "B92ACEEE-DFF5-4773-A058-C5E64BC487B2">; "dashboardViewType": EnumValue<"cameras" | "favorites" | "scenes">; "deviceEntities": AnyValue; "secondaryAccessoryControlDestination": EnumValue<"colorTemperature" | "rgb">; "homeEntity": AnyValue; "roomEntity": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.ShowSceneResultIntent": { "sceneID": TextValue; "hasSiriExecutionFailure": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.TileControlAction": { "value": BoolValue; "targetIDString": TextValue; "homeIDString": TextValue; "action": EnumValue<"open" | "toggle">; "uniqueIdentifier": TextValue; "widgetKind": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.ToggleAttributeIntent": { "attributeTypes": EnumValue<"airParticulateDensity" | "airParticulateSize" | "airQuality" | "batteryLevel" | "brightness" | "carbonDioxideDetected" | "carbonDioxideLevel" | "carbonDioxidePeakLevel" | "carbonMonoxideDetected" | "carbonMonoxideLevel" | "carbonMonoxidePeakLevel" | "chargingState" | "childLockEnabled" | "color" | "contactDetected" | "currentAirPurifierState" | "currentDoorState" | "currentHorizontalTilt" | "currentHumidifierDehumidifierMode" | "currentHumidity" | "currentLockState" | "currentPosition" | "currentSecuritySystemState" | "currentTemperature" | "currentThermostatMode" | "currentVerticalTilt" | "filterChangeNeeded" | "filterLifeLevel" | "inUse" | "leakDetected" | "lightLevel" | "lowBattery" | "motionDetected" | "naturalLight" | "nitrogenDioxideDensity" | "none" | "obstructionDetected" | "occupancyDetected" | "ozoneDensity" | "pm10Density" | "pm2_5Density" | "positionState" | "power" | "remainingDuration" | "rotationDirection" | "rotationSpeed" | "rvc" | "setDuration" | "smokeDetected" | "sulphurDioxideDensity" | "swingModeEnabled" | "targetAirPurifierState" | "targetDoorState" | "targetHorizontalTilt" | "targetHumidifierDehumidifierConfiguration" | "targetHumidity" | "targetLockState" | "targetPosition" | "targetSecuritySystemState" | "targetThermostatConfiguration" | "targetVerticalTilt" | "volatileOrganicCompoundDensity" | "waterLevel">; "devices": AnyValue; "homeEntity": AnyValue; "zoneEntities": AnyValue; "roomEntities": AnyValue; "timeout": NumberValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.ToggleControlConfigurationIntent": { "home": AnyValue; "accessoriesAndScenes": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Home.ToggleIntent": { "entity": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Home.UtilityRateInfoWidgetConfiguration": { "siteDetail": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Home.ZoneEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "name">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.HydraUSDAppIntents.ConvertToUSDZ": { "file": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Magnifier.AskVQAIntent": { "prompt": TextValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -15883,7 +14862,6 @@ export type ParamTypes = {
   "com.apple.Magnifier.DetectTextIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Magnifier.FindSessionAppIntent": { "searchTerm": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Magnifier.FollowUpVQAAppIntent": { "prompt": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Magnifier.MagnifierIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Magnifier.PointAndSpeakIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Magnifier.ReaderModeIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Magnifier.StartDetectionTypeIntent": { "detectionType": EnumValue<"doors" | "furniture" | "people" | "text">; "AppIntentDescriptor"?: DictionaryValue };
@@ -15902,19 +14880,13 @@ export type ParamTypes = {
   "com.apple.MediaRemoteAppIntentsExtension.ConnectToSpeakerIntent": { "application": AnyValue; "destinations": AnyValue; "requestIdentifierOverride": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.ChangeFilterModeIntent": { "filterMode": EnumValue<"1" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "2" | "20" | "21" | "22" | "23" | "24" | "25" | "26" | "3" | "4" | "5" | "6" | "7" | "8" | "9">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.ConversationEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "dateLastActive" | "displayName">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.MobileSMS.ConversationListFocusFilterAction": { "Mode": EnumValue<"Clear" | "Set" | "Toggle" | "Turn Off" | "Turn On">; "FocusMode": AnyValue; "enableFocusFiltering": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.DeleteConversationIntent": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.DeleteMessageIntent": { "entities": AnyValue; "WFLinkMessagesEntityVariablePickerKey": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.DraftMessageIntent": { "destination": AnyValue; "subject": TextValue; "content": TextValue; "audioMessage": AnyValue; "attachments": AnyValue; "locations": AnyValue; "links": TextValue; "scheduledDate": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.EditSentMessageIntent": { "message": AnyValue; "content": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.MobileSMS.FetchConversationIdentifierIntent": { "intentPersons": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.MobileSMS.FetchDowntimeConversationListIntent": { "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.MobileSMS.FetchMutedConversationListIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.MarkConversationAsUnreadIntent": { "operation": EnumValue<"mark" | "toggle">; "conversation": AnyValue; "unreadState": BoolValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.MessageEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "body" | "date" | "isRead" | "subject">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.MobileSMS.MuteConversationIntent": { "conversationIdentifier": TextValue; "isMuted": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.OpenConversationIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.MobileSMS.OpenConversationListIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.OpenMessageIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.RemoveTapbackIntent": { "message": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.MobileSMS.SearchMessagesIntent": { "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -15956,7 +14928,6 @@ export type ParamTypes = {
   "com.apple.Notes.DeleteTablesLinkAction": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.DeleteTagsLinkAction": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.EmphasisLinkAction": { "emphasisColor": EnumValue<"blue" | "body" | "mint" | "orange" | "pink" | "purple">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Notes.GenerateFallbackPDF": { "attachmentIdentifier": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.GetLinkedNotesLinkAction": { "entity": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.InsertAllMentionLinkAction": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.InsertMentionLinkAction": { "target": AnyValue; "mentionText": TextValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -15972,7 +14943,6 @@ export type ParamTypes = {
   "com.apple.Notes.OpenTagLinkAction": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.OpenTopLevelFolderLinkAction": { "target": EnumValue<"callNotes" | "mathNotes" | "quickNotes" | "sharedWithYou">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.PinNotesLinkAction": { "operation": EnumValue<"add" | "remove">; "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Notes.QuickNoteIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.RemoveTagsFromNotesLinkAction": { "notes": AnyValue; "tags": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.RenameFolderLinkAction": { "entity": AnyValue; "name": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.ReplaceSelectionLinkAction": { "text": TextValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -15984,8 +14954,6 @@ export type ParamTypes = {
   "com.apple.Notes.StartRecordingLinkAction": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.TableEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Name" | "Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Notes.UpdateNoteIntent": { "name": TextValue; "attachments": AnyValue; "isPinned": BoolValue; "target": AnyValue; "folder": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.PeopleViewService.SelectPersonIntent": { "person": AnyValue; "shouldShowButtons": BoolValue; "messageButton": AnyValue; "callButton": AnyValue; "verticalLayoutDT": BoolValue; "verticalLayoutDF": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.PeopleViewService.URLAppIntent": { "url": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.AddAssetsToAlbumIntent": { "assets": AnyValue; "album": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.AlbumEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "creationDate" | "name">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.ApplyFilterIntent": { "asset": AnyValue; "effect": EnumValue<"amber" | "blackAndWhite" | "bright" | "coolRose" | "cozy" | "dramatic" | "dramaticCool" | "dramaticWarm" | "ethereal" | "gold" | "luminous" | "mono" | "mutedBW" | "natural" | "neutral" | "noir" | "original" | "quiet" | "roseGold" | "silvertone" | "standard" | "starkBW" | "vibrant" | "vivid" | "vividCool" | "vividWarm">; "AppIntentDescriptor"?: DictionaryValue };
@@ -16016,7 +14984,6 @@ export type ParamTypes = {
   "com.apple.Photos.OpenAssetIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.OpenDestinationIntent": { "target": EnumValue<"Albums" | "Animated" | "CapturedByMe" | "Cinematic" | "Duplicates" | "Events" | "Favorites" | "Featured" | "Hidden" | "Imports" | "Library" | "LivePhotos" | "Map" | "Memories" | "Panoramas" | "People" | "Portrait" | "ProRes" | "RAW" | "RecentlyDeleted" | "RecentlySaved" | "ScreenRecordings" | "Screenshots" | "Selfies" | "SharedAlbums" | "SharedAlbumsActivity" | "SloMo" | "Spatial" | "Trips" | "Videos">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.OpenMemoryCreationViewIntent": { "query": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Photos.PLPhotosReliveWidgetConfigurationIntent": { "widgetType": EnumValue<"album">; "album": AnyValue; "alwaysDisplayInFullColor": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.PersonEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "isFavorite" | "name">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent": { "assets": AnyValue; "album": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent": { "criteria": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16036,7 +15003,6 @@ export type ParamTypes = {
   "com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent": { "assets": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent": { "query": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.PhotosPasteEditsAssistantIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Photos.PhotosReliveWidgetFeaturedConfiguration": { "alwaysDisplayInFullColor": BoolValue; "enableSpatialEffect": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent": { "album": AnyValue; "assets": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.PhotosSearchAssistantIntent": { "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Photos.PhotosSetDepthAssistantIntent": { "target": AnyValue; "value": NumberValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16082,12 +15048,10 @@ export type ParamTypes = {
   "com.apple.Preview.RotatePageIntent": { "pages": AnyValue; "isClockwise": BoolValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Preview.SaveIntent": { "documents": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Preview.SearchIntent": { "documents": AnyValue; "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.AddHistoryItem": { "url": TextValue; "name": TextValue; "timeOfVisit": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.BookmarkEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "name" | "title" | "url">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.BookmarkTabIntent": { "tab": AnyValue; "name": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.BookmarkURLIntent": { "url": TextValue; "name": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.CloseTab": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.CloseTabsAssistantIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.CloseView": { "target": EnumValue<"bookmarks" | "history" | "localTabGroup" | "privateTabGroup" | "readingList" | "sharedWithYou" | "sidebar" | "startPage" | "tabOverview">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.CloseWindowsIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.CreateNewBookmark": { "name": TextValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16095,30 +15059,21 @@ export type ParamTypes = {
   "com.apple.Safari.CreateNewTabGroup": { "contents": AnyValue; "name": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.CreateNewWindow": { "isPrivate": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.CreateReadingListItem": { "name": TextValue; "title": TextValue; "url": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.CreateTabAssistantIntent": { "url": TextValue; "isPrivate": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.DeleteBookmarks": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.DeleteHistoryItems": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.DeleteTabGroups": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.FindOnPage": { "searchPhrase": TextValue; "tab": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.GetHistoryItems": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.HistoryEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "lastVisitedDate" | "name" | "textContentSnippet" | "title" | "url">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.LoadURLInTab": { "url": TextValue; "tab": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.MoveTabsToTabGroup": { "entities": AnyValue; "container": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.MoveTabsToWindowIntent": { "entities": AnyValue; "container": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.NotifyUserForUpdatedPageIntent": { "message": TextValue; "automationID": TextValue; "pageURL": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.OpenBookmark": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.OpenBookmarkAssistantIntent": { "target": AnyValue; "tab": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.OpenHistoryItem": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.OpenReadingListItem": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.OpenTab": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.OpenTabGroup": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.OpenTabGroupForFocus": { "Mode": EnumValue<"Clear" | "Set" | "Toggle" | "Turn Off" | "Turn On">; "FocusMode": AnyValue; "type": EnumValue<"profile" | "tabGroup">; "profileEntity": AnyValue; "tabGroupEntity": AnyValue; "openLinksInTabGroup": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.OpenView": { "target": EnumValue<"bookmarks" | "history" | "localTabGroup" | "privateTabGroup" | "readingList" | "sharedWithYou" | "sidebar" | "startPage" | "tabOverview">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.QuickWebsiteSearchIntent": { "term": TextValue; "website": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.QuickWebsiteSearchProviderEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "sourcePageURLString" | "title" | "topDomain" | "url">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.ReadingListItemEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "title" | "url">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.ReportNotifyMeWhenAutomationResult": { "errorMessage": TextValue; "automationID": TextValue; "pageURL": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Safari.RequestWebPageContextIntent": { "url": TextValue; "shortcutsAutomationUUID": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.SearchTabs": { "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.ShowWindowIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Safari.TabEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "isPrivate" | "name" | "url">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
@@ -16340,8 +15295,6 @@ export type ParamTypes = {
   "com.apple.ShortcutsActions.GetMultitaskingModeAction": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.GetOrientationAction": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.GetPhysicalActivity": { "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.ShortcutsActions.PlayMusicTopHitAction": { "music": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.ShortcutsActions.PlayPodcastTopHitAction": { "podcast": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.ResetCellularDataStatisticsAction": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.SetBatteryChargeLimitAction": { "limit": AnyValue; "setUntilTomorrow": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.SetDataRoamingAction": { "plan": AnyValue; "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16350,17 +15303,12 @@ export type ParamTypes = {
   "com.apple.ShortcutsActions.SetSilentModeAction": { "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.SetVoiceDataModeAction": { "sim": AnyValue; "ratMode": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.ShowControlCenterAction": { "operation": EnumValue<"hide" | "show" | "toggle">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.ShortcutsActions.StartCallTopHitAction": { "person": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.ShortcutsActions.StartFaceTimeAudioCallTopHitAction": { "faceTimeContact": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.ShortcutsActions.StartFaceTimeCallTopHitAction": { "faceTimeContact": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.ShortcutsActions.StartFaceTimeVideoCallTopHitAction": { "faceTimeContact": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.TimeMachineAction": { "mode": EnumValue<"start" | "stop">; "destination": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.ToggleCellularPlanAction": { "plan": AnyValue; "operation": EnumValue<"toggle" | "turn">; "state": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.ShortcutsActions.TranscribeAudioAction": { "audioFile": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Spotlight.ClearSpotlightIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Spotlight.SearchFieldEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "searchString">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Spotlight.SearchSpotlightIntent": { "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.Spotlight.SearchSpotlightIntentInternal": { "criteria": TextValue; "queryKind": EnumValue<"asYouType" | "committed">; "filterTitle": TextValue; "searchTopLevelFilter": EnumValue<"0" | "1" | "2" | "3">; "searchEntityFilter": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Spotlight.SearchUIContinuationIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Spotlight.SearchUIOpenKnowledgeIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.Spotlight.ToggleSpotlightIntent": { "action": EnumValue<"close" | "open" | "toggle">; "AppIntentDescriptor"?: DictionaryValue };
@@ -16387,18 +15335,13 @@ export type ParamTypes = {
   "com.apple.VoiceMemos.LocationBasedNamingEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "value">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.LocationBasedNamingEntity-UpdatableEntity": { "entity": AnyValue; "value": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.OpenFolder": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.VoiceMemos.OpenResetAnalyticsIdentifierEntity": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.PlaybackVoiceMemoIntent": { "playbackType": EnumValue<"mostRecent" | "specific">; "entity": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.VoiceMemos.RCCombineRecordings": { "firstRecording": AnyValue; "secondRecording": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.VoiceMemos.RCControlCenterToggleRecording": { "value": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.VoiceMemos.RCImportRecording": { "audioFile": AnyValue; "title": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.RCRecordingEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "creationDate" | "duration" | "name">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.RecordVoiceMemoIntent": { "name": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.ResetAnalyticsIdentifierEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.SearchRecordings": { "searchPhrase": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.SelectRecording": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.StopRecording": { "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.VoiceMemos.ToggleRecording": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.WFAppSettingEntityUpdaterAction": { "entity": EnumValue<"AudioQualityEntity" | "ClearDeletedEntity" | "LocationBasedNamingEntity">; "AudioQualityEntity": EnumValue<"0" | "1">; "ClearDeletedEntity": EnumValue<"0" | "1" | "2" | "3" | "4">; "LocationBasedNamingEntity": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.VoiceMemos.WFGetAppSettingAction": { "entity": EnumValue<"AudioQualityEntity" | "ClearDeletedEntity" | "LocationBasedNamingEntity">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.WindowManager.AppExposeAction": { "AppIntentDescriptor"?: DictionaryValue };
@@ -16423,8 +15366,6 @@ export type ParamTypes = {
   "com.apple.calls.PhoneAppIntentsExtension.CallRecord": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "date" | "duration" | "type">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent": { "audioVisualMode": EnumValue<"audio" | "video">; "destination": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.calls.PhoneAppIntentsExtension.EndCallIntent": { "call": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.calls.PhoneAppIntentsExtension.PrepareCallMessagesIntent": { "messages": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.calls.PhoneAppIntentsExtension.PrepareReadCallRecordsIntent": { "records": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent": { "audioRoute": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.calls.PhoneAppIntentsExtension.StartEmergencyCallIntent": { "destination": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.calls.PhoneAppIntentsExtension.StartFaceTimeCallIntent": { "audioVisualMode": EnumValue<"audio" | "video">; "destination": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16433,7 +15374,6 @@ export type ParamTypes = {
   "com.apple.campo.ResumeConversationIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.campo.SearchFieldEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "searchString">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.campo.SearchSpotlightIntent": { "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.campo.SearchSpotlightIntentInternal": { "criteria": TextValue; "queryKind": EnumValue<"asYouType" | "committed">; "filterTitle": TextValue; "searchTopLevelFilter": EnumValue<"0" | "1" | "2" | "3">; "searchEntityFilter": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.campo.SearchUIContinuationIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.campo.SearchUIOpenKnowledgeIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.campo.ToggleSpotlightIntent": { "action": EnumValue<"close" | "open" | "toggle">; "AppIntentDescriptor"?: DictionaryValue };
@@ -16457,7 +15397,6 @@ export type ParamTypes = {
   "com.apple.clock.LapStopwatchIntent": { "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.clock.OpenAlarmIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.clock.OpenTab": { "tab": EnumValue<"alarm" | "clock" | "stopwatch" | "timer">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.clock.OpenTabIntent": { "target": EnumValue<"alarm" | "stopwatch" | "timer" | "worldclock">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.clock.PauseTimerIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.clock.RemoveWorldClockIntent": { "entities": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.clock.ResetStopwatchIntent": { "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16491,16 +15430,11 @@ export type ParamTypes = {
   "com.apple.finder.RevealItemsIntent": { "targets": AnyValue; "openInNewWindow": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.finder.SearchInBrowserIntent": { "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.finder.TrashItemsIntent": { "entities": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.findmy.FriendSelectorIntent": { "contact": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.findmy.Intent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.findmy.ItemEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "isThisDevice" | "name" | "owner">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.findmy.ItemSelectorIntent": { "source": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.findmy.PersonEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "contact">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.findmy.WidgetItemEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "isThisDevice" | "name" | "owner">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.findmy.WidgetPersonEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "contact">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.freeform.CRLAddItemToBoardIntent": { "target": AnyValue; "itemType": EnumValue<"circle" | "line" | "media" | "roundedRectangle" | "square" | "star" | "stickyNote" | "textBox" | "triangle" | "url">; "text": TextValue; "mediaItems": AnyValue; "url": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLAddStickyNoteToBoardIntent": { "board": AnyValue; "string": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLAddTextToBoardIntent": { "board": AnyValue; "string": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.freeform.CRLBoardEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "creationDate" | "lastModificationDate" | "title">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.freeform.CRLChangeBoardCanvasGridIntent": { "entity": AnyValue; "operation": EnumValue<"hide" | "show" | "toggle">; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.freeform.CRLChangeBoardObjectConnectorsIntent": { "entity": AnyValue; "operation": EnumValue<"hide" | "show" | "toggle">; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16512,17 +15446,9 @@ export type ParamTypes = {
   "com.apple.freeform.CRLFavoriteBoardIntent_v2": { "entity": AnyValue; "operation": EnumValue<"favorite" | "toggle" | "unfavorite">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.freeform.CRLInsertFilesToBoardIntent": { "board": AnyValue; "files": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.freeform.CRLInsertPhotosToBoardIntent": { "board": AnyValue; "images": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLInsertShapeToBoardIntent": { "board": AnyValue; "shapes": EnumValue<"circle" | "line" | "roundedRectangle" | "square" | "star" | "triangle">; "string": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLInsertTextToBoardIntent": { "board": AnyValue; "strings": TextValue; "container": EnumValue<"stickyNote" | "textbox">; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLInsertURLToBoardIntent": { "board": AnyValue; "url": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.freeform.CRLOpenBoardIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLRenameBoardIntent": { "entity": AnyValue; "property": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLResizeSelectionFontIntent": { "board": AnyValue; "behavior": EnumValue<"larger" | "smaller">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.freeform.CRLResizeSelectionFontIntent_v2": { "board": AnyValue; "operation": EnumValue<"decrease" | "increase">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.freeform.CRLUpdateBoardIntent": { "target": AnyValue; "title": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLUtilitiesIntent": { "arguments": TextValue; "operation": EnumValue<"acceptSharedBoard" | "boardID" | "downloadBoard" | "downloadStatus" | "exportBoard" | "importBoard" | "manipulate" | "resetBoard" | "shareBoard" | "stopSharingBoard">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLiOSCreateBoardIntent": { "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.freeform.CRLiOSOpenBoardIntent": { "board": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateKnowledgeResponseIntent": { "explicitInvocation": BoolValue; "partner": EnumValue<"chatGPT" | "other">; "userQuery": TextValue; "additionalInfo": TextValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentFromMediaIntent": { "explicitInvocation": BoolValue; "partner": EnumValue<"chatGPT" | "other">; "directInvocationClient": EnumValue<"visualIntelligence">; "additionalInfo": TextValue; "userQuery": TextValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentIntent": { "explicitInvocation": BoolValue; "partner": EnumValue<"chatGPT" | "other">; "userQuery": TextValue; "additionalInfo": TextValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16540,7 +15466,6 @@ export type ParamTypes = {
   "com.apple.iBooksX.BookSettingsEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "font" | "fontSize" | "isAllowMultipleColumns" | "isTextJustified" | "pageNavigationSetting" | "theme">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iBooksX.BookSettingsEntity-UpdatableEntity": { "entity": AnyValue; "font": EnumValue<"default">; "fontSize": EnumValue<"default">; "isAllowMultipleColumns": BoolValue; "isTextJustified": BoolValue; "pageNavigationSetting": EnumValue<"continuousScroll" | "pageTurning">; "theme": EnumValue<"darkMode" | "lightMode" | "theme1" | "theme2" | "theme3" | "theme4" | "theme5" | "theme6">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iBooksX.ChangeFontSizeIntent": { "changeOperation": EnumValue<"decrease" | "increase">; "target": AnyValue; "book": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.iBooksX.CloseBookIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iBooksX.DeepLinkIntent": { "target": EnumValue<"audiobookStoreTab" | "audiobooksCollection" | "bookStoreTab" | "booksCollection" | "downloadedCollection" | "finishedCollection" | "homeTab" | "libraryAllCollection" | "libraryTab" | "mangaTab" | "mySamplesCollection" | "pdfsCollection" | "searchTab" | "wantToReadCollection">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iBooksX.DefaultCollectionEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iBooksX.OpenAudioIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16566,20 +15491,15 @@ export type ParamTypes = {
   "com.apple.iCal.EmailAttendeesIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.EmailOrganizerIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.EventEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "endDate" | "location" | "note" | "organizers" | "recurrence" | "startDate" | "title" | "virtualLocation">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.iCal.FetchTransferableEventByURLIntent": { "url": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.iCal.FetchTransferableEventsInRangeIntent": { "rangeStart": TextValue; "rangeEnd": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.HighlightEventIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.InboxItemEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.JoinEventIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.iCal.ListEventsIntent": { "description": TextValue; "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.OpenCalendarEditorIntent": { "target": AnyValue; "enableDoneInitially": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.OpenCalendarViewIntent": { "target": EnumValue<"calendars" | "day" | "inbox" | "list" | "month" | "search" | "splitMonth" | "week" | "year">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.OpenDateIntent": { "target": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.OpenEventDetailsIntent": { "title": TextValue; "caption": TextValue; "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.OpenEventEditorIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.RespondToInboxItemIntent": { "target": AnyValue; "response": EnumValue<"accept" | "addToCalendar" | "decline" | "delete" | "ignore" | "join" | "maybe" | "ok" | "reportJunk">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.iCal.SetCalendarFocusConfiguration": { "Mode": EnumValue<"Clear" | "Set" | "Toggle" | "Turn Off" | "Turn On">; "FocusMode": AnyValue; "calendars": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.iCal.TestComposeEngineIntent": { "input": TextValue; "requestedDetails": EnumValue<"attendees" | "canonicalLocation" | "category" | "location" | "startDate">; "rangeStart": TextValue; "rangeEnd": TextValue; "maxResults": NumberValue; "dataSources": EnumValue<"attendeesFromContactsAutocomplete" | "attendeesFromDirectorySearch" | "attendeesFromIntelligencePlatform" | "attendeesFromRecents">; "dateNow": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.TransferableCalendarEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iCal.TransferableSourceEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.iWork.Keynote.KNDocumentBackgroundExportIntent": { "document": AnyValue; "format": EnumValue<"pdf" | "powerpoint">; "sourcePassword": TextValue; "password": TextValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16604,9 +15524,7 @@ export type ParamTypes = {
   "com.apple.journal.AlwaysUseMomentDateIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.journal.CreateEntryAudioIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.journal.CreateEntryIntent": { "message": TextValue; "title": TextValue; "locationName": TextValue; "mediaItems": AnyValue; "location": AnyValue; "entryBookmark": BoolValue; "entryDate": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.journal.OpenEntryEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.journal.OpenJournalSettingsDeeplinks": { "target": EnumValue<"addEntryTitle" | "journalHealthData" | "lockJournal" | "notifications" | "root">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.journal.RefreshIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.journal.SaveToPhotosEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "value">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.journal.SaveToPhotosEntity-UpdatableEntity": { "entity": AnyValue; "value": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.journal.SaveToPhotosIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16617,32 +15535,23 @@ export type ParamTypes = {
   "com.apple.journal.SkipJournalingSuggestionsEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "value">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.journal.SkipJournalingSuggestionsEntity-UpdatableEntity": { "entity": AnyValue; "value": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.journal.SkipJournalingSuggestionsIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.journal.StreaksWidgetConfigurationIntent": { "visualization": EnumValue<"0" | "1" | "2">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.ArchiveMessageIntent": { "entities": AnyValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.mail.CommitSearchSuggestionIntent": { "query": TextValue; "suggestionIndex": NumberValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.ComposeMessageIntent": { "to": AnyValue; "cc": AnyValue; "bcc": AnyValue; "subject": TextValue; "body": TextValue; "account": AnyValue; "attachments": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.DeleteDraftIntent": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.DeleteMessageIntent": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.DraftMessageEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "bcc" | "body" | "cc" | "subject" | "to">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.ForwardMessageIntent": { "to": AnyValue; "cc": AnyValue; "bcc": AnyValue; "subject": TextValue; "body": TextValue; "account": AnyValue; "attachments": AnyValue; "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.mail.MailFocusConfigurationAction": { "Mode": EnumValue<"Clear" | "Set" | "Toggle" | "Turn Off" | "Turn On">; "FocusMode": AnyValue; "accounts": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.MailMessage": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "dateReceived">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.MailMessageEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "body" | "dateReceived" | "isRead" | "subject">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.mail.OpenDraftComposerIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.mail.OpenDraftURLIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.mail.OpenMessageURLIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.mail.OpenSmartMailboxIntent": { "name": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.ReplyMessageIntent": { "to": AnyValue; "cc": AnyValue; "bcc": AnyValue; "subject": TextValue; "body": TextValue; "account": AnyValue; "attachments": AnyValue; "isReplyAll": BoolValue; "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.SaveDraftIntent": { "target": AnyValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.SearchMailEntityIntent": { "criteria": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.SearchMailIntent": { "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.mail.SearchMailSuggestionsIntent": { "query": TextValue; "progressive": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.SendDraftIntent": { "sendLaterDate": TextValue; "target": AnyValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.SendMail": { "to": AnyValue; "cc": AnyValue; "bcc": AnyValue; "subject": TextValue; "body": TextValue; "account": AnyValue; "attachments": AnyValue; "inReplyTo": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.SetMailMessageIsRead": { "message": AnyValue; "read": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.UndoSendMessageIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.UnsubscribeMessageIntent": { "messages": AnyValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.mail.UpdateDraftIntent": { "to": AnyValue; "cc": AnyValue; "bcc": AnyValue; "subject": TextValue; "body": TextValue; "account": AnyValue; "attachments": AnyValue; "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mail.UpdateMessageIntent": { "target": AnyValue; "isRead": BoolValue; "isFlagged": BoolValue; "isJunk": BoolValue; "flagColor": EnumValue<"blue" | "defaultColor" | "gray" | "green" | "orange" | "purple" | "red" | "yellow">; "mailbox": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mobilenotes.SharingExtension": { "name": TextValue; "contents": TextValue; "folder": AnyValue; "interpretAsMarkdown": BoolValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent": { "dateComponents": TextValue; "name": TextValue; "repeats": EnumValue<"friday" | "monday" | "saturday" | "sunday" | "thursday" | "tuesday" | "wednesday">; "allowsSnooze": BoolValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16665,14 +15574,12 @@ export type ParamTypes = {
   "com.apple.news.AutoDownloadStoriesInFeedsEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "value">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.AutoDownloadStoriesInFeedsEntity-UpdatableEntity": { "entity": AnyValue; "value": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.BlockIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.news.DecreaseTextSizeIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.FollowIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.GameCenterEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "value">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.GameCenterEntity-UpdatableEntity": { "entity": AnyValue; "value": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.GetIngredientsAppIntent": { "recipe": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.GetRecentRecipesAppIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.GetSavedRecipesAppIntent": { "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.news.IncreaseTextSizeIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.NewsSettingsAutomaticDownloadDynamicDeepLinks": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.NewsSettingsDynamicDeepLinks": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.NewsTabDeepLink": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
@@ -16700,28 +15607,14 @@ export type ParamTypes = {
   "com.apple.news.ShowSpecificStepIntent": { "recipe": AnyValue; "step": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.StartCookingAppIntent": { "recipe": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.StopCookingAppIntent": { "recipe": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.news.ToggleAudioPlaybackIntent": { "articleID": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.UnblockIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.UnsaveArticleIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.UnsaveRecipeAppIntent": { "recipe": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.UnselectIngredientAppIntent": { "recipe": AnyValue; "ingredient": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.WFAppSettingEntityUpdaterAction": { "entity": EnumValue<"AutoDownloadAudioStoriesEntity" | "AutoDownloadEntity" | "AutoDownloadMagazineIssuesEntity" | "AutoDownloadPuzzlesEntity" | "AutoDownloadRecipesEntity" | "AutoDownloadSavedStoriesEntity" | "AutoDownloadStoriesInFeedsEntity" | "GameCenterEntity" | "OptimizeStorageEntity" | "RestrictStoriesInTodaySettingEntity">; "AutoDownloadAudioStoriesEntity": BoolValue; "AutoDownloadEntity": BoolValue; "AutoDownloadMagazineIssuesEntity": BoolValue; "AutoDownloadPuzzlesEntity": BoolValue; "AutoDownloadRecipesEntity": BoolValue; "AutoDownloadSavedStoriesEntity": BoolValue; "AutoDownloadStoriesInFeedsEntity": BoolValue; "GameCenterEntity": BoolValue; "OptimizeStorageEntity": BoolValue; "RestrictStoriesInTodaySettingEntity": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.news.WFGetAppSettingAction": { "entity": EnumValue<"AutoDownloadAudioStoriesEntity" | "AutoDownloadEntity" | "AutoDownloadMagazineIssuesEntity" | "AutoDownloadPuzzlesEntity" | "AutoDownloadRecipesEntity" | "AutoDownloadSavedStoriesEntity" | "AutoDownloadStoriesInFeedsEntity" | "GameCenterEntity" | "OptimizeStorageEntity" | "RestrictStoriesInTodaySettingEntity">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenFlightReservationEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenGenericEventEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenHotelReservationEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenIDCardBusinessEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenIDCardPersonalEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenMediaEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenRestaurantReservationEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenSearchSpotlightEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenTicketedShowEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenTicketedTransportationEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.OpenVehicleReservationEntityIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.omniSearch.SearchToolExtension.SearchTool": { "rawQuery": TextValue; "rewrittenQuery": TextValue; "simplifiedQuery": TextValue; "structuredQuery": AnyValue; "typeIdentifiers": AnyValue; "context": AnyValue; "matchedEntities": AnyValue; "isFirstToolInvocation": BoolValue; "isOnScreenReference": BoolValue; "isSingleStepSearch": BoolValue; "invocationClient": EnumValue<"montaraWritingTool">; "requestedProperties": AnyValue; "disambiguatedEntity": AnyValue; "ShowWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.omniSearch.SearchToolExtension.SearchToolControl": { "command": TextValue; "originatorPID": NumberValue; "useMiniMC": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.SearchToolMCGrounding": { "rawQueries": TextValue; "quParses": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.omniSearch.SearchToolExtension.SearchToolMCQU": { "query": TextValue; "originatorPID": NumberValue; "useMiniMC": BoolValue; "personNames": TextValue; "petNames": TextValue; "locations": TextValue; "currentTime": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.podcasts.AddAudioToLibraryIntent": { "audioEntity": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.podcasts.EpisodeEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "duration" | "releaseDate" | "showName" | "title">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.podcasts.FollowShowAppIntent": { "show": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16735,8 +15628,6 @@ export type ParamTypes = {
   "com.apple.podcasts.PlayPauseWidgetIntent": { "episode": AnyValue; "episodePlaylist": EnumValue<"downloaded" | "latestEpisodes" | "listenNow" | "saved">; "playbackAccountDSID": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.podcasts.PodcastCollectionEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "title">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.podcasts.SearchPodcastsAppIntent": { "criteria": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.podcasts.SelectLibraryListAppIntent": { "list": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.podcasts.SelectWidgetShowAppIntent": { "show": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.podcasts.ShowEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "showDescription" | "title">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.podcasts.WarmupAudioQueueIntent": { "audioEntity": AnyValue; "requestIdentifierOverride": TextValue; "playbackAttributes": EnumValue<"repeat" | "shuffle">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.printcenter.CancelPrintJob": { "jobContextIdentifier": TextValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16744,7 +15635,6 @@ export type ParamTypes = {
   "com.apple.printcenter.PrintDocuments": { "documents": AnyValue; "printer": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.AddOrRemoveTagsAppIntent": { "operation": EnumValue<"add" | "remove">; "reminders": AnyValue; "tags": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.CompleteReminderAppIntent": { "reminder": AnyValue; "isCompleted": BoolValue; "completeSubtasks": BoolValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.reminders.CompleteRemindersAppIntent": { "reminders": AnyValue; "isCompleted": BoolValue; "completeSubtasks": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.CreateCustomSmartListAppIntent": { "name": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.CreateGroupAppIntent": { "name": TextValue; "lists": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.CreateSectionAppIntent": { "list": AnyValue; "name": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16752,15 +15642,11 @@ export type ParamTypes = {
   "com.apple.reminders.DeleteRemindersAppIntent": { "entities": AnyValue; "deleteSubtasks": BoolValue; "deleteRecurringReminders": EnumValue<"allFutureReminders" | "thisReminder">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.DeleteRemindersListGroupsAppIntent": { "entities": AnyValue; "deleteSublists": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.DeleteSectionsAppIntent": { "entities": AnyValue; "deleteReminders": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.reminders.GetDefaultListAppIntent": { "requireCloudKitAccount": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.GroupEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "name">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.GroupEntity-UpdatableEntity": { "entity": AnyValue; "nameUpdatableProperty": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.ListEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "name" | "type">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.ListEntity-UpdatableEntity": { "badge": AnyValue; "color": AnyValue; "entity": AnyValue; "parent": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.MoveRemindersAppIntent": { "reminders": AnyValue; "position": EnumValue<"bottom" | "top">; "targetType": EnumValue<"list" | "parentReminder" | "section">; "list": AnyValue; "section": AnyValue; "parentReminder": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.reminders.MoveRemindersToListAppIntent": { "reminders": AnyValue; "position": EnumValue<"bottom" | "top">; "targetList": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.reminders.MoveRemindersToParentReminderAppIntent": { "reminders": AnyValue; "position": EnumValue<"bottom" | "top">; "parentReminder": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.reminders.MoveRemindersToSectionAppIntent": { "reminders": AnyValue; "position": EnumValue<"bottom" | "top">; "targetSection": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.OpenGroupAppIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.OpenReminderAppIntent": { "target": AnyValue; "showDetail": BoolValue; "title": TextValue; "caption": TextValue; "inSmartList": EnumValue<"all" | "assigned" | "completed" | "flagged" | "scheduled" | "today">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.OpenSmartListAppIntent": { "target": EnumValue<"all" | "assigned" | "completed" | "flagged" | "scheduled" | "today">; "AppIntentDescriptor"?: DictionaryValue };
@@ -16769,12 +15655,10 @@ export type ParamTypes = {
   "com.apple.reminders.SectionEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "name">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.SectionEntity-UpdatableEntity": { "entity": AnyValue; "isCollapsed": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.SmartListEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "isHidden" | "type">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.reminders.SnoozeRemindersAppIntent": { "entities": AnyValue; "nextTriggerTime": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.TTRCreateListAppIntent": { "name": TextValue; "type": EnumValue<"groceries" | "standard">; "group": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.TTRCreateReminderAppIntent": { "title": TextValue; "note": TextValue; "isFlagged": BoolValue; "images": AnyValue; "tags": TextValue; "urls": TextValue; "dueDate": TextValue; "recurrence": AnyValue; "locationTrigger": AnyValue; "list": AnyValue; "section": AnyValue; "isAllDay": BoolValue; "earlyAlert": AnyValue; "vehicleTrigger": EnumValue<"connected" | "disconnected">; "priorityLevel": EnumValue<"high" | "low" | "medium" | "none">; "parentReminder": AnyValue; "contactPerson": AnyValue; "assignedPerson": AnyValue; "subtasks": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.TTROpenListAppIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.TTROpenSmartListAppIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.reminders.TTRReminderSetCompletedIntent": { "reminder": AnyValue; "isCompleted": BoolValue; "isFromUrgentReminderActivity": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.TTRSearchRemindersAppIntent": { "searchPhrase": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.UpdateGroupAppIntent": { "name": TextValue; "target": AnyValue; "lists": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.reminders.UpdateListAppIntent": { "target": AnyValue; "name": TextValue; "type": EnumValue<"groceries" | "standard">; "color": AnyValue; "badge": AnyValue; "parent": AnyValue; "propertyToUpdate": EnumValue<"badge" | "color" | "name" | "parent" | "type">; "AppIntentDescriptor"?: DictionaryValue };
@@ -16790,9 +15674,7 @@ export type ParamTypes = {
   "com.apple.screenshot.launcher.CaptureScreenIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.screenshot.launcher.CaptureSelectionIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.screenshot.launcher.CaptureSelectionWithVisualIntelligenceIntent": { "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.screenshot.launcher.CustomCaptureConfiguration": { "name": TextValue; "selectionStyle": EnumValue<"entireScreen" | "selectedPortion" | "selectedWindow">; "destination": EnumValue<"clipboard" | "desktop" | "documents" | "floatingThumbnail" | "mail" | "preview">; "timer": EnumValue<"fiveSeconds" | "tenSeconds" | "zero">; "showMousePointer": BoolValue; "hdr": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.screenshot.launcher.CustomCaptureIntent": { "arguments": TextValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.screenshot.launcher.CustomRecordConfiguration": { "name": TextValue; "selectionStyle": EnumValue<"entireScreen" | "selectedPortion" | "selectedWindow">; "destination": EnumValue<"desktop" | "documents" | "floatingThumbnail" | "mail" | "quickTimePlayer">; "timer": EnumValue<"fiveSeconds" | "tenSeconds" | "zero">; "showMouseClicks": BoolValue; "hdr": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.screenshot.launcher.CustomRecordIntent": { "value": BoolValue; "arguments": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.screenshot.launcher.RecordScreenIntent": { "value": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.screenshot.launcher.RecordSelectionIntent": { "value": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16806,18 +15688,13 @@ export type ParamTypes = {
   "com.apple.shortcuts.GenerateShortcutAction": { "prompt": TextValue; "answer": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.GetShortcutAttributesAction": { "attribute": EnumValue<"allowWhenLocked" | "onScreenContent" | "pinInMenuBar" | "quickActions" | "receivesInputFromSearch" | "showInShareSheet" | "showOnWatch">; "shortcut": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.MoveShortcutToFolderAction": { "shortcuts": AnyValue; "folder": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.shortcuts.OpenAppIntent": { "app": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.OpenNavigationDestinationAction": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.OpenShortcutsStaticDeepLinks": { "target": EnumValue<"advanced" | "legalNotices" | "root">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.OpenWorkflowAction": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.RenameShortcutAction": { "shortcut": AnyValue; "name": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.shortcuts.RunShortcutConfigurationIntent": { "shortcut": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.shortcuts.RunShortcutFromCollectionIntent": { "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.shortcuts.RunShortcutIntent": { "shortcut": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.SearchActionDrawerAction": { "query": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.SearchShortcutsAction": { "searchPhrase": TextValue; "folder": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.SetShortcutAttributesAction": { "operation": EnumValue<"toggle" | "turn">; "attribute": EnumValue<"allowWhenLocked" | "onScreenContent" | "pinInMenuBar" | "quickActions" | "receivesInputFromSearch" | "showInShareSheet" | "showOnWatch">; "shortcut": AnyValue; "state": BoolValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.shortcuts.ShortcutsFolderConfigurationIntent": { "collection": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.shortcuts.StopWorkflowAction": { "runningContextIdentifier": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent": { "audioEntity": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent": { "audioEntity": AnyValue; "playlist": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16833,7 +15710,6 @@ export type ParamTypes = {
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { "audioEntity": AnyValue; "playbackAttributes": EnumValue<"repeat" | "shuffle">; "queueLocation": EnumValue<"later" | "next" | "tail">; "destinations": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { "audioEntity": AnyValue; "playbackAttributes": EnumValue<"repeat" | "shuffle">; "queueLocation": EnumValue<"next" | "tail">; "destinations": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { "target": AnyValue; "affinityState": EnumValue<"dislike" | "like" | "unset">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.siri.SiriCrisisAppIntentsExtension._SiriCrisisPlaceholderIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool": { "situation": EnumValue<"abuse" | "activeShooting" | "assault" | "bullying" | "carAccident" | "crisisSupport" | "csamExplicit" | "csamHelpBadActor" | "csamHelpForContent" | "csamHelpVictim" | "danger" | "domesticViolence" | "dying" | "eatingDisorder" | "emergencyCall" | "fire" | "generalCrisis" | "generalEmergency" | "generalEmergencyHighRisk" | "generalEmergencyLowRisk" | "gunAssault" | "help" | "hostageSituation" | "kidnapping" | "medicalEmergency" | "mentalHealthEmergency" | "overdose" | "poisonControl" | "selfHarm" | "sexualAssault" | "stalking" | "substanceAbuse" | "suicide" | "suicidePrevention" | "terrorism" | "violence" | "violentEmergency">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "estimatedArrivalDate" | "preferences" | "transportationType" | "waypoints">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
@@ -16845,14 +15721,10 @@ export type ParamTypes = {
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail": { "to": AnyValue; "cc": AnyValue; "bcc": AnyValue; "subject": TextValue; "body": TextValue; "account": AnyValue; "attachments": AnyValue; "target": AnyValue; "isReplyAll": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail": { "sendLaterDate": TextValue; "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail": { "to": AnyValue; "cc": AnyValue; "bcc": AnyValue; "subject": TextValue; "body": TextValue; "account": AnyValue; "attachments": AnyValue; "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.siri.SiriNotebookAppIntentsExtension.SiriNotebookAppIntentsExtension": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent": { "notifications": AnyValue; "isReadLatest": BoolValue; "isCatchMeUp": BoolValue; "app": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool": { "notifications": AnyValue; "isReadLatest": BoolValue; "isCatchMeUp": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.siri.SiriPhoneAppIntentsExtension.ReadCallMessageIntent": { "message": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.siri.SiriPhoneAppIntentsExtension.SiriKitStartCallIntent": { "destination": AnyValue; "audioVisualMode": EnumValue<"audio" | "video">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent": { "url": TextValue; "uniqueID": TextValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.siri.SiriPhoneAppIntentsExtension.StartCrisisHelplineCallIntent": { "crisisResourceType": EnumValue<"domesticViolence" | "poisonControl" | "sexualAssault" | "suicidePrevention">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { "call": AnyValue; "audioRoute": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool": { "audioRoute": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool": { "AppIntentDescriptor"?: DictionaryValue };
@@ -16881,7 +15753,6 @@ export type ParamTypes = {
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitPrepareMessagesForReadingIntent": { "message": AnyValue; "isRead": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitSendMessageIntent": { "destination": AnyValue; "subject": TextValue; "content": TextValue; "audioMessage": AnyValue; "attachments": AnyValue; "locations": AnyValue; "links": TextValue; "scheduledDate": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent": { "message": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriMessagesAppIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool": { "draft": AnyValue; "recipients": AnyValue; "subject": TextValue; "content": TextValue; "isAudioMessage": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS": { "destination": AnyValue; "subject": TextValue; "content": TextValue; "attachments": AnyValue; "locations": AnyValue; "links": TextValue; "audioMessage": AnyValue; "isAudioMessage": BoolValue; "scheduledDate": TextValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool": { "content": TextValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16900,12 +15771,10 @@ export type ParamTypes = {
   "com.apple.sociallayerd.CollaborationIntent": { "recipients": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.AddSymbolToWatchlistIntent": { "symbol": AnyValue; "watchlist": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.BlockIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.stocks.DecreaseTextSizeIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.DeleteSymbolFromWatchlistIntent": { "symbol": AnyValue; "watchlist": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.DeleteWatchlistsIntent": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.FollowIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.GetSymbolQuoteIntent": { "symbol": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.stocks.IncreaseTextSizeIntent": { "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.NewWatchlistIntent": { "name": TextValue; "symbols": AnyValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.NewsTabDeepLink": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.OpenArticleIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -16920,8 +15789,6 @@ export type ParamTypes = {
   "com.apple.stocks.OpenWatchlistIntent": { "target": AnyValue; "symbol": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.PlayArticleIntent": { "article": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.SaveArticleIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.stocks.StockIntent": { "stock": AnyValue; "newsDisplayConfiguration": EnumValue<"afterHours" | "always" | "never">; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.stocks.StocksOverviewIntent": { "selectedWatchlist": AnyValue; "newsDisplayConfiguration": EnumValue<"afterHours" | "always" | "never">; "showWatchlistNameValue": BoolValue; "showMoreDataValue": BoolValue; "showMoreSymbolsValue": BoolValue; "OpenWhenRun": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.SymbolEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "exchange" | "name" | "symbol">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.SymbolWidgetEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "exchange" | "name" | "symbol">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.stocks.UnblockIntent": { "target": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -17360,7 +16227,6 @@ export type ParamTypes = {
   "com.apple.systempreferences.VPNConfigurationEntity-UpdatableEntity": { "connectOnDemand": BoolValue; "entity": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.systempreferences.WidgetsAndOnenessEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "useiPhoneWidgets">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity": { "entity": AnyValue; "useiPhoneWidgets": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.usernotificationsd.PrepareUserNotificationIntent": { "notifications": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.usernotificationsd.UserNotificationEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "application" | "body" | "date" | "recipients" | "sender" | "summary" | "threadIdentifier">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.wallpaper.agent.SetWallpaperIntent": { "wallpaper": AnyValue; "showOnAllSpaces": BoolValue; "showAsScreenSaver": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.wallpaper.agent.SetWallpaperPhotoIntent": { "photo": AnyValue; "showOnAllSpaces": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
@@ -17384,7 +16250,6 @@ export type ParamTypes = {
   "com.apple.weather.SetPressureUnitIntent": { "unit": EnumValue<"hPa" | "inHg" | "kPa" | "mbar" | "mmHg">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.weather.SetTemperatureUnitIntent": { "unit": EnumValue<"celsius" | "fahrenheit" | "mirrorSystem">; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.weather.SetWindUnitIntent": { "unit": EnumValue<"bft" | "kph" | "kts" | "mph" | "ms">; "AppIntentDescriptor"?: DictionaryValue };
-  "com.apple.weather.SyncDataIntent": { "data": AnyValue; "AppIntentDescriptor"?: DictionaryValue };
   "com.apple.weather.SyncedDataEntity": { "WFContentItemFilter": AnyValue; "WFContentItemSortProperty": EnumValue<"Random" | "encodedSyncedData">; "WFContentItemSortOrder": TextValue; "WFContentItemLimitEnabled": BoolValue; "WFContentItemLimitNumber": NumberValue; "WFCompoundType": EnumValue<"0" | "1">; "WFContentItemInputParameter": EnumValue<"Library">; "AppIntentDescriptor"?: DictionaryValue };
   "is.workflow.actions.appendnote": { "operation": EnumValue<"append" | "prepend">; "entity": AnyValue; "text": TextValue; "section": TextValue; "ignoreWhitespace": BoolValue; "interpretAsMarkdown": BoolValue; "AppIntentDescriptor"?: DictionaryValue };
   "is.workflow.actions.deletephotos": { "entities": AnyValue; "AppIntentDescriptor"?: DictionaryValue };

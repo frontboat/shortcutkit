@@ -6,6 +6,83 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.6.0 (2026-09-04)
+
+- **140 App Intents entries removed** that are not actions a shortcut can run: 29 widget,
+  control, Live Activity and Focus configuration intents (their system protocols say so; see
+  Apple's "App intent types" page) and 111 the editor on this Mac hides (`visibilityFlags` 0:
+  internal helpers such as "Fetch Contact Avatars"). 1,441 Apple App Intents remain, from 77
+  apps. Removals are breaking, hence the minor bump under 0.x.
+- Each App Intent record now carries its system protocols and `hidden`, `configuration` and
+  `synthesized` flags; the 473 synthesized "Get …"/"Update …" entity actions are kept.
+
+### Data: macOS 27.0 (26A5421a), Shortcuts 10.0 build 5037.0.17, extracted 2026-09-04T13:10:34Z
+
+Recommended bump: **major**
+
+- Removed actions (140):
+  - `com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent`
+  - `com.apple.AddressBook.FetchContactAvatarIntent`
+  - `com.apple.AddressBook.FetchContactIntent`
+  - `com.apple.Home.ActivateSceneIntent`
+  - `com.apple.Home.AutomateAttributeValueIntent`
+  - `com.apple.Home.AutomateSceneIntent`
+  - `com.apple.Home.DeltaAttributeValueIntent`
+  - `com.apple.Home.ErrorIntent`
+  - `com.apple.Home.ForecastWidgetConfiguration`
+  - `com.apple.Home.GetAttributeValueIntent`
+  - `com.apple.Home.GetDeviceInfoIntent`
+  - `com.apple.Home.HistoricalUsageWidgetConfiguration`
+  - `com.apple.Home.HomeSingleTileConfigurationIntent`
+  - `com.apple.Home.HomeXLModuleConfigurationIntent`
+  - `com.apple.Home.OpenURLInHomeIntent`
+  - `com.apple.Home.RecommendedItemIntent`
+  - `com.apple.Home.SecureToggleIntent`
+  - `com.apple.Home.SetAttributeValueIntent`
+  - `com.apple.Home.ShowDeviceResultIntent`
+  - `com.apple.Home.ShowErrorIntent`
+  - `com.apple.Home.ShowNavigationIntent`
+  - `com.apple.Home.ShowSceneResultIntent`
+  - `com.apple.Home.TileControlAction`
+  - `com.apple.Home.ToggleAttributeIntent`
+  - `com.apple.Home.ToggleControlConfigurationIntent`
+  - `com.apple.Home.UtilityRateInfoWidgetConfiguration`
+  - `com.apple.Magnifier.MagnifierIntent`
+  - `com.apple.MobileSMS.ConversationListFocusFilterAction`
+  - `com.apple.MobileSMS.FetchConversationIdentifierIntent`
+  - `com.apple.MobileSMS.FetchDowntimeConversationListIntent`
+  - `com.apple.MobileSMS.FetchMutedConversationListIntent`
+  - `com.apple.MobileSMS.MuteConversationIntent`
+  - `com.apple.MobileSMS.OpenConversationListIntent`
+  - `com.apple.Notes.GenerateFallbackPDF`
+  - `com.apple.Notes.QuickNoteIntent`
+  - `com.apple.PeopleViewService.SelectPersonIntent`
+  - `com.apple.PeopleViewService.URLAppIntent`
+  - `com.apple.Photos.PLPhotosReliveWidgetConfigurationIntent`
+  - `com.apple.Photos.PhotosReliveWidgetFeaturedConfiguration`
+  - `com.apple.Safari.AddHistoryItem`
+  - `com.apple.Safari.CloseTabsAssistantIntent`
+  - `com.apple.Safari.CreateTabAssistantIntent`
+  - `com.apple.Safari.DeleteHistoryItems`
+  - `com.apple.Safari.GetHistoryItems`
+  - `com.apple.Safari.NotifyUserForUpdatedPageIntent`
+  - `com.apple.Safari.OpenBookmarkAssistantIntent`
+  - `com.apple.Safari.OpenHistoryItem`
+  - `com.apple.Safari.OpenTabGroupForFocus`
+  - `com.apple.Safari.ReportNotifyMeWhenAutomationResult`
+  - `com.apple.Safari.RequestWebPageContextIntent`
+  - `com.apple.ShortcutsActions.PlayMusicTopHitAction`
+  - `com.apple.ShortcutsActions.PlayPodcastTopHitAction`
+  - `com.apple.ShortcutsActions.StartCallTopHitAction`
+  - `com.apple.ShortcutsActions.StartFaceTimeAudioCallTopHitAction`
+  - `com.apple.ShortcutsActions.StartFaceTimeCallTopHitAction`
+  - `com.apple.ShortcutsActions.StartFaceTimeVideoCallTopHitAction`
+  - `com.apple.Spotlight.SearchSpotlightIntentInternal`
+  - `com.apple.VoiceMemos.OpenResetAnalyticsIdentifierEntity`
+  - `com.apple.VoiceMemos.RCCombineRecordings`
+  - `com.apple.VoiceMemos.RCControlCenterToggleRecording`
+  - … 80 more
+
 ## 0.5.1 (2026-09-04)
 
 - The encoding table covers the SiriKit-era value types too: app parameters map to

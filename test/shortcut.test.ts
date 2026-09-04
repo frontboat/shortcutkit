@@ -55,7 +55,7 @@ describe("shortcutkit", () => {
 
 describe("typed catalogue", () => {
   test("every built-in action has a key and parameter keys are typed", () => {
-    expect(Object.keys(ACTIONS).length).toBe(2015);
+    expect(Object.keys(ACTIONS).length).toBe(1875);
     expect(actions.setstoredcontent).toBe("is.workflow.actions.setstoredcontent");
     const s = new Shortcut("T");
     s.action(actions.setstoredcontent, { WFInput: "x", WFStoredContentKey: "k", WFStoredContentGlobalValue: true });
@@ -129,7 +129,7 @@ describe("App Intents actions", () => {
   });
   test("every App Intent has a descriptor and a unique key", () => {
     const withDescriptor = Object.values(ACTIONS).filter((a) => "descriptor" in a).length;
-    expect(withDescriptor).toBe(1581);
+    expect(withDescriptor).toBe(1441);
     expect(new Set(Object.keys(actions)).size).toBe(Object.keys(ACTIONS).length);
   });
 });

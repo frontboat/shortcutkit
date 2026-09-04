@@ -44,7 +44,7 @@ CI (`.github/workflows/ci.yml`) runs typecheck, `bun test`, builds `dist/` and i
 
 ## Conventions
 
-- Keep the TypeScript and Python packages in feature parity; a change to `src/index.ts` usually needs the same change in `python/src/shortcutkit/__init__.py`, and tests in `test/shortcut.test.ts` assert exact counts (434 built-in definitions, 2015 catalogue entries, 1581 with descriptors) that change only with a data refresh.
+- Keep the TypeScript and Python packages in feature parity; a change to `src/index.ts` usually needs the same change in `python/src/shortcutkit/__init__.py`, and tests in `test/shortcut.test.ts` assert exact counts (434 built-in definitions, 1875 catalogue entries, 1441 with descriptors) that change only with a data refresh.
 - Data refreshes follow semver for the whole repo: additions are minor, removals or class changes are major. Update `CHANGELOG.md` with `bun run changelog` output and bump both `package.json` and `python/pyproject.toml`.
 - `data/gallery-workflows.json`, `data/app-provided-actions.json` and `data/builtin-action-identifiers.txt` are local-only dumps (gitignored); do not rely on them in committed code.
 - Other tools: `tools/dump-gallery.py`, `tools/dump-appintents-actions.py`, `tools/dump-library-encodings.py` (read-only inspection of Apple's gallery, installed apps' App Intents, and the local Shortcuts library), `tools/fetch-apple-docs.py` (Apple docs as markdown), `tools/diff-data.py` (semver recommendation for a data refresh).

@@ -36,6 +36,9 @@ PRIMITIVES = {0x08: "any", 0x10: "bool", 0x18: "int", 0x20: "double", 0x30: "str
               0x90: "app", 0xb0: "recurrence", 0xc0: "measurement", 0xc8: "location"}
 KIND_OF = {"string": "text", "richText": "text", "url": "text", "bool": "bool", "int": "number", "double": "number"}
 TYPE_KIND = {1: "primitive", 2: "entity", 3: "enum", 4: "enum", 6: "type"}
+# App Intents protocols that configure widgets, controls, Live Activities and Focus filters
+# (developer.apple.com/documentation/appintents/app-intent-types); not actions a shortcut runs.
+CONFIGURATION_PROTOCOLS = {"widgetConfiguration", "controlConfiguration", "liveActivity", "focusConfiguration"}
 
 
 def primitive_name(blob):
@@ -156,8 +159,13 @@ def main(argv):
         output_name = loc[1] or next((type_display[t] for t in outputs if t in type_display), None)
         keywords = [k for (k,) in con.execute("select keyword from SearchKeywords where toolId=? and locale='en' order by \"order\"", (row_id,))]
         link_ids = [k for (k,) in con.execute("select identifier from LinkActionIdentifiers where toolId=?", (row_id,))]
+        protocols = sorted({p for (p,) in con.execute("select identifier from SystemToolProtocols where toolId=?", (row_id,))})
         container = containers.get(container_id, {})
         tool = {"identifier": ident, "key": python_name, "toolType": tool_type, "provider": provider, "visibilityFlags": vis, "flags": flags,
+                # visibilityFlags 0 is what the editor on this Mac does not offer (built-ins: iPad-only Stage
+                # Manager, the retired Watch Me Do; App Intents: internal helpers such as "Fetch Contact Avatars").
+                "hidden": vis == 0, "protocols": protocols, "configuration": bool(set(protocols) & CONFIGURATION_PROTOCOLS),
+                "synthesized": "synthesizedTool" in protocols,
                 "app": container, "attribution": containers.get(attribution_id) if attribution_id and attribution_id != container_id else None,
                 "name": loc[0], "outputName": output_name, "outputNameSource": "resultLabel" if loc[1] else ("outputType" if output_name else None),
                 "description": loc[2], "descriptionResult": loc[3], "descriptionNote": loc[4],
@@ -169,7 +177,8 @@ def main(argv):
             labels = {p["key"]: p["name"] for p in params if p.get("name")}
             names[ident] = {"name": loc[0], "description": loc[2], "outputName": loc[1], "enumCases": enums, "labels": labels}
     apple = [t for t in tools if t["provider"] == "WFLinkActionProvider" and str(t["app"].get("bundleIdentifier", "")).startswith("com.apple.")
-             and t["app"].get("teamId") in (None, "0000000000")]
+             and t["app"].get("teamId") in (None, "0000000000") and not t["hidden"] and not t["configuration"]]
+    excluded = sum(1 for t in tools if t["provider"] == "WFLinkActionProvider" and str(t["app"].get("bundleIdentifier", "")).startswith("com.apple.") and (t["hidden"] or t["configuration"]))
     data.mkdir(parents=True, exist_ok=True)
     prov = {"source": os.path.basename(db), "osVersion": meta.get("OSVersion"), "indexerSource": meta.get("IndexerSource"),
             "toolkitVersion": json.loads(meta.get("VersionKey", "{}")).get("uuid"),
@@ -181,7 +190,7 @@ def main(argv):
     for t in tools:
         by_provider[t["provider"]] = by_provider.get(t["provider"], 0) + 1
     print(f"{len(tools)} tools in the index ({', '.join(f'{k} {v}' for k, v in sorted(by_provider.items()))}); "
-          f"{len(apple)} Apple App Intents -> {data / 'apple-app-intents.json'}; {len(names)} names -> {data / 'toolkit-names.json'}")
+          f"{len(apple)} Apple App Intents -> {data / 'apple-app-intents.json'} ({excluded} hidden or configuration-only left out); {len(names)} names -> {data / 'toolkit-names.json'}")
 
 
 if __name__ == "__main__":

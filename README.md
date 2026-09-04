@@ -28,7 +28,7 @@ files you are using.
 
 - **Every built-in action, typed.** `actions.*` lists all 434 identifiers, with each action's
   name, description, summary, output and parameter keys as hover documentation.
-- **Apple's apps too.** 1,581 App Intents actions from 80 Apple apps and system components,
+- **Apple's apps too.** 1,441 App Intents actions from 77 Apple apps and system components,
   Create Reminder, Create Note, Send Message, the System Settings toggles, under the keys the
   Shortcuts app itself assigns them: `actions.reminders_create_reminder`. Enumeration cases are
   typed, and the `AppIntentDescriptor` the file needs is added for you.
@@ -60,7 +60,7 @@ manager, whose actions are defined in that language.
 
 shortcutkit is a library, not a language. You write TypeScript or Python you already know, and
 the action catalogue comes from the Shortcuts engine rather than from a maintainer. All 434
-built-in actions and 1,581 Apple App Intents are covered today, and the next macOS update is
+built-in actions and 1,441 Apple App Intents are covered today, and the next macOS update is
 one `bun run extract` away.
 
 ## Installation
@@ -165,7 +165,7 @@ python -m shortcutkit demo out.shortcut
   to end, every field.
 - [`docs/builtin-actions-reference.md`](docs/builtin-actions-reference.md): all 434 built-in
   actions with their parameters.
-- [`docs/apple-app-intents-reference.md`](docs/apple-app-intents-reference.md): the 1,581 App
+- [`docs/apple-app-intents-reference.md`](docs/apple-app-intents-reference.md): the 1,441 App
   Intents actions of Apple's apps, by app, with parameter kinds and enumeration cases.
 - [`docs/parameter-encodings.md`](docs/parameter-encodings.md): how each parameter class is
   serialized.

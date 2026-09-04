@@ -14,7 +14,7 @@ every built-in action, plus the Shortcuts app's own action index for the App Int
 Apple's apps. Every identifier, parameter key and value encoding came out of the engine, not from a
 person reading files, so the package cannot disagree with the app.
 
-All 434 built-in actions and 1,581 Apple App Intents actions are bundled with the value kind
+All 434 built-in actions and 1,441 Apple App Intents actions are bundled with the value kind
 each parameter accepts, and
 `action()` checks your call against them before anything is written. A wrong key or a string
 where a boolean belongs raises `ValueError`. A file built from plain code signs, imports and
@@ -33,7 +33,7 @@ Both live at https://github.com/frontboat/shortcutkit.
 - **Every built-in action, as a constant.** `actions.SETSTOREDCONTENT` and 433 more, so a
   typo is an `AttributeError` rather than a silent bad file.
 - **Apple's apps too.** `actions.REMINDERS_CREATE_REMINDER`, `actions.NOTES_CREATE_NOTE` and
-  1,579 more App Intents actions from 80 Apple apps and system components, with the
+  1,439 more App Intents actions from 77 Apple apps and system components, with the
   `AppIntentDescriptor` the file needs added for you.
 - **Parameters checked before you write anything.** `ACTIONS[identifier]` gives the name,
   parameter keys and output name; `PARAM_KINDS[identifier]` gives the value kind each key
@@ -59,7 +59,7 @@ package on PyPI, archived 2024) and [shortcuts-js](https://github.com/joshfarran
 space and is a programming language with its own compiler rather than a library.
 
 shortcutkit is a plain Python library whose action catalogue comes from the Shortcuts engine
-rather than from a maintainer. All 434 built-in actions and 1,581 Apple App Intents are covered, and the data regenerates
+rather than from a maintainer. All 434 built-in actions and 1,441 Apple App Intents are covered, and the data regenerates
 after each macOS update.
 
 ## Installation
@@ -133,7 +133,7 @@ python -m shortcutkit demo out.shortcut
 - [Built-in actions reference](https://github.com/frontboat/shortcutkit/blob/main/docs/builtin-actions-reference.md):
   all 434 built-in actions with their parameters.
 - [Apple App Intents reference](https://github.com/frontboat/shortcutkit/blob/main/docs/apple-app-intents-reference.md):
-  the 1,581 App Intents actions of Apple's apps, by app.
+  the 1,441 App Intents actions of Apple's apps, by app.
 - [Parameter encodings](https://github.com/frontboat/shortcutkit/blob/main/docs/parameter-encodings.md):
   how each parameter class is serialized.
 - [Extraction notes](https://github.com/frontboat/shortcutkit/blob/main/docs/extraction.md):

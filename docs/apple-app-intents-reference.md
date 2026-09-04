@@ -5,7 +5,7 @@ Shortcuts app indexes them (`tools/dump-toolkit-registry.py`). Identifier, param
 kinds and enumeration cases are what a `.shortcut` file needs; `Shortcut.action()` adds the
 `AppIntentDescriptor` automatically. Generated; do not edit.
 
-1581 actions from 80 apps. Source: {'indexerSource': 'BackgroundShortcutRunner', 'launchServicesSequence': 11580, 'osVersion': '26A5421a', 'source': 'Tools-prod.v79-8281961B-2D2A-4863-967F-B85898F44141.sqlite', 'toolkitVersion': '9C1DBC60-6B3D-4993-B5BA-1525716A6D98'}
+1441 actions from 77 apps. Source: {'indexerSource': 'BackgroundShortcutRunner', 'launchServicesSequence': 11580, 'osVersion': '26A5421a', 'source': 'Tools-prod.v79-8281961B-2D2A-4863-967F-B85898F44141.sqlite', 'toolkitVersion': '9C1DBC60-6B3D-4993-B5BA-1525716A6D98'}
 
 ## App Store (`com.apple.AppStore`)
 
@@ -241,18 +241,6 @@ Output:  `none`
 | `changeOperation` | Font Change | string | enum: `decrease`, `increase` |
 | `target` | Settings | any | entity BookSettingsEntity |
 | `book` | Book | any | entity BookAppEntity |
-
-### Close Book
-
-`com.apple.iBooksX.CloseBookIntent` · key `books_close_book`
-  
-Close a book you specify, in the Books app.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Book to Close | any | entity BookAppEntity |
 
 ### Open View or Collection in Books App
 
@@ -629,27 +617,6 @@ Output: Event `com.apple.iCal.EventEntity`
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | event | string | enum: `Library` |
 
-### Fetch Transferable Event By URL Intent
-
-`com.apple.iCal.FetchTransferableEventByURLIntent` · key `calendar_fetch_transferable_event_by_url_intent`
-  
-Output: TransferableEventEntity <no loc> `com.apple.iCal.TransferableEventEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `url` | URL | text | url |
-
-### Fetch Transferable Events In Range Intent <no loc>
-
-`com.apple.iCal.FetchTransferableEventsInRangeIntent` · key `calendar_fetch_transferable_events_in_range_intent_no_loc`
-  
-Output: TransferableEventEntity <no loc> `com.apple.iCal.TransferableEventEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `rangeStart` | Start Date <no loc> | any | date |
-| `rangeEnd` | End Date <no loc> | any | date |
-
 ### Highlight Event
 
 `com.apple.iCal.HighlightEventIntent` · key `calendar_highlight_event`
@@ -689,17 +656,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | Event | any | entity EventEntity |
-
-### List Events Intent <no loc>
-
-`com.apple.iCal.ListEventsIntent` · key `calendar_list_events_intent_no_loc`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `description` | Description <no loc> | text | string |
-| `target` | Events <no loc> | any | entity EventEntity |
 
 ### Open Calendar Editor
 
@@ -776,36 +732,6 @@ Output:  `none`
 |---|---|---|---|
 | `target` | Inbox Item | any | entity InboxItemEntity |
 | `response` | Response | string | enum: `accept`, `addToCalendar`, `decline`, `delete`, `ignore`, `join`, `maybe`, `ok`, `reportJunk` |
-
-### Set Calendar Focus Filter
-
-`com.apple.iCal.SetCalendarFocusConfiguration` · key `calendar_set_calendar_focus_filter`
-  
-Sets the behavior of the Calendar app when the given Focus is enabled.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `Mode` | Mode | string | enum: `Clear`, `Set`, `Toggle`, `Turn Off`, `Turn On` |
-| `FocusMode` | Focus | any | entity WFFocusModeContentItem |
-| `calendars` | Calendars | any | entity CalendarEntity |
-
-### Test Compose Engine
-
-`com.apple.iCal.TestComposeEngineIntent` · key `calendar_test_compose_engine`
-  
-Output:  `string`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `input` | Input | text | string |
-| `requestedDetails` | Requested Details | string | enum: `attendees`, `canonicalLocation`, `category`, `location`, `startDate` |
-| `rangeStart` | Range Start | any | date |
-| `rangeEnd` | Range End | any | date |
-| `maxResults` | Max results | number | int |
-| `dataSources` | Data Sources | string | enum: `attendeesFromContactsAutocomplete`, `attendeesFromDirectorySearch`, `attendeesFromIntelligencePlatform`, `attendeesFromRecents` |
-| `dateNow` | Date Now | any | date |
 
 ### Find TransferableCalendarEntity <no loc>
 
@@ -1087,18 +1013,6 @@ Output:  `none`
 |---|---|---|---|
 | `tab` | Tab | string | enum: `alarm`, `clock`, `stopwatch`, `timer` |
 
-### Open Clock Tab
-
-`com.apple.clock.OpenTabIntent` · key `clock_open_clock_tab`
-  
-Opens tab in the Clock app.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Clock | string | enum: `alarm`, `stopwatch`, `timer`, `worldclock` |
-
 ### Pause Timer
 
 `com.apple.clock.PauseTimerIntent` · key `clock_pause_timer`
@@ -1361,32 +1275,6 @@ Output:  `none`
 |---|---|---|---|
 | `entities` | Contacts | any | entity ContactEntity |
 
-### Fetch Avatars for Contacts
-
-`com.apple.AddressBook.FetchContactAvatarIntent` · key `contacts_fetch_avatars_for_contacts`
-  
-Fetch Avatars from the contacts database
-  
-Output: Contact Avatar Fetch Result `com.apple.AddressBook.ContactAvatarFetchResultEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `identifiers` | Identifiers | text | string |
-| `kinds` | Kinds | string | enum: `avatarImage`, `monogram`, `poster`, `recipe`, `silhouette` |
-
-### Fetch Contacts
-
-`com.apple.AddressBook.FetchContactIntent` · key `contacts_fetch_contacts`
-  
-Fetch contacts from the contacts database
-  
-Output: Contact Fetch Result `com.apple.AddressBook.ContactFetchResultEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `identifiers` | Contact Identifiers | text | string |
-| `keysToFetch` | Keys to Fetch | text | string |
-
 ### Search in Contacts App
 
 `com.apple.AddressBook.SearchInContactsIntent` · key `contacts_search_in_contacts_app`
@@ -1438,31 +1326,6 @@ Output:  `none`
 | `highlightedValue` | Highlighted Detail | any | entity HighlightedDetail |
 | `highlightedPropertyType` | Highlighted Property Type | string | enum: `birthday`, `contactRelation`, `custom`, `emailAddress`, `note`, `phoneNumber`, `postalAddress` |
 | `shouldEdit` | Should open for editing | bool | bool |
-
-### Select Person
-
-`com.apple.PeopleViewService.SelectPersonIntent` · key `com_apple_people_view_service_select_person`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `person` | Contact | any | entity PersonTypeAppEntity |
-| `shouldShowButtons` | Show Buttons | bool | bool |
-| `messageButton` | Message | any | entity QuickActionAppHandle |
-| `callButton` | Call | any | entity QuickActionAppHandle |
-| `verticalLayoutDT` | Vertical Layout | bool | bool |
-| `verticalLayoutDF` | Vertical Layout | bool | bool |
-
-### Open URL
-
-`com.apple.PeopleViewService.URLAppIntent` · key `com_apple_people_view_service_open_url`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `url` | URL | text | url |
 
 ## ControlCenter (`com.apple.controlcenter`)
 
@@ -1528,22 +1391,6 @@ Output:  `none`
 
 ## Find My (`com.apple.findmy`)
 
-### Choose Person
-
-`com.apple.findmy.FriendSelectorIntent` · key `com_apple_findmy_choose_person`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `contact` | Person | any | entity WidgetPersonEntity |
-
-### Preview_Intent_Only
-
-`com.apple.findmy.Intent` · key `com_apple_findmy_preview_intent_only`
-  
-Output:  `none`
-
 ### Find Item
 
 `com.apple.findmy.ItemEntity` · key `com_apple_findmy_find_item`
@@ -1559,16 +1406,6 @@ Output: Item `com.apple.findmy.ItemEntity`
 | `WFContentItemLimitNumber` | Get | number | double |
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | item | string | enum: `Library` |
-
-### Choose Item
-
-`com.apple.findmy.ItemSelectorIntent` · key `com_apple_findmy_choose_item`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `source` | Item | any | entity WidgetItemEntity |
 
 ### Find Person
 
@@ -1836,34 +1673,6 @@ Output: Board `com.apple.freeform.CRLBoardEntity`
 | `url` | URL | text | url |
 | `OpenWhenRun` | Open When Run | bool | bool |
 
-### Add Sticky Note to Board
-
-`com.apple.freeform.CRLAddStickyNoteToBoardIntent` · key `freeform_add_sticky_note_to_board`
-  
-Adds a sticky note to a board (empty or with text in it).
-  
-Output: Board `com.apple.freeform.CRLBoardEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `board` | Board | any | entity CRLBoardEntity |
-| `string` | Text | text | richText |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Add Text to Board
-
-`com.apple.freeform.CRLAddTextToBoardIntent` · key `freeform_add_text_to_board`
-  
-Adds a text box to a board (empty or with text in it).
-  
-Output: Board `com.apple.freeform.CRLBoardEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `board` | Board | any | entity CRLBoardEntity |
-| `string` | Text | text | richText |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
 ### Find Board
 
 `com.apple.freeform.CRLBoardEntity` · key `freeform_find_board`
@@ -2013,50 +1822,6 @@ Output: Board `com.apple.freeform.CRLBoardEntity`
 | `images` | Photos | any | file |
 | `OpenWhenRun` | Open When Run | bool | bool |
 
-### Add Shape to Board
-
-`com.apple.freeform.CRLInsertShapeToBoardIntent` · key `freeform_add_shape_to_board`
-  
-Adds a shape to a board (empty or with text in it).
-  
-Output: Board `com.apple.freeform.CRLBoardEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `board` | Board | any | entity CRLBoardEntity |
-| `shapes` | Shape | string | enum: `circle`, `line`, `roundedRectangle`, `square`, `star`, `triangle` |
-| `string` | Text | text | richText |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Insert Text
-
-`com.apple.freeform.CRLInsertTextToBoardIntent` · key `freeform_insert_text`
-  
-Adds text to a board in a text box or a specified container.
-  
-Output: Board `com.apple.freeform.CRLBoardEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `board` | Board | any | entity CRLBoardEntity |
-| `strings` | Text | text | richText |
-| `container` | Container | string | enum: `stickyNote`, `textbox` |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Add Link to Board
-
-`com.apple.freeform.CRLInsertURLToBoardIntent` · key `freeform_add_link_to_board`
-  
-Adds a web link to a board.
-  
-Output: Board `com.apple.freeform.CRLBoardEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `board` | Board | any | entity CRLBoardEntity |
-| `url` | URL | text | url |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
 ### Open Board
 
 `com.apple.freeform.CRLOpenBoardIntent` · key `freeform_open_board`
@@ -2068,33 +1833,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | Board | any | entity CRLBoardEntity |
-
-### Rename Board
-
-`com.apple.freeform.CRLRenameBoardIntent` · key `freeform_rename_board`
-  
-Renames a board.
-  
-Output: Board `com.apple.freeform.CRLBoardEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `entity` | Board | any | entity CRLBoardEntity |
-| `property` | Name | text | string |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Resize Text
-
-`com.apple.freeform.CRLResizeSelectionFontIntent` · key `freeform_resize_text`
-  
-Increases or decreases the font size of the text selected on the board.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `board` | Board | any | entity CRLBoardEntity |
-| `behavior` | Change | string | enum: `larger`, `smaller` |
 
 ### Resize Text
 
@@ -2122,37 +1860,6 @@ Output: Board `com.apple.freeform.CRLBoardEntity`
 | `target` | Board | any | entity CRLBoardEntity |
 | `title` | Name | text | string |
 | `OpenWhenRun` | Open When Run | bool | bool |
-
-### Utilities Intent
-
-`com.apple.freeform.CRLUtilitiesIntent` · key `freeform_utilities_intent`
-  
-Output:  `string`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `arguments` | Input Arguments | text | string |
-| `operation` | Operation | string | enum: `acceptSharedBoard`, `boardID`, `downloadBoard`, `downloadStatus`, `exportBoard`, `importBoard`, `manipulate`, `resetBoard`, `shareBoard`, `stopSharingBoard` |
-
-### Create New Freeform Board
-
-`com.apple.freeform.CRLiOSCreateBoardIntent` · key `freeform_create_new_freeform_board`
-  
-Create a new board for Freeform
-  
-Output:  `none`
-
-### Open Freeform Board
-
-`com.apple.freeform.CRLiOSOpenBoardIntent` · key `freeform_open_freeform_board`
-  
-Open the specified board in Freeform
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `board` | Board | any | entity CRLiOSBoardEntity |
 
 ## GameCenterSettingsExtension (`com.apple.GameCenter.Settings.DeviceExpertExtension`)
 
@@ -2257,46 +1964,6 @@ Output:  `none`
 
 ## Home (`com.apple.Home`)
 
-### Activate Scene
-
-`com.apple.Home.ActivateSceneIntent` · key `home_activate_scene`
-  
-Output: Scene Result `com.apple.Home.SceneResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `homeEntity` | Home | any | entity HomeEntity |
-| `sceneEntity` | Scene | any | entity SceneEntity |
-| `timeout` | Timeout | number | double |
-
-### Automate Set Attribute Value
-
-`com.apple.Home.AutomateAttributeValueIntent` · key `home_automate_set_attribute_value`
-  
-Output: Automation Result `com.apple.Home.AutomationResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `attributes` | Attributes | any | entity Attribute.airParticulateDensity |
-| `devices` | Devices | any | entity DeviceEntity |
-| `homeEntity` | Home | any | entity HomeEntity |
-| `rooms` | Rooms | any | entity RoomEntity |
-| `trigger` | Trigger | any | entity TriggerEventType.absoluteTime |
-| `recurrenceWeekdays` | Recurrence | any | entity TriggerRecurrenceWeekdaysEntity |
-| `name` | Name | text | string |
-
-### Automate Scene
-
-`com.apple.Home.AutomateSceneIntent` · key `home_automate_scene`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `sceneEntity` | Scene | any | entity SceneEntity |
-| `trigger` | Trigger | any | entity TriggerEventType.absoluteTime |
-| `recurrenceWeekdays` | Recurrence | any | entity TriggerRecurrenceWeekdaysEntity |
-
 ### Find 
 
 `com.apple.Home.CameraClipEntity` · key `home_find`
@@ -2312,23 +1979,6 @@ Output: CameraClipEntity `com.apple.Home.CameraClipEntity`
 | `WFContentItemLimitNumber` | Get | number | double |
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | cameraclipentity | string | enum: `Library` |
-
-### Delta Attribute
-
-`com.apple.Home.DeltaAttributeValueIntent` · key `home_delta_attribute`
-  
-Output: Device Result `com.apple.Home.DeviceResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `attribute` | Attribute | any | entity Attribute.airParticulateDensity |
-| `delta` | Delta type | string | enum: `decrease`, `increase` |
-| `devices` | Devices | any | entity DeviceEntity |
-| `homeEntity` | Home | any | entity HomeEntity |
-| `zoneEntities` | Zones | any | entity ZoneEntity |
-| `roomEntities` | Rooms | any | entity RoomEntity |
-| `timeout` | Timeout | number | double |
-| `OpenWhenRun` | Open When Run | bool | bool |
 
 ### Find Device
 
@@ -2346,118 +1996,11 @@ Output: Device `com.apple.Home.DeviceEntity`
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | device | string | enum: `Library` |
 
-### Error Intent
-
-`com.apple.Home.ErrorIntent` · key `home_error_intent`
-  
-Output:  `none`
-
-### Show the Grid Forecast for a Home or your location.
-
-`com.apple.Home.ForecastWidgetConfiguration` · key `home_show_the_grid_forecast_for_a_home_or_your_location`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `forecastLocationEntity` | Location | any | entity ForecastLocationEntity |
-
-### Get Attribute
-
-`com.apple.Home.GetAttributeValueIntent` · key `home_get_attribute`
-  
-Output: Device Result `com.apple.Home.DeviceResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `homeEntity` | Home | any | entity HomeEntity |
-| `zoneEntities` | Zones | any | entity ZoneEntity |
-| `roomEntities` | Rooms | any | entity RoomEntity |
-| `devices` | Devices | any | entity DeviceEntity |
-| `attributeTypes` | Attribute Types | string | enum: `airParticulateDensity`, `airParticulateSize`, `airQuality`, `batteryLevel`, `brightness`, `carbonDioxideDetected`, `carbonDioxideLevel`, `carbonDioxidePeakLevel`, `carbonMonoxideDetected`, `carbonMonoxideLevel`, `carbonMonoxidePeakLevel`, `chargingState` … |
-| `timeout` | Timeout | number | double |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Get Device Info
-
-`com.apple.Home.GetDeviceInfoIntent` · key `home_get_device_info`
-  
-Output: Supported Attributes Result `com.apple.Home.DeviceInfoResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `devices` | Devices | any | entity DeviceEntity |
-| `homeEntity` | Home | any | entity HomeEntity |
-
-### Select Home
-
-`com.apple.Home.HistoricalUsageWidgetConfiguration` · key `home_select_home`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `siteDetail` | Home | any | entity SiteDetail |
-
 ### HomeAppIntentsExtensionTestAppIntent
 
 `com.apple.Home.HomeAppIntentsExtensionTestAppIntent` · key `com_apple_home_app_intents_extension_home_app_intents_extension_test_app_intent`
   
 Output:  `none`
-
-### Scene or Accessory
-
-`com.apple.Home.HomeSingleTileConfigurationIntent` · key `home_scene_or_accessory`
-  
-Home
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `home` | Home | any | entity SelectedHomeEntity |
-| `item` | Scene or Accessory | any | entity HomeSingleTileEntity |
-
-### Accessories
-
-`com.apple.Home.HomeXLModuleConfigurationIntent` · key `home_accessories`
-  
-Quickly control your favorite home accessories or scenes.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `useRecommendations` | Use Recommended | bool | bool |
-| `show` | Show | string | enum: `accessories`, `all`, `scenes` |
-| `home` | Selected Home | any | entity SelectedHomeEntity |
-| `items` | Choose Scene or Accessory | any | entity HomeXLTileEntity |
-
-### Open Accessory or Scene in Home app
-
-`com.apple.Home.OpenURLInHomeIntent` · key `home_open_accessory_or_scene_in_home_app`
-  
-Forwards and opens URLs in the Home app when an in-widget toggle cannot be performed
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `url` | Home app destination URL | text | url |
-
-### Recommended Item
-
-`com.apple.Home.RecommendedItemIntent` · key `home_recommended_item`
-  
-Recommended Accessory or Scene
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `useHomeKitRecommendations` | Recommended | bool | bool |
-| `home` | Home | any | entity HomeEntity |
-| `accessoriesAndScenes` | Choose Scene or Accessory | any | entity AccessoryAndSceneEntity |
 
 ### Find Room
 
@@ -2491,19 +2034,6 @@ Output: Scene `com.apple.Home.SceneEntity`
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | scene | string | enum: `Library` |
 
-### Toggle Accessory or Scene
-
-`com.apple.Home.SecureToggleIntent` · key `home_toggle_accessory_or_scene`
-  
-Toggles the state of the specified accessory or scene.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `entity` | Toggle | any | entity AccessoryAndSceneEntity |
-| `analyticsInfoJSON` | Analytics Info | text | string |
-
 ### Find Selected Home
 
 `com.apple.Home.SelectedHomeEntity` · key `home_find_selected_home`
@@ -2520,124 +2050,6 @@ Output: Selected Home `com.apple.Home.SelectedHomeEntity`
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | selected home | string | enum: `Library` |
 
-### Set Attribute
-
-`com.apple.Home.SetAttributeValueIntent` · key `home_set_attribute`
-  
-Output: Device Result `com.apple.Home.DeviceResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `attributes` | Attributes | any | entity Attribute.airParticulateDensity |
-| `devices` | Devices | any | entity DeviceEntity |
-| `homeEntity` | Home | any | entity HomeEntity |
-| `zoneEntities` | Zones | any | entity ZoneEntity |
-| `roomEntities` | Rooms | any | entity RoomEntity |
-| `timeout` | Timeout | number | double |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Show Device Result
-
-`com.apple.Home.ShowDeviceResultIntent` · key `home_show_device_result`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `userSpecificity` | User Specificity | string | enum: `deviceName`, `deviceType`, `group`, `home`, `room`, `zone` |
-| `destination` | Destination | string | enum: `answer`, `deepLink`, `notice`, `search` |
-| `successDeviceIDs` | Successful Device IDs | text | string |
-| `failedDeviceIDs` | Failed Device IDs | text | string |
-| `failedDeviceIDsToIgnore` | Failed Device IDs to Ignore | text | string |
-| `attributeType` | Attribute Type | string | enum: `airParticulateDensity`, `airParticulateSize`, `airQuality`, `batteryLevel`, `brightness`, `carbonDioxideDetected`, `carbonDioxideLevel`, `carbonDioxidePeakLevel`, `carbonMonoxideDetected`, `carbonMonoxideLevel`, `carbonMonoxidePeakLevel`, `chargingState` … |
-| `oldDeviceResults` | Old Device Results | any | entity DeviceResult |
-| `newDeviceResults` | New Device Results | any | entity DeviceResult |
-| `secondaryAccessoryControlDestination` | Secondary Accessory Control Destination | string | enum: `colorTemperature`, `rgb` |
-
-### Show Error
-
-`com.apple.Home.ShowErrorIntent` · key `home_show_error`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `destination` | Destination | string | enum: `answer`, `deepLink`, `notice`, `search` |
-| `errorDisplayType` | Error Display Type | string | enum: `generic` |
-
-### Show Navigation
-
-`com.apple.Home.ShowNavigationIntent` · key `home_show_navigation`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `categoryType` | Category | string | enum: `0CA6536B-8EAD-4013-AA62-01754F256DD5`, `3E68745D-F0E1-4B73-8FBD-0E8978A33403`, `430C9F25-44E0-4F7E-BE63-1D00B1500545`, `563F7D20-6AFC-44CE-986D-63B28F62C9E3`, `63489665-5E39-4C17-A590-755E1AAC02AE`, `7A5BD1AB-6478-4560-AD68-D91053B75F44`, `7FADD792-61A4-4340-A849-215882E2F008`, `B92ACEEE-DFF5-4773-A058-C5E64BC487B2` |
-| `dashboardViewType` | DashboardView | string | enum: `cameras`, `favorites`, `scenes` |
-| `deviceEntities` | Devices | any | entity DeviceEntity |
-| `secondaryAccessoryControlDestination` | Secondary Accessory Control Destination | string | enum: `colorTemperature`, `rgb` |
-| `homeEntity` | Home | any | entity HomeEntity |
-| `roomEntity` | Room | any | entity RoomEntity |
-
-### Show Scene Result
-
-`com.apple.Home.ShowSceneResultIntent` · key `home_show_scene_result`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `sceneID` | Scene ID | text | string |
-| `hasSiriExecutionFailure` | Has Siri Execution Failure | bool | bool |
-
-### ToggleIntentTitle
-
-`com.apple.Home.TileControlAction` · key `home_toggle_intent_title`
-  
-ToggleIntentDescription
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `value` | Value | bool | bool |
-| `targetIDString` | TargetID | text | string |
-| `homeIDString` | HomeID | text | string |
-| `action` | Action | string | enum: `open`, `toggle` |
-| `uniqueIdentifier` | WidgetID | text | string |
-| `widgetKind` | WidgetKind | text | string |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Toggle Attribute
-
-`com.apple.Home.ToggleAttributeIntent` · key `home_toggle_attribute`
-  
-Output: Device Result `com.apple.Home.DeviceResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `attributeTypes` | Attribute Types | string | enum: `airParticulateDensity`, `airParticulateSize`, `airQuality`, `batteryLevel`, `brightness`, `carbonDioxideDetected`, `carbonDioxideLevel`, `carbonDioxidePeakLevel`, `carbonMonoxideDetected`, `carbonMonoxideLevel`, `carbonMonoxidePeakLevel`, `chargingState` … |
-| `devices` | Devices | any | entity DeviceEntity |
-| `homeEntity` | Home | any | entity HomeEntity |
-| `zoneEntities` | Zones | any | entity ZoneEntity |
-| `roomEntities` | Rooms | any | entity RoomEntity |
-| `timeout` | Timeout | number | double |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Scene or Accessory
-
-`com.apple.Home.ToggleControlConfigurationIntent` · key `home_scene_or_accessory`
-  
-Home
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `home` | Home | any | entity SelectedHomeEntity |
-| `accessoriesAndScenes` | Scene or Accessory | any | entity ToggleControlEntity |
-
 ### Toggle Accessory or Scene
 
 `com.apple.Home.ToggleIntent` · key `home_toggle_accessory_or_scene`
@@ -2649,16 +2061,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `entity` | Toggle | any | entity AccessoryAndSceneEntity |
-
-### Select Home
-
-`com.apple.Home.UtilityRateInfoWidgetConfiguration` · key `home_select_home`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `siteDetail` | Home | any | entity SiteDetail |
 
 ### Find Zone
 
@@ -2888,18 +2290,6 @@ Output: Journal Entry `com.apple.journal.JournalEntity`
 | `entryDate` | Date | any | date |
 | `OpenWhenRun` | Open When Run | bool | bool |
 
-### Open Entry
-
-`com.apple.journal.OpenEntryEntityIntent` · key `com_apple_journal_open_entry`
-  
-Opens an existing entry.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Entry | any | entity JournalEntity |
-
 ### Open Journal Settings
 
 `com.apple.journal.OpenJournalSettingsDeeplinks` · key `com_apple_preferences_open_journal_settings`
@@ -2911,12 +2301,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | Journal Settings Deeplink | string | enum: `addEntryTitle`, `journalHealthData`, `lockJournal`, `notifications`, `root` |
-
-### StartWritingRefreshIntent
-
-`com.apple.journal.RefreshIntent` · key `com_apple_journal_start_writing_refresh_intent`
-  
-Output:  `none`
 
 ### Get Save To Photos
 
@@ -3053,18 +2437,6 @@ Output:  `none`
 |---|---|---|---|
 | `target` | Show Suggested Moments | any | entity SkipJournalingSuggestionsEntity |
 
-### Streaks
-
-`com.apple.journal.StreaksWidgetConfigurationIntent` · key `com_apple_journal_streaks`
-  
-Keep track of your daily or weekly journaling streak.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `visualization` | Streak Type | string | enum: `0`, `1`, `2` |
-
 ## Keynote (`com.apple.iWork.Keynote`)
 
 ### Export Presentation in Background
@@ -3168,14 +2540,6 @@ Output:  `none`
 |---|---|---|---|
 | `prompt` | Prompt | text | string |
 
-### Magnifier
-
-`com.apple.Magnifier.MagnifierIntent` · key `com_apple_magnifier_magnifier`
-  
-Turn your iPhone into a magnifying glass to zoom in on and detect objects near you.
-  
-Output:  `none`
-
 ### Start Point & Speak
 
 `com.apple.Magnifier.PointAndSpeakIntent` · key `com_apple_magnifier_start_point_speak`
@@ -3226,17 +2590,6 @@ Output: Message `com.apple.mail.MailMessageEntity`
 |---|---|---|---|
 | `entities` | Messages | any | entity MailMessageEntity |
 | `ShowWhenRun` | Show When Run | bool | bool |
-
-### Commit Search Suggestion
-
-`com.apple.mail.CommitSearchSuggestionIntent` · key `mail_commit_search_suggestion`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `query` | Query | text | string |
-| `suggestionIndex` | Suggestion Index | number | int |
 
 ### Compose Message
 
@@ -3315,20 +2668,6 @@ Output: Draft Message `com.apple.mail.DraftMessageEntity`
 | `attachments` | Attachments | any | file |
 | `target` | Message | any | entity MailMessageEntity |
 
-### Set Mail Focus Filter
-
-`com.apple.mail.MailFocusConfigurationAction` · key `mail_set_mail_focus_filter`
-  
-Sets the behavior of the Mail app when the given Focus is enabled.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `Mode` | Mode | string | enum: `Clear`, `Set`, `Toggle`, `Turn Off`, `Turn On` |
-| `FocusMode` | Focus | any | entity WFFocusModeContentItem |
-| `accounts` | Accounts | any | entity AccountEntity |
-
 ### Find Message
 
 `com.apple.mail.MailMessage` · key `mail_find_message`
@@ -3360,54 +2699,6 @@ Output: Message `com.apple.mail.MailMessageEntity`
 | `WFContentItemLimitNumber` | Get | number | double |
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | message | string | enum: `Library` |
-
-### Open Draft
-
-`com.apple.mail.OpenDraftComposerIntent` · key `mail_open_draft`
-  
-Open an email message draft
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Draft Message | any | entity DraftMessageEntity |
-
-### Open Draft
-
-`com.apple.mail.OpenDraftURLIntent` · key `mail_open_draft`
-  
-Open an email message draft
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Draft Message | any | entity DraftMessageEntity |
-
-### Open Message
-
-`com.apple.mail.OpenMessageURLIntent` · key `mail_open_message`
-  
-Open an email message
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Message | any | entity MailMessageEntity |
-
-### Open Smart Mailbox
-
-`com.apple.mail.OpenSmartMailboxIntent` · key `mail_open_smart_mailbox`
-  
-Opens the specified smart mailbox in Mail’s sidebar
-  
-Output: Smart Mailbox `com.apple.mail.SmartMailboxEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `name` | Smart Mailbox Name | text | string |
 
 ### Reply Message
 
@@ -3463,17 +2754,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `criteria` | Text | text | string |
-
-### Search Mail Suggestions
-
-`com.apple.mail.SearchMailSuggestionsIntent` · key `mail_search_mail_suggestions`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `query` | Query | text | string |
-| `progressive` | Progressive | bool | bool |
 
 ### Send Draft
 
@@ -3537,25 +2817,6 @@ Output:  `none`
 |---|---|---|---|
 | `messages` | Messages | any | entity MailMessageEntity |
 | `ShowWhenRun` | Show When Run | bool | bool |
-
-### Update Draft
-
-`com.apple.mail.UpdateDraftIntent` · key `mail_update_draft`
-  
-Makes updates to an email draft.
-  
-Output: Draft Message `com.apple.mail.DraftMessageEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `to` | Recipient | any | person |
-| `cc` | Cc | any | person |
-| `bcc` | Bcc | any | person |
-| `subject` | Subject | text | string |
-| `body` | Body | text | richText |
-| `account` | From | any | entity AccountEntity |
-| `attachments` | Attachments | any | file |
-| `target` | Draft | any | entity DraftMessageEntity |
 
 ### Update Message
 
@@ -3895,20 +3156,6 @@ Output: Conversation `com.apple.MobileSMS.ConversationEntity`
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | conversation | string | enum: `Library` |
 
-### Set Messages Focus Filter
-
-`com.apple.MobileSMS.ConversationListFocusFilterAction` · key `messages_set_messages_focus_filter`
-  
-Sets the behavior of the Messages app when the given Focus is enabled.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `Mode` | Mode | string | enum: `Clear`, `Set`, `Toggle`, `Turn Off`, `Turn On` |
-| `FocusMode` | Focus | any | entity WFFocusModeContentItem |
-| `enableFocusFiltering` | Filter by People List | bool | bool |
-
 ### Delete Conversations
 
 `com.apple.MobileSMS.DeleteConversationIntent` · key `messages_delete_conversations`
@@ -3966,28 +3213,6 @@ Output:  `none`
 | `message` | Message | any | entity MessageEntity |
 | `content` | Content | text | richText |
 
-### Fetch Conversation Identifier Intent
-
-`com.apple.MobileSMS.FetchConversationIdentifierIntent` · key `messages_fetch_conversation_identifier_intent`
-  
-Output:  `string`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `intentPersons` | Intent Persons | any | person |
-
-### Fetch Downtime Conversation List Intent
-
-`com.apple.MobileSMS.FetchDowntimeConversationListIntent` · key `messages_fetch_downtime_conversation_list_intent`
-  
-Output:  `none`
-
-### Fetch Muted Conversation List Intent
-
-`com.apple.MobileSMS.FetchMutedConversationListIntent` · key `messages_fetch_muted_conversation_list_intent`
-  
-Output:  `none`
-
 ### Mark as Read
 
 `com.apple.MobileSMS.MarkConversationAsUnreadIntent` · key `messages_mark_as_read`
@@ -4019,17 +3244,6 @@ Output: Message `com.apple.MobileSMS.MessageEntity`
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | message | string | enum: `Library` |
 
-### Mute Conversation Intent
-
-`com.apple.MobileSMS.MuteConversationIntent` · key `messages_mute_conversation_intent`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `conversationIdentifier` | Conversation Identifier | text | string |
-| `isMuted` | Is Muted | bool | bool |
-
 ### Open Conversation
 
 `com.apple.MobileSMS.OpenConversationIntent` · key `messages_open_conversation`
@@ -4041,14 +3255,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | Conversation | any | entity ConversationEntity |
-
-### Open Conversation List
-
-`com.apple.MobileSMS.OpenConversationListIntent` · key `messages_open_conversation_list`
-  
-Opens the conversation list in Messages.
-  
-Output:  `none`
 
 ### Reveal Message
 
@@ -4663,14 +3869,6 @@ Output:  `none`
 |---|---|---|---|
 | `target` | Channel or Topic | any | entity FeedEntity |
 
-### Decrease Text Size
-
-`com.apple.news.DecreaseTextSizeIntent` · key `news_decrease_text_size`
-  
-Decreases the text size for the opened article
-  
-Output:  `none`
-
 ### Follow Channel or Topic
 
 `com.apple.news.FollowIntent` · key `news_follow_channel_or_topic`
@@ -4739,14 +3937,6 @@ Output: Recipe `com.apple.news.RecipeEntity`
 Get a list of saved recipes.
   
 Output: Recipe `com.apple.news.RecipeEntity`
-
-### Increase Text Size
-
-`com.apple.news.IncreaseTextSizeIntent` · key `news_increase_text_size`
-  
-Increases the text size for the opened article
-  
-Output:  `none`
 
 ### Find News Automatic Download Settings
 
@@ -5081,18 +4271,6 @@ Output: Recipe `com.apple.news.RecipeEntity`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `recipe` | Recipe | any | entity RecipeEntity |
-
-### Play Audio Article
-
-`com.apple.news.ToggleAudioPlaybackIntent` · key `news_play_audio_article`
-  
-Toggles playback of the given article.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `articleID` | Article | text | string |
 
 ### Unblock Channel or Topic
 
@@ -5487,16 +4665,6 @@ Output:  `none`
 |---|---|---|---|
 | `emphasisColor` | Emphasis Color | string | enum: `blue`, `body`, `mint`, `orange`, `pink`, `purple` |
 
-### Generate Fallback PDF
-
-`com.apple.Notes.GenerateFallbackPDF` · key `notes_generate_fallback_pdf`
-  
-Output:  `bool`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `attachmentIdentifier` | Attachment Identifier | text | string |
-
 ### Get Linked Notes
 
 `com.apple.Notes.GetLinkedNotesLinkAction` · key `notes_get_linked_notes`
@@ -5682,12 +4850,6 @@ Output: Note `com.apple.Notes.NoteEntity`
 |---|---|---|---|
 | `operation` | Operation | string | enum: `add`, `remove` |
 | `entities` | Note | any | entity NoteEntity |
-
-### Quick Note
-
-`com.apple.Notes.QuickNoteIntent` · key `notes_quick_note`
-  
-Output:  `none`
 
 ### Remove Tags from Notes
 
@@ -6024,30 +5186,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `call` | Call | any | entity LiveCall |
-
-### Prepare call messages to read
-
-`com.apple.calls.PhoneAppIntentsExtension.PrepareCallMessagesIntent` · key `com_apple_calls_phone_app_intents_extension_prepare_call_messages_to_read`
-  
-Prepare call messages to read
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `messages` | Messages | any | entity CallMessage |
-
-### Prepare read call records
-
-`com.apple.calls.PhoneAppIntentsExtension.PrepareReadCallRecordsIntent` · key `com_apple_calls_phone_app_intents_extension_prepare_read_call_records`
-  
-Prepare read call records
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `records` | Records | any | entity CallRecord |
 
 ### Set audio route for an ongoing call
 
@@ -6529,20 +5667,6 @@ Output:  `none`
 |---|---|---|---|
 | `query` | Description | text | string |
 
-### Photos Relive Widget Configuration
-
-`com.apple.Photos.PLPhotosReliveWidgetConfigurationIntent` · key `photos_photos_relive_widget_configuration`
-  
-Configuration
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `widgetType` | Type | string | enum: `album` |
-| `album` | Album | any | entity PhotosReliveWidgetAlbum |
-| `alwaysDisplayInFullColor` | Always Display In Full Color | bool | bool |
-
 ### Find Person
 
 `com.apple.Photos.PersonEntity` · key `photos_find_person`
@@ -6776,19 +5900,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | Photos | any | entity AssetEntity |
-
-### Photos Relive Featured Widget Configuration
-
-`com.apple.Photos.PhotosReliveWidgetFeaturedConfiguration` · key `photos_photos_relive_featured_widget_configuration`
-  
-Configuration
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `alwaysDisplayInFullColor` | Always Display In Full Color | bool | bool |
-| `enableSpatialEffect` | Spatial Scene Effect | bool | bool |
 
 ### Remove Photos from Album
 
@@ -7329,30 +6440,6 @@ Output:  `none`
 |---|---|---|---|
 | `criteria` | Phrase | text | string |
 
-### Select a Library List
-
-`com.apple.podcasts.SelectLibraryListAppIntent` · key `podcasts_select_a_library_list`
-  
-Selects the list to show in the library widget
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `list` | Library | any | entity LibraryList |
-
-### Select a Podcast Show
-
-`com.apple.podcasts.SelectWidgetShowAppIntent` · key `podcasts_select_a_podcast_show`
-  
-Selects the podcast show to display in the library widget
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `show` | Select Show | any | entity ShowEntity |
-
 ### Find Podcast Show
 
 `com.apple.podcasts.ShowEntity` · key `podcasts_find_podcast_show`
@@ -7717,18 +6804,6 @@ Output: Reminder `com.apple.reminders.ReminderEntity`
 | `completeSubtasks` | Complete subtasks | bool | bool |
 | `OpenWhenRun` | Open When Run | bool | bool |
 
-### Set Reminders completion state <no loc>
-
-`com.apple.reminders.CompleteRemindersAppIntent` · key `reminders_set_reminders_completion_state_no_loc`
-  
-Output: Reminder `com.apple.reminders.ReminderEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `reminders` | Reminders <no loc> | any | entity ReminderEntity |
-| `isCompleted` | Completed <no loc> | bool | bool |
-| `completeSubtasks` | Complete subtasks <no loc> | bool | bool |
-
 ### Open New Custom Smart List
 
 `com.apple.reminders.CreateCustomSmartListAppIntent` · key `reminders_open_new_custom_smart_list`
@@ -7820,16 +6895,6 @@ Output:  `none`
 | `entities` | Sections | any | entity SectionEntity |
 | `deleteReminders` | Delete Reminders | bool | bool |
 
-### Get Default List <no loc>
-
-`com.apple.reminders.GetDefaultListAppIntent` · key `reminders_get_default_list_no_loc`
-  
-Output: List `com.apple.reminders.ListEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `requireCloudKitAccount` | Require CloudKit Account <no loc> | bool | bool |
-
 ### Find Group
 
 `com.apple.reminders.GroupEntity` · key `reminders_find_group`
@@ -7919,49 +6984,6 @@ Output: Reminder `com.apple.reminders.ReminderEntity`
 | `section` | Section | any | entity SectionEntity |
 | `parentReminder` | Parent Reminder | any | entity ReminderEntity |
 | `OpenWhenRun` | Open When Run | bool | bool |
-
-### Move Reminders to a Reminders List <no loc>
-
-`com.apple.reminders.MoveRemindersToListAppIntent` · key `reminders_move_reminders_to_a_reminders_list_no_loc`
-  
-Move Reminders to a given Reminders List, at the given insertion position <no loc>
-  
-Output: Reminder `com.apple.reminders.ReminderEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `reminders` | Reminders <no loc> | any | entity ReminderEntity |
-| `position` | Position <no loc> | string | enum: `bottom`, `top` |
-| `targetList` | Target List <no loc> | any | entity ListEntity |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Move Reminders to become Subtasks of a Parent Reminder <no loc>
-
-`com.apple.reminders.MoveRemindersToParentReminderAppIntent` · key `reminders_move_reminders_to_become_subtasks_of_a_parent_reminder_no_loc`
-  
-Move Reminders to become Subtasks of a Parent Reminder, or become top-level reminders <no loc>
-  
-Output: Reminder `com.apple.reminders.ReminderEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `reminders` | Reminders <no loc> | any | entity ReminderEntity |
-| `position` | Position <no loc> | string | enum: `bottom`, `top` |
-| `parentReminder` | Parent Reminder <no loc> | any | entity ReminderEntity |
-
-### Move Reminders to a Reminders List Section <no loc>
-
-`com.apple.reminders.MoveRemindersToSectionAppIntent` · key `reminders_move_reminders_to_a_reminders_list_section_no_loc`
-  
-Move Reminders to a given Reminders List Section, at the given insertion position <no loc>
-  
-Output: Reminder `com.apple.reminders.ReminderEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `reminders` | Reminders <no loc> | any | entity ReminderEntity |
-| `position` | Position <no loc> | string | enum: `bottom`, `top` |
-| `targetSection` | Target Section <no loc> | any | entity SectionEntity |
 
 ### Open Group
 
@@ -8082,19 +7104,6 @@ Output: Reminders Smart Lists `com.apple.reminders.SmartListEntity`
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | smart list | string | enum: `Library` |
 
-### Snooze Reminders
-
-`com.apple.reminders.SnoozeRemindersAppIntent` · key `reminders_snooze_reminders`
-  
-Snooze Reminders and delay the alerts.
-  
-Output: Reminder `com.apple.reminders.ReminderEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `entities` | Entities | any | entity ReminderEntity |
-| `nextTriggerTime` | Next Trigger Time | any | dateComponents |
-
 ### Create List
 
 `com.apple.reminders.TTRCreateListAppIntent` · key `reminders_create_list`
@@ -8163,20 +7172,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | List | any | entity AnyListEntity |
-
-### Toggle Reminder completion
-
-`com.apple.reminders.TTRReminderSetCompletedIntent` · key `reminders_toggle_reminder_completion`
-  
-Toggles completion of a specific reminder.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `reminder` | Reminder | any | entity TTRReminderAppEntity |
-| `isCompleted` | Completed | bool | bool |
-| `isFromUrgentReminderActivity` | isFromUrgentActivity | bool | bool |
 
 ### Search in Reminders
 
@@ -8448,18 +7443,6 @@ Output:  `none`
 
 ## Safari (`com.apple.Safari`)
 
-### Add to History
-
-`com.apple.Safari.AddHistoryItem` · key `safari_add_to_history`
-  
-Output: History Entity `com.apple.Safari.HistoryEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `url` | Url | text | url |
-| `name` | Name | text | string |
-| `timeOfVisit` | Time Of Visit | any | date |
-
 ### Find Bookmarks
 
 `com.apple.Safari.BookmarkEntity` · key `safari_find_bookmarks`
@@ -8513,18 +7496,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | Tab | any | entity TabEntity |
-
-### Close Tabs
-
-`com.apple.Safari.CloseTabsAssistantIntent` · key `safari_close_tabs`
-  
-Closes the selected tabs.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Tabs | any | entity TabEntity |
 
 ### Close View
 
@@ -8609,19 +7580,6 @@ Output: Reading List Item `com.apple.Safari.ReadingListItemEntity`
 | `title` | Title | text | string |
 | `url` | Url | text | url |
 
-### Create Tab
-
-`com.apple.Safari.CreateTabAssistantIntent` · key `safari_create_tab`
-  
-Creates a new tab with a URL loaded, or blank if omitted.
-  
-Output: Tab `com.apple.Safari.TabEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `url` | URL | text | url |
-| `isPrivate` | Private Browsing | bool | bool |
-
 ### Delete Bookmarks
 
 `com.apple.Safari.DeleteBookmarks` · key `safari_delete_bookmarks`
@@ -8633,16 +7591,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `entities` | Bookmarks | any | entity BookmarkEntity |
-
-### Delete History Items
-
-`com.apple.Safari.DeleteHistoryItems` · key `safari_delete_history_items`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `entities` | History Entity | any | entity HistoryEntity |
 
 ### Delete Tab Groups
 
@@ -8668,12 +7616,6 @@ Output:  `none`
 |---|---|---|---|
 | `searchPhrase` | Phrase | text | string |
 | `tab` | Tab | any | entity TabEntity |
-
-### Get History Items
-
-`com.apple.Safari.GetHistoryItems` · key `safari_get_history_items`
-  
-Output: History Entity `com.apple.Safari.HistoryEntity`
 
 ### Find History Entity
 
@@ -8730,18 +7672,6 @@ Output:  `none`
 | `entities` | Tabs | any | entity TabEntity |
 | `container` | Window | any | entity WindowEntity |
 
-### Notify User in Safari For Page Update
-
-`com.apple.Safari.NotifyUserForUpdatedPageIntent` · key `safari_notify_user_in_safari_for_page_update`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `message` | Message | text | string |
-| `automationID` | AutomationID | text | string |
-| `pageURL` | Page URL | text | string |
-
 ### Open Bookmark
 
 `com.apple.Safari.OpenBookmark` · key `safari_open_bookmark`
@@ -8753,29 +7683,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | Bookmark | any | entity BookmarkEntity |
-
-### Open Bookmark
-
-`com.apple.Safari.OpenBookmarkAssistantIntent` · key `safari_open_bookmark`
-  
-Opens the specified bookmark.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Bookmark | any | entity BookmarkEntity |
-| `tab` | Tab | any | entity TabEntity |
-
-### Open History Item
-
-`com.apple.Safari.OpenHistoryItem` · key `safari_open_history_item`
-  
-Output:  `bool`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | History Entity | any | entity HistoryEntity |
 
 ### Open Reading List Item
 
@@ -8812,23 +7719,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | Tab Group | any | entity TabGroupEntity |
-
-### Set Safari Focus Filter
-
-`com.apple.Safari.OpenTabGroupForFocus` · key `safari_set_safari_focus_filter`
-  
-Sets the behavior of the Safari app when the given Focus is enabled.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `Mode` | Mode | string | enum: `Clear`, `Set`, `Toggle`, `Turn Off`, `Turn On` |
-| `FocusMode` | Focus | any | entity WFFocusModeContentItem |
-| `type` | Filter Type | string | enum: `profile`, `tabGroup` |
-| `profileEntity` | Profile | any | entity ProfileEntity |
-| `tabGroupEntity` | Tab Group | any | entity TabGroupEntity |
-| `openLinksInTabGroup` | Allow opening external links in your Focus Tab Group | bool | bool |
 
 ### Open View
 
@@ -8886,29 +7776,6 @@ Output: Reading List Item `com.apple.Safari.ReadingListItemEntity`
 | `WFContentItemLimitNumber` | Get | number | double |
 | `WFCompoundType` |  | string | enum: `0`, `1` |
 | `WFContentItemInputParameter` | reading list item | string | enum: `Library` |
-
-### Report NotifyMeWhen Automation Result
-
-`com.apple.Safari.ReportNotifyMeWhenAutomationResult` · key `safari_report_notify_me_when_automation_result`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `errorMessage` | Error Message | text | string |
-| `automationID` | AutomationID | text | string |
-| `pageURL` | Page URL | text | string |
-
-### Request Web Page Context
-
-`com.apple.Safari.RequestWebPageContextIntent` · key `safari_request_web_page_context`
-  
-Output: Web Page Context Result `com.apple.Safari.WebPageContextResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `url` | URL | text | string |
-| `shortcutsAutomationUUID` | Shortcuts Automation UUID | text | string |
 
 ### Search Tabs
 
@@ -9002,21 +7869,6 @@ Output:  `none`
   
 Output:  `none`
 
-### Capture Configuration
-
-`com.apple.screenshot.launcher.CustomCaptureConfiguration` · key `com_apple_screenshot_launcher_capture_configuration`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `name` | Name | text | string |
-| `selectionStyle` | Capture | string | enum: `entireScreen`, `selectedPortion`, `selectedWindow` |
-| `destination` | Destination | string | enum: `clipboard`, `desktop`, `documents`, `floatingThumbnail`, `mail`, `preview` |
-| `timer` | Timer | string | enum: `fiveSeconds`, `tenSeconds`, `zero` |
-| `showMousePointer` | Show Mouse Pointer | bool | bool |
-| `hdr` | HDR | bool | bool |
-
 ### Custom Capture
 
 `com.apple.screenshot.launcher.CustomCaptureIntent` · key `com_apple_screenshot_launcher_custom_capture`
@@ -9026,21 +7878,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `arguments` | Arguments | text | string |
-
-### Screen Recording Configuration
-
-`com.apple.screenshot.launcher.CustomRecordConfiguration` · key `com_apple_screenshot_launcher_screen_recording_configuration`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `name` | Name | text | string |
-| `selectionStyle` | Capture | string | enum: `entireScreen`, `selectedPortion`, `selectedWindow` |
-| `destination` | Destination | string | enum: `desktop`, `documents`, `floatingThumbnail`, `mail`, `quickTimePlayer` |
-| `timer` | Timer | string | enum: `fiveSeconds`, `tenSeconds`, `zero` |
-| `showMouseClicks` | Show Mouse Clicks | bool | bool |
-| `hdr` | HDR | bool | bool |
 
 ### Custom Capture
 
@@ -9081,138 +7918,6 @@ Output:  `none`
 
 ## SearchToolExtension (`com.apple.omniSearch.SearchToolExtension`)
 
-### Open Flight Reservation Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenFlightReservationEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_flight_reservation_entity`
-  
-Open Flight Reservation Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Flight Info | any | entity FlightReservationEntity |
-
-### Open Generic Event Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenGenericEventEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_generic_event_entity`
-  
-Open Generic Event Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Event | any | entity GenericEventEntity |
-
-### Open Hotel Reservation Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenHotelReservationEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_hotel_reservation_entity`
-  
-Open Hotel Reservation Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Hotel Reservation | any | entity HotelReservationEntity |
-
-### Open Business ID Card Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenIDCardBusinessEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_business_id_card_entity`
-  
-Open Business ID Card Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Card | any | entity BusinessCardEntity |
-
-### Open Personal ID Card Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenIDCardPersonalEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_personal_id_card_entity`
-  
-Open Personal ID Card Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Identity Card | any | entity PersonalCardEntity |
-
-### Open Media Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenMediaEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_media_entity`
-  
-Open Media Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Media | any | entity MediaEntity |
-
-### Open Restaurant Reservation Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenRestaurantReservationEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_restaurant_reservation_entity`
-  
-Open Restaurant Reservation Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Restaurant Reservation | any | entity RestaurantReservationEntity |
-
-### Open Search Spotlight Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenSearchSpotlightEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_search_spotlight_entity`
-  
-Open Search Spotlight Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Search SpotlightEntity | any | entity SearchSpotlightEntity |
-
-### Open Ticketed Show Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenTicketedShowEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_ticketed_show_entity`
-  
-Open Ticketed Show Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Event | any | entity TicketedShowEntity |
-
-### Open Ticketed Transportation Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenTicketedTransportationEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_ticketed_transportation_entity`
-  
-Open Ticketed Transportation Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Ticketed Transportation | any | entity TicketedTransportationEntity |
-
-### Open Vehicle Reservation Entity
-
-`com.apple.omniSearch.SearchToolExtension.OpenVehicleReservationEntityIntent` · key `com_apple_omni_search_search_tool_extension_open_vehicle_reservation_entity`
-  
-Open Vehicle Reservation Entity
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Vehicle Reservation | any | entity VehicleReservationEntity |
-
 ### Search
 
 `com.apple.omniSearch.SearchToolExtension.SearchTool` · key `com_apple_omni_search_search_tool_extension_search`
@@ -9251,37 +7956,6 @@ Output: SearchTool control command result `bool`
 | `command` | command | text | string |
 | `originatorPID` | originatorPID | number | int |
 | `useMiniMC` | useMiniMC | bool | bool |
-
-### Search Tool Memory Creation Grounding
-
-`com.apple.omniSearch.SearchToolExtension.SearchToolMCGrounding` · key `com_apple_omni_search_search_tool_extension_search_tool_memory_creation_grounding`
-  
-Runs Memory Creation grounding in Search Tool Extension
-  
-Output: SearchTool Memory Creation QU result `com.apple.omniSearch.SearchToolExtension.MemoryCreationQUResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `rawQueries` | rawQueries | text | string |
-| `quParses` | quParses | text | string |
-
-### SearchTool MC QU
-
-`com.apple.omniSearch.SearchToolExtension.SearchToolMCQU` · key `com_apple_omni_search_search_tool_extension_search_tool_mc_qu`
-  
-Runs Memory Creation QU in Search Tool Extension
-  
-Output: SearchTool MC QU result `com.apple.omniSearch.SearchToolExtension.MemoryCreationQUResult`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `query` | query | text | string |
-| `originatorPID` | originator pid | number | int |
-| `useMiniMC` | use mini memory creation model | bool | bool |
-| `personNames` | person names | text | string |
-| `petNames` | pet names | text | string |
-| `locations` | locations | text | string |
-| `currentTime` | current time | text | string |
 
 ## SettingsPlaceholder (`com.apple.Settings`)
 
@@ -12333,16 +11007,6 @@ Output:  `none`
 | `folder` | Folder | any | entity RootNavigationDestination |
 | `OpenWhenRun` | Open When Run | bool | bool |
 
-### Open App
-
-`com.apple.shortcuts.OpenAppIntent` · key `com_apple_shortcuts_open_app`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `app` | App | any | app |
-
 ### Open Folder
 
 `com.apple.shortcuts.OpenNavigationDestinationAction` · key `com_apple_shortcuts_open_folder`
@@ -12391,32 +11055,6 @@ Output: Shortcut `com.apple.shortcuts.WFWorkflowReference`
 | `name` | Name | text | string |
 | `OpenWhenRun` | Open When Run | bool | bool |
 
-### Shortcut
-
-`com.apple.shortcuts.RunShortcutConfigurationIntent` · key `com_apple_shortcuts_shortcut`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `shortcut` | Shortcut | any | entity ConfiguredShortcut |
-
-### Run Shortcut from Folder
-
-`com.apple.shortcuts.RunShortcutFromCollectionIntent` · key `com_apple_shortcuts_run_shortcut_from_folder`
-  
-Output:  `none`
-
-### Run Shortcut
-
-`com.apple.shortcuts.RunShortcutIntent` · key `com_apple_shortcuts_run_shortcut`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `shortcut` | Shortcut | any | entity ConfiguredShortcut |
-
 ### Search Shortcuts Actions
 
 `com.apple.shortcuts.SearchActionDrawerAction` · key `com_apple_shortcuts_search_shortcuts_actions`
@@ -12457,16 +11095,6 @@ Output:  `none`
 | `shortcut` | Shortcut | any | entity WFWorkflowReference |
 | `state` | State | bool | bool |
 | `OpenWhenRun` | Open When Run | bool | bool |
-
-### Shortcuts Folder
-
-`com.apple.shortcuts.ShortcutsFolderConfigurationIntent` · key `com_apple_shortcuts_shortcuts_folder`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `collection` | Folder | any | entity ConfiguredCollection |
 
 ### Stop Shortcut
 
@@ -12543,26 +11171,6 @@ A result of “Moving” indicates that the motion doesn’t seem to fit a known
 A result of “Unknown” indicates that the device is not supported.
   
 Output: Physical Activity `com.apple.ShortcutsActions.PhysicalActivity`
-
-### Play Music
-
-`com.apple.ShortcutsActions.PlayMusicTopHitAction` · key `com_apple_shortcuts_actions_play_music`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `music` | Music Item | any | entity MusicItem |
-
-### Play Podcast
-
-`com.apple.ShortcutsActions.PlayPodcastTopHitAction` · key `com_apple_shortcuts_actions_play_podcast`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `podcast` | Podcast Item | any | entity PodcastItem |
 
 ### Reset Cellular Data Statistics
 
@@ -12665,46 +11273,6 @@ Output:  `none`
 |---|---|---|---|
 | `operation` | Operation | string | enum: `hide`, `show`, `toggle` |
 
-### Start Call
-
-`com.apple.ShortcutsActions.StartCallTopHitAction` · key `com_apple_shortcuts_actions_start_call`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `person` | Contact | any | entity ShortcutsContact |
-
-### Start FaceTime Audio Call
-
-`com.apple.ShortcutsActions.StartFaceTimeAudioCallTopHitAction` · key `com_apple_shortcuts_actions_start_face_time_audio_call`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `faceTimeContact` | Contact | any | entity ShortcutsFaceTimeContact |
-
-### Start Call
-
-`com.apple.ShortcutsActions.StartFaceTimeCallTopHitAction` · key `com_apple_shortcuts_actions_start_call`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `faceTimeContact` | Contact | any | entity ShortcutsFaceTimeContact |
-
-### Start FaceTime Video Call
-
-`com.apple.ShortcutsActions.StartFaceTimeVideoCallTopHitAction` · key `com_apple_shortcuts_actions_start_face_time_video_call`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `faceTimeContact` | Contact | any | entity ShortcutsFaceTimeContact |
-
 ### Start Time Machine Backup
 
 `com.apple.ShortcutsActions.TimeMachineAction` · key `com_apple_backup_launcher_start_time_machine_backup`
@@ -12794,22 +11362,6 @@ Output:  `none`
 |---|---|---|---|
 | `criteria` | Search | text | string |
 
-### Open Search
-
-`com.apple.campo.SearchSpotlightIntentInternal` · key `com_apple_campo_open_search`
-  
-Opens Search and performs a search for the specified text.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `criteria` | Search | text | string |
-| `queryKind` | Query Kind | string | enum: `asYouType`, `committed` |
-| `filterTitle` | Filter Type | text | string |
-| `searchTopLevelFilter` | Search Top Level Filter | string | enum: `0`, `1`, `2`, `3` |
-| `searchEntityFilter` | Search Entity Filter | any | entity SearchEntityFilter |
-
 ### Continue Search in App
 
 `com.apple.campo.SearchUIContinuationIntent` · key `com_apple_campo_continue_search_in_app`
@@ -12860,14 +11412,6 @@ Output:  `none`
 |---|---|---|---|
 | `applications` | Applications | any | unknown |
 | `isUpdate` | Is Update | bool | bool |
-
-## SiriCrisisAppIntentsExtension (`com.apple.siri.SiriCrisisAppIntentsExtension`)
-
-### Placeholder
-
-`com.apple.siri.SiriCrisisAppIntentsExtension._SiriCrisisPlaceholderIntent` · key `com_apple_siri_siri_crisis_app_intents_extension_placeholder`
-  
-Output:  `none`
 
 ## SiriCrisisFlowTools (`com.apple.siri.SiriCrisisFlowTools`)
 
@@ -13028,12 +11572,6 @@ Output:  `none`
 |---|---|---|---|
 | `message` | Message | any | entity SiriKitMessageEntity |
 
-### SiriMessagesAppIntent
-
-`com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriMessagesAppIntent` · key `com_apple_siri_messages_siri_messages_app_intents_extension_siri_messages_app_intent`
-  
-Output:  `none`
-
 ### Update a Draft
 
 `com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool` · key `com_apple_siri_messages_siri_messages_app_intents_extension_update_a_draft`
@@ -13094,14 +11632,6 @@ Unsend the last message that was sent with Siri.
   
 Output:  `none`
 
-## SiriNotebookAppIntentsExtension (`com.apple.siri.SiriNotebookAppIntentsExtension`)
-
-### SiriNotebookAppIntentsExtension
-
-`com.apple.siri.SiriNotebookAppIntentsExtension.SiriNotebookAppIntentsExtension` · key `com_apple_siri_siri_notebook_app_intents_extension_siri_notebook_app_intents_extension`
-  
-Output:  `none`
-
 ## SiriNotificationsAppIntentsExtension (`com.apple.siri.SiriNotificationsAppIntentsExtension`)
 
 ### Prepare notifications
@@ -13143,29 +11673,6 @@ Output:  `none`
 
 ## SiriPhoneAppIntentsExtension (`com.apple.siri.SiriPhoneAppIntentsExtension`)
 
-### ReadCallMessageIntent
-
-`com.apple.siri.SiriPhoneAppIntentsExtension.ReadCallMessageIntent` · key `com_apple_siri_siriphone_app_intents_extension_read_call_message_intent`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `message` | Message | any | entity ReadableCallMessageAppEntity |
-
-### SiriKitStartCallIntent
-
-`com.apple.siri.SiriPhoneAppIntentsExtension.SiriKitStartCallIntent` · key `com_apple_siri_siriphone_app_intents_extension_siri_kit_start_call_intent`
-  
-Starts a call to a person, handle, or named group
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `destination` | Destination | any | entity CallGroup |
-| `audioVisualMode` | Audio Visual Mode | string | enum: `audio`, `video` |
-
 ### SiriPhonePunchoutIntent
 
 `com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent` · key `phone_siriphone_punchout_intent`
@@ -13177,16 +11684,6 @@ Output:  `none`
 | `url` | Url | text | string |
 | `uniqueID` | Unique ID | text | string |
 | `OpenWhenRun` | Open When Run | bool | bool |
-
-### StartCrisisHelplineCallIntent
-
-`com.apple.siri.SiriPhoneAppIntentsExtension.StartCrisisHelplineCallIntent` · key `com_apple_siri_siriphone_app_intents_extension_start_crisis_helpline_call_intent`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `crisisResourceType` | Crisis Resource Type | string | enum: `domesticViolence`, `poisonControl`, `sexualAssault`, `suicidePrevention` |
 
 ## SiriPhoneFlowTools (`com.apple.siri.SiriPhoneFlowTools`)
 
@@ -13404,22 +11901,6 @@ Output:  `none`
 |---|---|---|---|
 | `criteria` | Search | text | string |
 
-### Open Search
-
-`com.apple.Spotlight.SearchSpotlightIntentInternal` · key `spotlight_open_search`
-  
-Opens Search and performs a search for the specified text.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `criteria` | Search | text | string |
-| `queryKind` | Query Kind | string | enum: `asYouType`, `committed` |
-| `filterTitle` | Filter Type | text | string |
-| `searchTopLevelFilter` | Search Top Level Filter | string | enum: `0`, `1`, `2`, `3` |
-| `searchEntityFilter` | Search Entity Filter | any | entity SearchEntityFilter |
-
 ### Continue Search in App
 
 `com.apple.Spotlight.SearchUIContinuationIntent` · key `spotlight_continue_search_in_app`
@@ -13484,14 +11965,6 @@ Output:  `none`
 |---|---|---|---|
 | `target` | Channel or Topic | any | entity FeedEntity |
 
-### Decrease Text Size
-
-`com.apple.stocks.DecreaseTextSizeIntent` · key `stocks_decrease_text_size`
-  
-Decreases the text size for the opened article
-  
-Output:  `none`
-
 ### Delete Symbol from Watchlist
 
 `com.apple.stocks.DeleteSymbolFromWatchlistIntent` · key `stocks_delete_symbol_from_watchlist`
@@ -13542,14 +12015,6 @@ Output: Symbol Quote `com.apple.stocks.SymbolQuoteEntity`
 |---|---|---|---|
 | `symbol` | Symbol | any | entity SymbolEntity |
 | `OpenWhenRun` | Open When Run | bool | bool |
-
-### Increase Text Size
-
-`com.apple.stocks.IncreaseTextSizeIntent` · key `stocks_increase_text_size`
-  
-Increases the text size for the opened article
-  
-Output:  `none`
 
 ### Create Watchlist
 
@@ -13709,37 +12174,6 @@ Output:  `none`
 | Key | Name | Kind | Type |
 |---|---|---|---|
 | `target` | Article | any | entity ArticleEntity |
-
-### Show Symbol Price
-
-`com.apple.stocks.StockIntent` · key `stocks_show_symbol_price`
-  
-Shows price quotes, trends, and performance data for the symbol you choose.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `stock` | Symbol | any | entity SymbolWidgetEntity |
-| `newsDisplayConfiguration` | Show Stories | string | enum: `afterHours`, `always`, `never` |
-| `OpenWhenRun` | Open When Run | bool | bool |
-
-### Show Watchlist
-
-`com.apple.stocks.StocksOverviewIntent` · key `stocks_show_watchlist`
-  
-Shows the watchlist you choose.
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `selectedWatchlist` | Watchlist | any | entity WatchlistWidgetEntity |
-| `newsDisplayConfiguration` | Show Stories | string | enum: `afterHours`, `always`, `never` |
-| `showWatchlistNameValue` | Show Watchlist Name | bool | bool |
-| `showMoreDataValue` | Show More Details | bool | bool |
-| `showMoreSymbolsValue` | Show More Symbols | bool | bool |
-| `OpenWhenRun` | Open When Run | bool | bool |
 
 ### Find Symbol
 
@@ -20070,16 +18504,6 @@ Output:  `none`
 |---|---|---|---|
 | `target` | Folder | any | entity RCFolderEntity |
 
-### Open Reset Identifier
-
-`com.apple.VoiceMemos.OpenResetAnalyticsIdentifierEntity` · key `settings_open_reset_identifier`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `target` | Reset Identifier | any | entity ResetAnalyticsIdentifierEntity |
-
 ### Play Recording
 
 `com.apple.VoiceMemos.PlaybackVoiceMemoIntent` · key `voice_memos_play_recording`
@@ -20092,44 +18516,6 @@ Output:  `none`
 |---|---|---|---|
 | `playbackType` | Playback Type | string | enum: `mostRecent`, `specific` |
 | `entity` | Recording | any | entity RCRecordingEntity |
-
-### Combine Recordings
-
-`com.apple.VoiceMemos.RCCombineRecordings` · key `voice_memos_combine_recordings`
-  
-Combine two recordings into a multi-tracks recording.
-  
-Output: Recording `com.apple.VoiceMemos.RCRecordingEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `firstRecording` | First Recording | any | entity RCRecordingEntity |
-| `secondRecording` | Second Recording | any | entity RCRecordingEntity |
-
-### CONTROL_CENTER_TOGGLE_RECORDING_INTENT_TITLE
-
-`com.apple.VoiceMemos.RCControlCenterToggleRecording` · key `voice_memos_control_center_toggle_recording_intent_title`
-  
-CONTROL_CENTER_TOGGLE_RECORDING_INTENT_DESCRIPTION
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `value` | CONTROL_CENTER_TOGGLE_RECORDING_PARAMETER_TITLE | bool | bool |
-
-### Import Recording
-
-`com.apple.VoiceMemos.RCImportRecording` · key `voice_memos_import_recording`
-  
-Import an audio file with a specified title.
-  
-Output: Recording `com.apple.VoiceMemos.RCRecordingEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `audioFile` | Audio File | any | file |
-| `title` | Title | text | string |
 
 ### Find Recordings
 
@@ -20204,14 +18590,6 @@ Output:  `none`
 `com.apple.VoiceMemos.StopRecording` · key `voice_memos_stop_recording`
   
 Stops the current recording.
-  
-Output:  `none`
-
-### Voice Memo
-
-`com.apple.VoiceMemos.ToggleRecording` · key `voice_memos_voice_memo`
-  
-Record personal notes, musical ideas, and more.
   
 Output:  `none`
 
@@ -20526,18 +18904,6 @@ Output:  `none`
 |---|---|---|---|
 | `unit` | Unit | string | enum: `bft`, `kph`, `kts`, `mph`, `ms` |
 
-### (INTERNAL ONLY) Sync Data
-
-`com.apple.weather.SyncDataIntent` · key `weather_internal_only_sync_data`
-  
-(INTERNAL ONLY) Syncs a set of data from one device to its companion device.
-  
-Output: Synced Data `com.apple.weather.SyncedDataEntity`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `data` | Data | any | entity SyncedDataEntity |
-
 ### Find Synced Data
 
 `com.apple.weather.SyncedDataEntity` · key `weather_find_synced_data`
@@ -20705,18 +19071,6 @@ Output: Text `attributedString`
 |---|---|---|---|
 | `text` | Text | text | richText |
 | `summaryType` | Summary Style | string | enum: `createKeyPoints`, `summarize` |
-
-## com.apple.-Photos-AppIntents (`com.apple.-Photos-AppIntents`)
-
-### Workaround for rdar://146914251
-
-`com.apple.-Photos-AppIntents.PHWorkaroundFor146914251Intent` · key `com_apple_photos_app_intents_workaround_for_rdar_146914251`
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `asset` | Workaround for rdar://146914251 | any | entity _Photos_AppIntents.PHAssetEntity |
 
 ## com.apple.AppKit (`com.apple.AppKit`)
 
@@ -20996,18 +19350,6 @@ Output:  `none`
 | `recipients` | Recipients | any | person |
 
 ## usernotificationsd (`com.apple.usernotificationsd`)
-
-### Prepare notifications to read
-
-`com.apple.usernotificationsd.PrepareUserNotificationIntent` · key `com_apple_usernotificationsd_prepare_notifications_to_read`
-  
-Prepare notifications to read
-  
-Output:  `none`
-
-| Key | Name | Kind | Type |
-|---|---|---|---|
-| `notifications` | Notifications | any | entity UserNotificationEntity |
 
 ### Find User Notification Type
 
