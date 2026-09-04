@@ -321,7 +321,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.LaunchRemoteIntent": {
@@ -336,7 +338,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.LaunchScreenSaverIntent": {
@@ -351,7 +355,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.PauseContentIntent": {
@@ -367,7 +373,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent": {
@@ -383,7 +391,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.SkipContentIntent": {
@@ -399,7 +409,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.SleepAppleTVIntent": {
@@ -414,7 +426,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.SwitchUserAccountIntent": {
@@ -429,7 +443,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.ToggleCaptionsIntent": {
@@ -445,7 +461,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent": {
@@ -459,7 +477,9 @@
   "IntentName": "ToggleSystemAppearanceIntent",
   "Name": "Set Appearance on Apple TV",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Set Appearance on Apple TV",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.TVRemoteUIService.WakeAppleTVIntent": {
@@ -474,7 +494,9 @@
   "Name": "Unknown Action",
   "NameSource": "ToolKit",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Unknown Action",
+   "OutputNameSource": "WFAction"
   }
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent": {
@@ -2456,7 +2478,9 @@
   "InputPassthrough": false,
   "Name": "Show Quick Reminder",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Show Quick Reminder",
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [],
   "RequiredResources": [
@@ -2991,8 +3015,8 @@
   "Output": {
    "DisclosureLevel": "Public",
    "Multiple": false,
-   "OutputName": "Ask for Input",
-   "OutputNameSource": "ToolKit",
+   "OutputName": "Provided Input",
+   "OutputNameSource": "WFAction",
    "Types": [
     "NSString",
     "NSDecimalNumber",
@@ -3952,7 +3976,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Corrected Spelling",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "ResidentCompatible": true
  },
@@ -7252,7 +7276,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Articles",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -7600,7 +7624,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Locations",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -8600,7 +8624,7 @@
   "Name": "Get Current App",
   "Output": {
    "OutputName": "Current App",
-   "OutputNameSource": "ToolKit",
+   "OutputNameSource": "WFAction",
    "Types": [
     "WFApp"
    ]
@@ -8786,7 +8810,9 @@
   "InputPassthrough": true,
   "Name": "Open Directions",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Open Directions",
+   "OutputNameSource": "WFAction"
   },
   "ParameterSummary": {
    "possibleValues": [
@@ -10110,6 +10136,8 @@
   "Output": {
    "DisclosureLevel": "Public",
    "Multiple": true,
+   "OutputName": "Get Parent Directory",
+   "OutputNameSource": "WFAction",
    "Types": [
     "public.folder"
    ]
@@ -11361,7 +11389,9 @@
   "InputPassthrough": true,
   "Name": "Open in GoodReader",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Open in GoodReader",
+   "OutputNameSource": "WFAction"
   },
   "ParameterSummary": {
    "format": "Open ${WFInput}"
@@ -11413,7 +11443,9 @@
   "IconSymbol": "ipad.and.arrow.forward",
   "Name": "Hand Off Playback",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Hand Off Playback",
+   "OutputNameSource": "WFAction"
   },
   "ParameterSummary": {
    "format": "Hand off playback from ${WFSourceMediaRoute} to ${WFDestinationMediaRoute}"
@@ -14450,6 +14482,8 @@
   "Output": {
    "DisclosureLevel": "Public",
    "Multiple": false,
+   "OutputName": "Nothing",
+   "OutputNameSource": "WFAction",
    "Types": [
     "WFContentItem"
    ]
@@ -16772,7 +16806,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Details of App Store Apps",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -16827,7 +16861,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Details of Articles",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -16860,7 +16894,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Details of Calendar Events",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -17070,7 +17104,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Details of Itunes Artists",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -17101,7 +17135,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Details of Itunes Products",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -17179,7 +17213,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Artist",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -17260,7 +17294,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Details of Podcast Episodes",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -17295,7 +17329,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Details of Podcasts",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -17398,7 +17432,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Details of Safari Web Pages",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "Parameters": [
    {
@@ -18245,6 +18279,8 @@
   "Output": {
    "DisclosureLevel": "Public",
    "Multiple": false,
+   "OutputName": "Requested Ride",
+   "OutputNameSource": "WFAction",
    "Types": [
     "INRideStatus"
    ]
@@ -20384,7 +20420,9 @@
   "IconSymbol": "airplayaudio",
   "Name": "Change Playback Destination",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Change Playback Destination",
+   "OutputNameSource": "WFAction"
   },
   "ParameterSummary": {
    "possibleValues": [
@@ -21986,7 +22024,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Updated Text",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "ParameterOverrides": {
    "type": {
@@ -22033,7 +22071,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Combined Text",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "ParameterOverrides": {
    "customSeparator": {
@@ -22079,7 +22117,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Matches",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "ParameterOverrides": {
    "caseSensitive": {
@@ -22108,7 +22146,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "OutputName": "Text",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "ParameterOverrides": {
    "groupIndex": {
@@ -22221,7 +22259,7 @@
    "DisclosureLevel": "Public",
    "Multiple": true,
    "OutputName": "Split Text",
-   "OutputNameSource": "ToolKit"
+   "OutputNameSource": "WFAction"
   },
   "ParameterOverrides": {
    "customSeparator": {
@@ -22366,7 +22404,9 @@
   "LocallyProcessesData": true,
   "Name": "Start Timer",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Start Timer",
+   "OutputNameSource": "WFAction"
   },
   "ParameterSummary": {
    "format": "Start timer for ${WFDuration}"
@@ -23072,7 +23112,9 @@
   },
   "Name": "Tweet",
   "Output": {
-   "DisclosureLevel": "Public"
+   "DisclosureLevel": "Public",
+   "OutputName": "Tweet",
+   "OutputNameSource": "WFAction"
   },
   "ParameterSummary": {
    "format": "Tweet ${TweetInput}"

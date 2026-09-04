@@ -29,10 +29,13 @@ function run(argv) {
     if (isSystemBundle(isNil(bundle) ? null : str(bundle))) actions.push(a);
   }
   actions.sort((a, b) => str(a.identifier).localeCompare(str(b.identifier)));
-  const byParamClass = {}, actionParameters = {};
+  const byParamClass = {}, actionParameters = {}, actionOutputNames = {};
   let created = 0, params = 0, failed = 0;
   for (const action of actions) {
     const ident = str(action.identifier);
+    // The output name the editor shows ("Provided Input" for Ask for Input). ActionKit's actions
+    // declare it in code, so it is missing from their definitions; the action object knows it.
+    try { const n = action.outputName; if (!isNil(n)) actionOutputNames[ident] = str(n); } catch (e) { /* no output */ }
     let plist;
     try { plist = action.parameters; } catch (e) { failed++; continue; }
     created++;
@@ -61,5 +64,5 @@ function run(argv) {
     if (typeof scn !== "string" || stateClassSelectors[scn] || !hasClass(scn)) continue;
     stateClassSelectors[scn] = methodNames(scn).filter((s) => s.includes("erializ") || s.includes("init"));
   }
-  writeJSON(argv[0], { parameterClasses: byParamClass, stateClassSelectors, actionParameters });
+  writeJSON(argv[0], { parameterClasses: byParamClass, stateClassSelectors, actionParameters, actionOutputNames });
 }

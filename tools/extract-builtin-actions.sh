@@ -37,7 +37,7 @@ echo "mapping parameter classes to state classes"
 jxa extract-parameter-encodings "$data/parameter-encodings.json"
 python3 "$here/render-parameter-encodings.py" "$data/parameter-encodings.json" "$docs/parameter-encodings.md"
 
-echo "filling names, output names and enumeration cases the engine leaves out"
+echo "filling names, output names and enumeration cases the definitions leave out"
 python3 "$here/annotate-builtin-actions.py" "$data/builtin-actions.json" "$data/toolkit-names.json" "$data/parameter-encodings.json"
 
 echo "rendering markdown"

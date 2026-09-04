@@ -265,7 +265,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - identifier: `is.workflow.actions.ask`  ·  class `WFAskForInputAction`
 - Displays a dialog prompting the user to enter a piece of information.
 - summary: `Ask for ${WFInputType} with ${WFAskActionPrompt}`
-- output: Ask for Input NSString, NSDecimalNumber, NSURL, NSDate
+- output: Provided Input NSString, NSDecimalNumber, NSURL, NSDate
 - keywords: ask, prompt, show, dialog, keyboard, text, number, url, date, time
 - icon: plus.bubble.fill (Cyan)
 - parameters:
@@ -370,7 +370,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `${WFMediaRouteOperation} ${WFMediaRoute} to playback destinations`  when {"WFMediaRouteOperation": "Add"}
   - `${WFMediaRouteOperation} ${WFMediaRoute} from playback destinations`  when {"WFMediaRouteOperation": "Remove"}
   - `${WFMediaRouteOperation} playback destination to ${WFMediaRoute}`  when {"WFMediaRouteOperation": "Set"}
-- output:
+- output: Change Playback Destination
 - keywords: device, airplay, playback, audio, route, set
 - icon: airplayaudio (Red)
 - parameters:
@@ -2107,7 +2107,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - Gets the common parent directory of the files passed in.
 - summary: `Get parent directory of ${WFInput}`
 - input: public.data (required)
-- output:  public.folder
+- output: Get Parent Directory public.folder
 - keywords: file, files, folder, root
 - icon: arrow.turn.left.up (Tint)
 - parameters:
@@ -2415,7 +2415,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - identifier: `is.workflow.actions.handoffplayback`  ·  class `WFHandOffPlaybackAction`
 - Hands off Music or Podcasts playback between two devices.
 - summary: `Hand off playback from ${WFSourceMediaRoute} to ${WFDestinationMediaRoute}`
-- output:
+- output: Hand Off Playback
 - keywords: device, airplay, playback, audio, route
 - icon: ipad.and.arrow.forward (Red)
 - parameters:
@@ -2977,7 +2977,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - This action does nothing and produces no output. It is useful to separate blocks of actions, or to explicitly pass an empty input to an action.
 - result: Nothing
 - summary: `Nothing`
-- output:  WFContentItem
+- output: Nothing WFContentItem
 - keywords: nil, nothing, empty, discard, clear
 - icon: app.dashed (Clear)
 - ResidentCompatible: True
@@ -3020,7 +3020,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
   - `Open ${WFGetDirectionsActionMode} directions from ${WFLocation} to ${WFDestination}`
   - `Open ${WFGetDirectionsActionMode} directions from ${WFLocation} to ${WFDestination} using ${WFGetDirectionsActionApp}`
 - input: NSString, CLLocation, MKMapItem (required)
-- output:
+- output: Open Directions
 - keywords: get, maps, search, query, place, location, find, waze, google, transit, citymapper
 - InputPassthrough: True
 - parameters:
@@ -3074,7 +3074,7 @@ Extracted by loading WorkflowKit and asking WFBundledActionProvider for every de
 - Opens a file in GoodReader.
 - summary: `Open ${WFInput}`
 - input: public.data (required)
-- output:
+- output: Open in GoodReader
 - keywords: save, file, document
 - InputPassthrough: True
 - parameters:
@@ -3582,7 +3582,7 @@ You can also choose to have the flashlight pulse.
 - Requests a ride from the specified pickup location to a specified drop off location.
 - summary: `Request ride from ${PickupLocation} to ${DropOffLocation} with ${IntentAppDefinition}`
 - input: CLLocation
-- output:  INRideStatus
+- output: Requested Ride INRideStatus
 - keywords: ride, request, taxi
 - icon: figure.wave (Tint)
 - parameters:
@@ -4085,7 +4085,7 @@ When Always On is activated, your Apple Watch face will be visible even when you
 ## Set Appearance on Apple TV
 
 - identifier: `com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Set Appearance on Apple TV
 - icon: appearance.darkmode (Black)
 
 ## Set Audio Descriptions
@@ -4742,7 +4742,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 
 - identifier: `is.workflow.actions.addquickreminder`  ·  class `WFAddQuickReminderAction`
 - Opens the Quick Reminder view.
-- output:
+- output: Show Quick Reminder
 - InputPassthrough: False
 
 ## Show Today Feed
@@ -4881,7 +4881,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 - identifier: `is.workflow.actions.timer.start`  ·  class `WFStartTimerAction`
 - Starts a timer in the Clock app for the specified amount of time.
 - summary: `Start timer for ${WFDuration}`
-- output:
+- output: Start Timer
 - keywords: timer, set, clock, watch
 - InputPassthrough: True
 - parameters:
@@ -5086,7 +5086,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 - input: Content to tweet.
 - summary: `Tweet ${TweetInput}`
 - input: WFImageContentItem, WFURLContentItem, WFStringContentItem (required)
-- output:
+- output: Tweet
 - keywords: twitter, tweet, social, media, sharing, share
 - parameters:
   - `TweetInput` (TextInput) Tweet
@@ -5094,60 +5094,60 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.LaunchApplicationIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.LaunchRemoteIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 - icon: appletvremote.gen4.fill (Black)
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.LaunchScreenSaverIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 - icon: tv.fill (Black)
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.PauseContentIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 - icon: playpause.fill (Black)
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.ReduceLoudSoundsIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 - icon: ear.trianglebadge.exclamationmark (Black)
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.SkipContentIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 - icon: forward.fill (Black)
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.SleepAppleTVIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 - icon: sleep (Black)
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.SwitchUserAccountIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 - icon: person.crop.circle (Black)
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.ToggleCaptionsIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 - icon: captions.bubble.fill (Black)
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.WakeAppleTVIntent`  ·  class `WFHandleCustomIntentAction`
-- output:
+- output: Unknown Action
 - icon: power (Black)
 
 ## Unknown Intent

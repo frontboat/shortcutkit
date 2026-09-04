@@ -20,8 +20,10 @@ def main(argv):
     defs_path, names_path = argv[1], argv[2]
     defs = json.load(open(defs_path))
     names = json.load(open(names_path))
-    runtime = json.load(open(argv[3])).get("actionParameters", {}) if len(argv) > 3 else {}
-    filled = outputs = enums = 0
+    encodings = json.load(open(argv[3])) if len(argv) > 3 else {}
+    runtime = encodings.get("actionParameters", {})
+    engine_outputs = encodings.get("actionOutputNames", {})  # from the action objects themselves
+    filled = outputs = enums = disagree = 0
     for ident, d in defs.items():
         reg = names.get(ident)
         if not reg:
@@ -32,8 +34,14 @@ def main(argv):
             if reg.get("description") and (not isinstance(desc, dict) or not desc.get("DescriptionSummary")):
                 d["Description"] = dict(desc or {}, DescriptionSummary=reg["description"])
         out = d.get("Output")
-        if isinstance(out, dict) and not out.get("OutputName") and reg.get("outputName"):
-            out["OutputName"] = reg["outputName"]; out["OutputNameSource"] = "ToolKit"; outputs += 1
+        if isinstance(out, dict) and not out.get("OutputName"):
+            # Prefer the engine's own answer; the registry's result label can be the action name.
+            if engine_outputs.get(ident):
+                out["OutputName"] = engine_outputs[ident]; out["OutputNameSource"] = "WFAction"; outputs += 1
+            elif reg.get("outputName"):
+                out["OutputName"] = reg["outputName"]; out["OutputNameSource"] = "ToolKit"; outputs += 1
+        elif isinstance(out, dict) and engine_outputs.get(ident) and engine_outputs[ident] != out.get("OutputName"):
+            disagree += 1
         known_keys = {p["key"] for p in runtime.get(ident, []) if p.get("key")}
         listed = {p.get("Key") for p in d.get("Parameters", []) if isinstance(p, dict)}
         for key, cases in (reg.get("enumCases") or {}).items():
@@ -42,8 +50,9 @@ def main(argv):
             d.setdefault("Parameters", []).append({"Key": key, "Items": cases, "Label": (reg.get("labels") or {}).get(key), "Source": "ToolKit"})
             enums += 1
     json.dump(defs, open(defs_path, "w"), indent=2, ensure_ascii=False, sort_keys=True)
-    print(f"from the ToolKit registry: {filled} names, {outputs} output names, {enums} enumeration case lists; "
-          f"{sum(1 for d in defs.values() if not d.get('Name'))} still unnamed")
+    print(f"filled: {filled} names, {outputs} output names, {enums} enumeration case lists; "
+          f"{sum(1 for d in defs.values() if not d.get('Name'))} still unnamed; "
+          f"{disagree} definitions whose OutputName differs from the action object's (definition kept)")
 
 
 if __name__ == "__main__":

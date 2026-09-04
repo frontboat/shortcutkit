@@ -136,9 +136,14 @@ readable form. `tools/dump-toolkit-registry.py` reads it:
 - `ToolLocalizations`, `ParameterLocalizations`: English names, output names and descriptions,
   including for the ActionKit built-ins whose engine definitions have no `Name`, no
   `OutputName` and no `Parameters` list (`Ask for Input`, `Combine Text`: they declare
-  parameters in code). `tools/annotate-builtin-actions.py` fills the name, the output name
-  and each enumeration's cases into the definition, marked `NameSource`, `OutputNameSource`
-  and `Source: "ToolKit"`; enumeration entries only for keys the run-time walk reports.
+  parameters in code). `tools/annotate-builtin-actions.py` fills the name and each enumeration's cases into the
+  definition, marked `NameSource` and `Source: "ToolKit"`; enumeration entries only for keys
+  the run-time walk reports. Output names come from the engine instead: each created action
+  answers `-outputName` ("Provided Input" for Ask for Input, where the registry's result label
+  is the action's own name), recorded as `actionOutputNames` by the encodings probe and marked
+  `OutputNameSource: "WFAction"`. Where a definition already names its output the definition
+  wins; the action object's answer can follow the default parameter (Get Battery Level says
+  "Battery Level", Statistics says "Average").
 
 The committed `data/apple-app-intents.json` keeps the `WFLinkActionProvider` tools whose
 container is an Apple bundle; those ship with macOS. The full index, third-party apps

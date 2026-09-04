@@ -81,56 +81,67 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   com_apple_Notes_ICNotesFolderIntent: "com.apple.Notes.ICNotesFolderIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_LaunchApplicationIntent: "com.apple.TVRemoteUIService.LaunchApplicationIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_LaunchRemoteIntent: "com.apple.TVRemoteUIService.LaunchRemoteIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_LaunchScreenSaverIntent: "com.apple.TVRemoteUIService.LaunchScreenSaverIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_PauseContentIntent: "com.apple.TVRemoteUIService.PauseContentIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_ReduceLoudSoundsIntent: "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_SkipContentIntent: "com.apple.TVRemoteUIService.SkipContentIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_SleepAppleTVIntent: "com.apple.TVRemoteUIService.SleepAppleTVIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_SwitchUserAccountIntent: "com.apple.TVRemoteUIService.SwitchUserAccountIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_ToggleCaptionsIntent: "com.apple.TVRemoteUIService.ToggleCaptionsIntent",
   /**
    * **Set Appearance on Apple TV**
+   * Output: Set Appearance on Apple TV
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_ToggleSystemAppearanceIntent: "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent",
   /**
    * **Unknown Action**
+   * Output: Unknown Action
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_WakeAppleTVIntent: "com.apple.TVRemoteUIService.WakeAppleTVIntent",
@@ -415,6 +426,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Show Quick Reminder**
    * Opens the Quick Reminder view.
+   * Output: Show Quick Reminder
    */
   addquickreminder: "is.workflow.actions.addquickreminder",
   /**
@@ -483,7 +495,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Ask for Input**
    * Displays a dialog prompting the user to enter a piece of information.
    * Summary: `Ask for ${WFInputType} with ${WFAskActionPrompt}`
-   * Output: Ask for Input
+   * Output: Provided Input
    * Parameters: `WFAskActionPrompt`, `WFInputType`, `WFAskActionDefaultAnswer`, `WFAskActionDefaultAnswerNumber`, `urlAnswer`, `WFAskActionDefaultAnswerURL`, `WFAskActionDefaultAnswerDate`, `WFAskActionDefaultAnswerTime`, `WFAskActionDefaultAnswerDateAndTime`, `WFAskActionAllowsDecimalNumbers`, `WFAskActionAllowsNegativeNumbers`, `WFAllowsMultilineText`, `ShowWhenRun`
    */
   ask: "is.workflow.actions.ask",
@@ -1206,6 +1218,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Open Directions**
    * Opens directions to the location passed into this action in your choice of Maps, Google Maps, Citymapper, Transit, or Waze. For example, you can use this action to get directions to an upcoming event on your calendar.
+   * Output: Open Directions
    * Parameters: `WFLocation`, `WFDestination`, `WFGetDirectionsActionApp`, `WFGetDirectionsActionMode`
    */
   getdirections: "is.workflow.actions.getdirections",
@@ -1385,6 +1398,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Get Parent Directory**
    * Gets the common parent directory of the files passed in.
    * Summary: `Get parent directory of ${WFInput}`
+   * Output: Get Parent Directory
    * Parameters: `WFInput`
    */
   getparentdirectory: "is.workflow.actions.getparentdirectory",
@@ -1535,6 +1549,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Open in GoodReader**
    * Opens a file in GoodReader.
    * Summary: `Open ${WFInput}`
+   * Output: Open in GoodReader
    * Parameters: `WFInput`
    */
   goodreader_open: "is.workflow.actions.goodreader.open",
@@ -1548,6 +1563,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Hand Off Playback**
    * Hands off Music or Podcasts playback between two devices.
    * Summary: `Hand off playback from ${WFSourceMediaRoute} to ${WFDestinationMediaRoute}`
+   * Output: Hand Off Playback
    * Parameters: `WFSourceMediaRoute`, `WFDestinationMediaRoute`
    */
   handoffplayback: "is.workflow.actions.handoffplayback",
@@ -1853,6 +1869,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Nothing**
    * This action does nothing and produces no output. It is useful to separate blocks of actions, or to explicitly pass an empty input to an action.
    * Summary: `Nothing`
+   * Output: Nothing
    */
   nothing: "is.workflow.actions.nothing",
   /**
@@ -2293,6 +2310,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Request Ride**
    * Requests a ride from the specified pickup location to a specified drop off location.
    * Summary: `Request ride from ${PickupLocation} to ${DropOffLocation} with ${IntentAppDefinition}`
+   * Output: Requested Ride
    * Parameters: `IntentAppDefinition`, `PickupLocation`, `DropOffLocation`, `RideOption`, `PaymentMethod`, `PartySize`
    */
   ride_requestride: "is.workflow.actions.ride.requestride",
@@ -2521,6 +2539,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Change Playback Destination**
    * Changes the current playback destination. Use this action to route audio to AirPods, Bluetooth speakers, HomePod, or other AirPlay devices. Optionally, this action can add or remove devices from a group, so you can route audio to multiple devices at once.
+   * Output: Change Playback Destination
    * Parameters: `WFMediaRouteOperation`, `WFMediaRoute`
    */
   setplaybackdestination: "is.workflow.actions.setplaybackdestination",
@@ -2797,6 +2816,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Start Timer**
    * Starts a timer in the Clock app for the specified amount of time.
    * Summary: `Start timer for ${WFDuration}`
+   * Output: Start Timer
    * Parameters: `IntentAppDefinition`, `WFDuration`
    */
   timer_start: "is.workflow.actions.timer.start",
@@ -2865,6 +2885,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Tweet**
    * Tweets the input.
    * Summary: `Tweet ${TweetInput}`
+   * Output: Tweet
    * Parameters: `TweetInput`
    */
   tweet: "is.workflow.actions.tweet",
@@ -14058,17 +14079,17 @@ export const ACTIONS = {
   "com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent": { name: "Set Wake on Wrist Raise", params: ["operation", "state", "ShowWhenRun"], output: null },
   "com.apple.NanoSettings.NPRFSetWaterLockIntent": { name: "Set Water Lock", params: ["operation", "state", "ShowWhenRun"], output: null },
   "com.apple.Notes.ICNotesFolderIntent": { name: "Show Notes Folder", params: ["folder", "ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.LaunchApplicationIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.LaunchRemoteIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.LaunchScreenSaverIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.PauseContentIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.SkipContentIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.SleepAppleTVIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.SwitchUserAccountIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.ToggleCaptionsIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent": { name: "Set Appearance on Apple TV", params: ["ShowWhenRun"], output: null },
-  "com.apple.TVRemoteUIService.WakeAppleTVIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: null },
+  "com.apple.TVRemoteUIService.LaunchApplicationIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
+  "com.apple.TVRemoteUIService.LaunchRemoteIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
+  "com.apple.TVRemoteUIService.LaunchScreenSaverIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
+  "com.apple.TVRemoteUIService.PauseContentIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
+  "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
+  "com.apple.TVRemoteUIService.SkipContentIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
+  "com.apple.TVRemoteUIService.SleepAppleTVIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
+  "com.apple.TVRemoteUIService.SwitchUserAccountIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
+  "com.apple.TVRemoteUIService.ToggleCaptionsIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
+  "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent": { name: "Set Appearance on Apple TV", params: ["ShowWhenRun"], output: "Set Appearance on Apple TV" },
+  "com.apple.TVRemoteUIService.WakeAppleTVIntent": { name: "Unknown Action", params: ["ShowWhenRun"], output: "Unknown Action" },
   "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent": { name: "Change Background Sound", params: ["backgroundSound", "ShowWhenRun"], output: null },
   "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent": { name: "Set Background Sounds Timer Interval", params: ["interval", "duration", "endInterval", "always", "ShowWhenRun"], output: null },
   "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent": { name: "Set Background Sounds Volume", params: ["volumeValue", "ShowWhenRun"], output: null },
@@ -14113,7 +14134,7 @@ export const ACTIONS = {
   "is.workflow.actions.addnewcontact": { name: "New Contact", params: ["WFContactFirstName", "WFContactLastName", "WFContactCompany", "WFContactPhoto", "WFContactPhoneNumbers", "WFContactEmails", "WFContactNotes", "ShowWhenRun"], output: "New Contact" },
   "is.workflow.actions.addnewevent": { name: "New Event", params: ["WFCalendarItemTitle", "WFCalendarItemLocation", "WFCalendarDescriptor", "WFCalendarItemStartDate", "WFCalendarItemEndDate", "WFCalendarItemAllDay", "WFAlertTime", "WFAlertCustomTime", "WFCalendarItemNotes", "ShowWhenRun"], output: "New Event" },
   "is.workflow.actions.addnewreminder": { name: "New Reminder", params: ["WFCalendarItemTitle", "WFCalendarDescriptor", "WFAlertEnabled", "WFAlertCondition", "WFAlertLocation", "WFAlertPerson", "WFAlertLocationRadius", "WFAlertCustomTime", "WFPriority", "WFUrgent", "WFFlag", "WFURL", "WFImages", "WFParentTask", "WFTags", "WFCalendarItemNotes"], output: "New Reminder" },
-  "is.workflow.actions.addquickreminder": { name: "Show Quick Reminder", params: [], output: null },
+  "is.workflow.actions.addquickreminder": { name: "Show Quick Reminder", params: [], output: "Show Quick Reminder" },
   "is.workflow.actions.address": { name: "Street Address", params: ["WFAddressLine1", "WFAddressLine2", "WFCity", "WFState", "WFPostalCode", "WFCountry"], output: "Street Address" },
   "is.workflow.actions.addtoplaylist": { name: "Add to Playlist", params: ["WFPlaylistName", "WFInput"], output: "Updated Playlist" },
   "is.workflow.actions.adjustdate": { name: "Adjust Date", params: ["WFDate", "WFAdjustOperation", "WFDuration"], output: "Adjusted Date" },
@@ -14123,7 +14144,7 @@ export const ACTIONS = {
   "is.workflow.actions.announcenotifications.set": { name: "Set Announce Notifications", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
   "is.workflow.actions.appearance": { name: "Set Appearance", params: ["operation", "style", "ShowWhenRun"], output: null },
   "is.workflow.actions.appendvariable": { name: "Add to Variable", params: ["WFVariableName", "WFInput"], output: "Variable" },
-  "is.workflow.actions.ask": { name: "Ask for Input", params: ["WFAskActionPrompt", "WFInputType", "WFAskActionDefaultAnswer", "WFAskActionDefaultAnswerNumber", "urlAnswer", "WFAskActionDefaultAnswerURL", "WFAskActionDefaultAnswerDate", "WFAskActionDefaultAnswerTime", "WFAskActionDefaultAnswerDateAndTime", "WFAskActionAllowsDecimalNumbers", "WFAskActionAllowsNegativeNumbers", "WFAllowsMultilineText", "ShowWhenRun"], output: "Ask for Input" },
+  "is.workflow.actions.ask": { name: "Ask for Input", params: ["WFAskActionPrompt", "WFInputType", "WFAskActionDefaultAnswer", "WFAskActionDefaultAnswerNumber", "urlAnswer", "WFAskActionDefaultAnswerURL", "WFAskActionDefaultAnswerDate", "WFAskActionDefaultAnswerTime", "WFAskActionDefaultAnswerDateAndTime", "WFAskActionAllowsDecimalNumbers", "WFAskActionAllowsNegativeNumbers", "WFAllowsMultilineText", "ShowWhenRun"], output: "Provided Input" },
   "is.workflow.actions.askllm": { name: "Use Model", params: ["WFLLMModel", "WFLLMPrompt", "WFAllowWebSearch", "WFGenerativeResultType", "FollowUp"], output: "Response" },
   "is.workflow.actions.avairyeditphoto": { name: "Markup", params: ["WFDocument"], output: "Markup Result" },
   "is.workflow.actions.base64encode": { name: "Base64 Encode", params: ["WFEncodeMode", "WFBase64LineBreakMode", "WFInput"], output: "Base64 Encoded" },
@@ -14225,7 +14246,7 @@ export const ACTIONS = {
   "is.workflow.actions.getcurrentlocation": { name: "Get Current Location", params: ["Accuracy"], output: "Current Location" },
   "is.workflow.actions.getcurrentsong": { name: "Get Current Song", params: ["Subject"], output: "Current Song" },
   "is.workflow.actions.getdevicedetails": { name: "Get Device Details", params: ["WFDeviceDetail"], output: "Device Details" },
-  "is.workflow.actions.getdirections": { name: "Open Directions", params: ["WFLocation", "WFDestination", "WFGetDirectionsActionApp", "WFGetDirectionsActionMode"], output: null },
+  "is.workflow.actions.getdirections": { name: "Open Directions", params: ["WFLocation", "WFDestination", "WFGetDirectionsActionApp", "WFGetDirectionsActionMode"], output: "Open Directions" },
   "is.workflow.actions.getdistance": { name: "Get Distance", params: ["WFGetDirectionsCustomLocation", "WFGetDistanceDestination", "WFGetDirectionsActionMode", "WFAvoidTolls", "WFAvoidHighways", "WFDistanceUnit", "Accuracy"], output: "Distance" },
   "is.workflow.actions.getepisodesforpodcast": { name: "Get Episodes of Podcast", params: ["WFInput"], output: "Episodes" },
   "is.workflow.actions.getframesfromimage": { name: "Get Frames from Image", params: ["WFImage"], output: "Frames from Image" },
@@ -14248,7 +14269,7 @@ export const ACTIONS = {
   "is.workflow.actions.getnameofemoji": { name: "Get Name of Emoji", params: ["WFInput"], output: "Name of Emoji" },
   "is.workflow.actions.getonscreencontent": { name: "Get What’s On Screen", params: [], output: "On-Screen Content" },
   "is.workflow.actions.getonscreencontext": { name: "Get What’s On Screen", params: ["WFOnScreenContextResultType", "WFOnScreenContextScope", "WFOnScreenContextLimitEnabled", "WFOnScreenContextLimit"], output: "On-Screen Content" },
-  "is.workflow.actions.getparentdirectory": { name: "Get Parent Directory", params: ["WFInput"], output: null },
+  "is.workflow.actions.getparentdirectory": { name: "Get Parent Directory", params: ["WFInput"], output: "Get Parent Directory" },
   "is.workflow.actions.getparkedcarlocation": { name: "Get Parked Car Location", params: [], output: "Car Location" },
   "is.workflow.actions.getpodcastsfromlibrary": { name: "Get Podcasts from Library", params: [], output: "Podcasts" },
   "is.workflow.actions.getrichtextfromhtml": { name: "Make Rich Text from HTML", params: ["WFHTML"], output: "Rich Text from HTML" },
@@ -14268,9 +14289,9 @@ export const ACTIONS = {
   "is.workflow.actions.getwebpagecontents": { name: "Get Contents of Web Page", params: ["WFInput"], output: "Contents of Web Page" },
   "is.workflow.actions.getwifi": { name: "Get Network Details", params: ["WFNetworkDetailsNetwork", "WFWiFiDetail", "WFCellularDetail", "WFEthernetDetail"], output: "Network Details" },
   "is.workflow.actions.giphy": { name: "Find Giphy GIFs", params: ["WFGiphyQuery", "WFGiphyShowPicker", "WFGiphyLimit", "WFGiphySelectMultiple"], output: "GIFs" },
-  "is.workflow.actions.goodreader.open": { name: "Open in GoodReader", params: ["WFInput"], output: null },
+  "is.workflow.actions.goodreader.open": { name: "Open in GoodReader", params: ["WFInput"], output: "Open in GoodReader" },
   "is.workflow.actions.handoff": { name: "Continue in Shortcuts App", params: [], output: null },
-  "is.workflow.actions.handoffplayback": { name: "Hand Off Playback", params: ["WFSourceMediaRoute", "WFDestinationMediaRoute"], output: null },
+  "is.workflow.actions.handoffplayback": { name: "Hand Off Playback", params: ["WFSourceMediaRoute", "WFDestinationMediaRoute"], output: "Hand Off Playback" },
   "is.workflow.actions.hash": { name: "Generate Hash", params: ["WFHashType", "WFInput"], output: "Hash" },
   "is.workflow.actions.health.quantity.log": { name: "Log Health Sample", params: ["WFQuantitySampleType", "WFQuantitySampleQuantity", "WFQuantitySampleAdditionalQuantity", "WFQuantitySampleAdditionalEnumeration", "WFCategorySampleEnumeration", "WFCategorySampleAdditionalEnumerationKey", "WFQuantitySampleDate", "WFSampleEndDate"], output: "Health Sample" },
   "is.workflow.actions.health.workout.log": { name: "Log Workout", params: ["WFWorkoutDate", "WFWorkoutDuration", "WFWorkoutReadableActivityType", "WFWorkoutCaloriesQuantity", "WFWorkoutDistanceQuantity"], output: "Workout" },
@@ -14312,7 +14333,7 @@ export const ACTIONS = {
   "is.workflow.actions.mountdiskimage": { name: "Mount Disk Image", params: ["WFInput"], output: "Mounted Volume" },
   "is.workflow.actions.movewindow": { name: "Move Window", params: ["WFPosition", "WFXCoordinate", "WFYCoordinate", "WFWindow", "WFBringToFront", "Display"], output: null },
   "is.workflow.actions.nightshift.set": { name: "Set Night Shift", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
-  "is.workflow.actions.nothing": { name: "Nothing", params: [], output: null },
+  "is.workflow.actions.nothing": { name: "Nothing", params: [], output: "Nothing" },
   "is.workflow.actions.notification": { name: "Show Notification", params: ["WFNotificationActionTitle", "WFNotificationActionBody", "WFNotificationActionSound", "WFInput"], output: null },
   "is.workflow.actions.number": { name: "Number", params: ["WFNumberActionNumber"], output: "Number" },
   "is.workflow.actions.number.random": { name: "Random Number", params: ["WFRandomNumberMinimum", "WFRandomNumberMaximum"], output: "Random Number" },
@@ -14380,7 +14401,7 @@ export const ACTIONS = {
   "is.workflow.actions.repeat.each": { name: "Repeat with Each", params: ["WFInput"], output: "Repeat with Each" },
   "is.workflow.actions.resizewindow": { name: "Resize Window", params: ["WFConfiguration", "WFWidth", "WFHeight", "WFWindow", "WFBringToFront"], output: null },
   "is.workflow.actions.returntohomescreen": { name: "Go to Home Screen", params: [], output: null },
-  "is.workflow.actions.ride.requestride": { name: "Request Ride", params: ["IntentAppDefinition", "PickupLocation", "DropOffLocation", "RideOption", "PaymentMethod", "PartySize"], output: null },
+  "is.workflow.actions.ride.requestride": { name: "Request Ride", params: ["IntentAppDefinition", "PickupLocation", "DropOffLocation", "RideOption", "PaymentMethod", "PartySize"], output: "Requested Ride" },
   "is.workflow.actions.round": { name: "Round Number", params: ["WFInput", "WFRoundTo", "WFRoundMode", "TenToThePowerOf"], output: "Rounded Number" },
   "is.workflow.actions.rss": { name: "Get Items from RSS Feed", params: ["WFRSSFeedURL", "WFRSSItemQuantity"], output: "RSS Items" },
   "is.workflow.actions.rss.extract": { name: "Get RSS Feeds from Page", params: ["WFURLs"], output: "RSS Feeds from Page" },
@@ -14411,7 +14432,7 @@ export const ACTIONS = {
   "is.workflow.actions.setclipboard": { name: "Copy to Clipboard", params: ["WFLocalOnly", "WFExpirationDate", "WFInput"], output: null },
   "is.workflow.actions.setitemname": { name: "Set Name", params: ["WFName", "WFDontIncludeFileExtension", "WFInput"], output: "Renamed Item" },
   "is.workflow.actions.setparkedcar": { name: "Set Parked Car", params: ["WFLocation", "WFSetParkedCarNotes", "WFImage"], output: "Parked Car" },
-  "is.workflow.actions.setplaybackdestination": { name: "Change Playback Destination", params: ["WFMediaRouteOperation", "WFMediaRoute"], output: null },
+  "is.workflow.actions.setplaybackdestination": { name: "Change Playback Destination", params: ["WFMediaRouteOperation", "WFMediaRoute"], output: "Change Playback Destination" },
   "is.workflow.actions.setstoredcontent": { name: "Store Content", params: ["WFInput", "WFStoredContentKey", "WFStoredContentGlobalValue"], output: "Stored Content" },
   "is.workflow.actions.setters.calendarevents": { name: "Edit Calendar Event", params: ["WFContentItemPropertyName", "Mode", "WFInput", "RemoveSpecifiedValue", "WFCalendarEventContentItemAttachments", "WFCalendarEventContentItemIsAllDay", "WFCalendarEventContentItemNotes", "WFCalendarEventContentItemTitle", "WFCalendarEventContentItemLocation", "WFCalendarEventContentItemEndDate", "WFCalendarEventContentItemDuration", "WFCalendarEventContentItemStartDate", "WFCalendarEventContentItemMyStatus", "WFCalendarEventContentItemAttendees", "WFCalendarEventContentItemURL", "ValueLabel"], output: null },
   "is.workflow.actions.setters.contacts": { name: "Edit Contact", params: ["WFContentItemPropertyName", "Mode", "WFInput", "RemoveSpecifiedValue", "WFContactContentItemPrefix", "WFContactContentItemPhoneticLastName", "WFContactContentItemJobTitle", "WFContactContentItemURLs", "WFContactContentItemCompany", "WFContactContentItemDepartment", "WFContactContentItemLastName", "WFContactContentItemEmailAddresses", "WFContactContentItemGroup", "WFContactContentItemPhoneticFirstName", "WFContactContentItemMiddleName", "WFContactContentItemPhoneNumbers", "WFContactContentItemSuffix", "WFContactContentItemStreetAddresses", "WFContactContentItemFirstName", "WFContactContentItemBirthday", "WFContactContentItemContactPhoto", "WFContactContentItemNickname", "WFContactContentItemPhoneticMiddleName", "WFContactContentItemNotes", "ValueLabel"], output: null },
@@ -14451,7 +14472,7 @@ export const ACTIONS = {
   "is.workflow.actions.text.split": { name: "Split Text", params: ["text", "WFTextSeparator", "WFTextCustomSeparator", "ShowWhenRun"], output: "Split Text" },
   "is.workflow.actions.text.translate": { name: "Translate Text", params: ["WFSelectedFromLanguage", "WFSelectedLanguage", "WFInputText"], output: "Translated Text" },
   "is.workflow.actions.text.trimwhitespace": { name: "Trim Whitespace", params: ["WFInput"], output: "Updated Text" },
-  "is.workflow.actions.timer.start": { name: "Start Timer", params: ["IntentAppDefinition", "WFDuration"], output: null },
+  "is.workflow.actions.timer.start": { name: "Start Timer", params: ["IntentAppDefinition", "WFDuration"], output: "Start Timer" },
   "is.workflow.actions.todoist.add": { name: "Add Todoist Item", params: ["WFTodoistContent", "WFTodoistProject", "WFTodoistDueDate", "WFTodoistReminder", "WFTodoistReminderType", "WFTodoistPriority", "WFTodoistNotes", "WFTodoistFile"], output: "Todoist Item" },
   "is.workflow.actions.trello.add.board": { name: "Create Trello Board", params: ["WFTrelloName", "WFTrelloDescription"], output: "Trello Board" },
   "is.workflow.actions.trello.add.card": { name: "Add Trello Card", params: ["WFTrelloName", "WFTrelloBoard", "WFTrelloList", "WFTrelloDueDate", "WFTrelloCardPosition", "WFTrelloAttachments", "WFTrelloDescription"], output: "Trello Card" },
@@ -14460,7 +14481,7 @@ export const ACTIONS = {
   "is.workflow.actions.trimvideo": { name: "Trim Media", params: ["WFInputMedia"], output: "Trimmed Media" },
   "is.workflow.actions.truetone.set": { name: "Set True Tone", params: ["operation", "OnValue", "ShowWhenRun"], output: null },
   "is.workflow.actions.tumblr.post": { name: "Post to Tumblr", params: ["WFInput", "WFComposeInApp", "WFBlogName", "WFPostType", "WFPostState", "WFPostTitle", "WFPostSource", "WFPostCaption", "WFPostTags", "WFPostDescription"], output: "Tumblr Post URL" },
-  "is.workflow.actions.tweet": { name: "Tweet", params: ["TweetInput"], output: null },
+  "is.workflow.actions.tweet": { name: "Tweet", params: ["TweetInput"], output: "Tweet" },
   "is.workflow.actions.unzip": { name: "Extract Archive", params: ["WFArchive"], output: "Files" },
   "is.workflow.actions.url": { name: "URL", params: ["WFURLActionURL"], output: "URL" },
   "is.workflow.actions.url.expand": { name: "Expand URL", params: ["URL"], output: "Expanded URL" },

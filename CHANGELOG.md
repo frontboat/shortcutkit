@@ -6,6 +6,14 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.4.1 (2026-09-04)
+
+- Output names for the ActionKit built-ins now come from the engine's action objects rather
+  than the Shortcuts app's registry, whose result label can be the action's own name. `ref()`
+  of Ask for Input reads "Provided Input", as the editor does; 40 definitions carry an
+  engine-sourced output name, marked `OutputNameSource: "WFAction"`. No parameter or type
+  change.
+
 ## 0.4.0 (2026-09-04)
 
 - **Control flow helpers**: `repeatCount()` / `endRepeatCount()` and `chooseFromMenu()` /
