@@ -39,11 +39,15 @@ function run(argv) {
   // Slack): nothing about the parameters can be read from them, so they are counted, not failed.
   const missingIds = new Set(Object.keys(byId).filter((id) => byId[id].isMissing));
   // VERIFY_TRACE=1 names each engine action before its cases load, so a load that never returns
-  // (as on the macOS 26 CI runner) shows which action it was.
-  const trace = !isNil($.NSProcessInfo.processInfo.environment.objectForKey("VERIFY_TRACE"));
+  // (as on the macOS 26 CI runner) shows which action it was; VERIFY_TRACE=calls also names each
+  // engine call. VERIFY_ONLY=<regex> limits the cases to matching identifiers.
+  const env = (k) => { const v = $.NSProcessInfo.processInfo.environment.objectForKey(k); return isNil(v) ? null : str(v); };
+  const trace = env("VERIFY_TRACE"), calls = trace === "calls", only = env("VERIFY_ONLY") && new RegExp(env("VERIFY_ONLY"));
+  if (only) console.log("only identifiers matching " + only);
   let n = 0, traced = null;
   for (const c of fixture.cases) {
     n++; if (n % 5000 === 0) console.log(n + " cases");
+    if (only && !only.test(c.identifier)) continue;
     const tpl = byId[c.identifier];
     if (tpl && missingIds.has(c.identifier)) { missingTemplates++; continue; }
     if (tpl) {
@@ -52,10 +56,12 @@ function run(argv) {
       const params = Object.assign({ UUID: "00000000-0000-4000-8000-00000000" + String(n).padStart(4, "0") }, c.params);
       let verdict;
       try {
+        if (calls) console.log("  copyWithSerializedParameters: " + c.key + " (" + c.form + ")");
         const a = tpl.copyWithSerializedParameters($(params));
         if (isNil(a) || a.isMissing) verdict = "action missing";
         else if ((LEGACY_KEYS[c.identifier] || []).includes(c.key)) { const sp = plain(a.serializedParameters, 0) || {}; verdict = c.key in sp ? "ok" : "legacy key discarded by the engine"; }
-        else { const st = a.parameterStateForKey(c.key); verdict = isNil(st) ? "not read (parameter state is nil)" : "ok"; }
+        else { if (calls) console.log("  parameterStateForKey: " + c.key); const st = a.parameterStateForKey(c.key); verdict = isNil(st) ? "not read (parameter state is nil)" : "ok"; }
+        if (calls) console.log("  -> " + verdict);
       } catch (e) { verdict = "threw: " + e.message.slice(0, 80); }
       if (c.expect === "deviceValidated") {
         // The engine checks this value against the device; read here means it happened to be valid, not read is not a library fault.

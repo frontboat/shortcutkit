@@ -26,7 +26,7 @@ bun run diff-data             # committed data vs working tree; recommends semve
 bun run changelog             # same diff as a CHANGELOG section
 ```
 
-CI (`.github/workflows/ci.yml`) runs typecheck, `bun test`, builds `dist/` and imports it from Node 20, installs the Python package, and writes an unsigned demo shortcut, all on `macos-latest`. It also runs `bun run verify` with `VERIFY_TRACE=1`, as an advisory step: on the macOS 26 runner an engine load in `verify-library-output.js` never returns, so a local `bun run verify` is the release gate. Signing is not covered by CI: `shortcuts sign` fails with "you must be signed into iCloud" on GitHub runners.
+CI (`.github/workflows/ci.yml`) runs typecheck, `bun test`, builds `dist/` and imports it from Node 20, installs the Python package, and writes an unsigned demo shortcut, all on `macos-latest`. It also runs `bun run verify` with `VERIFY_TRACE=1` as an advisory step, after recording a "denied" Contacts privacy answer in the runner's TCC.db (without one, Filter Contacts' sort-property state waits forever for a prompt). Advisory because the runner's engine (macOS 26, Shortcuts 7) predates the data's and does not read keys added since; a local `bun run verify` is the release gate. `VERIFY_ONLY=<regex>` limits the engine check to matching identifiers and `VERIFY_TRACE=calls` logs each engine call. Signing is not covered by CI: `shortcuts sign` fails with "you must be signed into iCloud" on GitHub runners.
 
 ## Architecture
 

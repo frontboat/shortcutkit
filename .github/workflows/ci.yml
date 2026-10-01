@@ -42,10 +42,19 @@ jobs:
           cd python
           python3 -m venv .venv && .venv/bin/pip install -q -e .
           .venv/bin/python -c "from shortcutkit import ACTIONS; assert len(ACTIONS) > 1800 and sum(1 for a in ACTIONS.values() if 'descriptor' in a) > 1400"
-      # Advisory: the data is extracted on a newer macOS than the runner's, and on macOS 26 an engine
-      # load in this step never returns. The release gate is a local `bun run verify` on the extraction OS.
+      # Filter Contacts builds its sort-property state through the Contacts framework, which waits
+      # forever for a privacy answer on a runner that was never asked. Record "denied" (as on the
+      # extraction Mac) for the processes the image attributes requests to.
+      - name: Answer the Contacts privacy prompt in advance
+        run: |
+          for c in /opt/hca/hosted-compute-agent /usr/local/opt/runner/provisioner/provisioner /bin/bash /usr/bin/osascript; do
+            sudo sqlite3 "$HOME/Library/Application Support/com.apple.TCC/TCC.db" "insert or replace into access (service, client, client_type, auth_value, auth_reason, auth_version, flags) values ('kTCCServiceAddressBook', '$c', 1, 0, 4, 1, 0)"
+          done
+          pkill -x tccd || true
+      # Advisory: the runner's engine (macOS 26, Shortcuts 7) predates the data's (macOS 27,
+      # Shortcuts 10) and does not read keys added since. The release gate is a local `bun run verify`.
       - name: Validate everything the library writes against the engine (advisory)
-        timeout-minutes: 10
+        timeout-minutes: 5
         continue-on-error: true
         run: |
           sw_vers; defaults read /System/Applications/Shortcuts.app/Contents/Info.plist CFBundleShortVersionString
