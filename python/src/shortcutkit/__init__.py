@@ -28,6 +28,8 @@ Value helpers return the exact structures WorkflowKit's state classes serialize:
   subject(att)       {"Type": "Variable", "Variable": att}  (the If condition's subject; pickers take the bare attachment)
 Plain str / int / float / bool / list are written as-is.
 """
+import copy
+import functools
 import json
 import pathlib
 import plistlib
@@ -37,6 +39,13 @@ import uuid
 
 HERE = pathlib.Path(__file__).resolve().parent
 DEFINITIONS = HERE / "data" / "builtin-actions.json"
+
+
+@functools.lru_cache(maxsize=None)
+def _load_definitions(path):
+    """The definitions file, parsed once per path; {} when it is absent."""
+    path = pathlib.Path(path)
+    return json.loads(path.read_text()) if path.exists() else {}
 
 # WFWorkflowIcon.backgroundColorValue for palette colors 0-14, as the unsigned 32-bit
 # value the plist stores. Names follow Shortcuts' picker order.
@@ -201,7 +210,7 @@ class Shortcut:
         self.input_classes = input_classes or []
         self.types = list(types or [])
         self.actions = []
-        self.defs = json.load(open(definitions)) if pathlib.Path(definitions).exists() else {}
+        self.defs = _load_definitions(definitions)
 
     def action(self, identifier, /, **params):
         """Append an action. Unknown identifiers or parameter keys raise ValueError.
@@ -358,9 +367,9 @@ def get_action(identifier, definitions=DEFINITIONS):
            "kinds": dict(PARAM_KINDS.get(identifier, {})), "output": entry.get("output"), "outputTypes": list(entry.get("outputTypes", []))}
     if entry.get("descriptor"):
         out["descriptor"] = entry["descriptor"]
-    defs = json.load(open(definitions)) if definitions and pathlib.Path(definitions).exists() else {}
+    defs = _load_definitions(definitions) if definitions else {}
     if identifier in defs:
-        out["definition"] = defs[identifier]
+        out["definition"] = copy.deepcopy(defs[identifier])
     return out
 
 
