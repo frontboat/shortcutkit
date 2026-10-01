@@ -6,6 +6,21 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 0.8.1 (2026-10-01)
+
+- Python: `Shortcut()` parses the bundled definitions once per path instead of on every
+  construction, and no longer leaves the file open. `get_action()` returns a copy of the
+  definition. Building many shortcuts in one process is much faster (the verify fixture went
+  from 97 s to under 1 s).
+- Engine verification runs on CI again. Filter Contacts' sort-property state goes through the
+  Contacts framework, which waited forever for a privacy answer on the runner; CI now records
+  "denied" first, as on the extraction Mac. When the runner's Shortcuts build is older than the
+  data's, keys its engine does not define or hides are reported as version gaps, not failures.
+- `bun run verify`: failures say why the engine did not read a key (no such parameter in this
+  engine, hidden, resources unmet) and are printed before the work directory is removed.
+  `VERIFY_ONLY=<regex>` limits the engine check; `VERIFY_TRACE=1` names each action as it
+  loads, `VERIFY_TRACE=calls` each engine call.
+
 ## 0.8.0 (2026-09-04)
 
 - **Variable pickers take the bare reference.** The wrapped `{Type: "Variable", Variable: …}`
