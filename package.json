@@ -35,7 +35,7 @@
   "author": "frontboat",
   "repository": {
     "type": "git",
-    "url": "https://github.com/frontboat/shortcutkit"
+    "url": "git+https://github.com/frontboat/shortcutkit.git"
   },
   "homepage": "https://github.com/frontboat/shortcutkit#readme",
   "keywords": [
