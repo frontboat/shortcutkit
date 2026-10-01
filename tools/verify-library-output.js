@@ -38,12 +38,16 @@ function run(argv) {
   // Actions the engine itself creates as missing on this Mac (retired integrations such as CloudApp, Dropbox,
   // Slack): nothing about the parameters can be read from them, so they are counted, not failed.
   const missingIds = new Set(Object.keys(byId).filter((id) => byId[id].isMissing));
-  let n = 0;
+  // VERIFY_TRACE=1 names each engine action before its cases load, so a load that never returns
+  // (as on the macOS 26 CI runner) shows which action it was.
+  const trace = !isNil($.NSProcessInfo.processInfo.environment.objectForKey("VERIFY_TRACE"));
+  let n = 0, traced = null;
   for (const c of fixture.cases) {
     n++; if (n % 5000 === 0) console.log(n + " cases");
     const tpl = byId[c.identifier];
     if (tpl && missingIds.has(c.identifier)) { missingTemplates++; continue; }
     if (tpl) {
+      if (trace && traced !== c.identifier) { traced = c.identifier; console.log("case " + n + ": " + c.identifier); }
       engineChecked++;
       const params = Object.assign({ UUID: "00000000-0000-4000-8000-00000000" + String(n).padStart(4, "0") }, c.params);
       let verdict;

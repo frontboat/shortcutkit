@@ -4,7 +4,7 @@
 #   2. parity.py proves the two packages write the same bytes
 #   3. verify-encodings.js round-trips every value form through each state class (data/encoding-roundtrips.json)
 #   4. verify-library-output.js loads every case and every whole shortcut through the engine
-# Needs macOS (the engine) and Shortcuts.app to have run once; run by `bun run verify` and by CI.
+# Needs macOS (the engine) and Shortcuts.app to have run once; run by `bun run verify` and by CI (advisory there: macOS 26 hangs in step 4; set VERIFY_TRACE=1 to name each action as it loads).
 set -euo pipefail
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 work="$(mktemp -d)"; trap 'rm -rf "$work"' EXIT
