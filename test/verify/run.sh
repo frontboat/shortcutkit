@@ -4,7 +4,7 @@
 #   2. parity.py proves the two packages write the same bytes
 #   3. verify-encodings.js round-trips every value form through each state class (data/encoding-roundtrips.json)
 #   4. verify-library-output.js loads every case and every whole shortcut through the engine
-# Needs macOS (the engine) and Shortcuts.app to have run once; run by `bun run verify` and by CI (advisory there; see ci.yml). VERIFY_TRACE=1 names each engine action as it loads, VERIFY_TRACE=calls each engine call; VERIFY_ONLY=<regex> limits step 4 to matching identifiers.
+# Needs macOS (the engine) and Shortcuts.app to have run once; run by `bun run verify` and by CI (an older runner engine reports version gaps instead of failing; see ci.yml). VERIFY_TRACE=1 names each engine action as it loads, VERIFY_TRACE=calls each engine call; VERIFY_ONLY=<regex> limits step 4 to matching identifiers.
 set -euo pipefail
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 work="$(mktemp -d)"; trap 'rm -rf "$work"' EXIT
@@ -17,7 +17,7 @@ python3 "$root/test/verify/parity.py" "$work/fixture-ts.json" "$work/fixture-py.
 echo "round-tripping value forms through the engine's state classes"
 jxa verify-encodings "$root/data/parameter-encodings.json" "$root/data/encoding-table.json" "$work/roundtrips.json"
 echo "loading every case and whole shortcut through the engine"
-if ! jxa verify-library-output "$work/fixture-ts.json" "$root/data/apple-app-intents.json" "$root/data/parameter-encodings.json" "$root/data/encoding-table.json" "$work/roundtrips.json" "$work/report.json"; then
+if ! jxa verify-library-output "$work/fixture-ts.json" "$root/data/apple-app-intents.json" "$root/data/parameter-encodings.json" "$root/data/encoding-table.json" "$work/roundtrips.json" "$work/report.json" "$root/data/provenance.json"; then
   # The report lives in $work, which the trap removes; print the failures while it exists.
   [ -f "$work/report.json" ] && python3 - "$work/report.json" <<'PY'
 import collections, json, sys

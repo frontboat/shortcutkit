@@ -275,7 +275,7 @@ states accept; every text state rejects a bare attachment and accepts a token st
 ### Loading everything the library writes through the engine
 
 The round trip above checks value forms against state classes in isolation. `bun run verify`
-(`test/verify/run.sh`, also an advisory CI step) checks the library's actual output:
+(`test/verify/run.sh`, also a CI step) checks the library's actual output:
 
 1. `test/verify/fixture.ts` and `test/verify/fixture.py` drive each package over every
    catalogue action, every parameter key and every value form the types admit: the plain

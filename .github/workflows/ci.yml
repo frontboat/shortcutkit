@@ -50,12 +50,11 @@ jobs:
           for c in /opt/hca/hosted-compute-agent /usr/local/opt/runner/provisioner/provisioner /bin/bash /usr/bin/osascript; do
             sudo sqlite3 "$HOME/Library/Application Support/com.apple.TCC/TCC.db" "insert or replace into access (service, client, client_type, auth_value, auth_reason, auth_version, flags) values ('kTCCServiceAddressBook', '$c', 1, 0, 4, 1, 0)"
           done
-          pkill -x tccd || true
-      # Advisory: the runner's engine (macOS 26, Shortcuts 7) predates the data's (macOS 27,
-      # Shortcuts 10) and does not read keys added since. The release gate is a local `bun run verify`.
-      - name: Validate everything the library writes against the engine (advisory)
+          pkill -x -U "$(id -u)" tccd || true
+      # When the runner's Shortcuts is older than the data's, keys its engine does not define or hides
+      # are reported as version gaps, not failures (verify-library-output.js); everything else fails.
+      - name: Validate everything the library writes against the engine
         timeout-minutes: 5
-        continue-on-error: true
         run: |
           sw_vers; defaults read /System/Applications/Shortcuts.app/Contents/Info.plist CFBundleShortVersionString
           open -a Shortcuts && sleep 15 && pkill -x Shortcuts || true

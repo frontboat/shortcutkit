@@ -30,9 +30,22 @@ function whyNotRead(action, key) {
   const rm = p.resourceManager;
   return "parameter " + cls(p) + (p.isHidden ? ", hidden" : "") + (isNil(rm) ? "" : rm.resourcesAvailable ? ", resources available" : ", resources unavailable");
 }
+// Dotted build numbers (5037.0.17) compared numerically.
+function compareBuilds(a, b) {
+  const x = a.split(".").map(Number), y = b.split(".").map(Number);
+  for (let i = 0; i < Math.max(x.length, y.length); i++) { const d = (x[i] || 0) - (y[i] || 0); if (d) return d; }
+  return 0;
+}
 function run(argv) {
-  if (argv.length < 6) throw new Error("usage: verify-library-output.js fixture.json apple-app-intents.json parameter-encodings.json encoding-table.json encoding-roundtrips.json report.json");
+  if (argv.length < 6) throw new Error("usage: verify-library-output.js fixture.json apple-app-intents.json parameter-encodings.json encoding-table.json encoding-roundtrips.json report.json [provenance.json]");
   loadEngine(); console.log("engine loaded");
+  // An engine older than the one the data was extracted from (a CI runner a macOS behind) lacks keys
+  // added since and hides some it later reads. There, a key this engine does not define or hides is
+  // reported as a version gap, not failed; on the extraction engine or newer, every miss fails.
+  const engineBuild = str($.NSDictionary.dictionaryWithContentsOfFile("/System/Applications/Shortcuts.app/Contents/Info.plist").objectForKey("CFBundleVersion"));
+  const dataBuild = argv[6] ? readJSON(argv[6]).shortcutsApp.build : null;
+  const olderEngine = dataBuild !== null && compareBuilds(engineBuild, dataBuild) < 0;
+  console.log("Shortcuts build " + engineBuild + (dataBuild ? ", data from " + dataBuild + (olderEngine ? ": older engine, keys it does not define or hides are version gaps" : "") : ""));
   const fixture = readJSON(argv[0]), apple = readJSON(argv[1]).actions, enc = readJSON(argv[2]), table = readJSON(argv[3]), roundtrips = readJSON(argv[4]).results;
   const stateOf = {}; for (const [pc, e] of Object.entries(enc.parameterClasses)) if (typeof e.stateClass === "string") stateOf[pc] = e.stateClass;
   for (const e of Object.values(table.appIntentValueTypes || {})) if (e && typeof e === "object" && e.parameterClass && e.stateClass && !e.parameterClass.startsWith("(")) stateOf[e.parameterClass] = stateOf[e.parameterClass] || e.stateClass;
@@ -43,7 +56,7 @@ function run(argv) {
     for (let i = 0; i < count(all); i++) { const a = all.objectAtIndex(i); byId[str(a.identifier)] = a; }
     console.log(cls(p) + ": " + count(all) + " actions");
   }
-  const failures = [], deviceValidated = []; let engineChecked = 0, tableChecked = 0, unverifiable = 0, passed = 0, missingTemplates = 0, rejectedConfirmed = 0;
+  const failures = [], deviceValidated = [], versionGaps = []; let engineChecked = 0, tableChecked = 0, unverifiable = 0, passed = 0, missingTemplates = 0, rejectedConfirmed = 0;
   // Actions the engine itself creates as missing on this Mac (retired integrations such as CloudApp, Dropbox,
   // Slack): nothing about the parameters can be read from them, so they are counted, not failed.
   const missingIds = new Set(Object.keys(byId).filter((id) => byId[id].isMissing));
@@ -63,13 +76,13 @@ function run(argv) {
       if (trace && traced !== c.identifier) { traced = c.identifier; console.log("case " + n + ": " + c.identifier); }
       engineChecked++;
       const params = Object.assign({ UUID: "00000000-0000-4000-8000-00000000" + String(n).padStart(4, "0") }, c.params);
-      let verdict;
+      let verdict, why = null;
       try {
         if (calls) console.log("  copyWithSerializedParameters: " + c.key + " (" + c.form + ")");
         const a = tpl.copyWithSerializedParameters($(params));
         if (isNil(a) || a.isMissing) verdict = "action missing";
         else if ((LEGACY_KEYS[c.identifier] || []).includes(c.key)) { const sp = plain(a.serializedParameters, 0) || {}; verdict = c.key in sp ? "ok" : "legacy key discarded by the engine"; }
-        else { if (calls) console.log("  parameterStateForKey: " + c.key); const st = a.parameterStateForKey(c.key); verdict = isNil(st) ? "not read (parameter state is nil; " + whyNotRead(a, c.key) + ")" : "ok"; }
+        else { if (calls) console.log("  parameterStateForKey: " + c.key); const st = a.parameterStateForKey(c.key); if (isNil(st)) { why = whyNotRead(a, c.key); verdict = "not read (parameter state is nil; " + why + ")"; } else verdict = "ok"; }
         if (calls) console.log("  -> " + verdict);
       } catch (e) { verdict = "threw: " + e.message.slice(0, 80); }
       if (c.expect === "deviceValidated") {
@@ -78,7 +91,9 @@ function run(argv) {
       } else if (c.expect === "rejected") {
         // The library refuses this form for the key; the engine must not read it either, or the restriction is too tight.
         if (verdict !== "ok") { passed++; rejectedConfirmed++; } else failures.push({ identifier: c.identifier, key: c.key, kind: c.kind, form: c.form, verdict: "engine reads a form the library refuses", via: "engine action" });
-      } else if (verdict === "ok") passed++; else failures.push({ identifier: c.identifier, key: c.key, kind: c.kind, form: c.form, verdict, via: "engine action" });
+      } else if (verdict === "ok") passed++;
+      else if (olderEngine && why && (why === "no such parameter in this engine" || why.includes(", hidden"))) versionGaps.push(c.identifier + "." + c.key + " (" + why + ")");
+      else failures.push({ identifier: c.identifier, key: c.key, kind: c.kind, form: c.form, verdict, via: "engine action" });
     } else {
       const t = apple[c.identifier]; const p = t && t.parameters.find((x) => x.key === c.key);
       const pc = p && p.parameterClass; const st = pc && stateOf[pc];
@@ -117,8 +132,12 @@ function run(argv) {
     } else failures.push({ shortcut: s.name, verdict: "file did not load" });
     shortcuts.push(entry);
   }
-  const summary = { cases: fixture.cases.length, engineChecked, tableChecked, unverifiable, missingTemplates, missingActions: [...missingIds].sort(), rejectedConfirmed, deviceValidated, passed, failures: failures.length, shortcuts };
+  const summary = { cases: fixture.cases.length, engineChecked, tableChecked, unverifiable, missingTemplates, missingActions: [...missingIds].sort(), rejectedConfirmed, deviceValidated, engineBuild, dataBuild, versionGaps, passed, failures: failures.length, shortcuts };
+  if (versionGaps.length) {
+    const byKey = {}; for (const g of versionGaps) byKey[g] = (byKey[g] || 0) + 1;
+    console.log("version gaps (this engine is older than the data's; not failures):"); for (const [g, k] of Object.entries(byKey)) console.log("  " + k + " x " + g);
+  }
   writeJSON(argv[5], { summary, failures: failures.slice(0, 500) });
-  console.log(`${fixture.cases.length} cases: ${engineChecked} loaded by engine actions, ${tableChecked} checked against state classes, ${unverifiable} unverifiable, ${missingTemplates} on actions the engine marks missing (${missingIds.size} such actions); ${passed} passed (${rejectedConfirmed} of them forms the library refuses that the engine refuses too), ${deviceValidated.length} plain values the engine checks against this device (${deviceValidated.join(", ") || "none"}), ${failures.length} failed; shortcuts: ${JSON.stringify(shortcuts)}`);
+  console.log(`${fixture.cases.length} cases: ${engineChecked} loaded by engine actions, ${tableChecked} checked against state classes, ${unverifiable} unverifiable, ${missingTemplates} on actions the engine marks missing (${missingIds.size} such actions); ${passed} passed (${rejectedConfirmed} of them forms the library refuses that the engine refuses too), ${deviceValidated.length} plain values the engine checks against this device (${deviceValidated.join(", ") || "none"}), ${versionGaps.length} version gaps on this older engine, ${failures.length} failed; shortcuts: ${JSON.stringify(shortcuts)}`);
   if (failures.length) throw new Error(failures.length + " case(s) the engine does not read; see " + argv[5]);
 }
