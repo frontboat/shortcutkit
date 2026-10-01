@@ -21,6 +21,15 @@ function formOf(v) {
   if (v && v.Type === "Variable" && v.Variable) return "wrappedSubject";
   return "other";
 }
+// What the engine's own action says about a key it did not read: whether this engine defines the
+// parameter at all (an older engine lacks keys added since the data was extracted), and whether
+// it is hidden or its required resources (Apple Intelligence, another parameter's value) are unmet.
+function whyNotRead(action, key) {
+  const p = action.parameterForKey(key);
+  if (isNil(p)) return "no such parameter in this engine";
+  const rm = p.resourceManager;
+  return "parameter " + cls(p) + (p.isHidden ? ", hidden" : "") + (isNil(rm) ? "" : rm.resourcesAvailable ? ", resources available" : ", resources unavailable");
+}
 function run(argv) {
   if (argv.length < 6) throw new Error("usage: verify-library-output.js fixture.json apple-app-intents.json parameter-encodings.json encoding-table.json encoding-roundtrips.json report.json");
   loadEngine(); console.log("engine loaded");
@@ -60,7 +69,7 @@ function run(argv) {
         const a = tpl.copyWithSerializedParameters($(params));
         if (isNil(a) || a.isMissing) verdict = "action missing";
         else if ((LEGACY_KEYS[c.identifier] || []).includes(c.key)) { const sp = plain(a.serializedParameters, 0) || {}; verdict = c.key in sp ? "ok" : "legacy key discarded by the engine"; }
-        else { if (calls) console.log("  parameterStateForKey: " + c.key); const st = a.parameterStateForKey(c.key); verdict = isNil(st) ? "not read (parameter state is nil)" : "ok"; }
+        else { if (calls) console.log("  parameterStateForKey: " + c.key); const st = a.parameterStateForKey(c.key); verdict = isNil(st) ? "not read (parameter state is nil; " + whyNotRead(a, c.key) + ")" : "ok"; }
         if (calls) console.log("  -> " + verdict);
       } catch (e) { verdict = "threw: " + e.message.slice(0, 80); }
       if (c.expect === "deviceValidated") {
