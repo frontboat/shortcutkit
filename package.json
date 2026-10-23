@@ -38,6 +38,9 @@
     "url": "git+https://github.com/frontboat/shortcutkit.git"
   },
   "homepage": "https://github.com/frontboat/shortcutkit#readme",
+  "bugs": {
+    "url": "https://github.com/frontboat/shortcutkit/issues"
+  },
   "keywords": [
     "apple",
     "apple-shortcuts",
