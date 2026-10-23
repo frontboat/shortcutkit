@@ -4,11 +4,11 @@
 
 ActionKit's App-Intent-backed built-ins (Ask for Input, Combine Text, ...) declare their
 parameters in code: the definition has no Name, no OutputName and no Parameters list, so the
-catalogue would show the identifier, label references "Output", and type enumerations as any
-string. The registry has the English name, the output name, and each enumeration's cases.
-Everything added is marked with a *Source: "ToolKit" key so the origin stays visible.
-Enumeration entries are added only for keys the engine reports at run time
-(data/parameter-encodings.json), never invented.
+catalogue would show the identifier, label references "Output", type enumerations as any
+string, and give no parameter a label. The registry has the English name, the output name,
+each enumeration's cases, and each parameter's name and description. Everything added is
+marked with a *Source: "ToolKit" key so the origin stays visible. Parameter entries are added
+only for keys the engine reports at run time (data/parameter-encodings.json), never invented.
 
 usage: annotate-builtin-actions.py data/builtin-actions.json data/toolkit-names.json [data/parameter-encodings.json]
 """
@@ -28,7 +28,7 @@ def main(argv):
         if ident in defs:
             defs[ident]["Unavailable"] = True; unavailable += 1
     defaults = encodings.get("actionDefaults", {})  # engine defaults, to check registry case lists against
-    filled = outputs = enums = disagree = 0
+    filled = outputs = enums = disagree = labels = descs = params_added = 0
     checked = mismatched = 0
     for ident, d in defs.items():
         reg = names.get(ident)
@@ -62,12 +62,27 @@ def main(argv):
                     continue
             d.setdefault("Parameters", []).append({"Key": key, "Items": cases, "Label": (reg.get("labels") or {}).get(key), "Source": "ToolKit"})
             enums += 1
+        # Labels and descriptions for the editor, so each key's hover text says what it is.
+        reg_labels, reg_descs = reg.get("labels") or {}, reg.get("descriptions") or {}
+        entries = {p.get("Key"): p for p in d.get("Parameters", []) if isinstance(p, dict) and p.get("Key")}
+        for key in sorted(set(reg_labels) | set(reg_descs)):
+            p = entries.get(key)
+            if p is None:
+                if key not in known_keys:
+                    continue
+                p = {"Key": key, "Source": "ToolKit"}
+                d.setdefault("Parameters", []).append(p); entries[key] = p; params_added += 1
+            if not p.get("Label") and reg_labels.get(key):
+                p["Label"] = reg_labels[key]; p.setdefault("LabelSource", "ToolKit"); labels += 1
+            if not p.get("Description") and reg_descs.get(key):
+                p["Description"] = reg_descs[key]; p.setdefault("DescriptionSource", "ToolKit"); descs += 1
     json.dump(defs, open(defs_path, "w"), indent=2, ensure_ascii=False, sort_keys=True)
     print(f"filled: {filled} names, {outputs} output names, {enums} enumeration case lists; "
           f"{sum(1 for d in defs.values() if not d.get('Name'))} still unnamed; "
           f"{unavailable} definitions the engine loads as missing actions (Unavailable); "
           f"{disagree} definitions whose OutputName differs from the action object's (definition kept); "
-          f"enumeration lists checked against engine defaults: {checked}, mismatched: {mismatched}")
+          f"enumeration lists checked against engine defaults: {checked}, mismatched: {mismatched}; "
+          f"parameter labels: {labels}, descriptions: {descs}, new parameter entries: {params_added}")
 
 
 if __name__ == "__main__":

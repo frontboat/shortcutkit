@@ -131,9 +131,10 @@ readable form. `tools/dump-toolkit-registry.py` reads it:
 - `ToolLocalizations`, `ParameterLocalizations`: English names, output names and descriptions,
   including for the ActionKit built-ins whose engine definitions have no `Name`, no
   `OutputName` and no `Parameters` list (`Ask for Input`, `Combine Text`: they declare
-  parameters in code). `tools/annotate-builtin-actions.py` fills the name and each enumeration's cases into the
-  definition, marked `NameSource` and `Source: "ToolKit"`; enumeration entries only for keys
-  the run-time walk reports. Output names come from the engine instead: each created action
+  parameters in code). `tools/annotate-builtin-actions.py` fills the name, each enumeration's
+  cases, and each parameter's label and description into the definition, marked `NameSource`,
+  `LabelSource`, `DescriptionSource` and `Source: "ToolKit"`; parameter entries only for keys
+  the run-time walk reports, and `diff-data` does not count them as parameters. Output names come from the engine instead: each created action
   answers `-outputName` ("Provided Input" for Ask for Input, where the registry's result label
   is the action's own name), recorded as `actionOutputNames` by the encodings probe and marked
   `OutputNameSource: "WFAction"`. Where a definition already names its output the definition

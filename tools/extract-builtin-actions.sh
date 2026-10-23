@@ -7,8 +7,8 @@
 #   bun run extract          # or ./tools/extract-builtin-actions.sh from the repo root
 #
 # Needs python3 (3.9+) and osascript (part of macOS). No compiler: the engine probes are
-# JavaScript for Automation scripts because ActionKit, which owns about a quarter of the
-# built-in actions, only loads into Apple platform binaries such as osascript (see
+# JavaScript for Automation scripts because ActionKit, which defines 53 of the built-in
+# actions, only loads into Apple platform binaries such as osascript (see
 # tools/jxa-prelude.js). Bun is optional (rebuilds the TypeScript package's declarations when
 # its node_modules exist).
 set -euo pipefail

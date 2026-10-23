@@ -46,7 +46,9 @@ def diff_apps(old, new):
 
 
 def keys(action):
-    return {p["Key"]: p.get("Class") for p in action.get("Parameters", []) if isinstance(p, dict) and p.get("Key")}
+    # Entries marked Source "ToolKit" are labels and case lists annotate-builtin-actions.py adds
+    # for keys the engine already has, not parameters of their own.
+    return {p["Key"]: p.get("Class") for p in action.get("Parameters", []) if isinstance(p, dict) and p.get("Key") and p.get("Source") != "ToolKit"}
 
 
 def diff(old, new):

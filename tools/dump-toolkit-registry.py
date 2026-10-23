@@ -175,7 +175,9 @@ def main(argv):
         if loc[0]:
             enums = {p["key"]: [c["id"] for c in p["type"].get("cases", [])] for p in params if p["type"].get("kind") == "enum" and p["type"].get("cases")}
             labels = {p["key"]: p["name"] for p in params if p.get("name")}
-            names[ident] = {"name": loc[0], "description": loc[2], "outputName": loc[1], "enumCases": enums, "labels": labels}
+            descriptions = {p["key"]: p["description"] for p in params if p.get("description")}
+            names[ident] = {"name": loc[0], "description": loc[2], "outputName": loc[1], "enumCases": enums, "labels": labels,
+                            "descriptions": descriptions}
     apple = [t for t in tools if t["provider"] == "WFLinkActionProvider" and str(t["app"].get("bundleIdentifier", "")).startswith("com.apple.")
              and t["app"].get("teamId") in (None, "0000000000") and not t["hidden"] and not t["configuration"]]
     excluded = sum(1 for t in tools if t["provider"] == "WFLinkActionProvider" and str(t["app"].get("bundleIdentifier", "")).startswith("com.apple.") and (t["hidden"] or t["configuration"]))
@@ -184,8 +186,11 @@ def main(argv):
             "toolkitVersion": json.loads(meta.get("VersionKey", "{}")).get("uuid"),
             "launchServicesSequence": json.loads(meta.get("LaunchServicesDatabaseVersionKey", "{}")).get("sequenceNumber")}
     json.dump({"provenance": prov, "actions": {t["identifier"]: t for t in apple}}, open(data / "apple-app-intents.json", "w"), indent=1, ensure_ascii=False, sort_keys=True)
-    json.dump({"provenance": prov, "tools": tools}, open(data / "toolkit-registry.json", "w"), indent=1, ensure_ascii=False)
-    json.dump(names, open(data / "toolkit-names.json", "w"), indent=1, ensure_ascii=False, sort_keys=True)
+    # The app keeps one index and rebuilds it on every OS update, so these dumps are the only copy
+    # of a release's index once the Mac moves on. Keep one per build beside the current one.
+    for suffix in [""] + ([f".{prov['osVersion']}"] if prov.get("osVersion") else []):
+        json.dump({"provenance": prov, "tools": tools}, open(data / f"toolkit-registry{suffix}.json", "w"), indent=1, ensure_ascii=False)
+        json.dump(names, open(data / f"toolkit-names{suffix}.json", "w"), indent=1, ensure_ascii=False, sort_keys=True)
     by_provider = {}
     for t in tools:
         by_provider[t["provider"]] = by_provider.get(t["provider"], 0) + 1
