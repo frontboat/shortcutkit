@@ -13,6 +13,8 @@ the section for a fresh extraction from the diff against the committed data.
   engine.
 - Action constants' hover text shows name, description, summary, output, and parameters as
   separate paragraphs instead of one run-on line.
+- Parameter keys have hover text: the editor's label and Apple's description where the data has
+  them (4,845 of 5,970 keys), so `WFStoredContentGlobalValue` explains itself as you type it.
 - A failed `Shortcut.sign()` names the input file.
 - READMEs, CONTRIBUTING, and the docs are shorter; the npm and PyPI descriptions give the
   action counts.

@@ -100,6 +100,12 @@ def text(v):
     return v if isinstance(v, str) else (v.get("format") if isinstance(v, dict) else None)
 
 
+def doc_text(label, description):
+    """A parameter's hover text: the editor's label, then its description when there is one."""
+    parts = [" ".join(x.split()) for x in (label, description) if x]
+    return ": ".join(parts).replace("*/", "* /") if parts else None
+
+
 def key_for(identifier):
     tail = identifier[len("is.workflow.actions."):] if identifier.startswith("is.workflow.actions.") else identifier
     key = re.sub(r"[^A-Za-z0-9]+", "_", tail).strip("_")
@@ -115,6 +121,7 @@ def entries(defs):
         a = defs[ident]
         pdefs = [p for p in a.get("Parameters", []) if isinstance(p, dict) and p.get("Key")]
         choices = {p["Key"]: [i for i in (p.get("Items") or []) if isinstance(i, str)] for p in pdefs}
+        docs = {p["Key"]: (text(p.get("Label")), text(p.get("Description"))) for p in pdefs}
         params, kinds = [], {}
         # 1. the parameters the action actually creates at run time (authoritative, covers actions whose definitions list none)
         for rp in runtime_params.get(ident, []):
@@ -133,6 +140,9 @@ def entries(defs):
         inp = a.get("Input")
         if isinstance(inp, dict) and inp.get("ParameterKey") and inp["ParameterKey"] not in kinds:
             params.insert(0, inp["ParameterKey"]); kinds[inp["ParameterKey"]] = {"kind": "any", "choices": [], "class": "Input"}
+        for k, (label, description) in docs.items():
+            if k in kinds:
+                kinds[k]["doc"] = doc_text(label, description)
         desc = a.get("Description") if isinstance(a.get("Description"), dict) else {}
         outp = a.get("Output") if isinstance(a.get("Output"), dict) else {}
         out.append({
@@ -169,7 +179,8 @@ def app_intent_entries(catalog):
             if cases and kind in ("string", "any", "text"):
                 kind = "string"
             choices = cases if kind == "string" else []
-            params.append(k); kinds[k] = {"kind": kind, "choices": choices, "class": p.get("parameterClass") or p.get("type", {}).get("kind")}
+            params.append(k); kinds[k] = {"kind": kind, "choices": choices, "class": p.get("parameterClass") or p.get("type", {}).get("kind"),
+                                          "doc": doc_text(p.get("name"), p.get("description"))}
         app = t.get("app") or {}
         summary = ", ".join(f"{p.get('name') or p['key']}" for p in t.get("parameters", [])[:6])
         out.append({
@@ -278,10 +289,19 @@ def write_ts(es, path):
         fields = []
         for k in e["params"]:
             info = e["kinds"].get(k, {"kind": "any", "choices": []})
-            fields.append(f"{js_str(k)}: {ts_type(info)}")
+            doc = info.get("doc") or ("Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md)." if info["kind"] == "filter" else None)
+            fields.append((doc, f"{js_str(k)}: {ts_type(info)}"))
         if e.get("descriptor"):
-            fields.append('"AppIntentDescriptor"?: DictionaryValue')
-        lines.append(f"  {js_str(e['identifier'])}: {{ {'; '.join(fields)} }};")
+            fields.append(("The app that provides this action. `action()` adds it; pass it only to override.", '"AppIntentDescriptor"?: DictionaryValue'))
+        if not any(doc for doc, _ in fields):
+            lines.append(f"  {js_str(e['identifier'])}: {{ {'; '.join(f for _, f in fields)} }};")
+            continue
+        lines.append(f"  {js_str(e['identifier'])}: {{")
+        for doc, field in fields:
+            if doc:
+                lines.append(f"    /** {doc} */")
+            lines.append(f"    {field};")
+        lines.append("  };")
     lines += ["};", "", "export type MetaParams = { " + "; ".join(f"{k}: {v}" for k, v in META_TYPES.items()) + " };", "",
               "export type ActionId = keyof typeof ACTIONS;",
               "export type ActionKey = keyof typeof actions;",
