@@ -6,6 +6,17 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## Unreleased
+
+- Every public function and method in both packages has hover documentation. `action()` says
+  which checks apply to which identifiers, and `CONDITION` names the codes verified against the
+  engine.
+- Action constants' hover text shows name, description, summary, output, and parameters as
+  separate paragraphs instead of one run-on line.
+- A failed `Shortcut.sign()` names the input file.
+- READMEs, CONTRIBUTING, and the docs are shorter; the npm and PyPI descriptions give the
+  action counts.
+
 ## 0.8.1 (2026-10-01)
 
 - Python: `Shortcut()` parses the bundled definitions once per path instead of on every

@@ -5,2934 +5,4179 @@ import type { AnyValue, Attachment, BoolValue, DictionaryValue, EnumValue, Filte
 export const actions = {
   /**
    * **Ping My iPhone**
+   *
    * Plays a sound on your paired iPhone.
 
 You can also choose to have the flashlight pulse.
+   *
    * Parameters: `state`, `ShowWhenRun`
    */
   com_apple_NanoSettings_NPRFPingMyPhoneIntent: "com.apple.NanoSettings.NPRFPingMyPhoneIntent",
   /**
    * **Set Always On**
+   *
    * Sets the Always On display setting of your Apple Watch to on or off.
 
 When Always On is activated, your Apple Watch face will be visible even when your wrist is down.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_NanoSettings_NPRFSetAlwaysOnIntent: "com.apple.NanoSettings.NPRFSetAlwaysOnIntent",
   /**
    * **Set Auto-Launch Audio Apps**
+   *
    * Sets the Auto-Launch Audio Apps setting of your Apple Watch to on or off.
 
 When Auto-Launch Audio Apps is on, the app actively playing media will be shown when your Apple Watch wakes.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_NanoSettings_NPRFSetAutoLaunchAudioAppsIntent: "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent",
   /**
    * **Set Flashlight**
+   *
    * Enables Flashlight.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_NanoSettings_NPRFSetFlashLightIntent: "com.apple.NanoSettings.NPRFSetFlashLightIntent",
   /**
    * **Set Schooltime**
+   *
    * Sets Schooltime on your Apple Watch to on or off.
 
 Schooltime limits Apple Watch features during school hours.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_NanoSettings_NPRFSetSchoolTimeIntent: "com.apple.NanoSettings.NPRFSetSchoolTimeIntent",
   /**
    * **Set Silent Mode**
+   *
    * Sets Silent Mode on your Apple Watch to on or off.
 
 Silent Mode mutes most Apple Watch sounds.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_NanoSettings_NPRFSetSilentModeIntent: "com.apple.NanoSettings.NPRFSetSilentModeIntent",
   /**
    * **Set Theater Mode**
+   *
    * Sets Theater Mode on your Apple Watch to on or off.
 
 Theater Mode mutes most Apple Watch sounds and limits display activity.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_NanoSettings_NPRFSetTheaterModeIntent: "com.apple.NanoSettings.NPRFSetTheaterModeIntent",
   /**
    * **Set Wake on Wrist Raise**
+   *
    * Sets the Wake on Wrist Raise setting of your Apple Watch to on or off.
 
 When Wake on Wrist Raise is on, the screen will wake when you raise your wrist.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_NanoSettings_NPRFSetWakeOnWristRaiseIntent: "com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent",
   /**
    * **Set Water Lock**
+   *
    * Sets the Water Lock setting on your Apple Watch to on or off.
 
 Water Lock protects against accidental input when you use your Apple Watch in water.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_NanoSettings_NPRFSetWaterLockIntent: "com.apple.NanoSettings.NPRFSetWaterLockIntent",
   /**
    * **Show Notes Folder**
+   *
    * Get quick access to one of your Notes folders.
+   *
    * Parameters: `folder`, `ShowWhenRun`
    */
   com_apple_Notes_ICNotesFolderIntent: "com.apple.Notes.ICNotesFolderIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_LaunchApplicationIntent: "com.apple.TVRemoteUIService.LaunchApplicationIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_LaunchRemoteIntent: "com.apple.TVRemoteUIService.LaunchRemoteIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_LaunchScreenSaverIntent: "com.apple.TVRemoteUIService.LaunchScreenSaverIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_PauseContentIntent: "com.apple.TVRemoteUIService.PauseContentIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_ReduceLoudSoundsIntent: "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_SkipContentIntent: "com.apple.TVRemoteUIService.SkipContentIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_SleepAppleTVIntent: "com.apple.TVRemoteUIService.SleepAppleTVIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_SwitchUserAccountIntent: "com.apple.TVRemoteUIService.SwitchUserAccountIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_ToggleCaptionsIntent: "com.apple.TVRemoteUIService.ToggleCaptionsIntent",
   /**
    * **Set Appearance on Apple TV**
+   *
    * Output: Set Appearance on Apple TV
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_ToggleSystemAppearanceIntent: "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent",
   /**
    * **Unknown Action**
+   *
    * Output: Unknown Action
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_TVRemoteUIService_WakeAppleTVIntent: "com.apple.TVRemoteUIService.WakeAppleTVIntent",
   /**
    * **Change Background Sound**
+   *
    * Change the background sound that will play when background sounds is turned on. Background sounds mask unwanted environmental noise. Background sounds can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `backgroundSound`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UASetBackgroundSoundIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent",
   /**
    * **Set Background Sounds Timer Interval**
+   *
    * Sets the timer interval for background sounds. Background sounds mask unwanted environmental noise and can be used when media is playing. Background sounds can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `interval`, `duration`, `endInterval`, `always`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UASetBackgroundSoundsTimerIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent",
   /**
    * **Set Background Sounds Volume**
+   *
    * Sets the volume for background sounds.
+   *
    * Parameters: `volumeValue`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UASetBackgroundSoundsVolumeIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent",
   /**
    * **Set Accessibility Keyboard**
+   *
    * Enable or disable the Accessibility Keyboard, allowing typing by clicking on the screen.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleAccessibilityKeyboardIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent",
   /**
    * **Set Alternate Pointer Actions**
+   *
    * Enable or disable Alternate Pointer Actions, allowing the use of switches or gesture to trigger mouse actions such as clicks.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleAlternatePointerActionsIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent",
   /**
    * **Set Audio Descriptions**
+   *
    * Automatically play audio descriptions. Audio Descriptions can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleAudioDescriptionsIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent",
   /**
    * **Toggle Background Sounds**
+   *
    * Enable or disable Background Sounds.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleBackgroundSoundsIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent",
   /**
    * **Set Closed Captions+SDH**
+   *
    * Use closed captions for the deaf and hard of hearing. Closed captions can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleCaptionsIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent",
   /**
    * **Set Classic Invert**
+   *
    * Reverses the colors of the display. Classic Invert can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleClassicInvertIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent",
   /**
    * **Set Color Filters**
+   *
    * Enable or disable Color Filters, allowing the display's colors to be adjusted as desired.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleColorFiltersIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent",
   /**
    * **Set Increase Contrast**
+   *
    * Increase color contrast between app foreground and background colors. Increase Contrast can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleContrastIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent",
   /**
    * **Set Full Keyboard Access**
+   *
    * Enable or disable Full Keyboard Access, allowing use of the device with only a keyboard.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleFullKeyboardAccessIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent",
   /**
    * **Set Head Pointer**
+   *
    * Enable or disable Head Pointer, allowing movement of the mouse cursor using your head.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleHeadPointerIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent",
   /**
    * **Set Hover Text**
+   *
    * Enable or disable Hover Text.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleHoverTextIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent",
   /**
    * **Set Hover Typing**
+   *
    * Enable or disable Hover Typing.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleHoverTypingIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent",
   /**
    * **Set Live Captions**
+   *
    * Enable or disable Live Captions.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleLiveCaptionsIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent",
   /**
    * **Set Live Speech**
+   *
    * Enable or disable Live Speech.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleLiveSpeechIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent",
   /**
    * **Set Mono Audio**
+   *
    * Mono Audio enables the left and right speakers to play the same content. Mono Audio can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleMonoAudioIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent",
   /**
    * **Set Motion Cues**
+   *
    * Enable or disable Motion Cues.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleMotionCuesIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent",
   /**
    * **Set Mouse Keys**
+   *
    * Enable or disable Mouse Keys, allowing the movement of the mouse cursor using the keyboard.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleMouseKeysIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent",
   /**
    * **Set Reduce Motion**
+   *
    * Reduce the motion of the user interface, including the parallax effect of icons. Reduce Motion can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleReduceMotionIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent",
   /**
    * **Set Slow Keys**
+   *
    * Enable or disable Slow Keys, allowing the keyboard to avoid recognizing rapid key presses.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleSlowKeysIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent",
   /**
    * **Set Smart Invert**
+   *
    * Reverses the colors of the display except for images, media and some apps that use dark color styles. Smart Invert can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleSmartInvertIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent",
   /**
    * **Set Sticky Keys**
+   *
    * Enable or disable Sticky Keys, making it easier to press keyboard modifier keys.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleStickyKeysIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent",
   /**
    * **Set Switch Control**
+   *
    * Switch Control highlights items on the screen to control through an adaptive accessory. Switch Control can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleSwitchControlIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent",
   /**
    * **Set Reduce Transparency**
+   *
    * Improve contrast by reducing transparency and blurs on some backgrounds to increase legibility. Reduce Transparency can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleTransparencyIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent",
   /**
    * **Set Voice Control**
+   *
    * Voice Control allows you to use your voice to control your iOS device. Voice Control can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleVoiceControlIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent",
   /**
    * **Set VoiceOver**
+   *
    * VoiceOver speaks items on the screen. VoiceOver can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleVoiceOverIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent",
   /**
    * **Set Zoom**
+   *
    * Zoom magnifies the entire screen. Zoom can also be enabled under Accessibility in Settings.
+   *
    * Parameters: `operation`, `state`, `ShowWhenRun`
    */
   com_apple_UniversalAccess_UASettingsShortcuts_UAToggleZoomIntent: "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent",
   /**
    * **FaceTime**
+   *
    * Calls the contact passed in as input using FaceTime.
+   *
    * Summary: `${WFFaceTimeType} ${WFFaceTimeContact}`
+   *
    * Parameters: `IntentAppDefinition`, `WFFaceTimeType`, `WFFaceTimeContact`
    */
   com_apple_facetime_facetime: "com.apple.facetime.facetime",
   /**
    * **Call**
+   *
    * Calls the phone number passed in as input.
+   *
    * Summary: `Call ${WFCallContact}`
+   *
    * Parameters: `IntentAppDefinition`, `WFCallContact`
    */
   com_apple_mobilephone_call: "com.apple.mobilephone.call",
   /**
    * **Post to Shared Album**
+   *
    * Summary: `Post ${ImageInput} to Shared Album`
+   *
    * Parameters: `ImageInput`
    */
   com_apple_mobileslideshow_StreamShareService: "com.apple.mobileslideshow.StreamShareService",
   /**
    * **Recognize Music**
+   *
    * Uses the microphone to listen to and identify nearby media.
+   *
    * Summary: `Recognize Music`
+   *
    * Output: Shazam Media
+   *
    * Parameters: `WFShazamMediaActionShowWhenRun`, `WFShazamMediaActionErrorIfNotRecognized`
    */
   com_apple_musicrecognition_RecognizeMusicIntent: "com.apple.musicrecognition.RecognizeMusicIntent",
   /**
    * **Show Topic**
+   *
    * Shows stories about the topic you choose.
+   *
    * Parameters: `tag`, `ShowWhenRun`
    */
   com_apple_news_TagIntent: "com.apple.news.TagIntent",
   /**
    * **Show Today Feed**
+   *
    * Shows stories from the Today feed in Apple News.
+   *
    * Parameters: `ShowWhenRun`
    */
   com_apple_news_TodayIntent: "com.apple.news.TodayIntent",
   /**
    * **Show Weather**
+   *
    * Shows and gets the current weather for the specified location.
+   *
    * Parameters: `location`, `ShowWhenRun`
    */
   com_apple_weather_WeatherIntent: "com.apple.weather.WeatherIntent",
   /**
    * **Save with Transmit**
+   *
    * Parameters: `TransmitSaveTo`, `TransmitFavoriteName`, `TransmitPath`
    */
   com_panic_iOS_Transmit_Share: "com.panic.iOS.Transmit.Share",
   /**
    * **Add Frame to GIF**
+   *
    * Adds an image to the existing animated GIF passed as input. If no GIF is passed as input, a new animated GIF is created.
+   *
    * Summary: `Add ${WFImage} to ${WFInputGIF}`
+   *
    * Output: GIF
+   *
    * Parameters: `WFImage`, `WFInputGIF`, `WFGIFDelayTime`, `WFGIFAutoSize`, `WFGIFManualSizeWidth`, `WFGIFManualSizeHeight`
    */
   addframetogif: "is.workflow.actions.addframetogif",
   /**
    * **Add Item to List**
+   *
    * Adds the specified item to a list at the beginning, end, or a specific index.
+   *
    * Output: List
+   *
    * Parameters: `WFListItem`, `WFInsertPosition`, `WFItemIndex`, `WFListVariable`
    */
   additemtolist: "is.workflow.actions.additemtolist",
   /**
    * **Add to Playing Next**
+   *
    * Adds the music passed as input to your Playing Next queue.
+   *
    * Summary: `Add ${WFMusic} to ${WFWhenToPlay} of Playing Next`
+   *
    * Parameters: `WFWhenToPlay`, `WFMusic`
    */
   addmusictoupnext: "is.workflow.actions.addmusictoupnext",
   /**
    * **Add New Calendar**
+   *
    * Creates a new calendar.
+   *
    * Summary: `Add new calendar ${CalendarName}`
+   *
    * Output: New Calendar
+   *
    * Parameters: `CalendarName`
    */
   addnewcalendar: "is.workflow.actions.addnewcalendar",
   /**
    * **New Contact**
+   *
    * Creates a new contact.
+   *
    * Summary: `Add ${WFContactFirstName}${WFContactLastName} to Contacts`
+   *
    * Output: New Contact
+   *
    * Parameters: `WFContactFirstName`, `WFContactLastName`, `WFContactCompany`, `WFContactPhoto`, `WFContactPhoneNumbers`, `WFContactEmails`, `WFContactNotes`, `ShowWhenRun`
    */
   addnewcontact: "is.workflow.actions.addnewcontact",
   /**
    * **New Event**
+   *
    * Creates a new event and adds it to the selected calendar.
+   *
    * Summary: `Add ${WFCalendarItemTitle} from ${WFCalendarItemStartDate} to ${WFCalendarItemEndDate}`
+   *
    * Output: New Event
+   *
    * Parameters: `WFCalendarItemTitle`, `WFCalendarItemLocation`, `WFCalendarDescriptor`, `WFCalendarItemStartDate`, `WFCalendarItemEndDate`, `WFCalendarItemAllDay`, `WFAlertTime`, `WFAlertCustomTime`, `WFCalendarItemNotes`, `ShowWhenRun`
    */
   addnewevent: "is.workflow.actions.addnewevent",
   /**
    * **New Reminder**
+   *
    * Creates a new reminder and adds it to the selected list of reminders.
+   *
    * Output: New Reminder
+   *
    * Parameters: `WFCalendarItemTitle`, `WFCalendarDescriptor`, `WFAlertEnabled`, `WFAlertCondition`, `WFAlertLocation`, `WFAlertPerson`, `WFAlertLocationRadius`, `WFAlertCustomTime`, `WFPriority`, `WFUrgent`, `WFFlag`, `WFURL`, `WFImages`, `WFParentTask`, `WFTags`, `WFCalendarItemNotes`
    */
   addnewreminder: "is.workflow.actions.addnewreminder",
   /**
    * **Show Quick Reminder**
+   *
    * Opens the Quick Reminder view.
+   *
    * Output: Show Quick Reminder
    */
   addquickreminder: "is.workflow.actions.addquickreminder",
   /**
    * **Street Address**
+   *
    * Passes the specified address to the next action.
+   *
    * Output: Street Address
+   *
    * Parameters: `WFAddressLine1`, `WFAddressLine2`, `WFCity`, `WFState`, `WFPostalCode`, `WFCountry`
    */
   address: "is.workflow.actions.address",
   /**
    * **Add to Playlist**
+   *
    * Adds the items passed as input to the specified playlist.
+   *
    * Summary: `Add ${WFInput} to ${WFPlaylistName}`
+   *
    * Output: Updated Playlist
+   *
    * Parameters: `WFPlaylistName`, `WFInput`
    */
   addtoplaylist: "is.workflow.actions.addtoplaylist",
   /**
    * **Adjust Date**
+   *
    * Adds or subtracts an amount of time from the date passed into the action.
+   *
    * Output: Adjusted Date
+   *
    * Parameters: `WFDate`, `WFAdjustOperation`, `WFDuration`
    */
   adjustdate: "is.workflow.actions.adjustdate",
   /**
    * **AirDrop**
+   *
    * Prompts to share the specified content via AirDrop.
+   *
    * Summary: `AirDrop ${WFInput}`
+   *
    * Parameters: `WFInput`
    */
   airdropdocument: "is.workflow.actions.airdropdocument",
   /**
    * **Set Airplane Mode**
+   *
    * Sets the device’s Airplane Mode to on or off.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   airplanemode_set: "is.workflow.actions.airplanemode.set",
   /**
    * **Show Alert**
+   *
    * Displays an alert with a title, a message, and two buttons. If the user selects the OK button, the shortcut continues. The cancel button stops the shortcut.
+   *
    * Summary: `Show alert ${WFAlertActionMessage}`
+   *
    * Parameters: `WFAlertActionTitle`, `WFAlertActionMessage`, `WFAlertActionCancelButtonShown`
    */
   alert: "is.workflow.actions.alert",
   /**
    * **Set Announce Notifications**
+   *
    * Sets Announce Notifications to on or off. When on, Siri will announce notifications from new apps that send Time Sensitive notifications or direct messages.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   announcenotifications_set: "is.workflow.actions.announcenotifications.set",
   /**
    * **Set Appearance**
+   *
    * Changes system appearance.
+   *
    * Parameters: `operation`, `style`, `ShowWhenRun`
    */
   appearance: "is.workflow.actions.appearance",
   /**
    * **Add to Variable**
+   *
    * Appends this action’s input to the specified variable, creating the variable if it does not exist.\n\nThis allows you to make a variable hold multiple items.
+   *
    * Summary: `Add ${WFInput} to ${WFVariableName}`
+   *
    * Output: Variable
+   *
    * Parameters: `WFVariableName`, `WFInput`
    */
   appendvariable: "is.workflow.actions.appendvariable",
   /**
    * **Ask for Input**
+   *
    * Displays a dialog prompting the user to enter a piece of information.
+   *
    * Summary: `Ask for ${WFInputType} with ${WFAskActionPrompt}`
+   *
    * Output: Provided Input
+   *
    * Parameters: `WFAskActionPrompt`, `WFInputType`, `WFAskActionDefaultAnswer`, `WFAskActionDefaultAnswerNumber`, `urlAnswer`, `WFAskActionDefaultAnswerURL`, `WFAskActionDefaultAnswerDate`, `WFAskActionDefaultAnswerTime`, `WFAskActionDefaultAnswerDateAndTime`, `WFAskActionAllowsDecimalNumbers`, `WFAskActionAllowsNegativeNumbers`, `WFAllowsMultilineText`, `ShowWhenRun`
    */
   ask: "is.workflow.actions.ask",
   /**
    * **Use Model**
+   *
    * Use a model to handle complex requests in your shortcuts.
+   *
    * Output: Response
+   *
    * Parameters: `WFLLMModel`, `WFLLMPrompt`, `WFAllowWebSearch`, `WFGenerativeResultType`, `FollowUp`
    */
   askllm: "is.workflow.actions.askllm",
   /**
    * **Markup**
+   *
    * Edits an image or PDF with Markup.
+   *
    * Summary: `Mark up ${WFDocument}`
+   *
    * Output: Markup Result
+   *
    * Parameters: `WFDocument`
    */
   avairyeditphoto: "is.workflow.actions.avairyeditphoto",
   /**
    * **Base64 Encode**
+   *
    * Encodes or decodes text or files using Base64 encoding.
+   *
    * Summary: `${WFEncodeMode} ${WFInput} with base64`
+   *
    * Output: Base64 Encoded
+   *
    * Parameters: `WFEncodeMode`, `WFBase64LineBreakMode`, `WFInput`
    */
   base64encode: "is.workflow.actions.base64encode",
   /**
    * **Set Bluetooth**
+   *
    * Sets the device’s Bluetooth to on or off.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   bluetooth_set: "is.workflow.actions.bluetooth.set",
   /**
    * **Calculate Expression**
+   *
    * Evaluates the mathematical expression in the given input text and outputs the result as a number. \n\nExample expressions:\n\n7 + 7\n\n8 * sqrt(5)\n\n$8 USD in euros\n\n7 feet in meters
+   *
    * Summary: `Calculate ${Input}`
+   *
    * Output: Calculation Result
+   *
    * Parameters: `Input`
    */
   calculateexpression: "is.workflow.actions.calculateexpression",
   /**
    * **Set Cellular Data**
+   *
    * Sets the device’s Cellular Data to on or off.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   cellulardata_set: "is.workflow.actions.cellulardata.set",
   /**
    * **Choose from List**
+   *
    * Presents a menu of the items passed as input to the action and outputs the user’s selection.
+   *
    * Summary: `Choose from ${WFInput}`
+   *
    * Output: Chosen Item
+   *
    * Parameters: `WFInput`, `WFChooseFromListActionPrompt`, `WFChooseFromListActionSelectMultiple`, `WFChooseFromListActionSelectAll`
    */
   choosefromlist: "is.workflow.actions.choosefromlist",
   /**
    * **Choose from Menu**
+   *
    * Presents a menu and runs different actions based on which menu item was chosen.
+   *
    * Summary: `Choose from menu with ${WFMenuPrompt}`
+   *
    * Parameters: `WFMenuPrompt`, `WFMenuItems`, `WFMenuItemTitle`, `WFMenuItemAttributedTitle`
    */
   choosefrommenu: "is.workflow.actions.choosefrommenu",
   /**
    * **Clear Playing Next**
+   *
    * Clears all the music in your Playing Next queue.
+   *
    * Summary: `Clear Playing Next`
    */
   clearupnext: "is.workflow.actions.clearupnext",
   /**
    * **Upload to CloudApp**
+   *
    * Uploads the input to CloudApp and returns the CloudApp URL.
+   *
    * Summary: `Upload ${WFInput}`
+   *
    * Output: CloudApp URLs
+   *
    * Parameters: `WFCloudAppPrivacyType`, `WFInput`
-   * Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.
+   *
+   * Unavailable: Shortcuts shows this as a missing action.
    */
   cloudapp_upload: "is.workflow.actions.cloudapp.upload",
   /**
    * **Comment**
+   *
    * This action lets you explain how part of a shortcut works. When run, this action does nothing.
+   *
    * Parameters: `WFCommentActionText`
    */
   comment: "is.workflow.actions.comment",
   /**
    * **Optimize File Size of PDF**
+   *
    * Optimizes the file size of the provided PDF file by compressing its images.\n\nIf the images contained in the PDF are already compressed, this action might not have a measurable effect on file size.
+   *
    * Summary: `Optimize file size of ${WFInput}`
+   *
    * Output: Optimized PDF
+   *
    * Parameters: `WFInput`
    */
   compresspdf: "is.workflow.actions.compresspdf",
   /**
    * **If**
+   *
    * Tests if a condition is true, and if so, runs the actions inside. Otherwise, the actions under “Otherwise” are run.
+   *
    * Parameters: `WFConditions`, `WFInput`, `WFCondition`, `WFConditionalActionString`, `WFNumberValue`, `WFConditionalLegacyComparisonBehavior`, `WFEnumerationValue`, `WFBooleanValue`, `WFDate`, `WFAnotherDate`, `WFDuration`
    */
   conditional: "is.workflow.actions.conditional",
   /**
    * **Connect to Servers**
+   *
    * Connects your computer to the specified file servers on the network. For example, you can connect to SMB/CIFS, NFS, FTP (read-only), or WebDAV servers.
+   *
    * Output: Connected Server
+   *
    * Parameters: `WFInput`
    */
   connecttoservers: "is.workflow.actions.connecttoservers",
   /**
    * **Contacts**
+   *
    * Passes the specified contacts to the next action.
+   *
    * Summary: `${WFContact}`
+   *
    * Output: Contacts
+   *
    * Parameters: `WFContact`
    */
   contacts: "is.workflow.actions.contacts",
   /**
    * **Convert Time Zone**
+   *
    * Converts the specified date and time from one time zone to another.
+   *
    * Summary: `Convert ${Date} from ${SourceTimeZone} to ${DestinationTimeZone}`
+   *
    * Output: Converted Date
+   *
    * Parameters: `Date`, `SourceTimeZone`, `DestinationTimeZone`
    */
   converttimezone: "is.workflow.actions.converttimezone",
   /**
    * **Correct Spelling**
+   *
    * Autocorrects the spelling of text passed into the action.
+   *
    * Output: Corrected Spelling
+   *
    * Parameters: `text`, `ShowWhenRun`
    */
   correctspelling: "is.workflow.actions.correctspelling",
   /**
    * **Count**
+   *
    * Counts the number of items, characters, words, sentences, or lines passed as input.
+   *
    * Summary: `Count ${WFCountType} in ${Input}`
+   *
    * Output: Count
+   *
    * Parameters: `WFCountType`, `Input`
    */
   count: "is.workflow.actions.count",
   /**
    * **Create Playlist**
+   *
    * Creates a new playlist in the Music app, adding any items passed as input to the new playlist.
+   *
    * Summary: `Create playlist ${WFPlaylistName} with ${WFPlaylistItems}`
+   *
    * Output: New Playlist
+   *
    * Parameters: `WFPlaylistName`, `WFPlaylistAuthor`, `WFPlaylistDescription`, `WFPlaylistItems`
    */
   createplaylist: "is.workflow.actions.createplaylist",
   /**
    * **Date**
+   *
    * Passes the specified date and time to the next action.
+   *
    * Output: Date
+   *
    * Parameters: `WFDateActionMode`, `WFDateActionDate`, `WFEventOccurrenceMode`, `WFEventOccurrenceSpecifiedYear`
    */
   date: "is.workflow.actions.date",
   /**
    * **Show Content Attribution**
+   *
    * Shows the Content Source of Input contents
+   *
    * Summary: `Show Content Attribution of ${Input}`
+   *
    * Parameters: `Input`
-   * Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.
+   *
+   * Unavailable: Shortcuts shows this as a missing action.
    */
   debug_contentattribution: "is.workflow.actions.debug.contentattribution",
   /**
    * **Wait**
+   *
    * Waits for the specified number of seconds before continuing with the next action.
+   *
    * Summary: `Wait ${WFDelayTime}`
+   *
    * Parameters: `WFDelayTime`
    */
   delay: "is.workflow.actions.delay",
   /**
    * **Delete Stored Content**
+   *
    * Deletes stored content for the specified name.
+   *
    * Summary: `Delete ${WFStoredContentKey}`
+   *
    * Parameters: `WFStoredContentKey`, `WFStoredContentGlobalValue`
    */
   deletestoredcontent: "is.workflow.actions.deletestoredcontent",
   /**
    * **Send via DeskConnect**
+   *
    * Sends the input to another device via DeskConnect. DeskConnect makes it easy to send web pages, documents, pictures, and anything else between your devices.
+   *
    * Summary: `Send ${WFInput} via the missing link between your devices, DeskConnect 💔`
+   *
    * Parameters: `WFInput`
    */
   deskconnect_send: "is.workflow.actions.deskconnect.send",
   /**
    * **Get Addresses from Input**
+   *
    * Returns any street addresses found in the output from the previous action.
+   *
    * Summary: `Get addresses from ${WFInput}`
+   *
    * Output: Addresses
+   *
    * Parameters: `WFInput`
    */
   detect_address: "is.workflow.actions.detect.address",
   /**
    * **Get Contacts from Input**
+   *
    * Gets contacts from the result of the previous action.
+   *
    * Summary: `Get contacts from ${WFInput}`
+   *
    * Output: Contacts
+   *
    * Parameters: `WFInput`
    */
   detect_contacts: "is.workflow.actions.detect.contacts",
   /**
    * **Get Dates from Input**
+   *
    * Returns any dates found in the output from the previous action.
+   *
    * Summary: `Get dates from ${WFInput}`
+   *
    * Output: Dates
+   *
    * Parameters: `WFInput`
    */
   detect_date: "is.workflow.actions.detect.date",
   /**
    * **Get Dictionary from Input**
+   *
    * Makes a dictionary from the text passed as input. JSON (like {\"foo\": \"bar\"}), key-value pairs (like foo=bar&baz=biz), and XML-based plist are supported.
+   *
    * Summary: `Get dictionary from ${WFInput}`
+   *
    * Output: Dictionary
+   *
    * Parameters: `WFInput`
    */
   detect_dictionary: "is.workflow.actions.detect.dictionary",
   /**
    * **Get Email Addresses from Input**
+   *
    * Returns any email addresses found in the output from the previous action.
+   *
    * Summary: `Get email addresses from ${WFInput}`
+   *
    * Output: Email Addresses
+   *
    * Parameters: `WFInput`
    */
   detect_emailaddress: "is.workflow.actions.detect.emailaddress",
   /**
    * **Get Images from Input**
+   *
    * Gets images from the result of the previous action.\n\nFor example, this action can get the album art of a song, or all the images on a web page.
+   *
    * Summary: `Get images from ${WFInput}`
+   *
    * Output: Images
+   *
    * Parameters: `WFInput`
    */
   detect_images: "is.workflow.actions.detect.images",
   /**
    * **Get URLs from Input**
+   *
    * Returns any links found in the output from the previous action.
+   *
    * Summary: `Get URLs from ${WFInput}`
+   *
    * Output: URLs
+   *
    * Parameters: `WFInput`
    */
   detect_link: "is.workflow.actions.detect.link",
   /**
    * **Get Numbers from Input**
+   *
    * Returns numbers from the previous action’s output.
+   *
    * Summary: `Get numbers from ${WFInput}`
+   *
    * Output: Numbers
+   *
    * Parameters: `WFInput`
    */
   detect_number: "is.workflow.actions.detect.number",
   /**
    * **Get Phone Numbers from Input**
+   *
    * Returns any phone numbers found in the output from the previous action.
+   *
    * Summary: `Get phone numbers from ${WFInput}`
+   *
    * Output: Phone Numbers
+   *
    * Parameters: `WFInput`
    */
   detect_phonenumber: "is.workflow.actions.detect.phonenumber",
   /**
    * **Get Text from Input**
+   *
    * Returns text from the previous action’s output.\n\nFor example, this action can get the name of a photo or song, or the text of a web page.
+   *
    * Summary: `Get text from ${WFInput}`
+   *
    * Output: Text
+   *
    * Parameters: `WFInput`
    */
   detect_text: "is.workflow.actions.detect.text",
   /**
    * **Detect Language**
+   *
    * Detects the language of the text provided as input.
+   *
    * Summary: `Detect language of ${WFInput}`
+   *
    * Output: Language
+   *
    * Parameters: `WFInput`
    */
   detectlanguage: "is.workflow.actions.detectlanguage",
   /**
    * **Dictate Text**
+   *
    * Transcribes what you say aloud into text and passes the result to the next action.
+   *
    * Summary: `Dictate text`
+   *
    * Output: Dictated Text
+   *
    * Parameters: `WFSpeechLanguage`, `WFDictateTextStopListening`
    */
   dictatetext: "is.workflow.actions.dictatetext",
   /**
    * **Dictionary**
+   *
    * Passes the specified list of key-value pairs to the next action as a dictionary.
+   *
    * Output: Dictionary
+   *
    * Parameters: `WFItems`
    */
   dictionary: "is.workflow.actions.dictionary",
   /**
    * **Dismiss Siri and Continue**
+   *
    * Switches into the Shortcuts app and continues to the next action.
+   *
    * Summary: `Dismiss Siri and Continue`
    */
   dismisssiri: "is.workflow.actions.dismisssiri",
   /**
    * **Set Always On Display**
+   *
    * Sets the Always On Display setting of your iPhone to on or off.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   display_always_on_set: "is.workflow.actions.display.always-on.set",
   /**
    * **Put Display to Sleep**
+   *
    * Puts the display(s) of this Mac to sleep.
+   *
    * Summary: `Put the display to sleep`
    */
   displaysleep: "is.workflow.actions.displaysleep",
   /**
    * **Get Current Focus**
+   *
    * Returns the currently active Focus.
+   *
    * Output: Current Focus
    */
   dnd_getfocus: "is.workflow.actions.dnd.getfocus",
   /**
    * **Set Focus**
+   *
    * Sets the specified Focus on or off.
+   *
    * Parameters: `Operation`, `Enabled`, `AssertionType`, `Event`, `Time`, `FocusModes`
    */
   dnd_set: "is.workflow.actions.dnd.set",
   /**
    * **Get File from Folder**
+   *
    * Gets a file or folder by a relative path, starting at a folder you choose.
+   *
    * Summary: `Get file from ${WFFile} at path ${WFGetFilePath}`
+   *
    * Output: File
+   *
    * Parameters: `WFFileErrorIfNotFound`, `WFGetFolderContents`, `WFFile`, `WFGetFilePath`
    */
   documentpicker_open: "is.workflow.actions.documentpicker.open",
   /**
    * **Save File**
+   *
    * Saves files to a specified folder. You can also use this action to copy a file.
+   *
    * Output: Saved File
+   *
    * Parameters: `WFInput`, `WFFolder`, `WFAskWhereToSave`, `WFFileDestinationPath`, `WFSaveFileOverwrite`
    */
   documentpicker_save: "is.workflow.actions.documentpicker.save",
   /**
    * **Get Contents of URL**
+   *
    * Gets the contents of URLs passed into the action. Useful for downloading files and web content, or for making API requests.
+   *
    * Summary: `Get contents of ${WFURL}`
+   *
    * Output: Contents of URL
+   *
    * Parameters: `WFURL`, `WFHTTPMethod`, `ShowHeaders`, `WFHTTPHeaders`, `WFHTTPBodyType`, `WFFormValues`, `WFJSONValues`, `WFRequestVariable`
    */
   downloadurl: "is.workflow.actions.downloadurl",
   /**
    * **Append to Dropbox Text File**
+   *
    * Adds the text passed as input to the end of the specified file.
+   *
    * Summary: `${WFAppendFileWriteMode} ${WFInput}`
+   *
    * Output: Appended File
+   *
    * Parameters: `WFFilePath`, `WFAppendFileWriteMode`, `WFAppendOnNewLine`, `WFInput`
    */
   dropbox_appendfile: "is.workflow.actions.dropbox.appendfile",
   /**
    * **Create Dropbox Folder**
+   *
    * Makes a new Dropbox folder.
+   *
    * Parameters: `WFFilePath`
-   * Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.
+   *
+   * Unavailable: Shortcuts shows this as a missing action.
    */
   dropbox_createfolder: "is.workflow.actions.dropbox.createfolder",
   /**
    * **Get Dropbox File**
+   *
    * Gets files from Dropbox. Turn off “Show Document Picker” to specify a path to retrieve.
+   *
    * Output: File
+   *
    * Parameters: `WFShowFilePicker`, `SelectMultiple`, `WFGetFilePath`, `WFGetFileInitialDirectoryPath`, `WFFileErrorIfNotFound`
    */
   dropbox_open: "is.workflow.actions.dropbox.open",
   /**
    * **Save Dropbox File**
+   *
    * Save files to Dropbox. Turn off “Ask Where to Save” in order to specify a destination path.
+   *
    * Summary: `Save ${WFInput}`
+   *
    * Output: Saved File
+   *
    * Parameters: `WFAskWhereToSave`, `WFFileDestinationPath`, `WFSaveFileOverwrite`, `WFInput`
    */
   dropbox_savefile: "is.workflow.actions.dropbox.savefile",
   /**
    * **Eject Disk**
+   *
    * This action ejects a mounted disk or volume.
+   *
    * Summary: `Eject ${WFInput}`
+   *
    * Parameters: `WFInput`
    */
   ejectdisk: "is.workflow.actions.ejectdisk",
   /**
    * **Email Address**
+   *
    * Passes the specified email addresses to the next action.
+   *
    * Output: Email Address
+   *
    * Parameters: `WFEmailAddress`
    */
   email: "is.workflow.actions.email",
   /**
    * **Encode Media**
+   *
    * Re-encodes the media passed as input at the specified size, optionally converting to audio.
+   *
    * Summary: `Encode ${WFMedia}`
+   *
    * Output: Encoded Media
+   *
    * Parameters: `WFMedia`, `WFMediaAudioOnly`, `WFMediaAudioFormat`, `WFMediaSize`, `WFMediaSpeed`, `WFMediaPreserveTransparency`, `WFMediaCustomSpeed`, `Metadata`, `WFMetadataTitle`, `WFMetadataArtist`, `WFMetadataAlbum`, `WFMetadataGenre`, `WFMetadataYear`, `WFMetadataArtwork`
    */
   encodemedia: "is.workflow.actions.encodemedia",
   /**
    * **Append to Evernote**
+   *
    * Finds a note using the specified criteria and appends the input to the note.
+   *
    * Summary: `${WFEvernoteWriteMode} ${WFInput} to the note ${WFEvernoteNotesTitleSearch}`
+   *
    * Output: Note
+   *
    * Parameters: `WFInput`, `WFEvernoteNotesTitleSearch`, `WFEvernoteWriteMode`, `WFEvernoteNotesNotebookName`
    */
   evernote_append: "is.workflow.actions.evernote.append",
   /**
    * **Delete Notes**
+   *
    * Deletes the notes passed as input from Evernote.
+   *
    * Summary: `Delete ${WFInput}`
+   *
    * Parameters: `WFInput`
    */
   evernote_delete: "is.workflow.actions.evernote.delete",
   /**
    * **Get Notes**
+   *
    * Gets recent notes from Evernote, optionally filtering based on criteria.
+   *
    * Summary: `Get ${WFEvernoteNotesCount}`
+   *
    * Output: Notes
+   *
    * Parameters: `WFEvernoteNotesTitleSearch`, `WFEvernoteNotesCount`, `WFEvernoteNotesTags`, `WFEvernoteNotesNotebookName`
    */
   evernote_get: "is.workflow.actions.evernote.get",
   /**
    * **Get Note Link**
+   *
    * Gets a link to the Evernote note passed into the action, which can be shared.
+   *
    * Summary: `Get link for ${WFInput}`
+   *
    * Output: Note Link
+   *
    * Parameters: `WFEvernoteShareInAppLink`, `WFInput`
    */
   evernote_getlink: "is.workflow.actions.evernote.getlink",
   /**
    * **Create New Note**
+   *
    * Saves the input as a note in Evernote.
+   *
    * Summary: `Create note with ${WFInput} named ${WFEvernoteNoteTitle}`
+   *
    * Output: New Note
+   *
    * Parameters: `WFEvernoteNoteTitle`, `WFInput`, `WFEvernoteNotebook`, `WFEvernoteTags`
    */
   evernote_new: "is.workflow.actions.evernote.new",
   /**
    * **Stop This Shortcut**
+   *
    * Stops execution of the current shortcut and dismisses the shortcut on screen. No more actions will be run after this action.
+   *
    * Summary: `Stop this shortcut`
+   *
    * Parameters: `WFResult`
    */
   exit: "is.workflow.actions.exit",
   /**
    * **Select Music**
+   *
    * Prompts to select music from your local music library.
+   *
    * Summary: `Select music`
+   *
    * Output: Music
+   *
    * Parameters: `WFExportSongActionSelectMultiple`
    */
   exportsong: "is.workflow.actions.exportsong",
   /**
    * **Send via Messenger**
+   *
    * Sends the input via Facebook Messenger
-   * Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.
+   *
+   * Unavailable: Shortcuts shows this as a missing action.
    */
   facebook_messenger_send: "is.workflow.actions.facebook.messenger.send",
   /**
    * **File**
+   *
    * Passes the specified files or folders as output.
+   *
    * Summary: `${WFFile}`
+   *
    * Output: File
+   *
    * Parameters: `WFFile`
    */
   file: "is.workflow.actions.file",
   /**
    * **Append to Text File**
+   *
    * Adds the text passed as input to the end of the specified text file.
+   *
    * Summary: `${WFAppendFileWriteMode} ${WFInput} to ${WFFile}`
+   *
    * Output: Appended File
+   *
    * Parameters: `WFFile`, `WFFilePath`, `WFAppendFileWriteMode`, `WFAppendOnNewLine`, `WFInput`
    */
   file_append: "is.workflow.actions.file.append",
   /**
    * **Create Folder**
+   *
    * Makes a new folder.
+   *
    * Summary: `Create folder in ${WFFolder} at ${WFFilePath}`
+   *
    * Output: Created Folder
+   *
    * Parameters: `WFFilePath`, `WFFolder`
    */
   file_createfolder: "is.workflow.actions.file.createfolder",
   /**
    * **Delete Files**
+   *
    * Deletes the files passed in as input.
+   *
    * Summary: `Delete ${WFInput}`
+   *
    * Parameters: `WFInput`, `WFDeleteImmediatelyDelete`
    */
   file_delete: "is.workflow.actions.file.delete",
   /**
    * **Get Contents of Folder**
+   *
    * This action gets the files inside of the specified folder.
+   *
    * Summary: `Get contents of ${WFFolder}`
+   *
    * Output: Folder Contents
+   *
    * Parameters: `WFFolder`, `Recursive`
    */
   file_getfoldercontents: "is.workflow.actions.file.getfoldercontents",
   /**
    * **Get Link to File**
+   *
    * Gets a public iCloud link to the file passed into the action. The specified file must already be uploaded to iCloud.
+   *
    * Summary: `Get link to ${WFFile}`
+   *
    * Output: Link to File
+   *
    * Parameters: `WFFile`
    */
   file_getlink: "is.workflow.actions.file.getlink",
   /**
    * **Label Files**
+   *
    * Applies a label to the specified files.
+   *
    * Summary: `Label ${WFInput} with ${WFLabelColorNumber}`
+   *
    * Parameters: `WFInput`, `WFLabelColorNumber`
    */
   file_label: "is.workflow.actions.file.label",
   /**
    * **Move File**
+   *
    * Moves the specified file to a new location.
+   *
    * Summary: `Move ${WFFile} to ${WFFolder}`
+   *
    * Output: File
+   *
    * Parameters: `WFFile`, `WFFolder`, `WFReplaceExisting`
    */
   file_move: "is.workflow.actions.file.move",
   /**
    * **Rename File**
+   *
    * Renames the specified file.
+   *
    * Summary: `Rename ${WFFile} to ${WFNewFilename}`
+   *
    * Output: File
+   *
    * Parameters: `WFFile`, `WFNewFilename`
    */
   file_rename: "is.workflow.actions.file.rename",
   /**
    * **Reveal Files in Finder**
+   *
    * Opens windows in the Finder with the specified files selected.
+   *
    * Summary: `Reveal ${WFFile}`
+   *
    * Parameters: `WFFile`
    */
   file_reveal: "is.workflow.actions.file.reveal",
   /**
    * **Select File**
+   *
    * Prompts to select files or folders.
+   *
    * Summary: `Select ${WFPickingMode}`
+   *
    * Output: File
+   *
    * Parameters: `WFPickingMode`, `SelectMultiple`
    */
   file_select: "is.workflow.actions.file.select",
   /**
    * **Find Apps**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_apps: "is.workflow.actions.filter.apps",
   /**
    * **Filter Articles**
+   *
    * Output: Articles
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_articles: "is.workflow.actions.filter.articles",
   /**
    * **Find Calendar Events**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_calendarevents: "is.workflow.actions.filter.calendarevents",
   /**
    * **Find Contacts**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_contacts: "is.workflow.actions.filter.contacts",
   /**
    * **Find Displays**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_displays: "is.workflow.actions.filter.displays",
   /**
    * **Filter Event Attendees**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_eventattendees: "is.workflow.actions.filter.eventattendees",
   /**
    * **Filter Files**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_files: "is.workflow.actions.filter.files",
   /**
    * **Find Health Samples**
-   * Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.
+   *
+   * Unavailable: Shortcuts shows this as a missing action.
    */
   filter_health_quantity: "is.workflow.actions.filter.health.quantity",
   /**
    * **Filter Images**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_images: "is.workflow.actions.filter.images",
   /**
    * **Filter Locations**
+   *
    * Output: Locations
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_locations: "is.workflow.actions.filter.locations",
   /**
    * **Find Music**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_music: "is.workflow.actions.filter.music",
   /**
    * **Find Photos**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_photos: "is.workflow.actions.filter.photos",
   /**
    * **Find Reminders**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_reminders: "is.workflow.actions.filter.reminders",
   /**
    * **Find VPNs**
+   *
    * Searches for VPNs installed on your device that match the given criteria.
+   *
    * Output: Found VPNs
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_vpns: "is.workflow.actions.filter.vpns",
   /**
    * **Find Windows**
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   filter_windows: "is.workflow.actions.filter.windows",
   /**
    * **Get Selected Files in Finder**
+   *
    * Gets the files that are currently selected in Finder.
+   *
    * Output: Selected File
    */
   finder_getselectedfiles: "is.workflow.actions.finder.getselectedfiles",
   /**
    * **Set Flashlight**
+   *
    * Turns on or off the flashlight near the device's camera.
+   *
    * Parameters: `operation`, `state`, `WFFlashlightLevel`, `ShowWhenRun`
    */
   flashlight: "is.workflow.actions.flashlight",
   /**
    * **Format Date**
+   *
    * Formats a date and time into text.
+   *
    * Summary: `Format ${WFDate}`
+   *
    * Output: Formatted Date
+   *
    * Parameters: `WFDateFormatStyle`, `WFRelativeDateFormatStyle`, `WFTimeFormatStyle`, `WFISO8601IncludeTime`, `WFDateFormat`, `WFDate`, `WFLocale`
    */
   format_date: "is.workflow.actions.format.date",
   /**
    * **Format File Size**
+   *
    * Formats a file size into text.
+   *
    * Summary: `Format ${WFFileSize} into ${WFFileSizeFormat}`
+   *
    * Output: Formatted File Size
+   *
    * Parameters: `WFFileSizeFormat`, `WFFileSizeIncludeUnits`, `WFFileSize`
    */
   format_filesize: "is.workflow.actions.format.filesize",
   /**
    * **Format Number**
+   *
    * Formats a number into text.
+   *
    * Summary: `Format ${WFNumber} to ${WFNumberFormatDecimalPlaces}`
+   *
    * Output: Formatted Number
+   *
    * Parameters: `WFNumber`, `WFNumberFormatDecimalPlaces`
    */
   format_number: "is.workflow.actions.format.number",
   /**
    * **Create QR Code**
+   *
    * Creates a Quick Response (QR) code for the specified text.
+   *
    * Summary: `Create QR code for ${WFText}`
+   *
    * Output: QR Code
+   *
    * Parameters: `WFText`, `WFQRForegroundColor`, `WFQRBackgroundColor`, `WFQRRounded`, `WFQRErrorCorrectionLevel`
    */
   generatebarcode: "is.workflow.actions.generatebarcode",
   /**
    * **Get Playlist**
+   *
    * Gets every song in the specified playlist.
+   *
    * Summary: `Get songs in ${WFPlaylistName}`
+   *
    * Output: Playlist
+   *
    * Parameters: `WFPlaylistName`
    */
   get_playlist: "is.workflow.actions.get.playlist",
   /**
    * **Get Article using Safari Reader**
+   *
    * Gets article details, including body text, author, publish date, and more, from every URL passed into the action.
+   *
    * Summary: `Get article from ${WFWebPage}`
+   *
    * Output: Article
+   *
    * Parameters: `WFWebPage`
    */
   getarticle: "is.workflow.actions.getarticle",
   /**
    * **Get Battery Status**
+   *
    * Returns information about the battery and any charger connected to the device.
+   *
    * Summary: `Get ${Subject}`
+   *
    * Output: Battery State
+   *
    * Parameters: `Subject`
    */
   getbatterylevel: "is.workflow.actions.getbatterylevel",
   /**
    * **Get Object of Class**
+   *
    * Returns a particular object class from the input.
+   *
    * Summary: `Get object of class ${Class} from ${Input}`
+   *
    * Output: Object of Class
+   *
    * Parameters: `Class`, `Input`
    */
   getclassaction: "is.workflow.actions.getclassaction",
   /**
    * **Get Clipboard**
+   *
    * Passes the contents of the clipboard to the next action.
+   *
    * Summary: `Get clipboard`
+   *
    * Output: Clipboard
    */
   getclipboard: "is.workflow.actions.getclipboard",
   /**
    * **Get Current App**
+   *
    * Gets the current visible app.
+   *
    * Output: Current App
+   *
    * Parameters: `WFVisibleAppScope`
    */
   getcurrentapp: "is.workflow.actions.getcurrentapp",
   /**
    * **Get Current Location**
+   *
    * Gets the current location of the device.
+   *
    * Summary: `Get current location`
+   *
    * Output: Current Location
+   *
    * Parameters: `Accuracy`
    */
   getcurrentlocation: "is.workflow.actions.getcurrentlocation",
   /**
    * **Get Current Song**
+   *
    * Returns the song that is currently playing in the Music app, if any.
+   *
    * Summary: `Get ${Subject}`
+   *
    * Output: Current Song
+   *
    * Parameters: `Subject`
    */
   getcurrentsong: "is.workflow.actions.getcurrentsong",
   /**
    * **Get Device Details**
+   *
    * Gets information about the current device.
+   *
    * Summary: `Get the ${WFDeviceDetail}`
+   *
    * Output: Device Details
+   *
    * Parameters: `WFDeviceDetail`
    */
   getdevicedetails: "is.workflow.actions.getdevicedetails",
   /**
    * **Open Directions**
+   *
    * Opens directions to the location passed into this action in your choice of Maps, Google Maps, Citymapper, Transit, or Waze. For example, you can use this action to get directions to an upcoming event on your calendar.
+   *
    * Output: Open Directions
+   *
    * Parameters: `WFLocation`, `WFDestination`, `WFGetDirectionsActionApp`, `WFGetDirectionsActionMode`
    */
   getdirections: "is.workflow.actions.getdirections",
   /**
    * **Get Distance**
+   *
    * Calculates the distance to the location passed into this action.
+   *
    * Summary: `Get distance from ${WFGetDirectionsCustomLocation} to ${WFGetDistanceDestination}`
+   *
    * Output: Distance
+   *
    * Parameters: `WFGetDirectionsCustomLocation`, `WFGetDistanceDestination`, `WFGetDirectionsActionMode`, `WFAvoidTolls`, `WFAvoidHighways`, `WFDistanceUnit`, `Accuracy`
    */
   getdistance: "is.workflow.actions.getdistance",
   /**
    * **Get Episodes of Podcast**
+   *
    * Returns a list of episodes from a podcast show.
+   *
    * Summary: `Get episodes of ${WFInput}`
+   *
    * Output: Episodes
+   *
    * Parameters: `WFInput`
    */
   getepisodesforpodcast: "is.workflow.actions.getepisodesforpodcast",
   /**
    * **Get Frames from Image**
+   *
    * Splits an animated GIF or a photo burst into individual frames.
+   *
    * Summary: `Get frames from ${WFImage}`
+   *
    * Output: Frames from Image
+   *
    * Parameters: `WFImage`
    */
   getframesfromimage: "is.workflow.actions.getframesfromimage",
   /**
    * **Get Halfway Point**
+   *
    * Gets the halfway point between two locations.
+   *
    * Summary: `Get halfway point between ${WFGetHalfwayPointFirstLocation} and ${WFGetHalfwayPointSecondLocation}`
+   *
    * Output: Halfway Point
+   *
    * Parameters: `WFGetHalfwayPointFirstLocation`, `WFGetHalfwayPointSecondLocation`
    */
   gethalfwaypoint: "is.workflow.actions.gethalfwaypoint",
   /**
    * **Get state**
+   *
    * Gets the state of a Home accessory.
+   *
    * Output: Accessory State
+   *
    * Parameters: `WFHome`, `WFHMService`, `WFHMCharacteristic`
    */
   gethomeaccessorystate: "is.workflow.actions.gethomeaccessorystate",
   /**
    * **Make HTML from Rich Text**
+   *
    * Converts the rich text passed as input to HTML text.
+   *
    * Summary: `Make HTML from ${WFInput}`
+   *
    * Output: HTML from Rich Text
+   *
    * Parameters: `WFMakeFullDocument`, `WFInput`
    */
   gethtmlfromrichtext: "is.workflow.actions.gethtmlfromrichtext",
   /**
    * **Get Current IP Address**
+   *
    * Returns the local or external IP address of the device.
+   *
    * Summary: `Get current IP address`
+   *
    * Output: Current IP Address
+   *
    * Parameters: `WFIPAddressSourceOption`, `WFIPAddressTypeOption`
    */
   getipaddress: "is.workflow.actions.getipaddress",
   /**
    * **Get Item from List**
+   *
    * Returns one or more items from the list passed as input. You can get the first item, the last item, a random item, the item at a particular index, or items in a range of indexes.
+   *
    * Output: Item from List
+   *
    * Parameters: `WFItemSpecifier`, `WFItemIndex`, `WFItemRangeStart`, `WFItemRangeEnd`, `WFInput`
    */
   getitemfromlist: "is.workflow.actions.getitemfromlist",
   /**
    * **Get Name**
+   *
    * Returns the name of every item passed as input. Depending on the input, this could be a file name, the title of a website, the title of a calendar event, etc.
+   *
    * Summary: `Get name of ${WFInput}`
+   *
    * Output: Name
+   *
    * Parameters: `WFInput`, `GetWebPageTitle`
    */
   getitemname: "is.workflow.actions.getitemname",
   /**
    * **Get Type**
+   *
    * Returns the type of every item passed as input. For example, if a URL is passed, this action will return “URL”.
+   *
    * Summary: `Get type of ${WFInput}`
+   *
    * Output: Type
+   *
    * Parameters: `WFInput`
    */
   getitemtype: "is.workflow.actions.getitemtype",
   /**
    * **Get Latest Photos**
+   *
    * Gets the most recent photos from the photo library.
+   *
    * Summary: `Get the latest ${WFGetLatestPhotoCount}`
+   *
    * Output: Latest Photos
+   *
    * Parameters: `WFGetLatestPhotoCount`, `WFGetLatestPhotosActionIncludeScreenshots`
    */
   getlastphoto: "is.workflow.actions.getlastphoto",
   /**
    * **Get Latest Screenshots**
+   *
    * Gets the most recent screenshots from the photo library.
+   *
    * Summary: `Get the latest ${WFGetLatestPhotoCount}`
+   *
    * Output: Latest Screenshots
+   *
    * Parameters: `WFGetLatestPhotoCount`
    */
   getlastscreenshot: "is.workflow.actions.getlastscreenshot",
   /**
    * **Get Latest Videos**
+   *
    * Gets the most recent videos from the photo library.
+   *
    * Summary: `Get the latest ${WFGetLatestPhotoCount}`
+   *
    * Output: Latest Videos
+   *
    * Parameters: `WFGetLatestPhotoCount`
    */
   getlastvideo: "is.workflow.actions.getlastvideo",
   /**
    * **Get Latest Bursts**
+   *
    * Gets the most recent burst photos from the photo library.
+   *
    * Summary: `Get the latest ${WFGetLatestPhotoCount}`
+   *
    * Output: Latest Bursts
+   *
    * Parameters: `WFGetLatestPhotoCount`
    */
   getlatestbursts: "is.workflow.actions.getlatestbursts",
   /**
    * **Get Latest Live Photos**
+   *
    * Gets the most recent Live Photos from the photo library.
+   *
    * Summary: `Get the latest ${WFGetLatestPhotoCount}`
+   *
    * Output: Latest Live Photos
+   *
    * Parameters: `WFGetLatestPhotoCount`
    */
   getlatestlivephotos: "is.workflow.actions.getlatestlivephotos",
   /**
    * **Get Last Import**
+   *
    * Gets the most recent photo import from the Photos app.
+   *
    * Summary: `Get last import`
+   *
    * Output: Imported Photos
    */
   getlatestphotoimport: "is.workflow.actions.getlatestphotoimport",
   /**
    * **Get Maps URL**
+   *
    * Creates a URL to search for the location, place, or text that was passed into the action in a separate maps app.
+   *
    * Summary: `Get maps URL from ${WFInput}`
+   *
    * Output: Maps URL
+   *
    * Parameters: `WFInput`
    */
   getmapslink: "is.workflow.actions.getmapslink",
   /**
    * **Make Markdown from Rich Text**
+   *
    * Converts the rich text passed as input to Markdown text (comparable to Aaron Swartz’s html2text script).
+   *
    * Summary: `Make Markdown from ${WFInput}`
+   *
    * Output: Markdown from Rich Text
+   *
    * Parameters: `WFInput`
    */
   getmarkdownfromrichtext: "is.workflow.actions.getmarkdownfromrichtext",
   /**
    * **Get My Shortcuts**
+   *
    * Gets the shortcuts stored on this device.
+   *
    * Summary: `Get shortcuts from ${Folder}`
+   *
    * Output: My Shortcuts
+   *
    * Parameters: `Folder`
    */
   getmyworkflows: "is.workflow.actions.getmyworkflows",
   /**
    * **Get Name of Emoji**
+   *
    * Gets the names of emoji passed into the action.
+   *
    * Summary: `Get name of emoji in ${WFInput}`
+   *
    * Output: Name of Emoji
+   *
    * Parameters: `WFInput`
    */
   getnameofemoji: "is.workflow.actions.getnameofemoji",
   /**
    * **Get What’s On Screen**
+   *
    * Gets the current content on screen, if available.
+   *
    * Summary: `Get what’s on screen`
+   *
    * Output: On-Screen Content
    */
   getonscreencontent: "is.workflow.actions.getonscreencontent",
   /**
    * **Get What’s On Screen**
+   *
    * Finds content that is currently visible on-screen like images, calendar events, URLs, and more.
+   *
    * Summary: `Get on-screen ${WFOnScreenContextResultType}`
+   *
    * Output: On-Screen Content
+   *
    * Parameters: `WFOnScreenContextResultType`, `WFOnScreenContextScope`, `WFOnScreenContextLimitEnabled`, `WFOnScreenContextLimit`
    */
   getonscreencontext: "is.workflow.actions.getonscreencontext",
   /**
    * **Get Parent Directory**
+   *
    * Gets the common parent directory of the files passed in.
+   *
    * Summary: `Get parent directory of ${WFInput}`
+   *
    * Output: Get Parent Directory
+   *
    * Parameters: `WFInput`
    */
   getparentdirectory: "is.workflow.actions.getparentdirectory",
   /**
    * **Get Parked Car Location**
+   *
    * Fetches the details of your Parked Car, as stored in the Maps app.
+   *
    * Output: Car Location
    */
   getparkedcarlocation: "is.workflow.actions.getparkedcarlocation",
   /**
    * **Get Podcasts from Library**
+   *
    * Gets a list of all shows in your Podcast library.
+   *
    * Output: Podcasts
    */
   getpodcastsfromlibrary: "is.workflow.actions.getpodcastsfromlibrary",
   /**
    * **Make Rich Text from HTML**
+   *
    * Takes the inputted HTML and turns it into rich text, which can then be converted to other formats.
+   *
    * Summary: `Make rich text from ${WFHTML}`
+   *
    * Output: Rich Text from HTML
+   *
    * Parameters: `WFHTML`
    */
   getrichtextfromhtml: "is.workflow.actions.getrichtextfromhtml",
   /**
    * **Make Rich Text from Markdown**
+   *
    * Takes the inputted Markdown and turns it into rich text, which can then be converted to other formats.
+   *
    * Summary: `Make rich text from ${WFInput}`
+   *
    * Output: Rich Text from Markdown
+   *
    * Parameters: `WFInput`
    */
   getrichtextfrommarkdown: "is.workflow.actions.getrichtextfrommarkdown",
   /**
    * **Get Selected Text**
+   *
    * Finds and outputs text that is selected in the currently active app.
+   *
    * Summary: `Get selected text`
+   *
    * Output: Selected Text
    */
   getselectedtext: "is.workflow.actions.getselectedtext",
   /**
    * **Get Stored Content**
+   *
    * Gets stored content for the specified name.
+   *
    * Summary: `Get ${WFStoredContentKey}`
+   *
    * Output: Stored Content
+   *
    * Parameters: `WFStoredContentKey`, `WFStoredContentGlobalValue`
    */
   getstoredcontent: "is.workflow.actions.getstoredcontent",
   /**
    * **Text**
+   *
    * Passes the specified text to the next action.
+   *
    * Output: Text
+   *
    * Parameters: `WFTextActionText`
    */
   gettext: "is.workflow.actions.gettext",
   /**
    * **Get Text from PDF**
+   *
    * Gets text from the provided PDF file.
+   *
    * Summary: `Get ${WFGetTextFromPDFTextType} from PDF ${WFInput}`
+   *
    * Output: Text
+   *
    * Parameters: `WFInput`, `WFGetTextFromPDFTextType`, `WFGetTextFromPDFPageHeader`, `WFGetTextFromPDFPageFooter`, `WFCombinePages`
    */
   gettextfrompdf: "is.workflow.actions.gettextfrompdf",
   /**
    * **Get Time Between Dates**
+   *
    * Subtracts the specified date from the date passed into the action. For example, this action could get the number of minutes from now until a calendar event passed in as input.
+   *
    * Output: Time Between Dates
+   *
    * Parameters: `WFTimeUntilFromDate`, `WFInput`, `WFTimeUntilUnit`
    */
   gettimebetweendates: "is.workflow.actions.gettimebetweendates",
   /**
    * **Get Travel Time**
+   *
    * Estimates the amount of time it will take to travel to the location passed into this action.
+   *
    * Summary: `Get ${WFGetDirectionsActionMode} time from ${WFGetDirectionsCustomLocation} to ${WFDestination}`
+   *
    * Output: Travel Time
+   *
    * Parameters: `WFGetDirectionsCustomLocation`, `WFDestination`, `WFGetDirectionsActionMode`, `WFAvoidTolls`, `WFAvoidHighways`
    */
   gettraveltime: "is.workflow.actions.gettraveltime",
   /**
    * **Get File of Type**
+   *
    * Returns a particular file type from the input.
+   *
    * Summary: `Get file of type ${WFFileType} from ${WFInput}`
+   *
    * Output: File of Type
+   *
    * Parameters: `WFFileType`, `WFInput`
    */
   gettypeaction: "is.workflow.actions.gettypeaction",
   /**
    * **Get Upcoming Events**
+   *
    * Gets upcoming calendar events, ordered from nearest to farthest away in time.
+   *
    * Summary: `Get ${WFGetUpcomingItemCount} from ${WFGetUpcomingItemCalendar}`
+   *
    * Output: Events
+   *
    * Parameters: `WFGetUpcomingItemCalendar`, `WFGetUpcomingItemCount`, `WFDateSpecifier`, `WFSpecifiedDate`
    */
   getupcomingevents: "is.workflow.actions.getupcomingevents",
   /**
    * **Get Upcoming Reminders**
+   *
    * Gets upcoming reminders, ordered from nearest to farthest away due date.
+   *
    * Summary: `Get ${WFGetUpcomingItemCount} from ${WFGetUpcomingItemCalendar}`
+   *
    * Output: Reminders
+   *
    * Parameters: `WFGetUpcomingItemCalendar`, `WFGetUpcomingItemCount`
    */
   getupcomingreminders: "is.workflow.actions.getupcomingreminders",
   /**
    * **Get Component of URL**
+   *
    * Gets the specified part of the URL passed into the action.
+   *
    * Summary: `Get ${WFURLComponent} from ${WFURL}`
+   *
    * Output: Component of URL
+   *
    * Parameters: `WFURL`, `WFURLComponent`
    */
   geturlcomponent: "is.workflow.actions.geturlcomponent",
   /**
    * **Get Dictionary Value**
+   *
    * Gets the value for the specified key in the dictionary passed into the action.
+   *
    * Output: Dictionary Value
+   *
    * Parameters: `WFGetDictionaryValueType`, `WFDictionaryKey`, `WFInput`
    */
   getvalueforkey: "is.workflow.actions.getvalueforkey",
   /**
    * **Get Variable**
+   *
    * Gets the value of the specified variable and passes it to the next action.
+   *
    * Summary: `Get ${WFVariable}`
+   *
    * Output: Variable
+   *
    * Parameters: `WFVariable`
    */
   getvariable: "is.workflow.actions.getvariable",
   /**
    * **Get Contents of Web Page**
+   *
    * Extracts the contents of the web pages passed into the action.
+   *
    * Summary: `Get contents of web page at ${WFInput}`
+   *
    * Output: Contents of Web Page
+   *
    * Parameters: `WFInput`
    */
   getwebpagecontents: "is.workflow.actions.getwebpagecontents",
   /**
    * **Get Network Details**
+   *
    * Gets information about the currently connected networks.
+   *
    * Output: Network Details
+   *
    * Parameters: `WFNetworkDetailsNetwork`, `WFWiFiDetail`, `WFCellularDetail`, `WFEthernetDetail`
    */
   getwifi: "is.workflow.actions.getwifi",
   /**
    * **Find Giphy GIFs**
+   *
    * Finds GIFs representing the provided text, using Giphy.
+   *
    * Summary: `Find ${WFGiphyQuery} GIFs on Giphy`
+   *
    * Output: GIFs
+   *
    * Parameters: `WFGiphyQuery`, `WFGiphyShowPicker`, `WFGiphyLimit`, `WFGiphySelectMultiple`
    */
   giphy: "is.workflow.actions.giphy",
   /**
    * **Open in GoodReader**
+   *
    * Opens a file in GoodReader.
+   *
    * Summary: `Open ${WFInput}`
+   *
    * Output: Open in GoodReader
+   *
    * Parameters: `WFInput`
    */
   goodreader_open: "is.workflow.actions.goodreader.open",
   /**
    * **Continue in Shortcuts App**
+   *
    * Switches into the Shortcuts app and continues to the next action.
+   *
    * Summary: `Continue in Shortcuts app`
    */
   handoff: "is.workflow.actions.handoff",
   /**
    * **Hand Off Playback**
+   *
    * Hands off Music or Podcasts playback between two devices.
+   *
    * Summary: `Hand off playback from ${WFSourceMediaRoute} to ${WFDestinationMediaRoute}`
+   *
    * Output: Hand Off Playback
+   *
    * Parameters: `WFSourceMediaRoute`, `WFDestinationMediaRoute`
    */
   handoffplayback: "is.workflow.actions.handoffplayback",
   /**
    * **Generate Hash**
+   *
    * Generates a MD5/SHA1 hash from the input.
+   *
    * Summary: `Generate ${WFHashType} hash of ${WFInput}`
+   *
    * Output: Hash
+   *
    * Parameters: `WFHashType`, `WFInput`
    */
   hash: "is.workflow.actions.hash",
   /**
    * **Log Health Sample**
+   *
    * Adds a data point into the Health app. You can log anything that the Health app supports, including your weight, steps taken, running distance, caloric intake and more.
+   *
    * Output: Health Sample
+   *
    * Parameters: `WFQuantitySampleType`, `WFQuantitySampleQuantity`, `WFQuantitySampleAdditionalQuantity`, `WFQuantitySampleAdditionalEnumeration`, `WFCategorySampleEnumeration`, `WFCategorySampleAdditionalEnumerationKey`, `WFQuantitySampleDate`, `WFSampleEndDate`
    */
   health_quantity_log: "is.workflow.actions.health.quantity.log",
   /**
    * **Log Workout**
+   *
    * Adds a workout into the Health app. You can log all kinds of activities, from running and cycling to playing a sport.
+   *
    * Summary: `Log ${WFWorkoutReadableActivityType} workout`
+   *
    * Output: Workout
+   *
    * Parameters: `WFWorkoutDate`, `WFWorkoutDuration`, `WFWorkoutReadableActivityType`, `WFWorkoutCaloriesQuantity`, `WFWorkoutDistanceQuantity`
    */
   health_workout_log: "is.workflow.actions.health.workout.log",
   /**
    * **Hide App**
+   *
    * Hides one or all open applications. You can choose a list of apps to keep open.
+   *
    * Parameters: `WFHideAppMode`, `WFApp`, `WFAppsExcept`
    */
   hide_app: "is.workflow.actions.hide.app",
   /**
    * **Control Home**
+   *
    * Set the state of your home.
+   *
    * Parameters: `WFHome`, `WFHomeTriggerActionSets`
    */
   homeaccessory: "is.workflow.actions.homeaccessory",
   /**
    * **Combine Images**
+   *
    * Combines the images passed into the action horizontally, vertically, or in a grid.
+   *
    * Summary: `Combine ${WFInput} ${WFImageCombineMode}`
+   *
    * Output: Combined Image
+   *
    * Parameters: `WFImageCombineMode`, `WFImageCombineSpacing`, `WFInput`
    */
   image_combine: "is.workflow.actions.image.combine",
   /**
    * **Convert Image**
+   *
    * Converts the images passed into the action to the specified image format.
+   *
    * Summary: `Convert ${WFInput} to ${WFImageFormat}`
+   *
    * Output: Converted Image
+   *
    * Parameters: `WFImageFormat`, `WFImageCompressionQuality`, `WFImagePreserveMetadata`, `WFInput`
    */
   image_convert: "is.workflow.actions.image.convert",
   /**
    * **Convert Image**
+   *
    * Output: Converted Image
+   *
    * Parameters: `WFPreserveMetadata`, `WFImage`, `WFFileFormat`, `WFSize`
    */
   image_convert_finder: "is.workflow.actions.image.convert.finder",
   /**
    * **Crop Image**
+   *
    * Crops images to a smaller rectangle.
+   *
    * Summary: `Crop ${WFInput}`
+   *
    * Output: Cropped Image
+   *
    * Parameters: `WFInput`, `WFImageCropPosition`, `WFImageCropX`, `WFImageCropY`, `WFImageCropWidth`, `WFImageCropHeight`
    */
   image_crop: "is.workflow.actions.image.crop",
   /**
    * **Flip Image**
+   *
    * Reverses the direction of images either horizontally or vertically.
+   *
    * Summary: `Flip ${WFInput} ${WFImageFlipDirection}`
+   *
    * Output: Flipped Image
+   *
    * Parameters: `WFImageFlipDirection`, `WFInput`
    */
   image_flip: "is.workflow.actions.image.flip",
   /**
    * **Mask Image**
+   *
    * Applies a mask to each image passed into the action. For example, you can cut images into a rounded rectangle, ellipse or icon shape, or provide a custom alpha mask.
+   *
    * Output: Masked Image
+   *
    * Parameters: `WFInput`, `WFMaskType`, `WFMaskCornerRadius`, `WFCustomMaskImage`
    */
   image_mask: "is.workflow.actions.image.mask",
   /**
    * **Resize Image**
+   *
    * Scales images to a particular width and height.
+   *
    * Output: Resized Image
+   *
    * Parameters: `WFImageResizeKey`, `WFImageResizeWidth`, `WFImageResizeHeight`, `WFImageResizePercentage`, `WFImageResizeLength`, `WFImage`
    */
   image_resize: "is.workflow.actions.image.resize",
   /**
    * **Rotate Image/Video**
+   *
    * Turns an image or video clockwise by a particular number of degrees.
+   *
    * Summary: `Rotate ${WFImage} by ${WFImageRotateAmount} degrees`
+   *
    * Output: Rotated Image/Video
+   *
    * Parameters: `WFImageRotateAmount`, `WFImage`
    */
   image_rotate: "is.workflow.actions.image.rotate",
   /**
    * **Upload to Imgur**
+   *
    * Uploads the input to Imgur.
+   *
    * Summary: `Upload ${WFInput}`
+   *
    * Output: Imgur URLs
+   *
    * Parameters: `WFInput`, `WFImgurAnonymous`, `WFImgurDirectLink`, `WFImgurAlbum`, `WFImgurAlbumLayout`, `WFImgurAlbumPrivacy`, `WFImgurTitle`, `WFImgurDescription`
    */
   imgur_upload: "is.workflow.actions.imgur.upload",
   /**
    * **Import Audio Files into Music**
+   *
    * Imports audio files into Music and compresses them with the chosen encoder.
+   *
    * Summary: `Import ${WFInput} into Music`
+   *
    * Output: Imported Items
+   *
    * Parameters: `WFInput`, `WFImportAudioFilesReencode`, `WFImportAudioFilesEncoder`
    */
   importaudiofiles: "is.workflow.actions.importaudiofiles",
   /**
    * **Input**
+   *
    * Stops execution of the current shortcut and dismisses the shortcut on screen. No more actions will be run after this action.
+   *
    * Summary: `Receive ${WFInputType} from ${WFInputSurface}`
+   *
    * Parameters: `WFOutput`, `WFInputType`, `WFInputSurface`, `WFNoInputBehavior`, `WFStopAndRespondResponse`, `WFAskForType`, `WFPickingMode`, `SelectMultiple`, `WFDateActionMode`, `WFDateActionDate`, `WFEventOccurrenceMode`, `WFEventOccurrenceSpecifiedYear`, `WFPhotoPickerTypes`, `WFSelectMultiplePhotos`, `WFSelectMultiple`, `WFExportSongActionSelectMultiple`
    */
   input: "is.workflow.actions.input",
   /**
    * **Add to Instapaper**
+   *
    * Adds the input to Instapaper.
+   *
    * Summary: `Add ${WFInputURL}`
+   *
    * Parameters: `WFInstapaperFolder`, `WFInputURL`
    */
   instapaper_add: "is.workflow.actions.instapaper.add",
   /**
    * **Get Instapaper Bookmarks**
+   *
    * Gets the contents of a folder in Instapaper. Requires Instapaper Premium.
+   *
    * Summary: `Get ${WFBookmarkCount} from ${WFInstapaperFolder}`
+   *
    * Output: Instapaper Bookmarks
+   *
    * Parameters: `WFInstapaperFolder`, `WFBookmarkCount`
    */
   instapaper_get: "is.workflow.actions.instapaper.get",
   /**
    * **Intercom**
+   *
    * Announces a message passed as input using Intercom.
+   *
    * Summary: `Intercom ${WFInput} to ${WFHome}`
+   *
    * Parameters: `WFHome`, `WFInput`
    */
   intercom: "is.workflow.actions.intercom",
   /**
    * **Import to Lightroom**
+   *
    * Imports the photos passed as input into Lightroom.
+   *
    * Summary: `Import ${WFInput} to Lightroom`
+   *
    * Parameters: `applyPreset`, `presetGroup`, `preset`, `WFInput`
    */
   lightroom_import: "is.workflow.actions.lightroom.import",
   /**
    * **List**
+   *
    * Allows you to specify a list of items to be passed to the next action.
+   *
    * Output: List
+   *
    * Parameters: `WFItems`
    */
   list: "is.workflow.actions.list",
   /**
    * **Set Noise Control Mode**
+   *
    * Sets a Noise Control mode on your selected device
+   *
    * Parameters: `WFRoute`, `WFListeningMode`
    */
   listeningmode_set: "is.workflow.actions.listeningmode.set",
   /**
    * **Location**
+   *
    * Passes the specified location to the next action.
+   *
    * Summary: `${WFLocation}`
+   *
    * Output: Location
+   *
    * Parameters: `WFLocation`
    */
   location: "is.workflow.actions.location",
   /**
    * **Lock App**
+   *
    * Changes whether the selected application is locked. Locked apps require authentication to access.
+   *
    * Parameters: `WFLockAppOperation`, `WFApp`
    */
   lock_app: "is.workflow.actions.lock.app",
   /**
    * **Lock Screen**
+   *
    * Locks the screen of this device.
+   *
    * Summary: `Lock the screen`
    */
   lockscreen: "is.workflow.actions.lockscreen",
   /**
    * **Log Out User**
+   *
    * Logs out the current user.
+   *
    * Summary: `Log out the current user`
    */
   logout: "is.workflow.actions.logout",
   /**
    * **Set Low Power Mode**
+   *
    * Sets the device’s Low Power Mode to on or off.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   lowpowermode_set: "is.workflow.actions.lowpowermode.set",
   /**
    * **Make Disk Image**
+   *
    * Creates a new disk image (.dmg) file. The disk image will contain any files passed as input.
+   *
    * Summary: `Make disk image with ${WFInput}`
+   *
    * Output: Disk Image
+   *
    * Parameters: `WFInput`, `VolumeName`, `EncryptImage`, `SizeToFit`, `ImageSize`
    */
   makediskimage: "is.workflow.actions.makediskimage",
   /**
    * **Make GIF**
+   *
    * Creates an animated GIF from the images or video passed into the action.
+   *
    * Summary: `Make GIF from ${WFInput}`
+   *
    * Output: GIF
+   *
    * Parameters: `WFMakeGIFActionDelayTime`, `WFMakeGIFActionLoopEnabled`, `WFMakeGIFActionLoopCount`, `WFMakeGIFActionAutoSize`, `WFMakeGIFActionManualSizeWidth`, `WFMakeGIFActionManualSizeHeight`, `WFInput`
    */
   makegif: "is.workflow.actions.makegif",
   /**
    * **Make Image from PDF Page**
+   *
    * Creates images from the pages in the PDF passed into the action.
+   *
    * Summary: `Make ${WFMakeImageFromPDFPageImageFormat} image from ${WFInput}`
+   *
    * Output: Image
+   *
    * Parameters: `WFInput`, `WFMakeImageFromPDFPageImageFormat`, `WFMakeImageFromPDFPageColorspace`, `WFMakeImageFromPDFPageResolution`
    */
   makeimagefrompdfpage: "is.workflow.actions.makeimagefrompdfpage",
   /**
    * **Make Image from Rich Text**
+   *
    * Creates an image from the rich text, web content, or URL passed in as input.
+   *
    * Summary: `Make image from ${WFInput}`
+   *
    * Output: Image
+   *
    * Parameters: `WFInput`, `WFWidth`, `WFHeight`
    */
   makeimagefromrichtext: "is.workflow.actions.makeimagefromrichtext",
   /**
    * **Make PDF**
+   *
    * Makes a PDF out of the input. The resulting PDF can optionally include a quarter-inch margin for better printing.
+   *
    * Summary: `Make PDF from ${WFInput}`
+   *
    * Output: PDF
+   *
    * Parameters: `WFPDFIncludeMargin`, `WFPDFIncludedPages`, `WFPDFSinglePage`, `WFPDFPageRangeStart`, `WFPDFPageRangeEnd`, `WFInput`, `WFPDFDocumentMergeBehavior`
    */
   makepdf: "is.workflow.actions.makepdf",
   /**
    * **Make Spoken Audio from Text**
+   *
    * Creates an audio file from text, using text-to-speech.
+   *
    * Summary: `Make spoken audio from ${WFInput}`
+   *
    * Output: Spoken Audio
+   *
    * Parameters: `WFInput`, `WFSpeakTextRate`, `WFSpeakTextPitch`, `WFSpeakTextLanguage`, `WFSpeakTextVoice`
    */
   makespokenaudiofromtext: "is.workflow.actions.makespokenaudiofromtext",
   /**
    * **Make Video from GIF**
+   *
    * Converts an animated GIF into a video.
+   *
    * Summary: `Make video from GIF ${WFInputGIF}`
+   *
    * Output: Video
+   *
    * Parameters: `WFMakeVideoFromGIFActionLoopCount`, `WFInputGIF`
    */
   makevideofromgif: "is.workflow.actions.makevideofromgif",
   /**
    * **Make Archive**
+   *
    * Makes an archive out of the files passed as input. Supports creating zip, tar.gz, tar.bz2, tar.xz, tar, gzip, cpio, or iso archives.
+   *
    * Summary: `Make ${WFArchiveFormat} archive from ${WFInput}`
+   *
    * Output: Archive
+   *
    * Parameters: `WFZIPName`, `WFArchiveFormat`, `WFInput`
    */
   makezip: "is.workflow.actions.makezip",
   /**
    * **Calculate**
+   *
    * Performs a number operation on the input and returns the result.
+   *
    * Output: Calculation Result
+   *
    * Parameters: `WFInput`, `WFMathOperation`, `WFScientificMathOperation`, `WFMathOperand`, `WFScientificMathOperand`
    */
   math: "is.workflow.actions.math",
   /**
    * **Convert Measurement**
+   *
    * Converts the measurements passed into the action to the specified unit.
+   *
    * Output: Converted Measurement
+   *
    * Parameters: `WFMeasurementUnitType`, `WFMeasurementUnit`, `WFInput`
    */
   measurement_convert: "is.workflow.actions.measurement.convert",
   /**
    * **Measurement**
+   *
    * Passes the specified measurement (including number and unit) to the next action.
+   *
    * Summary: `${WFMeasurementUnitType}\n${WFMeasurementUnit}`
+   *
    * Output: Measurement
+   *
    * Parameters: `WFMeasurementUnitType`, `WFMeasurementUnit`
    */
   measurement_create: "is.workflow.actions.measurement.create",
   /**
    * **Mount Disk Image**
+   *
    * Mounts a disk image (.dmg) file on your desktop.
+   *
    * Summary: `Mount disk image ${WFInput}`
+   *
    * Output: Mounted Volume
+   *
    * Parameters: `WFInput`
    */
   mountdiskimage: "is.workflow.actions.mountdiskimage",
   /**
    * **Move Window**
+   *
    * Moves one or more windows to the specified location.
+   *
    * Parameters: `WFPosition`, `WFXCoordinate`, `WFYCoordinate`, `WFWindow`, `WFBringToFront`, `Display`
    */
   movewindow: "is.workflow.actions.movewindow",
   /**
    * **Set Night Shift**
+   *
    * Enables or disables Night Shift. When enabled, the colors of your display will be shifted to the warmer end of the color spectrum after dark. This may help you get a better night’s sleep.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   nightshift_set: "is.workflow.actions.nightshift.set",
   /**
    * **Nothing**
+   *
    * This action does nothing and produces no output. It is useful to separate blocks of actions, or to explicitly pass an empty input to an action.
+   *
    * Summary: `Nothing`
+   *
    * Output: Nothing
    */
   nothing: "is.workflow.actions.nothing",
   /**
    * **Show Notification**
+   *
    * Displays a local notification.
+   *
    * Summary: `Show notification ${WFNotificationActionBody}`
+   *
    * Parameters: `WFNotificationActionTitle`, `WFNotificationActionBody`, `WFNotificationActionSound`, `WFInput`
    */
   notification: "is.workflow.actions.notification",
   /**
    * **Number**
+   *
    * Passes a number to the next action.
+   *
    * Summary: `${WFNumberActionNumber}`
+   *
    * Output: Number
+   *
    * Parameters: `WFNumberActionNumber`
    */
   number: "is.workflow.actions.number",
   /**
    * **Random Number**
+   *
    * Passes a random number between the given minimum and maximum to the next action. The minimum and maximum numbers are included as possible results.
+   *
    * Summary: `Random number between ${WFRandomNumberMinimum} and ${WFRandomNumberMaximum}`
+   *
    * Output: Random Number
+   *
    * Parameters: `WFRandomNumberMinimum`, `WFRandomNumberMaximum`
    */
   number_random: "is.workflow.actions.number.random",
   /**
    * **Open App**
+   *
    * Opens the specified app.
+   *
    * Summary: `Open ${WFSelectedApp}`
+   *
    * Output: App
+   *
    * Parameters: `WFSelectedApp`, `WFAppName`, `WFWindowingFormat`
    */
   openapp: "is.workflow.actions.openapp",
   /**
    * **Open File**
+   *
    * Opens the input as a file in the specified app.
+   *
    * Parameters: `WFOpenInAskWhenRun`, `WFSelectedApp`, `WFAppName`, `WFInput`
    */
   openin: "is.workflow.actions.openin",
   /**
    * **Search in Passwords**
+   *
    * Opens Passwords and searches for the given text.
+   *
    * Summary: `Search ${WFShowPasswordsSearchTerm} in Passwords`
+   *
    * Parameters: `WFShowPasswordsSearchTerm`
    */
   openpasswords: "is.workflow.actions.openpasswords",
   /**
    * **Open URLs**
+   *
    * Opens URLs passed into the action in Safari.
+   *
    * Summary: `Open ${WFInput}`
+   *
    * Parameters: `WFInput`
    */
   openurl: "is.workflow.actions.openurl",
   /**
    * **Open X-Callback URL**
+   *
    * Performs the specified x-callback-url action. The x-success, x-cancel, and x-error parameters will be added automatically.
+   *
    * Summary: `Open ${WFXCallbackURL} with x-callback`
+   *
    * Output: X-Callback Result
+   *
    * Parameters: `WFXCallbackCustomCallbackEnabled`, `WFXCallbackCustomSuccessKey`, `WFXCallbackCustomCancelKey`, `WFXCallbackCustomErrorKey`, `WFXCallbackCustomSuccessURLEnabled`, `WFXCallbackCustomSuccessURL`, `WFXCallbackURL`
    */
   openxcallbackurl: "is.workflow.actions.openxcallbackurl",
   /**
    * **Set Orientation Lock**
+   *
    * Turns on or off orientation lock on your device.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   orientationlock_set: "is.workflow.actions.orientationlock.set",
   /**
    * **Stop and Output**
+   *
    * Stops execution of the current shortcut, and outputs content. This action is useful when:\n• Running a shortcut from another shortcut (using the Run Shortcut action). The output will be used as the output of the Run Shortcut action.\n• Running a shortcut from Quick Actions in Finder on macOS. The output will be saved as a file alongside the files selected in Finder.\n• Running a shortcut from Services on macOS. The output will replace the selected text, if applicable.\n• Or, when running a shortcut from another location that supports output, like the command-line or the Shortcuts URL scheme.\n\nNo more actions will be run after this action.
+   *
    * Summary: `Stop and output ${WFOutput}`
+   *
    * Parameters: `WFOutput`, `WFNoOutputSurfaceBehavior`, `WFResponse`
    */
   output: "is.workflow.actions.output",
   /**
    * **Overlay Image**
+   *
    * Overlays an image on top of another image.
+   *
    * Summary: `Overlay ${WFImage} on ${WFInput}`
+   *
    * Output: Overlaid Image
+   *
    * Parameters: `WFImage`, `WFInput`, `WFShouldShowImageEditor`, `WFImagePosition`, `WFImageWidth`, `WFImageHeight`, `WFImageX`, `WFImageY`, `WFRotation`, `WFOverlayImageOpacity`
    */
   overlayimageonimage: "is.workflow.actions.overlayimageonimage",
   /**
    * **Overlay Text**
+   *
    * Overlays text onto the image passed as input.
+   *
    * Output: Image with Text
+   *
    * Parameters: `WFText`, `WFImage`, `WFTextPosition`, `WFTextX`, `WFPercentageTextX`, `WFTextY`, `WFPercentageTextY`, `WFTextOffset`, `WFPercentageTextOffset`, `WFFont`, `WFFontSize`, `WFPercentageFontSize`, `WFTextAlignment`, `WFTextColor`, `WFTextRotation`, `WFTextOutlineEnabled`, `WFTextStrokeWidth`, `WFPercentageTextStrokeWidth`, `WFTextStrokeColor`, `WFTextBoxWidth`, `WFPercentageTextBoxWidth`, `WFSizingMethod`
    */
   overlaytext: "is.workflow.actions.overlaytext",
   /**
    * **Play/Pause**
+   *
    * Plays or pauses the currently playing media.
+   *
    * Summary: `${WFPlayPauseBehavior} on ${WFMediaRoute}`
+   *
    * Parameters: `WFPlayPauseBehavior`, `WFMediaRoute`
    */
   pausemusic: "is.workflow.actions.pausemusic",
   /**
    * **Get Hotspot Password**
+   *
    * Returns the password of your Personal Hotspot.
+   *
    * Summary: `Get Personal Hotspot password`
+   *
    * Output: Personal Hotspot Password
    */
   personalhotspot_password_get: "is.workflow.actions.personalhotspot.password.get",
   /**
    * **Set Hotspot Password**
+   *
    * Sets the Personal Hotspot password.
+   *
    * Summary: `Set Personal Hotspot password to ${WFInput}`
+   *
    * Parameters: `WFInput`
    */
   personalhotspot_password_set: "is.workflow.actions.personalhotspot.password.set",
   /**
    * **Set Personal Hotspot**
+   *
    * Sets the device’s Personal Hotspot to on or off.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   personalhotspot_set: "is.workflow.actions.personalhotspot.set",
   /**
    * **Phone Number**
+   *
    * Passes the specified phone numbers to the next action.
+   *
    * Output: Phone Number
+   *
    * Parameters: `WFPhoneNumber`
    */
   phonenumber: "is.workflow.actions.phonenumber",
   /**
    * **Create Photo Album**
+   *
    * Creates a new album in the Photos app, including the specified photos and videos.
+   *
    * Summary: `Create photo album ${AlbumName} with ${WFInput}`
+   *
    * Output: Saved Photo Media
+   *
    * Parameters: `AlbumName`, `WFInput`
    */
   photos_createalbum: "is.workflow.actions.photos.createalbum",
   /**
    * **Add to Pinboard**
+   *
    * Adds the URL passed into the action to your Pinboard.
+   *
    * Summary: `Add ${WFPinboardURL}`
+   *
    * Parameters: `WFPinTitle`, `WFPinTags`, `WFPinPublic`, `WFPinUnread`, `WFPinDescription`, `WFPinboardURL`
    */
   pinboard_add: "is.workflow.actions.pinboard.add",
   /**
    * **Get Pinboard Bookmarks**
+   *
    * Gets bookmarks in your Pinboard account.
+   *
    * Summary: `Get ${WFBookmarkCount}`
+   *
    * Output: Pinboard Bookmarks
+   *
    * Parameters: `WFPinTags`, `WFBookmarkCount`
    */
   pinboard_get: "is.workflow.actions.pinboard.get",
   /**
    * **Play Music**
+   *
    * Plays music using the Music app.
+   *
    * Summary: `Play ${WFMediaItems}`
+   *
    * Parameters: `WFMediaItems`, `WFPlayMusicActionShuffle`, `WFPlayMusicActionRepeat`
    */
   playmusic: "is.workflow.actions.playmusic",
   /**
    * **Play Podcast**
+   *
    * Plays a podcast using the Podcasts app. If no podcast is selected, resumes playback.
+   *
    * Summary: `Play ${WFPodcastShow}`
+   *
    * Parameters: `WFPodcastShow`, `WFPodcastPlaybackOrder`
    */
   playpodcast: "is.workflow.actions.playpodcast",
   /**
    * **Play Sound**
+   *
    * Plays the audio file passed as input, or a default notification sound if no audio file was passed.
+   *
    * Summary: `Play sound`
+   *
    * Parameters: `WFInput`
    */
   playsound: "is.workflow.actions.playsound",
   /**
    * **Add to Pocket**
+   *
    * Adds the input to Pocket.
+   *
    * Summary: `Add ${WFInputURL}`
+   *
    * Parameters: `WFPocketTags`, `WFInputURL`
    */
   pocket_add: "is.workflow.actions.pocket.add",
   /**
    * **Get Items from Pocket**
+   *
    * Returns items in your Pocket account.
+   *
    * Summary: `Get ${WFPocketItemCount}`
+   *
    * Output: Items from Pocket
+   *
    * Parameters: `WFPocketItemCount`, `WFPocketItemState`, `WFPocketItemSearchTerm`, `WFPocketItemSearchTags`
    */
   pocket_get: "is.workflow.actions.pocket.get",
   /**
    * **Follow Podcast**
+   *
    * Follows podcasts or podcast feed URLs passed into the action.
+   *
    * Summary: `Follow ${WFInput}`
+   *
    * Parameters: `WFInput`
    */
   podcasts_subscribe: "is.workflow.actions.podcasts.subscribe",
   /**
    * **Get All Wallpapers**
+   *
    * Gets all of your Lock Screen wallpapers, and returns them as output so you can use them with other actions.
+   *
    * Output: Wallpapers
+   *
    * Parameters: `WFPosterType`
    */
   posters_get: "is.workflow.actions.posters.get",
   /**
    * **Switch Between Wallpapers**
+   *
    * Switches the current Lock Screen wallpaper.
+   *
    * Summary: `Switch to ${WFPoster}`
+   *
    * Parameters: `WFPoster`
    */
   posters_switch: "is.workflow.actions.posters.switch",
   /**
    * **Post on Facebook**
+   *
    * Shares the input on Facebook.
+   *
    * Summary: `Post ${FacebookContent}`
+   *
    * Parameters: `FacebookContent`
    */
   postonfacebook: "is.workflow.actions.postonfacebook",
   /**
    * **Quick Look**
+   *
    * Displays a preview of the input using the system Quick Look.
+   *
    * Summary: `Show ${WFInput} in Quick Look`
+   *
    * Parameters: `WFInput`, `WFQuickLookActionFullScreen`
    */
   previewdocument: "is.workflow.actions.previewdocument",
   /**
    * **Print**
+   *
    * Prints the input using AirPrint.
+   *
    * Summary: `Print ${WFInput}`
+   *
    * Parameters: `WFInput`
    */
   print: "is.workflow.actions.print",
   /**
    * **Get Details of Appearance**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_appearance: "is.workflow.actions.properties.appearance",
   /**
    * **Get Details of App Store App**
+   *
    * Output: Details of App Store Apps
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_appstore: "is.workflow.actions.properties.appstore",
   /**
    * **Get Details of Article**
+   *
    * Output: Details of Articles
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_articles: "is.workflow.actions.properties.articles",
   /**
    * **Get Details of Calendar Events**
+   *
    * Output: Details of Calendar Events
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_calendarevents: "is.workflow.actions.properties.calendarevents",
   /**
    * **Get Details of Contacts**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_contacts: "is.workflow.actions.properties.contacts",
   /**
    * **Get Details of Event Attendees**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_eventattendees: "is.workflow.actions.properties.eventattendees",
   /**
    * **Get Details of Files**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_files: "is.workflow.actions.properties.files",
   /**
    * **Get Details of Health Sample**
-   * Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.
+   *
+   * Unavailable: Shortcuts shows this as a missing action.
    */
   properties_health_quantity: "is.workflow.actions.properties.health.quantity",
   /**
    * **Get Details of Images**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_images: "is.workflow.actions.properties.images",
   /**
    * **Get Details of iTunes Artist**
+   *
    * Output: Details of Itunes Artists
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_itunesartist: "is.workflow.actions.properties.itunesartist",
   /**
    * **Get Details of iTunes Product**
+   *
    * Output: Details of Itunes Products
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_itunesstore: "is.workflow.actions.properties.itunesstore",
   /**
    * **Get Details of Locations**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_locations: "is.workflow.actions.properties.locations",
   /**
    * **Get Details of Music**
+   *
    * Output: Artist
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_music: "is.workflow.actions.properties.music",
   /**
    * **Get Details of Parked Car**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_parkedcar: "is.workflow.actions.properties.parkedcar",
   /**
    * **Get Details of Podcast Episode**
+   *
    * Output: Details of Podcast Episodes
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_podcast: "is.workflow.actions.properties.podcast",
   /**
    * **Get Details of Podcast**
+   *
    * Output: Details of Podcasts
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_podcastshow: "is.workflow.actions.properties.podcastshow",
   /**
    * **Get Details of Reminders**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_reminders: "is.workflow.actions.properties.reminders",
   /**
    * **Get Details of Ride Status**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_ridestatus: "is.workflow.actions.properties.ridestatus",
   /**
    * **Get Details of Safari Web Page**
+   *
    * Output: Details of Safari Web Pages
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_safariwebpage: "is.workflow.actions.properties.safariwebpage",
   /**
    * **Get Details of Shazam**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_shazam: "is.workflow.actions.properties.shazam",
   /**
    * **Get Details of Trello Item**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_trello: "is.workflow.actions.properties.trello",
   /**
    * **Get Details of Ulysses Sheet**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_ulysses_sheet: "is.workflow.actions.properties.ulysses.sheet",
   /**
    * **Get Details of Weather Conditions**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_weather_conditions: "is.workflow.actions.properties.weather.conditions",
   /**
    * **Get Details of Shortcut**
+   *
    * Parameters: `WFContentItemPropertyName`, `WFInput`
    */
   properties_workflow: "is.workflow.actions.properties.workflow",
   /**
    * **Quit App**
+   *
    * Quits one or all open applications. You can choose a list of apps to keep open.
+   *
    * Parameters: `WFQuitAppMode`, `WFAppsExcept`, `WFApp`, `WFAskToSaveChanges`
    */
   quit_app: "is.workflow.actions.quit.app",
   /**
    * **Add to Reading List**
+   *
    * Adds URLs passed into the action to your reading list.
+   *
    * Summary: `Add ${WFURL} to Reading List`
+   *
    * Parameters: `WFURL`
    */
   readinglist: "is.workflow.actions.readinglist",
   /**
    * **Shut Down**
+   *
    * Shuts down or restarts your device.
+   *
    * Parameters: `WFShutdownMode`
    */
   reboot: "is.workflow.actions.reboot",
   /**
    * **Record Audio**
+   *
    * Uses the microphone to record audio.
+   *
    * Summary: `Record audio`
+   *
    * Output: Recorded Audio
+   *
    * Parameters: `WFRecordingCompression`, `WFRecordingStart`, `WFRecordingEnd`, `WFRecordingTimeInterval`
    */
   recordaudio: "is.workflow.actions.recordaudio",
   /**
    * **Open Reminders List**
+   *
    * Shows the specified list in the Reminders app.
+   *
    * Summary: `Open ${WFList}`
+   *
    * Parameters: `WFList`
    */
   reminders_showlist: "is.workflow.actions.reminders.showlist",
   /**
    * **Remove Events**
+   *
    * Removes all events passed into the action from the calendars they are contained in.
+   *
    * Summary: `Remove ${WFInputEvents}`
+   *
    * Parameters: `WFCalendarIncludeFutureEvents`, `WFInputEvents`
    */
   removeevents: "is.workflow.actions.removeevents",
   /**
    * **Remove from Photo Album**
+   *
    * Removes the photos or videos passed as input from the specified photo album.
+   *
    * Summary: `Remove ${WFInput} from ${WFRemoveAlbumSelectedGroup}`
+   *
    * Output: Removed Photo Media
+   *
    * Parameters: `WFRemoveAlbumSelectedGroup`, `WFInput`
    */
   removefromalbum: "is.workflow.actions.removefromalbum",
   /**
    * **Remove Reminders**
+   *
    * Removes all reminders passed into the action from the lists they are contained in.
+   *
    * Summary: `Remove ${WFInputReminders}`
+   *
    * Parameters: `WFInputReminders`
    */
   removereminders: "is.workflow.actions.removereminders",
   /**
    * **Repeat**
+   *
    * Repeats the contained actions, running them the specified number of times.
+   *
    * Summary: `Repeat ${WFRepeatCount}`
+   *
    * Output: Repeat
+   *
    * Parameters: `WFRepeatCount`
    */
   repeat_count: "is.workflow.actions.repeat.count",
   /**
    * **Repeat with Each**
+   *
    * Takes a list of items as input, and runs the contained actions once for each item in the list.
+   *
    * Summary: `Repeat with each item in ${WFInput}`
+   *
    * Output: Repeat with Each
+   *
    * Parameters: `WFInput`
    */
   repeat_each: "is.workflow.actions.repeat.each",
   /**
    * **Resize Window**
+   *
    * Resizes one or more windows to the specified width and height.
+   *
    * Parameters: `WFConfiguration`, `WFWidth`, `WFHeight`, `WFWindow`, `WFBringToFront`
    */
   resizewindow: "is.workflow.actions.resizewindow",
   /**
    * **Go to Home Screen**
+   *
    * Navigates to the Home Screen.
+   *
    * Summary: `Go to Home Screen`
    */
   returntohomescreen: "is.workflow.actions.returntohomescreen",
   /**
    * **Request Ride**
+   *
    * Requests a ride from the specified pickup location to a specified drop off location.
+   *
    * Summary: `Request ride from ${PickupLocation} to ${DropOffLocation} with ${IntentAppDefinition}`
+   *
    * Output: Requested Ride
+   *
    * Parameters: `IntentAppDefinition`, `PickupLocation`, `DropOffLocation`, `RideOption`, `PaymentMethod`, `PartySize`
    */
   ride_requestride: "is.workflow.actions.ride.requestride",
   /**
    * **Round Number**
+   *
    * Rounds the number(s) passed into the action.
+   *
    * Output: Rounded Number
+   *
    * Parameters: `WFInput`, `WFRoundTo`, `WFRoundMode`, `TenToThePowerOf`
    */
   round: "is.workflow.actions.round",
   /**
    * **Get Items from RSS Feed**
+   *
    * Downloads the latest items from an RSS feed.
+   *
    * Summary: `Get ${WFRSSItemQuantity} from ${WFRSSFeedURL}`
+   *
    * Output: RSS Items
+   *
    * Parameters: `WFRSSFeedURL`, `WFRSSItemQuantity`
    */
   rss: "is.workflow.actions.rss",
   /**
    * **Get RSS Feeds from Page**
+   *
    * Extracts any RSS feed URLs from the given web URLs or web page.
+   *
    * Summary: `Get RSS feeds from ${WFURLs}`
+   *
    * Output: RSS Feeds from Page
+   *
    * Parameters: `WFURLs`
    */
   rss_extract: "is.workflow.actions.rss.extract",
   /**
    * **Run AppleScript**
+   *
    * This action executes an AppleScript.
+   *
    * Summary: `Run AppleScript with ${Input}`
+   *
    * Output: AppleScript Result
+   *
    * Parameters: `Input`, `Script`
    */
   runapplescript: "is.workflow.actions.runapplescript",
   /**
    * **Share with Apps**
+   *
    * Prompts to share the specified content using action extensions and sharing extensions provided by other apps.
+   *
    * Summary: `Share ${WFInput} with ${WFApp}`
+   *
    * Parameters: `WFInput`, `WFApp`
    */
   runextension: "is.workflow.actions.runextension",
   /**
    * **Run JavaScript for Mac Automation**
+   *
    * This action executes a JavaScript for Automation (JXA) script.
+   *
    * Summary: `Run JavaScript for Automation with ${Input}`
+   *
    * Output: JavaScript Result
+   *
    * Parameters: `Input`, `Script`
    */
   runjavascriptforautomation: "is.workflow.actions.runjavascriptforautomation",
   /**
    * **Run JavaScript on Active Safari Tab**
+   *
    * Runs JavaScript on a Safari web page passed in as input
+   *
    * Output: JavaScript Result
+   *
    * Parameters: `WFJavaScript`, `WFInput`
    */
   runjavascriptonwebpage: "is.workflow.actions.runjavascriptonwebpage",
   /**
    * **Run Shell Script**
+   *
    * This action executes a UNIX shell script. The script will execute starting in your user’s home directory.
+   *
    * Summary: `Run Shell Script`
+   *
    * Output: Shell Script Result
+   *
    * Parameters: `Script`, `Shell`, `Input`, `InputMode`, `RunAsRoot`
    */
   runshellscript: "is.workflow.actions.runshellscript",
   /**
    * **Run Script Over SSH**
+   *
    * Runs a script on a remote computer over SSH.
+   *
    * Summary: `Run script over SSH`
+   *
    * Output: Shell Script Result
+   *
    * Parameters: `WFSSHScript`, `WFSSHHost`, `WFSSHPort`, `WFSSHUser`, `WFSSHAuthenticationType`, `WFSSHPassword`, `WFSSHKey`, `WFInput`
    */
   runsshscript: "is.workflow.actions.runsshscript",
   /**
    * **Run Shortcut**
+   *
    * Runs a shortcut from your shortcut.
+   *
    * Summary: `Run ${WFWorkflow}`
+   *
    * Output: Shortcut Result
+   *
    * Parameters: `WFWorkflow`, `WFInput`
    */
   runworkflow: "is.workflow.actions.runworkflow",
   /**
    * **Get Current Web Page from Safari**
+   *
    * Gets the web page of the frontmost Safari window.
+   *
    * Summary: `Get current web page from Safari`
+   *
    * Output: Web Page
    */
   safari_geturl: "is.workflow.actions.safari.geturl",
   /**
    * **Save to Photos**
+   *
    * Adds the photos and videos passed as input to the specified photo album.
+   *
    * Summary: `Save ${WFInput} to ${WFCameraRollSelectedGroup}`
+   *
    * Output: Saved Photo Media
+   *
    * Parameters: `WFCameraRollSelectedGroup`, `WFInput`
    */
   savetocameraroll: "is.workflow.actions.savetocameraroll",
   /**
    * **Find App Store Apps**
+   *
    * Searches the App Store, returning the apps that match the specified search terms. You can get more details about the results using the Get Details of App Store App action.
+   *
    * Summary: `Find ${WFSearchTerm} on the App Store`
+   *
    * Output: App Store Apps
+   *
    * Parameters: `WFSearchTerm`, `WFAttribute`, `WFEntity`, `WFCountry`, `WFItemLimit`
    */
   searchappstore: "is.workflow.actions.searchappstore",
   /**
    * **Find iTunes Store Items**
+   *
    * Searches the iTunes Store, returning the items that match the specified search terms. You can get more details about the results using the Get Details of iTunes Product action.
+   *
    * Summary: `Find ${WFSearchTerm} on the iTunes Store`
+   *
    * Output: iTunes Products
+   *
    * Parameters: `WFSearchTerm`, `WFMediaType`, `WFAttribute`, `WFEntity`, `WFCountry`, `WFItemLimit`
    */
   searchitunes: "is.workflow.actions.searchitunes",
   /**
    * **Find Places**
+   *
    * Finds nearby places using Maps, and returns the results.
+   *
    * Summary: `Find ${WFSearchQuery} near ${WFInput}`
+   *
    * Output: Local Businesses
+   *
    * Parameters: `WFInput`, `WFSearchQuery`, `WFSearchRadius`, `WFSearchSortOrder`
    */
   searchlocalbusinesses: "is.workflow.actions.searchlocalbusinesses",
   /**
    * **Open in Maps**
+   *
    * Opens your choice of Maps, Google Maps, or Waze and searches for the location, place, or text that was passed into the action.
+   *
    * Summary: `Open ${WFInput} in Maps`
+   *
    * Parameters: `WFInput`, `WFSearchMapsActionApp`
    */
   searchmaps: "is.workflow.actions.searchmaps",
   /**
    * **Find Podcasts**
+   *
    * Finds podcasts in the Apple Podcasts catalog, returning the items that match the specified search terms.
+   *
    * Summary: `Find ${WFSearchTerm}`
+   *
    * Output: Podcasts
+   *
    * Parameters: `WFSearchTerm`, `WFAttribute`, `WFEntity`, `WFCountry`, `WFItemLimit`
    */
   searchpodcasts: "is.workflow.actions.searchpodcasts",
   /**
    * **Search Web**
+   *
    * Searches the web for the text provided as input.
+   *
    * Summary: `Search ${WFSearchWebDestination} for ${WFInputText}`
+   *
    * Parameters: `WFSearchWebDestination`, `WFInputText`
    */
   searchweb: "is.workflow.actions.searchweb",
   /**
    * **Seek**
+   *
    * Seek to a specific time, or forward and backward by some duration, in the currently playing media.
+   *
    * Summary: `Seek ${WFSeekBehavior} ${WFTimeInterval} on ${WFMediaRoute}`
+   *
    * Parameters: `WFSeekBehavior`, `WFTimeInterval`, `WFMediaRoute`
    */
   seek: "is.workflow.actions.seek",
   /**
    * **Select Contact**
+   *
    * Prompts to pick a person from your contacts and passes the selection to the next action.
+   *
    * Summary: `Select contact`
+   *
    * Output: Contacts
+   *
    * Parameters: `WFSelectMultiple`
    */
   selectcontacts: "is.workflow.actions.selectcontacts",
   /**
    * **Select Email Address**
+   *
    * Prompts to pick an email address from your contacts and passes the selection to the next action.
+   *
    * Output: Email Addresses
    */
   selectemail: "is.workflow.actions.selectemail",
   /**
    * **Select Phone Number**
+   *
    * Prompts to pick a phone number from your contacts and passes the selection to the next action.
+   *
    * Output: Phone Numbers
    */
   selectphone: "is.workflow.actions.selectphone",
   /**
    * **Select Photos**
+   *
    * Prompts to choose photos and videos from your photo library.
+   *
    * Summary: `Select photos`
+   *
    * Output: Photos
+   *
    * Parameters: `WFPhotoPickerTypes`, `WFSelectMultiplePhotos`
    */
   selectphoto: "is.workflow.actions.selectphoto",
   /**
    * **Send Email**
+   *
    * Pass text into the action to set the email body. Other types of input are added as attachments.
+   *
    * Summary: `Send ${WFSendEmailActionInputAttachments} with ${WFSendEmailActionSubject} to ${WFSendEmailActionToRecipients}`
+   *
    * Parameters: `WFEmailAccountActionSelectedAccount`, `WFSendEmailActionFrom`, `WFSendEmailActionToRecipients`, `WFSendEmailActionCcRecipients`, `WFSendEmailActionBccRecipients`, `WFSendEmailActionSubject`, `WFSendEmailActionInputAttachments`, `WFSendEmailActionSaveAsDraft`, `WFSendEmailActionShowComposeSheet`
    */
   sendemail: "is.workflow.actions.sendemail",
   /**
    * **Send Message**
+   *
    * Sends a message. Pass images, videos, or other files as input to include attachments.
+   *
    * Summary: `Send ${WFSendMessageContent} to ${WFSendMessageActionRecipients}`
+   *
    * Parameters: `IntentAppDefinition`, `ShowWhenRun`, `WFSendMessageActionRecipients`, `WFSendMessageContent`, `WFSendMessagePrefix`
    */
   sendmessage: "is.workflow.actions.sendmessage",
   /**
    * **Set AirDrop Receiving**
+   *
    * Summary: `Set AirDrop Receiving to ${WFAirDropState}`
+   *
    * Parameters: `WFAirDropState`
    */
   setairdropreceiving: "is.workflow.actions.setairdropreceiving",
   /**
    * **Set Brightness**
+   *
    * Sets the device brightness.
+   *
    * Parameters: `WFBrightness`, `ShowWhenRun`
    */
   setbrightness: "is.workflow.actions.setbrightness",
   /**
    * **Copy to Clipboard**
+   *
    * Copies the result of the last action to the clipboard.
+   *
    * Summary: `Copy ${WFInput} to clipboard`
+   *
    * Parameters: `WFLocalOnly`, `WFExpirationDate`, `WFInput`
    */
   setclipboard: "is.workflow.actions.setclipboard",
   /**
    * **Set Name**
+   *
    * Sets the name of the item passed as input.
+   *
    * Summary: `Set name of ${WFInput} to ${WFName}`
+   *
    * Output: Renamed Item
+   *
    * Parameters: `WFName`, `WFDontIncludeFileExtension`, `WFInput`
    */
   setitemname: "is.workflow.actions.setitemname",
   /**
    * **Set Parked Car**
+   *
    * Saves details of your Parked Car in the Maps app.
+   *
    * Summary: `Set Parked Car at ${WFLocation}`
+   *
    * Output: Parked Car
+   *
    * Parameters: `WFLocation`, `WFSetParkedCarNotes`, `WFImage`
    */
   setparkedcar: "is.workflow.actions.setparkedcar",
   /**
    * **Change Playback Destination**
+   *
    * Changes the current playback destination. Use this action to route audio to AirPods, Bluetooth speakers, HomePod, or other AirPlay devices. Optionally, this action can add or remove devices from a group, so you can route audio to multiple devices at once.
+   *
    * Output: Change Playback Destination
+   *
    * Parameters: `WFMediaRouteOperation`, `WFMediaRoute`
    */
   setplaybackdestination: "is.workflow.actions.setplaybackdestination",
   /**
    * **Store Content**
+   *
    * Stores the content that is passed in and its specified name. This content is persisted between shortcut runs, allowing you to retrieve it later.
+   *
    * Summary: `Store ${WFInput} as ${WFStoredContentKey}`
+   *
    * Output: Stored Content
+   *
    * Parameters: `WFInput`, `WFStoredContentKey`, `WFStoredContentGlobalValue`
    */
   setstoredcontent: "is.workflow.actions.setstoredcontent",
   /**
    * **Edit Calendar Event**
+   *
    * Parameters: `WFContentItemPropertyName`, `Mode`, `WFInput`, `RemoveSpecifiedValue`, `WFCalendarEventContentItemAttachments`, `WFCalendarEventContentItemIsAllDay`, `WFCalendarEventContentItemNotes`, `WFCalendarEventContentItemTitle`, `WFCalendarEventContentItemLocation`, `WFCalendarEventContentItemEndDate`, `WFCalendarEventContentItemDuration`, `WFCalendarEventContentItemStartDate`, `WFCalendarEventContentItemMyStatus`, `WFCalendarEventContentItemAttendees`, `WFCalendarEventContentItemURL`, `ValueLabel`
    */
   setters_calendarevents: "is.workflow.actions.setters.calendarevents",
   /**
    * **Edit Contact**
+   *
    * Parameters: `WFContentItemPropertyName`, `Mode`, `WFInput`, `RemoveSpecifiedValue`, `WFContactContentItemPrefix`, `WFContactContentItemPhoneticLastName`, `WFContactContentItemJobTitle`, `WFContactContentItemURLs`, `WFContactContentItemCompany`, `WFContactContentItemDepartment`, `WFContactContentItemLastName`, `WFContactContentItemEmailAddresses`, `WFContactContentItemGroup`, `WFContactContentItemPhoneticFirstName`, `WFContactContentItemMiddleName`, `WFContactContentItemPhoneNumbers`, `WFContactContentItemSuffix`, `WFContactContentItemStreetAddresses`, `WFContactContentItemFirstName`, `WFContactContentItemBirthday`, `WFContactContentItemContactPhoto`, `WFContactContentItemNickname`, `WFContactContentItemPhoneticMiddleName`, `WFContactContentItemNotes`, `ValueLabel`
    */
   setters_contacts: "is.workflow.actions.setters.contacts",
   /**
    * **Edit Reminder**
+   *
    * Parameters: `WFContentItemPropertyName`, `Mode`, `WFInput`, `RemoveSpecifiedValue`, `WFReminderContentItemPriority`, `WFReminderContentItemWhenMessagingPerson`, `WFReminderContentItemIsCompleted`, `WFReminderContentItemImages`, `WFReminderContentItemParentReminder`, `WFReminderContentItemDueDate`, `WFReminderContentItemList`, `WFReminderContentItemTags`, `WFReminderContentItemTitle`, `WFReminderContentItemSubtasks`, `WFReminderContentItemURL`, `WFReminderContentItemIsFlagged`, `WFReminderContentItemNotes`
    */
   setters_reminders: "is.workflow.actions.setters.reminders",
   /**
    * **Set Dictionary Value**
+   *
    * Sets a value in the dictionary passed into the action. 
+   *
    * Summary: `Set ${WFDictionaryKey} to ${WFDictionaryValue} in ${WFDictionary}`
+   *
    * Output: Dictionary
+   *
    * Parameters: `WFDictionaryKey`, `WFDictionaryValue`, `WFDictionary`
    */
   setvalueforkey: "is.workflow.actions.setvalueforkey",
   /**
    * **Set Variable**
+   *
    * Sets the value of the specified variable to the input of this action.
+   *
    * Summary: `Set variable ${WFVariableName} to ${WFInput}`
+   *
    * Parameters: `WFInput`, `WFVariableName`
    */
   setvariable: "is.workflow.actions.setvariable",
   /**
    * **Set Volume**
+   *
    * Sets the volume of the device.
+   *
    * Parameters: `WFVolumeSetting`, `WFVolume`
    */
   setvolume: "is.workflow.actions.setvolume",
   /**
    * **Share**
+   *
    * Prompts to share the specified content.
+   *
    * Summary: `Share ${WFInput}`
+   *
    * Parameters: `WFInput`
    */
   share: "is.workflow.actions.share",
   /**
    * **Shazam It**
+   *
    * Uses the microphone to listen to and identify nearby media.
+   *
    * Summary: `Shazam it`
+   *
    * Output: Shazam Media
+   *
    * Parameters: `WFShazamMediaActionShowWhenRun`, `WFShazamMediaActionErrorIfNotRecognized`
    */
   shazamMedia: "is.workflow.actions.shazamMedia",
   /**
    * **Show Definition**
+   *
    * Shows the definition of the word passed into the action.
+   *
    * Summary: `Show definition of ${Word}`
+   *
    * Parameters: `Word`
    */
   showdefinition: "is.workflow.actions.showdefinition",
   /**
    * **Open in BlindSquare**
+   *
    * Opens BlindSquare showing information about the place passed as input, so you can save it as a favorite, start tracking it, or start simulation mode.
+   *
    * Summary: `Open ${WFInput}`
+   *
    * Parameters: `WFBlindSquareSimulation`, `WFInput`
    */
   showinblindsquare: "is.workflow.actions.showinblindsquare",
   /**
    * **Open in Calendar**
+   *
    * Shows the date or calendar event passed as input in the Calendar app.
+   *
    * Summary: `Open ${WFEvent} in Calendar`
+   *
    * Parameters: `WFEvent`
    */
   showincalendar: "is.workflow.actions.showincalendar",
   /**
    * **Show in iTunes Store**
+   *
    * Shows the iTunes products or App Store apps passed as input in a store sheet. This is useful with the Find iTunes Store Items and Find App Store Apps actions.
+   *
    * Summary: `Show ${WFProduct} in iTunes Store`
+   *
    * Parameters: `WFProduct`
    */
   showinstore: "is.workflow.actions.showinstore",
   /**
    * **Show Content**
+   *
    * Shows a preview of the provided content. If run from Siri, speaks the provided text.
+   *
    * Summary: `Show ${Text}`
+   *
    * Parameters: `Text`
    */
   showresult: "is.workflow.actions.showresult",
   /**
    * **Show Web View**
+   *
    * Shows the web URL passed into the action in a Safari View Controller, allowing you to view the web page without switching apps.
+   *
    * Summary: `Show web view at ${WFURL}`
+   *
    * Parameters: `WFEnterSafariReader`, `WFURL`
    */
   showwebpage: "is.workflow.actions.showwebpage",
   /**
    * **Set Silence Unknown Callers**
+   *
    * Sets Silence Unknown Callers to on or off. When on, calls from unknown numbers will be silenced and sent to voicemail. Calls will still be displayed on the Recents list. Incoming calls will continue to ring from people in your contacts, recent outgoing calls, and Siri Suggestions.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   silenceunknowncallers_set: "is.workflow.actions.silenceunknowncallers.set",
   /**
    * **Unknown Intent**
+   *
    * Parameters: `ShowWhenRun`
    */
   sirikit_donation_handle: "is.workflow.actions.sirikit.donation.handle",
   /**
    * **Skip Back**
+   *
    * Skips to the previous song in the current music queue.
+   *
    * Summary: `Skip back to the ${WFSkipBackBehavior} on ${WFMediaRoute}`
+   *
    * Parameters: `WFSkipBackBehavior`, `WFMediaRoute`
    */
   skipback: "is.workflow.actions.skipback",
   /**
    * **Skip Forward**
+   *
    * Skips to the next song in the current music queue.
+   *
    * Summary: `Skip forward on ${WFMediaRoute}`
+   *
    * Parameters: `WFMediaRoute`
    */
   skipforward: "is.workflow.actions.skipforward",
   /**
    * **Post to Slack**
+   *
    * Posts the input to the specified Slack channel.
+   *
    * Summary: `Post ${WFSlackInput} to ${SlackChannel}`
+   *
    * Parameters: `WFAccount`, `WFSlackInput`, `SlackChannel`
-   * Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.
+   *
+   * Unavailable: Shortcuts shows this as a missing action.
    */
   slack_send: "is.workflow.actions.slack.send",
   /**
    * **Sleep**
+   *
    * Put this Mac to sleep.
+   *
    * Summary: `Put this Mac to sleep`
    */
   sleep: "is.workflow.actions.sleep",
   /**
    * **Speak Text**
+   *
    * Speaks the inputted text aloud.
+   *
    * Summary: `Speak ${WFText}`
+   *
    * Parameters: `WFSpeakTextWait`, `WFSpeakTextRate`, `WFSpeakTextPitch`, `WFSpeakTextLanguage`, `WFSpeakTextVoice`, `WFText`
    */
   speaktext: "is.workflow.actions.speaktext",
   /**
    * **Split PDF Into Pages**
+   *
    * Splits the input document by creating a PDF for each page.
+   *
    * Summary: `Split PDF ${WFInput} into pages`
+   *
    * Output: PDF Pages
+   *
    * Parameters: `WFInput`
    */
   splitpdf: "is.workflow.actions.splitpdf",
   /**
    * **Split Screen Apps**
+   *
    * Open the specified apps in split screen mode.
+   *
    * Summary: `Split screen between ${WFPrimaryAppIdentifier} and ${WFSecondaryAppIdentifier}`
+   *
    * Parameters: `WFPrimaryAppIdentifier`, `WFSecondaryAppIdentifier`, `WFAppRatio`
    */
   splitscreen: "is.workflow.actions.splitscreen",
   /**
    * **Search**
+   *
    * Searches for content in the system that matches the specified text.
+   *
    * Summary: `Search ${WFInputText}`
+   *
    * Output: Results
+   *
    * Parameters: `WFInputText`, `WFSpotlightSearchResultType`, `WFSpotlightSearchLimit`
    */
   spotlightsearch: "is.workflow.actions.spotlightsearch",
   /**
    * **Set Stage Manager**
+   *
    * Enables or disables Stage Manager on the device.
+   *
    * Parameters: `operation`, `state`, `showDock`, `showRecentApps`, `ShowWhenRun`
    */
   stagemanager_set: "is.workflow.actions.stagemanager.set",
   /**
    * **Start Screen Saver**
+   *
    * Starts the screen saver selected in the Desktop & Screen Saver preference pane.
+   *
    * Summary: `Start screen saver`
    */
   startscreensaver: "is.workflow.actions.startscreensaver",
   /**
    * **Calculate Statistics**
+   *
    * Calculates statistics on the numbers that are provided as input.
+   *
    * Summary: `Calculate the ${WFStatisticsOperation} of ${Input}`
+   *
    * Output: Statistics
+   *
    * Parameters: `WFStatisticsOperation`, `Input`
    */
   statistics: "is.workflow.actions.statistics",
   /**
    * **Take Photo**
+   *
    * Uses the camera to take photos.
+   *
    * Output: Photo
+   *
    * Parameters: `WFCameraCaptureShowPreview`, `WFPhotoCount`, `WFCameraCaptureDevice`
    */
   takephoto: "is.workflow.actions.takephoto",
   /**
    * **Take Screenshot**
+   *
    * Take a screenshot of the device’s screen.
+   *
    * Output: Screenshot
+   *
    * Parameters: `WFTakeScreenshotScreenshotType`, `WFTakeScreenshotActionInteractiveSelectionType`, `WFTakeScreenshotMainMonitorOnly`, `WFTakeScreenshotIgnoreContextualAssistanceLayers`
    */
   takescreenshot: "is.workflow.actions.takescreenshot",
   /**
    * **Take Video**
+   *
    * Uses the camera to take a video clip.
+   *
    * Output: Video
+   *
    * Parameters: `WFCameraCaptureDevice`, `WFCameraCaptureQuality`, `WFRecordingStart`
    */
   takevideo: "is.workflow.actions.takevideo",
   /**
    * **Change Case**
+   *
    * Changes the case of the text passed into the action to UPPERCASE, lowercase, or Title Case.
+   *
    * Output: Updated Text
+   *
    * Parameters: `text`, `WFCaseType`, `ShowWhenRun`
    */
   text_changecase: "is.workflow.actions.text.changecase",
   /**
    * **Combine Text**
+   *
    * Joins the text together, inserting the separator between each join.
+   *
    * Output: Combined Text
+   *
    * Parameters: `text`, `WFTextSeparator`, `WFTextCustomSeparator`, `ShowWhenRun`
    */
   text_combine: "is.workflow.actions.text.combine",
   /**
    * **Match Text**
+   *
    * Searches text passed into the action for matches to a regular expression.
+   *
    * Output: Matches
+   *
    * Parameters: `text`, `WFMatchTextPattern`, `WFMatchTextCaseSensitive`, `ShowWhenRun`
    */
   text_match: "is.workflow.actions.text.match",
   /**
    * **Get Group from Matched Text**
+   *
    * Gets the text that matched a particular capture group or all of the capture groups from the output of a Match Text action.
+   *
    * Output: Text
+   *
    * Parameters: `matches`, `WFGetGroupType`, `WFGroupIndex`, `ShowWhenRun`
    */
   text_match_getgroup: "is.workflow.actions.text.match.getgroup",
   /**
    * **Replace Text**
+   *
    * Replaces all occurrences of the given text with other text.
+   *
    * Summary: `Replace ${WFReplaceTextFind} with ${WFReplaceTextReplace} in ${WFInput}`
+   *
    * Output: Updated Text
+   *
    * Parameters: `WFReplaceTextFind`, `WFReplaceTextReplace`, `WFReplaceTextCaseSensitive`, `WFReplaceTextRegularExpression`, `WFInput`
    */
   text_replace: "is.workflow.actions.text.replace",
   /**
    * **Split Text**
+   *
    * Separates text passed into the action into a list.
+   *
    * Output: Split Text
+   *
    * Parameters: `text`, `WFTextSeparator`, `WFTextCustomSeparator`, `ShowWhenRun`
    */
   text_split: "is.workflow.actions.text.split",
   /**
    * **Translate Text**
+   *
    * Translates the text passed into the action into another language.
+   *
    * Summary: `Translate ${WFInputText} from ${WFSelectedFromLanguage} to ${WFSelectedLanguage}`
+   *
    * Output: Translated Text
+   *
    * Parameters: `WFSelectedFromLanguage`, `WFSelectedLanguage`, `WFInputText`
    */
   text_translate: "is.workflow.actions.text.translate",
   /**
    * **Trim Whitespace**
+   *
    * Removes whitespace and newlines from both ends of the text passed into the action.
+   *
    * Summary: `Trim whitespace from ${WFInput}`
+   *
    * Output: Updated Text
+   *
    * Parameters: `WFInput`
    */
   text_trimwhitespace: "is.workflow.actions.text.trimwhitespace",
   /**
    * **Start Timer**
+   *
    * Starts a timer in the Clock app for the specified amount of time.
+   *
    * Summary: `Start timer for ${WFDuration}`
+   *
    * Output: Start Timer
+   *
    * Parameters: `IntentAppDefinition`, `WFDuration`
    */
   timer_start: "is.workflow.actions.timer.start",
   /**
    * **Add Todoist Item**
+   *
    * Adds a new item to Todoist.
+   *
    * Summary: `Add ${WFTodoistContent} to ${WFTodoistProject}`
+   *
    * Output: Todoist Item
+   *
    * Parameters: `WFTodoistContent`, `WFTodoistProject`, `WFTodoistDueDate`, `WFTodoistReminder`, `WFTodoistReminderType`, `WFTodoistPriority`, `WFTodoistNotes`, `WFTodoistFile`
    */
   todoist_add: "is.workflow.actions.todoist.add",
   /**
    * **Create Trello Board**
+   *
    * Creates a new board in your Trello account.
+   *
    * Summary: `Create the board ${WFTrelloName}`
+   *
    * Output: Trello Board
+   *
    * Parameters: `WFTrelloName`, `WFTrelloDescription`
    */
   trello_add_board: "is.workflow.actions.trello.add.board",
   /**
    * **Add Trello Card**
+   *
    * Creates a new card on the specified list and board in your Trello account.
+   *
    * Summary: `Add ${WFTrelloName} to the ${WFTrelloCardPosition} of ${WFTrelloList} in ${WFTrelloBoard}`
+   *
    * Output: Trello Card
+   *
    * Parameters: `WFTrelloName`, `WFTrelloBoard`, `WFTrelloList`, `WFTrelloDueDate`, `WFTrelloCardPosition`, `WFTrelloAttachments`, `WFTrelloDescription`
    */
   trello_add_card: "is.workflow.actions.trello.add.card",
   /**
    * **Create Trello List**
+   *
    * Creates a new list on the specified board in your Trello account.
+   *
    * Summary: `Create the list ${WFTrelloName} in ${WFTrelloBoard}`
+   *
    * Output: Trello List
+   *
    * Parameters: `WFTrelloName`, `WFTrelloBoard`, `WFTrelloPosition`
    */
   trello_add_list: "is.workflow.actions.trello.add.list",
   /**
    * **Get Trello Items**
+   *
    * Gets cards, lists, or boards in your Trello account.
+   *
    * Output: Trello Items
+   *
    * Parameters: `WFTrelloItemType`, `WFTrelloBoard`, `WFTrelloList`
    */
   trello_get: "is.workflow.actions.trello.get",
   /**
    * **Trim Media**
+   *
    * Presents a view allowing you to trim the media passed into the action.
+   *
    * Summary: `Trim ${WFInputMedia}`
+   *
    * Output: Trimmed Media
+   *
    * Parameters: `WFInputMedia`
    */
   trimvideo: "is.workflow.actions.trimvideo",
   /**
    * **Set True Tone**
+   *
    * Enables or disables True Tone. When enabled, your device display will automatically adapt based on ambient lighting conditions to make colors appear consistent in different environments.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   truetone_set: "is.workflow.actions.truetone.set",
   /**
    * **Post to Tumblr**
+   *
    * Posts the content passed into the action to Tumblr.
+   *
    * Summary: `Post ${WFInput}`
+   *
    * Output: Tumblr Post URL
+   *
    * Parameters: `WFInput`, `WFComposeInApp`, `WFBlogName`, `WFPostType`, `WFPostState`, `WFPostTitle`, `WFPostSource`, `WFPostCaption`, `WFPostTags`, `WFPostDescription`
    */
   tumblr_post: "is.workflow.actions.tumblr.post",
   /**
    * **Tweet**
+   *
    * Tweets the input.
+   *
    * Summary: `Tweet ${TweetInput}`
+   *
    * Output: Tweet
+   *
    * Parameters: `TweetInput`
    */
   tweet: "is.workflow.actions.tweet",
   /**
    * **Extract Archive**
+   *
    * Extracts files from the archive passed as input. Many archive formats are supported, including zip, rar, tar.gz, tar.bz2, tar, gzip, cpio, cab, and iso archives.
+   *
    * Summary: `Extract ${WFArchive}`
+   *
    * Output: Files
+   *
    * Parameters: `WFArchive`
    */
   unzip: "is.workflow.actions.unzip",
   /**
    * **URL**
+   *
    * Passes the specified URL to the next action.
+   *
    * Summary: `${WFURLActionURL}`
+   *
    * Output: URL
+   *
    * Parameters: `WFURLActionURL`
    */
   url: "is.workflow.actions.url",
   /**
    * **Expand URL**
+   *
    * This action expands and cleans up URLs which have been shortened using a URL shortening service like TinyURL or Bit.ly.
+   *
    * Summary: `Expand ${URL}`
+   *
    * Output: Expanded URL
+   *
    * Parameters: `URL`
    */
   url_expand: "is.workflow.actions.url.expand",
   /**
    * **Get Headers of URL**
+   *
    * Retrieves the HTTP headers of the URL passed as input using a HEAD request.
+   *
    * Summary: `Get headers of ${WFInput}`
+   *
    * Output: Headers of URL
+   *
    * Parameters: `WFInput`
    */
   url_getheaders: "is.workflow.actions.url.getheaders",
   /**
    * **URL Encode**
+   *
    * Encodes or decodes text passed into the action to be suitable for inclusion in a URL by adding or removing percent escapes when appropriate.
+   *
    * Summary: `URL ${WFEncodeMode} ${WFInput}`
+   *
    * Output: URL Encoded Text
+   *
    * Parameters: `WFEncodeMode`, `WFInput`
    */
   urlencode: "is.workflow.actions.urlencode",
@@ -2942,1787 +4187,2449 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   useractivity_open: "is.workflow.actions.useractivity.open",
   /**
    * **Send Payment**
+   *
    * Sends a payment to the specified people using a payment app on your device.
+   *
    * Summary: `Send ${WFVenmoActionAmount} to ${WFVenmoActionRecipients}`
+   *
    * Parameters: `IntentAppDefinition`, `WFVenmoActionRecipients`, `WFVenmoActionAmount`, `WFVenmoActionAppSwitch`, `WFVenmoActionNote`
    */
   venmo_pay: "is.workflow.actions.venmo.pay",
   /**
    * **Request Payment**
+   *
    * Requests a payment from the specified people using a payment app on your device.
+   *
    * Summary: `Request ${WFVenmoActionAmount} from ${WFVenmoActionRecipients}`
+   *
    * Parameters: `IntentAppDefinition`, `WFVenmoActionRecipients`, `WFVenmoActionAmount`, `WFVenmoActionAppSwitch`, `ShowWhenRun`, `WFVenmoActionNote`
    */
   venmo_request: "is.workflow.actions.venmo.request",
   /**
    * **Vibrate Device**
+   *
    * Vibrates the device for a short amount of time.
+   *
    * Summary: `Vibrate device`
+   *
    * Parameters: `WFVibrateHapticType`
    */
   vibrate: "is.workflow.actions.vibrate",
   /**
    * **Show Content Graph**
+   *
    * Shows the results of the previous action in the Content Graph.
+   *
    * Summary: `Show Content Graph of ${WFInput}`
+   *
    * Parameters: `WFInput`
    */
   viewresult: "is.workflow.actions.viewresult",
   /**
    * **Get Current VPN**
+   *
    * Returns the currently active VPN. If VPN is not active, this action returns nothing.
+   *
    * Output: Current VPN
    */
   vpn_get: "is.workflow.actions.vpn.get",
   /**
    * **Set VPN**
+   *
    * Connects, disconnects or changes the On Demand setting for one or more VPN Configurations on this device.
+   *
    * Parameters: `WFVPNOperation`, `WFOnDemandValue`, `WFVPN`
    */
   vpn_set: "is.workflow.actions.vpn.set",
   /**
    * **Wait to Return**
+   *
    * Pauses execution until you leave the Shortcuts app and return to it.\n\nThis action might be useful after an action that switches apps, to pause execution until you return to the Shortcuts app.\n\nThis action will only take effect when running shortcuts in the Shortcuts app.
+   *
    * Summary: `Wait to return`
    */
   waittoreturn: "is.workflow.actions.waittoreturn",
   /**
    * **Set Wallpaper Photo**
+   *
    * Sets the wallpaper to the specified image.
+   *
    * Output: Wallpaper
+   *
    * Parameters: `WFInput`, `WFWallpaperLocation`, `WFWallpaperShowPreview`, `WFWallpaperPerspectiveZoom`, `WFSelectedPoster`, `WFWallpaperSmartCrop`, `WFWallpaperLegibilityBlur`
    */
   wallpaper_set: "is.workflow.actions.wallpaper.set",
   /**
    * **Watch Me Do**
+   *
    * Records and plays back mouse and keyboard events.
+   *
    * Summary: `${WFUserEvent}`
+   *
    * Parameters: `WFUserEvent`, `WFPlaybackSpeed`
    */
   watchmedo: "is.workflow.actions.watchmedo",
   /**
    * **Get Current Weather**
+   *
    * Gets the current weather conditions at the specified location.
+   *
    * Summary: `Get weather at ${WFWeatherCustomLocation}`
+   *
    * Output: Weather Conditions
+   *
    * Parameters: `WFWeatherCustomLocation`
    */
   weather_currentconditions: "is.workflow.actions.weather.currentconditions",
   /**
    * **Get Weather Forecast**
+   *
    * Gets an hourly or daily weather forecast at the specified location.
+   *
    * Summary: `Get ${WFWeatherForecastType} forecast at ${WFWeatherCustomLocation}`
+   *
    * Output: Weather Conditions
+   *
    * Parameters: `WFWeatherCustomLocation`, `WFWeatherForecastType`
    */
   weather_forecast: "is.workflow.actions.weather.forecast",
   /**
    * **Set Wi-Fi**
+   *
    * Sets the device’s Wi-Fi to on or off.
+   *
    * Parameters: `operation`, `OnValue`, `ShowWhenRun`
    */
   wifi_set: "is.workflow.actions.wifi.set",
   /**
    * **Post to WordPress**
+   *
    * Posts the input to a WordPress blog as a new post or page.
+   *
    * Summary: `Post ${WFInput} as ${Title}`
+   *
    * Output: WordPress Post URL
+   *
    * Parameters: `WFAccount`, `Blog`, `Title`, `Type`, `Format`, `Status`, `Categories`, `Tags`, `Advanced`, `AllowComments`, `Slug`, `Excerpt`, `Date`, `Template`, `ThumbnailImage`, `ShowCustomFields`, `CustomFields`, `WFInput`
    */
   wordpress_post: "is.workflow.actions.wordpress.post",
   /**
    * **End Workout**
+   *
    * Ends the active workout on your Apple Watch.
+   *
    * Summary: `End workout`
+   *
    * Parameters: `IntentAppDefinition`
-   * Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.
+   *
+   * Unavailable: Shortcuts shows this as a missing action.
    */
   workout_end: "is.workflow.actions.workout.end",
   /**
    * **Start Workout**
+   *
    * Starts a workout on your Apple Watch.
+   *
    * Parameters: `IntentAppDefinition`, `isOpenEnded`, `workoutName`, `WorkoutGoal`
-   * Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.
+   *
+   * Unavailable: Shortcuts shows this as a missing action.
    */
   workout_start: "is.workflow.actions.workout.start",
   /**
    * **Find Contact**
+   *
    *  (Contacts)
+   *
    * Output: Contact
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   contacts_find_contact: "com.apple.AddressBook.ContactEntity",
   /**
    * **Create Contact**
+   *
    * Create a new contact and open the contact card in the Contacts app (Contacts)
+   *
    * Output: Contact
+   *
    * Parameters: `contactType`, `personName`, `organizationName`, `departmentName`, `jobTitle`, `phoneticOrganizationName`, `phoneNumbers`, `emailAddresses`, `postalAddresses`, `contactRelations`, `birthday`, `dates`, `OpenWhenRun`
    */
   contacts_create_contact: "com.apple.AddressBook.CreateContactIntent",
   /**
    * **Delete Contact**
+   *
    * Delete a contact (Contacts)
+   *
    * Parameters: `entities`
    */
   contacts_delete_contact: "com.apple.AddressBook.DeleteContactIntent",
   /**
    * **Search in Contacts App**
+   *
    * Search for a contact in the Contacts app (Contacts)
+   *
    * Parameters: `criteria`
    */
   contacts_search_in_contacts_app: "com.apple.AddressBook.SearchInContactsIntent",
   /**
    * **Update Contact Details**
+   *
    * Update contact details for a contact (Contacts)
+   *
    * Output: Contact
+   *
    * Parameters: `target`, `contactType`, `personName`, `organizationName`, `departmentName`, `jobTitle`, `phoneticOrganizationName`, `phoneNumbers`, `emailAddresses`, `postalAddresses`, `contactRelations`, `birthday`, `dates`, `OpenWhenRun`
    */
   contacts_update_contact_details: "com.apple.AddressBook.UpdateContactIntent",
   /**
    * **View Contact Card**
+   *
    * Open a contact card for a contact (Contacts)
+   *
    * Parameters: `target`, `highlightedValue`, `highlightedPropertyType`, `shouldEdit`
    */
   contacts_view_contact_card: "com.apple.AddressBook.ViewContactCardIntent",
   /**
    * **Fetch Intelligence Commands**
+   *
    * Fetch Intelligence Commands (com.apple.AppKit)
+   *
    * Output: IntelligenceCommand Entities
+   *
    * Parameters: `app`, `processInstanceIdentifier`, `cachedIfAvailable`, `includeUntitled`, `includeNonPerformable`
    */
   com_apple_app_kit_fetch_intelligence_commands: "com.apple.AppKit.FetchIntelligenceCommands",
   /**
    * **Insert Intelligence Text**
+   *
    * Insert Intelligence Text (com.apple.AppKit)
+   *
    * Output: Insertion Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`, `text`, `replaceExisting`, `targetWindowIdentifier`, `targetFrame`
    */
   com_apple_app_kit_insert_intelligence_text: "com.apple.AppKit.InsertIntelligenceText",
   /**
    * **Present Writing Tools Result**
+   *
    * Present Writing Tools Result (com.apple.AppKit)
+   *
    * Output: Presentation Result
+   *
    * Parameters: `app`, `text`, `replaceExisting`, `targetWindowIdentifier`, `targetFrame`, `precomputedCitationsJSON`, `precomputedContentAdvisoriesJSON`
    */
   com_apple_app_kit_present_writing_tools_result: "com.apple.AppKit.PresentWritingToolsResult",
   /**
    * **Request Editing Context**
+   *
    * Request editing context from Writing Tools (com.apple.AppKit)
+   *
    * Output: Editing Context Result
+   *
    * Parameters: `app`, `targetWindowIdentifier`, `targetFrame`
    */
   com_apple_app_kit_request_editing_context: "com.apple.AppKit.RequestEditingContext",
   /**
    * **Run Intelligence Command**
+   *
    * Execute an Intelligence Command (com.apple.AppKit)
+   *
    * Output: Execution Status
+   *
    * Parameters: `app`, `processInstanceIdentifier`, `command`
    */
   com_apple_app_kit_run_intelligence_command: "com.apple.AppKit.RunIntelligenceCommand",
   /**
    * **Run Intelligence Command For Key**
+   *
    * Execute an Intelligence Command matching an identifier or title (com.apple.AppKit)
+   *
    * Output: Execution Status
+   *
    * Parameters: `app`, `processInstanceIdentifier`, `identifier`, `command`, `hierarchyComponents`
    */
   com_apple_app_kit_run_intelligence_command_for_key: "com.apple.AppKit.RunIntelligenceCommandForKey",
   /**
    * **Activate Tab**
+   *
    * Activates a window tab. (com.apple.AppKit)
+   *
    * Parameters: `app`, `processInstanceIdentifier`, `windowTab`
    */
   com_apple_app_kit_activate_tab: "com.apple.AppKit.WindowTabActivateIntent",
   /**
    * **Find Window Tab**
+   *
    *  (com.apple.AppKit)
+   *
    * Output: Window Tab
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_app_kit_find_window_tab: "com.apple.AppKit.WindowTabEntity",
   /**
    * **Can Perform Writing Tools**
+   *
    * Writing Tools need a focused text view to work. This intent checks if Writing Tools can be used with the current environment. (com.apple.AppKit)
+   *
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_can_perform_writing_tools: "com.apple.AppKit.WritingToolsCanPerformIntent",
   /**
    * **Text Compose**
+   *
    * Invoke Writing Tools and compose text. (com.apple.AppKit)
+   *
    * Output: Writing Tools Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`, `prompt`
    */
   com_apple_app_kit_text_compose: "com.apple.AppKit.WritingToolsComposeIntent",
   /**
    * **Open Ended**
+   *
    * Invoke Writing Tools and rewrite or compose text with the given prompt. (com.apple.AppKit)
+   *
    * Output: Writing Tools Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`, `prompt`
    */
   com_apple_app_kit_open_ended: "com.apple.AppKit.WritingToolsOpenEndedIntent",
   /**
    * **Text Compose**
+   *
    * Invoke Writing Tools and compose text. (com.apple.AppKit)
+   *
    * Output: Writing Tools Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`, `prompt`, `externalProviderID`
    */
   com_apple_AppKit_WritingToolsPartnerIntent: "com.apple.AppKit.WritingToolsPartnerIntent",
   /**
    * **Proofread**
+   *
    * Invoke Writing Tools and proofread the current text. (com.apple.AppKit)
+   *
    * Output: Writing Tools Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_proofread: "com.apple.AppKit.WritingToolsProofreadIntent",
   /**
    * **Rewrite**
+   *
    * Invoke Writing Tools and rewrite the current text. (com.apple.AppKit)
+   *
    * Output: Writing Tools Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`, `type`, `prompt`
    */
   com_apple_app_kit_rewrite: "com.apple.AppKit.WritingToolsRewriteIntent",
   /**
    * **Summarize**
+   *
    * Invoke Writing Tools and summarize the current text. (com.apple.AppKit)
+   *
    * Output: Writing Tools Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_summarize: "com.apple.AppKit.WritingToolsSummarizeIntent",
   /**
    * **Key Points**
+   *
    * Invoke Writing Tools and transform the current text into key points. (com.apple.AppKit)
+   *
    * Output: Writing Tools Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_key_points: "com.apple.AppKit.WritingToolsTransformKeyPointsIntent",
   /**
    * **List**
+   *
    * Invoke Writing Tools and transform the current text into a list. (com.apple.AppKit)
+   *
    * Output: Writing Tools Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_list: "com.apple.AppKit.WritingToolsTransformListIntent",
   /**
    * **Table**
+   *
    * Invoke Writing Tools and transform the current text into a table. (com.apple.AppKit)
+   *
    * Output: Writing Tools Result
+   *
    * Parameters: `app`, `processInstanceIdentifier`
    */
   com_apple_app_kit_table: "com.apple.AppKit.WritingToolsTransformTableIntent",
   /**
    * **Search App Store**
+   *
    * Navigate to search results. (App Store)
+   *
    * Parameters: `criteria`
    */
   app_store_search_app_store: "com.apple.AppStore.SystemSearchIntent",
   /**
    * **Open Game Center Settings**
+   *
    * Opens all Game Center settings. (GameCenterSettingsExtension)
+   *
    * Parameters: `target`
    */
   settings_open_game_center_settings: "com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks",
   /**
    * **Create Image**
+   *
    * Creates an image with the specified description. (Image Playground)
+   *
    * Output: Image
+   *
    * Parameters: `prompt`, `style`, `input_image_path`, `previously_generated_image_id`, `ShowWhenRun`
    */
   com_apple_generative_playground_app_create_image: "com.apple.GenerativePlaygroundApp.CreateImageIntent",
   /**
    * **Create Image**
+   *
    * Creates an image with the specified description. (Image Playground)
+   *
    * Output: Image
+   *
    * Parameters: `prompt`, `style`, `image`, `saveToLibrary`
    */
   com_apple_GenerativePlaygroundApp_GenerateImageIntent: "com.apple.GenerativePlaygroundApp.GenerateImageIntent",
   /**
    * **Find **
+   *
    *  (Home)
+   *
    * Output: CameraClipEntity
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   home_find: "com.apple.Home.CameraClipEntity",
   /**
    * **Find Device**
+   *
    *  (Home)
+   *
    * Output: Device
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   home_find_device: "com.apple.Home.DeviceEntity",
   /**
    * **HomeAppIntentsExtensionTestAppIntent**
+   *
    *  (Home)
    */
   com_apple_home_app_intents_extension_home_app_intents_extension_test_app_intent: "com.apple.Home.HomeAppIntentsExtensionTestAppIntent",
   /**
    * **Find Room**
+   *
    *  (Home)
+   *
    * Output: Room
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   home_find_room: "com.apple.Home.RoomEntity",
   /**
    * **Find Scene**
+   *
    *  (Home)
+   *
    * Output: Scene
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   home_find_scene: "com.apple.Home.SceneEntity",
   /**
    * **Find Selected Home**
+   *
    *  (Home)
+   *
    * Output: Selected Home
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   home_find_selected_home: "com.apple.Home.SelectedHomeEntity",
   /**
    * **Toggle Accessory or Scene**
+   *
    * Toggles the state of the specified accessory or scene. (Home)
+   *
    * Parameters: `entity`
    */
   home_toggle_accessory_or_scene: "com.apple.Home.ToggleIntent",
   /**
    * **Find Zone**
+   *
    *  (Home)
+   *
    * Output: Zone
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   home_find_zone: "com.apple.Home.ZoneEntity",
   /**
    * **Convert to USDZ**
+   *
    * Creates a USDZ file from other 3D file formats (USDAppIntents)
+   *
    * Output: USDZ File
+   *
    * Parameters: `file`
    */
   com_apple_hydra_usd_app_intents_convert_to_usdz: "com.apple.HydraUSDAppIntents.ConvertToUSDZ",
   /**
    * **Ask a Question**
+   *
    * Ask a question about the current camera view. (Magnifier)
+   *
    * Parameters: `prompt`
    */
   com_apple_magnifier_ask_a_question: "com.apple.Magnifier.AskVQAIntent",
   /**
    * **Describe This**
+   *
    * Provide a description of what’s in the camera view. (Magnifier)
    */
   com_apple_magnifier_describe_this: "com.apple.Magnifier.DescribeThisIntent",
   /**
    * **Detect Doors**
+   *
    * Use the camera to detect doors near you. (Magnifier)
    */
   com_apple_magnifier_detect_doors: "com.apple.Magnifier.DetectDoorsIntent",
   /**
    * **Detect Furniture**
+   *
    * Use the camera to detect furniture around you. If people detection is also on, you can also get information about seat occupancy. (Magnifier)
    */
   com_apple_magnifier_detect_furniture: "com.apple.Magnifier.DetectFurnitureIntent",
   /**
    * **Detect People**
+   *
    * Use the camera to detect people near you. (Magnifier)
    */
   com_apple_magnifier_detect_people: "com.apple.Magnifier.DetectPeopleIntent",
   /**
    * **Detect Text**
+   *
    * Use the camera to detect text around you. (Magnifier)
    */
   com_apple_magnifier_detect_text: "com.apple.Magnifier.DetectTextIntent",
   /**
    * **Find This**
+   *
    * FIND_SESSION_VQA_APP_INTENT_DESCRIPTION (Magnifier)
+   *
    * Parameters: `searchTerm`
    */
   com_apple_magnifier_find_this: "com.apple.Magnifier.FindSessionAppIntent",
   /**
    * **Follow Up**
+   *
    * Ask a follow-up question about the current camera view. (Magnifier)
+   *
    * Parameters: `prompt`
    */
   com_apple_magnifier_follow_up: "com.apple.Magnifier.FollowUpVQAAppIntent",
   /**
    * **Start Point & Speak**
+   *
    * Detect text near your finger. (Magnifier)
    */
   com_apple_magnifier_start_point_speak: "com.apple.Magnifier.PointAndSpeakIntent",
   /**
    * **Open Reader**
+   *
    * Open Reader in Magnifier (Magnifier)
    */
   com_apple_magnifier_open_reader: "com.apple.Magnifier.ReaderModeIntent",
   /**
    * **Detect Items**
+   *
    * Detect people, doors, text or furniture in Camera view (Magnifier)
+   *
    * Parameters: `detectionType`
    */
   com_apple_magnifier_detect_items: "com.apple.Magnifier.StartDetectionTypeIntent",
   /**
    * **What Color Is This**
+   *
    * Describe the color in the camera view. (Magnifier)
    */
   com_apple_magnifier_what_color_is_this: "com.apple.Magnifier.WhatColorIsThisIntent",
   /**
    * **Calculate ETA**
+   *
    * Calculate Estimated Time of Arrival (Maps)
+   *
    * Output: ETA
+   *
    * Parameters: `origin`, `destination`, `transportationType`, `departureTime`, `preferences`, `ShowWhenRun`
    */
   maps_calculate_eta: "com.apple.Maps.CalculateETAIntent",
   /**
    * **Get Current Location**
+   *
    *  (Maps)
+   *
    * Output: Current Location
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   maps_get_current_location: "com.apple.Maps.CurrentLocationEntity",
   /**
    * **MapsIntents Debug Dispatch**
+   *
    *  (Maps)
+   *
    * Output: ETA
+   *
    * Parameters: `testCase`, `ShowWhenRun`
    */
   maps_maps_intents_debug_dispatch: "com.apple.Maps.MapsIntentsDebugDispatch",
   /**
    * **Shows List of Places**
+   *
    * Shows List of Places (Maps)
+   *
    * Parameters: `places`, `attributes`, `languageId`
    */
   maps_shows_list_of_places: "com.apple.Maps.MapsShowPlacesInAppIntent",
   /**
    * **Get Current Route**
+   *
    *  (Maps)
+   *
    * Output: Current Route
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   maps_get_current_route: "com.apple.Maps.NavigationSessionEntity",
   /**
    * **Get Parking Location**
+   *
    *  (Maps)
+   *
    * Output: Parking Location
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   maps_get_parking_location: "com.apple.Maps.ParkingLocationDataEntity",
   /**
    * **Search Places**
+   *
    *  (Maps)
+   *
    * Output: Location
+   *
    * Parameters: `searchQuery`, `deviceLocation`, `maxResults`, `filterTypes`, `appIdentifier`, `viewport`
    */
   maps_search_places: "com.apple.Maps.SearchPlacesIntent",
   /**
    * **Start Navigation in Maps**
+   *
    * Start Navigation (Maps)
+   *
    * Output: Current Route
+   *
    * Parameters: `origin`, `destinations`, `transportationType`, `preferences`, `OpenWhenRun`
    */
   maps_start_navigation_in_maps: "com.apple.Maps.StartNavigationIntent",
   /**
    * **Test: Drive to Apple Park**
+   *
    *  (Maps)
+   *
    * Output: Current Route
+   *
    * Parameters: `OpenWhenRun`
    */
   maps_test_drive_to_apple_park: "com.apple.Maps.TestStartNavigationIntent",
   /**
    * **Test: Update Navigation Waypoints**
+   *
    *  (Maps)
+   *
    * Output: Current Route
+   *
    * Parameters: `testCase`, `OpenWhenRun`
    */
   maps_test_update_navigation_waypoints: "com.apple.Maps.TestUpdateNavigationIntent",
   /**
    * **Add stops**
+   *
    * maps_MapsUpdateNavigationWaypointsIntent_1.0.0_intent_description (Maps)
+   *
    * Output: Current Route
+   *
    * Parameters: `navigation`, `waypoints`, `OpenWhenRun`
    */
   maps_add_stops: "com.apple.Maps.UpdateNavigationIntent",
   /**
    * **ConnectToSpeakerIntent**
+   *
    * Establish a connection with remote speakers to allow for starting playback on those speakers (MediaRemoteAppIntentsExtension)
+   *
    * Parameters: `application`, `destinations`, `requestIdentifierOverride`
    */
   com_apple_media_remote_app_intents_extension_connect_to_speaker_intent: "com.apple.MediaRemoteAppIntentsExtension.ConnectToSpeakerIntent",
   /**
    * **Open Inbox**
+   *
    * Opens the specified inbox in Messages. (Messages)
+   *
    * Parameters: `filterMode`
    */
   messages_open_inbox: "com.apple.MobileSMS.ChangeFilterModeIntent",
   /**
    * **Find Conversation**
+   *
    *  (Messages)
+   *
    * Output: Conversation
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   messages_find_conversation: "com.apple.MobileSMS.ConversationEntity",
   /**
    * **Delete Conversations**
+   *
    * Deletes the specified conversations. (Messages)
+   *
    * Parameters: `entities`
    */
   messages_delete_conversations: "com.apple.MobileSMS.DeleteConversationIntent",
   /**
    * **Delete Messages**
+   *
    * Deletes the specified messages. To pass messages to this action, use the Find Message action or a Message automation. (Messages)
+   *
    * Parameters: `entities`, `WFLinkMessagesEntityVariablePickerKey`
    */
   messages_delete_messages: "com.apple.MobileSMS.DeleteMessageIntent",
   /**
    * **Draft Message**
+   *
    * Opens the Messages app with a new draft. (Messages)
+   *
    * Parameters: `destination`, `subject`, `content`, `audioMessage`, `attachments`, `locations`, `links`, `scheduledDate`
    */
   messages_draft_message: "com.apple.MobileSMS.DraftMessageIntent",
   /**
    * **Edit Sent Message**
+   *
    * Edit an already sent message with new content (Messages)
+   *
    * Parameters: `message`, `content`
    */
   messages_edit_sent_message: "com.apple.MobileSMS.EditSentMessageIntent",
   /**
    * **Mark as Read**
+   *
    * Marks a specific conversation as read or unread. (Messages)
+   *
    * Parameters: `operation`, `conversation`, `unreadState`, `OpenWhenRun`
    */
   messages_mark_as_read: "com.apple.MobileSMS.MarkConversationAsUnreadIntent",
   /**
    * **Find Message**
+   *
    *  (Messages)
+   *
    * Output: Message
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   messages_find_message: "com.apple.MobileSMS.MessageEntity",
   /**
    * **Open Conversation**
+   *
    * Opens a specific conversation in Messages. (Messages)
+   *
    * Parameters: `target`
    */
   messages_open_conversation: "com.apple.MobileSMS.OpenConversationIntent",
   /**
    * **Reveal Message**
+   *
    * Shows a specific message in Messages. (Messages)
+   *
    * Parameters: `target`
    */
   messages_reveal_message: "com.apple.MobileSMS.OpenMessageIntent",
   /**
    * **Remove Tapback**
+   *
    * Removes the Tapback on the specific message. (Messages)
+   *
    * Parameters: `message`, `OpenWhenRun`
    */
   messages_remove_tapback: "com.apple.MobileSMS.RemoveTapbackIntent",
   /**
    * **Search in Messages**
+   *
    * Search messages and attachments for the provided search term. (Messages)
+   *
    * Parameters: `criteria`
    */
   messages_search_in_messages: "com.apple.MobileSMS.SearchMessagesIntent",
   /**
    * **Send Collaboration Message**
+   *
    * Send a collaboration invitation message to recipients via Messages (Messages)
+   *
    * Parameters: `destination`
    */
   messages_send_collaboration_message: "com.apple.MobileSMS.SendCollaborationMessageIntent",
   /**
    * **Send Message**
+   *
    * Sends a message with the associated parameters (Messages)
+   *
    * Output: Message
+   *
    * Parameters: `destination`, `subject`, `content`, `audioMessage`, `attachments`, `locations`, `links`, `scheduledDate`
    */
   messages_send_message: "com.apple.MobileSMS.SendMessageIntent",
   /**
    * **Send Tapback**
+   *
    * React to the specified message with a Tapback. To pass a message to this action, use the Find Message action or a Message automation. (Messages)
+   *
    * Output: Message
+   *
    * Parameters: `message`, `reaction`, `WFLinkMessagesEntityVariablePickerKey`
    */
   messages_send_tapback: "com.apple.MobileSMS.SendMessageReactionIntent",
   /**
    * **Send Reply**
+   *
    * Sends a reply to a specific message. (Messages)
+   *
    * Parameters: `content`, `message`, `subject`, `OpenWhenRun`
    */
   messages_send_reply: "com.apple.MobileSMS.SendReplyIntent",
   /**
    * **Set Conversation Read Status**
+   *
    *  (Messages)
+   *
    * Parameters: `conversation`, `isRead`
    */
   messages_set_conversation_read_status: "com.apple.MobileSMS.SetConversationReadStatusIntent",
   /**
    * **Set Message Read Status**
+   *
    * Changes the message read status to a given value (Messages)
+   *
    * Parameters: `message`, `isRead`
    */
   messages_set_message_read_status: "com.apple.MobileSMS.SetMessageReadStatusIntent",
   /**
    * **Undo Send Message**
+   *
    * Unsend a sent message (Messages)
+   *
    * Parameters: `message`
    */
   messages_undo_send_message: "com.apple.MobileSMS.UnsendMessageIntent",
   /**
    * **Add Music Items to Library**
+   *
    * Adds the specified items to your Library (Music)
+   *
    * Parameters: `audioEntity`, `ShowWhenRun`, `OpenWhenRun`
    */
   music_add_music_items_to_library: "com.apple.Music.AddMusicItemToLibrarySiriIntent",
   /**
    * **Add Music Items to Playlist**
+   *
    * Adds the specified items to a playlist (Music)
+   *
    * Parameters: `audioEntity`, `playlist`, `OpenWhenRun`
    */
   music_add_music_items_to_playlist: "com.apple.Music.AddMusicItemToPlaylistSiriIntent",
   /**
    * **Create station**
+   *
    * Start a station based on the current playlist item (Music)
    */
   music_create_station: "com.apple.Music.CreateStationSiriIntent",
   /**
    * **Open Music Item**
+   *
    * Opens the specified item in Apple Music (Music)
+   *
    * Parameters: `target`
    */
   music_open_music_item: "com.apple.Music.OpenMusicItemSiriIntent",
   /**
    * **Play Audio**
+   *
    * Plays the specified item on the desired devices (Music)
+   *
    * Parameters: `warmupAudioQueueResult`, `audioEntity`, `playbackAttributes`, `queueLocation`
    */
   music_play_audio: "com.apple.Music.PlayMusicItemSiriIntent",
   /**
    * **SearchMusicSiriIntent_Title**
+   *
    * SearchMusicSiriIntent_Description (Music)
+   *
    * Parameters: `criteria`
    */
   music_search_music_siri_intent_title: "com.apple.Music.SearchMusicSiriIntent",
   /**
    * **Set Music Item Affinity**
+   *
    * Set the affinity of the specified item (Music)
+   *
    * Parameters: `target`, `affinityState`, `OpenWhenRun`
    */
   music_set_music_item_affinity: "com.apple.Music.UpdateMusicItemAffinitySiriIntent",
   /**
    * **WarmupMusicQueueSiriIntent_Title**
+   *
    * WarmupMusicQueueSiriIntent_Description (Music)
+   *
    * Output: Warmup Audio Queue Result
+   *
    * Parameters: `audioEntity`, `playbackAttributes`
    */
   music_warmup_music_queue_siri_intent_title: "com.apple.Music.WarmupMusicQueueSiriIntent",
   /**
    * **Add File to Note**
+   *
    * Adds an attachment into a note. (Notes)
+   *
    * Output: Attachment
+   *
    * Parameters: `name`, `file`, `note`, `OpenWhenRun`
    */
   notes_add_file_to_note: "com.apple.Notes.AddFileAttachmentLinkAction",
   /**
    * **Add Link**
+   *
    * Adds a link into a note. (Notes)
+   *
    * Output: Attachment
+   *
    * Parameters: `name`, `url`, `note`, `OpenWhenRun`
    */
   notes_add_link: "com.apple.Notes.AddLinkAttachmentLinkAction",
   /**
    * **Add or Remove Note Lock**
+   *
    * Lock the given note so that viewing it requires a password, passcode, or biometric authentication, or remove the lock to allow unrestricted access. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `operation`, `target`, `OpenWhenRun`
    */
   notes_add_or_remove_note_lock: "com.apple.Notes.AddOrRemoveNoteLockLinkAction",
   /**
    * **Add Tags to Notes**
+   *
    * Adds tags to notes. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `notes`, `tags`
    */
   notes_add_tags_to_notes: "com.apple.Notes.AddTagsToNotesLinkAction",
   /**
    * **Apply Formatting to Selected Text**
+   *
    * Formats selected text in a note. (Notes)
+   *
    * Parameters: `bold`, `italic`, `underline`, `strikethrough`
    */
   notes_apply_formatting_to_selected_text: "com.apple.Notes.ApplyFormattingLinkAction",
   /**
    * **Find Attachment**
+   *
    *  (Notes)
+   *
    * Output: Attachment
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   notes_find_attachment: "com.apple.Notes.AttachmentEntity",
   /**
    * **Change Folder View Setting**
+   *
    * Changes your folder view in Notes between Gallery and List views. (Notes)
+   *
    * Parameters: `changeOperation`, `setting`
    */
   notes_change_folder_view_setting: "com.apple.Notes.ChangeFolderSettingLinkAction",
   /**
    * **Change Notes Setting**
+   *
    * Change the settings of the Notes app. (Notes)
+   *
    * Parameters: `changeOperation`, `setting`
    */
   notes_change_notes_setting: "com.apple.Notes.ChangeSettingLinkAction",
   /**
    * **Change Tag Selection**
+   *
    * Changes the selected tags in the tag browser. (Notes)
+   *
    * Parameters: `includedTags`, `excludedTags`, `selectionOperator`
    */
   notes_change_tag_selection: "com.apple.Notes.ChangeTagSelectionIntent",
   /**
    * **Close Notes View**
+   *
    * Close or hide the provided view in the Notes app. (Notes)
+   *
    * Parameters: `target`
    */
   notes_close_notes_view: "com.apple.Notes.CloseAppLocationLinkAction",
   /**
    * **Close Note**
+   *
    * Closes an open note. (Notes)
+   *
    * Parameters: `target`
    */
   notes_close_note: "com.apple.Notes.CloseNoteLinkAction",
   /**
    * **Append Checklist Item**
+   *
    * Adds a checklist item to the end of a note. (Notes)
+   *
    * Output: Checklist Item
+   *
    * Parameters: `name`, `noteEntity`, `OpenWhenRun`
    */
   notes_append_checklist_item: "com.apple.Notes.CreateChecklistItemLinkAction",
   /**
    * **Create Folder**
+   *
    * Creates a new folder. (Notes)
+   *
    * Output: Folder
+   *
    * Parameters: `name`, `OpenWhenRun`
    */
   notes_create_folder: "com.apple.Notes.CreateFolderLinkAction",
   /**
    * **Create Note**
+   *
    * Creates a new note. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `name`, `content`, `attachments`, `isPinned`, `folder`, `OpenWhenRun`
    */
   notes_create_note: "com.apple.Notes.CreateNoteIntent",
   /**
    * **Add Table to Note**
+   *
    * Adds a table into a note. (Notes)
+   *
    * Output: Table
+   *
    * Parameters: `name`, `csvString`, `note`, `OpenWhenRun`
    */
   notes_add_table_to_note: "com.apple.Notes.CreateTableLinkAction",
   /**
    * **Create Tag**
+   *
    * Creates a tag that can be used in notes. (Notes)
+   *
    * Output: Tag
+   *
    * Parameters: `name`, `OpenWhenRun`
    */
   notes_create_tag: "com.apple.Notes.CreateTagLinkAction",
   /**
    * **Delete Attachments**
+   *
    * Deletes attachments from a note. (Notes)
+   *
    * Parameters: `entities`
    */
   notes_delete_attachments: "com.apple.Notes.DeleteAttachmentsLinkAction",
   /**
    * **Delete Checklist Items**
+   *
    * Deletes checklist items from a note. (Notes)
+   *
    * Parameters: `entities`
    */
   notes_delete_checklist_items: "com.apple.Notes.DeleteChecklistItemsLinkAction",
   /**
    * **Delete Folders**
+   *
    * Deletes folders from Notes. (Notes)
+   *
    * Parameters: `entities`
    */
   notes_delete_folders: "com.apple.Notes.DeleteFoldersLinkAction",
   /**
    * **Delete Notes**
+   *
    * Delete notes. (Notes)
+   *
    * Parameters: `entities`
    */
   notes_delete_notes: "com.apple.Notes.DeleteNotesLinkAction",
   /**
    * **Delete Tables**
+   *
    * Delete tables from a note. (Notes)
+   *
    * Parameters: `entities`
    */
   notes_delete_tables: "com.apple.Notes.DeleteTablesLinkAction",
   /**
    * **Delete Tags**
+   *
    * Delete tags from Notes. (Notes)
+   *
    * Parameters: `entities`
    */
   notes_delete_tags: "com.apple.Notes.DeleteTagsLinkAction",
   /**
    * **Apply Emphasis to Selected Text**
+   *
    * Sets the emphasis style (Notes)
+   *
    * Parameters: `emphasisColor`
    */
   notes_apply_emphasis_to_selected_text: "com.apple.Notes.EmphasisLinkAction",
   /**
    * **Get Linked Notes**
+   *
    * Creates a list of notes that are linked to from the specified note. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `entity`
    */
   notes_get_linked_notes: "com.apple.Notes.GetLinkedNotesLinkAction",
   /**
    * **Insert All Mention**
+   *
    * Insert an all mention into the provided target note, notifying all collaborators. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `target`
    */
   notes_insert_all_mention: "com.apple.Notes.InsertAllMentionLinkAction",
   /**
    * **Insert Mention**
+   *
    * Mentions another participant or all participants in a shared note. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `target`, `mentionText`
    */
   notes_insert_mention: "com.apple.Notes.InsertMentionLinkAction",
   /**
    * **Insert Note Link**
+   *
    * Adds a link to a note in a note. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `linkedNote`, `target`, `useNoteTitleAsName`
    */
   notes_insert_note_link: "com.apple.Notes.InsertNoteLinkLinkAction",
   /**
    * **Move Notes to Folder**
+   *
    * Moves notes into a folder in Notes. (Notes)
+   *
    * Parameters: `container`, `entities`
    */
   notes_move_notes_to_folder: "com.apple.Notes.MoveNotesToFolderLinkAction",
   /**
    * **Append to Note**
+   *
    * Adds text to the end of a note. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `target`, `content`
    */
   notes_append_to_note: "com.apple.Notes.NoteAppendTextIntent",
   /**
    * **Open Account**
+   *
    * Opens an existing account in Notes. (Notes)
+   *
    * Parameters: `target`
    */
   notes_open_account: "com.apple.Notes.OpenAccountLinkAction",
   /**
    * **Open Notes View**
+   *
    * Opens the attachments browser or folder list in Notes. (Notes)
+   *
    * Parameters: `target`
    */
   notes_open_notes_view: "com.apple.Notes.OpenAppLocationLinkAction",
   /**
    * **Open Attachment**
+   *
    * Opens an attachment that’s in a note. (Notes)
+   *
    * Parameters: `target`
    */
   notes_open_attachment: "com.apple.Notes.OpenAttachmentLinkAction",
   /**
    * **Reveal Checklist Item**
+   *
    * Opens the note that contains the specified checklist item. (Notes)
+   *
    * Parameters: `target`
    */
   notes_reveal_checklist_item: "com.apple.Notes.OpenChecklistItemLinkAction",
   /**
    * **Open Folder**
+   *
    * Opens an existing folder in Notes. (Notes)
+   *
    * Parameters: `target`
    */
   notes_open_folder: "com.apple.Notes.OpenFolderLinkAction",
   /**
    * **Reveal Table**
+   *
    * Opens the note that contains the chosen table. (Notes)
+   *
    * Parameters: `target`
    */
   notes_reveal_table: "com.apple.Notes.OpenTableLinkAction",
   /**
    * **Open Tag**
+   *
    * Opens a list of notes that contain a specific tag. (Notes)
+   *
    * Parameters: `target`
    */
   notes_open_tag: "com.apple.Notes.OpenTagLinkAction",
   /**
    * **Open Top-Level Folder**
+   *
    * Opens the Shared, Call Recordings, Math Notes, or Quick Notes folder in Notes. (Notes)
+   *
    * Parameters: `target`
    */
   notes_open_top_level_folder: "com.apple.Notes.OpenTopLevelFolderLinkAction",
   /**
    * **Pin Notes**
+   *
    * Pins or unpins notes. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `operation`, `entities`
    */
   notes_pin_notes: "com.apple.Notes.PinNotesLinkAction",
   /**
    * **Remove Tags from Notes**
+   *
    * Removes tags from notes. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `notes`, `tags`
    */
   notes_remove_tags_from_notes: "com.apple.Notes.RemoveTagsFromNotesLinkAction",
   /**
    * **Rename Folder**
+   *
    * Renames a folder in Notes. (Notes)
+   *
    * Output: Folder
+   *
    * Parameters: `entity`, `name`
    */
   notes_rename_folder: "com.apple.Notes.RenameFolderLinkAction",
   /**
    * **Replace Selected Text**
+   *
    * Replaces selected text with new text in a note. (Notes)
+   *
    * Parameters: `text`
    */
   notes_replace_selected_text: "com.apple.Notes.ReplaceSelectionLinkAction",
   /**
    * **Set Attachment Size**
+   *
    * Sets the size of an attachment in a note. (Notes)
+   *
    * Parameters: `target`, `attachmentSize`
    */
   notes_set_attachment_size: "com.apple.Notes.SetAttachmentSizeLinkAction",
   /**
    * **Set Checklist Items Checked**
+   *
    * Checks or unchecks items in a checklist. (Notes)
+   *
    * Output: Checklist Item
+   *
    * Parameters: `changeOperation`, `entities`, `note`, `OpenWhenRun`
    */
   notes_set_checklist_items_checked: "com.apple.Notes.SetChecklistItemCheckedLinkActionv2",
   /**
    * **Set Paragraph Style**
+   *
    * Applies a paragraph style to text in a note. (Notes)
+   *
    * Parameters: `paragraphStyle`
    */
   notes_set_paragraph_style: "com.apple.Notes.SetParagraphStyleLinkAction",
   /**
    * **Show Note and Attachment Search Result**
+   *
    * Searches for notes and attachments in Notes. (Notes)
+   *
    * Parameters: `criteria`
    */
   notes_show_note_and_attachment_search_result: "com.apple.Notes.ShowNotesAppSearchResultsLinkAction",
   /**
    * **Show Quick Note**
+   *
    * Opens the Quick Note editor view. (Notes)
    */
   notes_show_quick_note: "com.apple.Notes.ShowQuickNoteIntent",
   /**
    * **Start Audio Recording**
+   *
    * Opens the audio details screen to record audio in Notes. (Notes)
    */
   notes_start_audio_recording: "com.apple.Notes.StartRecordingLinkAction",
   /**
    * **Find Table**
+   *
    *  (Notes)
+   *
    * Output: Table
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   notes_find_table: "com.apple.Notes.TableEntity",
   /**
    * **Update Note**
+   *
    * Updates a note in Notes. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `name`, `attachments`, `isPinned`, `target`, `folder`
    */
   notes_update_note: "com.apple.Notes.UpdateNoteIntent",
   /**
    * **Add Photos To Album**
+   *
    * Adds photos to the specified album. (Photos)
+   *
    * Parameters: `assets`, `album`
    */
   photos_add_photos_to_album: "com.apple.Photos.AddAssetsToAlbumIntent",
   /**
    * **Find Albums**
+   *
    *  (Photos)
+   *
    * Output: Album
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   photos_find_albums: "com.apple.Photos.AlbumEntity",
   /**
    * **Apply Filter**
+   *
    * Applies the specified filter. (Photos)
+   *
    * Parameters: `asset`, `effect`
    */
   photos_apply_filter: "com.apple.Photos.ApplyFilterIntent",
   /**
    * **Apply Style**
+   *
    * Applies the specified style. (Photos)
+   *
    * Parameters: `asset`, `style`
    */
   photos_apply_style: "com.apple.Photos.ApplyStyleIntent",
   /**
    * **Find Photo**
+   *
    *  (Photos)
+   *
    * Output: Photo
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   photos_find_photo: "com.apple.Photos.AssetEntity",
   /**
    * **Clean Up**
+   *
    * Opens the specified photo to Clean Up. (Photos)
    */
   photos_clean_up: "com.apple.Photos.CleanupIntent",
   /**
    * **Copy and Paste Edits**
+   *
    * Copies edits between the specified source and destination photos. (Photos)
+   *
    * Parameters: `sourceAsset`, `destinationAssets`
    */
   photos_copy_and_paste_edits: "com.apple.Photos.CopyPasteEditsIntent",
   /**
    * **Create Album**
+   *
    * Creates an album with the specified name. (Photos)
+   *
    * Output: Album
+   *
    * Parameters: `title`, `OpenWhenRun`
    */
   photos_create_album: "com.apple.Photos.CreateAlbumIntent",
   /**
    * **Save to Photos**
+   *
    * Adds the specified photos to the photo library. (Photos)
+   *
    * Output: Photo
+   *
    * Parameters: `files`, `OpenWhenRun`
    */
   photos_save_to_photos: "com.apple.Photos.CreateAssetsIntent",
   /**
    * **Crop**
+   *
    * Opens the photo to Crop. (Photos)
    */
   photos_crop: "com.apple.Photos.CropIntent",
   /**
    * **Delete Albums**
+   *
    * Deletes the specified albums. (Photos)
+   *
    * Parameters: `entities`
    */
   photos_delete_albums: "com.apple.Photos.DeleteAlbumsIntent",
   /**
    * **Delete Photos**
+   *
    * Deletes the specified photos. (Photos)
+   *
    * Parameters: `entities`
    */
   photos_delete_photos: "com.apple.Photos.DeleteAssetsIntent",
   /**
    * **Duplicate Photos**
+   *
    * Duplicates the specified photos. (Photos)
+   *
    * Output: Photo
+   *
    * Parameters: `assets`, `OpenWhenRun`
    */
   photos_duplicate_photos: "com.apple.Photos.DuplicateAssetsIntent",
   /**
    * **Edit Photo**
+   *
    * Opens the specified photo to Edit. (Photos)
+   *
    * Parameters: `asset`
    */
   photos_edit_photo: "com.apple.Photos.EditAssetIntent",
   /**
    * **Portrait Mode**
+   *
    * Enables or disables Portrait mode for the photo. (Photos)
+   *
    * Parameters: `enabled`, `ShowWhenRun`
    */
   photos_portrait_mode: "com.apple.Photos.EnableDepthIntent",
   /**
    * **Auto Enhance Photo**
+   *
    * Enables or disables auto-enhancement of the specified photos. (Photos)
+   *
    * Parameters: `assets`, `enabled`
    */
   photos_auto_enhance_photo: "com.apple.Photos.EnhanceIntent",
   /**
    * **Favorite Photos**
+   *
    * Favorites or unfavorites the specified photos. (Photos)
+   *
    * Parameters: `assets`, `action`
    */
   photos_favorite_photos: "com.apple.Photos.FavoriteAssetsIntent",
   /**
    * **Favorite Memories**
+   *
    * Favorites or unfavorites the specified memories. (Photos)
+   *
    * Parameters: `memories`, `action`
    */
   photos_favorite_memories: "com.apple.Photos.FavoriteMemoriesIntent",
   /**
    * **Favorite People or Pets**
+   *
    * Favorites or unfavorites the specified people or pets. (Photos)
+   *
    * Parameters: `people`, `action`
    */
   photos_favorite_people_or_pets: "com.apple.Photos.FavoritePeopleIntent",
   /**
    * **Set Library View**
+   *
    * Sets the specified library view. (Photos)
+   *
    * Parameters: `viewMode`
    */
   photos_set_library_view: "com.apple.Photos.FilterLibraryIntent",
   /**
    * **Hide Photos**
+   *
    * Hides the specified photos. (Photos)
+   *
    * Parameters: `assets`, `action`
    */
   photos_hide_photos: "com.apple.Photos.HideAssetsIntent",
   /**
    * **Hide People or Pets**
+   *
    * Hides the specified people or pets. (Photos)
+   *
    * Parameters: `people`, `action`
    */
   photos_hide_people_or_pets: "com.apple.Photos.HidePeopleIntent",
   /**
    * **Markup**
+   *
    * Opens the photo to Markup. (Photos)
    */
   photos_markup: "com.apple.Photos.MarkupIntent",
   /**
    * **Find Memory**
+   *
    *  (Photos)
+   *
    * Output: Memory
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   photos_find_memory: "com.apple.Photos.MemoryEntity",
   /**
    * **Move to Personal Library**
+   *
    * Moves the specified photos to the Personal Library. (Photos)
+   *
    * Parameters: `assets`
    */
   photos_move_to_personal_library: "com.apple.Photos.MoveAssetsToPersonalLibraryIntent",
   /**
    * **Move to Shared Library**
+   *
    * Moves the specified photos to the Shared Library. (Photos)
+   *
    * Parameters: `assets`
    */
   photos_move_to_shared_library: "com.apple.Photos.MoveAssetsToSharedLibraryIntent",
   /**
    * **Open Album**
+   *
    * Opens the specified album. (Photos)
+   *
    * Parameters: `target`
    */
   photos_open_album: "com.apple.Photos.OpenAlbumIntent",
   /**
    * **Open Photo**
+   *
    * Opens the specified photo. (Photos)
+   *
    * Parameters: `target`
    */
   photos_open_photo: "com.apple.Photos.OpenAssetIntent",
   /**
    * **Open View**
+   *
    * Opens the specified view. (Photos)
+   *
    * Parameters: `target`
    */
   photos_open_view: "com.apple.Photos.OpenDestinationIntent",
   /**
    * **Create Memory**
+   *
    * Opens Photos to create a memory movie. (Photos)
+   *
    * Parameters: `query`
    */
   photos_create_memory: "com.apple.Photos.OpenMemoryCreationViewIntent",
   /**
    * **Find Person**
+   *
    *  (Photos)
+   *
    * Output: Person
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   photos_find_person: "com.apple.Photos.PersonEntity",
   /**
    * **Add Photos to Album**
+   *
    * Adds the provided photos to the provided album. (Photos)
+   *
    * Parameters: `assets`, `album`
    */
   com_apple_Photos_PhotosAddAssetsToAlbumAssistantIntent: "com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent",
   /**
    * **Search Photos**
+   *
    * Searches photos with the provided attributed string. (Photos)
+   *
    * Parameters: `criteria`
    */
   photos_search_photos: "com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent",
   /**
    * **Cleanup Photo**
+   *
    * Remove distracting objects in a photo. (Photos)
+   *
    * Parameters: `target`
    */
   photos_cleanup_photo: "com.apple.Photos.PhotosCleanupPhotoAssistantIntent",
   /**
    * **Copy Edits**
+   *
    * Copies edits from the provided photo. (Photos)
+   *
    * Parameters: `target`
    */
   photos_copy_edits: "com.apple.Photos.PhotosCopyEditsAssistantIntent",
   /**
    * **Create Album**
+   *
    * Creates an album. (Photos)
+   *
    * Output: Album
+   *
    * Parameters: `name`, `OpenWhenRun`
    */
   com_apple_Photos_PhotosCreateAlbumAssistantIntent: "com.apple.Photos.PhotosCreateAlbumAssistantIntent",
   /**
    * **Create Photos**
+   *
    * Creates photos from the provided files. (Photos)
+   *
    * Output: Photo
+   *
    * Parameters: `files`
    */
   photos_create_photos: "com.apple.Photos.PhotosCreateAssetsAssistantIntent",
   /**
    * **Crop Photo**
+   *
    * Crops a photo. (Photos)
+   *
    * Parameters: `target`
    */
   photos_crop_photo: "com.apple.Photos.PhotosCropAssistantIntent",
   /**
    * **Delete Albums**
+   *
    * Deletes the provided albums. (Photos)
+   *
    * Parameters: `entities`
    */
   com_apple_Photos_PhotosDeleteAlbumsAssistantIntent: "com.apple.Photos.PhotosDeleteAlbumsAssistantIntent",
   /**
    * **Delete Photos**
+   *
    * Deletes the provided photos. (Photos)
+   *
    * Parameters: `entities`
    */
   com_apple_Photos_PhotosDeleteAssetsAssistantIntent: "com.apple.Photos.PhotosDeleteAssetsAssistantIntent",
   /**
    * **Duplicate Photos**
+   *
    * Duplicates the selected photos. (Photos)
+   *
    * Output: Photo
+   *
    * Parameters: `entities`, `OpenWhenRun`
    */
   com_apple_Photos_PhotosDuplicateAssetsAssistantIntent: "com.apple.Photos.PhotosDuplicateAssetsAssistantIntent",
   /**
    * **Edit Photo**
+   *
    * Opens a photo for editing. (Photos)
+   *
    * Parameters: `asset`
    */
   com_apple_Photos_PhotosEditAssetAssistantIntent: "com.apple.Photos.PhotosEditAssetAssistantIntent",
   /**
    * **Present Search Results**
+   *
    *  (Photos)
+   *
    * Parameters: `criteria`
    */
   photos_present_search_results: "com.apple.Photos.PhotosEntityCollectionSearchAssistantIntent",
   /**
    * **Favorite Memories**
+   *
    * Favorites or unfavorites memories. (Photos)
+   *
    * Parameters: `memories`, `action`
    */
   com_apple_Photos_PhotosFavoriteMemoriesAssistantIntent: "com.apple.Photos.PhotosFavoriteMemoriesAssistantIntent",
   /**
    * **Set Library View**
+   *
    * Sets the library view. (Photos)
+   *
    * Parameters: `viewMode`
    */
   com_apple_Photos_PhotosFilterLibraryAssistantIntent: "com.apple.Photos.PhotosFilterLibraryAssistantIntent",
   /**
    * **Move to Personal Library**
+   *
    * Moves photos to the Personal Library. (Photos)
+   *
    * Parameters: `assets`
    */
   com_apple_Photos_PhotosMoveAssetsToPersonalLibraryAssistantIntent: "com.apple.Photos.PhotosMoveAssetsToPersonalLibraryAssistantIntent",
   /**
    * **Move to Shared Library**
+   *
    * Moves photos to the Shared Library. (Photos)
+   *
    * Parameters: `assets`
    */
   com_apple_Photos_PhotosMoveAssetsToSharedLibraryAssistantIntent: "com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent",
   /**
    * **Create a Memory**
+   *
    * Creates a Memory movie from a description. (Photos)
+   *
    * Parameters: `query`
    */
   photos_create_a_memory: "com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent",
   /**
    * **Paste Edits**
+   *
    * Pastes edits to the provided photo. (Photos)
+   *
    * Parameters: `target`
    */
   photos_paste_edits: "com.apple.Photos.PhotosPasteEditsAssistantIntent",
   /**
    * **Remove Photos from Album**
+   *
    * Removes the provided photos from the provided album. (Photos)
+   *
    * Parameters: `album`, `assets`
    */
   com_apple_Photos_PhotosRemoveAssetsFromAlbumAssistantIntent: "com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent",
   /**
    * **Search**
+   *
    * Navigate to search results. (Photos)
+   *
    * Parameters: `criteria`
    */
   photos_search: "com.apple.Photos.PhotosSearchAssistantIntent",
   /**
    * **Set Depth**
+   *
    * Sets the depth value of a photo. (Photos)
+   *
    * Parameters: `target`, `value`, `ShowWhenRun`
    */
   photos_set_depth: "com.apple.Photos.PhotosSetDepthAssistantIntent",
   /**
    * **Set Exposure**
+   *
    * Configures the exposure for a photo. (Photos)
+   *
    * Parameters: `target`, `value`, `ShowWhenRun`
    */
   com_apple_Photos_PhotosSetExposureAssistantIntent: "com.apple.Photos.PhotosSetExposureAssistantIntent",
   /**
    * **Apply Filter**
+   *
    * Applies a filter to a photo. (Photos)
+   *
    * Parameters: `target`, `filterType`
    */
   com_apple_Photos_PhotosSetFilterAssistantIntent: "com.apple.Photos.PhotosSetFilterAssistantIntent",
   /**
    * **Rotate Photo**
+   *
    * Rotates a photo. (Photos)
+   *
    * Parameters: `target`, `direction`
    */
   photos_rotate_photo: "com.apple.Photos.PhotosSetRotationAssistantIntent",
   /**
    * **Set Saturation**
+   *
    * Configures the saturation for a photo. (Photos)
+   *
    * Parameters: `target`, `value`, `ShowWhenRun`
    */
   com_apple_Photos_PhotosSetSaturationAssistantIntent: "com.apple.Photos.PhotosSetSaturationAssistantIntent",
   /**
    * **Set Warmth**
+   *
    * Configures the warmth for a photo. (Photos)
+   *
    * Parameters: `target`, `value`, `ShowWhenRun`
    */
   com_apple_Photos_PhotosSetWarmthAssistantIntent: "com.apple.Photos.PhotosSetWarmthAssistantIntent",
   /**
    * **Straighten Photo**
+   *
    * Straightens a photo. (Photos)
+   *
    * Parameters: `target`
    */
   photos_straighten_photo: "com.apple.Photos.PhotosStraightenAssistantIntent",
   /**
    * **Toggle Depth Effect**
+   *
    * Toggles depth effect for a photo. (Photos)
+   *
    * Parameters: `target`, `isEnabled`, `ShowWhenRun`
    */
   photos_toggle_depth_effect: "com.apple.Photos.PhotosToggleDepthAssistantIntent",
   /**
    * **Enhance Photo**
+   *
    * Enhances a photo. (Photos)
+   *
    * Parameters: `target`, `isEnabled`
    */
   photos_enhance_photo: "com.apple.Photos.PhotosToggleSuggestedEditsAssistantIntent",
   /**
    * **Rename Album**
+   *
    * Renames the provided album. (Photos)
+   *
    * Parameters: `target`, `name`
    */
   com_apple_Photos_PhotosUpdateAlbumAssistantIntent: "com.apple.Photos.PhotosUpdateAlbumAssistantIntent",
   /**
    * **Update Photo**
+   *
    * Updates an existing photo’s properties. (Photos)
+   *
    * Parameters: `target`, `name`, `isFavorite`, `isHidden`
    */
   photos_update_photo: "com.apple.Photos.PhotosUpdateAssetAssistantIntent",
   /**
    * **Update Person**
+   *
    * Updates the provided person with new properties. (Photos)
+   *
    * Parameters: `target`, `isFavorite`, `name`
    */
   photos_update_person: "com.apple.Photos.PhotosUpdateRecognizedPersonAssistantIntent",
   /**
    * **Remove Photos From Album**
+   *
    * Removes the photos from the specified album. (Photos)
+   *
    * Parameters: `album`, `assets`
    */
   photos_remove_photos_from_album: "com.apple.Photos.RemoveAssetsFromAlbumIntent",
   /**
    * **Rename Album**
+   *
    * Renames the album with the specified name. (Photos)
+   *
    * Parameters: `album`, `title`
    */
   photos_rename_album: "com.apple.Photos.RenameAlbumIntent",
   /**
    * **Rename Person**
+   *
    * Renames the person with the specified name. (Photos)
+   *
    * Parameters: `person`, `name`
    */
   photos_rename_person: "com.apple.Photos.RenamePersonIntent",
   /**
    * **REVEAL_ALBUMS_INTENT_TITLE**
+   *
    *  (Photos)
+   *
    * Parameters: `albums`
    */
   photos_reveal_albums_intent_title: "com.apple.Photos.RevealAlbumsIntent",
   /**
    * **REVEAL_ASSETS_INTENT_TITLE**
+   *
    *  (Photos)
+   *
    * Parameters: `assets`, `pluralDestination`
    */
   photos_reveal_assets_intent_title: "com.apple.Photos.RevealAssetsIntent",
   /**
    * **Rotate**
+   *
    * Rotates the photos in the specified direction. (Photos)
+   *
    * Parameters: `assets`, `clockwise`
    */
   photos_rotate: "com.apple.Photos.RotateIntent",
   /**
    * **Set Aperture**
+   *
    * Sets the aperture of the photo to the specified value. (Photos)
+   *
    * Parameters: `value`, `ShowWhenRun`
    */
   photos_set_aperture: "com.apple.Photos.SetApertureIntent",
   /**
    * **Set Audio Mix**
+   *
    * Sets the specified audio mix. (Photos)
+   *
    * Parameters: `audioMix`
    */
   photos_set_audio_mix: "com.apple.Photos.SetAudioMixIntent",
   /**
    * **Set Exposure**
+   *
    * Sets the exposure of the photo to the specified value. (Photos)
+   *
    * Parameters: `value`, `ShowWhenRun`
    */
   photos_set_exposure: "com.apple.Photos.SetExposureIntent",
   /**
    * **Set Playback Speed**
+   *
    * Sets the specified playback speed. (Photos)
+   *
    * Parameters: `playbackRate`
    */
   photos_set_playback_speed: "com.apple.Photos.SetPlaybackRateIntent",
   /**
    * **Set Saturation**
+   *
    * Sets the saturation of the photo to the specified value. (Photos)
+   *
    * Parameters: `value`, `ShowWhenRun`
    */
   photos_set_saturation: "com.apple.Photos.SetSaturationIntent",
   /**
    * **Set Warmth**
+   *
    * Set the warmth of the photo to the specified value. (Photos)
+   *
    * Parameters: `value`, `ShowWhenRun`
    */
   photos_set_warmth: "com.apple.Photos.SetWarmthIntent",
   /**
    * **Straighten**
+   *
    * Straightens the photo. (Photos)
    */
   photos_straighten: "com.apple.Photos.StraightenIntent",
   /**
    * **Enhance Documents**
+   *
    * Enhances the documents. (Preview)
+   *
    * Output: Document
+   *
    * Parameters: `target`, `OpenWhenRun`
    */
   com_apple_preview_enhance_documents: "com.apple.Preview.AutoEnhanceIntent",
   /**
    * **Bookmark Pages**
+   *
    * Bookmark the specified pages. (Preview)
+   *
    * Output: Page
+   *
    * Parameters: `pages`, `OpenWhenRun`
    */
   com_apple_preview_bookmark_pages: "com.apple.Preview.BookmarkIntent",
   /**
    * **Close Documents**
+   *
    * Close the documents. (Preview)
+   *
    * Parameters: `documents`
    */
   com_apple_preview_close_documents: "com.apple.Preview.CloseIntent",
   /**
    * **Delete Pages**
+   *
    * Deletes the specified pages. (Preview)
+   *
    * Parameters: `entities`
    */
   com_apple_preview_delete_pages: "com.apple.Preview.DeletePageIntent",
   /**
    * **Find Document**
+   *
    * Find documents in Preview, returning the items that match the specified search terms. (Preview)
+   *
    * Output: Document
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preview_find_document: "com.apple.Preview.DocumentEntity",
   /**
    * **Export Documents**
+   *
    * Export the documents. (Preview)
+   *
    * Parameters: `documents`, `type`, `folder`, `overwriteIfExists`
    */
   com_apple_preview_export_documents: "com.apple.Preview.ExportIntent",
   /**
    * **Flip Documents**
+   *
    * Flip the documents horizontally or vertically. (Preview)
+   *
    * Output: Document
+   *
    * Parameters: `documents`, `horizontally`, `OpenWhenRun`
    */
   com_apple_preview_flip_documents: "com.apple.Preview.FlipIntent",
   /**
    * **Get Pages in Documents**
+   *
    * Get the pages in the documents. (Preview)
+   *
    * Output: Pages in Documents
+   *
    * Parameters: `pageSelector`, `pages`, `documents`
    */
   com_apple_preview_get_pages_in_documents: "com.apple.Preview.GetPagesIntent",
   /**
    * **Insert Page**
+   *
    * Inserts pages from the specified files. (Preview)
+   *
    * Parameters: `files`, `isAfter`, `page`
    */
   com_apple_preview_insert_page: "com.apple.Preview.InsertPageIntent",
   /**
    * **Open Documents**
+   *
    * Opens the specified files in the reader. (Preview)
+   *
    * Output: Document
+   *
    * Parameters: `files`
    */
   com_apple_preview_open_documents: "com.apple.Preview.OpenIntent",
   /**
    * **Remove Image Background in Documents**
+   *
    * Remove the image background from the documents. (Preview)
+   *
    * Output: Document
+   *
    * Parameters: `documents`, `OpenWhenRun`
    */
   com_apple_preview_remove_image_background_in_documents: "com.apple.Preview.RemoveBackgroundIntent",
   /**
    * **Resize Documents**
+   *
    * Resizes the documents to a particular width and height. (Preview)
+   *
    * Output: Document
+   *
    * Parameters: `documents`, `width`, `height`, `OpenWhenRun`
    */
   com_apple_preview_resize_documents: "com.apple.Preview.ResizeIntent",
   /**
    * **Reveal Document**
+   *
    * Reveal the specified document. (Preview)
+   *
    * Output: Document
+   *
    * Parameters: `target`
    */
   com_apple_preview_reveal_document: "com.apple.Preview.RevealDocumentIntent",
   /**
    * **Open Page**
+   *
    * Opens the app to the specified document page. (Preview)
+   *
    * Output: Page
+   *
    * Parameters: `target`
    */
   com_apple_preview_open_page: "com.apple.Preview.RevealPageIntent",
   /**
    * **Rotate Documents**
+   *
    * Rotates the documents in the specified direction. (Preview)
+   *
    * Output: Document
+   *
    * Parameters: `documents`, `isClockwise`, `OpenWhenRun`
    */
   com_apple_preview_rotate_documents: "com.apple.Preview.RotateIntent",
   /**
    * **Rotate Pages**
+   *
    * Rotates the pages in the specified direction. (Preview)
+   *
    * Output: Page
+   *
    * Parameters: `pages`, `isClockwise`, `OpenWhenRun`
    */
   com_apple_preview_rotate_pages: "com.apple.Preview.RotatePageIntent",
   /**
    * **Save Documents**
+   *
    * Save the documents. (Preview)
+   *
    * Output: Document
+   *
    * Parameters: `documents`
    */
   com_apple_preview_save_documents: "com.apple.Preview.SaveIntent",
   /**
    * **Search Documents**
+   *
    * Searches for text in the documents. (Preview)
+   *
    * Parameters: `documents`, `criteria`
    */
   com_apple_preview_search_documents: "com.apple.Preview.SearchIntent",
   /**
    * **Find Bookmarks**
+   *
    *  (Safari)
+   *
    * Output: Bookmark
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   safari_find_bookmarks: "com.apple.Safari.BookmarkEntity",
   /**
    * **Bookmark Tab**
+   *
    * Creates a new bookmark for this tab. (Safari)
+   *
    * Output: Bookmark
+   *
    * Parameters: `tab`, `name`
    */
   safari_bookmark_tab: "com.apple.Safari.BookmarkTabIntent",
   /**
    * **Bookmark URL**
+   *
    * Creates a new bookmark for a given URL. (Safari)
+   *
    * Output: Bookmark
+   *
    * Parameters: `url`, `name`
    */
   safari_bookmark_url: "com.apple.Safari.BookmarkURLIntent",
   /**
    * **Close Tab**
+   *
    * Closes the selected tab. (Safari)
+   *
    * Parameters: `target`
    */
   safari_close_tab: "com.apple.Safari.CloseTab",
   /**
    * **Close View**
+   *
    * Closes the view in Safari. (Safari)
+   *
    * Parameters: `target`
    */
   safari_close_view: "com.apple.Safari.CloseView",
   /**
    * **Close Windows**
+   *
    * Closes the selected windows. (Safari)
+   *
    * Parameters: `target`
    */
   safari_close_windows: "com.apple.Safari.CloseWindowsIntent",
   /**
    * **Add Bookmark**
+   *
    * Adds the current page to Bookmarks. (Safari)
+   *
    * Parameters: `name`
    */
   safari_add_bookmark: "com.apple.Safari.CreateNewBookmark",
   /**
    * **Create New Tab**
+   *
    * Opens a new tab in the current Tab Group. (Safari)
+   *
    * Output: Tab
    */
   safari_create_new_tab: "com.apple.Safari.CreateNewTab",
   /**
    * **Create Tab Group**
+   *
    * Creates a new Tab Group, optionally with specified contents. (Safari)
+   *
    * Output: Tab Group
+   *
    * Parameters: `contents`, `name`
    */
   safari_create_tab_group: "com.apple.Safari.CreateNewTabGroup",
   /**
    * **Create Window**
+   *
    * Creates a new browser window. (Safari)
+   *
    * Output: Window
+   *
    * Parameters: `isPrivate`
    */
   safari_create_window: "com.apple.Safari.CreateNewWindow",
   /**
    * **Add to Reading List**
+   *
    * Adds the current page to Reading List. (Safari)
+   *
    * Output: Reading List Item
+   *
    * Parameters: `name`, `title`, `url`
    */
   safari_add_to_reading_list: "com.apple.Safari.CreateReadingListItem",
   /**
    * **Delete Bookmarks**
+   *
    * Deletes the selected bookmarks. (Safari)
+   *
    * Parameters: `entities`
    */
   safari_delete_bookmarks: "com.apple.Safari.DeleteBookmarks",
   /**
    * **Delete Tab Groups**
+   *
    * Delete one or more Safari Tab Groups. (Safari)
+   *
    * Parameters: `entities`
    */
   safari_delete_tab_groups: "com.apple.Safari.DeleteTabGroups",
   /**
    * **Find on Page**
+   *
    * Find the given text on the selected tab. (Safari)
+   *
    * Parameters: `searchPhrase`, `tab`
    */
   safari_find_on_page: "com.apple.Safari.FindOnPage",
   /**
    * **Find History Entity**
+   *
    *  (Safari)
+   *
    * Output: History Entity
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   safari_find_history_entity: "com.apple.Safari.HistoryEntity",
   /**
    * **Open Link**
+   *
    * Navigates a tab to the given URL. (Safari)
+   *
    * Parameters: `url`, `tab`
    */
   safari_open_link: "com.apple.Safari.LoadURLInTab",
   /**
    * **Move Tabs to Tab Group**
+   *
    * Move Safari tabs from their current Tab Group into a new one. (Safari)
+   *
    * Parameters: `entities`, `container`
    */
   safari_move_tabs_to_tab_group: "com.apple.Safari.MoveTabsToTabGroup",
   /**
    * **Move Tabs to Window**
+   *
    * Move Safari tabs from their current window into another window. (Safari)
+   *
    * Parameters: `entities`, `container`
    */
   safari_move_tabs_to_window: "com.apple.Safari.MoveTabsToWindowIntent",
   /**
    * **Open Bookmark**
+   *
    * Opens the selected bookmark. (Safari)
+   *
    * Parameters: `target`
    */
   safari_open_bookmark: "com.apple.Safari.OpenBookmark",
   /**
    * **Open Reading List Item**
+   *
    * Opens the selected Reading List item. (Safari)
+   *
    * Parameters: `target`
    */
   safari_open_reading_list_item: "com.apple.Safari.OpenReadingListItem",
   /**
    * **Switch Tab**
+   *
    * Switch to an existing tab. (Safari)
+   *
    * Parameters: `target`
    */
   safari_switch_tab: "com.apple.Safari.OpenTab",
   /**
    * **Open Tab Group**
+   *
    * Opens the selected Tab Group. (Safari)
+   *
    * Parameters: `target`
    */
   safari_open_tab_group: "com.apple.Safari.OpenTabGroup",
   /**
    * **Open View**
+   *
    * Opens the view in Safari. (Safari)
+   *
    * Parameters: `target`
    */
   safari_open_view: "com.apple.Safari.OpenView",
   /**
    * **Search Website**
+   *
    * Opens browser to search given term on specified website. (Safari)
+   *
    * Parameters: `term`, `website`
    */
   safari_search_website: "com.apple.Safari.QuickWebsiteSearchIntent",
   /**
    * **Find Searchable Website**
+   *
    *  (Safari)
+   *
    * Output: Searchable Website
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   safari_find_searchable_website: "com.apple.Safari.QuickWebsiteSearchProviderEntity",
   /**
    * **Find Reading List Items**
+   *
    *  (Safari)
+   *
    * Output: Reading List Item
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   safari_find_reading_list_items: "com.apple.Safari.ReadingListItemEntity",
   /**
    * **Search Tabs**
+   *
    * Perform a search of tabs in Safari. (Safari)
+   *
    * Parameters: `criteria`
    */
   safari_search_tabs: "com.apple.Safari.SearchTabs",
   /**
    * **Show Window**
+   *
    * Brings the given Safari window to the foreground. (Safari)
+   *
    * Parameters: `target`
    */
   safari_show_window: "com.apple.Safari.ShowWindowIntent",
   /**
    * **Find Tabs**
+   *
    *  (Safari)
+   *
    * Output: Tab
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   safari_find_tabs: "com.apple.Safari.TabEntity",
   /**
    * **Find Tab Groups**
+   *
    *  (Safari)
+   *
    * Output: Tab Group
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   safari_find_tab_groups: "com.apple.Safari.TabGroupEntity",
   /**
    * **Find Window**
+   *
    *  (Safari)
+   *
    * Output: Window
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   safari_find_window: "com.apple.Safari.WindowEntity",
   /**
    * **Find Accessibility Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Accessibility Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_accessibility_settings: "com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink",
   /**
    * **Find Apple Account Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Apple Account Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_apple_account_settings: "com.apple.Settings.AppleAccountSettingsDeepLink",
   /**
    * **Find Application Notifications**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Application Notifications
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_application_notifications: "com.apple.Settings.ApplicationNotificationsSettings",
   /**
    * **Edit Application Notifications**
+   *
    * Edit Application Notifications
  • Alert style
  • Critical alerts
@@ -4734,94 +6641,131 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
  • Show in Notification Center
  • Show notifications on lock screen
  • Show previews (SettingsPlaceholder)
+   *
    * Output: Application Notifications
+   *
    * Parameters: `alertStyle`, `allowCriticalAlerts`, `allowNotifications`, `allowTimeSensitive`, `badgeAppIcon`, `entity`, `notificationGrouping`, `playSounds`, `showInNotificationCenter`, `showOnLockScreen`, `showPreviews`
    */
   com_apple_settings_edit_application_notifications: "com.apple.Settings.ApplicationNotificationsSettings-UpdatableEntity",
   /**
    * **Get Automatically Set Date & Time**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Automatically Set Date & Time
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_automatically_set_date_time: "com.apple.Settings.AutoDateTimeEntity",
   /**
    * **Get Automatically hide and show the menu bar**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Automatically hide and show the menu bar
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_automatically_hide_and_show_the_menu_bar: "com.apple.Settings.AutoHideMenuBarOptionEntity",
   /**
    * **Update Automatically hide and show the menu bar**
+   *
    * Change the Automatically hide and show the menu bar value of Automatically hide and show the menu bar (SettingsPlaceholder)
+   *
    * Output: Automatically hide and show the menu bar
+   *
    * Parameters: `autoHideMenuBar`, `entity`
    */
   com_apple_settings_update_automatically_hide_and_show_the_menu_bar: "com.apple.Settings.AutoHideMenuBarOptionEntity-UpdatableEntity",
   /**
    * **Get Automatically Set Time Zone**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Automatically Set Time Zone
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_automatically_set_time_zone: "com.apple.Settings.AutoTimeZoneEntity",
   /**
    * **Get Bluetooth Power**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Bluetooth Power
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_bluetooth_power: "com.apple.Settings.BluetoothPowerEntity",
   /**
    * **Update bluetooth_power**
+   *
    * Change the bluetooth_power value of bluetooth_power (SettingsPlaceholder)
+   *
    * Output: Bluetooth Power
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_bluetooth_power: "com.apple.Settings.BluetoothPowerEntity-UpdatableEntity",
   /**
    * **Find Bluetooth Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Bluetooth Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_bluetooth_settings: "com.apple.Settings.BluetoothSettingsDeepLink",
   /**
    * **Find CDs & DVDs Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: CDs & DVDs Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_cds_dvds_settings: "com.apple.Settings.CDsAndDvDsSettingsExtensionSettingsDeepLink",
   /**
    * **Change Mouse Tracking Speed**
+   *
    * Increases or decreases mouse tracking speed (SettingsPlaceholder)
+   *
    * Parameters: `change`
    */
   com_apple_settings_change_mouse_tracking_speed: "com.apple.Settings.ChangeMouseTrackingSpeedIntent",
   /**
    * **Change Trackpad Tracking Speed**
+   *
    * Increases or decreases trackpad tracking speed (SettingsPlaceholder)
+   *
    * Parameters: `change`
    */
   com_apple_settings_change_trackpad_tracking_speed: "com.apple.Settings.ChangeTrackpadTrackingSpeedIntent",
   /**
    * **Find Class Progress Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Class Progress Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_class_progress_settings: "com.apple.Settings.ClassKitSettingsSettingsDeepLink",
   /**
    * **Find Classroom Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Classroom Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_classroom_settings: "com.apple.Settings.ClassroomDynamicDeepLinks",
   /**
    * **Edit Clock Options**
+   *
    * Edit Clock Options
  • Announce the time
  • Style
@@ -4831,49 +6775,67 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
  • Show the day of the week
  • Display the time with seconds
  • Interval (SettingsPlaceholder)
+   *
    * Output: Clock Options
+   *
    * Parameters: `announceTime`, `clockStyle`, `entity`, `flashSeparators`, `showAMPM`, `showDate`, `showDayOfWeek`, `showSeconds`, `timeAnnouncementsInterval`
    */
   com_apple_settings_edit_clock_options: "com.apple.Settings.ClockOptionsEntity-UpdatableEntity",
   /**
    * **Edit Control Center Module**
+   *
    * Edit Control Center Module
  • Always Show in Menu Bar
  • Show in Menu Bar (SettingsPlaceholder)
+   *
    * Output: Control Center Module
+   *
    * Parameters: `alwaysShowInMenuBar`, `entity`, `showInMenuBar`
    */
   com_apple_settings_edit_control_center_module: "com.apple.Settings.ControlCenterModule-UpdatableEntity",
   /**
    * **Find Menu Bar Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Menu Bar Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_menu_bar_settings: "com.apple.Settings.ControlCenterSettingsSettingsDeepLink",
   /**
    * **Find Date & Time Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Date & Time Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_date_time_settings: "com.apple.Settings.DateAndTimeExtensionSettingsDeepLink",
   /**
    * **Get The Current Date & Time**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: The Current Date & Time
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_the_current_date_time: "com.apple.Settings.DateTimeEntity",
   /**
    * **Get Desktop Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Desktop Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_desktop_settings: "com.apple.Settings.DesktopSettingsEntity",
   /**
    * **Edit Desktop Settings**
+   *
    * Edit Desktop Settings
  • Click wallpaper to show desktop
  • Visible Items In Stage Manager
@@ -4881,33 +6843,45 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
  • Show recent apps in Stage Manager
  • Show windows from an application
  • Stage Manager (SettingsPlaceholder)
+   *
    * Output: Desktop Settings
+   *
    * Parameters: `clickWallpaperToRevealDesktop`, `entity`, `showItemsInStageManager`, `showItemsOnDesktop`, `showRecentAppsInStageManager`, `showWindowsFromAnApplication`, `stageManager`
    */
   com_apple_settings_edit_desktop_settings: "com.apple.Settings.DesktopSettingsEntity-UpdatableEntity",
   /**
    * **Find Desktop & Dock Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Desktop & Dock Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_desktop_dock_settings: "com.apple.Settings.DesktopSettingsSettingsDeepLink",
   /**
    * **Find Device Management Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Device Management Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_device_management_settings: "com.apple.Settings.DeviceManagementSettingsDeepLink",
   /**
    * **Get Dock Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Dock Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_dock_settings: "com.apple.Settings.DockSettingsEntity",
   /**
    * **Edit Dock Settings**
+   *
    * Edit Dock Settings
  • Animate opening applications
  • Automatically hide and show the Dock
@@ -4919,2348 +6893,3233 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
  • Show indicators for open applications
  • Show suggested and recent apps in Dock
  • Size (SettingsPlaceholder)
+   *
    * Output: Dock Settings
+   *
    * Parameters: `animateOpeningApplications`, `automaticallyHideAndShowTheDock`, `doubleClickAWindowsTitleBarTo`, `entity`, `magnification`, `minimizeWindowsIntoApplicationIcon`, `minimizeWindowsUsing`, `positionOnScreen`, `showIndicatorsForOpenApplications`, `showSuggestedAndRecentAppsInDock`, `size`
    */
   com_apple_settings_edit_dock_settings: "com.apple.Settings.DockSettingsEntity-UpdatableEntity",
   /**
    * **Find FamilyMemberDetailsDeepLink**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: FamilyMemberDetailsDeepLink
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_family_member_details_deep_link: "com.apple.Settings.FamilyMemberDetailsDeepLink",
   /**
    * **Find FamilySettingsDeepLink**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: FamilySettingsDeepLink
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_family_settings_deep_link: "com.apple.Settings.FamilySettingsDeepLink",
   /**
    * **Find Family Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Family Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_family_settings: "com.apple.Settings.FamilySettingsSettingsDeepLink",
   /**
    * **Find FamilySubscriptionsDeepLink**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: FamilySubscriptionsDeepLink
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_family_subscriptions_deep_link: "com.apple.Settings.FamilySubscriptionsDeepLink",
   /**
    * **Find FOCUS**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: FOCUS
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_focus: "com.apple.Settings.FocusEntity",
   /**
    * **Get Swipe between full-screen applications**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Swipe between full-screen applications
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_swipe_between_full_screen_applications: "com.apple.Settings.FullScreenSwipeEntity",
   /**
    * **Update Swipe between full-screen applications**
+   *
    * Change the Swipe between full-screen applications value of Swipe between full-screen applications (SettingsPlaceholder)
+   *
    * Output: Swipe between full-screen applications
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_swipe_between_full_screen_applications: "com.apple.Settings.FullScreenSwipeEntity-UpdatableEntity",
   /**
    * **Find Game Center Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Game Center Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_game_center_settings: "com.apple.Settings.GameCenterMacOsSettingsExtensionSettingsDeepLink",
   /**
    * **Find Game Controllers Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Game Controllers Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_game_controllers_settings: "com.apple.Settings.GameControllerMacSettingsSettingsDeepLink",
   /**
    * **Get Startup Disk**
+   *
    * This will return the name of the current startup disk. (SettingsPlaceholder)
+   *
    * Output: Name of the current startup disk
    */
   com_apple_settings_get_startup_disk: "com.apple.Settings.GetStartupDiskIntent",
   /**
    * **Get 24-Hour Time**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: 24-Hour Time
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_24_hour_time: "com.apple.Settings.HourFormatEntity",
   /**
    * **Update 24-Hour Time**
+   *
    * Change the 24-Hour Time value of 24-Hour Time (SettingsPlaceholder)
+   *
    * Output: 24-Hour Time
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_24_hour_time: "com.apple.Settings.HourFormatEntity-UpdatableEntity",
   /**
    * **Find Keyboard Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Keyboard Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_keyboard_settings: "com.apple.Settings.KeyboardSettingsSettingsDeepLink",
   /**
    * **Find Language & Region Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Language & Region Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_language_region_settings: "com.apple.Settings.LocalizationSettingsDeepLink",
   /**
    * **Get Mission Control**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Mission Control
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_mission_control: "com.apple.Settings.MissionControlEntity",
   /**
    * **Update Mission Control**
+   *
    * Change the Mission Control value of Mission Control (SettingsPlaceholder)
+   *
    * Output: Mission Control
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_mission_control: "com.apple.Settings.MissionControlEntity-UpdatableEntity",
   /**
    * **Get Mission Control Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Mission Control Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_mission_control_settings: "com.apple.Settings.MissionControlSettingsEntity",
   /**
    * **Edit Mission Control Settings**
+   *
    * Edit Mission Control Settings
  • Automatically rearrange Spaces based on most recent use
  • Displays have separate Spaces
  • Drag windows to top of screen to enter Mission Control
  • Group windows by application
  • When switching to an application, switch to a Space with open windows for the application (SettingsPlaceholder)
+   *
    * Output: Mission Control Settings
+   *
    * Parameters: `automaticallyRearrangeSpacesBasedOnMostRecentUse`, `displaysHaveSeparateSpaces`, `enterMissionControlByTopWindowDrag`, `entity`, `groupWindowsByApplication`, `whenSwitchingToAnApplicationSwitchToASpaceWithOpenWindowsForTheApplication`
    */
   com_apple_settings_edit_mission_control_settings: "com.apple.Settings.MissionControlSettingsEntity-UpdatableEntity",
   /**
    * **Find Mouse Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Mouse Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_mouse_settings: "com.apple.Settings.MouseExtensionSettingsDeepLink",
   /**
    * **Get Tracking speed**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Tracking speed
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_tracking_speed: "com.apple.Settings.MouseTrackingSpeedEntity",
   /**
    * **Update Tracking speed**
+   *
    * Change the Tracking speed value of Tracking speed (SettingsPlaceholder)
+   *
    * Output: Tracking speed
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_tracking_speed: "com.apple.Settings.MouseTrackingSpeedEntity-UpdatableEntity",
   /**
    * **Get Notification Center**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Notification Center
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_notification_center: "com.apple.Settings.NotificationCenterEntity",
   /**
    * **Edit Notification Center**
+   *
    * Edit Notification Center
  • Allow notifications when the screen is locked
  • Allow notifications when mirroring or sharing the display
  • Allow notifications when the display is sleeping
  • Show previews
  • Summarize notifications (SettingsPlaceholder)
+   *
    * Output: Notification Center
+   *
    * Parameters: `allowWhenLocked`, `allowWhenSharing`, `allowWhenSleeping`, `entity`, `showPreviews`, `summarizePreviews`
    */
   com_apple_settings_edit_notification_center: "com.apple.Settings.NotificationCenterEntity-UpdatableEntity",
   /**
    * **Find Notifications Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Notifications Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_notifications_settings: "com.apple.Settings.NotificationsSettingsSettingsDeepLink",
   /**
    * **Open Accessibility Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_accessibility_settings: "com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink",
   /**
    * **Open Apple Account Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_apple_account_settings: "com.apple.Settings.OpenAppleAccountSettingsDeepLink",
   /**
    * **Open Application Notifications Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_application_notifications_settings: "com.apple.Settings.OpenApplicationNotificationsSettings",
   /**
    * **Open Automatically Set Date & Time Setting**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   settings_open_automatically_set_date_time_setting: "com.apple.Settings.OpenAutomaticallySetDateTimeSetting",
   /**
    * **Open Automatically Set Time Zone Setting**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   settings_open_automatically_set_time_zone_setting: "com.apple.Settings.OpenAutomaticallySetTimeZoneSetting",
   /**
    * **Open Touch ID & Password Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_touch_id_password_settings: "com.apple.Settings.OpenBiometricsAndPasswordSettingsEntityDeepLinks",
   /**
    * **Open Bluetooth Power Setting**
+   *
    * Toggles the bluetooth power setting on or off (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   settings_open_bluetooth_power_setting: "com.apple.Settings.OpenBluetoothPowerDeepLink",
   /**
    * **Open Bluetooth Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_bluetooth_settings: "com.apple.Settings.OpenBluetoothSettingsDeepLink",
   /**
    * **Open CDs & DVDs Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_cds_dvds_settings: "com.apple.Settings.OpenCDsAndDvDsSettingsExtensionSettingsDeepLink",
   /**
    * **Open Class Progress Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_class_progress_settings: "com.apple.Settings.OpenClassKitSettingsSettingsDeepLink",
   /**
    * **Open Classroom Settings**
+   *
    * Opens a destination in Classroom Settings (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_classroom_settings: "com.apple.Settings.OpenClassroomDynamicDeepLinks",
   /**
    * **Open Clock Options**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_clock_options: "com.apple.Settings.OpenClockOptionsEntity",
   /**
    * **Open an Internet Accountʼs Settings**
+   *
    * Go to a specific Internet Accountʼs settings (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_an_internet_accountʼs_settings: "com.apple.Settings.OpenConfiguredInternetAccountSettings",
   /**
    * **Open Control Center module setting**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_control_center_module_setting: "com.apple.Settings.OpenControlCenterModule",
   /**
    * **Open Menu Bar Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_menu_bar_settings: "com.apple.Settings.OpenControlCenterSettingsSettingsDeepLink",
   /**
    * **Open the Current Time Zone Setting**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   settings_open_the_current_time_zone_setting: "com.apple.Settings.OpenCurrentTimeZoneSetting",
   /**
    * **Open Date & Time Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_date_time_settings: "com.apple.Settings.OpenDateAndTimeExtensionSettingsDeepLink",
   /**
    * **Open Desktop Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_desktop_settings: "com.apple.Settings.OpenDesktopSettingsEntity",
   /**
    * **Open Desktop & Dock Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_desktop_dock_settings: "com.apple.Settings.OpenDesktopSettingsSettingsDeepLink",
   /**
    * **Open Device Management Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_device_management_settings: "com.apple.Settings.OpenDeviceManagementSettingsDeepLink",
   /**
    * **Open Dock Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_dock_settings: "com.apple.Settings.OpenDockSettingsEntity",
   /**
    * **Open Family Member Settings**
+   *
    * See what family members can access and share, and manage child account settings and parental controls. (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_family_member_settings: "com.apple.Settings.OpenFamilyMemberSettings",
   /**
    * **Open Family Settings**
+   *
    * See what family members can access and share, and manage child account settings and parental controls. (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_family_settings: "com.apple.Settings.OpenFamilySettings",
   /**
    * **Open Family Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_Settings_OpenFamilySettingsSettingsDeepLink: "com.apple.Settings.OpenFamilySettingsSettingsDeepLink",
   /**
    * **Set Up Family Sharing**
+   *
    * Share your subscriptions and music, movie and other media purchases with up to five people. (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_set_up_family_sharing: "com.apple.Settings.OpenFamilySetup",
   /**
    * **Open Family Subscriptions**
+   *
    * Manage all your Apple and App Store subscriptions. (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_family_subscriptions: "com.apple.Settings.OpenFamilySubscriptions",
   /**
    * **Open Focus Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_focus_settings: "com.apple.Settings.OpenFocusSettingsExtensionSettingsDeepLink",
   /**
    * **Open Game Center Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_game_center_settings: "com.apple.Settings.OpenGameCenterMacOsSettingsExtensionSettingsDeepLink",
   /**
    * **Open Game Controllers Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_game_controllers_settings: "com.apple.Settings.OpenGameControllerMacSettingsSettingsDeepLink",
   /**
    * **Open List of Internet Accounts**
+   *
    * Open List of Internet Accounts (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_list_of_internet_accounts: "com.apple.Settings.OpenInternetAccountsSettings",
   /**
    * **Open Keyboard Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_keyboard_settings: "com.apple.Settings.OpenKeyboardSettingsSettingsDeepLink",
   /**
    * **Open Language & Region Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_language_region_settings: "com.apple.Settings.OpenLocalizationSettingsDeepLink",
   /**
    * **Open Mission Control Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_mission_control_settings: "com.apple.Settings.OpenMissionControlSettingsEntity",
   /**
    * **Open Mouse Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_mouse_settings: "com.apple.Settings.OpenMouseExtensionSettingsDeepLink",
   /**
    * **Open Notification Center Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_notification_center_settings: "com.apple.Settings.OpenNotificationCenterEntity",
   /**
    * **Open Notification Summarization Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_notification_summarization_settings: "com.apple.Settings.OpenNotificationSummarizationEntity",
   /**
    * **Open Notifications Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_notifications_settings: "com.apple.Settings.OpenNotificationsSettingsSettingsDeepLink",
   /**
    * **Open Passwords Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_passwords_settings: "com.apple.Settings.OpenPasswordsSettingsExtensionSettingsDeepLink",
   /**
    * **Open Screen Time Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_screen_time_settings: "com.apple.Settings.OpenScreenTimeDeepLinksIntent",
   /**
    * **Open Siri Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_siri_settings: "com.apple.Settings.OpenSiriSetupSettingsDeepLink",
   /**
    * **Open Software Update Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_software_update_settings: "com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink",
   /**
    * **Open Search Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_search_settings: "com.apple.Settings.OpenSpotlightSettingsDeepLinks",
   /**
    * **Open Startup Disk Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_startup_disk_settings: "com.apple.Settings.OpenStartupDiskSettingsDeepLink",
   /**
    * **Open Startup Disk Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_Settings_OpenStartupDiskStaticDeepLinks: "com.apple.Settings.OpenStartupDiskStaticDeepLinks",
   /**
    * **Open Storage Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_storage_settings: "com.apple.Settings.OpenStorageSettingsDeepLink",
   /**
    * **Open the Current Date & Time Setting**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   settings_open_the_current_date_time_setting: "com.apple.Settings.OpenTheCurrentDateTimeSetting",
   /**
    * **Open Time Machine Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_time_machine_settings: "com.apple.Settings.OpenTimeMachineSettingsSettingsDeepLink",
   /**
    * **Open Trackpad Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_trackpad_settings: "com.apple.Settings.OpenTrackpadExtensionSettingsDeepLink",
   /**
    * **Open 24-Hour Time Setting**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   settings_open_24_hour_time_setting: "com.apple.Settings.OpenTwentyFourHourTimeSetting",
   /**
    * **Open VPN Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_vpn_settings: "com.apple.Settings.OpenVpnSettingsDeepLink",
   /**
    * **Open Wallpaper Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_wallpaper_settings: "com.apple.Settings.OpenWallpaperSettingsDeepLink",
   /**
    * **Open Wi‑Fi Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_wi_fi_settings: "com.apple.Settings.OpenWiFiSettingsDeepLink",
   /**
    * **Open Widget Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_widget_settings: "com.apple.Settings.OpenWidgetSettingsEntity",
   /**
    * **Open Windows Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_windows_settings: "com.apple.Settings.OpenWindowsSettingsEntity",
   /**
    * **Find Passwords Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Passwords Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_passwords_settings: "com.apple.Settings.PasswordsSettingsExtensionSettingsDeepLink",
   /**
    * **Find About Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: About Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_about_settings: "com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink",
   /**
    * **Find AirDrop & Continuity Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: AirDrop & Continuity Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_air_drop_continuity_settings: "com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink",
   /**
    * **Find Appearance Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Appearance Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_appearance_settings: "com.apple.Settings.PlaceholderAppearanceSettingsDeepLink",
   /**
    * **Find Displays Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Displays Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_displays_settings: "com.apple.Settings.PlaceholderDisplaysExtSettingsDeepLink",
   /**
    * **Find Lock Screen Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Lock Screen Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_lock_screen_settings: "com.apple.Settings.PlaceholderLockScreenSettingsDeepLink",
   /**
    * **Find Login Items Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Login Items Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_login_items_settings: "com.apple.Settings.PlaceholderLoginItemsSettingsDeepLink",
   /**
    * **Find Network Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Network Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_network_settings: "com.apple.Settings.PlaceholderNetworkSettingsDeepLink",
   /**
    * **Open About Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_about_settings: "com.apple.Settings.PlaceholderOpenAboutExtensionSettingsDeepLink",
   /**
    * **Open AirDrop & Continuity Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_air_drop_continuity_settings: "com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink",
   /**
    * **Open Appearance Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_appearance_settings: "com.apple.Settings.PlaceholderOpenAppearanceSettingsDeepLink",
   /**
    * **Open Displays Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_displays_settings: "com.apple.Settings.PlaceholderOpenDisplaysExtSettingsDeepLink",
   /**
    * **Open Lock Screen Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_lock_screen_settings: "com.apple.Settings.PlaceholderOpenLockScreenSettingsDeepLink",
   /**
    * **Open Login Items Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_login_items_settings: "com.apple.Settings.PlaceholderOpenLoginItemsSettingsDeepLink",
   /**
    * **Open Network Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_network_settings: "com.apple.Settings.PlaceholderOpenNetworkSettingsDeepLink",
   /**
    * **Open Printers & Scanners Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_printers_scanners_settings: "com.apple.Settings.PlaceholderOpenPrinterScannerSettingsSettingsDeepLink",
   /**
    * **Open Privacy & Security Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_privacy_security_settings: "com.apple.Settings.PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink",
   /**
    * **Open Sharing Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_sharing_settings: "com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink",
   /**
    * **Open Sound Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_sound_settings: "com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink",
   /**
    * **Open Transfer or Reset Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_transfer_or_reset_settings: "com.apple.Settings.PlaceholderOpenTransferResetExtensionSettingsDeepLink",
   /**
    * **Open Users & Groups Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_users_groups_settings: "com.apple.Settings.PlaceholderOpenUsersGroupsSettingsDeepLink",
   /**
    * **Find Printers & Scanners Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Printers & Scanners Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_printers_scanners_settings: "com.apple.Settings.PlaceholderPrinterScannerSettingsSettingsDeepLink",
   /**
    * **Find Privacy & Security Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Privacy & Security Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_privacy_security_settings: "com.apple.Settings.PlaceholderSecurityPrivacyExtensionSettingsDeepLink",
   /**
    * **Find Sharing Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Sharing Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_sharing_settings: "com.apple.Settings.PlaceholderSharingSettingsDeepLink",
   /**
    * **Find Sound Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Sound Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_sound_settings: "com.apple.Settings.PlaceholderSoundSettingsDeepLink",
   /**
    * **Find Transfer or Reset Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Transfer or Reset Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_transfer_or_reset_settings: "com.apple.Settings.PlaceholderTransferResetExtensionSettingsDeepLink",
   /**
    * **Find Users & Groups Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Users & Groups Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_users_groups_settings: "com.apple.Settings.PlaceholderUsersGroupsSettingsDeepLink",
   /**
    * **Find Legacy Preference Pane Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Legacy Preference Pane Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_legacy_preference_pane_settings: "com.apple.Settings.PrefPanesDeepLink",
   /**
    * **Open Legacy Preference Panes Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_legacy_preference_panes_settings: "com.apple.Settings.PrefPanesOpenDeepLink",
   /**
    * **Get Recent documents, applications, and servers**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Recent documents, applications, and servers
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_recent_documents_applications_and_servers: "com.apple.Settings.RecentDocumentsOptionEntity",
   /**
    * **Update Recent documents, applications, and servers**
+   *
    * Change the Recent documents, applications, and servers value of Recent documents, applications, and servers (SettingsPlaceholder)
+   *
    * Output: Recent documents, applications, and servers
+   *
    * Parameters: `entity`, `recentDocuments`
    */
   com_apple_settings_update_recent_documents_applications_and_servers: "com.apple.Settings.RecentDocumentsOptionEntity-UpdatableEntity",
   /**
    * **Main Display Screen Saver Name**
+   *
    * Get the name of screen saver on the main display (SettingsPlaceholder)
+   *
    * Output: Screen Saver Name
    */
   com_apple_settings_main_display_screen_saver_name: "com.apple.Settings.ScreenSaverNameIntent",
   /**
    * **Find Screen Time**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Screen Time
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_screen_time: "com.apple.Settings.ScreenTimeDeepLinks",
   /**
    * **Get Natural scrolling**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Natural scrolling
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_natural_scrolling: "com.apple.Settings.ScrollDirectionEntity",
   /**
    * **Update Natural scrolling**
+   *
    * Change the Natural scrolling value of Natural scrolling (SettingsPlaceholder)
+   *
    * Output: Natural scrolling
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_natural_scrolling: "com.apple.Settings.ScrollDirectionEntity-UpdatableEntity",
   /**
    * **Get Secondary click**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Secondary click
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_secondary_click: "com.apple.Settings.SecondaryClickEntity",
   /**
    * **Update Secondary click**
+   *
    * Change the Secondary click value of Secondary click (SettingsPlaceholder)
+   *
    * Output: Secondary click
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_secondary_click: "com.apple.Settings.SecondaryClickEntity-UpdatableEntity",
   /**
    * **Set Focus**
+   *
    * Turn a specific Focus on or off (SettingsPlaceholder)
+   *
    * Parameters: `enable`, `focus`, `ShowWhenRun`
    */
   com_apple_settings_set_focus: "com.apple.Settings.SetFocusState",
   /**
    * **Find Touch ID & Password Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Touch ID & Password Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_touch_id_password_settings: "com.apple.Settings.SettingsEntity",
   /**
    * **Find SetupFamilyDeepLink**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: SetupFamilyDeepLink
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_setup_family_deep_link: "com.apple.Settings.SetupFamilyDeepLink",
   /**
    * **Get Show wallpaper as screen saver on main display**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Show wallpaper as screen saver on main display
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_show_wallpaper_as_screen_saver_on_main_display: "com.apple.Settings.ShowAsScreenSaverEntity",
   /**
    * **Update Show wallpaper as screen saver on main display**
+   *
    * Change the Show wallpaper as screen saver on main display value of Show wallpaper as screen saver on main display (SettingsPlaceholder)
+   *
    * Output: Show wallpaper as screen saver on main display
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_show_wallpaper_as_screen_saver_on_main_display: "com.apple.Settings.ShowAsScreenSaverEntity-UpdatableEntity",
   /**
    * **Get Show screen saver as wallpaper on main display**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Show screen saver as wallpaper on main display
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_show_screen_saver_as_wallpaper_on_main_display: "com.apple.Settings.ShowAsWallpaperEntity",
   /**
    * **Update Show screen saver as wallpaper on main display**
+   *
    * Change the Show screen saver as wallpaper on main display value of Show screen saver as wallpaper on main display (SettingsPlaceholder)
+   *
    * Output: Show screen saver as wallpaper on main display
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_show_screen_saver_as_wallpaper_on_main_display: "com.apple.Settings.ShowAsWallpaperEntity-UpdatableEntity",
   /**
    * **Get Show Battery Percentage**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Show Battery Percentage
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_show_battery_percentage: "com.apple.Settings.ShowBatteryPercentageEntity",
   /**
    * **Update Show Battery Percentage**
+   *
    * Change the Show Battery Percentage value of Show Battery Percentage (SettingsPlaceholder)
+   *
    * Output: Show Battery Percentage
+   *
    * Parameters: `entity`, `showBatteryPercentage`
    */
   com_apple_settings_update_show_battery_percentage: "com.apple.Settings.ShowBatteryPercentageEntity-UpdatableEntity",
   /**
    * **Update Show menu bar background**
+   *
    * Change the Show menu bar background value of Show menu bar background (SettingsPlaceholder)
+   *
    * Output: Show menu bar background
+   *
    * Parameters: `entity`, `showMenuBarBackground`
    */
   com_apple_settings_update_show_menu_bar_background: "com.apple.Settings.ShowMenuBarBackgroundEntity-UpdatableEntity",
   /**
    * **Get Show screen saver on all Spaces**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Show screen saver on all Spaces
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_show_screen_saver_on_all_spaces: "com.apple.Settings.ShowScreenSaverOnAllSpacesEntity",
   /**
    * **Update Show screen saver on all Spaces**
+   *
    * Change the Show screen saver on all Spaces value of Show screen saver on all Spaces (SettingsPlaceholder)
+   *
    * Output: Show screen saver on all Spaces
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_show_screen_saver_on_all_spaces: "com.apple.Settings.ShowScreenSaverOnAllSpacesEntity-UpdatableEntity",
   /**
    * **Get Show wallpaper on all Spaces**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Show wallpaper on all Spaces
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_show_wallpaper_on_all_spaces: "com.apple.Settings.ShowWallpaperOnAllSpacesEntity",
   /**
    * **Update Show wallpaper on all Spaces**
+   *
    * Change the Show wallpaper on all Spaces value of Show wallpaper on all Spaces (SettingsPlaceholder)
+   *
    * Output: Show wallpaper on all Spaces
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_show_wallpaper_on_all_spaces: "com.apple.Settings.ShowWallpaperOnAllSpacesEntity-UpdatableEntity",
   /**
    * **Find Siri Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Siri Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_siri_settings: "com.apple.Settings.SiriSetupSettingsDeepLink",
   /**
    * **Get Smart zoom**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Smart zoom
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_smart_zoom: "com.apple.Settings.SmartZoomEntity",
   /**
    * **Update Smart zoom**
+   *
    * Change the Smart zoom value of Smart zoom (SettingsPlaceholder)
+   *
    * Output: Smart zoom
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_smart_zoom: "com.apple.Settings.SmartZoomEntity-UpdatableEntity",
   /**
    * **SoftwareUpdateSettingsExtensionIntents**
+   *
    *  (SettingsPlaceholder)
    */
   com_apple_settings_software_update_settings_extension_intents: "com.apple.Settings.SoftwareUpdateSettingsExtensionIntents",
   /**
    * **Find Software Update Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Software Update Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_software_update_settings: "com.apple.Settings.SoftwareUpdateSettingsExtensionSettingsDeepLink",
   /**
    * **Find Search Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Search Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_search_settings: "com.apple.Settings.SpotlightSettingsDeepLinks",
   /**
    * **Find Startup Disk Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Startup Disk Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_startup_disk_settings: "com.apple.Settings.StartupDiskSettingsDeepLink",
   /**
    * **Find Storage Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Storage Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_storage_settings: "com.apple.Settings.StorageSettingsDeepLink",
   /**
    * **Get Swipe between pages**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Swipe between pages
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_swipe_between_pages: "com.apple.Settings.SwipeBetweenPagesEntity",
   /**
    * **Update Swipe between pages**
+   *
    * Change the Swipe between pages value of Swipe between pages (SettingsPlaceholder)
+   *
    * Output: Swipe between pages
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_swipe_between_pages: "com.apple.Settings.SwipeBetweenPagesEntity-UpdatableEntity",
   /**
    * **Find Time Machine Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Time Machine Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_time_machine_settings: "com.apple.Settings.TimeMachineSettingsSettingsDeepLink",
   /**
    * **Get The Current Time Zone**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: The Current Time Zone
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_the_current_time_zone: "com.apple.Settings.TimeZoneEntity",
   /**
    * **Get App Exposé**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: App Exposé
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_app_exposé: "com.apple.Settings.TrackpadAppExposeEntity",
   /**
    * **Update App Exposé**
+   *
    * Change the App Exposé value of App Exposé (SettingsPlaceholder)
+   *
    * Output: App Exposé
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_app_exposé: "com.apple.Settings.TrackpadAppExposeEntity-UpdatableEntity",
   /**
    * **Get Click pressure**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Click pressure
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_click_pressure: "com.apple.Settings.TrackpadClickPressureEntity",
   /**
    * **Update Click pressure**
+   *
    * Change the Click pressure value of Click pressure (SettingsPlaceholder)
+   *
    * Output: Click pressure
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_click_pressure: "com.apple.Settings.TrackpadClickPressureEntity-UpdatableEntity",
   /**
    * **Find Trackpad Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Trackpad Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_trackpad_settings: "com.apple.Settings.TrackpadExtensionSettingsDeepLink",
   /**
    * **Get Force click and haptic feedback**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Force click and haptic feedback
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_force_click_and_haptic_feedback: "com.apple.Settings.TrackpadForceClickEntity",
   /**
    * **Update Force click and haptic feedback**
+   *
    * Change the Force click and haptic feedback value of Force click and haptic feedback (SettingsPlaceholder)
+   *
    * Output: Force click and haptic feedback
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_force_click_and_haptic_feedback: "com.apple.Settings.TrackpadForceClickEntity-UpdatableEntity",
   /**
    * **Get Launchpad**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Launchpad
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_launchpad: "com.apple.Settings.TrackpadLaunchpadEntity",
   /**
    * **Update Launchpad**
+   *
    * Change the Launchpad value of Launchpad (SettingsPlaceholder)
+   *
    * Output: Launchpad
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_launchpad: "com.apple.Settings.TrackpadLaunchpadEntity-UpdatableEntity",
   /**
    * **Get Force Click and haptic feedback**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Force Click and haptic feedback
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_Settings_TrackpadLookUpAndDataDetectorsEntity: "com.apple.Settings.TrackpadLookUpAndDataDetectorsEntity",
   /**
    * **Update Force Click and haptic feedback**
+   *
    * Change the Force Click and haptic feedback value of Force Click and haptic feedback (SettingsPlaceholder)
+   *
    * Output: Force Click and haptic feedback
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_Settings_TrackpadLookUpAndDataDetectorsEntity_UpdatableEntity: "com.apple.Settings.TrackpadLookUpAndDataDetectorsEntity-UpdatableEntity",
   /**
    * **Get Mission Control**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Mission Control
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_Settings_TrackpadMissionControlEntity: "com.apple.Settings.TrackpadMissionControlEntity",
   /**
    * **Update Mission Control**
+   *
    * Change the Mission Control value of Mission Control (SettingsPlaceholder)
+   *
    * Output: Mission Control
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_Settings_TrackpadMissionControlEntity_UpdatableEntity: "com.apple.Settings.TrackpadMissionControlEntity-UpdatableEntity",
   /**
    * **Get Notification Center**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Notification Center
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_Settings_TrackpadNotificiationCenterEntity: "com.apple.Settings.TrackpadNotificiationCenterEntity",
   /**
    * **Update Notification Center**
+   *
    * Change the Notification Center value of Notification Center (SettingsPlaceholder)
+   *
    * Output: Notification Center
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_notification_center: "com.apple.Settings.TrackpadNotificiationCenterEntity-UpdatableEntity",
   /**
    * **Get Quiet click**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Quiet click
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_quiet_click: "com.apple.Settings.TrackpadQuietClickEntity",
   /**
    * **Update Quiet click**
+   *
    * Change the Quiet click value of Quiet click (SettingsPlaceholder)
+   *
    * Output: Quiet click
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_quiet_click: "com.apple.Settings.TrackpadQuietClickEntity-UpdatableEntity",
   /**
    * **Get Rotate**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Rotate
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_rotate: "com.apple.Settings.TrackpadRotateEntity",
   /**
    * **Update Rotate**
+   *
    * Change the Rotate value of Rotate (SettingsPlaceholder)
+   *
    * Output: Rotate
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_rotate: "com.apple.Settings.TrackpadRotateEntity-UpdatableEntity",
   /**
    * **Get Trackpad secondary click**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Trackpad secondary click
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_trackpad_secondary_click: "com.apple.Settings.TrackpadSecondaryClickEntity",
   /**
    * **Update Trackpad secondary click**
+   *
    * Change the Trackpad secondary click value of Trackpad secondary click (SettingsPlaceholder)
+   *
    * Output: Trackpad secondary click
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_trackpad_secondary_click: "com.apple.Settings.TrackpadSecondaryClickEntity-UpdatableEntity",
   /**
    * **Get Show Desktop**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Show Desktop
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_show_desktop: "com.apple.Settings.TrackpadShowDesktopEntity",
   /**
    * **Update Show Desktop**
+   *
    * Change the Show Desktop value of Show Desktop (SettingsPlaceholder)
+   *
    * Output: Show Desktop
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_show_desktop: "com.apple.Settings.TrackpadShowDesktopEntity-UpdatableEntity",
   /**
    * **Get Smart zoom**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Smart zoom
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_Settings_TrackpadSmartZoomEntity: "com.apple.Settings.TrackpadSmartZoomEntity",
   /**
    * **Update Smart zoom**
+   *
    * Change the Smart zoom value of Smart zoom (SettingsPlaceholder)
+   *
    * Output: Smart zoom
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_Settings_TrackpadSmartZoomEntity_UpdatableEntity: "com.apple.Settings.TrackpadSmartZoomEntity-UpdatableEntity",
   /**
    * **Get Swipe between pages**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Swipe between pages
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_Settings_TrackpadSwipeBetweenAppsEntity: "com.apple.Settings.TrackpadSwipeBetweenAppsEntity",
   /**
    * **Update Swipe between pages**
+   *
    * Change the Swipe between pages value of Swipe between pages (SettingsPlaceholder)
+   *
    * Output: Swipe between pages
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_Settings_TrackpadSwipeBetweenAppsEntity_UpdatableEntity: "com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity",
   /**
    * **Get Swipe between pages**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Swipe between pages
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_Settings_TrackpadSwipeBetweenPagesEntity: "com.apple.Settings.TrackpadSwipeBetweenPagesEntity",
   /**
    * **Update Swipe between pages**
+   *
    * Change the Swipe between pages value of Swipe between pages (SettingsPlaceholder)
+   *
    * Output: Swipe between pages
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_Settings_TrackpadSwipeBetweenPagesEntity_UpdatableEntity: "com.apple.Settings.TrackpadSwipeBetweenPagesEntity-UpdatableEntity",
   /**
    * **Get Tap to click**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Tap to click
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_tap_to_click: "com.apple.Settings.TrackpadTapToClickEntity",
   /**
    * **Update Tap to click**
+   *
    * Change the Tap to click value of Tap to click (SettingsPlaceholder)
+   *
    * Output: Tap to click
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_tap_to_click: "com.apple.Settings.TrackpadTapToClickEntity-UpdatableEntity",
   /**
    * **Get Trackpad tracking speed**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Trackpad tracking speed
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_trackpad_tracking_speed: "com.apple.Settings.TrackpadTrackingSpeedEntity",
   /**
    * **Update Trackpad tracking speed**
+   *
    * Change the Trackpad tracking speed value of Trackpad tracking speed (SettingsPlaceholder)
+   *
    * Output: Trackpad tracking speed
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_trackpad_tracking_speed: "com.apple.Settings.TrackpadTrackingSpeedEntity-UpdatableEntity",
   /**
    * **Get Zoom in or out**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Zoom in or out
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_zoom_in_or_out: "com.apple.Settings.TrackpadZoomInOutEntity",
   /**
    * **Update Zoom in or out**
+   *
    * Change the Zoom in or out value of Zoom in or out (SettingsPlaceholder)
+   *
    * Output: Zoom in or out
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_settings_update_zoom_in_or_out: "com.apple.Settings.TrackpadZoomInOutEntity-UpdatableEntity",
   /**
    * **Update Fast User Switching menu style**
+   *
    * Change the Fast User Switching menu style value of Fast User Switching menu style (SettingsPlaceholder)
+   *
    * Output: Fast User Switching menu style
+   *
    * Parameters: `entity`, `userSwitcherMenuStyle`
    */
   com_apple_settings_update_fast_user_switching_menu_style: "com.apple.Settings.UserSwitcherMenuStyleEntity-UpdatableEntity",
   /**
    * **Find VPN Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: VPN Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_vpn_settings: "com.apple.Settings.VpnSettingsDeepLink",
   /**
    * **Find Wallpaper Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Wallpaper Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_wallpaper_settings: "com.apple.Settings.WallpaperSettingsDeepLink",
   /**
    * **Find Wi‑Fi Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Wi‑Fi Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_wi_fi_settings: "com.apple.Settings.WiFiSettingsDeepLink",
   /**
    * **Get Widget Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Widget Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_widget_settings: "com.apple.Settings.WidgetSettingsEntity",
   /**
    * **Edit Widget Settings**
+   *
    * Edit Widget Settings
  • Show Widgets In Stage Manager
  • Show Widgets On Desktop
  • Dim widgets on desktop (SettingsPlaceholder)
+   *
    * Output: Widget Settings
+   *
    * Parameters: `entity`, `showWidgetsInStageManager`, `showWidgetsOnDesktop`, `widgetAppearance`
    */
   com_apple_settings_edit_widget_settings: "com.apple.Settings.WidgetSettingsEntity-UpdatableEntity",
   /**
    * **Get Windows Settings**
+   *
    *  (SettingsPlaceholder)
+   *
    * Output: Windows Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_get_windows_settings: "com.apple.Settings.WindowsSettingsEntity",
   /**
    * **Edit Windows Settings**
+   *
    * Edit Windows Settings
  • Ask to keep changes when closing documents
  • Close windows when quitting an application
  • Prefer tabs when opening documents (SettingsPlaceholder)
+   *
    * Output: Windows Settings
+   *
    * Parameters: `askToKeepChangesWhenClosingDocuments`, `closeWindowsWhenQuittingAnApplication`, `entity`, `preferTabsWhenOpeningDocuments`
    */
   com_apple_settings_edit_windows_settings: "com.apple.Settings.WindowsSettingsEntity-UpdatableEntity",
   /**
    * **Find Cellular Plan**
+   *
    *  (ShortcutsActions)
+   *
    * Output: Cellular Plan
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_shortcuts_actions_find_cellular_plan: "com.apple.ShortcutsActions.CellularPlanEntity",
   /**
    * **Find Charge Limit**
+   *
    *  (ShortcutsActions)
+   *
    * Output: Charge Limit
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_shortcuts_actions_find_charge_limit: "com.apple.ShortcutsActions.ChargeLimit",
   /**
    * **Get Multitasking Mode**
+   *
    * Returns the current multitasking mode of the device. (ShortcutsActions)
+   *
    * Output: Multitasking Mode
    */
   com_apple_shortcuts_actions_get_multitasking_mode: "com.apple.ShortcutsActions.GetMultitaskingModeAction",
   /**
    * **Get Orientation**
+   *
    * Returns the device’s current orientation on iPhone and iPad.
 
 A result of “Unknown” indicates that the device is not supported. (ShortcutsActions)
+   *
    * Output: Orientation
    */
   settings_get_orientation: "com.apple.ShortcutsActions.GetOrientationAction",
   /**
    * **Get Physical Activity**
+   *
    * Returns a Physical Activity that describes your apparent movement (for example, Stationary, Running, or In a Moving Vehicle). On iPhone, iPad, and Apple Watch, the system uses the device’s sensors to determine your physical activity.
 
 A result of “Moving” indicates that the motion doesn’t seem to fit a known pattern. You may observe higher accuracy by adjusting the device’s placement.
 
 A result of “Unknown” indicates that the device is not supported. (ShortcutsActions)
+   *
    * Output: Physical Activity
    */
   health_get_physical_activity: "com.apple.ShortcutsActions.GetPhysicalActivity",
   /**
    * **Reset Cellular Data Statistics**
+   *
    * Resets the cellular data usage counters for the current Data line in Settings. (ShortcutsActions)
    */
   com_apple_shortcuts_actions_reset_cellular_data_statistics: "com.apple.ShortcutsActions.ResetCellularDataStatisticsAction",
   /**
    * **Set Battery Charge Limit**
+   *
    * Sets the battery charge limit of the device. (ShortcutsActions)
+   *
    * Parameters: `limit`, `setUntilTomorrow`
    */
   settings_set_battery_charge_limit: "com.apple.ShortcutsActions.SetBatteryChargeLimitAction",
   /**
    * **Set Data Roaming**
+   *
    * Sets the Data Roaming setting for a given cellular plan. (ShortcutsActions)
+   *
    * Parameters: `plan`, `operation`, `state`
    */
   com_apple_shortcuts_actions_set_data_roaming: "com.apple.ShortcutsActions.SetDataRoamingAction",
   /**
    * **Set Default Line**
+   *
    * Sets the cellular plan used by default for voice calls or data. (ShortcutsActions)
+   *
    * Parameters: `type`, `plan`, `allowCellularDataSwitching`
    */
   com_apple_shortcuts_actions_set_default_line: "com.apple.ShortcutsActions.SetDefaultCellularPlanAction",
   /**
    * **Set Multitasking Mode**
+   *
    * Sets the multitasking mode of the device. (ShortcutsActions)
+   *
    * Parameters: `mode`, `automaticallyShowAndHideDock`, `showRecentApps`
    */
   com_apple_shortcuts_actions_set_multitasking_mode: "com.apple.ShortcutsActions.SetMultitaskingModeAction",
   /**
    * **Set Silent Mode**
+   *
    * Switch between Silent and Ring for calls and alerts. (ShortcutsActions)
+   *
    * Parameters: `operation`, `state`
    */
   com_apple_shortcuts_actions_set_silent_mode: "com.apple.ShortcutsActions.SetSilentModeAction",
   /**
    * **Set Voice & Data**
+   *
    * Sets the Voice & Data mode. (ShortcutsActions)
+   *
    * Parameters: `sim`, `ratMode`
    */
   com_apple_shortcuts_actions_set_voice_data: "com.apple.ShortcutsActions.SetVoiceDataModeAction",
   /**
    * **Show Control Center**
+   *
    * Shows, hides, or toggles Control Center. (ShortcutsActions)
+   *
    * Parameters: `operation`
    */
   com_apple_shortcuts_actions_show_control_center: "com.apple.ShortcutsActions.ShowControlCenterAction",
   /**
    * **Start Time Machine Backup**
+   *
    * Initiates or interrupts a Time Machine backup to the given destination. (ShortcutsActions)
+   *
    * Parameters: `mode`, `destination`
    */
   com_apple_backup_launcher_start_time_machine_backup: "com.apple.ShortcutsActions.TimeMachineAction",
   /**
    * **Toggle Cellular Plan**
+   *
    * Enables or disables a cellular plan on this iPhone. (ShortcutsActions)
+   *
    * Parameters: `plan`, `operation`, `state`
    */
   com_apple_shortcuts_actions_toggle_cellular_plan: "com.apple.ShortcutsActions.ToggleCellularPlanAction",
   /**
    * **Transcribe Audio**
+   *
    * Transcribes an audio file to text. (ShortcutsActions)
+   *
    * Output: Transcribed Audio
+   *
    * Parameters: `audioFile`
    */
   com_apple_shortcuts_actions_transcribe_audio: "com.apple.ShortcutsActions.TranscribeAudioAction",
   /**
    * **Clear Current Search**
+   *
    * Clear current search and return to recents and suggestions (Spotlight)
    */
   spotlight_clear_current_search: "com.apple.Spotlight.ClearSpotlightIntent",
   /**
    * **Get Current Search Query**
+   *
    *  (Spotlight)
+   *
    * Output: Current Search Query
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   spotlight_get_current_search_query: "com.apple.Spotlight.SearchFieldEntity",
   /**
    * **Open Search**
+   *
    * Opens Search and performs a search for the specified text. (Spotlight)
+   *
    * Parameters: `criteria`
    */
   spotlight_open_search: "com.apple.Spotlight.SearchSpotlightIntent",
   /**
    * **Continue Search in App**
+   *
    * Continue Search with the same search query in another app (Spotlight)
+   *
    * Parameters: `target`
    */
   spotlight_continue_search_in_app: "com.apple.Spotlight.SearchUIContinuationIntent",
   /**
    * **Open Siri Knowledge Page**
+   *
    * Navigate to Siri Knowledge Page (Spotlight)
+   *
    * Parameters: `target`
    */
   spotlight_open_siri_knowledge_page: "com.apple.Spotlight.SearchUIOpenKnowledgeIntent",
   /**
    * **Show Search**
+   *
    * Shows or hides Search. (Spotlight)
+   *
    * Parameters: `action`
    */
   spotlight_show_search: "com.apple.Spotlight.ToggleSpotlightIntent",
   /**
    * **Close an App**
+   *
    * Closes an app matching the provided application parameter. (SystemIntents)
+   *
    * Parameters: `application`
    */
   com_apple_system_intents_close_an_app: "com.apple.SystemIntents.CloseApplicationIntent",
   /**
    * **Launch an App**
+   *
    * Opens an app matching the provided application parameter. (SystemIntents)
+   *
    * Parameters: `application`, `url`
    */
   com_apple_system_intents_launch_an_app: "com.apple.SystemIntents.LaunchApplicationIntent",
   /**
    * **Show Desktop**
+   *
    * Shows the user's Desktop. (SystemIntents)
    */
   com_apple_system_intents_show_desktop: "com.apple.SystemIntents.ShowHomeScreenIntent",
   /**
    * **Open Contact Key Verification Public Verification Code Settings**
+   *
    *  (TransparencySettingsIntents)
+   *
    * Parameters: `target`
    */
   settings_open_contact_key_verification_public_verification_code_settings: "com.apple.TransparencySettingsIntents.OpenTransparencyPublicVerificationCodeDeepLink",
   /**
    * **Open Contact Key Verification Status Settings**
+   *
    *  (TransparencySettingsIntents)
+   *
    * Parameters: `target`
    */
   settings_open_contact_key_verification_status_settings: "com.apple.TransparencySettingsIntents.OpenTransparencyStatusDeepLink",
   /**
    * **Get Contact Key Verification Public Verification Code**
+   *
    *  (TransparencySettingsIntents)
+   *
    * Output: Contact Key Verification Public Verification Code
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_contact_key_verification_public_verification_code: "com.apple.TransparencySettingsIntents.TransparencyPublicVerificationCodeEntity",
   /**
    * **TransparencySettingsIntents**
+   *
    *  (TransparencySettingsIntents)
    */
   com_apple_transparency_settings_intents_transparency_settings_intents: "com.apple.TransparencySettingsIntents.TransparencySettingsIntents",
   /**
    * **Get Contact Key Verification Status**
+   *
    *  (TransparencySettingsIntents)
+   *
    * Output: Contact Key Verification Status
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_contact_key_verification_status: "com.apple.TransparencySettingsIntents.TransparencyStatusEntity",
   /**
    * **Scan QR or Barcode**
+   *
    * Detect barcodes from an image (VisionAppIntents)
+   *
    * Output: QR/Barcodes
+   *
    * Parameters: `imageFile`
    */
   com_apple_vision_app_intents_scan_qr_or_barcode: "com.apple.VisionAppIntents.DetectBarcodesIntent",
   /**
    * **Find Similar Images**
+   *
    * Find similar images to this image (VisionAppIntents)
+   *
    * Output: Image
+   *
    * Parameters: `referenceImageFile`, `imageFiles`, `maxImages`, `threshold`
    */
   com_apple_vision_app_intents_find_similar_images: "com.apple.VisionAppIntents.FindSimilarImagesIntent",
   /**
    * **Extract Text from Image**
+   *
    * Uses OCR to extract text from the provided image. (VisionAppIntents)
+   *
    * Output: Extracted Text
+   *
    * Parameters: `imageFile`, `contentType`
    */
   com_apple_vision_app_intents_extract_text_from_image: "com.apple.VisionAppIntents.RecognizeDocumentIntent",
   /**
    * **Remove Background from Image**
+   *
    * Remove the background from the specified image, keeping the subject. (VisionAppIntents)
+   *
    * Output: Images without Background
+   *
    * Parameters: `imageFiles`, `crop`
    */
   com_apple_vision_app_intents_remove_background_from_image: "com.apple.VisionAppIntents.RemoveBackgroundIntent",
   /**
    * **Get Audio Quality**
+   *
    *  (Voice Memos)
+   *
    * Output: Audio Quality
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_audio_quality: "com.apple.VoiceMemos.AudioQualityEntity",
   /**
    * **Edit Audio Quality**
+   *
    * Change the “recording quality” value of Audio Quality (Voice Memos)
+   *
    * Output: Audio Quality
+   *
    * Parameters: `entity`, `value`
    */
   settings_edit_audio_quality: "com.apple.VoiceMemos.AudioQualityEntity-UpdatableEntity",
   /**
    * **Change Recording Playback Setting**
+   *
    * Changes playback settings in Voice Memos. (Voice Memos)
+   *
    * Parameters: `changeOperation`, `setting`
    */
   voice_memos_change_recording_playback_setting: "com.apple.VoiceMemos.ChangeRecordingPlaybackSetting",
   /**
    * **Get Clear Deleted**
+   *
    *  (Voice Memos)
+   *
    * Output: Clear Deleted
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_clear_deleted: "com.apple.VoiceMemos.ClearDeletedEntity",
   /**
    * **Edit Clear Deleted**
+   *
    * Change the “duration of how long deleted Voice Memos are kept” value of Clear Deleted (Voice Memos)
+   *
    * Output: Clear Deleted
+   *
    * Parameters: `entity`, `value`
    */
   settings_edit_clear_deleted: "com.apple.VoiceMemos.ClearDeletedEntity-UpdatableEntity",
   /**
    * **Create Folder**
+   *
    * Creates a new folder in Voice Memos. (Voice Memos)
+   *
    * Output: Folders
+   *
    * Parameters: `name`, `ShowWhenRun`
    */
   voice_memos_create_folder: "com.apple.VoiceMemos.CreateFolder",
   /**
    * **Delete Folders**
+   *
    * Deletes the specified folders. (Voice Memos)
+   *
    * Parameters: `entities`
    */
   voice_memos_delete_folders: "com.apple.VoiceMemos.DeleteFolder",
   /**
    * **Delete Recordings**
+   *
    * Deletes the specified recordings. (Voice Memos)
+   *
    * Parameters: `entities`
    */
   voice_memos_delete_recordings: "com.apple.VoiceMemos.DeleteRecording",
   /**
    * **Get Location-based Naming**
+   *
    *  (Voice Memos)
+   *
    * Output: Location-based Naming
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_location_based_naming: "com.apple.VoiceMemos.LocationBasedNamingEntity",
   /**
    * **Edit Location-based Naming**
+   *
    * Change the “naming” value of Location-based Naming (Voice Memos)
+   *
    * Output: Location-based Naming
+   *
    * Parameters: `entity`, `value`
    */
   settings_edit_location_based_naming: "com.apple.VoiceMemos.LocationBasedNamingEntity-UpdatableEntity",
   /**
    * **Open Folder**
+   *
    * Opens a specific folder in Voice Memos. (Voice Memos)
+   *
    * Parameters: `target`
    */
   voice_memos_open_folder: "com.apple.VoiceMemos.OpenFolder",
   /**
    * **Play Recording**
+   *
    * Plays a recording. (Voice Memos)
+   *
    * Parameters: `playbackType`, `entity`
    */
   voice_memos_play_recording: "com.apple.VoiceMemos.PlaybackVoiceMemoIntent",
   /**
    * **Find Recordings**
+   *
    *  (Voice Memos)
+   *
    * Output: Recordings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   voice_memos_find_recordings: "com.apple.VoiceMemos.RCRecordingEntity",
   /**
    * **Create Recording**
+   *
    * Creates a new recording in Voice Memos. (Voice Memos)
+   *
    * Parameters: `name`
    */
   voice_memos_create_recording: "com.apple.VoiceMemos.RecordVoiceMemoIntent",
   /**
    * **Get Reset Identifier**
+   *
    *  (Voice Memos)
+   *
    * Output: Reset Identifier
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_reset_identifier: "com.apple.VoiceMemos.ResetAnalyticsIdentifierEntity",
   /**
    * **Search in Voice Memos**
+   *
    * Opens Voice Memos and performs a search for the specified text. (Voice Memos)
+   *
    * Parameters: `searchPhrase`
    */
   voice_memos_search_in_voice_memos: "com.apple.VoiceMemos.SearchRecordings",
   /**
    * **Select Recording**
+   *
    * Opens a specific recording in Voice Memos. (Voice Memos)
+   *
    * Parameters: `target`
    */
   voice_memos_select_recording: "com.apple.VoiceMemos.SelectRecording",
   /**
    * **Stop Recording**
+   *
    * Stops the current recording. (Voice Memos)
    */
   voice_memos_stop_recording: "com.apple.VoiceMemos.StopRecording",
   /**
    * **Change Voice Memos Settings**
+   *
    * Changes the state of the selected Voice Memos setting. (Voice Memos)
+   *
    * Output: Audio Quality
+   *
    * Parameters: `entity`, `AudioQualityEntity`, `ClearDeletedEntity`, `LocationBasedNamingEntity`
    */
   voice_memos_change_voice_memos_settings: "com.apple.VoiceMemos.WFAppSettingEntityUpdaterAction",
   /**
    * **Get Voice Memos Settings**
+   *
    * Gets the current state of the selected Voice Memos setting. (Voice Memos)
+   *
    * Output: Audio Quality
+   *
    * Parameters: `entity`
    */
   voice_memos_get_voice_memos_settings: "com.apple.VoiceMemos.WFGetAppSettingAction",
   /**
    * **Application Windows**
+   *
    *  (WindowManager)
    */
   com_apple_window_manager_application_windows: "com.apple.WindowManager.AppExposeAction",
   /**
    * **Tile Windows to Corners**
+   *
    *  (WindowManager)
    */
   com_apple_window_manager_tile_windows_to_corners: "com.apple.WindowManager.CornersTileAction",
   /**
    * **Mission Control**
+   *
    *  (WindowManager)
    */
   com_apple_window_manager_mission_control: "com.apple.WindowManager.MissionControlAction",
   /**
    * **Show Desktop**
+   *
    *  (WindowManager)
    */
   com_apple_window_manager_show_desktop: "com.apple.WindowManager.ShowDesktopAction",
   /**
    * **Enable Stage Manager**
+   *
    *  (WindowManager)
+   *
    * Parameters: `value`
    */
   com_apple_window_manager_enable_stage_manager: "com.apple.WindowManager.StageManagerToggleIntent",
   /**
    * **Tile Windows Left & Corners**
+   *
    *  (WindowManager)
    */
   com_apple_window_manager_tile_windows_left_corners: "com.apple.WindowManager.ThreeUpTileAction",
   /**
    * **Tile Windows Left & Right**
+   *
    *  (WindowManager)
    */
   com_apple_window_manager_tile_windows_left_right: "com.apple.WindowManager.TwoUpTileAction",
   /**
    * **Adjust Tone of Text**
+   *
    * Adjusts the tone of the provided text using Apple Intelligence. (Writing Tools App Intents)
+   *
    * Output: Text
+   *
    * Parameters: `text`, `tone`
    */
   com_apple_writing_tools_writing_tools_app_intents_extension_adjust_tone_of_text: "com.apple.WritingTools.WritingToolsAppIntentsExtension.AdjustToneIntent",
   /**
    * **Compose Text**
+   *
    * Composes text given a prompt and context using Apple Intelligence. (Writing Tools App Intents)
+   *
    * Output: Text
+   *
    * Parameters: `prompt`, `selectedText`, `context`
    */
   com_apple_writing_tools_writing_tools_app_intents_extension_compose_text: "com.apple.WritingTools.WritingToolsAppIntentsExtension.ComposeIntent",
   /**
    * **Make List from Text**
+   *
    * Organizes the provided text in a list using Apple Intelligence. (Writing Tools App Intents)
+   *
    * Output: List
+   *
    * Parameters: `text`
    */
   com_apple_writing_tools_writing_tools_app_intents_extension_make_list_from_text: "com.apple.WritingTools.WritingToolsAppIntentsExtension.FormatListIntent",
   /**
    * **Make Table from Text**
+   *
    * Organizes the provided text in a table using Apple Intelligence. (Writing Tools App Intents)
+   *
    * Output: Table
+   *
    * Parameters: `text`
    */
   com_apple_writing_tools_writing_tools_app_intents_extension_make_table_from_text: "com.apple.WritingTools.WritingToolsAppIntentsExtension.FormatTableIntent",
   /**
    * **Proofread Text**
+   *
    * Corrects grammatical and spelling errors in the provided text using Apple Intelligence. (Writing Tools App Intents)
+   *
    * Output: Text
+   *
    * Parameters: `text`
    */
   com_apple_writing_tools_writing_tools_app_intents_extension_proofread_text: "com.apple.WritingTools.WritingToolsAppIntentsExtension.ProofreadIntent",
   /**
    * **Ask a Question about Text**
+   *
    * Provides an answer given a question about a given text using Apple Intelligence. (Writing Tools App Intents)
+   *
    * Output: Answer
+   *
    * Parameters: `question`, `selectedText`, `context`
    */
   com_apple_writing_tools_writing_tools_app_intents_extension_ask_a_question_about_text: "com.apple.WritingTools.WritingToolsAppIntentsExtension.QuestionAnswerIntent",
   /**
    * **Rewrite Text**
+   *
    * Rewrites the provided text using Apple Intelligence. (Writing Tools App Intents)
+   *
    * Output: Text
+   *
    * Parameters: `text`
    */
   com_apple_writing_tools_writing_tools_app_intents_extension_rewrite_text: "com.apple.WritingTools.WritingToolsAppIntentsExtension.RewriteTextIntent",
   /**
    * **Summarize Text**
+   *
    * Generates a summary of the provided text using Apple Intelligence. (Writing Tools App Intents)
+   *
    * Output: Text
+   *
    * Parameters: `text`, `summaryType`
    */
   com_apple_writing_tools_writing_tools_app_intents_extension_summarize_text: "com.apple.WritingTools.WritingToolsAppIntentsExtension.SummarizeTextIntent",
   /**
    * **Calculator**
+   *
    * Opens calculator app. (Calculator)
+   *
    * Parameters: `target`
    */
   calculator_calculator: "com.apple.calculator.LaunchCalculatorOpenIntent",
   /**
    * **Answer the call**
+   *
    * Answers an incoming call (PhoneAppIntentsExtension)
+   *
    * Parameters: `call`
    */
   com_apple_calls_phone_app_intents_extension_answer_the_call: "com.apple.calls.PhoneAppIntentsExtension.AnswerCallIntent",
   /**
    * **Find Emergency Destination**
+   *
    *  (PhoneAppIntentsExtension)
+   *
    * Output: Emergency Destination
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_calls_phone_app_intents_extension_find_emergency_destination: "com.apple.calls.PhoneAppIntentsExtension.CallEmergencyDestination",
   /**
    * **Find Call Message**
+   *
    *  (PhoneAppIntentsExtension)
+   *
    * Output: Call Message
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_calls_phone_app_intents_extension_find_call_message: "com.apple.calls.PhoneAppIntentsExtension.CallMessage",
   /**
    * **Find Call Record**
+   *
    *  (PhoneAppIntentsExtension)
+   *
    * Output: Call Record
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_calls_phone_app_intents_extension_find_call_record: "com.apple.calls.PhoneAppIntentsExtension.CallRecord",
   /**
    * **Create a conference call**
+   *
    * Creates a conference call (PhoneAppIntentsExtension)
+   *
    * Output: Conference Call
+   *
    * Parameters: `audioVisualMode`, `destination`
    */
   face_time_create_a_conference_call: "com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent",
   /**
    * **Ends the call**
+   *
    * Ends a call (PhoneAppIntentsExtension)
+   *
    * Parameters: `call`
    */
   com_apple_calls_phone_app_intents_extension_ends_the_call: "com.apple.calls.PhoneAppIntentsExtension.EndCallIntent",
   /**
    * **Set audio route for an ongoing call**
+   *
    * Set audio route for an ongoing call (PhoneAppIntentsExtension)
+   *
    * Parameters: `audioRoute`
    */
   com_apple_calls_phone_app_intents_extension_set_audio_route_for_an_ongoing_call: "com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent",
   /**
    * **Start an emergency call**
+   *
    * Starts an emergency call (PhoneAppIntentsExtension)
+   *
    * Parameters: `destination`
    */
   com_apple_calls_phone_app_intents_extension_start_an_emergency_call: "com.apple.calls.PhoneAppIntentsExtension.StartEmergencyCallIntent",
   /**
    * **Start a FaceTime call**
+   *
    * Starts a FaceTime call to a person, handle, or named group (PhoneAppIntentsExtension)
+   *
    * Parameters: `audioVisualMode`, `destination`
    */
   face_time_start_a_face_time_call: "com.apple.calls.PhoneAppIntentsExtension.StartFaceTimeCallIntent",
   /**
    * **Start a Telephony call**
+   *
    * Starts a call to a person, handle, or named group (PhoneAppIntentsExtension)
+   *
    * Parameters: `audioVisualMode`, `destination`
    */
   phone_start_a_telephony_call: "com.apple.calls.PhoneAppIntentsExtension.StartTelephonyCallIntent",
   /**
    * **Clear Current Search**
+   *
    * Clear current search and return to recents and suggestions (Siri AI)
    */
   com_apple_campo_clear_current_search: "com.apple.campo.ClearSpotlightIntent",
   /**
    * **Resume Conversation**
+   *
    * Resume the specified conversation. (Siri AI)
+   *
    * Output: Conversation
+   *
    * Parameters: `target`
    */
   com_apple_campo_resume_conversation: "com.apple.campo.ResumeConversationIntent",
   /**
    * **Get Current Search Query**
+   *
    *  (Siri AI)
+   *
    * Output: Current Search Query
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_campo_get_current_search_query: "com.apple.campo.SearchFieldEntity",
   /**
    * **Open Search**
+   *
    * Opens Search and performs a search for the specified text. (Siri AI)
+   *
    * Parameters: `criteria`
    */
   com_apple_campo_open_search: "com.apple.campo.SearchSpotlightIntent",
   /**
    * **Continue Search in App**
+   *
    * Continue Search with the same search query in another app (Siri AI)
+   *
    * Parameters: `target`
    */
   com_apple_campo_continue_search_in_app: "com.apple.campo.SearchUIContinuationIntent",
   /**
    * **Open Siri Knowledge Page**
+   *
    * Navigate to Siri Knowledge Page (Siri AI)
+   *
    * Parameters: `target`
    */
   com_apple_campo_open_siri_knowledge_page: "com.apple.campo.SearchUIOpenKnowledgeIntent",
   /**
    * **Show Search**
+   *
    * Shows or hides Search. (Siri AI)
+   *
    * Parameters: `action`
    */
   com_apple_campo_show_search: "com.apple.campo.ToggleSpotlightIntent",
   /**
    * **Add City**
+   *
    * Adds the specified city to the Clock app. (Clock)
+   *
    * Parameters: `city`, `OpenWhenRun`
    */
   clock_add_city: "com.apple.clock.AddWorldClockIntent",
   /**
    * **Find Alarm**
+   *
    *  (Clock)
+   *
    * Output: Alarm
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   clock_find_alarm: "com.apple.clock.AssistantAlarmEntity",
   /**
    * **Cancel Timers**
+   *
    * Cancel timers (Clock)
+   *
    * Parameters: `entities`
    */
   clock_cancel_timers: "com.apple.clock.AssistantCancelTimerIntent",
   /**
    * **Add Alarm**
+   *
    * Create an alarm (Clock)
+   *
    * Output: Alarm
+   *
    * Parameters: `time`, `label`, `recurrenceDays`, `canSnooze`
    */
   clock_add_alarm: "com.apple.clock.AssistantCreateAlarmIntent",
   /**
    * **Start Timer**
+   *
    * Create a timer (Clock)
+   *
    * Output: Timer
+   *
    * Parameters: `duration`, `label`, `isSleepTimer`
    */
   clock_start_timer: "com.apple.clock.AssistantCreateTimerIntent",
   /**
    * **Delete Alarms**
+   *
    * Delete the alarms (Clock)
+   *
    * Parameters: `entities`
    */
   clock_delete_alarms: "com.apple.clock.AssistantDeleteAlarmIntent",
   /**
    * **Lap Stopwatch**
+   *
    * Lap the stopwatch (Clock)
+   *
    * Parameters: `stopwatch`
    */
   clock_lap_stopwatch: "com.apple.clock.AssistantLapStopwatchIntent",
   /**
    * **Pause Timer**
+   *
    * Pause a timer (Clock)
+   *
    * Parameters: `timer`
    */
   clock_pause_timer: "com.apple.clock.AssistantPauseTimerIntent",
   /**
    * **Reset Stopwatch**
+   *
    * Reset the stopwatch (Clock)
+   *
    * Parameters: `stopwatch`
    */
   clock_reset_stopwatch: "com.apple.clock.AssistantResetStopwatchIntent",
   /**
    * **Resume Timer**
+   *
    * Resume a timer (Clock)
+   *
    * Parameters: `timer`
    */
   clock_resume_timer: "com.apple.clock.AssistantResumeTimerIntent",
   /**
    * **Start Stopwatch**
+   *
    * Start the stopwatch (Clock)
+   *
    * Output: Stopwatch
+   *
    * Parameters: `stopwatch`
    */
   clock_start_stopwatch: "com.apple.clock.AssistantStartStopwatchIntent",
   /**
    * **Stop Stopwatch**
+   *
    * Stop the stopwatch (Clock)
+   *
    * Parameters: `stopwatch`
    */
   clock_stop_stopwatch: "com.apple.clock.AssistantStopStopwatchIntent",
   /**
    * **Cancel Timer**
+   *
    * Cancels the Timer in the Clock app. (Clock)
    */
   clock_cancel_timer: "com.apple.clock.CancelTimerIntent",
   /**
    * **Delete Alarms**
+   *
    * Deletes one or more alarms in the Clock app. (Clock)
+   *
    * Parameters: `entities`
    */
   com_apple_clock_DeleteAlarmIntent: "com.apple.clock.DeleteAlarmIntent",
   /**
    * **Dismiss Alarm**
+   *
    * Dismiss a firing or snoozed alarm (Clock)
+   *
    * Output: Alarm
+   *
    * Parameters: `alarm`
    */
   clock_dismiss_alarm: "com.apple.clock.DismissAlarmIntent",
   /**
    * **Get Current Timer**
+   *
    * Returns the total duration or remaining time of the current Timer in the Clock app. (Clock)
+   *
    * Parameters: `mode`
    */
   clock_get_current_timer: "com.apple.clock.GetCurrentTimerDetailsIntent",
   /**
    * **Get Time for City**
+   *
    * Provides time for specified city (Clock)
+   *
    * Parameters: `city`
    */
   clock_get_time_for_city: "com.apple.clock.GetTimeForCityIntent",
   /**
    * **Lap Stopwatch**
+   *
    * Laps the Stopwatch in the Clock app. (Clock)
+   *
    * Parameters: `OpenWhenRun`
    */
   com_apple_clock_LapStopwatchIntent: "com.apple.clock.LapStopwatchIntent",
   /**
    * **Opens Alarm**
+   *
    * Opens the given alarm in the Clock app. (Clock)
+   *
    * Parameters: `target`
    */
   clock_opens_alarm: "com.apple.clock.OpenAlarmIntent",
   /**
    * **Open Tab**
+   *
    * Opens the given tab in the Clock app. (Clock)
+   *
    * Parameters: `tab`
    */
   clock_open_tab: "com.apple.clock.OpenTab",
   /**
    * **Pause Timer**
+   *
    * Pauses the Timer in the Clock app. (Clock)
    */
   com_apple_clock_PauseTimerIntent: "com.apple.clock.PauseTimerIntent",
   /**
    * **Remove City**
+   *
    * Removes the specified city from the Clock app. (Clock)
+   *
    * Parameters: `entities`, `OpenWhenRun`
    */
   clock_remove_city: "com.apple.clock.RemoveWorldClockIntent",
   /**
    * **Reset Stopwatch**
+   *
    * Resets the Stopwatch in the Clock app. (Clock)
+   *
    * Parameters: `OpenWhenRun`
    */
   com_apple_clock_ResetStopwatchIntent: "com.apple.clock.ResetStopwatchIntent",
   /**
    * **Resume Timer**
+   *
    * Resumes the Timer in the Clock app. (Clock)
    */
   com_apple_clock_ResumeTimerIntent: "com.apple.clock.ResumeTimerIntent",
   /**
    * **Snooze Alarm**
+   *
    * Snooze the firing alarm (Clock)
+   *
    * Output: Alarm
+   *
    * Parameters: `alarm`, `duration`
    */
   clock_snooze_alarm: "com.apple.clock.SnoozeAlarmIntent",
   /**
    * **Start Stopwatch**
+   *
    * Starts the Stopwatch in the Clock app. (Clock)
    */
   com_apple_clock_StartStopwatchIntent: "com.apple.clock.StartStopwatchIntent",
   /**
    * **Stop the Stopwatch**
+   *
    * Stops the Stopwatch in the Clock app. (Clock)
+   *
    * Parameters: `OpenWhenRun`
    */
   clock_stop_the_stopwatch: "com.apple.clock.StopStopwatchIntent",
   /**
    * **Find Timer**
+   *
    *  (Clock)
+   *
    * Output: Timer
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   clock_find_timer: "com.apple.clock.TimerEntity",
   /**
    * **Update Alarm**
+   *
    * Update the alarm, for example, turn on / off the alarm, change the label, time, or repeating schedule (Clock)
+   *
    * Output: Alarm
+   *
    * Parameters: `alarm`, `isEnabled`, `time`, `label`, `recurrenceDays`, `allowsSnooze`
    */
   clock_update_alarm: "com.apple.clock.UpdateAlarmIntent",
   /**
    * **Update Timer**
+   *
    * Update the timer’s attributes (Clock)
+   *
    * Output: Timer
+   *
    * Parameters: `timer`, `duration`, `label`, `isSleepTimer`
    */
   clock_update_timer: "com.apple.clock.UpdateTimerIntent",
   /**
    * **Put Display to Sleep**
+   *
    *  (ControlCenter)
    */
   com_apple_controlcenter_put_display_to_sleep: "com.apple.controlcenter.DisplaySleepIntent",
   /**
    * **Lock the screen**
+   *
    *  (ControlCenter)
    */
   com_apple_controlcenter_lock_the_screen: "com.apple.controlcenter.LockScreenIntent",
   /**
    * **Start Screen Saver**
+   *
    *  (ControlCenter)
    */
   com_apple_controlcenter_start_screen_saver: "com.apple.controlcenter.ScreenSaverIntent",
   /**
    * **Enable or disable Dark Mode**
+   *
    *  (ControlCenter)
+   *
    * Parameters: `value`
    */
   com_apple_controlcenter_enable_or_disable_dark_mode: "com.apple.controlcenter.SetDarkModeEnabledIntent",
   /**
    * **Enable or disable Night Shift**
+   *
    *  (ControlCenter)
+   *
    * Parameters: `value`
    */
   com_apple_controlcenter_enable_or_disable_night_shift: "com.apple.controlcenter.SetNightShiftEnabledIntent",
   /**
    * **Enable or disable True Tone**
+   *
    *  (ControlCenter)
+   *
    * Parameters: `value`
    */
   com_apple_controlcenter_enable_or_disable_true_tone: "com.apple.controlcenter.SetTrueToneEnabledIntent",
   /**
    * **Automatically hide and show the Dock**
+   *
    *  (Dock)
+   *
    * Parameters: `value`
    */
   com_apple_dock_automatically_hide_and_show_the_dock: "com.apple.dock.SetDockAutoHideEnabledIntent",
   /**
    * **Compress Items**
+   *
    * Compresses items into an archive (Finder)
+   *
    * Output: File
+   *
    * Parameters: `sources`, `format`, `destination`, `OpenWhenRun`
    */
   finder_compress_items: "com.apple.finder.CompressItemsIntent",
   /**
    * **Copy and Move Items**
+   *
    * Copies items to another location (Finder)
+   *
    * Output: File
+   *
    * Parameters: `sources`, `destination`, `overwriteConflicts`, `OpenWhenRun`
    */
   finder_copy_and_move_items: "com.apple.finder.CopyItemsIntent",
   /**
    * **Create Folder**
+   *
    * Creates a new folder. (Finder)
+   *
    * Output: File
+   *
    * Parameters: `fileName`, `target`, `OpenWhenRun`
    */
   finder_create_folder: "com.apple.finder.CreateFolderIntent",
   /**
    * **Duplicate Items**
+   *
    * Duplicates items in their current locations (Finder)
+   *
    * Output: File
+   *
    * Parameters: `sources`, `OpenWhenRun`
    */
   finder_duplicate_items: "com.apple.finder.DuplicateItemsIntent",
   /**
    * **Get Info**
+   *
    * Shows the Get Info window for an item or items (Finder)
+   *
    * Output: File
+   *
    * Parameters: `targets`
    */
   finder_get_info: "com.apple.finder.GetInfoIntent",
   /**
    * **Get Location**
+   *
    * Provides a well-known location on disk (Finder)
+   *
    * Output: File
+   *
    * Parameters: `location`
    */
   finder_get_location: "com.apple.finder.GetLocationIntent",
   /**
    * **Get Selected Items**
+   *
    * Gets the selected Finder items (Finder)
+   *
    * Output: File
    */
   finder_get_selected_items: "com.apple.finder.GetSelectedItemsIntent",
   /**
    * **Go To Enclosing Folder**
+   *
    * Navigates the front Finder window to its enclosing folder (Finder)
+   *
    * Output: File
    */
   finder_go_to_enclosing_folder: "com.apple.finder.GoToEnclosingFolderIntent",
   /**
    * **Go To Folder**
+   *
    * Shows the Finder’s Go To Folder… UI (Finder)
    */
   finder_go_to_folder: "com.apple.finder.GoToFolderIntent",
   /**
    * **Go To Location**
+   *
    * Navigates to a location in a Finder window (Finder)
+   *
    * Output: File
+   *
    * Parameters: `location`
    */
   finder_go_to_location: "com.apple.finder.GoToLocationIntent",
   /**
    * **Move Items to Folder**
+   *
    * Moves existing files or folders. (Finder)
+   *
    * Output: File
+   *
    * Parameters: `entities`, `destinationFolder`, `overwriteConflicts`, `OpenWhenRun`
    */
   finder_move_items_to_folder: "com.apple.finder.MoveItemsIntent",
   /**
    * **Open Item**
+   *
    * Opens a selected file or folder. (Finder)
+   *
    * Output: File
+   *
    * Parameters: `target`
    */
   finder_open_item: "com.apple.finder.OpenItemIntent",
   /**
    * **Rename Item**
+   *
    * Renames an existing file or folder. (Finder)
+   *
    * Output: File
+   *
    * Parameters: `target`, `newName`, `overwriteExtension`, `OpenWhenRun`
    */
   finder_rename_item: "com.apple.finder.RenameItemIntent",
   /**
    * **Reveal Items**
+   *
    * Shows the items in Finder windows (Finder)
+   *
    * Output: File
+   *
    * Parameters: `targets`, `openInNewWindow`
    */
   finder_reveal_items: "com.apple.finder.RevealItemsIntent",
   /**
    * **Search in Finder**
+   *
    * Search for files and folders in Finder (Finder)
+   *
    * Parameters: `criteria`
    */
   finder_search_in_finder: "com.apple.finder.SearchInBrowserIntent",
   /**
    * **Trash Items**
+   *
    * Moves items to the Trash (Finder)
+   *
    * Output: File
+   *
    * Parameters: `entities`, `OpenWhenRun`
    */
   finder_trash_items: "com.apple.finder.TrashItemsIntent",
   /**
    * **Find Item**
+   *
    *  (Find My)
+   *
    * Output: Item
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_findmy_find_item: "com.apple.findmy.ItemEntity",
   /**
    * **Find Person**
+   *
    *  (Find My)
+   *
    * Output: Person
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_findmy_find_person: "com.apple.findmy.PersonEntity",
   /**
    * **Find Item**
+   *
    *  (Find My)
+   *
    * Output: Item
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_findmy_WidgetItemEntity: "com.apple.findmy.WidgetItemEntity",
   /**
    * **Find Person**
+   *
    *  (Find My)
+   *
    * Output: Person
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_findmy_WidgetPersonEntity: "com.apple.findmy.WidgetPersonEntity",
   /**
    * **Add Item to Board**
+   *
    * Adds an item to a board. (Freeform)
+   *
    * Output: Board
+   *
    * Parameters: `target`, `itemType`, `text`, `mediaItems`, `url`, `OpenWhenRun`
    */
   freeform_add_item_to_board: "com.apple.freeform.CRLAddItemToBoardIntent",
   /**
    * **Find Board**
+   *
    *  (Freeform)
+   *
    * Output: Board
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   freeform_find_board: "com.apple.freeform.CRLBoardEntity",
   /**
    * **Show/Hide Dot Grid**
+   *
    * Shows or hides the dot grid for a board. (Freeform)
+   *
    * Output: Board
+   *
    * Parameters: `entity`, `operation`, `OpenWhenRun`
    */
   freeform_show_hide_dot_grid: "com.apple.freeform.CRLChangeBoardCanvasGridIntent",
   /**
    * **Show/Hide Object Connectors**
+   *
    * Shows or hides object connectors for a board. (Freeform)
+   *
    * Output: Board
+   *
    * Parameters: `entity`, `operation`, `OpenWhenRun`
    */
   freeform_show_hide_object_connectors: "com.apple.freeform.CRLChangeBoardObjectConnectorsIntent",
   /**
    * **Change Fill Color**
+   *
    * Changes the fill color of the shape, sticky note, or text box selected on the board. (Freeform)
+   *
    * Parameters: `board`, `color`
    */
   freeform_change_fill_color: "com.apple.freeform.CRLChangeSelectionColorIntent",
   /**
    * **Change Font Size**
+   *
    * Changes the font size of the text selected on the board. (Freeform)
+   *
    * Parameters: `board`, `size`
    */
   freeform_change_font_size: "com.apple.freeform.CRLChangeSelectionFontSizeIntent",
   /**
    * **Change Font Style**
+   *
    * Applies a font style to the text selected on the board. (Freeform)
+   *
    * Parameters: `board`, `style`
    */
   freeform_change_font_style: "com.apple.freeform.CRLChangeSelectionFontStyleIntent",
   /**
    * **Create Board**
+   *
    * Creates a new board. (Freeform)
+   *
    * Output: Board
+   *
    * Parameters: `title`, `OpenWhenRun`
    */
   freeform_create_board: "com.apple.freeform.CRLCreateBoardIntent",
   /**
    * **Delete Boards**
+   *
    * Deletes one or more boards. (Freeform)
+   *
    * Parameters: `entities`
    */
   freeform_delete_boards: "com.apple.freeform.CRLDeleteBoardIntent",
   /**
    * **Favorite/Unfavorite Board**
+   *
    * Adds a board to Favorites or removes a board from Favorites. (Freeform)
+   *
    * Parameters: `entity`, `operation`
    */
   freeform_favorite_unfavorite_board: "com.apple.freeform.CRLFavoriteBoardIntent_v2",
   /**
    * **Add Files to Board**
+   *
    * Adds one or more files to a board. (Freeform)
+   *
    * Output: Board
+   *
    * Parameters: `board`, `files`, `OpenWhenRun`
    */
   freeform_add_files_to_board: "com.apple.freeform.CRLInsertFilesToBoardIntent",
   /**
    * **Add Photos to Board**
+   *
    * Adds one or more photos to a board. (Freeform)
+   *
    * Output: Board
+   *
    * Parameters: `board`, `images`, `OpenWhenRun`
    */
   freeform_add_photos_to_board: "com.apple.freeform.CRLInsertPhotosToBoardIntent",
   /**
    * **Open Board**
+   *
    * Opens an existing board. (Freeform)
+   *
    * Parameters: `target`
    */
   freeform_open_board: "com.apple.freeform.CRLOpenBoardIntent",
   /**
    * **Resize Text**
+   *
    * Increases or decreases the font size of the text selected on the board. (Freeform)
+   *
    * Parameters: `board`, `operation`
    */
   freeform_resize_text: "com.apple.freeform.CRLResizeSelectionFontIntent_v2",
   /**
    * **Rename Board**
+   *
    * Renames a board. (Freeform)
+   *
    * Output: Board
+   *
    * Parameters: `target`, `title`, `OpenWhenRun`
    */
   freeform_rename_board: "com.apple.freeform.CRLUpdateBoardIntent",
   /**
    * **Generate Knowledge Response**
+   *
    * This intent accepts a knowledge-seeking request and delegates the request to ChatGPT, which actually performs it and propagates back the generative result. (GenerativeAssistantExtension)
+   *
    * Output: GenerativeResponse AppEntity
+   *
    * Parameters: `explicitInvocation`, `partner`, `userQuery`, `additionalInfo`, `ShowWhenRun`
    */
   com_apple_generativeassistanttools_generative_assistant_extension_generate_knowledge_response: "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateKnowledgeResponseIntent",
   /**
    * **Generate Rich Content From Media**
+   *
    * This intent answers a user query about on screen content, e.g., image, pdf, webpage, by delegating the request to ChatGPT in order to provide a generative response. (GenerativeAssistantExtension)
+   *
    * Output: GenerativeResponse AppEntity
+   *
    * Parameters: `explicitInvocation`, `partner`, `directInvocationClient`, `additionalInfo`, `userQuery`, `ShowWhenRun`
    */
   com_apple_generativeassistanttools_generative_assistant_extension_generate_rich_content_from_media: "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentFromMediaIntent",
   /**
    * **Generate Rich Content**
+   *
    * This intent accepts a user request to generate a type of text content (for example ‘email’, ‘note’, ‘paragraph’) and delegates the request to ChatGPT, which actually performs it and propagates back the generative result. (GenerativeAssistantExtension)
+   *
    * Output: GenerativeResponse AppEntity
+   *
    * Parameters: `explicitInvocation`, `partner`, `userQuery`, `additionalInfo`, `ShowWhenRun`
    */
   com_apple_generativeassistanttools_generative_assistant_extension_generate_rich_content: "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentIntent",
   /**
    * **On Screen Content Intent**
+   *
    *  (GenerativeAssistantExtension)
+   *
    * Output: GenerativeResponse AppEntity
    */
   com_apple_generativeassistanttools_generative_assistant_extension_on_screen_content_intent: "com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentIntent",
   /**
    * **Prewarm GenerativeAssistantExtension**
+   *
    *  (GenerativeAssistantExtension)
    */
   com_apple_generativeassistanttools_generative_assistant_extension_prewarm_generative_assistant_extension: "com.apple.generativeassistanttools.GenerativeAssistantExtension.PrewarmGenerativeAssistantExtensionIntent",
   /**
    * **Generative Partner Prototype**
+   *
    *  (GenerativePartnerPrototypeExtension)
+   *
    * Output: Model Delegation Response
+   *
    * Parameters: `prompt`, `conversationIdentifier`, `configuration`
    */
   com_apple_gms_generative_partner_prototype_extension_generative_partner_prototype: "com.apple.gms.GenerativePartnerPrototypeExtension.GenerativePartnerPrototypeIntentChatGPT",
   /**
    * **Open Collection**
+   *
    * Opens a Tip collection in the Tips app. (Tips)
+   *
    * Parameters: `collection`
    */
   com_apple_helpviewer_open_collection: "com.apple.helpviewer.CollectionOpenIntent",
   /**
    * **Find Audiobook**
+   *
    *  (Books)
+   *
    * Output: Audiobook
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   books_find_audiobook: "com.apple.iBooksX.AudiobookAppEntity",
   /**
    * **Find Audiobook**
+   *
    *  (Books)
+   *
    * Output: Audiobook
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_iBooksX_AudiobookEntity: "com.apple.iBooksX.AudiobookEntity",
   /**
    * **Set Audiobook Sleep Timer**
+   *
    * Sets a sleep timer in the Books app from available sleep timer options. (Books)
+   *
    * Parameters: `option`, `duration`, `ShowWhenRun`
    */
   books_set_audiobook_sleep_timer: "com.apple.iBooksX.AudiobookSleepTimerIntent",
   /**
    * **Find Books**
+   *
    *  (Books)
+   *
    * Output: Book
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   books_find_books: "com.apple.iBooksX.BookAppEntity",
   /**
    * **Change Book Appearance**
+   *
    * Changes the appearance or reading theme in an open book. (Books)
+   *
    * Parameters: `changeOperation`, `setting`
    */
   books_change_book_appearance: "com.apple.iBooksX.BookReaderChangeThemeIntent",
   /**
    * **Turn Page**
+   *
    * Navigates to the next or previous page. (Books)
+   *
    * Parameters: `direction`, `target`
    */
   books_turn_page: "com.apple.iBooksX.BookReaderNavigatePageInBookIntent",
   /**
    * **Turn Page**
+   *
    * Navigates pages in an open book forward to backwards sequentially. (Books)
+   *
    * Parameters: `direction`
    */
   com_apple_iBooksX_BookReaderNavigatePagesIntent: "com.apple.iBooksX.BookReaderNavigatePagesIntent",
   /**
    * **Get Book Settings**
+   *
    *  (Books)
+   *
    * Output: Book Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   books_get_book_settings: "com.apple.iBooksX.BookSettingsEntity",
   /**
    * **Edit Book Settings**
+   *
    * Edit Book Settings
  • Font
  • Font Size
@@ -7268,1169 +10127,1609 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
  • Is Text Justified
  • Page Navigation Setting
  • Theme (Books)
+   *
    * Output: Book Settings
+   *
    * Parameters: `entity`, `font`, `fontSize`, `isAllowMultipleColumns`, `isTextJustified`, `pageNavigationSetting`, `theme`
    */
   books_edit_book_settings: "com.apple.iBooksX.BookSettingsEntity-UpdatableEntity",
   /**
    * **Change Text Size**
+   *
    * Updates the font size for a book. (Books)
+   *
    * Parameters: `changeOperation`, `target`, `book`
    */
   books_change_text_size: "com.apple.iBooksX.ChangeFontSizeIntent",
   /**
    * **Open View or Collection in Books App**
+   *
    * Opens the Books app to the view you specify. (Books)
+   *
    * Parameters: `target`
    */
   books_open_view_or_collection_in_books_app: "com.apple.iBooksX.DeepLinkIntent",
   /**
    * **Find Standard Collection**
+   *
    *  (Books)
+   *
    * Output: Standard Collection
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   books_find_standard_collection: "com.apple.iBooksX.DefaultCollectionEntity",
   /**
    * **Open Audio Item**
+   *
    * Opens an audio item in the app UI (Books)
+   *
    * Parameters: `target`
    */
   books_open_audio_item: "com.apple.iBooksX.OpenAudioIntent",
   /**
    * **Open Book**
+   *
    * Opens the last book you were reading, or a book you specify, in the Books app. (Books)
+   *
    * Parameters: `mode`, `target`
    */
   books_open_book: "com.apple.iBooksX.OpenBookIntent",
   /**
    * **Open Default Collection**
+   *
    * Opens a specified default collection in the Books app. (Books)
+   *
    * Parameters: `target`
    */
   books_open_default_collection: "com.apple.iBooksX.OpenDefaultCollectionIntent",
   /**
    * **Open Most Recent Book**
+   *
    * Opens the last book you were reading in the Books app. (Books)
    */
   books_open_most_recent_book: "com.apple.iBooksX.OpenMostRecentBookIntent",
   /**
    * **Open Specific Book**
+   *
    * Opens a book you specify, in the Books app. (Books)
+   *
    * Parameters: `target`
    */
   books_open_specific_book: "com.apple.iBooksX.OpenSpecificBookIntent",
   /**
    * **Open View in Books App**
+   *
    * Opens the Books app to the tab or sidebar view you specify. (Books)
+   *
    * Parameters: `target`
    */
   books_open_view_in_books_app: "com.apple.iBooksX.OpenTabBarItemIntent",
   /**
    * **Open Table of Contents**
+   *
    * Opens the table of contents in the Books app for a book you specify. (Books)
+   *
    * Parameters: `target`
    */
   books_open_table_of_contents: "com.apple.iBooksX.OpenTableOfContentsIntent",
   /**
    * **Pause Current Audiobook**
+   *
    * Pauses the audiobook you are currently listening to in the Books app. (Books)
    */
   books_pause_current_audiobook: "com.apple.iBooksX.PauseCurrentAudiobookIntent",
   /**
    * **Play Audio Item**
+   *
    * Play an audio item (Books)
+   *
    * Parameters: `warmupAudioQueueResult`, `audioEntity`, `playbackAttributes`, `queueLocation`
    */
   books_play_audio_item: "com.apple.iBooksX.PlayAudioIntent",
   /**
    * **Play Audiobook**
+   *
    * Plays the last audiobook you were listening to, or an audiobook you specify, in the Books app. (Books)
+   *
    * Parameters: `mode`, `target`
    */
   books_play_audiobook: "com.apple.iBooksX.PlayAudiobookIntent",
   /**
    * **Play Most Recent Audiobook**
+   *
    * Plays the last audiobook you were listening to in the Books app. (Books)
    */
   books_play_most_recent_audiobook: "com.apple.iBooksX.PlayMostRecentAudiobookIntent",
   /**
    * **Play Specific Audiobook**
+   *
    * Plays an audiobook you specify, in the Books app. (Books)
+   *
    * Parameters: `target`
    */
   books_play_specific_audiobook: "com.apple.iBooksX.PlaySpecificAudiobookIntent",
   /**
    * **Search in the Books App**
+   *
    * Searches the Books app for books and audiobooks in the store and your library by title or author. (Books)
+   *
    * Parameters: `criteria`
    */
   books_search_in_the_books_app: "com.apple.iBooksX.SearchBooksAppIntent",
   /**
    * **Search in Books**
+   *
    * Searches the Books app for books and audiobooks in the store and your library by title or author. (Books)
+   *
    * Parameters: `searchPhrase`
    */
   books_search_in_books: "com.apple.iBooksX.SearchBooksIntent",
   /**
    * **UpdateReaderIntent**
+   *
    * UpdateReaderIntent (Books)
+   *
    * Parameters: `target`, `font`, `theme`, `pageNavigationSetting`, `isTextJustified`, `isAllowMultipleColumns`
    */
   books_update_reader_intent: "com.apple.iBooksX.UpdateBookSettingsIntent",
   /**
    * **Create Calendar**
+   *
    * Creates a new calendar. (Calendar)
+   *
    * Output: Calendar
+   *
    * Parameters: `name`, `source`, `OpenWhenRun`
    */
   calendar_create_calendar: "com.apple.iCal.CreateCalendarIntent",
   /**
    * **Create Event**
+   *
    * Creates a new event. (Calendar)
+   *
    * Output: Event
+   *
    * Parameters: `title`, `startDate`, `endDate`, `isAllDay`, `recurrence`, `calendar`, `location`, `note`, `alarms`, `attendees`, `privacyLevel`, `availability`, `travelTime`, `url`, `floatingTimeZoneID`, `virtualConferenceType`, `OpenWhenRun`
    */
   calendar_create_event: "com.apple.iCal.CreateEventIntent",
   /**
    * **Delete Calendars**
+   *
    * Deletes the given calendars. (Calendar)
+   *
    * Parameters: `entities`, `reportJunk`
    */
   calendar_delete_calendars: "com.apple.iCal.DeleteCalendarsIntent",
   /**
    * **Delete Events**
+   *
    * Deletes the given events. (Calendar)
+   *
    * Parameters: `entity`, `span`
    */
   calendar_delete_events: "com.apple.iCal.DeleteEventIntent",
   /**
    * **Edit Event**
+   *
    * Modifies the given event. (Calendar)
+   *
    * Output: Event
+   *
    * Parameters: `event`, `title`, `startDate`, `endDate`, `isAllDay`, `calendar`, `privacyLevel`, `status`, `availability`, `location`, `note`, `recurrence`, `travelTime`, `alarms`, `url`, `participationStatus`, `attendees`, `span`, `locationPredictionAction`, `virtualConferenceType`, `OpenWhenRun`
    */
   calendar_edit_event: "com.apple.iCal.EditEventIntent",
   /**
    * **Email Attendees**
+   *
    * Starts an email addressed to the attendees of the given event. (Calendar)
+   *
    * Parameters: `target`
    */
   calendar_email_attendees: "com.apple.iCal.EmailAttendeesIntent",
   /**
    * **Email Organizer**
+   *
    * Starts an email addressed to the organizer of the given event. (Calendar)
+   *
    * Parameters: `target`
    */
   calendar_email_organizer: "com.apple.iCal.EmailOrganizerIntent",
   /**
    * **Find Event**
+   *
    *  (Calendar)
+   *
    * Output: Event
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   calendar_find_event: "com.apple.iCal.EventEntity",
   /**
    * **Highlight Event**
+   *
    * Jumps to the date of the given event and highlights it. (Calendar)
+   *
    * Parameters: `target`
    */
   calendar_highlight_event: "com.apple.iCal.HighlightEventIntent",
   /**
    * **Find Inbox Item**
+   *
    *  (Calendar)
+   *
    * Output: Inbox Item
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   calendar_find_inbox_item: "com.apple.iCal.InboxItemEntity",
   /**
    * **Join Event**
+   *
    * Joins or calls the virtual conference for the given event. (Calendar)
+   *
    * Parameters: `target`
    */
   calendar_join_event: "com.apple.iCal.JoinEventIntent",
   /**
    * **Open Calendar Editor**
+   *
    * Shows an editor for the given calendar. (Calendar)
+   *
    * Parameters: `target`, `enableDoneInitially`
    */
   calendar_open_calendar_editor: "com.apple.iCal.OpenCalendarEditorIntent",
   /**
    * **Open Calendar View**
+   *
    * Opens the given view. (Calendar)
+   *
    * Parameters: `target`
    */
   calendar_open_calendar_view: "com.apple.iCal.OpenCalendarViewIntent",
   /**
    * **Open Date**
+   *
    * Jumps to the given date. (Calendar)
+   *
    * Parameters: `target`
    */
   calendar_open_date: "com.apple.iCal.OpenDateIntent",
   /**
    * **Open Event Details**
+   *
    * Shows the details for the given event. (Calendar)
+   *
    * Parameters: `title`, `caption`, `target`
    */
   calendar_open_event_details: "com.apple.iCal.OpenEventDetailsIntent",
   /**
    * **Open Event Editor**
+   *
    * Shows an editor for the given event. (Calendar)
+   *
    * Parameters: `target`
    */
   calendar_open_event_editor: "com.apple.iCal.OpenEventEditorIntent",
   /**
    * **Respond to Inbox Item**
+   *
    * Responds to the given inbox item. (Calendar)
+   *
    * Parameters: `target`, `response`
    */
   calendar_respond_to_inbox_item: "com.apple.iCal.RespondToInboxItemIntent",
   /**
    * **Find TransferableCalendarEntity <no loc>**
+   *
    *  (Calendar)
+   *
    * Output: TransferableCalendarEntity <no loc>
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   calendar_find_transferable_calendar_entity_no_loc: "com.apple.iCal.TransferableCalendarEntity",
   /**
    * **Find TransferableSourceEntity <no loc>**
+   *
    *  (Calendar)
+   *
    * Output: TransferableSourceEntity <no loc>
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   calendar_find_transferable_source_entity_no_loc: "com.apple.iCal.TransferableSourceEntity",
   /**
    * **Export Presentation in Background**
+   *
    * Exports a presentation to a specified file format. Does not open the presentation or bring it to the foreground. (Keynote)
+   *
    * Parameters: `document`, `format`, `sourcePassword`, `password`
    */
   com_apple_i_work_keynote_export_presentation_in_background: "com.apple.iWork.Keynote.KNDocumentBackgroundExportIntent",
   /**
    * **Create New Presentation**
+   *
    * Create a new presentation from the theme chooser in Keynote. (Keynote)
    */
   com_apple_i_work_keynote_create_new_presentation: "com.apple.iWork.Keynote.KNNewDocumentIntent",
   /**
    * **Export Spreadsheet in Background**
+   *
    * Exports a spreadsheet to a specified file format. Does not open the spreadsheet or bring it to the foreground. (Numbers)
+   *
    * Parameters: `document`, `format`, `sourcePassword`, `password`
    */
   com_apple_i_work_numbers_export_spreadsheet_in_background: "com.apple.iWork.Numbers.TNDocumentBackgroundExportIntent",
   /**
    * **Create New Spreadsheet**
+   *
    * Create a new spreadsheet from the template chooser in Numbers. (Numbers)
    */
   com_apple_i_work_numbers_create_new_spreadsheet: "com.apple.iWork.Numbers.TNNewDocumentIntent",
   /**
    * **Export Document in Background**
+   *
    * Exports a document to a specified file format. Does not open the document or bring it to the foreground. (Pages)
+   *
    * Parameters: `document`, `format`, `sourcePassword`, `password`
    */
   com_apple_i_work_pages_export_document_in_background: "com.apple.iWork.Pages.TPDocumentBackgroundExportIntent",
   /**
    * **Create New Document**
+   *
    * Create a new document from the template chooser in Pages. (Pages)
    */
   com_apple_i_work_pages_create_new_document: "com.apple.iWork.Pages.TPNewDocumentIntent",
   /**
    * **Start Navigation**
+   *
    * Start navigation from origin to destinations (Maps)
+   *
    * Parameters: `origin`, `destinations`, `transportationType`, `preferences`
    */
   com_apple_intelligenceflow_GeoFlowTools_GeoFlowTools_StartNavigationFlowTool_com_apple_Maps: "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps",
   /**
    * **Update Navigation Waypoints**
+   *
    * Replace the active navigation session's waypoints with the provided list. (Maps)
+   *
    * Parameters: `waypoints`, `navigation`
    */
   com_apple_intelligenceflow_GeoFlowTools_GeoFlowTools_UpdateWayPointsFlowTool_com_apple_Maps: "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps",
   /**
    * **GetCurrentLocationTool**
+   *
    * A standalone tool to get the user's location. (GetCurrentLocationFlowToolPlugin)
    */
   com_apple_intelligenceflow_GetCurrentLocationFlowToolPlugin_GetCurrentLocationFlowToolPlugin_GetCurrentLocationTool: "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin.GetCurrentLocationFlowToolPlugin.GetCurrentLocationTool",
   /**
    * **Open Application**
+   *
    * Open Application (IntelligenceFlowAppIntentsExtension)
+   *
    * Parameters: `target`
    */
   com_apple_intelligenceflow_intelligence_flow_app_intents_extension_open_application: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenApplication",
   /**
    * **Open File**
+   *
    * Open File (IntelligenceFlowAppIntentsExtension)
+   *
    * Parameters: `target`
    */
   com_apple_intelligenceflow_intelligence_flow_app_intents_extension_open_file: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenFile",
   /**
    * **Open URL**
+   *
    * Open URL (IntelligenceFlowAppIntentsExtension)
+   *
    * Parameters: `target`
    */
   com_apple_intelligenceflow_intelligence_flow_app_intents_extension_open_url: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenURL",
   /**
    * **Get App & Website Activity**
+   *
    * Gets app and website activity for the specified device and date range. (IntelligencePlatformDataActionsAppIntentsExtension)
+   *
    * Output: Activity
+   *
    * Parameters: `during`, `selectedDevice`, `activityType`, `startTime`, `endTime`
    */
   com_apple_intelligenceplatform_intelligence_platform_intelligence_platform_data_actions_app_intents_extension_get_app_website_activity: "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.CalculateAppUsageIntent",
   /**
    * **Get Upcoming Sports Events**
+   *
    * Gets upcoming events for the specified team, ordered from nearest to farthest away in time. (IntelligencePlatformDataActionsAppIntentsExtension)
+   *
    * Output: Events
+   *
    * Parameters: `sportsTeamAppEntity`
    */
   com_apple_sports_get_upcoming_sports_events: "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.FindSportsEvents",
   /**
    * **Get Add Current Location**
+   *
    *  (Journal)
+   *
    * Output: Add Current Location
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_add_current_location: "com.apple.journal.AddCurrentLocationEntity",
   /**
    * **Update Add Current Location**
+   *
    * Change the Add Current Location value of Add Current Location (Journal)
+   *
    * Output: Add Current Location
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_add_current_location: "com.apple.journal.AddCurrentLocationEntity-UpdatableEntity",
   /**
    * **Open Add Current Location Setting**
+   *
    * Open the Add Current Location Setting in the Journal Settings pane. (Journal)
+   *
    * Parameters: `target`
    */
   com_apple_preferences_open_add_current_location_setting: "com.apple.journal.AddCurrentLocationIntent",
   /**
    * **Get Always Use Moment Date**
+   *
    *  (Journal)
+   *
    * Output: Always Use Moment Date
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_always_use_moment_date: "com.apple.journal.AlwaysUseMomentDateEntity",
   /**
    * **Update Always Use Moment Date**
+   *
    * Change the Always Use Moment Date value of Always Use Moment Date (Journal)
+   *
    * Output: Always Use Moment Date
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_always_use_moment_date: "com.apple.journal.AlwaysUseMomentDateEntity-UpdatableEntity",
   /**
    * **Open Always Use Moment Date Setting**
+   *
    * Open the Always Use Moment Date Setting in the Journal Settings pane. (Journal)
+   *
    * Parameters: `target`
    */
   com_apple_preferences_open_always_use_moment_date_setting: "com.apple.journal.AlwaysUseMomentDateIntent",
   /**
    * **Create Audio Entry**
+   *
    * Creates a new audio journal entry. (Journal)
    */
   com_apple_journal_create_audio_entry: "com.apple.journal.CreateEntryAudioIntent",
   /**
    * **Create Entry**
+   *
    * Creates a new journal entry. (Journal)
+   *
    * Output: Journal Entry
+   *
    * Parameters: `message`, `title`, `locationName`, `mediaItems`, `location`, `entryBookmark`, `entryDate`, `OpenWhenRun`
    */
   com_apple_journal_create_entry: "com.apple.journal.CreateEntryIntent",
   /**
    * **Open Journal Settings**
+   *
    * Open Journal settings. (Journal)
+   *
    * Parameters: `target`
    */
   com_apple_preferences_open_journal_settings: "com.apple.journal.OpenJournalSettingsDeeplinks",
   /**
    * **Get Save To Photos**
+   *
    *  (Journal)
+   *
    * Output: Save To Photos
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_save_to_photos: "com.apple.journal.SaveToPhotosEntity",
   /**
    * **Update Save To Photos**
+   *
    * Change the Save To Photos value of Save To Photos (Journal)
+   *
    * Output: Save To Photos
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_save_to_photos: "com.apple.journal.SaveToPhotosEntity-UpdatableEntity",
   /**
    * **Open Save to Photos Setting**
+   *
    * Open the Save to Photos Setting in the Journal Settings pane. (Journal)
+   *
    * Parameters: `target`
    */
   com_apple_preferences_open_save_to_photos_setting: "com.apple.journal.SaveToPhotosIntent",
   /**
    * **Search Entries**
+   *
    * Searches journal entries. (Journal)
+   *
    * Parameters: `criteria`
    */
   com_apple_journal_search_entries: "com.apple.journal.SearchEntriesIntent",
   /**
    * **Get Show Writing Prompts**
+   *
    *  (Journal)
+   *
    * Output: Show Writing Prompts
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_show_writing_prompts: "com.apple.journal.ShowWritingPromptsEntity",
   /**
    * **Update Show Writing Prompts**
+   *
    * Change the Show Writing Prompts value of Show Writing Prompts (Journal)
+   *
    * Output: Show Writing Prompts
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_show_writing_prompts: "com.apple.journal.ShowWritingPromptsEntity-UpdatableEntity",
   /**
    * **Open Show Writing Prompts Setting**
+   *
    * Open the Show Writing Prompts Setting in the Journal Settings pane. (Journal)
+   *
    * Parameters: `target`
    */
   com_apple_preferences_open_show_writing_prompts_setting: "com.apple.journal.ShowWritingPromptsIntent",
   /**
    * **Get Show Suggested Moments**
+   *
    *  (Journal)
+   *
    * Output: Show Suggested Moments
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_show_suggested_moments: "com.apple.journal.SkipJournalingSuggestionsEntity",
   /**
    * **Update Show Suggested Moments**
+   *
    * Change the Show Suggested Moments value of Show Suggested Moments (Journal)
+   *
    * Output: Show Suggested Moments
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_show_suggested_moments: "com.apple.journal.SkipJournalingSuggestionsEntity-UpdatableEntity",
   /**
    * **Open Show Suggested Moments Setting**
+   *
    * Open the Show Suggested Moments Setting in the Journal Settings pane. (Journal)
+   *
    * Parameters: `target`
    */
   com_apple_preferences_open_show_suggested_moments_setting: "com.apple.journal.SkipJournalingSuggestionsIntent",
   /**
    * **Archive Message**
+   *
    * Archives one or more email messages. (Mail)
+   *
    * Output: Message
+   *
    * Parameters: `entities`, `ShowWhenRun`
    */
   mail_archive_message: "com.apple.mail.ArchiveMessageIntent",
   /**
    * **Compose Message**
+   *
    * Opens an email composer to draft an email. Does not send the email draft. (Mail)
+   *
    * Output: Draft Message
+   *
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`
    */
   mail_compose_message: "com.apple.mail.ComposeMessageIntent",
   /**
    * **Delete Draft**
+   *
    * Deletes one or more email drafts. (Mail)
+   *
    * Parameters: `entities`
    */
   mail_delete_draft: "com.apple.mail.DeleteDraftIntent",
   /**
    * **Delete Message**
+   *
    * Deletes one or more email messages. (Mail)
+   *
    * Output: Message
+   *
    * Parameters: `entities`
    */
   mail_delete_message: "com.apple.mail.DeleteMessageIntent",
   /**
    * **Find Draft Message**
+   *
    *  (Mail)
+   *
    * Output: Draft Message
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   mail_find_draft_message: "com.apple.mail.DraftMessageEntity",
   /**
    * **Forward Message**
+   *
    * Opens an email composer to forward an email. Does not send the email draft. (Mail)
+   *
    * Output: Draft Message
+   *
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
    */
   mail_forward_message: "com.apple.mail.ForwardMessageIntent",
   /**
    * **Find Message**
+   *
    *  (Mail)
+   *
    * Output: Message
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   mail_find_message: "com.apple.mail.MailMessage",
   /**
    * **Find Message**
+   *
    *  (Mail)
+   *
    * Output: Message
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_mail_MailMessageEntity: "com.apple.mail.MailMessageEntity",
   /**
    * **Reply Message**
+   *
    * Opens an email composer to reply to an email. Does not send the email draft. (Mail)
+   *
    * Output: Draft Message
+   *
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `isReplyAll`, `target`
    */
   mail_reply_message: "com.apple.mail.ReplyMessageIntent",
   /**
    * **Save Draft**
+   *
    * Saves an email draft. (Mail)
+   *
    * Output: Draft Message
+   *
    * Parameters: `target`, `ShowWhenRun`
    */
   mail_save_draft: "com.apple.mail.SaveDraftIntent",
   /**
    * **Show Siri Search Results**
+   *
    *  (Mail)
+   *
    * Parameters: `criteria`
    */
   mail_show_siri_search_results: "com.apple.mail.SearchMailEntityIntent",
   /**
    * **Search**
+   *
    * Navigate to search results. (Mail)
+   *
    * Parameters: `criteria`
    */
   mail_search: "com.apple.mail.SearchMailIntent",
   /**
    * **Send Draft**
+   *
    * Sends an email draft or schedules it to be sent later. (Mail)
+   *
    * Parameters: `sendLaterDate`, `target`, `ShowWhenRun`
    */
   mail_send_draft: "com.apple.mail.SendDraftIntent",
   /**
    * **Send an Email**
+   *
    *  (Mail)
+   *
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `inReplyTo`
    */
   mail_send_an_email: "com.apple.mail.SendMail",
   /**
    * **Mark Email Read**
+   *
    *  (Mail)
+   *
    * Parameters: `message`, `read`
    */
   mail_mark_email_read: "com.apple.mail.SetMailMessageIsRead",
   /**
    * **Undo Send Message**
+   *
    * Undo an email message that has just been sent (Mail)
    */
   mail_undo_send_message: "com.apple.mail.UndoSendMessageIntent",
   /**
    * **Unsubscribe Message**
+   *
    * Unsubscribe from one or more email messages (Mail)
+   *
    * Parameters: `messages`, `ShowWhenRun`
    */
   mail_unsubscribe_message: "com.apple.mail.UnsubscribeMessageIntent",
   /**
    * **Update Message**
+   *
    * Makes updates to one or more existing email messages by modifying the status, flags, and location. (Mail)
+   *
    * Output: Message
+   *
    * Parameters: `target`, `isRead`, `isFlagged`, `isJunk`, `flagColor`, `mailbox`
    */
   mail_update_message: "com.apple.mail.UpdateMessageIntent",
   /**
    * **Create Note**
+   *
    * Creates a note using the content passed as input. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `name`, `contents`, `folder`, `interpretAsMarkdown`, `OpenWhenRun`
    */
   com_apple_mobilenotes_SharingExtension: "com.apple.mobilenotes.SharingExtension",
   /**
    * **Add Alarm**
+   *
    * Creates an Alarm in the Clock app. (Clock)
+   *
    * Output: Alarm
+   *
    * Parameters: `dateComponents`, `name`, `repeats`, `allowsSnooze`, `OpenWhenRun`
    */
   com_apple_mobiletimer_framework_MobileTimerIntents_MTCreateAlarmIntent: "com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent",
   /**
    * **Find Alarms**
+   *
    * Search for alarms in the Clock app that match the given criteria. (Clock)
+   *
    * Output: Alarms
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   clock_find_alarms: "com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent",
   /**
    * **Toggle Alarm**
+   *
    * Enables or disables an Alarm in the Clock app. (Clock)
+   *
    * Output: Alarm
+   *
    * Parameters: `operation`, `state`, `alarm`, `ShowWhenRun`
    */
   clock_toggle_alarm: "com.apple.mobiletimer-framework.MobileTimerIntents.MTToggleAlarmIntent",
   /**
    * **Recognize Music**
+   *
    * Find out what song is playing nearby or on your Mac with Shazam. (Music Recognition)
+   *
    * Output: Song
+   *
    * Parameters: `addToLibrary`, `errorIfNotRecognized`, `ShowWhenRun`
    */
   com_apple_musicrecognition_mac_recognize_music: "com.apple.musicrecognition.mac.RecognizeAudioIntent",
   /**
    * **Open Recognized Song**
+   *
    * Opens an item in the application. (Music Recognition)
+   *
    * Parameters: `target`
    */
   com_apple_musicrecognition_mac_open_recognized_song: "com.apple.musicrecognition.mac.ShazamSongEntityOpenIntent",
   /**
    * **Get Automatically Download Audio Stories**
+   *
    *  (News)
+   *
    * Output: Automatically Download Audio Stories
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_automatically_download_audio_stories: "com.apple.news.AutoDownloadAudioStoriesEntity",
   /**
    * **Update Automatically Download Audio Stories**
+   *
    * Change the Automatically Download Audio Stories value of Automatically Download Audio Stories (News)
+   *
    * Output: Automatically Download Audio Stories
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_automatically_download_audio_stories: "com.apple.news.AutoDownloadAudioStoriesEntity-UpdatableEntity",
   /**
    * **Get Automatic Downloads**
+   *
    *  (News)
+   *
    * Output: Automatic Downloads
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_automatic_downloads: "com.apple.news.AutoDownloadEntity",
   /**
    * **Update Automatic Downloads**
+   *
    * Change the Automatic Downloads value of Automatic Downloads (News)
+   *
    * Output: Automatic Downloads
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_automatic_downloads: "com.apple.news.AutoDownloadEntity-UpdatableEntity",
   /**
    * **Get Automatically Download Magazine Issues**
+   *
    *  (News)
+   *
    * Output: Automatically Download Magazine Issues
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_automatically_download_magazine_issues: "com.apple.news.AutoDownloadMagazineIssuesEntity",
   /**
    * **Update Automatically Download Magazine Issues**
+   *
    * Change the Automatically Download Magazine Issues value of Automatically Download Magazine Issues (News)
+   *
    * Output: Automatically Download Magazine Issues
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_automatically_download_magazine_issues: "com.apple.news.AutoDownloadMagazineIssuesEntity-UpdatableEntity",
   /**
    * **Get Automatically Download Puzzles**
+   *
    *  (News)
+   *
    * Output: Automatically Download Puzzles
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_automatically_download_puzzles: "com.apple.news.AutoDownloadPuzzlesEntity",
   /**
    * **Update Automatically Download Puzzles**
+   *
    * Change the Automatically Download Puzzles value of Automatically Download Puzzles (News)
+   *
    * Output: Automatically Download Puzzles
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_automatically_download_puzzles: "com.apple.news.AutoDownloadPuzzlesEntity-UpdatableEntity",
   /**
    * **Get Automatically Download Recipes**
+   *
    *  (News)
+   *
    * Output: Automatically Download Recipes
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_automatically_download_recipes: "com.apple.news.AutoDownloadRecipesEntity",
   /**
    * **Update Automatically Download Recipes**
+   *
    * Change the Automatically Download Recipes value of Automatically Download Recipes (News)
+   *
    * Output: Automatically Download Recipes
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_automatically_download_recipes: "com.apple.news.AutoDownloadRecipesEntity-UpdatableEntity",
   /**
    * **Get Automatically Download Saved Stories**
+   *
    *  (News)
+   *
    * Output: Automatically Download Saved Stories
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_automatically_download_saved_stories: "com.apple.news.AutoDownloadSavedStoriesEntity",
   /**
    * **Update Automatically Download Saved Stories**
+   *
    * Change the Automatically Download Saved Stories value of Automatically Download Saved Stories (News)
+   *
    * Output: Automatically Download Saved Stories
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_automatically_download_saved_stories: "com.apple.news.AutoDownloadSavedStoriesEntity-UpdatableEntity",
   /**
    * **Get Automatically Download Stories In Feeds**
+   *
    *  (News)
+   *
    * Output: Automatically Download Stories In Feeds
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_automatically_download_stories_in_feeds: "com.apple.news.AutoDownloadStoriesInFeedsEntity",
   /**
    * **Update Automatically Download Stories In Feeds**
+   *
    * Change the Automatically Download Stories In Feeds value of Automatically Download Stories In Feeds (News)
+   *
    * Output: Automatically Download Stories In Feeds
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_automatically_download_stories_in_feeds: "com.apple.news.AutoDownloadStoriesInFeedsEntity-UpdatableEntity",
   /**
    * **Block Channel or Topic**
+   *
    * Block a channel or topic from appearing, except in parts of the app curated by the Apple News editors (News)
+   *
    * Parameters: `target`
    */
   news_block_channel_or_topic: "com.apple.news.BlockIntent",
   /**
    * **Follow Channel or Topic**
+   *
    * Adds a channel or topic to your Following list (News)
+   *
    * Parameters: `target`
    */
   news_follow_channel_or_topic: "com.apple.news.FollowIntent",
   /**
    * **Get Game Center**
+   *
    *  (News)
+   *
    * Output: Game Center
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_game_center: "com.apple.news.GameCenterEntity",
   /**
    * **Update Game Center**
+   *
    * Change the Game Center value of Game Center (News)
+   *
    * Output: Game Center
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_game_center: "com.apple.news.GameCenterEntity-UpdatableEntity",
   /**
    * **Get Ingredients**
+   *
    * Get the ingredients for a recipe. (News)
+   *
    * Output: Recipe Ingredient
+   *
    * Parameters: `recipe`
    */
   news_get_ingredients: "com.apple.news.GetIngredientsAppIntent",
   /**
    * **Get Recent Recipes**
+   *
    * Get a list of recently viewed recipes. (News)
+   *
    * Output: Recipe
    */
   news_get_recent_recipes: "com.apple.news.GetRecentRecipesAppIntent",
   /**
    * **Get Saved Recipes**
+   *
    * Get a list of saved recipes. (News)
+   *
    * Output: Recipe
    */
   news_get_saved_recipes: "com.apple.news.GetSavedRecipesAppIntent",
   /**
    * **Find News Automatic Download Settings**
+   *
    *  (News)
+   *
    * Output: News Automatic Download Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_find_news_automatic_download_settings: "com.apple.news.NewsSettingsAutomaticDownloadDynamicDeepLinks",
   /**
    * **Find News Settings**
+   *
    *  (News)
+   *
    * Output: News Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_find_news_settings: "com.apple.news.NewsSettingsDynamicDeepLinks",
   /**
    * **Find News Tab Deep Links**
+   *
    *  (News)
+   *
    * Output: News Tab Deep Links
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   news_find_news_tab_deep_links: "com.apple.news.NewsTabDeepLink",
   /**
    * **Open Article**
+   *
    * Open an article in the News app (News)
+   *
    * Parameters: `target`
    */
   news_open_article: "com.apple.news.OpenArticleIntent",
   /**
    * **Open Channel or Topic**
+   *
    * Open a channel or topic feed in the News app (News)
+   *
    * Parameters: `target`
    */
   news_open_channel_or_topic: "com.apple.news.OpenFeedIntent",
   /**
    * **Open History Feed**
+   *
    * Opens the History Feed (News)
    */
   news_open_history_feed: "com.apple.news.OpenHistoryIntent",
   /**
    * **Open Main Page of News Settings**
+   *
    *  (News)
+   *
    * Parameters: `target`
    */
   com_apple_preferences_open_main_page_of_news_settings: "com.apple.news.OpenNewsSettingsDynamicDeepLinks",
   /**
    * **Open Recipe**
+   *
    * Shows a recipe in the News app. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `target`
    */
   news_open_recipe: "com.apple.news.OpenRecipeIntent",
   /**
    * **Open Saved Feed**
+   *
    * Opens the Saved Feed (News)
    */
   news_open_saved_feed: "com.apple.news.OpenSavedIntent",
   /**
    * **Open Saved Recipes**
+   *
    * Opens Saved Recipes (News)
    */
   news_open_saved_recipes: "com.apple.news.OpenSavedRecipesIntent",
   /**
    * **Open News Feed**
+   *
    * Open a feed in the News app (News)
+   *
    * Parameters: `target`
    */
   news_open_news_feed: "com.apple.news.OpenStaticFeed",
   /**
    * **Get Optimize Storage**
+   *
    *  (News)
+   *
    * Output: Optimize Storage
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_optimize_storage: "com.apple.news.OptimizeStorageEntity",
   /**
    * **Update Optimize Storage**
+   *
    * Change the Optimize Storage value of Optimize Storage (News)
+   *
    * Output: Optimize Storage
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_optimize_storage: "com.apple.news.OptimizeStorageEntity-UpdatableEntity",
   /**
    * **Play Article**
+   *
    * Plays the audio story associated with the article. (News)
+   *
    * Parameters: `article`
    */
   news_play_article: "com.apple.news.PlayArticleIntent",
   /**
    * **Get Restrict Stories in Today**
+   *
    *  (News)
+   *
    * Output: Restrict Stories in Today
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_preferences_get_restrict_stories_in_today: "com.apple.news.RestrictStoriesInTodaySettingEntity",
   /**
    * **Update Restrict Stories in Today**
+   *
    * Change the Restrict Stories in Today value of Restrict Stories in Today (News)
+   *
    * Output: Restrict Stories in Today
+   *
    * Parameters: `entity`, `value`
    */
   com_apple_preferences_update_restrict_stories_in_today: "com.apple.news.RestrictStoriesInTodaySettingEntity-UpdatableEntity",
   /**
    * **Save Article**
+   *
    * Add the article to your Saved Stories list (News)
+   *
    * Parameters: `target`
    */
   news_save_article: "com.apple.news.SaveArticleIntent",
   /**
    * **Save Recipe**
+   *
    * Saves a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`
    */
   news_save_recipe: "com.apple.news.SaveRecipeAppIntent",
   /**
    * **Select Ingredient**
+   *
    * Selects an ingredient in a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`, `ingredient`
    */
   news_select_ingredient: "com.apple.news.SelectIngredientAppIntent",
   /**
    * **Show Details**
+   *
    * Shows details for a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`
    */
   news_show_details: "com.apple.news.ShowDetailsAppIntent",
   /**
    * **Show Ingredients**
+   *
    * Shows ingredients for a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`
    */
   news_show_ingredients: "com.apple.news.ShowIngredientsAppIntent",
   /**
    * **Show Instructions**
+   *
    * Shows instructions for a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`
    */
   news_show_instructions: "com.apple.news.ShowInstructionsAppIntent",
   /**
    * **Show Next Step**
+   *
    * Shows the next step for a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`
    */
   news_show_next_step: "com.apple.news.ShowNextStepAppIntent",
   /**
    * **Show Previous Step**
+   *
    * Shows the previous step for a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`
    */
   news_show_previous_step: "com.apple.news.ShowPreviousStepAppIntent",
   /**
    * **Show Specific Step**
+   *
    * Shows a specific step for a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`, `step`
    */
   news_show_specific_step: "com.apple.news.ShowSpecificStepIntent",
   /**
    * **Start Cooking**
+   *
    * Starts Cook Mode. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`
    */
   news_start_cooking: "com.apple.news.StartCookingAppIntent",
   /**
    * **Stop Cooking**
+   *
    * Stops Cook Mode. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`
    */
   news_stop_cooking: "com.apple.news.StopCookingAppIntent",
   /**
    * **Unblock Channel or Topic**
+   *
    * Unblock a channel or topic from appearing (News)
+   *
    * Parameters: `target`
    */
   news_unblock_channel_or_topic: "com.apple.news.UnblockIntent",
   /**
    * **Unsave Article**
+   *
    * Delete the article from your Saved Stories list (News)
+   *
    * Parameters: `target`
    */
   news_unsave_article: "com.apple.news.UnsaveArticleIntent",
   /**
    * **Unsave Recipe**
+   *
    * Unsaves a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`
    */
   news_unsave_recipe: "com.apple.news.UnsaveRecipeAppIntent",
   /**
    * **Unselect Ingredient**
+   *
    * Unselects an ingredient in a recipe. (News)
+   *
    * Output: Recipe
+   *
    * Parameters: `recipe`, `ingredient`
    */
   news_unselect_ingredient: "com.apple.news.UnselectIngredientAppIntent",
   /**
    * **Change News Settings**
+   *
    * Changes the state of the selected News setting. (News)
+   *
    * Output: Automatically Download Audio Stories
+   *
    * Parameters: `entity`, `AutoDownloadAudioStoriesEntity`, `AutoDownloadEntity`, `AutoDownloadMagazineIssuesEntity`, `AutoDownloadPuzzlesEntity`, `AutoDownloadRecipesEntity`, `AutoDownloadSavedStoriesEntity`, `AutoDownloadStoriesInFeedsEntity`, `GameCenterEntity`, `OptimizeStorageEntity`, `RestrictStoriesInTodaySettingEntity`
    */
   news_change_news_settings: "com.apple.news.WFAppSettingEntityUpdaterAction",
   /**
    * **Get News Settings**
+   *
    * Gets the current state of the selected News setting. (News)
+   *
    * Output: Automatically Download Audio Stories
+   *
    * Parameters: `entity`
    */
   news_get_news_settings: "com.apple.news.WFGetAppSettingAction",
   /**
    * **Search**
+   *
    * Answer user's query (SearchToolExtension)
+   *
    * Output: Search results
+   *
    * Parameters: `rawQuery`, `rewrittenQuery`, `simplifiedQuery`, `structuredQuery`, `typeIdentifiers`, `context`, `matchedEntities`, `isFirstToolInvocation`, `isOnScreenReference`, `isSingleStepSearch`, `invocationClient`, `requestedProperties`, `disambiguatedEntity`, `ShowWhenRun`
    */
   com_apple_omni_search_search_tool_extension_search: "com.apple.omniSearch.SearchToolExtension.SearchTool",
   /**
    * **SearchTool Control**
+   *
    * Control interface for SearchTool Extension (SearchToolExtension)
+   *
    * Output: SearchTool control command result
+   *
    * Parameters: `command`, `originatorPID`, `useMiniMC`
    */
   com_apple_omni_search_search_tool_extension_search_tool_control: "com.apple.omniSearch.SearchToolExtension.SearchToolControl",
   /**
    * **Add Audio to Library**
+   *
    * Adds audio item to the user's library (Podcasts)
+   *
    * Parameters: `audioEntity`
    */
   podcasts_add_audio_to_library: "com.apple.podcasts.AddAudioToLibraryIntent",
   /**
    * **Find Podcast Episode**
+   *
    *  (Podcasts)
+   *
    * Output: Podcast Episode
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   podcasts_find_podcast_episode: "com.apple.podcasts.EpisodeEntity",
   /**
    * **Follow Show**
+   *
    * Follow the provided show, adding it to you library (Podcasts)
+   *
    * Output: Podcast Show
+   *
    * Parameters: `show`, `OpenWhenRun`
    */
   podcasts_follow_show: "com.apple.podcasts.FollowShowAppIntent",
   /**
    * **Open App Location**
+   *
    * Open the Podcasts application to a specific location (Podcasts)
+   *
    * Parameters: `target`
    */
   podcasts_open_app_location: "com.apple.podcasts.OpenAppLocationAppIntent",
   /**
    * **Open Audio Intent**
+   *
    * Opens a audio item in the app UI (e.g., find <Artist>) (Podcasts)
+   *
    * Parameters: `target`
    */
   podcasts_open_audio_intent: "com.apple.podcasts.OpenAudioAppIntent",
   /**
    * **Open Channel**
+   *
    *  (Podcasts)
+   *
    * Parameters: `target`
    */
   podcasts_open_channel: "com.apple.podcasts.OpenChannelAppIntent",
   /**
    * **Open Episode**
+   *
    *  (Podcasts)
+   *
    * Parameters: `target`
    */
   podcasts_open_episode: "com.apple.podcasts.OpenEpisodeAppIntent",
   /**
    * **Open Show**
+   *
    *  (Podcasts)
+   *
    * Parameters: `target`, `notice`
    */
   podcasts_open_show: "com.apple.podcasts.OpenShowAppIntent",
   /**
    * **Play Episode**
+   *
    * Play the provided episode immediately, clearing the playback queue (Podcasts)
+   *
    * Parameters: `warmupAudioQueueResult`, `playbackAttributes`, `queueLocation`, `audioEntity`, `requestIdentifierOverride`
    */
   podcasts_play_episode: "com.apple.podcasts.PlayAudioIntent",
   /**
    * **Play or Pause Station**
+   *
    * Start playback of a station or pause playback if the station is currently playing. (Podcasts)
+   *
    * Parameters: `station`, `firstEpisode`
    */
   podcasts_play_or_pause_station: "com.apple.podcasts.PlayPauseStationAppIntent",
   /**
    * **Play or Pause Episode**
+   *
    *  (Podcasts)
+   *
    * Parameters: `episode`, `episodePlaylist`, `playbackAccountDSID`
    */
   podcasts_play_or_pause_episode: "com.apple.podcasts.PlayPauseWidgetIntent",
   /**
    * **Find Podcast Collection**
+   *
    *  (Podcasts)
+   *
    * Output: Podcast Collection
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   podcasts_find_podcast_collection: "com.apple.podcasts.PodcastCollectionEntity",
   /**
    * **Search Podcasts**
+   *
    * Searches for the specified content in Apple Podcasts (Podcasts)
+   *
    * Parameters: `criteria`
    */
   podcasts_search_podcasts: "com.apple.podcasts.SearchPodcastsAppIntent",
   /**
    * **Find Podcast Show**
+   *
    *  (Podcasts)
+   *
    * Output: Podcast Show
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   podcasts_find_podcast_show: "com.apple.podcasts.ShowEntity",
   /**
    * **Warmup Audio Queue**
+   *
    * Warmup a specific audio item to the queue (Podcasts)
+   *
    * Output: Warmup Audio Queue Result
+   *
    * Parameters: `audioEntity`, `requestIdentifierOverride`, `playbackAttributes`
    */
   podcasts_warmup_audio_queue: "com.apple.podcasts.WarmupAudioQueueIntent",
   /**
    * **Cancel Print Job**
+   *
    * Cancel Print Job (Print Center)
+   *
    * Parameters: `jobContextIdentifier`
    */
   com_apple_printcenter_cancel_print_job: "com.apple.printcenter.CancelPrintJob",
   /**
    * **Open Print Center**
+   *
    *  (Print Center)
+   *
    * Parameters: `target`
    */
   com_apple_printcenter_open_print_center: "com.apple.printcenter.LaunchPrintCenterAppIntent",
   /**
    * **Print Documents**
+   *
    *  (Print Center)
+   *
    * Parameters: `documents`, `printer`
    */
   com_apple_printcenter_print_documents: "com.apple.printcenter.PrintDocuments",
   /**
    * **Add or Remove Tags**
+   *
    * Add tags to or remove tags from reminders. (Reminders)
+   *
    * Output: Reminder
+   *
    * Parameters: `operation`, `reminders`, `tags`, `OpenWhenRun`
    */
   reminders_add_or_remove_tags: "com.apple.reminders.AddOrRemoveTagsAppIntent",
   /**
    * **Set Reminder completion state**
+   *
    * Set the completion of a specific reminder and its subtasks. (Reminders)
+   *
    * Output: Reminder
+   *
    * Parameters: `reminder`, `isCompleted`, `completeSubtasks`, `OpenWhenRun`
    */
   reminders_set_reminder_completion_state: "com.apple.reminders.CompleteReminderAppIntent",
   /**
    * **Open New Custom Smart List**
+   *
    * Creates a list to automatically include reminders filtered by tags, dates, and more. (Reminders)
+   *
    * Parameters: `name`
    */
   reminders_open_new_custom_smart_list: "com.apple.reminders.CreateCustomSmartListAppIntent",
   /**
    * **Create Group**
+   *
    * Creates a group in Reminders. (Reminders)
+   *
    * Output: Group
+   *
    * Parameters: `name`, `lists`
    */
   reminders_create_group: "com.apple.reminders.CreateGroupAppIntent",
   /**
    * **Create Section**
+   *
    * Creates a section in a list. (Reminders)
+   *
    * Output: Section
+   *
    * Parameters: `list`, `name`, `OpenWhenRun`
    */
   reminders_create_section: "com.apple.reminders.CreateSectionAppIntent",
   /**
    * **Delete Lists**
+   *
    * Delete lists from Reminders. (Reminders)
+   *
    * Parameters: `entities`
    */
   reminders_delete_lists: "com.apple.reminders.DeleteListsAppIntent",
   /**
    * **Delete Reminders and Subtasks**
+   *
    * Delete reminders. (Reminders)
+   *
    * Parameters: `entities`, `deleteSubtasks`, `deleteRecurringReminders`
    */
   reminders_delete_reminders_and_subtasks: "com.apple.reminders.DeleteRemindersAppIntent",
   /**
    * **Delete Groups**
+   *
    * Delete groups from Reminders. (Reminders)
+   *
    * Parameters: `entities`, `deleteSublists`
    */
   reminders_delete_groups: "com.apple.reminders.DeleteRemindersListGroupsAppIntent",
   /**
    * **Delete Sections**
+   *
    * Delete sections from Reminders. (Reminders)
+   *
    * Parameters: `entities`, `deleteReminders`
    */
   reminders_delete_sections: "com.apple.reminders.DeleteSectionsAppIntent",
   /**
    * **Find Group**
+   *
    *  (Reminders)
+   *
    * Output: Group
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   reminders_find_group: "com.apple.reminders.GroupEntity",
   /**
    * **Change Reminders Group Name**
+   *
    * Update reminders group name. (Reminders)
+   *
    * Output: Group
+   *
    * Parameters: `entity`, `nameUpdatableProperty`
    */
   reminders_change_reminders_group_name: "com.apple.reminders.GroupEntity-UpdatableEntity",
   /**
    * **Find List**
+   *
    *  (Reminders)
+   *
    * Output: List
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   reminders_find_list: "com.apple.reminders.ListEntity",
   /**
    * **Edit List**
+   *
    * Edit List
  • Auto-Categorize
  • Badge
@@ -8444,4068 +11743,5678 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
  • Show Completed
  • Sorting Style
  • Type (Reminders)
+   *
    * Output: List
+   *
    * Parameters: `badge`, `color`, `entity`, `parent`
    */
   reminders_edit_list: "com.apple.reminders.ListEntity-UpdatableEntity",
   /**
    * **Move Reminders**
+   *
    * Move reminders to a list or section, or make them a subtask of a parent reminder. (Reminders)
+   *
    * Output: Reminder
+   *
    * Parameters: `reminders`, `position`, `targetType`, `list`, `section`, `parentReminder`, `OpenWhenRun`
    */
   reminders_move_reminders: "com.apple.reminders.MoveRemindersAppIntent",
   /**
    * **Open Group**
+   *
    * Opens a Group in Reminders. (Reminders)
+   *
    * Parameters: `target`
    */
   reminders_open_group: "com.apple.reminders.OpenGroupAppIntent",
   /**
    * **Open Reminder In List**
+   *
    * Opens a reminder. (Reminders)
+   *
    * Parameters: `target`, `showDetail`, `title`, `caption`, `inSmartList`
    */
   reminders_open_reminder_in_list: "com.apple.reminders.OpenReminderAppIntent",
   /**
    * **Open Smart List**
+   *
    * Open a smart list in Reminders. (Reminders)
+   *
    * Parameters: `target`
    */
   reminders_open_smart_list: "com.apple.reminders.OpenSmartListAppIntent",
   /**
    * **Find Reminder**
+   *
    *  (Reminders)
+   *
    * Output: Reminder
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   reminders_find_reminder: "com.apple.reminders.ReminderEntity",
   /**
    * **Get User Defaults Entity**
+   *
    *  (Reminders)
+   *
    * Output: User Defaults Entity
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   reminders_get_user_defaults_entity: "com.apple.reminders.RemotePreferencesEntity",
   /**
    * **Find Section**
+   *
    *  (Reminders)
+   *
    * Output: Section
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   reminders_find_section: "com.apple.reminders.SectionEntity",
   /**
    * **Update section collapsed state**
+   *
    * Update section collapsed state. (Reminders)
+   *
    * Output: Section
+   *
    * Parameters: `entity`, `isCollapsed`
    */
   reminders_update_section_collapsed_state: "com.apple.reminders.SectionEntity-UpdatableEntity",
   /**
    * **Find Smart List**
+   *
    * Find a Reminders Smart List. (Reminders)
+   *
    * Output: Reminders Smart Lists
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   reminders_find_smart_list: "com.apple.reminders.SmartListEntity",
   /**
    * **Create List**
+   *
    * Creates a list in Reminders. (Reminders)
+   *
    * Output: List
+   *
    * Parameters: `name`, `type`, `group`, `OpenWhenRun`
    */
   reminders_create_list: "com.apple.reminders.TTRCreateListAppIntent",
   /**
    * **Create Reminder**
+   *
    * Creates a new reminder. (Reminders)
+   *
    * Output: Reminder
+   *
    * Parameters: `title`, `note`, `isFlagged`, `images`, `tags`, `urls`, `dueDate`, `recurrence`, `locationTrigger`, `list`, `section`, `isAllDay`, `earlyAlert`, `vehicleTrigger`, `priorityLevel`, `parentReminder`, `contactPerson`, `assignedPerson`, `subtasks`
    */
   reminders_create_reminder: "com.apple.reminders.TTRCreateReminderAppIntent",
   /**
    * **Open List**
+   *
    * Opens a list in Reminders. (Reminders)
+   *
    * Parameters: `target`
    */
   reminders_open_list: "com.apple.reminders.TTROpenListAppIntent",
   /**
    * **Open List**
+   *
    * Opens a list in Reminders. (Reminders)
+   *
    * Parameters: `target`
    */
   com_apple_reminders_TTROpenSmartListAppIntent: "com.apple.reminders.TTROpenSmartListAppIntent",
   /**
    * **Search in Reminders**
+   *
    * Search for a reminder. (Reminders)
+   *
    * Parameters: `searchPhrase`
    */
   reminders_search_in_reminders: "com.apple.reminders.TTRSearchRemindersAppIntent",
   /**
    * **Update reminders group properties**
+   *
    * Update reminders group properties. (Reminders)
+   *
    * Output: Group
+   *
    * Parameters: `name`, `target`, `lists`
    */
   reminders_update_reminders_group_properties: "com.apple.reminders.UpdateGroupAppIntent",
   /**
    * **Edit List**
+   *
    * Edit List
 • Name
 • Type
 • Color
 • Badge
 • Parent Group (Reminders)
+   *
    * Output: List
+   *
    * Parameters: `target`, `name`, `type`, `color`, `badge`, `parent`, `propertyToUpdate`
    */
   com_apple_reminders_UpdateListAppIntent: "com.apple.reminders.UpdateListAppIntent",
   /**
    * **Auto-Categorize Reminders List**
+   *
    * Auto-Categorize a reminders list. (Reminders)
+   *
    * Output: List
+   *
    * Parameters: `target`, `autoCategorize`, `OpenWhenRun`
    */
   reminders_auto_categorize_reminders_list: "com.apple.reminders.UpdateListAutoCategorizeAppIntent",
   /**
    * **Pin/Unpin Reminders List**
+   *
    * Pin or unpin reminders list. (Reminders)
+   *
    * Output: List
+   *
    * Parameters: `target`, `isPinned`, `OpenWhenRun`
    */
   reminders_pin_unpin_reminders_list: "com.apple.reminders.UpdateListIsPinnedAppIntent",
   /**
    * **Change Reminders List Layout**
+   *
    * Toggle reminders list layout. (Reminders)
+   *
    * Output: List
+   *
    * Parameters: `target`, `listLayout`, `OpenWhenRun`
    */
   reminders_change_reminders_list_layout: "com.apple.reminders.UpdateListLayoutAppIntent",
   /**
    * **Show/Hide Completed Reminders**
+   *
    * Toggle show or hide completed reminders in list. (Reminders)
+   *
    * Output: List
+   *
    * Parameters: `target`, `showsCompleted`, `OpenWhenRun`
    */
   reminders_show_hide_completed_reminders: "com.apple.reminders.UpdateListShowsCompletedAppIntent",
   /**
    * **Change Reminders List Sorting Style**
+   *
    * Change reminders list sorting style. (Reminders)
+   *
    * Output: List
+   *
    * Parameters: `target`, `sortingStyle`, `OpenWhenRun`
    */
   reminders_change_reminders_list_sorting_style: "com.apple.reminders.UpdateListSortingStyleAppIntent",
   /**
    * **Update Reminder properties**
+   *
    * Update Reminder properties. (Reminders)
+   *
    * Output: Reminder
+   *
    * Parameters: `target`, `isCompleted`, `isFlagged`, `title`, `note`, `images`, `tags`, `urls`, `dueDate`, `recurrence`, `locationTrigger`, `subtasks`, `list`, `section`, `earlyAlert`, `vehicleTrigger`, `contactPerson`, `assignedPerson`, `priorityLevel`, `parent`
    */
   reminders_update_reminder_properties: "com.apple.reminders.UpdateReminderAppIntent",
   /**
    * **Update section properties**
+   *
    * Update section properties. (Reminders)
+   *
    * Output: Section
+   *
    * Parameters: `target`, `name`, `isCollapsed`
    */
   reminders_update_section_properties: "com.apple.reminders.UpdateSectionAppIntent",
   /**
    * **Update reminders system smart list properties**
+   *
    * Update reminders smart list properties. (Reminders)
+   *
    * Output: Smart List
+   *
    * Parameters: `target`, `isHidden`
    */
   reminders_update_reminders_system_smart_list_properties: "com.apple.reminders.UpdateSmartListAppIntent",
   /**
    * **Show/Hide Reminders System Smart List**
+   *
    * Show or hide reminders system smart list. (Reminders)
+   *
    * Output: Smart List
+   *
    * Parameters: `entity`, `property`, `OpenWhenRun`
    */
   reminders_show_hide_reminders_system_smart_list: "com.apple.reminders.UpdateSmartListIsHiddenAppIntent",
   /**
    * **Capture Screen**
+   *
    *  (Screenshot)
    */
   com_apple_screenshot_launcher_capture_screen: "com.apple.screenshot.launcher.CaptureScreenIntent",
   /**
    * **Capture Selection**
+   *
    *  (Screenshot)
    */
   com_apple_screenshot_launcher_capture_selection: "com.apple.screenshot.launcher.CaptureSelectionIntent",
   /**
    * **Capture Selection with Visual Intelligence**
+   *
    *  (Screenshot)
    */
   com_apple_screenshot_launcher_capture_selection_with_visual_intelligence: "com.apple.screenshot.launcher.CaptureSelectionWithVisualIntelligenceIntent",
   /**
    * **Custom Capture**
+   *
    *  (Screenshot)
+   *
    * Parameters: `arguments`
    */
   com_apple_screenshot_launcher_custom_capture: "com.apple.screenshot.launcher.CustomCaptureIntent",
   /**
    * **Custom Capture**
+   *
    *  (Screenshot)
+   *
    * Parameters: `value`, `arguments`
    */
   com_apple_screenshot_launcher_CustomRecordIntent: "com.apple.screenshot.launcher.CustomRecordIntent",
   /**
    * **Record Screen**
+   *
    *  (Screenshot)
+   *
    * Parameters: `value`
    */
   com_apple_screenshot_launcher_record_screen: "com.apple.screenshot.launcher.RecordScreenIntent",
   /**
    * **Record Selection**
+   *
    *  (Screenshot)
+   *
    * Parameters: `value`
    */
   com_apple_screenshot_launcher_record_selection: "com.apple.screenshot.launcher.RecordSelectionIntent",
   /**
    * **Screenshot Toolbar**
+   *
    *  (Screenshot)
    */
   com_apple_screenshot_launcher_screenshot_toolbar: "com.apple.screenshot.launcher.ScreenshotToolbarIntent",
   /**
    * **Add Shortcut to Home Screen**
+   *
    * Adds a shortcut to your Home Screen as an icon. (Shortcuts)
+   *
    * Parameters: `shortcut`, `title`, `image`
    */
   com_apple_shortcuts_add_shortcut_to_home_screen: "com.apple.shortcuts.AddShortcutToHomeScreenAction",
   /**
    * **Change Shortcut Icon**
+   *
    * Opens the icon editor for a shortcut (Shortcuts)
+   *
    * Parameters: `shortcut`
    */
   com_apple_shortcuts_change_shortcut_icon: "com.apple.shortcuts.ChangeShortcutIconAction",
   /**
    * **Create Folder**
+   *
    * Creates a new Shortcuts folder (Shortcuts)
+   *
    * Output: Folder
+   *
    * Parameters: `name`, `OpenWhenRun`
    */
   com_apple_shortcuts_create_folder: "com.apple.shortcuts.CreateFolderAction",
   /**
    * **Create iCloud Link for Shortcut**
+   *
    * Creates an iCloud link for a shortcut that can be shared (Shortcuts)
+   *
    * Parameters: `shortcut`
    */
   com_apple_shortcuts_create_icloud_link_for_shortcut: "com.apple.shortcuts.CreateShortcutiCloudLinkAction",
   /**
    * **Create Shortcut**
+   *
    * Creates a new empty shortcut (Shortcuts)
+   *
    * Output: Shortcut
+   *
    * Parameters: `name`, `OpenWhenRun`
    */
   com_apple_shortcuts_create_shortcut: "com.apple.shortcuts.CreateWorkflowAction",
   /**
    * **Delete Shortcuts**
+   *
    * Deletes shortcuts from your library (Shortcuts)
+   *
    * Parameters: `entities`
    */
   com_apple_shortcuts_delete_shortcuts: "com.apple.shortcuts.DeleteWorkflowAction",
   /**
    * **Generate Shortcut**
+   *
    * Generates a new shortcut from a text description using Apple Intelligence. (Shortcuts)
+   *
    * Output: Shortcut
+   *
    * Parameters: `prompt`, `answer`
    */
   com_apple_shortcuts_generate_shortcut: "com.apple.shortcuts.GenerateShortcutAction",
   /**
    * **Get Shortcut Attributes**
+   *
    * Get a shortcut’s settings. (Shortcuts)
+   *
    * Parameters: `attribute`, `shortcut`, `OpenWhenRun`
    */
   com_apple_shortcuts_get_shortcut_attributes: "com.apple.shortcuts.GetShortcutAttributesAction",
   /**
    * **Move Shortcut**
+   *
    * Move shortcuts to a specified folder. (Shortcuts)
+   *
    * Parameters: `shortcuts`, `folder`, `OpenWhenRun`
    */
   com_apple_shortcuts_move_shortcut: "com.apple.shortcuts.MoveShortcutToFolderAction",
   /**
    * **Open Folder**
+   *
    * Opens a page within the Shortcuts app (Shortcuts)
+   *
    * Parameters: `target`
    */
   com_apple_shortcuts_open_folder: "com.apple.shortcuts.OpenNavigationDestinationAction",
   /**
    * **Open Shortcuts Settings**
+   *
    *  (Shortcuts)
+   *
    * Parameters: `target`
    */
   com_apple_preferences_open_shortcuts_settings: "com.apple.shortcuts.OpenShortcutsStaticDeepLinks",
   /**
    * **Open Shortcut**
+   *
    * Opens the editor for a shortcut (Shortcuts)
+   *
    * Parameters: `target`
    */
   com_apple_shortcuts_open_shortcut: "com.apple.shortcuts.OpenWorkflowAction",
   /**
    * **Rename Shortcut**
+   *
    * Renames a shortcut to the specified name. (Shortcuts)
+   *
    * Output: Shortcut
+   *
    * Parameters: `shortcut`, `name`, `OpenWhenRun`
    */
   com_apple_shortcuts_rename_shortcut: "com.apple.shortcuts.RenameShortcutAction",
   /**
    * **Search Shortcuts Actions**
+   *
    * Search for an available Shortcuts action. (Shortcuts)
+   *
    * Output: Shortcuts Action
+   *
    * Parameters: `query`
    */
   com_apple_shortcuts_search_shortcuts_actions: "com.apple.shortcuts.SearchActionDrawerAction",
   /**
    * **Search in Shortcuts**
+   *
    * Searches your shortcuts library (Shortcuts)
+   *
    * Parameters: `searchPhrase`, `folder`
    */
   com_apple_shortcuts_search_in_shortcuts: "com.apple.shortcuts.SearchShortcutsAction",
   /**
    * **Set Shortcut Attributes**
+   *
    * Modify a shortcut’s settings (Shortcuts)
+   *
    * Parameters: `operation`, `attribute`, `shortcut`, `state`, `OpenWhenRun`
    */
   com_apple_shortcuts_set_shortcut_attributes: "com.apple.shortcuts.SetShortcutAttributesAction",
   /**
    * **Stop Shortcut**
+   *
    * Stops the shortcut if it is currently running. (Shortcuts)
+   *
    * Parameters: `runningContextIdentifier`
    */
   com_apple_shortcuts_stop_shortcut: "com.apple.shortcuts.StopWorkflowAction",
   /**
    * **Add Audio Item to Library**
+   *
    * Add an audio item to the person’s library (AudioAppIntentsExtension)
+   *
    * Parameters: `audioEntity`
    */
   com_apple_siri_audio_app_intents_extension_add_audio_item_to_library: "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent",
   /**
    * **Add Audio Item to Playlist**
+   *
    * Add an audio item to a playlist (AudioAppIntentsExtension)
+   *
    * Parameters: `audioEntity`, `playlist`
    */
   com_apple_siri_audio_app_intents_extension_add_audio_item_to_playlist: "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent",
   /**
    * **Play Audio Item**
+   *
    * Play an audio item (AudioAppIntentsExtension)
+   *
    * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `warmupAudioQueueResult`
    */
   com_apple_siri_audio_app_intents_extension_play_audio_item: "com.apple.siri.AudioAppIntentsExtension.SiriKitPlayAudioIntent",
   /**
    * **Like Audio Item**
+   *
    * Set the like state of an audio item to liked, unliked, or unset (AudioAppIntentsExtension)
+   *
    * Parameters: `target`, `affinityState`
    */
   com_apple_siri_audio_app_intents_extension_like_audio_item: "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent",
   /**
    * **Whole House Audio Placeholder Intent**
+   *
    *  (AudioAppIntentsExtension)
+   *
    * Parameters: `destinations`
    */
   com_apple_siri_audio_app_intents_extension_whole_house_audio_placeholder_intent: "com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent",
   /**
    * **EditPhotoWarmth**
+   *
    * Adjust the warmth/temperature of a photo to make it warmer or cooler. (Photos)
+   *
    * Parameters: `target`, `adjustmentType`, `value`, `isPercentage`
    */
   com_apple_siri_PhotosFlowTools_SiriPhotosFlowTools_EditPhotoWarmth_com_apple_Photos: "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos",
   /**
    * **InteractiveInstallApplicationTool**
+   *
    * A standalone tool to interactively install or update marketplace applications. (SiriAppLaunchFlowTools)
+   *
    * Parameters: `applications`, `isUpdate`
    */
   com_apple_siri_SiriAppLaunchFlowTools_SiriAppLaunchFlowTools_InteractiveInstallApplicationTool: "com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool",
   /**
    * **AddAudioToLibrary**
+   *
    *  (Music)
+   *
    * Parameters: `audioEntity`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_AddAudioToLibraryTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music",
   /**
    * **AddAudioToLibrary**
+   *
    *  (Podcasts)
+   *
    * Parameters: `audioEntity`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_AddAudioToLibraryTool_com_apple_podcasts: "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts",
   /**
    * **AddAudioToPlaylist**
+   *
    *  (Music)
+   *
    * Parameters: `audioEntity`, `playlist`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_AddAudioToPlaylistTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music",
   /**
    * **PlayAudio**
+   *
    *  (Music)
+   *
    * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `destinations`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_PlayAudioTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music",
   /**
    * **PlayAudio**
+   *
    *  (Books)
+   *
    * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `destinations`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_PlayAudioTool_com_apple_iBooksX: "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX",
   /**
    * **PlayAudio**
+   *
    *  (Podcasts)
+   *
    * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `destinations`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_PlayAudioTool_com_apple_podcasts: "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts",
   /**
    * **UpdateAudioAffinity**
+   *
    *  (Music)
+   *
    * Parameters: `target`, `affinityState`
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_UpdateAudioAffinityTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music",
   /**
    * **CrisisDialog**
+   *
    * Handles crisis dialog for emergency and CSAM situations (SiriCrisisFlowTools)
+   *
    * Parameters: `situation`
    */
   com_apple_siri_SiriCrisisFlowTools_SiriCrisisFlowTools_CrisisDialogFlowTool: "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool",
   /**
    * **Get Current Location**
+   *
    *  (SiriGeoAppIntentsExtension)
+   *
    * Output: Current Location
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_siri_siri_geo_siri_geo_app_intent_extension_get_current_location: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity",
   /**
    * **Get Current Route**
+   *
    *  (SiriGeoAppIntentsExtension)
+   *
    * Output: Current Route
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_siri_siri_geo_siri_geo_app_intent_extension_get_current_route: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity",
   /**
    * **SiriGeoAppIntent**
+   *
    *  (SiriGeoAppIntentsExtension)
    */
   com_apple_siri_siri_geo_siri_geo_app_intent_extension_siri_geo_app_intent: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.SiriGeoAppIntent",
   /**
    * **Start Navigation for Third Party Apps**
+   *
    * Start Navigation (SiriGeoAppIntentsExtension)
+   *
    * Output: Current Route
+   *
    * Parameters: `origin`, `destinations`, `transportationType`, `preferences`, `ShowWhenRun`
    */
   com_apple_siri_siri_geo_siri_geo_app_intent_extension_start_navigation_for_third_party_apps: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent",
   /**
    * **WhoAmITool**
+   *
    * Who am I Flow Tool (SiriIdentityInternal)
    */
   com_apple_siri_SiriIdentityInternal_SiriIdentityInternal_WhoAmITool: "com.apple.siri.SiriIdentityInternal.SiriIdentityInternal.WhoAmITool",
   /**
    * **CreateDraftMailTool**
+   *
    * Create a new email draft. (Mail)
+   *
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_CreateDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail",
   /**
    * **ForwardDraftMailTool**
+   *
    * Create a forwarding email draft. (Mail)
+   *
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_ForwardDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail",
   /**
    * **ReplyDraftMailTool**
+   *
    * Create a replying or replying all email draft. (Mail)
+   *
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`, `isReplyAll`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_ReplyDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail",
   /**
    * **SendDraftMailTool**
+   *
    * Send an email draft now or at a specified later time. (Mail)
+   *
    * Parameters: `sendLaterDate`, `target`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_SendDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail",
   /**
    * **UpdateDraftMailTool**
+   *
    * Update an email draft. (Mail)
+   *
    * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
    */
   com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_UpdateDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail",
   /**
    * **Prepare notifications**
+   *
    * Prepare notifications (SiriNotificationsAppIntentsExtension)
+   *
    * Parameters: `notifications`, `isReadLatest`, `isCatchMeUp`, `app`
    */
   com_apple_siri_siri_notifications_app_intents_extension_prepare_notifications: "com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent",
   /**
    * **SiriNotificationsAppIntentsExtension**
+   *
    *  (SiriNotificationsAppIntentsExtension)
    */
   com_apple_siri_siri_notifications_app_intents_extension_siri_notifications_app_intents_extension: "com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension",
   /**
    * **Prepare Notifications**
+   *
    * Prepare notifications for reading (SiriNotificationsFlowTools)
+   *
    * Parameters: `notifications`, `isReadLatest`, `isCatchMeUp`
    */
   com_apple_siri_SiriNotificationsFlowTools_SiriNotificationsFlowTools_PrepareNotificationsTool: "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool",
   /**
    * **SiriPhonePunchoutIntent**
+   *
    *  (SiriPhoneAppIntentsExtension)
+   *
    * Parameters: `url`, `uniqueID`, `OpenWhenRun`
    */
   phone_siriphone_punchout_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent",
   /**
    * **Answer an incoming call**
+   *
    * Answer an incoming call looked up in the context and routes the audio to the audio route if it was specified (PhoneAppIntentsExtension)
+   *
    * Parameters: `call`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_AnswerCallFlowTool_com_apple_calls_PhoneAppIntentsExtension: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension",
   /**
    * **Call Emergency Contact Flow Tool**
+   *
    * Call the emergency contact. (SiriPhoneFlowTools)
+   *
    * Parameters: `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_CallEmergencyContactFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool",
   /**
    * **Callback Flow Tool**
+   *
    * Callback the previous caller. (SiriPhoneFlowTools)
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_CallbackFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool",
   /**
    * **Prepare Call Messages Flow Tool**
+   *
    * Prepare call messages (voicemails). (SiriPhoneFlowTools)
+   *
    * Parameters: `messages`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_PrepareCallMessagesFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool",
   /**
    * **Prepare Read Call Records**
+   *
    * Prepare Read call records. (SiriPhoneFlowTools)
+   *
    * Parameters: `records`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_PrepareReadCallRecordsFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool",
   /**
    * **Read Call Message Flow Tool**
+   *
    * Read call message. (SiriPhoneFlowTools)
+   *
    * Parameters: `message`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_ReadCallMessageFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool",
   /**
    * **Redial Flow Tool**
+   *
    * Redial last caller. (SiriPhoneFlowTools)
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_RedialFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.RedialFlowTool",
   /**
    * **Start a call**
+   *
    * Starts an audio or video call to a person, list of people, or group chat, using the default phone app, FaceTime, or a custom app (PhoneAppIntentsExtension)
+   *
    * Parameters: `destination`, `audioVisualMode`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartCallFlowTool_com_apple_FaceTime: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime",
   /**
    * **Start a call**
+   *
    * Starts an audio or video call to a person, list of people, or group chat, using the default phone app, FaceTime, or a custom app (PhoneAppIntentsExtension)
+   *
    * Parameters: `destination`, `audioVisualMode`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartCallFlowTool_com_apple_mobilephone: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone",
   /**
    * **Start Crisis Helpline Call Flow Tool**
+   *
    * Start a crisis helpline call. (SiriPhoneFlowTools)
+   *
    * Parameters: `crisisResourceType`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartCrisisHelplineCallFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool",
   /**
    * **Start Emergency Call**
+   *
    * Start an emergency call (PhoneAppIntentsExtension)
+   *
    * Parameters: `destination`, `audioRoute`
    */
   com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartEmergencyCallFlowTool_com_apple_calls_PhoneAppIntentsExtension: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension",
   /**
    * **SiriPhotosAppIntentsExtension**
+   *
    *  (SiriPhotosAppIntentsExtension)
    */
   com_apple_siri_siri_photos_app_intents_extension_siri_photos_app_intents_extension: "com.apple.siri.SiriPhotosAppIntentsExtension.SiriPhotosAppIntentsExtension",
   /**
    * **Update Photo Warmth**
+   *
    *  (SiriPhotosAppIntentsExtension)
+   *
    * Parameters: `target`, `adjustmentType`, `value`, `isPercentage`
    */
   com_apple_siri_siri_photos_app_intents_extension_update_photo_warmth: "com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool",
   /**
    * **CancelTimer**
+   *
    * Cancel the timer (Clock)
+   *
    * Parameters: `entities`
    */
   com_apple_siri_SiriTimeFlowTools_SiriTimeFlowTools_CancelTimerFlowTool_com_apple_clock: "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock",
   /**
    * **DismissAlarm**
+   *
    * Dismiss an alarm (Clock)
+   *
    * Parameters: `alarm`
    */
   com_apple_siri_SiriTimeFlowTools_SiriTimeFlowTools_DismissAlarmFlowTool_com_apple_clock: "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock",
   /**
    * **SnoozeAlarm**
+   *
    * Snooze a firing alarm (Clock)
+   *
    * Parameters: `alarm`, `duration`
    */
   com_apple_siri_SiriTimeFlowTools_SiriTimeFlowTools_SnoozeAlarmFlowTool_com_apple_clock: "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock",
   /**
    * **Translate Text**
+   *
    * Translate text from one language to another (SiriTranslationFlowTools)
+   *
    * Parameters: `phrase`, `targetLanguage`, `sourceLanguage`
    */
   com_apple_siri_SiriTranslationFlowTools_SiriTranslationFlowTools_TranslateTextFlowTool: "com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool",
   /**
    * **Cross Device Placeholder Intent**
+   *
    *  (SiriVideoAppIntents)
+   *
    * Parameters: `route`
    */
   com_apple_siri_siri_video_app_intents_cross_device_placeholder_intent: "com.apple.siri.SiriVideoAppIntents.CrossDevicePlaceholderIntent",
   /**
    * **Finds a freeform video**
+   *
    * Finds a freeform video (SiriVideoAppIntents)
+   *
    * Parameters: `entity`
    */
   com_apple_siri_siri_video_app_intents_finds_a_freeform_video: "com.apple.siri.SiriVideoAppIntents.InternalFindFreeformVideoIntent",
   /**
    * **Finds a video**
+   *
    * Finds a video (SiriVideoAppIntents)
+   *
    * Parameters: `content`
    */
   com_apple_siri_siri_video_app_intents_finds_a_video: "com.apple.siri.SiriVideoAppIntents.InternalFindVideoIntent",
   /**
    * **Plays a video**
+   *
    * Plays a video (SiriVideoAppIntents)
+   *
    * Parameters: `content`
    */
   com_apple_siri_siri_video_app_intents_plays_a_video: "com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent",
   /**
    * **Find Video content**
+   *
    * Find Video content (SiriVideoFlowTools)
+   *
    * Parameters: `content`
    */
   com_apple_siri_SiriVideoFlowTools_SiriVideoFlowTools_FindVideoContentTool: "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool",
   /**
    * **Messages Post Reading Action Tool**
+   *
    *  (SiriMessagesAppIntentsExtension)
+   *
    * Parameters: `readableMessages`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_messages_post_reading_action_tool: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent",
   /**
    * **Prepare To Read Conversation Tool**
+   *
    *  (SiriMessagesAppIntentsExtension)
+   *
    * Parameters: `conversation`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_prepare_to_read_conversation_tool: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent",
   /**
    * **SiriKitEditLastMessageIntent**
+   *
    * Edit an already sent message with new content (SiriMessagesAppIntentsExtension)
+   *
    * Parameters: `content`, `message`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_siri_kit_edit_last_message_intent: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitEditLastMessageIntent",
   /**
    * **Prepare Messages for Reading**
+   *
    * Prepares and processes messages to be read aloud by Siri (SiriMessagesAppIntentsExtension)
+   *
    * Parameters: `message`, `isRead`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_prepare_messages_for_reading: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitPrepareMessagesForReadingIntent",
   /**
    * **SiriKitSendMessageIntent**
+   *
    * Sends a message with the associated parameters (SiriMessagesAppIntentsExtension)
+   *
    * Output: Message
+   *
    * Parameters: `destination`, `subject`, `content`, `audioMessage`, `attachments`, `locations`, `links`, `scheduledDate`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_siri_kit_send_message_intent: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitSendMessageIntent",
   /**
    * **SiriKitUnsendLastMessageIntent**
+   *
    * Unsend a sent message (SiriMessagesAppIntentsExtension)
+   *
    * Parameters: `message`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_siri_kit_unsend_last_message_intent: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent",
   /**
    * **Update a Draft**
+   *
    *  (SiriMessagesAppIntentsExtension)
+   *
    * Parameters: `draft`, `recipients`, `subject`, `content`, `isAudioMessage`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_update_a_draft: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool",
   /**
    * **Create Draft**
+   *
    *  (Messages)
+   *
    * Parameters: `destination`, `subject`, `content`, `attachments`, `locations`, `links`, `audioMessage`, `isAudioMessage`, `scheduledDate`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_CreateDraftMessageTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS",
   /**
    * **Edit Last Message Sent With Siri**
+   *
    * Edit the content of the last message that was sent with Siri. (SiriMessagesFlowTools)
+   *
    * Parameters: `content`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_EditLastMessageSentWithSiriTool: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool",
   /**
    * **PerformMessagesPostReadActionFlowTool**
+   *
    * Post-read action messages Flow Tool (SiriMessagesFlowTools)
+   *
    * Parameters: `readableMessages`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PerformMessagesPostReadActionFlowTool: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool",
   /**
    * **Prepare Conversation**
+   *
    * Takes a ConversationEntity and prepares it for reading. (Messages)
+   *
    * Parameters: `conversation`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PrepareToReadConversationTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS",
   /**
    * **Prepare Conversation**
+   *
    * Takes a ConversationEntity and prepares it for reading. (SiriMessagesAppIntentsExtension)
+   *
    * Parameters: `conversation`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PrepareToReadConversationTool_com_apple_siri_messages_SiriMessagesAppIntentsExtension: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension",
   /**
    * **Prepare Messages**
+   *
    * Takes a list of MessageEntity objects and prepares them for reading. (Messages)
+   *
    * Parameters: `message`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PrepareToReadMessagesTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS",
   /**
    * **Send Draft Message**
+   *
    * Send a message or text message that has already been drafted using a designated app. Requires an existing draft message id and the messaging app. (Messages)
+   *
    * Parameters: `draft`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_SendDraftMessageTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS",
   /**
    * **Send Message Reaction**
+   *
    * Send a reaction to a message. (Messages)
+   *
    * Parameters: `message`, `reaction`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_SendMessageReactionTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS",
   /**
    * **Unsend Last Message Sent With Siri**
+   *
    * Unsend the last message that was sent with Siri. (SiriMessagesFlowTools)
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_UnsendLastMessageSentWithSiriTool: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UnsendLastMessageSentWithSiriTool",
   /**
    * **Update Draft**
+   *
    *  (Messages)
+   *
    * Parameters: `draft`, `destination`, `subject`, `content`, `attachments`, `locations`, `links`, `audioMessage`, `isAudioMessage`, `scheduledDate`
    */
   com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_UpdateDraftMessageTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS",
   /**
    * **Create List and Reminder**
+   *
    * Create a new list and add a new reminder to it (Reminders)
+   *
    * Parameters: `title`, `note`, `tags`, `urls`, `dueDate`, `recurrence`, `list`, `isFlagged`, `locationTrigger`, `name`, `type`
    */
   com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_CreateListAddReminderFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders",
   /**
    * **Create Reminder**
+   *
    * Create a new reminder (Reminders)
+   *
    * Parameters: `title`, `note`, `tags`, `urls`, `dueDate`, `recurrence`, `list`, `isFlagged`, `locationTrigger`
    */
   com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_CreateReminderFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders",
   /**
    * **Prepare Read Reminders**
+   *
    * Takes a list of reminders and prepares them for reading. (Reminders)
+   *
    * Parameters: `target`, `list`
    */
   com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_PrepareReadRemindersFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders",
   /**
    * **Update Reminder**
+   *
    * Update reminder (Reminders)
+   *
    * Parameters: `target`, `isCompleted`, `title`, `note`, `tags`, `urls`, `dueDate`, `recurrence`, `list`, `isFlagged`, `locationTrigger`
    */
   com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_UpdateReminderFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders",
   /**
    * **Share and Collaborate**
+   *
    * Share or collaborate on a document, note, reminder, or file with one or more people (sociallayerd)
+   *
    * Parameters: `recipients`
    */
   com_apple_sociallayerd_share_and_collaborate: "com.apple.sociallayerd.CollaborationIntent",
   /**
    * **Add Symbol to Watchlist**
+   *
    * Adds a symbol to a watchlist. (Stocks)
+   *
    * Parameters: `symbol`, `watchlist`, `OpenWhenRun`
    */
   stocks_add_symbol_to_watchlist: "com.apple.stocks.AddSymbolToWatchlistIntent",
   /**
    * **Block Channel or Topic**
+   *
    * Block a channel or topic from appearing, except in parts of the app curated by the Apple News editors (Stocks)
+   *
    * Parameters: `target`
    */
   stocks_block_channel_or_topic: "com.apple.stocks.BlockIntent",
   /**
    * **Delete Symbol from Watchlist**
+   *
    * Delete a symbol from a watchlist. (Stocks)
+   *
    * Parameters: `symbol`, `watchlist`, `OpenWhenRun`
    */
   stocks_delete_symbol_from_watchlist: "com.apple.stocks.DeleteSymbolFromWatchlistIntent",
   /**
    * **Delete Watchlist**
+   *
    * Deletes the selected watchlists. (Stocks)
+   *
    * Parameters: `entities`
    */
   stocks_delete_watchlist: "com.apple.stocks.DeleteWatchlistsIntent",
   /**
    * **Follow Channel or Topic**
+   *
    * Adds a channel or topic to your Following list (Stocks)
+   *
    * Parameters: `target`
    */
   stocks_follow_channel_or_topic: "com.apple.stocks.FollowIntent",
   /**
    * **Get Symbol Quote**
+   *
    * Shows a price quote and performance for the symbol. (Stocks)
+   *
    * Output: Symbol Quote
+   *
    * Parameters: `symbol`, `OpenWhenRun`
    */
   stocks_get_symbol_quote: "com.apple.stocks.GetSymbolQuoteIntent",
   /**
    * **Create Watchlist**
+   *
    * Creates a new list of symbols you are interested in. (Stocks)
+   *
    * Output: Watchlist
+   *
    * Parameters: `name`, `symbols`, `OpenWhenRun`
    */
   stocks_create_watchlist: "com.apple.stocks.NewWatchlistIntent",
   /**
    * **Find News Tab Deep Links**
+   *
    *  (Stocks)
+   *
    * Output: News Tab Deep Links
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_stocks_NewsTabDeepLink: "com.apple.stocks.NewsTabDeepLink",
   /**
    * **Open Article**
+   *
    * Open an article in the News app (Stocks)
+   *
    * Parameters: `target`
    */
   stocks_open_article: "com.apple.stocks.OpenArticleIntent",
   /**
    * **Open Business News**
+   *
    * Shows news about the symbols in your watchlists and stories driving the market. (Stocks)
    */
   stocks_open_business_news: "com.apple.stocks.OpenBusinessNewsIntent",
   /**
    * **Open Channel or Topic**
+   *
    * Open a channel or topic feed in the News app (Stocks)
+   *
    * Parameters: `target`
    */
   stocks_open_channel_or_topic: "com.apple.stocks.OpenFeedIntent",
   /**
    * **Open History Feed**
+   *
    * Opens the History Feed (Stocks)
    */
   stocks_open_history_feed: "com.apple.stocks.OpenHistoryIntent",
   /**
    * **Open Recipe**
+   *
    * Shows a recipe in the News app. (Stocks)
+   *
    * Output: Recipe
+   *
    * Parameters: `target`
    */
   stocks_open_recipe: "com.apple.stocks.OpenRecipeIntent",
   /**
    * **Open Saved Feed**
+   *
    * Opens the Saved Feed (Stocks)
    */
   stocks_open_saved_feed: "com.apple.stocks.OpenSavedIntent",
   /**
    * **Open Saved Recipes**
+   *
    * Opens Saved Recipes (Stocks)
    */
   stocks_open_saved_recipes: "com.apple.stocks.OpenSavedRecipesIntent",
   /**
    * **Open News Feed**
+   *
    * Open a feed in the News app (Stocks)
+   *
    * Parameters: `target`
    */
   com_apple_stocks_OpenStaticFeed: "com.apple.stocks.OpenStaticFeed",
   /**
    * **Open Symbol**
+   *
    * Shows price quotes, trends, and performance data for the symbol you choose. (Stocks)
+   *
    * Parameters: `target`
    */
   stocks_open_symbol: "com.apple.stocks.OpenSymbolIntent",
   /**
    * **Open Watchlist**
+   *
    * Shows the watchlist you choose. (Stocks)
+   *
    * Parameters: `target`, `symbol`
    */
   stocks_open_watchlist: "com.apple.stocks.OpenWatchlistIntent",
   /**
    * **Play Article**
+   *
    * Plays the audio story associated with the article. (Stocks)
+   *
    * Parameters: `article`
    */
   stocks_play_article: "com.apple.stocks.PlayArticleIntent",
   /**
    * **Save Article**
+   *
    * Add the article to your Saved Stories list (Stocks)
+   *
    * Parameters: `target`
    */
   stocks_save_article: "com.apple.stocks.SaveArticleIntent",
   /**
    * **Find Symbol**
+   *
    * Find Symbols (Stocks)
+   *
    * Output: Symbol
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   stocks_find_symbol: "com.apple.stocks.SymbolEntity",
   /**
    * **Find Symbol**
+   *
    *  (Stocks)
+   *
    * Output: Symbol
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_stocks_SymbolWidgetEntity: "com.apple.stocks.SymbolWidgetEntity",
   /**
    * **Unblock Channel or Topic**
+   *
    * Unblock a channel or topic from appearing (Stocks)
+   *
    * Parameters: `target`
    */
   stocks_unblock_channel_or_topic: "com.apple.stocks.UnblockIntent",
   /**
    * **Unsave Article**
+   *
    * Delete the article from your Saved Stories list (Stocks)
+   *
    * Parameters: `target`
    */
   stocks_unsave_article: "com.apple.stocks.UnsaveArticleIntent",
   /**
    * **Find Watchlist**
+   *
    * Find Watchlist (Stocks)
+   *
    * Output: Watchlist
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   stocks_find_watchlist: "com.apple.stocks.WatchlistEntity",
   /**
    * **Get Accent color**
+   *
    *  (System Settings)
+   *
    * Output: Accent color
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_accent_color: "com.apple.systempreferences.AccentColorEntity",
   /**
    * **Update Accent color**
+   *
    * Change the Accent color value of Accent color (System Settings)
+   *
    * Output: Accent color
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_accent_color: "com.apple.systempreferences.AccentColorEntity-UpdatableEntity",
   /**
    * **Get AirDrop**
+   *
    *  (System Settings)
+   *
    * Output: AirDrop
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_air_drop: "com.apple.systempreferences.AirDropEntity",
   /**
    * **Update AirDrop**
+   *
    * Change the AirDrop value of AirDrop (System Settings)
+   *
    * Output: AirDrop
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_air_drop: "com.apple.systempreferences.AirDropEntity-UpdatableEntity",
   /**
    * **Check who can AirPlay to this computer**
+   *
    * Check who can AirPlay to this computer (System Settings)
+   *
    * Output: Allow AirPlay for
    */
   settings_check_who_can_air_play_to_this_computer: "com.apple.systempreferences.AirPlayIntent",
   /**
    * **Get AirPlay Receiver Status**
+   *
    * Allow nearby Apple devices to send video and audio content to your Mac with AirPlay. (System Settings)
+   *
    * Output: AirPlay Receiver Enabled
    */
   settings_get_air_play_receiver_status: "com.apple.systempreferences.AirPlayReceiverIntent",
   /**
    * **Get AirPlay Password Status**
+   *
    * Ask for password when starting AirPlay. (System Settings)
+   *
    * Output: AirPlay Password Enabled
    */
   settings_get_air_play_password_status: "com.apple.systempreferences.AirPlayRequiresPasswordIntent",
   /**
    * **Get Tint window background with wallpaper color**
+   *
    *  (System Settings)
+   *
    * Output: Tint window background with wallpaper color
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_tint_window_background_with_wallpaper_color: "com.apple.systempreferences.AllowWallPaperTintingEntity",
   /**
    * **Update Tint window background with wallpaper color**
+   *
    * Change the Tint window background with wallpaper color value of Tint window background with wallpaper color (System Settings)
+   *
    * Output: Tint window background with wallpaper color
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_tint_window_background_with_wallpaper_color: "com.apple.systempreferences.AllowWallPaperTintingEntity-UpdatableEntity",
   /**
    * **Get Appearance**
+   *
    *  (System Settings)
+   *
    * Output: Appearance
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_appearance: "com.apple.systempreferences.AppearanceEntity",
   /**
    * **Update Appearance**
+   *
    * Change the Appearance value of Appearance (System Settings)
+   *
    * Output: Appearance
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_appearance: "com.apple.systempreferences.AppearanceEntity-UpdatableEntity",
   /**
    * **Find Mouse setting**
+   *
    *  (System Settings)
+   *
    * Output: Mouse setting
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_find_mouse_setting: "com.apple.systempreferences.AppearanceSettingsDeepLink",
   /**
    * **Get Automatically adjust brightness on the main display**
+   *
    *  (System Settings)
+   *
    * Output: Automatically adjust brightness on the main display
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_automatically_adjust_brightness_on_the_main_display: "com.apple.systempreferences.AutoBrightnessEntity",
   /**
    * **Update Automatically adjust brightness on the main display**
+   *
    * Change the Automatically adjust brightness on the main display value of Automatically adjust brightness on the main display (System Settings)
+   *
    * Output: Automatically adjust brightness on the main display
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_automatically_adjust_brightness_on_the_main_display: "com.apple.systempreferences.AutoBrightnessEntity-UpdatableEntity",
   /**
    * **Get Automatically Log In Status**
+   *
    * Get the user automatically log in as. (System Settings)
+   *
    * Output: Automatically Login Status
    */
   settings_get_automatically_log_in_status: "com.apple.systempreferences.AutoLoginIntent",
   /**
    * **Get Automatically reconnect to any nearby Mac or iPad**
+   *
    *  (System Settings)
+   *
    * Output: Automatically reconnect to any nearby Mac or iPad
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_automatically_reconnect_to_any_nearby_mac_or_ipad: "com.apple.systempreferences.AutomaticReconnectEntity",
   /**
    * **Update Automatically reconnect to any nearby Mac or iPad**
+   *
    * Change the Automatically reconnect to any nearby Mac or iPad value of Automatically reconnect to any nearby Mac or iPad (System Settings)
+   *
    * Output: Automatically reconnect to any nearby Mac or iPad
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_automatically_reconnect_to_any_nearby_mac_or_ipad: "com.apple.systempreferences.AutomaticReconnectEntity-UpdatableEntity",
   /**
    * **Get Available Displays**
+   *
    *  (System Settings)
+   *
    * Output: Available Displays
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_available_displays: "com.apple.systempreferences.AvailableDisplaysEntity",
   /**
    * **Get Enable Vocal Shortcuts**
+   *
    *  (System Settings)
+   *
    * Output: Enable Vocal Shortcuts
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_enable_vocal_shortcuts: "com.apple.systempreferences.AxAdaptiveVoiceShortcutsEntity",
   /**
    * **Update AX.VocalShortcuts.axAdaptiveVoiceShortcuts.title**
+   *
    * Vocal Shortcuts (System Settings)
+   *
    * Output: Enable Vocal Shortcuts
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_vocal_shortcuts_ax_adaptive_voice_shortcuts_title: "com.apple.systempreferences.AxAdaptiveVoiceShortcutsEntity-UpdatableEntity",
   /**
    * **Get Alternate Pointer Actions**
+   *
    *  (System Settings)
+   *
    * Output: Alternate Pointer Actions
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_alternate_pointer_actions: "com.apple.systempreferences.AxAltMouseButtonsEntity",
   /**
    * **Update AX.PointerControl.axAltMouseButtons.title**
+   *
    * Allows a switch or facial expression to be used in place of mouse buttons or pointer actions like left-click and right-click. (System Settings)
+   *
    * Output: Alternate Pointer Actions
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_alt_mouse_buttons_title: "com.apple.systempreferences.AxAltMouseButtonsEntity-UpdatableEntity",
   /**
    * **Get Play sounds for alternative pointer actions**
+   *
    *  (System Settings)
+   *
    * Output: Play sounds for alternative pointer actions
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_play_sounds_for_alternative_pointer_actions: "com.apple.systempreferences.AxAltMouseEnableSoundsEntity",
   /**
    * **Update AX.PointerControl.axAltMouseEnableSounds.title**
+   *
    * Play sounds for alternative pointer actions (System Settings)
+   *
    * Output: Play sounds for alternative pointer actions
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_alt_mouse_enable_sounds_title: "com.apple.systempreferences.AxAltMouseEnableSoundsEntity-UpdatableEntity",
   /**
    * **Get Show alternative pointer actions visually**
+   *
    *  (System Settings)
+   *
    * Output: Show alternative pointer actions visually
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_alternative_pointer_actions_visually: "com.apple.systempreferences.AxAltMouseEnableVisualsEntity",
   /**
    * **Update AX.PointerControl.axAltMouseEnableVisuals.title**
+   *
    * Show alternative pointer actions visually (System Settings)
+   *
    * Output: Show alternative pointer actions visually
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_alt_mouse_enable_visuals_title: "com.apple.systempreferences.AxAltMouseEnableVisualsEntity-UpdatableEntity",
   /**
    * **Get Auto-play animated images**
+   *
    *  (System Settings)
+   *
    * Output: Auto-play animated images
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_auto_play_animated_images: "com.apple.systempreferences.AxAnimatedImagesEntity",
   /**
    * **Update AX.Motion.axAnimatedImages.title**
+   *
    * Auto-play animated images (System Settings)
+   *
    * Output: Auto-play animated images
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_motion_ax_animated_images_title: "com.apple.systempreferences.AxAnimatedImagesEntity-UpdatableEntity",
   /**
    * **Get Enable Background Sounds**
+   *
    *  (System Settings)
+   *
    * Output: Enable Background Sounds
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_enable_background_sounds: "com.apple.systempreferences.AxBackgroundSoundsEntity",
   /**
    * **Update AX.Audio.axBackgroundSounds.title**
+   *
    * Plays background sounds to mask unwanted environmental noise. These sounds can minimize distractions and help you to focus, calm, or rest. (System Settings)
+   *
    * Output: Enable Background Sounds
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_audio_ax_background_sounds_title: "com.apple.systempreferences.AxBackgroundSoundsEntity-UpdatableEntity",
   /**
    * **Get Turn off background sounds when your Mac is not in use**
+   *
    *  (System Settings)
+   *
    * Output: Turn off background sounds when your Mac is not in use
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_turn_off_background_sounds_when_your_mac_is_not_in_use: "com.apple.systempreferences.AxBackgroundSoundsLockScreenEntity",
   /**
    * **Update AX.Audio.axBackgroundSoundsLockScreen.title**
+   *
    * Turn off background sounds when your Mac is not in use (System Settings)
+   *
    * Output: Turn off background sounds when your Mac is not in use
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_audio_ax_background_sounds_lock_screen_title: "com.apple.systempreferences.AxBackgroundSoundsLockScreenEntity-UpdatableEntity",
   /**
    * **Get Prefer closed captions and SDH**
+   *
    *  (System Settings)
+   *
    * Output: Prefer closed captions and SDH
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_prefer_closed_captions_and_sdh: "com.apple.systempreferences.AxCaptioningPreferSdhEntity",
   /**
    * **Update AX.SubtitlesandCaptioning.axCaptioningPreferSdh.title**
+   *
    * Prefer closed captions and SDH (System Settings)
+   *
    * Output: Prefer closed captions and SDH
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_subtitlesand_captioning_ax_captioning_prefer_sdh_title: "com.apple.systempreferences.AxCaptioningPreferSdhEntity-UpdatableEntity",
   /**
    * **Get Differentiate without color**
+   *
    *  (System Settings)
+   *
    * Output: Differentiate without color
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_differentiate_without_color: "com.apple.systempreferences.AxDifferentiateWithoutColorEntity",
   /**
    * **Update AX.Display.axDifferentiateWithoutColor.title**
+   *
    * Differentiate without color (System Settings)
+   *
    * Output: Differentiate without color
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_differentiate_without_color_title: "com.apple.systempreferences.AxDifferentiateWithoutColorEntity-UpdatableEntity",
   /**
    * **Get Dim Flashing Lights**
+   *
    *  (System Settings)
+   *
    * Output: Dim Flashing Lights
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_dim_flashing_lights: "com.apple.systempreferences.AxDimFlashingEntity",
   /**
    * **Update AX.Motion.axDimFlashing.title**
+   *
    * Dim flashing lights (System Settings)
+   *
    * Output: Dim Flashing Lights
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_motion_ax_dim_flashing_title: "com.apple.systempreferences.AxDimFlashingEntity-UpdatableEntity",
   /**
    * **Get Enable Color Filters**
+   *
    *  (System Settings)
+   *
    * Output: Enable Color Filters
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_enable_color_filters: "com.apple.systempreferences.AxDisplayFilterEnabledEntity",
   /**
    * **Update AX.Display.axDisplayFilterEnabled.title**
+   *
    * Color filters (System Settings)
+   *
    * Output: Enable Color Filters
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_display_filter_enabled_title: "com.apple.systempreferences.AxDisplayFilterEnabledEntity-UpdatableEntity",
   /**
    * **Get Filter type**
+   *
    *  (System Settings)
+   *
    * Output: Filter type
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_filter_type: "com.apple.systempreferences.AxDisplayFilterTypeEntity",
   /**
    * **Update AX.Display.axDisplayFilterType.title**
+   *
    * Filter type (System Settings)
+   *
    * Output: Filter type
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_display_filter_type_title: "com.apple.systempreferences.AxDisplayFilterTypeEntity-UpdatableEntity",
   /**
    * **Get Default dwell action**
+   *
    *  (System Settings)
+   *
    * Output: Default dwell action
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_default_dwell_action: "com.apple.systempreferences.AxDwellActionEntity",
   /**
    * **Update AX.Keyboard.axDwellAction.title**
+   *
    * Default dwell action (System Settings)
+   *
    * Output: Default dwell action
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_dwell_action_title: "com.apple.systempreferences.AxDwellActionEntity-UpdatableEntity",
   /**
    * **Get Dwell auto revert**
+   *
    *  (System Settings)
+   *
    * Output: Dwell auto revert
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_dwell_auto_revert: "com.apple.systempreferences.AxDwellAutoRevertEntity",
   /**
    * **Update AX.Keyboard.axDwellAutoRevert.title**
+   *
    * Dwell auto revert (System Settings)
+   *
    * Output: Dwell auto revert
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_dwell_auto_revert_title: "com.apple.systempreferences.AxDwellAutoRevertEntity-UpdatableEntity",
   /**
    * **Get Dwell color**
+   *
    *  (System Settings)
+   *
    * Output: Dwell color
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_dwell_color: "com.apple.systempreferences.AxDwellCursorColorEntity",
   /**
    * **Update AX.Keyboard.axDwellCursorColor.title**
+   *
    * Dwell color (System Settings)
+   *
    * Output: Dwell color
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_dwell_cursor_color_title: "com.apple.systempreferences.AxDwellCursorColorEntity-UpdatableEntity",
   /**
    * **Get Always dwell in menu extras**
+   *
    *  (System Settings)
+   *
    * Output: Always dwell in menu extras
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_always_dwell_in_menu_extras: "com.apple.systempreferences.AxDwellInMenuExtraEntity",
   /**
    * **Update AX.Keyboard.axDwellInMenuExtra.title**
+   *
    * Always dwell in menu extras (System Settings)
+   *
    * Output: Always dwell in menu extras
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_dwell_in_menu_extra_title: "com.apple.systempreferences.AxDwellInMenuExtraEntity-UpdatableEntity",
   /**
    * **Get Always dwell in panels**
+   *
    *  (System Settings)
+   *
    * Output: Always dwell in panels
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_always_dwell_in_panels: "com.apple.systempreferences.AxDwellInPanelsEntity",
   /**
    * **Update AX.Keyboard.axDwellInPanels.title**
+   *
    * Always dwell in panels (System Settings)
+   *
    * Output: Always dwell in panels
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_dwell_in_panels_title: "com.apple.systempreferences.AxDwellInPanelsEntity-UpdatableEntity",
   /**
    * **Get Hide dwell time indicators**
+   *
    *  (System Settings)
+   *
    * Output: Hide dwell time indicators
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_hide_dwell_time_indicators: "com.apple.systempreferences.AxDwellProgressIndicatorEntity",
   /**
    * **Update AX.Keyboard.axDwellProgressIndicator.title**
+   *
    * Hide dwell time indicators (System Settings)
+   *
    * Output: Hide dwell time indicators
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_dwell_progress_indicator_title: "com.apple.systempreferences.AxDwellProgressIndicatorEntity-UpdatableEntity",
   /**
    * **Get Enable zoom when using dwell**
+   *
    *  (System Settings)
+   *
    * Output: Enable zoom when using dwell
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_enable_zoom_when_using_dwell: "com.apple.systempreferences.AxDwellZoomEntity",
   /**
    * **Update AX.Keyboard.axDwellZoom.title**
+   *
    * Enable zoom when using dwell (System Settings)
+   *
    * Output: Enable zoom when using dwell
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_dwell_zoom_title: "com.apple.systempreferences.AxDwellZoomEntity-UpdatableEntity",
   /**
    * **Get Live Captions in FaceTime**
+   *
    *  (System Settings)
+   *
    * Output: Live Captions in FaceTime
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_live_captions_in_face_time: "com.apple.systempreferences.AxFacetimeTranscriptionsEntity",
   /**
    * **Update AX.LiveCaptions.axFacetimeTranscriptions.title**
+   *
    * Live Captions in FaceTime (System Settings)
+   *
    * Output: Live Captions in FaceTime
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_live_captions_ax_facetime_transcriptions_title: "com.apple.systempreferences.AxFacetimeTranscriptionsEntity-UpdatableEntity",
   /**
    * **Get Live Speech**
+   *
    *  (System Settings)
+   *
    * Output: Live Speech
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_live_speech: "com.apple.systempreferences.AxFeatureLivespeechEntity",
   /**
    * **Update AX.LiveSpeech.axFeatureLivespeech.title**
+   *
    * Live Speech (System Settings)
+   *
    * Output: Live Speech
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_live_speech_ax_feature_livespeech_title: "com.apple.systempreferences.AxFeatureLivespeechEntity-UpdatableEntity",
   /**
    * **Get Switch Control**
+   *
    *  (System Settings)
+   *
    * Output: Switch Control
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_switch_control: "com.apple.systempreferences.AxFeatureSwitchcontrolEntity",
   /**
    * **Update AX.SwitchControl.axFeatureSwitchcontrol.title**
+   *
    * Switch Control allows the computer to be controlled using one or more switches. These can be mouse, keyboard, gamepad buttons or dedicated devices. (System Settings)
+   *
    * Output: Switch Control
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_feature_switchcontrol_title: "com.apple.systempreferences.AxFeatureSwitchcontrolEntity-UpdatableEntity",
   /**
    * **Get Voice Control**
+   *
    *  (System Settings)
+   *
    * Output: Voice Control
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_voice_control: "com.apple.systempreferences.AxFeatureVoicecontrolEntity",
   /**
    * **Update AX.VoiceControl.axFeatureVoicecontrol.title**
+   *
    * Voice Control allows you to use your voice to edit text and interact with your computer even when you are on calls. (System Settings)
+   *
    * Output: Voice Control
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_voice_control_ax_feature_voicecontrol_title: "com.apple.systempreferences.AxFeatureVoicecontrolEntity-UpdatableEntity",
   /**
    * **Get VoiceOver**
+   *
    *  (System Settings)
+   *
    * Output: VoiceOver
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_voice_over: "com.apple.systempreferences.AxFeatureVoiceoverEntity",
   /**
    * **Update AX.VoiceOver.axFeatureVoiceover.title**
+   *
    * VoiceOver (System Settings)
+   *
    * Output: VoiceOver
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_voice_over_ax_feature_voiceover_title: "com.apple.systempreferences.AxFeatureVoiceoverEntity-UpdatableEntity",
   /**
    * **Get Zoom**
+   *
    *  (System Settings)
+   *
    * Output: Zoom
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom: "com.apple.systempreferences.AxFeatureZoomEntity",
   /**
    * **Update AX.Zoom.axFeatureZoom.title**
+   *
    * Zoom (System Settings)
+   *
    * Output: Zoom
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_feature_zoom_title: "com.apple.systempreferences.AxFeatureZoomEntity-UpdatableEntity",
   /**
    * **Get Shake mouse pointer to locate**
+   *
    *  (System Settings)
+   *
    * Output: Shake mouse pointer to locate
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_shake_mouse_pointer_to_locate: "com.apple.systempreferences.AxFindCursorEntity",
   /**
    * **Update AX.Display.axFindCursor.title**
+   *
    * Shake mouse pointer to locate (System Settings)
+   *
    * Output: Shake mouse pointer to locate
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_find_cursor_title: "com.apple.systempreferences.AxFindCursorEntity-UpdatableEntity",
   /**
    * **Get Auto-hide full keyboard access**
+   *
    *  (System Settings)
+   *
    * Output: Auto-hide full keyboard access
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_auto_hide_full_keyboard_access: "com.apple.systempreferences.AxFkaAutoHideCheckboxEntity",
   /**
    * **Update AX.Keyboard.axFkaAutoHideCheckbox.title**
+   *
    * Auto-hide full keyboard access (System Settings)
+   *
    * Output: Auto-hide full keyboard access
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_fka_auto_hide_checkbox_title: "com.apple.systempreferences.AxFkaAutoHideCheckboxEntity-UpdatableEntity",
   /**
    * **Get Full Keyboard Access**
+   *
    *  (System Settings)
+   *
    * Output: Full Keyboard Access
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_full_keyboard_access: "com.apple.systempreferences.AxFkaEnableCheckboxEntity",
   /**
    * **Update AX.Keyboard.axFkaEnableCheckbox.title**
+   *
    * Full Keyboard Access allows the computer to be controlled with a keyboard. Use keyboard shortcuts to navigate through all controls and perform actions. (System Settings)
+   *
    * Output: Full Keyboard Access
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_fka_enable_checkbox_title: "com.apple.systempreferences.AxFkaEnableCheckboxEntity-UpdatableEntity",
   /**
    * **Get full keyboard access high contrast**
+   *
    *  (System Settings)
+   *
    * Output: full keyboard access high contrast
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_full_keyboard_access_high_contrast: "com.apple.systempreferences.AxFkaHighContrastCheckboxEntity",
   /**
    * **Update AX.Keyboard.axFkaHighContrastCheckbox.title**
+   *
    * full keyboard access high contrast (System Settings)
+   *
    * Output: full keyboard access high contrast
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_fka_high_contrast_checkbox_title: "com.apple.systempreferences.AxFkaHighContrastCheckboxEntity-UpdatableEntity",
   /**
    * **Get Increase full keyboard access border size**
+   *
    *  (System Settings)
+   *
    * Output: Increase full keyboard access border size
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_increase_full_keyboard_access_border_size: "com.apple.systempreferences.AxFkaIncreaseSizeCheckboxEntity",
   /**
    * **Update AX.Keyboard.axFkaIncreaseSizeCheckbox.title**
+   *
    * Increase full keyboard access border size (System Settings)
+   *
    * Output: Increase full keyboard access border size
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_fka_increase_size_checkbox_title: "com.apple.systempreferences.AxFkaIncreaseSizeCheckboxEntity-UpdatableEntity",
   /**
    * **Get Flash the screen when an alert sound occurs**
+   *
    *  (System Settings)
+   *
    * Output: Flash the screen when an alert sound occurs
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_flash_the_screen_when_an_alert_sound_occurs: "com.apple.systempreferences.AxFlashScreenEntity",
   /**
    * **Update AX.Audio.axFlashScreen.title**
+   *
    * Flash the screen when an alert sound occurs (System Settings)
+   *
    * Output: Flash the screen when an alert sound occurs
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_audio_ax_flash_screen_title: "com.apple.systempreferences.AxFlashScreenEntity-UpdatableEntity",
   /**
    * **Get Head Pointer**
+   *
    *  (System Settings)
+   *
    * Output: Head Pointer
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_head_pointer: "com.apple.systempreferences.AxHeadMouseEntity",
   /**
    * **Update AX.PointerControl.axHeadMouse.title**
+   *
    * Allows the pointer to be controlled using the movement of your head captured by the camera. (System Settings)
+   *
    * Output: Head Pointer
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_head_mouse_title: "com.apple.systempreferences.AxHeadMouseEntity-UpdatableEntity",
   /**
    * **Get Allow dwell actions toolbar in panels**
+   *
    *  (System Settings)
+   *
    * Output: Allow dwell actions toolbar in panels
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_allow_dwell_actions_toolbar_in_panels: "com.apple.systempreferences.AxHomePanelDwellActionsEntity",
   /**
    * **Update AX.Keyboard.axHomePanelDwellActions.title**
+   *
    * Allow dwell actions toolbar in panels (System Settings)
+   *
    * Output: Allow dwell actions toolbar in panels
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_home_panel_dwell_actions_title: "com.apple.systempreferences.AxHomePanelDwellActionsEntity-UpdatableEntity",
   /**
    * **Get Bottom left dwell corner**
+   *
    *  (System Settings)
+   *
    * Output: Bottom left dwell corner
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_bottom_left_dwell_corner: "com.apple.systempreferences.AxHotCornerBottomLeftEntity",
   /**
    * **Update AX.Keyboard.axHotCornerBottomLeft.title**
+   *
    * Assigns the bottom left dwell corner of the accessibility keyboard (System Settings)
+   *
    * Output: Bottom left dwell corner
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_hot_corner_bottom_left_title: "com.apple.systempreferences.AxHotCornerBottomLeftEntity-UpdatableEntity",
   /**
    * **Get Bottom right dwell corner**
+   *
    *  (System Settings)
+   *
    * Output: Bottom right dwell corner
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_bottom_right_dwell_corner: "com.apple.systempreferences.AxHotCornerBottomRightEntity",
   /**
    * **Update AX.Keyboard.axHotCornerBottomRight.title**
+   *
    * Assigns the bottom right dwell corner of the accessibility keyboard (System Settings)
+   *
    * Output: Bottom right dwell corner
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_hot_corner_bottom_right_title: "com.apple.systempreferences.AxHotCornerBottomRightEntity-UpdatableEntity",
   /**
    * **Get Show accessibility keyboard near activated screen corner**
+   *
    *  (System Settings)
+   *
    * Output: Show accessibility keyboard near activated screen corner
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_accessibility_keyboard_near_activated_screen_corner: "com.apple.systempreferences.AxHotCornerMoveHomePanelEntity",
   /**
    * **Update AX.Keyboard.axHotCornerMoveHomePanel.title**
+   *
    * Show accessibility keyboard near activated screen corner (System Settings)
+   *
    * Output: Show accessibility keyboard near activated screen corner
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_hot_corner_move_home_panel_title: "com.apple.systempreferences.AxHotCornerMoveHomePanelEntity-UpdatableEntity",
   /**
    * **Get Top left dwell corner**
+   *
    *  (System Settings)
+   *
    * Output: Top left dwell corner
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_top_left_dwell_corner: "com.apple.systempreferences.AxHotCornerTopLeftEntity",
   /**
    * **Update AX.Keyboard.axHotCornerTopLeft.title**
+   *
    * Assigns the top left dwell corner of the accessibility keyboard (System Settings)
+   *
    * Output: Top left dwell corner
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_hot_corner_top_left_title: "com.apple.systempreferences.AxHotCornerTopLeftEntity-UpdatableEntity",
   /**
    * **Get Top right dwell corner**
+   *
    *  (System Settings)
+   *
    * Output: Top right dwell corner
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_top_right_dwell_corner: "com.apple.systempreferences.AxHotCornerTopRightEntity",
   /**
    * **Update AX.Keyboard.axHotCornerTopRight.title**
+   *
    * Assigns the top right dwell corner of the accessibility keyboard (System Settings)
+   *
    * Output: Top right dwell corner
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_hot_corner_top_right_title: "com.apple.systempreferences.AxHotCornerTopRightEntity-UpdatableEntity",
   /**
    * **Get Triple-press modifier to set Hover Text activation lock**
+   *
    *  (System Settings)
+   *
    * Output: Triple-press modifier to set Hover Text activation lock
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_triple_press_modifier_to_set_hover_text_activation_lock: "com.apple.systempreferences.AxHoverTextActivationLockModeEntity",
   /**
    * **Update AX.HoverText.axHoverTextActivationLockMode.title**
+   *
    * Triple-press modifier to set Hover Text activation lock (System Settings)
+   *
    * Output: Triple-press modifier to set Hover Text activation lock
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_hover_text_ax_hover_text_activation_lock_mode_title: "com.apple.systempreferences.AxHoverTextActivationLockModeEntity-UpdatableEntity",
   /**
    * **Get Enable Hover Text**
+   *
    *  (System Settings)
+   *
    * Output: Enable Hover Text
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_enable_hover_text: "com.apple.systempreferences.AxHoverTextEnableEntity",
   /**
    * **Update AX.HoverText.axHoverTextEnable.title**
+   *
    * Hover Text (System Settings)
+   *
    * Output: Enable Hover Text
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_hover_text_ax_hover_text_enable_title: "com.apple.systempreferences.AxHoverTextEnableEntity-UpdatableEntity",
   /**
    * **Get Hover Text modifier**
+   *
    *  (System Settings)
+   *
    * Output: Hover Text modifier
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_hover_text_modifier: "com.apple.systempreferences.AxHoverTextModifierEntity",
   /**
    * **Update AX.HoverText.axHoverTextModifier.title**
+   *
    * Hover Text modifier (System Settings)
+   *
    * Output: Hover Text modifier
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_hover_text_ax_hover_text_modifier_title: "com.apple.systempreferences.AxHoverTextModifierEntity-UpdatableEntity",
   /**
    * **Get Hover Typing**
+   *
    *  (System Settings)
+   *
    * Output: Hover Typing
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_hover_typing: "com.apple.systempreferences.AxHoverTypingEnableEntity",
   /**
    * **Update AX.HoverText.axHoverTypingEnable.title**
+   *
    * Hover Typing (System Settings)
+   *
    * Output: Hover Typing
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_hover_text_ax_hover_typing_enable_title: "com.apple.systempreferences.AxHoverTypingEnableEntity-UpdatableEntity",
   /**
    * **Get Hover Typing location**
+   *
    *  (System Settings)
+   *
    * Output: Hover Typing location
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_hover_typing_location: "com.apple.systempreferences.AxHoverTypingEntryLocationEntity",
   /**
    * **Update AX.HoverText.axHoverTypingEntryLocation.title**
+   *
    * Hover Typing location (System Settings)
+   *
    * Output: Hover Typing location
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_hover_text_ax_hover_typing_entry_location_title: "com.apple.systempreferences.AxHoverTypingEntryLocationEntity-UpdatableEntity",
   /**
    * **Get Ignore built-in trackpad when mouse or wireless trackpad is present**
+   *
    *  (System Settings)
+   *
    * Output: Ignore built-in trackpad when mouse or wireless trackpad is present
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_ignore_built_in_trackpad_when_mouse_or_wireless_trackpad_is_present: "com.apple.systempreferences.AxIgnoreTrackpadEntity",
   /**
    * **Update AX.PointerControl.axIgnoreTrackpad.title**
+   *
    * Ignore built-in trackpad when mouse or wireless trackpad is present (System Settings)
+   *
    * Output: Ignore built-in trackpad when mouse or wireless trackpad is present
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_ignore_trackpad_title: "com.apple.systempreferences.AxIgnoreTrackpadEntity-UpdatableEntity",
   /**
    * **Get Increase Contrast**
+   *
    *  (System Settings)
+   *
    * Output: Increase Contrast
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_increase_contrast: "com.apple.systempreferences.AxIncreaseContrastEntity",
   /**
    * **Update AX.Display.axIncreaseContrast.title**
+   *
    * Increase contrast (System Settings)
+   *
    * Output: Increase Contrast
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_increase_contrast_title: "com.apple.systempreferences.AxIncreaseContrastEntity-UpdatableEntity",
   /**
    * **Get Invert Colors**
+   *
    *  (System Settings)
+   *
    * Output: Invert Colors
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_invert_colors: "com.apple.systempreferences.AxInvertColorEntity",
   /**
    * **Update AX.Display.axInvertColor.title**
+   *
    * Invert colors (System Settings)
+   *
    * Output: Invert Colors
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_invert_color_title: "com.apple.systempreferences.AxInvertColorEntity-UpdatableEntity",
   /**
    * **Get Smart Invert**
+   *
    *  (System Settings)
+   *
    * Output: Smart Invert
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_smart_invert: "com.apple.systempreferences.AxInvertColorModeEntity",
   /**
    * **Update AX.Display.axInvertColorMode.title**
+   *
    * Smart Invert (System Settings)
+   *
    * Output: Smart Invert
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_invert_color_mode_title: "com.apple.systempreferences.AxInvertColorModeEntity-UpdatableEntity",
   /**
    * **Get Appearance (Keyboard)**
+   *
    *  (System Settings)
+   *
    * Output: Appearance (Keyboard)
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_appearance_keyboard: "com.apple.systempreferences.AxKbAppearanceTypeEntity",
   /**
    * **Update AX.Keyboard.axKbAppearanceType.title**
+   *
    * Accessibility keyboard appearance (System Settings)
+   *
    * Output: Appearance (Keyboard)
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_kb_appearance_type_title: "com.apple.systempreferences.AxKbAppearanceTypeEntity-UpdatableEntity",
   /**
    * **Get Capitalize sentences automatically when using the Accessibility Keyboard**
+   *
    *  (System Settings)
+   *
    * Output: Capitalize sentences automatically when using the Accessibility Keyboard
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_capitalize_sentences_automatically_when_using_the_accessibility_keyboard: "com.apple.systempreferences.AxKbAutoCapitalizationEntity",
   /**
    * **Update AX.Keyboard.axKbAutoCapitalization.title**
+   *
    * Capitalize sentences automatically when using the Accessibility Keyboard (System Settings)
+   *
    * Output: Capitalize sentences automatically when using the Accessibility Keyboard
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_kb_auto_capitalization_title: "com.apple.systempreferences.AxKbAutoCapitalizationEntity-UpdatableEntity",
   /**
    * **Get Insert and remove spaces automatically when using the Accessibility Keyboard**
+   *
    *  (System Settings)
+   *
    * Output: Insert and remove spaces automatically when using the Accessibility Keyboard
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_insert_and_remove_spaces_automatically_when_using_the_accessibility_keyboard: "com.apple.systempreferences.AxKbAutoSpacingEntity",
   /**
    * **Update AX.Keyboard.axKbAutoSpacing.title**
+   *
    * Insert and remove spaces automatically when using the Accessibility Keyboard (System Settings)
+   *
    * Output: Insert and remove spaces automatically when using the Accessibility Keyboard
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_kb_auto_spacing_title: "com.apple.systempreferences.AxKbAutoSpacingEntity-UpdatableEntity",
   /**
    * **Get Fade accessibility keyboard after inactivity**
+   *
    *  (System Settings)
+   *
    * Output: Fade accessibility keyboard after inactivity
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_fade_accessibility_keyboard_after_inactivity: "com.apple.systempreferences.AxKbHideEntity",
   /**
    * **Update AX.Keyboard.axKbHide.title**
+   *
    * Fade accessibility keyboard after inactivity (System Settings)
+   *
    * Output: Fade accessibility keyboard after inactivity
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_kb_hide_title: "com.apple.systempreferences.AxKbHideEntity-UpdatableEntity",
   /**
    * **Get Keys should be entered on**
+   *
    *  (System Settings)
+   *
    * Output: Keys should be entered on
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_keys_should_be_entered_on: "com.apple.systempreferences.AxKbKeyAcceptedMouseEntity",
   /**
    * **Update AX.Keyboard.axKbKeyAcceptedMouse.title**
+   *
    * Accessibility keyboard keys accepted on (System Settings)
+   *
    * Output: Keys should be entered on
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_kb_key_accepted_mouse_title: "com.apple.systempreferences.AxKbKeyAcceptedMouseEntity-UpdatableEntity",
   /**
    * **Get Keys on accessibility keyboard can be activated with right-click**
+   *
    *  (System Settings)
+   *
    * Output: Keys on accessibility keyboard can be activated with right-click
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_keys_on_accessibility_keyboard_can_be_activated_with_right_click: "com.apple.systempreferences.AxKbRightClickEntity",
   /**
    * **Update AX.Keyboard.axKbRightClick.title**
+   *
    * Keys on accessibility keyboard can be activated with right-click (System Settings)
+   *
    * Output: Keys on accessibility keyboard can be activated with right-click
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_kb_right_click_title: "com.apple.systempreferences.AxKbRightClickEntity-UpdatableEntity",
   /**
    * **Get Accessibility keyboard sounds**
+   *
    *  (System Settings)
+   *
    * Output: Accessibility keyboard sounds
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_accessibility_keyboard_sounds: "com.apple.systempreferences.AxKbUseClickSoundsEntity",
   /**
    * **Update AX.Keyboard.axKbUseClickSounds.title**
+   *
    * Accessibility keyboard sounds (System Settings)
+   *
    * Output: Accessibility keyboard sounds
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_kb_use_click_sounds_title: "com.apple.systempreferences.AxKbUseClickSoundsEntity-UpdatableEntity",
   /**
    * **Get Show dwell actions in menu bar**
+   *
    *  (System Settings)
+   *
    * Output: Show dwell actions in menu bar
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_dwell_actions_in_menu_bar: "com.apple.systempreferences.AxMenubarDwellActionsEntity",
   /**
    * **Update AX.Keyboard.axMenubarDwellActions.title**
+   *
    * Show dwell actions in menu bar (System Settings)
+   *
    * Output: Show dwell actions in menu bar
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_menubar_dwell_actions_title: "com.apple.systempreferences.AxMenubarDwellActionsEntity-UpdatableEntity",
   /**
    * **Get Play stereo audio as mono**
+   *
    *  (System Settings)
+   *
    * Output: Play stereo audio as mono
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_play_stereo_audio_as_mono: "com.apple.systempreferences.AxMonoAudioEntity",
   /**
    * **Update AX.Audio.axMonoAudio.title**
+   *
    * Make the left and right speakers play the same content. (System Settings)
+   *
    * Output: Play stereo audio as mono
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_audio_ax_mono_audio_title: "com.apple.systempreferences.AxMonoAudioEntity-UpdatableEntity",
   /**
    * **Get Vehicle Motion Cues**
+   *
    *  (System Settings)
+   *
    * Output: Vehicle Motion Cues
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_vehicle_motion_cues: "com.apple.systempreferences.AxMotionCuesEnabledEntity",
   /**
    * **Update AX.Motion.axMotionCuesEnabled.title**
+   *
    * When turned On, the dots will display until you turn them Off. (System Settings)
+   *
    * Output: Vehicle Motion Cues
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_motion_ax_motion_cues_enabled_title: "com.apple.systempreferences.AxMotionCuesEnabledEntity-UpdatableEntity",
   /**
    * **Get Mouse Keys**
+   *
    *  (System Settings)
+   *
    * Output: Mouse Keys
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_mouse_keys: "com.apple.systempreferences.AxMouseKeysEntity",
   /**
    * **Update AX.PointerControl.axMouseKeys.title**
+   *
    * Allows the pointer to be controlled using the keyboard keys or number pad. (System Settings)
+   *
    * Output: Mouse Keys
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_mouse_keys_title: "com.apple.systempreferences.AxMouseKeysEntity-UpdatableEntity",
   /**
    * **Get Ignore built-in trackpad when using Mouse Keys**
+   *
    *  (System Settings)
+   *
    * Output: Ignore built-in trackpad when using Mouse Keys
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_ignore_built_in_trackpad_when_using_mouse_keys: "com.apple.systempreferences.AxMouseKeysIgnoreTrackpadEntity",
   /**
    * **Update AX.PointerControl.axMouseKeysIgnoreTrackpad.title**
+   *
    * Ignore built-in trackpad when using Mouse Keys (System Settings)
+   *
    * Output: Ignore built-in trackpad when using Mouse Keys
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_mouse_keys_ignore_trackpad_title: "com.apple.systempreferences.AxMouseKeysIgnoreTrackpadEntity-UpdatableEntity",
   /**
    * **Get Press the Option key five times to toggle Mouse Keys**
+   *
    *  (System Settings)
+   *
    * Output: Press the Option key five times to toggle Mouse Keys
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_press_the_option_key_five_times_to_toggle_mouse_keys: "com.apple.systempreferences.AxMouseKeysShortcutEntity",
   /**
    * **Update AX.PointerControl.axMouseKeysShortcut.title**
+   *
    * Press the Option key five times to toggle Mouse Keys (System Settings)
+   *
    * Output: Press the Option key five times to toggle Mouse Keys
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_mouse_keys_shortcut_title: "com.apple.systempreferences.AxMouseKeysShortcutEntity-UpdatableEntity",
   /**
    * **Get Use inertia when scrolling with mouse**
+   *
    *  (System Settings)
+   *
    * Output: Use inertia when scrolling with mouse
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_use_inertia_when_scrolling_with_mouse: "com.apple.systempreferences.AxMouseScrollBehaviorEntity",
   /**
    * **Update AX.PointerControl.axMouseScrollBehavior.title**
+   *
    * Use inertia when scrolling with mouse (System Settings)
+   *
    * Output: Use inertia when scrolling with mouse
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_mouse_scroll_behavior_title: "com.apple.systempreferences.AxMouseScrollBehaviorEntity-UpdatableEntity",
   /**
    * **Get Use mouse for scrolling**
+   *
    *  (System Settings)
+   *
    * Output: Use mouse for scrolling
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_use_mouse_for_scrolling: "com.apple.systempreferences.AxMouseScrollEntity",
   /**
    * **Update AX.PointerControl.axMouseScroll.title**
+   *
    * Use mouse for scrolling (System Settings)
+   *
    * Output: Use mouse for scrolling
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_mouse_scroll_title: "com.apple.systempreferences.AxMouseScrollEntity-UpdatableEntity",
   /**
    * **Get Prefer horizontal text**
+   *
    *  (System Settings)
+   *
    * Output: Prefer horizontal text
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_prefer_horizontal_text: "com.apple.systempreferences.AxPrefersHorizTextLayoutEntity",
   /**
    * **Update AX.Display.axPrefersHorizTextLayout.title**
+   *
    * Prefer horizontal text (System Settings)
+   *
    * Output: Prefer horizontal text
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_prefers_horiz_text_layout_title: "com.apple.systempreferences.AxPrefersHorizTextLayoutEntity-UpdatableEntity",
   /**
    * **Get Prefer non-blinking cursor**
+   *
    *  (System Settings)
+   *
    * Output: Prefer non-blinking cursor
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_prefer_non_blinking_cursor: "com.apple.systempreferences.AxReduceCursorModulationEntity",
   /**
    * **Update AX.Motion.axReduceCursorModulation.title**
+   *
    * Prefer non-blinking cursor (System Settings)
+   *
    * Output: Prefer non-blinking cursor
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_motion_ax_reduce_cursor_modulation_title: "com.apple.systempreferences.AxReduceCursorModulationEntity-UpdatableEntity",
   /**
    * **Get Reduce Motion**
+   *
    *  (System Settings)
+   *
    * Output: Reduce Motion
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_reduce_motion: "com.apple.systempreferences.AxReduceMotionEntity",
   /**
    * **Update AX.Motion.axReduceMotion.title**
+   *
    * Reduce motion (System Settings)
+   *
    * Output: Reduce Motion
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_motion_ax_reduce_motion_title: "com.apple.systempreferences.AxReduceMotionEntity-UpdatableEntity",
   /**
    * **Get Reduce Transparency**
+   *
    *  (System Settings)
+   *
    * Output: Reduce Transparency
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_reduce_transparency: "com.apple.systempreferences.AxReduceTransparencyEntity",
   /**
    * **Update AX.Display.axReduceTransparency.title**
+   *
    * Reduce transparency (System Settings)
+   *
    * Output: Reduce Transparency
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_reduce_transparency_title: "com.apple.systempreferences.AxReduceTransparencyEntity-UpdatableEntity",
   /**
    * **Get Enable RTT**
+   *
    *  (System Settings)
+   *
    * Output: Enable RTT
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_enable_rtt: "com.apple.systempreferences.AxRttEnableEntity",
   /**
    * **Update AX.RTT.axRttEnable.title**
+   *
    * RTT (System Settings)
+   *
    * Output: Enable RTT
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_rtt_ax_rtt_enable_title: "com.apple.systempreferences.AxRttEnableEntity-UpdatableEntity",
   /**
    * **Get Send RTT immediately**
+   *
    *  (System Settings)
+   *
    * Output: Send RTT immediately
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_send_rtt_immediately: "com.apple.systempreferences.AxRttSendImmediatelyEntity",
   /**
    * **Update AX.RTT.axRttSendImmediately.title**
+   *
    * Send RTT immediately (System Settings)
+   *
    * Output: Send RTT immediately
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_rtt_ax_rtt_send_immediately_title: "com.apple.systempreferences.AxRttSendImmediatelyEntity-UpdatableEntity",
   /**
    * **Get Show Borders**
+   *
    *  (System Settings)
+   *
    * Output: Show Borders
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_borders: "com.apple.systempreferences.AxShowBordersEntity",
   /**
    * **Update AX.Display.axShowBorders.title**
+   *
    * Show borders (System Settings)
+   *
    * Output: Show Borders
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_show_borders_title: "com.apple.systempreferences.AxShowBordersEntity-UpdatableEntity",
   /**
    * **Get Show toolbar button shapes**
+   *
    *  (System Settings)
+   *
    * Output: Show toolbar button shapes
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_toolbar_button_shapes: "com.apple.systempreferences.AxShowToolbarButtonShapesEntity",
   /**
    * **Update AX.Display.axShowToolbarButtonShapes.title**
+   *
    * Show toolbar button shapes (System Settings)
+   *
    * Output: Show toolbar button shapes
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_show_toolbar_button_shapes_title: "com.apple.systempreferences.AxShowToolbarButtonShapesEntity-UpdatableEntity",
   /**
    * **Get Show window title icons**
+   *
    *  (System Settings)
+   *
    * Output: Show window title icons
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_window_title_icons: "com.apple.systempreferences.AxShowWindowTitlebarIconsEntity",
   /**
    * **Update AX.Display.axShowWindowTitlebarIcons.title**
+   *
    * Show window title icons (System Settings)
+   *
    * Output: Show window title icons
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_display_ax_show_window_titlebar_icons_title: "com.apple.systempreferences.AxShowWindowTitlebarIconsEntity-UpdatableEntity",
   /**
    * **Get Listen for atypical speech**
+   *
    *  (System Settings)
+   *
    * Output: Listen for atypical speech
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_listen_for_atypical_speech: "com.apple.systempreferences.AxSiriAtypicalSpeechEntity",
   /**
    * **Update AX.Siri.axSiriAtypicalSpeech.title**
+   *
    * Allow Siri to listen for atypical speech (System Settings)
+   *
    * Output: Listen for atypical speech
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_siri_ax_siri_atypical_speech_title: "com.apple.systempreferences.AxSiriAtypicalSpeechEntity-UpdatableEntity",
   /**
    * **Get Slow Keys**
+   *
    *  (System Settings)
+   *
    * Output: Slow Keys
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_slow_keys: "com.apple.systempreferences.AxSlowKeysEntity",
   /**
    * **Update AX.Keyboard.axSlowKeys.title**
+   *
    * Slow Keys adjusts the amount of time between when a key is pressed and when it is activated. (System Settings)
+   *
    * Output: Slow Keys
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_slow_keys_title: "com.apple.systempreferences.AxSlowKeysEntity-UpdatableEntity",
   /**
    * **Get Slow keys sounds**
+   *
    *  (System Settings)
+   *
    * Output: Slow keys sounds
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_slow_keys_sounds: "com.apple.systempreferences.AxSlowKeysSoundEntity",
   /**
    * **Update AX.Keyboard.axSlowKeysSound.title**
+   *
    * Slow keys sounds (System Settings)
+   *
    * Output: Slow keys sounds
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_slow_keys_sound_title: "com.apple.systempreferences.AxSlowKeysSoundEntity-UpdatableEntity",
   /**
    * **Get Spatial audio follows head movements**
+   *
    *  (System Settings)
+   *
    * Output: Spatial audio follows head movements
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_spatial_audio_follows_head_movements: "com.apple.systempreferences.AxSpatialAudioFollowsHeadEntity",
   /**
    * **Update AX.Audio.axSpatialAudioFollowsHead.title**
+   *
    * Spatial audio follows head movements (System Settings)
+   *
    * Output: Spatial audio follows head movements
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_audio_ax_spatial_audio_follows_head_title: "com.apple.systempreferences.AxSpatialAudioFollowsHeadEntity-UpdatableEntity",
   /**
    * **Get Speak announcements**
+   *
    *  (System Settings)
+   *
    * Output: Speak announcements
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_announcements: "com.apple.systempreferences.AxSpokenAlertsEntity",
   /**
    * **Update AX.SpokenContent.axSpokenAlerts.title**
+   *
    * Speak announcements (System Settings)
+   *
    * Output: Speak announcements
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_alerts_title: "com.apple.systempreferences.AxSpokenAlertsEntity-UpdatableEntity",
   /**
    * **Get Detect languages for Spoken Content**
+   *
    *  (System Settings)
+   *
    * Output: Detect languages for Spoken Content
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_detect_languages_for_spoken_content: "com.apple.systempreferences.AxSpokenDetectLanguagesEntity",
   /**
    * **Update AX.SpokenContent.axSpokenDetectLanguages.title**
+   *
    * Detect languages for Spoken Content (System Settings)
+   *
    * Output: Detect languages for Spoken Content
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_detect_languages_title: "com.apple.systempreferences.AxSpokenDetectLanguagesEntity-UpdatableEntity",
   /**
    * **Get Speak selection**
+   *
    *  (System Settings)
+   *
    * Output: Speak selection
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_selection: "com.apple.systempreferences.AxSpokenHotkeyEntity",
   /**
    * **Update AX.SpokenContent.axSpokenHotkey.title**
+   *
    * Speak selection (System Settings)
+   *
    * Output: Speak selection
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_hotkey_title: "com.apple.systempreferences.AxSpokenHotkeyEntity-UpdatableEntity",
   /**
    * **Get Speak item under the pointer**
+   *
    *  (System Settings)
+   *
    * Output: Speak item under the pointer
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_item_under_the_pointer: "com.apple.systempreferences.AxSpokenPointerElementEntity",
   /**
    * **Update AX.SpokenContent.axSpokenPointerElement.title**
+   *
    * Speak item under the pointer (System Settings)
+   *
    * Output: Speak item under the pointer
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_pointer_element_title: "com.apple.systempreferences.AxSpokenPointerElementEntity-UpdatableEntity",
   /**
    * **Get Speak item under the pointer (mode)**
+   *
    *  (System Settings)
+   *
    * Output: Speak item under the pointer (mode)
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_item_under_the_pointer_mode: "com.apple.systempreferences.AxSpokenPointerElementModeEntity",
   /**
    * **Update AX.SpokenContent.axSpokenPointerElementMode.title**
+   *
    * Speak item under the pointer (System Settings)
+   *
    * Output: Speak item under the pointer (mode)
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_pointer_element_mode_title: "com.apple.systempreferences.AxSpokenPointerElementModeEntity-UpdatableEntity",
   /**
    * **Get Speak item under the pointer verbosity**
+   *
    *  (System Settings)
+   *
    * Output: Speak item under the pointer verbosity
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_item_under_the_pointer_verbosity: "com.apple.systempreferences.AxSpokenPointerElementVerbosityEntity",
   /**
    * **Update AX.SpokenContent.axSpokenPointerElementVerbosity.title**
+   *
    * Speak item under the pointer verbosity (System Settings)
+   *
    * Output: Speak item under the pointer verbosity
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_pointer_element_verbosity_title: "com.apple.systempreferences.AxSpokenPointerElementVerbosityEntity-UpdatableEntity",
   /**
    * **Get Pronunciations for Spoken Content**
+   *
    *  (System Settings)
+   *
    * Output: Pronunciations for Spoken Content
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_pronunciations_for_spoken_content: "com.apple.systempreferences.AxSpokenPronunciationsEntity",
   /**
    * **Update AX.SpokenContent.axSpokenPronunciations.title**
+   *
    * Pronunciations for Spoken Content (System Settings)
+   *
    * Output: Pronunciations for Spoken Content
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_pronunciations_title: "com.apple.systempreferences.AxSpokenPronunciationsEntity-UpdatableEntity",
   /**
    * **Get Speak selection highlight**
+   *
    *  (System Settings)
+   *
    * Output: Speak selection highlight
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_selection_highlight: "com.apple.systempreferences.AxSpokenSelectionHighlightContentEntity",
   /**
    * **Update AX.SpokenContent.axSpokenSelectionHighlightContent.title**
+   *
    * Speak selection highlight (System Settings)
+   *
    * Output: Speak selection highlight
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_selection_highlight_content_title: "com.apple.systempreferences.AxSpokenSelectionHighlightContentEntity-UpdatableEntity",
   /**
    * **Get Speak selection sentence highlight color**
+   *
    *  (System Settings)
+   *
    * Output: Speak selection sentence highlight color
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_selection_sentence_highlight_color: "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceColorEntity",
   /**
    * **Update AX.SpokenContent.axSpokenSelectionHighlightSentenceColor.title**
+   *
    * Speak selection sentence highlight color (System Settings)
+   *
    * Output: Speak selection sentence highlight color
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_selection_highlight_sentence_color_title: "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceColorEntity-UpdatableEntity",
   /**
    * **Get Speak selection highlight style for sentences**
+   *
    *  (System Settings)
+   *
    * Output: Speak selection highlight style for sentences
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_selection_highlight_style_for_sentences: "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceStyleEntity",
   /**
    * **Update AX.SpokenContent.axSpokenSelectionHighlightSentenceStyle.title**
+   *
    * Speak selection highlight style for sentences (System Settings)
+   *
    * Output: Speak selection highlight style for sentences
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_selection_highlight_sentence_style_title: "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceStyleEntity-UpdatableEntity",
   /**
    * **Get Speak selection word highlight color**
+   *
    *  (System Settings)
+   *
    * Output: Speak selection word highlight color
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_selection_word_highlight_color: "com.apple.systempreferences.AxSpokenSelectionHighlightWordColorEntity",
   /**
    * **Update AX.SpokenContent.axSpokenSelectionHighlightWordColor.title**
+   *
    * Speak selection word highlight color (System Settings)
+   *
    * Output: Speak selection word highlight color
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_selection_highlight_word_color_title: "com.apple.systempreferences.AxSpokenSelectionHighlightWordColorEntity-UpdatableEntity",
   /**
    * **Get Show speak selection controller**
+   *
    *  (System Settings)
+   *
    * Output: Show speak selection controller
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_speak_selection_controller: "com.apple.systempreferences.AxSpokenSelectionShowControllerEntity",
   /**
    * **Update AX.SpokenContent.axSpokenSelectionShowController.title**
+   *
    * Show speak selection controller (System Settings)
+   *
    * Output: Show speak selection controller
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_selection_show_controller_title: "com.apple.systempreferences.AxSpokenSelectionShowControllerEntity-UpdatableEntity",
   /**
    * **Get Echo characters for typing feedback**
+   *
    *  (System Settings)
+   *
    * Output: Echo characters for typing feedback
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_echo_characters_for_typing_feedback: "com.apple.systempreferences.AxSpokenTypingEchoCharsEntity",
   /**
    * **Update AX.SpokenContent.axSpokenTypingEchoChars.title**
+   *
    * Echo characters for typing feedback (System Settings)
+   *
    * Output: Echo characters for typing feedback
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_typing_echo_chars_title: "com.apple.systempreferences.AxSpokenTypingEchoCharsEntity-UpdatableEntity",
   /**
    * **Get Speak typing feedback**
+   *
    *  (System Settings)
+   *
    * Output: Speak typing feedback
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_speak_typing_feedback: "com.apple.systempreferences.AxSpokenTypingEchoEntity",
   /**
    * **Update AX.SpokenContent.axSpokenTypingEcho.title**
+   *
    * Speak typing feedback (System Settings)
+   *
    * Output: Speak typing feedback
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_typing_echo_title: "com.apple.systempreferences.AxSpokenTypingEchoEntity-UpdatableEntity",
   /**
    * **Get Echo modifier keys for typing feedback**
+   *
    *  (System Settings)
+   *
    * Output: Echo modifier keys for typing feedback
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_echo_modifier_keys_for_typing_feedback: "com.apple.systempreferences.AxSpokenTypingEchoModifierKeysEntity",
   /**
    * **Update AX.SpokenContent.axSpokenTypingEchoModifierKeys.title**
+   *
    * Echo modifier keys for typing feedback (System Settings)
+   *
    * Output: Echo modifier keys for typing feedback
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_typing_echo_modifier_keys_title: "com.apple.systempreferences.AxSpokenTypingEchoModifierKeysEntity-UpdatableEntity",
   /**
    * **Get Echo selection changes for typing feedback**
+   *
    *  (System Settings)
+   *
    * Output: Echo selection changes for typing feedback
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_echo_selection_changes_for_typing_feedback: "com.apple.systempreferences.AxSpokenTypingEchoSelectionEntity",
   /**
    * **Update AX.SpokenContent.axSpokenTypingEchoSelection.title**
+   *
    * Echo selection changes for typing feedback (System Settings)
+   *
    * Output: Echo selection changes for typing feedback
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_typing_echo_selection_title: "com.apple.systempreferences.AxSpokenTypingEchoSelectionEntity-UpdatableEntity",
   /**
    * **Get Echo words for typing feedback**
+   *
    *  (System Settings)
+   *
    * Output: Echo words for typing feedback
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_echo_words_for_typing_feedback: "com.apple.systempreferences.AxSpokenTypingEchoWordsEntity",
   /**
    * **Update AX.SpokenContent.axSpokenTypingEchoWords.title**
+   *
    * Echo words for typing feedback (System Settings)
+   *
    * Output: Echo words for typing feedback
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_spoken_content_ax_spoken_typing_echo_words_title: "com.apple.systempreferences.AxSpokenTypingEchoWordsEntity-UpdatableEntity",
   /**
    * **Get Spring-loading**
+   *
    *  (System Settings)
+   *
    * Output: Spring-loading
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_spring_loading: "com.apple.systempreferences.AxSpringLoadingEntity",
   /**
    * **Update AX.PointerControl.axSpringLoading.title**
+   *
    * Spring-loading (System Settings)
+   *
    * Output: Spring-loading
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_spring_loading_title: "com.apple.systempreferences.AxSpringLoadingEntity-UpdatableEntity",
   /**
    * **Get Beep when a modifier key is set with Sticky Keys**
+   *
    *  (System Settings)
+   *
    * Output: Beep when a modifier key is set with Sticky Keys
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_beep_when_a_modifier_key_is_set_with_sticky_keys: "com.apple.systempreferences.AxStickyKeysBeepEntity",
   /**
    * **Update AX.Keyboard.axStickyKeysBeep.title**
+   *
    * Beep when a modifier key is set with Sticky Keys (System Settings)
+   *
    * Output: Beep when a modifier key is set with Sticky Keys
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_sticky_keys_beep_title: "com.apple.systempreferences.AxStickyKeysBeepEntity-UpdatableEntity",
   /**
    * **Get Display Sticky Keys on screen**
+   *
    *  (System Settings)
+   *
    * Output: Display Sticky Keys on screen
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_display_sticky_keys_on_screen: "com.apple.systempreferences.AxStickyKeysDisplayEntity",
   /**
    * **Update AX.Keyboard.axStickyKeysDisplay.title**
+   *
    * Display Sticky Keys on screen (System Settings)
+   *
    * Output: Display Sticky Keys on screen
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_sticky_keys_display_title: "com.apple.systempreferences.AxStickyKeysDisplayEntity-UpdatableEntity",
   /**
    * **Get Sticky keys display location**
+   *
    *  (System Settings)
+   *
    * Output: Sticky keys display location
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_sticky_keys_display_location: "com.apple.systempreferences.AxStickyKeysDisplayLocationEntity",
   /**
    * **Update AX.Keyboard.axStickyKeysDisplayLocation.title**
+   *
    * Sticky keys display location (System Settings)
+   *
    * Output: Sticky keys display location
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_sticky_keys_display_location_title: "com.apple.systempreferences.AxStickyKeysDisplayLocationEntity-UpdatableEntity",
   /**
    * **Get Sticky Keys**
+   *
    *  (System Settings)
+   *
    * Output: Sticky Keys
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_sticky_keys: "com.apple.systempreferences.AxStickyKeysEntity",
   /**
    * **Update AX.Keyboard.axStickyKeys.title**
+   *
    * Sticky Keys allows modifier keys to be set without having to hold the key down. (System Settings)
+   *
    * Output: Sticky Keys
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_sticky_keys_title: "com.apple.systempreferences.AxStickyKeysEntity-UpdatableEntity",
   /**
    * **Get Press the Shift key five times to toggle Sticky Keys**
+   *
    *  (System Settings)
+   *
    * Output: Press the Shift key five times to toggle Sticky Keys
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_press_the_shift_key_five_times_to_toggle_sticky_keys: "com.apple.systempreferences.AxStickyKeysShortcutEntity",
   /**
    * **Update AX.Keyboard.axStickyKeysShortcut.title**
+   *
    * Press the Shift key five times to toggle Sticky Keys (System Settings)
+   *
    * Output: Press the Shift key five times to toggle Sticky Keys
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_sticky_keys_shortcut_title: "com.apple.systempreferences.AxStickyKeysShortcutEntity-UpdatableEntity",
   /**
    * **Get Capitalize sentences automatically when using Switch Control**
+   *
    *  (System Settings)
+   *
    * Output: Capitalize sentences automatically when using Switch Control
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_capitalize_sentences_automatically_when_using_switch_control: "com.apple.systempreferences.AxSwitchAutoCapitalizationEntity",
   /**
    * **Update AX.SwitchControl.axSwitchAutoCapitalization.title**
+   *
    * Capitalize sentences automatically when using Switch Control (System Settings)
+   *
    * Output: Capitalize sentences automatically when using Switch Control
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_auto_capitalization_title: "com.apple.systempreferences.AxSwitchAutoCapitalizationEntity-UpdatableEntity",
   /**
    * **Get Insert and remove spaces automatically when using the Switch Control**
+   *
    *  (System Settings)
+   *
    * Output: Insert and remove spaces automatically when using the Switch Control
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_insert_and_remove_spaces_automatically_when_using_the_switch_control: "com.apple.systempreferences.AxSwitchAutoSpacingEntity",
   /**
    * **Update AX.SwitchControl.axSwitchAutoSpacing.title**
+   *
    * Insert and remove spaces automatically when using the Switch Control (System Settings)
+   *
    * Output: Insert and remove spaces automatically when using the Switch Control
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_auto_spacing_title: "com.apple.systempreferences.AxSwitchAutoSpacingEntity-UpdatableEntity",
   /**
    * **Get Switch Control auto scanning**
+   *
    *  (System Settings)
+   *
    * Output: Switch Control auto scanning
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_switch_control_auto_scanning: "com.apple.systempreferences.AxSwitchAutoscanEntity",
   /**
    * **Update AX.SwitchControl.axSwitchAutoscan.title**
+   *
    * Switch Control auto scanning (System Settings)
+   *
    * Output: Switch Control auto scanning
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_autoscan_title: "com.apple.systempreferences.AxSwitchAutoscanEntity-UpdatableEntity",
   /**
    * **Get Switch Control appearance**
+   *
    *  (System Settings)
+   *
    * Output: Switch Control appearance
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_switch_control_appearance: "com.apple.systempreferences.AxSwitchControlAppearanceTypeEntity",
   /**
    * **Update AX.SwitchControl.axSwitchControlAppearanceType.title**
+   *
    * Switch Control appearance (System Settings)
+   *
    * Output: Switch Control appearance
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_control_appearance_type_title: "com.apple.systempreferences.AxSwitchControlAppearanceTypeEntity-UpdatableEntity",
   /**
    * **Get Switch Control cursor size**
+   *
    *  (System Settings)
+   *
    * Output: Switch Control cursor size
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_switch_control_cursor_size: "com.apple.systempreferences.AxSwitchCursorSizeEntity",
   /**
    * **Update AX.SwitchControl.axSwitchCursorSize.title**
+   *
    * Switch Control cursor size (System Settings)
+   *
    * Output: Switch Control cursor size
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_cursor_size_title: "com.apple.systempreferences.AxSwitchCursorSizeEntity-UpdatableEntity",
   /**
    * **Get Fade Switch Control overlay after inactivity**
+   *
    *  (System Settings)
+   *
    * Output: Fade Switch Control overlay after inactivity
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_fade_switch_control_overlay_after_inactivity: "com.apple.systempreferences.AxSwitchHideAfterDelayEntity",
   /**
    * **Update AX.SwitchControl.axSwitchHideAfterDelay.title**
+   *
    * Fade Switch Control overlay after inactivity (System Settings)
+   *
    * Output: Fade Switch Control overlay after inactivity
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_hide_after_delay_title: "com.apple.systempreferences.AxSwitchHideAfterDelayEntity-UpdatableEntity",
   /**
    * **Get Show current text in the Switch Control keyboard panel**
+   *
    *  (System Settings)
+   *
    * Output: Show current text in the Switch Control keyboard panel
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_current_text_in_the_switch_control_keyboard_panel: "com.apple.systempreferences.AxSwitchHoverTextToolbarEntity",
   /**
    * **Update AX.SwitchControl.axSwitchHoverTextToolbar.title**
+   *
    * Show current text in the Switch Control keyboard panel (System Settings)
+   *
    * Output: Show current text in the Switch Control keyboard panel
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_hover_text_toolbar_title: "com.apple.systempreferences.AxSwitchHoverTextToolbarEntity-UpdatableEntity",
   /**
    * **Get Switch control reverse cursor direction after hitting edge**
+   *
    *  (System Settings)
+   *
    * Output: Switch control reverse cursor direction after hitting edge
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_switch_control_reverse_cursor_direction_after_hitting_edge: "com.apple.systempreferences.AxSwitchMouseCursorEdgeEntity",
   /**
    * **Update AX.SwitchControl.axSwitchMouseCursorEdge.title**
+   *
    * Switch control reverse cursor direction after hitting edge (System Settings)
+   *
    * Output: Switch control reverse cursor direction after hitting edge
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_mouse_cursor_edge_title: "com.apple.systempreferences.AxSwitchMouseCursorEdgeEntity-UpdatableEntity",
   /**
    * **Get Pointer precision**
+   *
    *  (System Settings)
+   *
    * Output: Pointer precision
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_pointer_precision: "com.apple.systempreferences.AxSwitchMouseMoveStyleEntity",
   /**
    * **Update AX.SwitchControl.axSwitchMouseMoveStyle.title**
+   *
    * Pointer precision (System Settings)
+   *
    * Output: Pointer precision
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_mouse_move_style_title: "com.apple.systempreferences.AxSwitchMouseMoveStyleEntity-UpdatableEntity",
   /**
    * **Get While navigating**
+   *
    *  (System Settings)
+   *
    * Output: While navigating
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_while_navigating: "com.apple.systempreferences.AxSwitchNavFeedbackEntity",
   /**
    * **Update AX.SwitchControl.axSwitchNavFeedback.title**
+   *
    * While navigating (System Settings)
+   *
    * Output: While navigating
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_nav_feedback_title: "com.apple.systempreferences.AxSwitchNavFeedbackEntity-UpdatableEntity",
   /**
    * **Get Switch Control resume auto scanning after selection**
+   *
    *  (System Settings)
+   *
    * Output: Switch Control resume auto scanning after selection
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_switch_control_resume_auto_scanning_after_selection: "com.apple.systempreferences.AxSwitchResumeAutoScanningEntity",
   /**
    * **Update AX.SwitchControl.axSwitchResumeAutoScanning.title**
+   *
    * Switch Control resume auto scanning after selection (System Settings)
+   *
    * Output: Switch Control resume auto scanning after selection
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_resume_auto_scanning_title: "com.apple.systempreferences.AxSwitchResumeAutoScanningEntity-UpdatableEntity",
   /**
    * **Get Restart action position**
+   *
    *  (System Settings)
+   *
    * Output: Restart action position
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_restart_action_position: "com.apple.systempreferences.AxSwitchScanRestartEntity",
   /**
    * **Update AX.SwitchControl.axSwitchScanRestart.title**
+   *
    * Restart action position (System Settings)
+   *
    * Output: Restart action position
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_switch_control_ax_switch_scan_restart_title: "com.apple.systempreferences.AxSwitchScanRestartEntity-UpdatableEntity",
   /**
    * **Get Live Captions**
+   *
    *  (System Settings)
+   *
    * Output: Live Captions
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_live_captions: "com.apple.systempreferences.AxSystemTranscriptionEnabledEntity",
   /**
    * **Update AX.LiveCaptions.axSystemTranscriptionEnabled.title**
+   *
    * Live Captions (System Settings)
+   *
    * Output: Live Captions
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_live_captions_ax_system_transcription_enabled_title: "com.apple.systempreferences.AxSystemTranscriptionEnabledEntity-UpdatableEntity",
   /**
    * **Get Touch Bar zoom**
+   *
    *  (System Settings)
+   *
    * Output: Touch Bar zoom
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_touch_bar_zoom: "com.apple.systempreferences.AxTouchBarZoomEnableEntity",
   /**
    * **Update AX.Zoom.axTouchBarZoomEnable.title**
+   *
    * Touch Bar zoom (System Settings)
+   *
    * Output: Touch Bar zoom
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_touch_bar_zoom_enable_title: "com.apple.systempreferences.AxTouchBarZoomEnableEntity-UpdatableEntity",
   /**
    * **Get Use inertia when scrolling with trackpad**
+   *
    *  (System Settings)
+   *
    * Output: Use inertia when scrolling with trackpad
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_use_inertia_when_scrolling_with_trackpad: "com.apple.systempreferences.AxTrackpadScrollBehaviorEntity",
   /**
    * **Update AX.PointerControl.axTrackpadScrollBehavior.title**
+   *
    * Use inertia when scrolling with trackpad (System Settings)
+   *
    * Output: Use inertia when scrolling with trackpad
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_trackpad_scroll_behavior_title: "com.apple.systempreferences.AxTrackpadScrollBehaviorEntity-UpdatableEntity",
   /**
    * **Get Use trackpad for scrolling**
+   *
    *  (System Settings)
+   *
    * Output: Use trackpad for scrolling
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_use_trackpad_for_scrolling: "com.apple.systempreferences.AxTrackpadScrollEntity",
   /**
    * **Update AX.PointerControl.axTrackpadScroll.title**
+   *
    * Use trackpad for scrolling (System Settings)
+   *
    * Output: Use trackpad for scrolling
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_pointer_control_ax_trackpad_scroll_title: "com.apple.systempreferences.AxTrackpadScrollEntity-UpdatableEntity",
   /**
    * **Get Type to Siri**
+   *
    *  (System Settings)
+   *
    * Output: Type to Siri
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_type_to_siri: "com.apple.systempreferences.AxTypeToSiriEnabledEntity",
   /**
    * **Update AX.Siri.axTypeToSiriEnabled.title**
+   *
    * Turn on or off typing requests to Siri instead of speaking them (System Settings)
+   *
    * Output: Type to Siri
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_siri_ax_type_to_siri_enabled_title: "com.apple.systempreferences.AxTypeToSiriEnabledEntity-UpdatableEntity",
   /**
    * **Get Play audio descriptions when available**
+   *
    *  (System Settings)
+   *
    * Output: Play audio descriptions when available
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_play_audio_descriptions_when_available: "com.apple.systempreferences.AxVideoDescriptionEntity",
   /**
    * **Update AX.AudioDescriptions.axVideoDescription.title**
+   *
    * Play audio descriptions when available (System Settings)
+   *
    * Output: Play audio descriptions when available
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_audio_descriptions_ax_video_description_title: "com.apple.systempreferences.AxVideoDescriptionEntity-UpdatableEntity",
   /**
    * **Get Accessibility Keyboard**
+   *
    *  (System Settings)
+   *
    * Output: Accessibility Keyboard
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_accessibility_keyboard: "com.apple.systempreferences.AxVirtualKeyboardEntity",
   /**
    * **Update AX.Keyboard.axVirtualKeyboard.title**
+   *
    * The Accessibility Keyboard lets you type and interact with macOS without using a hardware keyboard (System Settings)
+   *
    * Output: Accessibility Keyboard
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_keyboard_ax_virtual_keyboard_title: "com.apple.systempreferences.AxVirtualKeyboardEntity-UpdatableEntity",
   /**
    * **Get Overlay**
+   *
    *  (System Settings)
+   *
    * Output: Overlay
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_overlay: "com.apple.systempreferences.AxVoiceControlOverlayEntity",
   /**
    * **Update AX.VoiceControl.axVoiceControlOverlay.title**
+   *
    * Overlay (System Settings)
+   *
    * Output: Overlay
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_voice_control_ax_voice_control_overlay_title: "com.apple.systempreferences.AxVoiceControlOverlayEntity-UpdatableEntity",
   /**
    * **Get Fade Voice Control overlay after inactivity**
+   *
    *  (System Settings)
+   *
    * Output: Fade Voice Control overlay after inactivity
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_fade_voice_control_overlay_after_inactivity: "com.apple.systempreferences.AxVoiceControlOverlayFadingEnabledEntity",
   /**
    * **Update AX.VoiceControl.axVoiceControlOverlayFadingEnabled.title**
+   *
    * Fade Voice Control overlay after inactivity (System Settings)
+   *
    * Output: Fade Voice Control overlay after inactivity
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_voice_control_ax_voice_control_overlay_fading_enabled_title: "com.apple.systempreferences.AxVoiceControlOverlayFadingEnabledEntity-UpdatableEntity",
   /**
    * **Get Voice Control command recognized sound**
+   *
    *  (System Settings)
+   *
    * Output: Voice Control command recognized sound
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_voice_control_command_recognized_sound: "com.apple.systempreferences.AxVoiceControlPlaySoundEnabledEntity",
   /**
    * **Update AX.VoiceControl.axVoiceControlPlaySoundEnabled.title**
+   *
    * Play a sound when a Voice Control command is recognized (System Settings)
+   *
    * Output: Voice Control command recognized sound
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_voice_control_ax_voice_control_play_sound_enabled_title: "com.apple.systempreferences.AxVoiceControlPlaySoundEnabledEntity-UpdatableEntity",
   /**
    * **Get Voice Control show hints**
+   *
    *  (System Settings)
+   *
    * Output: Voice Control show hints
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_voice_control_show_hints: "com.apple.systempreferences.AxVoiceControlShowHintsEnabledEntity",
   /**
    * **Update AX.VoiceControl.axVoiceControlShowHintsEnabled.title**
+   *
    * Voice Control show hints (System Settings)
+   *
    * Output: Voice Control show hints
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_voice_control_ax_voice_control_show_hints_enabled_title: "com.apple.systempreferences.AxVoiceControlShowHintsEnabledEntity-UpdatableEntity",
   /**
    * **Get Disable Universal Control while zoomed in**
+   *
    *  (System Settings)
+   *
    * Output: Disable Universal Control while zoomed in
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_disable_universal_control_while_zoomed_in: "com.apple.systempreferences.AxZoomDisableUniversalControlEntity",
   /**
    * **Update AX.Zoom.axZoomDisableUniversalControl.title**
+   *
    * Disable Universal Control while zoomed in (System Settings)
+   *
    * Output: Disable Universal Control while zoomed in
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_disable_universal_control_title: "com.apple.systempreferences.AxZoomDisableUniversalControlEntity-UpdatableEntity",
   /**
    * **Get Use scroll gesture with modifier keys to zoom**
+   *
    *  (System Settings)
+   *
    * Output: Use scroll gesture with modifier keys to zoom
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_use_scroll_gesture_with_modifier_keys_to_zoom: "com.apple.systempreferences.AxZoomEnableGestureEntity",
   /**
    * **Update AX.Zoom.axZoomEnableGesture.title**
+   *
    * Use scroll gesture with modifier keys to zoom (System Settings)
+   *
    * Output: Use scroll gesture with modifier keys to zoom
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_enable_gesture_title: "com.apple.systempreferences.AxZoomEnableGestureEntity-UpdatableEntity",
   /**
    * **Get Zoom keyboard shortcuts**
+   *
    *  (System Settings)
+   *
    * Output: Zoom keyboard shortcuts
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_keyboard_shortcuts: "com.apple.systempreferences.AxZoomEnableHotkeysEntity",
   /**
    * **Update AX.Zoom.axZoomEnableHotkeys.title**
+   *
    * Zoom keyboard shortcuts (System Settings)
+   *
    * Output: Zoom keyboard shortcuts
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_enable_hotkeys_title: "com.apple.systempreferences.AxZoomEnableHotkeysEntity-UpdatableEntity",
   /**
    * **Get Flash screen when notification banner appears outside zoom view**
+   *
    *  (System Settings)
+   *
    * Output: Flash screen when notification banner appears outside zoom view
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_flash_screen_when_notification_banner_appears_outside_zoom_view: "com.apple.systempreferences.AxZoomFlashEntity",
   /**
    * **Update AX.Zoom.axZoomFlash.title**
+   *
    * Flash screen when notification banner appears outside zoom view (System Settings)
+   *
    * Output: Flash screen when notification banner appears outside zoom view
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_flash_title: "com.apple.systempreferences.AxZoomFlashEntity-UpdatableEntity",
   /**
    * **Get Zoom keyboard focus movement amount**
+   *
    *  (System Settings)
+   *
    * Output: Zoom keyboard focus movement amount
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_keyboard_focus_movement_amount: "com.apple.systempreferences.AxZoomFocusMovementEntity",
   /**
    * **Update AX.Zoom.axZoomFocusMovement.title**
+   *
    * Zoom keyboard focus movement amount (System Settings)
+   *
    * Output: Zoom keyboard focus movement amount
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_focus_movement_title: "com.apple.systempreferences.AxZoomFocusMovementEntity-UpdatableEntity",
   /**
    * **Get Zoom keyboard focus movement style**
+   *
    *  (System Settings)
+   *
    * Output: Zoom keyboard focus movement style
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_keyboard_focus_movement_style: "com.apple.systempreferences.AxZoomFollowFocusActivationEntity",
   /**
    * **Update AX.Zoom.axZoomFollowFocusActivation.title**
+   *
    * Move the zoomed screen image when keyboard focus moves to a specific location (System Settings)
+   *
    * Output: Zoom keyboard focus movement style
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_follow_focus_activation_title: "com.apple.systempreferences.AxZoomFollowFocusActivationEntity-UpdatableEntity",
   /**
    * **Get Zoom follow keyboard focus**
+   *
    *  (System Settings)
+   *
    * Output: Zoom follow keyboard focus
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_follow_keyboard_focus: "com.apple.systempreferences.AxZoomFollowFocusModeEntity",
   /**
    * **Update AX.Zoom.axZoomFollowFocusMode.title**
+   *
    * Zoom follow keyboard focus (System Settings)
+   *
    * Output: Zoom follow keyboard focus
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_follow_focus_mode_title: "com.apple.systempreferences.AxZoomFollowFocusModeEntity-UpdatableEntity",
   /**
    * **Get Zoom panning shortcut**
+   *
    *  (System Settings)
+   *
    * Output: Zoom panning shortcut
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_panning_shortcut: "com.apple.systempreferences.AxZoomFreezePanningEntity",
   /**
    * **Update AX.Zoom.axZoomFreezePanning.title**
+   *
    * Zoom panning shortcut (System Settings)
+   *
    * Output: Zoom panning shortcut
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_freeze_panning_title: "com.apple.systempreferences.AxZoomFreezePanningEntity-UpdatableEntity",
   /**
    * **Get Zoom each display independently**
+   *
    *  (System Settings)
+   *
    * Output: Zoom each display independently
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_each_display_independently: "com.apple.systempreferences.AxZoomIndividualDisplaysEntity",
   /**
    * **Update AX.Zoom.axZoomIndividualDisplays.title**
+   *
    * Zoom each display independently (System Settings)
+   *
    * Output: Zoom each display independently
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_individual_displays_title: "com.apple.systempreferences.AxZoomIndividualDisplaysEntity-UpdatableEntity",
   /**
    * **Get Invert colors when using picture-in-picture zoom**
+   *
    *  (System Settings)
+   *
    * Output: Invert colors when using picture-in-picture zoom
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_invert_colors_when_using_picture_in_picture_zoom: "com.apple.systempreferences.AxZoomInvertEntity",
   /**
    * **Update AX.Zoom.axZoomInvert.title**
+   *
    * Invert colors when using picture-in-picture zoom (System Settings)
+   *
    * Output: Invert colors when using picture-in-picture zoom
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_invert_title: "com.apple.systempreferences.AxZoomInvertEntity-UpdatableEntity",
   /**
    * **Get Keep picture-in-picture zoom window stationary**
+   *
    *  (System Settings)
+   *
    * Output: Keep picture-in-picture zoom window stationary
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_keep_picture_in_picture_zoom_window_stationary: "com.apple.systempreferences.AxZoomKeepStationaryEntity",
   /**
    * **Update AX.Zoom.axZoomKeepStationary.title**
+   *
    * Keep picture-in-picture zoom window stationary (System Settings)
+   *
    * Output: Keep picture-in-picture zoom window stationary
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_keep_stationary_title: "com.apple.systempreferences.AxZoomKeepStationaryEntity-UpdatableEntity",
   /**
    * **Get Zoom move cursor to next monitor shortcut**
+   *
    *  (System Settings)
+   *
    * Output: Zoom move cursor to next monitor shortcut
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_move_cursor_to_next_monitor_shortcut: "com.apple.systempreferences.AxZoomMonitorSelectionEntity",
   /**
    * **Update AX.Zoom.axZoomMonitorSelection.title**
+   *
    * Zoom move cursor to next monitor shortcut (System Settings)
+   *
    * Output: Zoom move cursor to next monitor shortcut
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_monitor_selection_title: "com.apple.systempreferences.AxZoomMonitorSelectionEntity-UpdatableEntity",
   /**
    * **Get Use trackpad gesture to move cursor between monitors when using zoom**
+   *
    *  (System Settings)
+   *
    * Output: Use trackpad gesture to move cursor between monitors when using zoom
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_use_trackpad_gesture_to_move_cursor_between_monitors_when_using_zoom: "com.apple.systempreferences.AxZoomMonitorSelectionTrackpadEntity",
   /**
    * **Update AX.Zoom.axZoomMonitorSelectionTrackpad.title**
+   *
    * Use trackpad gesture to move cursor between monitors when using zoom (System Settings)
+   *
    * Output: Use trackpad gesture to move cursor between monitors when using zoom
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_monitor_selection_trackpad_title: "com.apple.systempreferences.AxZoomMonitorSelectionTrackpadEntity-UpdatableEntity",
   /**
    * **Get Zoom panning mode**
+   *
    *  (System Settings)
+   *
    * Output: Zoom panning mode
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_panning_mode: "com.apple.systempreferences.AxZoomMoveEntity",
   /**
    * **Update AX.Zoom.axZoomMove.title**
+   *
    * Zoom panning mode (System Settings)
+   *
    * Output: Zoom panning mode
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_move_title: "com.apple.systempreferences.AxZoomMoveEntity-UpdatableEntity",
   /**
    * **Get Use keyboard shortcuts to adjust zoom window**
+   *
    *  (System Settings)
+   *
    * Output: Use keyboard shortcuts to adjust zoom window
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_use_keyboard_shortcuts_to_adjust_zoom_window: "com.apple.systempreferences.AxZoomResizeShortcutsEntity",
   /**
    * **Update AX.Zoom.axZoomResizeShortcuts.title**
+   *
    * Use keyboard shortcuts to adjust zoom window (System Settings)
+   *
    * Output: Use keyboard shortcuts to adjust zoom window
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_resize_shortcuts_title: "com.apple.systempreferences.AxZoomResizeShortcutsEntity-UpdatableEntity",
   /**
    * **Get Restore zoom factor on startup**
+   *
    *  (System Settings)
+   *
    * Output: Restore zoom factor on startup
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_restore_zoom_factor_on_startup: "com.apple.systempreferences.AxZoomRestoreEntity",
   /**
    * **Update AX.Zoom.axZoomRestore.title**
+   *
    * Restore zoom factor on startup (System Settings)
+   *
    * Output: Restore zoom factor on startup
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_restore_title: "com.apple.systempreferences.AxZoomRestoreEntity-UpdatableEntity",
   /**
    * **Get Show zoomed image while screen sharing**
+   *
    *  (System Settings)
+   *
    * Output: Show zoomed image while screen sharing
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_zoomed_image_while_screen_sharing: "com.apple.systempreferences.AxZoomScreenShareEntity",
   /**
    * **Update AX.Zoom.axZoomScreenShare.title**
+   *
    * While zoomed in and sharing your screen, show viewers the zoomed view rather than the unzoomed full display. (System Settings)
+   *
    * Output: Show zoomed image while screen sharing
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_screen_share_title: "com.apple.systempreferences.AxZoomScreenShareEntity-UpdatableEntity",
   /**
    * **Get Zoom smooth images**
+   *
    *  (System Settings)
+   *
    * Output: Zoom smooth images
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_smooth_images: "com.apple.systempreferences.AxZoomSmoothEntity",
   /**
    * **Update AX.Zoom.axZoomSmooth.title**
+   *
    * Zoom smooth images (System Settings)
+   *
    * Output: Zoom smooth images
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_smooth_title: "com.apple.systempreferences.AxZoomSmoothEntity-UpdatableEntity",
   /**
    * **Get Zoom style**
+   *
    *  (System Settings)
+   *
    * Output: Zoom style
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_style: "com.apple.systempreferences.AxZoomStylePopupEntity",
   /**
    * **Update AX.Zoom.axZoomStylePopup.title**
+   *
    * Zoom style (System Settings)
+   *
    * Output: Zoom style
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_style_popup_title: "com.apple.systempreferences.AxZoomStylePopupEntity-UpdatableEntity",
   /**
    * **Get Detach zoom from pointer shortcut**
+   *
    *  (System Settings)
+   *
    * Output: Detach zoom from pointer shortcut
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_detach_zoom_from_pointer_shortcut: "com.apple.systempreferences.AxZoomTempDetachEntity",
   /**
    * **Update AX.Zoom.axZoomTempDetach.title**
+   *
    * Detach zoom from pointer shortcut (System Settings)
+   *
    * Output: Detach zoom from pointer shortcut
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_temp_detach_title: "com.apple.systempreferences.AxZoomTempDetachEntity-UpdatableEntity",
   /**
    * **Get Zoom quick toggle shortcut**
+   *
    *  (System Settings)
+   *
    * Output: Zoom quick toggle shortcut
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_quick_toggle_shortcut: "com.apple.systempreferences.AxZoomTempToggleEntity",
   /**
    * **Update AX.Zoom.axZoomTempToggle.title**
+   *
    * Zoom quick toggle shortcut (System Settings)
+   *
    * Output: Zoom quick toggle shortcut
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_temp_toggle_title: "com.apple.systempreferences.AxZoomTempToggleEntity-UpdatableEntity",
   /**
    * **Get Toggle between full screen and picture-in-picture zoom shortcut**
+   *
    *  (System Settings)
+   *
    * Output: Toggle between full screen and picture-in-picture zoom shortcut
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_toggle_between_full_screen_and_picture_in_picture_zoom_shortcut: "com.apple.systempreferences.AxZoomToggleFsAndPipEntity",
   /**
    * **Update AX.Zoom.axZoomToggleFsAndPip.title**
+   *
    * Toggle between full screen and picture-in-picture zoom shortcut (System Settings)
+   *
    * Output: Toggle between full screen and picture-in-picture zoom shortcut
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_toggle_fs_and_pip_title: "com.apple.systempreferences.AxZoomToggleFsAndPipEntity-UpdatableEntity",
   /**
    * **Get Zoom trackpad gestures**
+   *
    *  (System Settings)
+   *
    * Output: Zoom trackpad gestures
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_zoom_trackpad_gestures: "com.apple.systempreferences.AxZoomTrackpadEntity",
   /**
    * **Update AX.Zoom.axZoomTrackpad.title**
+   *
    * Zoom trackpad gestures (System Settings)
+   *
    * Output: Zoom trackpad gestures
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_ax_zoom_ax_zoom_trackpad_title: "com.apple.systempreferences.AxZoomTrackpadEntity-UpdatableEntity",
   /**
    * **Get Background Login Items**
+   *
    * Background Login Items (System Settings)
+   *
    * Output: Background login items
    */
   settings_get_background_login_items: "com.apple.systempreferences.BackgroundLoginItemsIntent",
   /**
    * **Find Battery Health Settings**
+   *
    *  (System Settings)
+   *
    * Output: Battery Health Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_find_battery_health_settings: "com.apple.systempreferences.BatteryHealthPaneDynamicDeepLinks",
   /**
    * **Find Battery Settings Options Pane**
+   *
    *  (System Settings)
+   *
    * Output: Battery Settings Options Pane
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_find_battery_settings_options_pane: "com.apple.systempreferences.BatteryOptionsPaneDynamicDeepLinks",
   /**
    * **Find Battery Settings**
+   *
    *  (System Settings)
+   *
    * Output: Battery Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_battery_settings: "com.apple.systempreferences.BatterySettingsDeepLink",
   /**
    * **Find Battery Settings**
+   *
    *  (System Settings)
+   *
    * Output: Battery Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_find_battery_settings: "com.apple.systempreferences.BatterySettingsPaneDynamicDeepLinks",
   /**
    * **Get Click in the scroll bar to**
+   *
    *  (System Settings)
+   *
    * Output: Click in the scroll bar to
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_click_in_the_scroll_bar_to: "com.apple.systempreferences.ClickScrollBarToEntity",
   /**
    * **Update Click in the scroll bar to**
+   *
    * Change the Click in the scroll bar to value of Click in the scroll bar to (System Settings)
+   *
    * Output: Click in the scroll bar to
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_click_in_the_scroll_bar_to: "com.apple.systempreferences.ClickScrollBarToEntity-UpdatableEntity",
   /**
    * **Get Computer Name**
+   *
    *  (System Settings)
+   *
    * Output: Computer Name
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_computer_name: "com.apple.systempreferences.ComputerNameEntity",
   /**
    * **Get the Current User**
+   *
    * Get info of the current user. (System Settings)
+   *
    * Output: The Current User
    */
   settings_get_the_current_user: "com.apple.systempreferences.CurrentUserIntent",
   /**
    * **Get Current VPN**
+   *
    *  (System Settings)
+   *
    * Output: Current VPN
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_current_vpn: "com.apple.systempreferences.CurrentlyConnectedVPN",
   /**
    * **Update a Current VPN's Connected VPN**
+   *
    * Change the Connected VPN value of Current VPN (System Settings)
+   *
    * Output: Current VPN
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_a_current_vpn_s_connected_vpn: "com.apple.systempreferences.CurrentlyConnectedVPN-UpdatableEntity",
   /**
    * **Get Device Graphics**
+   *
    *  (System Settings)
+   *
    * Output: Device Graphics
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_device_graphics: "com.apple.systempreferences.DeviceGraphicsEntity",
   /**
    * **Get Device Memory**
+   *
    *  (System Settings)
+   *
    * Output: Device Memory
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_device_memory: "com.apple.systempreferences.DeviceMemoryEntity",
   /**
    * **Get Device Model Name**
+   *
    *  (System Settings)
+   *
    * Output: Device Model Name
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_device_model_name: "com.apple.systempreferences.DeviceModelNameEntity",
   /**
    * **Get Operating System Information**
+   *
    *  (System Settings)
+   *
    * Output: Operating System Information
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_operating_system_information: "com.apple.systempreferences.DeviceOSInfoEntity",
   /**
    * **Get Device Processor**
+   *
    *  (System Settings)
+   *
    * Output: Device Processor
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_device_processor: "com.apple.systempreferences.DeviceProcessorEntity",
   /**
    * **Get Device Platform Single Sign-on Status**
+   *
    * Get the current platform single sign-on status of this Mac. (System Settings)
+   *
    * Output: Platform Single Sign-on Status
    */
   settings_get_device_platform_single_sign_on_status: "com.apple.systempreferences.DeviceSSOIntent",
   /**
    * **Get Device Serial Number**
+   *
    *  (System Settings)
+   *
    * Output: Device Serial Number
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_device_serial_number: "com.apple.systempreferences.DeviceSerialNumberEntity",
   /**
    * **Get Storage Information**
+   *
    *  (System Settings)
+   *
    * Output: Storage Information
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_storage_information: "com.apple.systempreferences.DeviceStorageEntity",
   /**
    * **Find Energy Saver Settings**
+   *
    *  (System Settings)
+   *
    * Output: Energy Saver Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_find_energy_saver_settings: "com.apple.systempreferences.EnergySaverPaneDynamicDeepLinks",
   /**
    * **Find Energy Settings**
+   *
    *  (System Settings)
+   *
    * Output: Energy Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_energy_settings: "com.apple.systempreferences.EnergySettingsDeepLink",
   /**
    * **Get Automatically allow downloaded signed software to receive incoming connections**
+   *
    *  (System Settings)
+   *
    * Output: Automatically allow downloaded signed software to receive incoming connections
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_automatically_allow_downloaded_signed_software_to_receive_incoming_connections: "com.apple.systempreferences.FirewallAllowDownloadedSignedEntity",
   /**
    * **Get Automatically allow built-in software to receive incoming connections**
+   *
    *  (System Settings)
+   *
    * Output: Automatically allow built-in software to receive incoming connections
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_automatically_allow_built_in_software_to_receive_incoming_connections: "com.apple.systempreferences.FirewallAllowSignedEntity",
   /**
    * **Get Firewall State**
+   *
    *  (System Settings)
+   *
    * Output: Firewall State
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_firewall_state: "com.apple.systempreferences.FirewallStateEntity",
   /**
    * **Get Enable stealth mode**
+   *
    *  (System Settings)
+   *
    * Output: Enable stealth mode
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_enable_stealth_mode: "com.apple.systempreferences.FirewallStealthModeEntity",
   /**
    * **Get Group’s Members**
+   *
    * Get members of the specified group. (System Settings)
+   *
    * Output: Members of the Specified Group
+   *
    * Parameters: `groupEntity`
    */
   settings_get_group_s_members: "com.apple.systempreferences.GroupMembershipIntent",
   /**
    * **Get the Guest User**
+   *
    * Get info for the guest user. (System Settings)
+   *
    * Output: The Guest User
    */
   settings_get_the_guest_user: "com.apple.systempreferences.GuestIntent",
   /**
    * **Get Guest User’s Parental Control Status**
+   *
    * Get parental control status of the guest user. If enabled, the guest user have limited or no access to adult websites. (System Settings)
+   *
    * Output: Parental Control Status of Guest User
    */
   settings_get_guest_user_s_parental_control_status: "com.apple.systempreferences.GuestParentalControlStatusIntent",
   /**
    * **Get Guest User’s Shared Folders Access Status**
+   *
    * Get shared folders access status of the guest user. If enabled, the guest user can access shared folders. (System Settings)
+   *
    * Output: Shared Folders Access Status of the Guest User
    */
   settings_get_guest_user_s_shared_folders_access_status: "com.apple.systempreferences.GuestSharedAccessStatusIntent",
   /**
    * **Get Guest User’s Status**
+   *
    * Get the status of the guest user. (System Settings)
+   *
    * Output: The Status of Guest User
    */
   settings_get_guest_user_s_status: "com.apple.systempreferences.GuestStatusIntent",
   /**
    * **Get Handoff Status**
+   *
    * Allow Handoff between this Mac and your iCloud devices (System Settings)
+   *
    * Output: Handoff Enabled
    */
   settings_get_handoff_status: "com.apple.systempreferences.HandoffIntent",
   /**
    * **Get Highlight color**
+   *
    *  (System Settings)
+   *
    * Output: Highlight color
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_highlight_color: "com.apple.systempreferences.HighlightColorEntity",
   /**
    * **Update Highlight color**
+   *
    * Change the Highlight color value of Highlight color (System Settings)
+   *
    * Output: Highlight color
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_highlight_color: "com.apple.systempreferences.HighlightColorEntity-UpdatableEntity",
   /**
    * **Get Account’s Identifier**
+   *
    * Get the identifier of the specified account. For a user, this value is user identifier (UID); for a group, this value is group identifier (GID). (System Settings)
+   *
    * Output: Account Identifier
+   *
    * Parameters: `accountEntity`
    */
   settings_get_account_s_identifier: "com.apple.systempreferences.IdentifierIntent",
   /**
    * **Get List of Accounts**
+   *
    * Get a list of local accounts on this Mac. (System Settings)
+   *
    * Output: Local Accounts
+   *
    * Parameters: `type`
    */
   settings_get_list_of_accounts: "com.apple.systempreferences.ListOfAccountsIntent",
   /**
    * **Get List of Network Servers**
+   *
    * Get a list of network servers linked to this Mac. (System Settings)
+   *
    * Output: Server Information
    */
   settings_get_list_of_network_servers: "com.apple.systempreferences.ListOfNetworkServersIntent",
   /**
    * **Get Lock Message**
+   *
    * Show message when locked (System Settings)
+   *
    * Output: Lock Message
    */
   settings_get_lock_message: "com.apple.systempreferences.LockMessageIntent",
   /**
    * **Get Login Window Mode**
+   *
    * Login window shows (System Settings)
+   *
    * Output: Login Window Option
    */
   settings_get_login_window_mode: "com.apple.systempreferences.LoginWindowModeIntent",
   /**
    * **Login Window Shows Buttons**
+   *
    * Login Window Shows the Sleep, Restart, and Shut Down Buttons (System Settings)
+   *
    * Output: Login Window Shows Buttons
    */
   settings_login_window_shows_buttons: "com.apple.systempreferences.LoginWindowShowsButtonsIntent",
   /**
    * **Get Push through the edge of a display to connect a nearby Mac or iPad**
+   *
    *  (System Settings)
+   *
    * Output: Push through the edge of a display to connect a nearby Mac or iPad
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_push_through_the_edge_of_a_display_to_connect_a_nearby_mac_or_ipad: "com.apple.systempreferences.MagicEdgeEntity",
   /**
    * **Update Push through the edge of a display to connect a nearby Mac or iPad**
+   *
    * Change the Push through the edge of a display to connect a nearby Mac or iPad value of Push through the edge of a display to connect a nearby Mac or iPad (System Settings)
+   *
    * Output: Push through the edge of a display to connect a nearby Mac or iPad
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_push_through_the_edge_of_a_display_to_connect_a_nearby_mac_or_ipad: "com.apple.systempreferences.MagicEdgeEntity-UpdatableEntity",
   /**
    * **Open About**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_about: "com.apple.systempreferences.OpenAboutSettingsStaticDeepLinks",
   /**
    * **Open Accessibility Audio Descriptions Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_audio_descriptions_settings: "com.apple.systempreferences.OpenAccessibilityAudioDescriptionsStaticDeepLinks",
   /**
    * **Open Accessibility Audio Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_audio_settings: "com.apple.systempreferences.OpenAccessibilityAudioStaticDeepLinks",
   /**
    * **Open Accessibility Display Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_display_settings: "com.apple.systempreferences.OpenAccessibilityDisplayStaticDeepLinks",
   /**
    * **Open Accessibility Hearing Devices Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_hearing_devices_settings: "com.apple.systempreferences.OpenAccessibilityHearingDevicesStaticDeepLinks",
   /**
    * **Open Accessibility Hover Text Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_hover_text_settings: "com.apple.systempreferences.OpenAccessibilityHoverTextStaticDeepLinks",
   /**
    * **Open Accessibility Keyboard Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_keyboard_settings: "com.apple.systempreferences.OpenAccessibilityKeyboardStaticDeepLinks",
   /**
    * **Open Accessibility Live Captions Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_live_captions_settings: "com.apple.systempreferences.OpenAccessibilityLiveCaptionsStaticDeepLinks",
   /**
    * **Open Accessibility Live Speech Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_live_speech_settings: "com.apple.systempreferences.OpenAccessibilityLiveSpeechStaticDeepLinks",
   /**
    * **Open Accessibility Motion Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_motion_settings: "com.apple.systempreferences.OpenAccessibilityMotionStaticDeepLinks",
   /**
    * **Open Accessibility Name Recognition Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_name_recognition_settings: "com.apple.systempreferences.OpenAccessibilityNameRecognitionStaticDeepLinks",
   /**
    * **Open Accessibility Personal Voice Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_personal_voice_settings: "com.apple.systempreferences.OpenAccessibilityPersonalVoiceStaticDeepLinks",
   /**
    * **Open Accessibility Pointer Control Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_pointer_control_settings: "com.apple.systempreferences.OpenAccessibilityPointerControlStaticDeepLinks",
   /**
    * **Open Accessibility RTT Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_rtt_settings: "com.apple.systempreferences.OpenAccessibilityRTTStaticDeepLinks",
   /**
    * **Open Accessibility  Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_settings: "com.apple.systempreferences.OpenAccessibilityRootStaticDeepLinks",
   /**
    * **Open Accessibility Shortcut Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_shortcut_settings: "com.apple.systempreferences.OpenAccessibilityShortcutStaticDeepLinks",
   /**
    * **Open Accessibility Siri Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_siri_settings: "com.apple.systempreferences.OpenAccessibilitySiriStaticDeepLinks",
   /**
    * **Open Accessibility Spoken Content Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_spoken_content_settings: "com.apple.systempreferences.OpenAccessibilitySpokenContentStaticDeepLinks",
   /**
    * **Open Accessibility Subtitles and Captioning Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_subtitles_and_captioning_settings: "com.apple.systempreferences.OpenAccessibilitySubtitlesandCaptioningStaticDeepLinks",
   /**
    * **Open Accessibility Switch Control Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_switch_control_settings: "com.apple.systempreferences.OpenAccessibilitySwitchControlStaticDeepLinks",
   /**
    * **Open Accessibility Vocal Shortcuts Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_vocal_shortcuts_settings: "com.apple.systempreferences.OpenAccessibilityVocalShortcutsStaticDeepLinks",
   /**
    * **Open Accessibility Voice Control Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_voice_control_settings: "com.apple.systempreferences.OpenAccessibilityVoiceControlStaticDeepLinks",
   /**
    * **Open Accessibility VoiceOver Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_voice_over_settings: "com.apple.systempreferences.OpenAccessibilityVoiceOverStaticDeepLinks",
   /**
    * **Open Accessibility Zoom Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_accessibility_zoom_settings: "com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks",
   /**
    * **Open AirDrop & Continuity**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_air_drop_continuity: "com.apple.systempreferences.OpenAirDropHandoffDeepLinks",
   /**
    * **Open Appearance Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_appearance_settings: "com.apple.systempreferences.OpenAppearanceSettingsDeepLink",
   /**
    * **Open Automatically adjust brightness**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_automatically_adjust_brightness: "com.apple.systempreferences.OpenAutoBrightnessEntityDeepLink",
   /**
    * **Open Automatically reconnect**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_automatically_reconnect: "com.apple.systempreferences.OpenAutomaticReconnectEntityDeepLink",
   /**
    * **Open Battery Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_battery_settings: "com.apple.systempreferences.OpenBatterSettingsDeepLink",
   /**
    * **Open Battery Health Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_battery_health_settings: "com.apple.systempreferences.OpenBatteryHealthPaneDynamicDeepLinks",
   /**
    * **Open Battery Settings Options Pane**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_battery_settings_options_pane: "com.apple.systempreferences.OpenBatteryOptionsPaneDynamicDeepLinks",
   /**
    * **Open Battery Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_battery_settings: "com.apple.systempreferences.OpenBatterySettingsPaneDynamicDeepLinks",
   /**
    * **Open Displays**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_displays: "com.apple.systempreferences.OpenDisplaysSettingsDeepLinks",
   /**
    * **Open Energy Saver Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_energy_saver_settings: "com.apple.systempreferences.OpenEnergySaverPaneDynamicDeepLinks",
   /**
    * **Open Energy Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   com_apple_settings_open_energy_settings: "com.apple.systempreferences.OpenEnergySettingsDeepLink",
   /**
    * **Lock Screen Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_lock_screen_settings: "com.apple.systempreferences.OpenLockScreenDeepLinks",
   /**
    * **Open Login Items**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_login_items: "com.apple.systempreferences.OpenLoginItemsDeepLinks",
   /**
    * **Open Push through to connect**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_push_through_to_connect: "com.apple.systempreferences.OpenMagicEdgeEntityDeepLink",
   /**
    * **Open Network**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_network: "com.apple.systempreferences.OpenNetworkSettingsDeepLinks",
   /**
    * **Open AppleCare & Warranty**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   com_apple_preferences_open_apple_care_warranty: "com.apple.systempreferences.OpenNewDeviceOutreachStaticDeepLinks",
   /**
    * **Open Printers & Scanners**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_printers_scanners: "com.apple.systempreferences.OpenPrinterScannerDeepLinks",
   /**
    * **Open Privacy & Security**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_privacy_security: "com.apple.systempreferences.OpenPrivacySecurityDeepLinks",
   /**
    * **Open Share keyboard and mouse**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_share_keyboard_and_mouse: "com.apple.systempreferences.OpenShareKeyboardEntityDeepLink",
   /**
    * **Open Sound**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_sound: "com.apple.systempreferences.OpenSoundSettingsDeepLinks",
   /**
    * **Open Feedback Sound Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_feedback_sound_settings: "com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity",
   /**
    * **Open User Interface Sound Effects Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_user_interface_sound_effects_settings: "com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity",
   /**
    * **Open Startup Sound Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_startup_sound_settings: "com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity",
   /**
    * **Open Transfer or Reset**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_transfer_or_reset: "com.apple.systempreferences.OpenTransferResetDeepLinks",
   /**
    * **Open True Tone**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_true_tone: "com.apple.systempreferences.OpenTrueToneEntityDeepLink",
   /**
    * **Open Users & Groups**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_users_groups: "com.apple.systempreferences.OpenUsersGroupsDeepLinks",
   /**
    * **Open VPN Settings**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_open_vpn_settings: "com.apple.systempreferences.OpenVPNDeepLink",
   /**
    * **Get Printer Paper Size**
+   *
    *  (System Settings)
+   *
    * Output: Printer Paper Size
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_printer_paper_size: "com.apple.systempreferences.PaperSizeEntity",
   /**
    * **Update Printer Paper Size**
+   *
    * Change the Printer Paper Size value of Printer Paper Size (System Settings)
+   *
    * Output: Printer Paper Size
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_printer_paper_size: "com.apple.systempreferences.PaperSizeEntity-UpdatableEntity",
   /**
    * **Get Password Delay**
+   *
    * Require password after screen saver begins or display is turned off (System Settings)
+   *
    * Output: Password Delay
    */
   settings_get_password_delay: "com.apple.systempreferences.RequirePasswordDelayIntent",
   /**
    * **Get Start Screen Saver**
+   *
    *  (System Settings)
+   *
    * Output: Start Screen Saver
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_start_screen_saver: "com.apple.systempreferences.ScreenSaverDelayEntity",
   /**
    * **Update Start Screen Saver**
+   *
    * Change the Start Screen Saver value of Start Screen Saver (System Settings)
+   *
    * Output: Start Screen Saver
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_start_screen_saver: "com.apple.systempreferences.ScreenSaverDelayEntity-UpdatableEntity",
   /**
    * **Setting Navigation**
+   *
    *  (System Settings)
+   *
    * Parameters: `target`
    */
   settings_setting_navigation: "com.apple.systempreferences.SettingsNavigationEventDonationIntent",
   /**
    * **Get Allow your pointer and keyboard to move between any nearby Mac or iPad**
+   *
    *  (System Settings)
+   *
    * Output: Allow your pointer and keyboard to move between any nearby Mac or iPad
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_allow_your_pointer_and_keyboard_to_move_between_any_nearby_mac_or_ipad: "com.apple.systempreferences.ShareKeyboardEntity",
   /**
    * **Update Allow your pointer and keyboard to move between any nearby Mac or iPad**
+   *
    * Change the Allow your pointer and keyboard to move between any nearby Mac or iPad value of Allow your pointer and keyboard to move between any nearby Mac or iPad (System Settings)
+   *
    * Output: Allow your pointer and keyboard to move between any nearby Mac or iPad
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_allow_your_pointer_and_keyboard_to_move_between_any_nearby_mac_or_ipad: "com.apple.systempreferences.ShareKeyboardEntity-UpdatableEntity",
   /**
    * **Open Sharing**
+   *
    *  (SharingIntents)
+   *
    * Parameters: `target`
    */
   settings_open_sharing: "com.apple.systempreferences.SharingSettingsIntents.OpenSharingDeepLinks",
   /**
    * **SharingIntents**
+   *
    *  (SharingIntents)
    */
   com_apple_systempreferences_sharing_settings_intents_sharing_intents: "com.apple.systempreferences.SharingSettingsIntents.SharingIntents",
   /**
    * **Show Large Clock**
+   *
    * Show large clock (System Settings)
+   *
    * Output: Large Clock Option
    */
   settings_show_large_clock: "com.apple.systempreferences.ShowLargeClockIntent",
   /**
    * **Show Password Hints**
+   *
    * Show password hints (System Settings)
+   *
    * Output: Show Password Hints
    */
   settings_show_password_hints: "com.apple.systempreferences.ShowPasswordHintsIntent",
   /**
    * **Get Show scroll bars**
+   *
    *  (System Settings)
+   *
    * Output: Show scroll bars
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_show_scroll_bars: "com.apple.systempreferences.ShowScrollBarsEntity",
   /**
    * **Update Show scroll bars**
+   *
    * Change the Show scroll bars value of Show scroll bars (System Settings)
+   *
    * Output: Show scroll bars
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_show_scroll_bars: "com.apple.systempreferences.ShowScrollBarsEntity-UpdatableEntity",
   /**
    * **Get Sidebar icon size**
+   *
    *  (System Settings)
+   *
    * Output: Sidebar icon size
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_sidebar_icon_size: "com.apple.systempreferences.SidebarIconSizeEntity",
   /**
    * **Update Sidebar icon size**
+   *
    * Change the Sidebar icon size value of Sidebar icon size (System Settings)
+   *
    * Output: Sidebar icon size
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_sidebar_icon_size: "com.apple.systempreferences.SidebarIconSizeEntity-UpdatableEntity",
   /**
    * **Get Feedback Sound Settings**
+   *
    *  (System Settings)
+   *
    * Output: Feedback Sound Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_feedback_sound_settings: "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity",
   /**
    * **Update a Feedback Sound Settings's Play feedback when volume is changed**
+   *
    * Change the Play feedback when volume is changed value of Feedback Sound Settings (System Settings)
+   *
    * Output: Feedback Sound Settings
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_a_feedback_sound_settings_s_play_feedback_when_volume_is_changed: "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity-UpdatableEntity",
   /**
    * **Get User Interface Sound Effects Settings**
+   *
    *  (System Settings)
+   *
    * Output: User Interface Sound Effects Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_user_interface_sound_effects_settings: "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity",
   /**
    * **Update a User Interface Sound Effects Settings's Play user interface sound effects**
+   *
    * Change the Play user interface sound effects value of User Interface Sound Effects Settings (System Settings)
+   *
    * Output: User Interface Sound Effects Settings
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_a_user_interface_sound_effects_settings_s_play_user_interface_sound_effects: "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity-UpdatableEntity",
   /**
    * **Get Startup Sound Settings**
+   *
    *  (System Settings)
+   *
    * Output: Startup Sound Settings
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_startup_sound_settings: "com.apple.systempreferences.SoundSettingsStartupSoundEntity",
   /**
    * **Update a Startup Sound Settings's Play sound on startup**
+   *
    * Change the Play sound on startup value of Startup Sound Settings (System Settings)
+   *
    * Output: Startup Sound Settings
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_a_startup_sound_settings_s_play_sound_on_startup: "com.apple.systempreferences.SoundSettingsStartupSoundEntity-UpdatableEntity",
   /**
    * **High Power Mode**
+   *
    *  (System Settings)
+   *
    * Parameters: `value`
    */
   settings_high_power_mode: "com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent",
   /**
    * **High Power Mode**
+   *
    *  (System Settings)
+   *
    * Parameters: `value`
    */
   com_apple_systempreferences_ToggleHighPowerModeOnBatteryIntent: "com.apple.systempreferences.ToggleHighPowerModeOnBatteryIntent",
   /**
    * **Low Power Mode**
+   *
    *  (System Settings)
+   *
    * Parameters: `value`
    */
   settings_low_power_mode: "com.apple.systempreferences.ToggleLowPowerModeIntent",
   /**
    * **Get True Tone**
+   *
    *  (System Settings)
+   *
    * Output: True Tone
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_true_tone: "com.apple.systempreferences.TrueToneEntity",
   /**
    * **Update True Tone**
+   *
    * Change the True Tone value of True Tone (System Settings)
+   *
    * Output: True Tone
+   *
    * Parameters: `entity`, `value`
    */
   settings_update_true_tone: "com.apple.systempreferences.TrueToneEntity-UpdatableEntity",
   /**
    * **Get User’s Group**
+   *
    * Get primary group name of the specified user. (System Settings)
+   *
    * Output: Primary Group Name
+   *
    * Parameters: `userEntity`
    */
   settings_get_user_s_group: "com.apple.systempreferences.UserGroupIntent",
   /**
    * **Get User’s Home Folder**
+   *
    * Get URL to home folder of the specified user. (System Settings)
+   *
    * Output: Home Folder URL
+   *
    * Parameters: `userEntity`
    */
   settings_get_user_s_home_folder: "com.apple.systempreferences.UserHomeFolderIntent",
   /**
    * **Get User’s Admin Status**
+   *
    * Get admin status of the specified user. (System Settings)
+   *
    * Output: Admin Status of the Specified User
+   *
    * Parameters: `userEntity`
    */
   settings_get_user_s_admin_status: "com.apple.systempreferences.UserIsAdminIntent",
   /**
    * **Get User Login Items**
+   *
    * User Login Items (System Settings)
+   *
    * Output: User login items
    */
   settings_get_user_login_items: "com.apple.systempreferences.UserLoginItemsIntent",
   /**
    * **Get User’s Platform Single Sign-on Status**
+   *
    * Get platform single sign-on status of the specified user. (System Settings)
+   *
    * Output: Platform Single Sign-on Status of the Specified User
+   *
    * Parameters: `userEntity`
    */
   settings_get_user_s_platform_single_sign_on_status: "com.apple.systempreferences.UserSSOIntent",
   /**
    * **Update a VPN Configuration's Connect On Demand**
+   *
    * Change the Connect On Demand value of VPN Configuration (System Settings)
+   *
    * Output: VPN Configuration
+   *
    * Parameters: `connectOnDemand`, `entity`
    */
   settings_update_a_vpn_configuration_s_connect_on_demand: "com.apple.systempreferences.VPNConfigurationEntity-UpdatableEntity",
   /**
    * **Get iPhone Widgets**
+   *
    *  (System Settings)
+   *
    * Output: iPhone Widgets
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   settings_get_iphone_widgets: "com.apple.systempreferences.WidgetsAndOnenessEntity",
   /**
    * **Update iPhone Widgets**
+   *
    * Change the iPhone Widgets value of iPhone Widgets (System Settings)
+   *
    * Output: iPhone Widgets
+   *
    * Parameters: `entity`, `useiPhoneWidgets`
    */
   settings_update_iphone_widgets: "com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity",
   /**
    * **Find User Notification Type**
+   *
    *  (usernotificationsd)
+   *
    * Output: User Notification Type
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_usernotificationsd_find_user_notification_type: "com.apple.usernotificationsd.UserNotificationEntity",
   /**
    * **Set Wallpaper**
+   *
    * Sets the wallpaper from the list of available system wallpapers. (WallpaperAgent)
+   *
    * Parameters: `wallpaper`, `showOnAllSpaces`, `showAsScreenSaver`
    */
   com_apple_wallpaper_agent_set_wallpaper: "com.apple.wallpaper.agent.SetWallpaperIntent",
   /**
    * **Set Wallpaper Photo**
+   *
    * Sets the wallpaper to the specified image. (WallpaperAgent)
+   *
    * Parameters: `photo`, `showOnAllSpaces`
    */
   com_apple_wallpaper_agent_set_wallpaper_photo: "com.apple.wallpaper.agent.SetWallpaperPhotoIntent",
   /**
    * **Skip Wallpaper**
+   *
    *  (WallpaperAgent)
    */
   com_apple_wallpaper_agent_skip_wallpaper: "com.apple.wallpaper.agent.SkipShuffledContentAction",
   /**
    * **Find Wallpapers**
+   *
    *  (WallpaperAgent)
+   *
    * Output: Wallpapers
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_wallpaper_agent_find_wallpapers: "com.apple.wallpaper.agent.WallpaperEntity",
   /**
    * **Add Location to List**
+   *
    * Adds a location to the list of saved locations. (Weather)
+   *
    * Parameters: `placemark`, `OpenWhenRun`
    */
   weather_add_location_to_list: "com.apple.weather.AddSavedLocationIntent",
   /**
    * **Find Location**
+   *
    * Find a saved location. (Weather)
+   *
    * Output: Location
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   weather_find_location: "com.apple.weather.LocationEntity",
   /**
    * **Find Location of Interest**
+   *
    *  (Weather)
+   *
    * Output: Location of Interest
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   weather_find_location_of_interest: "com.apple.weather.LocationOfInterestEntity",
   /**
    * **Find Location**
+   *
    *  (Weather)
+   *
    * Output: Location
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_weather_LocationSearchEntity: "com.apple.weather.LocationSearchEntity",
   /**
    * **Open Moon Details**
+   *
    * Opens Weather and shows moon details (Weather)
+   *
    * Parameters: `location`
    */
   weather_open_moon_details: "com.apple.weather.OpenMoonIntent",
   /**
    * **Open Notifications Configuration**
+   *
    * Opens Weather to the Notifications panel to configure severe weather and next-hour precipitation notifications. (Weather)
    */
   weather_open_notifications_configuration: "com.apple.weather.OpenNotificationsConfigurationIntent",
   /**
    * **Open Sunrise and Sunset Details**
+   *
    * Opens Weather and shows sunrise and sunset details (Weather)
+   *
    * Parameters: `location`
    */
   weather_open_sunrise_and_sunset_details: "com.apple.weather.OpenSunriseSunsetIntent",
   /**
    * **Open Units Configuration**
+   *
    * Opens the Units panel to change temperature, wind, precipitation, pressure and distance unit settings used by Weather. (Weather)
    */
   weather_open_units_configuration: "com.apple.weather.OpenUnitsConfigurationIntent",
   /**
    * **Open Air Quality Details**
+   *
    * Opens Weather and shows air quality (Weather)
+   *
    * Parameters: `location`, `position`
    */
   weather_open_air_quality_details: "com.apple.weather.OpenWeatherAirQualityIntent",
   /**
    * **Open Weather Condition Details**
+   *
    * Opens Weather and shows a specific weather detail (Weather)
+   *
    * Parameters: `location`, `specificCondition`, `temperatureKind`, `date`
    */
   weather_open_weather_condition_details: "com.apple.weather.OpenWeatherSpecificConditionIntent",
   /**
    * **Find Preferred Weather Units**
+   *
    *  (Weather)
+   *
    * Output: Preferred Weather Units
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   weather_find_preferred_weather_units: "com.apple.weather.PreferredUnitsEntity",
   /**
    * **Remove Locations from List**
+   *
    * Removes locations from the list of saved locations. (Weather)
+   *
    * Parameters: `entities`
    */
   weather_remove_locations_from_list: "com.apple.weather.RemoveSavedLocationIntent",
   /**
    * **Reset Unit**
+   *
    * Resets the unit for a weather detail to the system default (Weather)
+   *
    * Parameters: `unit`
    */
   weather_reset_unit: "com.apple.weather.ResetUnitsIntent",
   /**
    * **Set Distance Unit**
+   *
    * Sets the unit used for distance (Weather)
+   *
    * Parameters: `unit`
    */
   weather_set_distance_unit: "com.apple.weather.SetDistanceUnitIntent",
   /**
    * **Set Precipitation Unit**
+   *
    * Sets the unit used for precipitation (Weather)
+   *
    * Parameters: `unit`
    */
   weather_set_precipitation_unit: "com.apple.weather.SetPrecipitationUnitIntent",
   /**
    * **Set Pressure Unit**
+   *
    * Sets the unit used for barometric pressure (Weather)
+   *
    * Parameters: `unit`
    */
   weather_set_pressure_unit: "com.apple.weather.SetPressureUnitIntent",
   /**
    * **Set Temperature Unit**
+   *
    * Sets the unit used for temperature (Weather)
+   *
    * Parameters: `unit`
    */
   weather_set_temperature_unit: "com.apple.weather.SetTemperatureUnitIntent",
   /**
    * **Set Wind Unit**
+   *
    * Sets the unit used for wind (Weather)
+   *
    * Parameters: `unit`
    */
   weather_set_wind_unit: "com.apple.weather.SetWindUnitIntent",
   /**
    * **Find Synced Data**
+   *
    *  (Weather)
+   *
    * Output: Synced Data
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   weather_find_synced_data: "com.apple.weather.SyncedDataEntity",
   /**
    * **Append to Note**
+   *
    * Adds text to the end of a note. (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `operation`, `entity`, `text`, `section`, `ignoreWhitespace`, `interpretAsMarkdown`
    */
   appendnote: "is.workflow.actions.appendnote",
   /**
    * **Delete Photos**
+   *
    * Deletes the specified photos. (Photos)
+   *
    * Parameters: `entities`
    */
   deletephotos: "is.workflow.actions.deletephotos",
   /**
    * **Extract Text from Image**
+   *
    * Uses OCR to extract text from an image. (VisionAppIntents)
+   *
    * Output: Extracted Text
+   *
    * Parameters: `imageFile`, `contentType`
    */
   extracttextfromimage: "is.workflow.actions.extracttextfromimage",
   /**
    * **Find Notes**
+   *
    *  (Notes)
+   *
    * Output: Note
+   *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   notes_find_notes: "is.workflow.actions.filter.notes",
   /**
    * **Remove Image Background**
+   *
    * Removes the background from an image, keeping the subjects. (VisionAppIntents)
+   *
    * Output: Images without Background
+   *
    * Parameters: `imageFiles`, `crop`
    */
   com_apple_vision_app_intents_remove_image_background: "is.workflow.actions.image.removebackground",
   /**
    * **Scan QR or Barcode**
+   *
    * Scans for QR codes and barcodes and returns the text or URL that is found. Select Scan to present the camera when the action runs, or select Extract to read a code from an image. (VisionAppIntents)
+   *
    * Output: QR/Barcodes
+   *
    * Parameters: `WFScanCodeActionMode`, `imageFile`
    */
   scanbarcode: "is.workflow.actions.scanbarcode",
   /**
    * **Open Note**
+   *
    * Opens the specified note. (Notes)
+   *
    * Parameters: `target`
    */
   notes_open_note: "is.workflow.actions.shownote",

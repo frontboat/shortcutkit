@@ -115,28 +115,33 @@ def _attachment(value):
 
 
 def ref(action, output_name=None):
-    """Reference another action's output. `action` is the dict returned by Shortcut.action()."""
+    """Another action's output. `action` is what Shortcut.action() returned."""
     return _attachment({"Type": "ActionOutput", "OutputUUID": action["WFWorkflowActionParameters"]["UUID"],
                         "OutputName": output_name or action.get("_outputName", "Output")})
 
 
 def variable(name):
+    """A named variable, as set by Set Variable or Add to Variable."""
     return _attachment({"Type": "Variable", "VariableName": name})
 
 
 def shortcut_input():
+    """The shortcut's input, from the share sheet, Quick Actions, or Run Shortcut."""
     return _attachment({"Type": "ExtensionInput"})
 
 
 def clipboard():
+    """The clipboard's contents."""
     return _attachment({"Type": "Clipboard"})
 
 
 def current_date():
+    """The date and time the shortcut runs."""
     return _attachment({"Type": "CurrentDate"})
 
 
 def ask(prompt=None):
+    """A value the user is asked for each time the shortcut runs."""
     return _attachment({"Type": "Ask", **({"Prompt": prompt} if prompt else {})})
 
 
@@ -174,8 +179,7 @@ def repeat_index():
 
 
 def subject(attachment):
-    """Wrap a reference as the subject of an If condition, the form the app writes for WFInput on
-    is.workflow.actions.conditional. Variable-picker parameters take the bare reference instead."""
+    """The If-subject form of a reference. if_() and action() apply it for you."""
     return {"Type": "Variable", "Variable": attachment}
 
 
@@ -186,7 +190,7 @@ def picker(attachment):
 
 
 def text(*parts):
-    """A WFTextTokenString: strings and attachments interleaved. Each attachment becomes U+FFFC."""
+    """Text with references in it: text("Hello, ", ref(name), "!")."""
     string = ""
     attachments = {}
     for part in parts:
@@ -200,10 +204,14 @@ def text(*parts):
 
 
 class Shortcut:
+    """A shortcut. Add actions, then write() and sign(); Shortcuts names the import after the file,
+    which defaults to <name>.shortcut."""
+
     def __init__(self, name, color="Blue", glyph=DEFAULT_GLYPH, input_classes=None, types=None, definitions=DEFINITIONS):
-        """types: surfaces the shortcut appears in (WFWorkflowTypes): "ActionExtension" is the share
-        sheet, "QuickActions" the Finder and Services menus, also "MenuBar", "NCWidget", "WatchKit",
-        "Sleep", "ReceivesOnScreenContent". input_classes: content item classes accepted as input."""
+        """color: a palette name ("Teal") or a raw value. glyph: a codepoint from Shortcuts' icon font.
+        types: where the shortcut appears: "ActionExtension" (share sheet), "QuickActions" (Finder and
+        Services menus), "MenuBar", "NCWidget", "WatchKit", "Sleep", "ReceivesOnScreenContent".
+        input_classes: content item classes it accepts as input."""
         self.name = name
         self.color = ICON_COLORS[color] if isinstance(color, str) else color
         self.glyph = glyph
@@ -213,8 +221,10 @@ class Shortcut:
         self.defs = _load_definitions(definitions)
 
     def action(self, identifier, /, **params):
-        """Append an action. Unknown identifiers or parameter keys raise ValueError.
-        `identifier` is positional-only so a parameter key of that name can be passed as a keyword."""
+        """Append an action and return it; ref() it to use its output. For identifiers in the catalog,
+        unknown keys, wrong value kinds, and unreadable references raise ValueError. Other
+        identifiers pass through unchecked. `identifier` is positional-only, so a parameter can
+        have that name."""
         definition = self.defs.get(identifier)
         catalog = ACTIONS.get(identifier) or {}
         descriptor = catalog.get("descriptor")
@@ -270,6 +280,8 @@ class Shortcut:
         return value if isinstance(value, dict) and value.get("Type") == "Variable" and "Variable" in value else subject(value)
 
     def if_(self, subject, condition, value=None):
+        """Open an If block on `subject`. `condition` is a CONDITION name or code; `value` is what it
+        compares with, if anything. Returns the id for otherwise() and end_if()."""
         gid = str(uuid.uuid4()).upper()
         params = {"GroupingIdentifier": gid, "WFControlFlowMode": 0, "WFInput": self._subject(subject),
                   "WFCondition": CONDITION[condition] if isinstance(condition, str) else condition}
@@ -281,49 +293,55 @@ class Shortcut:
         return gid
 
     def otherwise(self, gid):
+        """Start the Otherwise branch of If block `gid`."""
         self.action("is.workflow.actions.conditional", GroupingIdentifier=gid, WFControlFlowMode=1)
 
     def end_if(self, gid):
+        """Close If block `gid`."""
         self.action("is.workflow.actions.conditional", GroupingIdentifier=gid, WFControlFlowMode=2)
 
     def repeat_each(self, items):
-        """Open a Repeat with Each block; returns the grouping identifier to pass to end_repeat_each()."""
+        """Open a Repeat with Each block over `items`; returns the id for end_repeat_each(). Inside,
+        use repeat_item() and repeat_index()."""
         gid = str(uuid.uuid4()).upper()
         self.action("is.workflow.actions.repeat.each", GroupingIdentifier=gid, WFControlFlowMode=0, WFInput=items)
         return gid
 
     def end_repeat_each(self, gid):
-        """Close a Repeat with Each block. The returned action is the block's output: ref() it for "Repeat Results"."""
+        """Close a Repeat with Each block and return it; ref() it for the Repeat Results."""
         a = self.action("is.workflow.actions.repeat.each", GroupingIdentifier=gid, WFControlFlowMode=2)
         a["_outputName"] = "Repeat Results"
         return a
 
     def repeat_count(self, count):
-        """Open a Repeat block that runs `count` times; returns the grouping identifier for end_repeat_count()."""
+        """Open a Repeat block that runs `count` times; returns the id for end_repeat_count()."""
         gid = str(uuid.uuid4()).upper()
         self.action("is.workflow.actions.repeat.count", GroupingIdentifier=gid, WFControlFlowMode=0, WFRepeatCount=count)
         return gid
 
     def end_repeat_count(self, gid):
-        """Close a Repeat block. The returned action is the block's output: ref() it for "Repeat Results"."""
+        """Close a Repeat block and return it; ref() it for the Repeat Results."""
         a = self.action("is.workflow.actions.repeat.count", GroupingIdentifier=gid, WFControlFlowMode=2)
         a["_outputName"] = "Repeat Results"
         return a
 
     def choose_from_menu(self, prompt, items):
-        """Open a Choose from Menu block. Follow with one menu_item() per title, in order, each with
-        the actions of that branch, then end_menu(). Returns the grouping identifier."""
+        """Open a Choose from Menu block; returns the id for menu_item() and end_menu(). Follow with
+        one menu_item() per title, in order, each followed by that branch's actions."""
         gid = str(uuid.uuid4()).upper()
         self.action("is.workflow.actions.choosefrommenu", GroupingIdentifier=gid, WFControlFlowMode=0, WFMenuPrompt=prompt, WFMenuItems=list(items))
         return gid
 
     def menu_item(self, gid, title):
+        """Start the branch for `title` in menu `gid`."""
         self.action("is.workflow.actions.choosefrommenu", GroupingIdentifier=gid, WFControlFlowMode=1, WFMenuItemTitle=title)
 
     def end_menu(self, gid):
+        """Close menu `gid`."""
         self.action("is.workflow.actions.choosefrommenu", GroupingIdentifier=gid, WFControlFlowMode=2)
 
     def to_plist(self):
+        """The shortcut as a plist dictionary."""
         actions = []
         for a in self.actions:
             actions.append({k: v for k, v in a.items() if not k.startswith("_")})
@@ -344,8 +362,7 @@ class Shortcut:
         }
 
     def write(self, path=None):
-        """Write the unsigned plist. Shortcuts names an imported shortcut after its file, so the
-        default file name is the shortcut's name."""
+        """Write the unsigned file, <name>.shortcut by default, and return its path."""
         path = pathlib.Path(path) if path else pathlib.Path(f"{self.name}.shortcut")
         with open(path, "wb") as f:
             plistlib.dump(self.to_plist(), f, fmt=plistlib.FMT_BINARY)
@@ -353,13 +370,15 @@ class Shortcut:
 
     @staticmethod
     def sign(src, dst, mode="anyone"):
+        """Sign `src` into `dst`, which Shortcuts will import, and return `dst`. Needs a Mac with an
+        iCloud login."""
         subprocess.run(["shortcuts", "sign", "--mode", mode, "--input", str(src), "--output", str(dst)], check=True)
         return dst
 
 
 def get_action(identifier, definitions=DEFINITIONS):
-    """What the catalogue knows about any identifier, built-in or App Intent, in one shape:
-    name, params, kinds, output, descriptor (App Intents) and definition (built-ins)."""
+    """What the catalog knows about any identifier, built-in or App Intent: name, params, kinds,
+    output, descriptor (App Intents), and definition (built-ins)."""
     entry = ACTIONS.get(identifier)
     if entry is None:
         return None

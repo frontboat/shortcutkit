@@ -226,8 +226,8 @@ def jsdoc(e):
     if e["params"]:
         lines.append("Parameters: " + ", ".join(f"`{p}`" for p in e["params"]))
     if e.get("unavailable"):
-        lines.append("Unavailable: the engine that produced this data could not load the action's class, so Shortcuts shows it as a missing action.")
-    body = "\n".join(f"   * {l}" for l in lines)
+        lines.append("Unavailable: Shortcuts shows this as a missing action.")
+    body = "\n   *\n".join(f"   * {l}" for l in lines)
     return f"  /**\n{body}\n   */\n"
 
 

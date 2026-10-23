@@ -18,10 +18,11 @@ export type * from "./generated/params.js";
 /** Parameters accepted for an identifier: typed per key for built-in actions, open for anything else. */
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
 
+/** An action as `action()` returns it; pass it to `ref()` to use its output. */
 export type Action = { WFWorkflowActionIdentifier: string; WFWorkflowActionParameters: Record<string, Value>; outputName?: string; outputTypes?: readonly string[] };
-/** Content types an action's output can be (`WFStringContentItem`, `NSURL`, an App Intents entity, …). Shortcuts coerces between many of them at run time, so this describes, it does not restrict. */
+/** Content types an action's output can be (`WFStringContentItem`, `NSURL`, an App Intents entity, …). Shortcuts converts between many of them at run time, so this is a description, not a restriction. */
 export type OutputTypes<I extends ActionId> = (typeof ACTIONS)[I]["outputTypes"];
-/** What the catalogue knows about an identifier: built-in or App Intent, engine definition or not. */
+/** What the catalog knows about an identifier, built-in or App Intent. */
 export type CatalogEntry = {
   identifier: string;
   /** Display name, as the editor shows it. */
@@ -41,8 +42,8 @@ export type CatalogEntry = {
 };
 
 /**
- * Look up any catalogue identifier, built-in or App Intent. getDefinition() only knows built-ins
- * (App Intents have no engine definition); this covers both with the same shape.
+ * Look up any catalog identifier, built-in or App Intent. Unlike getDefinition(), which knows
+ * only built-ins, this covers both in one shape.
  */
 export function getAction(identifier: string): CatalogEntry | undefined {
   const entry = (ACTIONS as Record<string, { name: string; params: readonly string[]; output: string | null; outputTypes: readonly string[]; descriptor?: AppIntentDescriptor }>)[identifier];
@@ -56,7 +57,7 @@ export function getAction(identifier: string): CatalogEntry | undefined {
 export type AppIntentDescriptor = { BundleIdentifier: string; Name: string; TeamIdentifier: string; AppIntentIdentifier: string };
 
 
-/** WFWorkflowIcon.backgroundColorValue for palette colors 0-14, unsigned as the plist stores it. */
+/** The icon palette, in picker order, as the file stores each color. */
 export const ICON_COLORS = {
   Red: 4282601983, DarkOrange: 4251333119, Orange: 4271458815, Yellow: 4274264319, Green: 4292093695,
   Teal: 431817727, LightBlue: 1440408063, Blue: 463140863, DarkBlue: 946986751, Violet: 2071128575,
@@ -65,7 +66,7 @@ export const ICON_COLORS = {
 export type IconColor = keyof typeof ICON_COLORS;
 export const DEFAULT_GLYPH = 61440;
 
-/** Legacy WFCondition codes. Marked (v) = verified on this Mac or in Apple's gallery; others follow community docs. */
+/** If condition codes. less_than, greater_than, contains, has_any_value, and has_no_value are verified against the engine or Apple's files; the rest follow community documentation. */
 export const CONDITION = {
   less_than: 0, less_or_equal: 1, greater_than: 2, greater_or_equal: 3, is: 4, is_not: 5, begins_with: 8, ends_with: 9,
   contains: 99, has_any_value: 100, has_no_value: 101, does_not_contain: 999, is_between: 1003,
@@ -84,16 +85,21 @@ const attachment = <T extends VariableType>(value: { Type: T } & Record<string, 
 /** Reference another action's output. */
 export const ref = (action: Action, outputName?: string): Attachment<"ActionOutput"> =>
   attachment({ Type: "ActionOutput", OutputUUID: action.WFWorkflowActionParameters.UUID as string, OutputName: outputName ?? action.outputName ?? "Output" });
+/** A named variable, as set by Set Variable or Add to Variable. */
 export const variable = (name: string): Attachment<"Variable"> => attachment({ Type: "Variable", VariableName: name });
+/** The shortcut's input, from the share sheet, Quick Actions, or Run Shortcut. */
 export const shortcutInput = (): Attachment<"ExtensionInput"> => attachment({ Type: "ExtensionInput" });
+/** The clipboard's contents. */
 export const clipboard = (): Attachment<"Clipboard"> => attachment({ Type: "Clipboard" });
+/** The date and time the shortcut runs. */
 export const currentDate = (): Attachment<"CurrentDate"> => attachment({ Type: "CurrentDate" });
+/** A value the user is asked for each time the shortcut runs. */
 export const ask = (prompt?: string): AskAttachment => attachment(prompt ? { Type: "Ask", Prompt: prompt } : { Type: "Ask" });
 /** Device Details (name, model, OS version, …); the app usually adds a property aggrandizement. */
 export const deviceDetails = (): Attachment<"DeviceDetails"> => attachment({ Type: "DeviceDetails" });
 /** The app the shortcut was run from. */
 export const currentApp = (): Attachment<"CurrentApp"> => attachment({ Type: "CurrentApp" });
-/** Wrap an attachment as the subject of an If condition, the form the app writes for `WFInput` on `is.workflow.actions.conditional`. Variable-picker parameters (Repeat with Each, Filter, Quick Look, …) take the bare attachment instead. */
+/** The If-subject form of a reference. `if()` and `action()` apply it for you. */
 export const subject = (a: Attachment): ConditionSubject => ({ Type: "Variable", Variable: a });
 /** @deprecated Misnamed: this produces the If-subject form. Pass a bare `ref()` to variable-picker parameters; use `subject()` for If. */
 export const picker = subject;
@@ -114,7 +120,7 @@ function referenceTypes(v: unknown): string[] {
 const isAttachment = (v: unknown): v is Attachment =>
   typeof v === "object" && v !== null && (v as Attachment).WFSerializationType === "WFTextTokenAttachment";
 
-/** A WFTextTokenString: strings and attachments interleaved; each attachment becomes U+FFFC. */
+/** Text with references in it: `text("Hello, ", ref(name), "!")`. */
 export function text(...parts: Array<string | number | Attachment>): TokenString {
   let string = "";
   const attachmentsByRange: Record<string, Record<string, PlistValue>> = {};
@@ -133,7 +139,9 @@ export function text(...parts: Array<string | number | Attachment>): TokenString
 /** Where a shortcut is offered beyond the app: `ActionExtension` is the share sheet, `QuickActions` the Finder and Services menus, `MenuBar`, `NCWidget`, `WatchKit`, `Sleep`, `ReceivesOnScreenContent`. */
 export type WorkflowType = "ActionExtension" | "QuickActions" | "MenuBar" | "NCWidget" | "WatchKit" | "Sleep" | "ReceivesOnScreenContent";
 export interface ShortcutOptions {
+  /** Icon color: a palette name (`"Teal"`) or a raw value. Default `"Blue"`. */
   color?: IconColor | number;
+  /** Icon glyph, a codepoint from Shortcuts' icon font. Default 61440. */
   glyph?: number;
   /** Content item classes accepted as input (`WFSafariWebPageContentItem`, `WFURLContentItem`, …); what the share sheet offers this shortcut for. */
   inputClasses?: string[];
@@ -141,6 +149,7 @@ export interface ShortcutOptions {
   types?: WorkflowType[];
 }
 
+/** A shortcut. Add actions, then `write()` and `sign()`; Shortcuts names the import after the file, which defaults to `<name>.shortcut`. */
 export class Shortcut {
   readonly name: string;
   readonly actions: Action[] = [];
@@ -158,8 +167,9 @@ export class Shortcut {
   }
 
   /**
-   * Append an action. With an identifier from `actions`, parameter keys are checked at compile
-   * time; any identifier is also validated at run time against the bundled definitions.
+   * Append an action and return it; `ref()` it to use its output. For identifiers in the catalog,
+   * wrong keys and values fail to compile, and unknown keys and unreadable references also throw at
+   * run time. Other identifiers pass through unchecked.
    */
   action<I extends string>(identifier: I, params: ParamsFor<I> = {} as ParamsFor<I>): Action {
     const definition = getDefinition(identifier);
@@ -205,6 +215,7 @@ export class Shortcut {
   }
 
   // Control flow: a block is a group sharing GroupingIdentifier; WFControlFlowMode 0 opens, 1 is a middle branch, 2 closes.
+  /** Open an If block on `subject_`. `condition` is a `CONDITION` name or code; `value` is what it compares with, if anything. Returns the id for `otherwise()` and `endIf()`. */
   if(subject_: Attachment, condition: Condition | number, value?: string | number): string {
     const gid = uuid();
     const params: Record<string, Value> = { GroupingIdentifier: gid, WFControlFlowMode: 0, WFInput: subject(subject_), WFCondition: typeof condition === "number" ? condition : CONDITION[condition] };
@@ -213,43 +224,49 @@ export class Shortcut {
     this.action("is.workflow.actions.conditional", params);
     return gid;
   }
+  /** Start the Otherwise branch of If block `gid`. */
   otherwise(gid: string): void { this.action("is.workflow.actions.conditional", { GroupingIdentifier: gid, WFControlFlowMode: 1 }); }
+  /** Close If block `gid`. */
   endIf(gid: string): void { this.action("is.workflow.actions.conditional", { GroupingIdentifier: gid, WFControlFlowMode: 2 }); }
+  /** Open a Repeat with Each block over `items`; returns the id for `endRepeatEach()`. Inside, use `repeatItem()` and `repeatIndex()`. */
   repeatEach(items: ParamTypes["is.workflow.actions.repeat.each"]["WFInput"]): string {
     const gid = uuid();
     this.action("is.workflow.actions.repeat.each", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFInput: items });
     return gid;
   }
-  /** Close a Repeat with Each block. The returned action is the block's output: `ref()` it for the collected "Repeat Results". */
+  /** Close a Repeat with Each block and return it; `ref()` it for the Repeat Results. */
   endRepeatEach(gid: string): Action {
     const a = this.action("is.workflow.actions.repeat.each", { GroupingIdentifier: gid, WFControlFlowMode: 2 });
     a.outputName = "Repeat Results";
     return a;
   }
-  /** Open a Repeat block that runs `count` times; returns the grouping identifier for endRepeatCount(). */
+  /** Open a Repeat block that runs `count` times; returns the id for `endRepeatCount()`. */
   repeatCount(count: ParamTypes["is.workflow.actions.repeat.count"]["WFRepeatCount"]): string {
     const gid = uuid();
     this.action("is.workflow.actions.repeat.count", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFRepeatCount: count });
     return gid;
   }
-  /** Close a Repeat block. The returned action is the block's output: `ref()` it for the collected "Repeat Results". */
+  /** Close a Repeat block and return it; `ref()` it for the Repeat Results. */
   endRepeatCount(gid: string): Action {
     const a = this.action("is.workflow.actions.repeat.count", { GroupingIdentifier: gid, WFControlFlowMode: 2 });
     a.outputName = "Repeat Results";
     return a;
   }
   /**
-   * Open a Choose from Menu block. Follow with one menuItem() per title, in order, each with the
-   * actions of that branch, then endMenu(). Returns the grouping identifier.
+   * Open a Choose from Menu block; returns the id for `menuItem()` and `endMenu()`. Follow with one
+   * `menuItem()` per title, in order, each followed by that branch's actions.
    */
   chooseFromMenu(prompt: string | TokenString, items: string[]): string {
     const gid = uuid();
     this.action("is.workflow.actions.choosefrommenu", { GroupingIdentifier: gid, WFControlFlowMode: 0, WFMenuPrompt: prompt, WFMenuItems: items });
     return gid;
   }
+  /** Start the branch for `title` in menu `gid`. */
   menuItem(gid: string, title: string): void { this.action("is.workflow.actions.choosefrommenu", { GroupingIdentifier: gid, WFControlFlowMode: 1, WFMenuItemTitle: title }); }
+  /** Close menu `gid`. */
   endMenu(gid: string): void { this.action("is.workflow.actions.choosefrommenu", { GroupingIdentifier: gid, WFControlFlowMode: 2 }); }
 
+  /** The shortcut as a plist object. */
   toPlist(): Record<string, PlistValue> {
     const actions = this.actions.map(({ outputName: _o, outputTypes: _t, ...a }) => a as unknown as PlistValue);
     return {
@@ -268,9 +285,10 @@ export class Shortcut {
     };
   }
 
+  /** The shortcut as an XML plist. */
   toXml(): string { return toXmlPlist(this.toPlist()); }
 
-  /** Write the unsigned file. Shortcuts names an import after the file, so the default is "<name>.shortcut". Converts to binary plist via plutil when present. */
+  /** Write the unsigned file, `<name>.shortcut` by default, and return its path. Binary if `plutil` is installed, XML otherwise. */
   async write(path = `${this.name}.shortcut`): Promise<string> {
     await writeFile(path, this.toXml());
     const plutil = spawnSync("plutil", ["-convert", "binary1", path], { encoding: "utf8" });
@@ -279,11 +297,11 @@ export class Shortcut {
     return path;
   }
 
-  /** Sign with the macOS `shortcuts` command so Shortcuts will import the file. */
+  /** Sign `input` into `output`, which Shortcuts will import, and return `output`. Needs a Mac with an iCloud login. */
   static sign(input: string, output: string, mode: "anyone" | "people-who-know-me" = "anyone"): string {
     const r = spawnSync("shortcuts", ["sign", "--mode", mode, "--input", input, "--output", output], { encoding: "utf8" });
-    if (r.error) throw new Error(`shortcuts sign failed: ${r.error.message}`);
-    if (r.status !== 0) throw new Error(`shortcuts sign failed: ${r.stderr}`);
+    if (r.error) throw new Error(`shortcuts sign failed for ${input}: ${r.error.message}`);
+    if (r.status !== 0) throw new Error(`shortcuts sign failed for ${input}: ${r.stderr.trim()}`);
     return output;
   }
 }
