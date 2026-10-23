@@ -268,6 +268,18 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - icon: plus.bubble.fill (Cyan)
 - parameters:
   - `WFInputType` () Input Type choices=["Date", "Date and Time", "Number", "Text", "Time", "URL"]
+  - `ShowWhenRun` () Show When Run
+  - `WFAllowsMultilineText` () Allow Multiple Lines
+  - `WFAskActionAllowsDecimalNumbers` () Allow Decimal Numbers
+  - `WFAskActionAllowsNegativeNumbers` () Allow Negative Numbers
+  - `WFAskActionDefaultAnswer` () Default Answer
+  - `WFAskActionDefaultAnswerDate` () Default Date
+  - `WFAskActionDefaultAnswerDateAndTime` () Default Date and Time
+  - `WFAskActionDefaultAnswerNumber` () Default Number
+  - `WFAskActionDefaultAnswerTime` () Default Time
+  - `WFAskActionDefaultAnswerURL` () Default URL
+  - `WFAskActionPrompt` () Prompt
+  - `urlAnswer` () URL
 
 ## Base64 Encode
 
@@ -347,6 +359,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - Change the background sound that will play when background sounds is turned on. Background sounds mask unwanted environmental noise. Background sounds can also be enabled under Accessibility in Settings.
 - parameters:
   - `backgroundSound` () Background Sound choices=["Airplane", "Babble", "BalancedNoise", "Boat", "BrightNoise", "Bus", "DarkNoise", "Fire", "Night", "Ocean", "QuietNight", "Rain", "RainOnRoof", "Steam", "Stream", "Train"]
+  - `ShowWhenRun` () Show When Run
 
 ## Change Case
 
@@ -358,6 +371,8 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFCaseType` () Case choices=["Capitalize Every Word", "Capitalize with Title Case", "Capitalize with sentence case", "UPPERCASE", "cApItAlIzE wItH aLtErNaTiNg cAsE", "lowercase"]
+  - `ShowWhenRun` () Show When Run
+  - `text` () Text
 
 ## Change Playback Destination
 
@@ -435,6 +450,9 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFTextSeparator` () Separator choices=["Custom", "New Lines", "Spaces"]
+  - `ShowWhenRun` () Show When Run
+  - `WFTextCustomSeparator` () Custom
+  - `text` () Text
 
 ## Comment
 
@@ -568,6 +586,9 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - output: Corrected Spelling
 - keywords: text, spell, spelling, correct, autocorrect
 - flags: ResidentCompatible
+- parameters:
+  - `ShowWhenRun` () Show When Run
+  - `text` () Text
 
 ## Count
 
@@ -802,11 +823,52 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFCalendarEventContentItemMyStatus` () Value choices=["Accepted", "Completed", "Declined", "Delegated", "In Process", "Pending", "Tentative", "Unknown"]
+  - `Mode` () Edit: The operation to perform on the selected property of the calendar event.
+  - `RemoveSpecifiedValue` () Specified: The value to remove from the selected property of the calendar event. If no value is provided, one will be requested when run.
+  - `ValueLabel` () Role
+  - `WFCalendarEventContentItemAttachments` () Value
+  - `WFCalendarEventContentItemAttendees` () Value
+  - `WFCalendarEventContentItemDuration` () Value
+  - `WFCalendarEventContentItemEndDate` () Value
+  - `WFCalendarEventContentItemIsAllDay` () Value
+  - `WFCalendarEventContentItemLocation` () Value
+  - `WFCalendarEventContentItemNotes` () Value
+  - `WFCalendarEventContentItemStartDate` () Value
+  - `WFCalendarEventContentItemTitle` () Value
+  - `WFCalendarEventContentItemURL` () Value
+  - `WFContentItemPropertyName` () Detail: The property of the calendar event to edit.
+  - `WFInput` () Calendar Event
 
 ## Edit Contact
 
 - identifier: `is.workflow.actions.setters.contacts`  ·  class `WFContentItemSetterAction`
 - flags: ResidentCompatible
+- parameters:
+  - `Mode` () Edit: The operation to perform on the selected property of the contact.
+  - `RemoveSpecifiedValue` () Specified: The value to remove from the selected property of the contact. If no value is provided, one will be requested when run.
+  - `ValueLabel` () Label
+  - `WFContactContentItemBirthday` () Value
+  - `WFContactContentItemCompany` () Value
+  - `WFContactContentItemContactPhoto` () Value
+  - `WFContactContentItemDepartment` () Value
+  - `WFContactContentItemEmailAddresses` () Value
+  - `WFContactContentItemFirstName` () Value
+  - `WFContactContentItemGroup` () Value
+  - `WFContactContentItemJobTitle` () Value
+  - `WFContactContentItemLastName` () Value
+  - `WFContactContentItemMiddleName` () Value
+  - `WFContactContentItemNickname` () Value
+  - `WFContactContentItemNotes` () Value
+  - `WFContactContentItemPhoneNumbers` () Value
+  - `WFContactContentItemPhoneticFirstName` () Value
+  - `WFContactContentItemPhoneticLastName` () Value
+  - `WFContactContentItemPhoneticMiddleName` () Value
+  - `WFContactContentItemPrefix` () Value
+  - `WFContactContentItemStreetAddresses` () Value
+  - `WFContactContentItemSuffix` () Value
+  - `WFContactContentItemURLs` () Value
+  - `WFContentItemPropertyName` () Detail: The property of the contact to edit.
+  - `WFInput` () Contact
 
 ## Edit Reminder
 
@@ -815,6 +877,21 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFReminderContentItemList` () Value choices=["Reminders"]
   - `WFReminderContentItemPriority` () Value choices=["High", "Low", "Medium", "None"]
+  - `Mode` () Edit: The operation to perform on the selected property of the reminder.
+  - `RemoveSpecifiedValue` () Specified: The value to remove from the selected property of the reminder. If no value is provided, one will be requested when run.
+  - `WFContentItemPropertyName` () Detail: The property of the reminder to edit.
+  - `WFInput` () Reminder
+  - `WFReminderContentItemDueDate` () Value
+  - `WFReminderContentItemImages` () Value
+  - `WFReminderContentItemIsCompleted` () Value
+  - `WFReminderContentItemIsFlagged` () Value
+  - `WFReminderContentItemNotes` () Value
+  - `WFReminderContentItemParentReminder` () Value
+  - `WFReminderContentItemSubtasks` () Value
+  - `WFReminderContentItemTags` () Value
+  - `WFReminderContentItemTitle` () Value
+  - `WFReminderContentItemURL` () Value
+  - `WFReminderContentItemWhenMessagingPerson` () Value
 
 ## Eject Disk
 
@@ -933,14 +1010,22 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - icon: line.3.horizontal.decrease.circle.fill (Orange)
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
-  - `WFContentItemSortProperty` () Sort by choices=["Author", "Name", "Number of Words", "Published Date", "Random", "Title"]
+  - `WFContentItemSortProperty` () Sort by choices=["Author", "Name", "Number of Words", "Published Date", "Random", "Title"]: Optionally, what to sort the articles by.
+  - `WFContentItemInputParameter` () articles
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of articles that are passed as output.
+  - `WFContentItemLimitNumber` () Get: The maximum number of articles.
+  - `WFContentItemSortOrder` () Order: The order to sort the articles in.
 
 ## Filter Event Attendees
 
 - identifier: `is.workflow.actions.filter.eventattendees`  ·  class `WFContentItemFilterAction`
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
-  - `WFContentItemSortProperty` () Sort by choices=["Email Address", "Name", "Random", "Role", "Status", "Type"]
+  - `WFContentItemSortProperty` () Sort by choices=["Email Address", "Name", "Random", "Role", "Status", "Type"]: Optionally, what to sort the event attendees by.
+  - `WFContentItemInputParameter` () event attendees
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of event attendees that are passed as output.
+  - `WFContentItemLimitNumber` () Get: The maximum number of event attendees.
+  - `WFContentItemSortOrder` () Order: The order to sort the event attendees in.
 
 ## Filter Files
 
@@ -949,7 +1034,11 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - icon: line.3.horizontal.decrease.circle.fill (Tint)
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
-  - `WFContentItemSortProperty` () Sort by choices=["Creation Date", "File Extension", "File Path", "File Size", "Last Modified Date", "Name", "Random"]
+  - `WFContentItemSortProperty` () Sort by choices=["Creation Date", "File Extension", "File Path", "File Size", "Last Modified Date", "Name", "Random"]: Optionally, what to sort the files by.
+  - `WFContentItemInputParameter` () files
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of files that are passed as output.
+  - `WFContentItemLimitNumber` () Get: The maximum number of files.
+  - `WFContentItemSortOrder` () Order: The order to sort the files in.
 
 ## Filter Images
 
@@ -959,7 +1048,11 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
-  - `WFContentItemSortProperty` () Sort by choices=["Creation Date", "Date Taken", "Duration", "File Extension", "File Path", "File Size", "Frame Rate", "Height", "Last Modified Date", "Name", "Orientation", "Random", "Time Taken", "Width"]
+  - `WFContentItemSortProperty` () Sort by choices=["Creation Date", "Date Taken", "Duration", "File Extension", "File Path", "File Size", "Frame Rate", "Height", "Last Modified Date", "Name", "Orientation", "Random", "Time Taken", "Width"]: Optionally, what to sort the images by.
+  - `WFContentItemInputParameter` () images
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of images that are passed as output.
+  - `WFContentItemLimitNumber` () Get: The maximum number of images.
+  - `WFContentItemSortOrder` () Order: The order to sort the images in.
 
 ## Filter Locations
 
@@ -969,7 +1062,11 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
-  - `WFContentItemSortProperty` () Sort by choices=["Altitude", "City", "Country", "Label", "Latitude", "Longitude", "Name", "Phone Number", "Random", "State", "Street", "ZIP Code"]
+  - `WFContentItemSortProperty` () Sort by choices=["Altitude", "City", "Country", "Label", "Latitude", "Longitude", "Name", "Phone Number", "Random", "State", "Street", "ZIP Code"]: Optionally, what to sort the locations by.
+  - `WFContentItemInputParameter` () locations
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of locations that are passed as output.
+  - `WFContentItemLimitNumber` () Get: The maximum number of locations.
+  - `WFContentItemSortOrder` () Order: The order to sort the locations in.
 
 ## Find App Store Apps
 
@@ -993,7 +1090,10 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
   - `WFContentItemInputParameter` () apps choices=["Library"]
-  - `WFContentItemSortProperty` () Sort by choices=["Bundle Identifier", "Launch Date", "Name", "Process Identifier", "Random"]
+  - `WFContentItemSortProperty` () Sort by choices=["Bundle Identifier", "Launch Date", "Name", "Process Identifier", "Random"]: Optionally, what to sort the apps by.
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of apps retrieved.
+  - `WFContentItemLimitNumber` () Get: The maximum number of apps.
+  - `WFContentItemSortOrder` () Order: The order to sort the apps in.
 
 ## Find Calendar Events
 
@@ -1001,7 +1101,10 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
   - `WFContentItemInputParameter` () calendar events choices=["Library"]
-  - `WFContentItemSortProperty` () Sort by choices=["Calendar", "Creation Date", "Duration", "End Date", "File Extension", "File Path", "Last Modified Date", "My Status", "Name", "Number of Attendees", "Random", "Start Date", "Title"]
+  - `WFContentItemSortProperty` () Sort by choices=["Calendar", "Creation Date", "Duration", "End Date", "File Extension", "File Path", "Last Modified Date", "My Status", "Name", "Number of Attendees", "Random", "Start Date", "Title"]: Optionally, what to sort the calendar events by.
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of calendar events retrieved.
+  - `WFContentItemLimitNumber` () Get: The maximum number of calendar events.
+  - `WFContentItemSortOrder` () Order: The order to sort the calendar events in.
 
 ## Find Contacts
 
@@ -1009,7 +1112,10 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
   - `WFContentItemInputParameter` () contacts choices=["Library"]
-  - `WFContentItemSortProperty` () Sort by choices=["Birthday", "Company", "Creation Date", "Department", "File Extension", "File Path", "First Name", "Job Title", "Last Modified Date", "Last Name", "Middle Name", "Name", "Nickname", "Phonetic First Name", "Phonetic Last Name", "Phonetic Middle Name", "Prefix", "Random", "Suffix"]
+  - `WFContentItemSortProperty` () Sort by choices=["Birthday", "Company", "Creation Date", "Department", "File Extension", "File Path", "First Name", "Job Title", "Last Modified Date", "Last Name", "Middle Name", "Name", "Nickname", "Phonetic First Name", "Phonetic Last Name", "Phonetic Middle Name", "Prefix", "Random", "Suffix"]: Optionally, what to sort the contacts by.
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of contacts retrieved.
+  - `WFContentItemLimitNumber` () Get: The maximum number of contacts.
+  - `WFContentItemSortOrder` () Order: The order to sort the contacts in.
 
 ## Find Displays
 
@@ -1019,7 +1125,10 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
   - `WFContentItemInputParameter` () displays choices=["Library"]
-  - `WFContentItemSortProperty` () Sort by choices=["Name", "Random", "Scale"]
+  - `WFContentItemSortProperty` () Sort by choices=["Name", "Random", "Scale"]: Optionally, what to sort the displays by.
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of displays retrieved.
+  - `WFContentItemLimitNumber` () Get: The maximum number of displays.
+  - `WFContentItemSortOrder` () Order: The order to sort the displays in.
 
 ## Find Giphy GIFs
 
@@ -1063,7 +1172,10 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
   - `WFContentItemInputParameter` () music choices=["Library"]
-  - `WFContentItemSortProperty` () Sort by choices=["Album", "Album Artist", "Album Track #", "Artist", "Composer", "Date Added", "Disc #", "Duration", "File Path", "Genre", "Last Played Date", "Media Kind", "Name", "Play Count", "Random", "Rating", "Release Date", "Skip Count", "Title"]
+  - `WFContentItemSortProperty` () Sort by choices=["Album", "Album Artist", "Album Track #", "Artist", "Composer", "Date Added", "Disc #", "Duration", "File Path", "Genre", "Last Played Date", "Media Kind", "Name", "Play Count", "Random", "Rating", "Release Date", "Skip Count", "Title"]: Optionally, what to sort the music by.
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of music retrieved.
+  - `WFContentItemLimitNumber` () Get: The maximum number of music.
+  - `WFContentItemSortOrder` () Order: The order to sort the music in.
 
 ## Find Photos
 
@@ -1072,7 +1184,10 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
   - `WFContentItemInputParameter` () photos choices=["Library"]
-  - `WFContentItemSortProperty` () Sort by choices=["Creation Date", "Date Taken", "Duration", "File Extension", "File Path", "Frame Rate", "Height", "Last Modified Date", "Media Type", "Name", "Random", "Time Taken", "Width"]
+  - `WFContentItemSortProperty` () Sort by choices=["Creation Date", "Date Taken", "Duration", "File Extension", "File Path", "Frame Rate", "Height", "Last Modified Date", "Media Type", "Name", "Random", "Time Taken", "Width"]: Optionally, what to sort the photos by.
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of photos retrieved.
+  - `WFContentItemLimitNumber` () Get: The maximum number of photos.
+  - `WFContentItemSortOrder` () Order: The order to sort the photos in.
 
 ## Find Places
 
@@ -1087,7 +1202,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFInput` (Location) Location
   - `WFSearchQuery` (TextInput) Search: Keywords used to search for places.
-  - `WFSearchRadius` (SearchLocalBusinessesRadius) Radius
+  - `WFSearchRadius` (SearchLocalBusinessesRadius) Radius: Radius of search area around the reference location.
   - `WFSearchSortOrder` (Enumeration) Sort By default="Relevance" choices=["Relevance", "Distance"]: How to order the search results - by relevance, or by distance from the reference location.
 
 ## Find Podcasts
@@ -1111,7 +1226,10 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
   - `WFContentItemInputParameter` () reminders choices=["Library"]
-  - `WFContentItemSortProperty` () Sort by choices=["Completion Date", "Creation Date", "Due Date", "File Extension", "File Path", "Last Modified Date", "List", "Name", "Priority", "Random", "Title"]
+  - `WFContentItemSortProperty` () Sort by choices=["Completion Date", "Creation Date", "Due Date", "File Extension", "File Path", "Last Modified Date", "List", "Name", "Priority", "Random", "Title"]: Optionally, what to sort the reminders by.
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of reminders retrieved.
+  - `WFContentItemLimitNumber` () Get: The maximum number of reminders.
+  - `WFContentItemSortOrder` () Order: The order to sort the reminders in.
 
 ## Find VPNs
 
@@ -1124,7 +1242,10 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
   - `WFContentItemInputParameter` () VPNs choices=["Library"]
-  - `WFContentItemSortProperty` () Sort by choices=["Name", "Random", "Server Address"]
+  - `WFContentItemSortProperty` () Sort by choices=["Name", "Random", "Server Address"]: Optionally, what to sort the VPNs by.
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of VPNs retrieved.
+  - `WFContentItemLimitNumber` () Get: The maximum number of VPNs.
+  - `WFContentItemSortOrder` () Order: The order to sort the VPNs in.
 
 ## Find Windows
 
@@ -1133,7 +1254,10 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - parameters:
   - `WFCompoundType` () choices=["0", "1"]
   - `WFContentItemInputParameter` () windows choices=["Library"]
-  - `WFContentItemSortProperty` () Sort by choices=["App Name", "Height", "Name", "Random", "Width", "Window Index", "X Position", "Y Position"]
+  - `WFContentItemSortProperty` () Sort by choices=["App Name", "Height", "Name", "Random", "Width", "Window Index", "X Position", "Y Position"]: Optionally, what to sort the windows by.
+  - `WFContentItemLimitEnabled` () Limit: Whether or not to limit the number of windows retrieved.
+  - `WFContentItemLimitNumber` () Get: The maximum number of windows.
+  - `WFContentItemSortOrder` () Order: The order to sort the windows in.
 
 ## Flip Image
 
@@ -1464,12 +1588,14 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["# of Ratings", "# of Ratings (This Version)", "Artist", "Artwork", "Artwork URL", "Bundle Identifier", "Category", "Content Rating", "Currency Code", "Description", "Download Size", "Formatted Price", "Is Universal", "Last Updated", "Minimum OS Version", "Name", "Price", "Rating", "Rating (This Version)", "Release Date", "Release Notes", "Screenshot URLs", "Store ID", "Store URL", "Supported Devices", "Supported Languages", "Supports Game Center", "Version", "iPad Screenshot URLs"]
+  - `WFInput` () App Store App
 
 ## Get Details of Appearance
 
 - identifier: `is.workflow.actions.properties.appearance`  ·  class `WFContentItemPropertiesAction`
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Dark Mode Is On", "Inverse Appearance", "Name"]
+  - `WFInput` () Appearance
 
 ## Get Details of Article
 
@@ -1478,6 +1604,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - icon: doc.richtext.fill (Orange)
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Author", "Body", "Excerpt", "Main Image URL", "Name", "Number of Words", "Published Date", "Title", "URL"]
+  - `WFInput` () Article
 
 ## Get Details of Calendar Events
 
@@ -1486,6 +1613,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Attachments", "Attendees", "Calendar", "Canceled", "Creation Date", "Duration", "End Date", "File Extension", "File Path", "File Size", "Has Alarms", "Is All Day", "Last Modified Date", "Location", "My Status", "Name", "Notes", "Number of Attendees", "Organizer", "Organizer Is Me", "Start Date", "Title", "URL"]
+  - `WFInput` () Calendar Event
 
 ## Get Details of Contacts
 
@@ -1493,12 +1621,14 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Birthday", "Company", "Contact Photo", "Creation Date", "Department", "Email Addresses", "File Extension", "File Path", "File Size", "First Name", "Job Title", "Last Modified Date", "Last Name", "Middle Name", "Name", "Nickname", "Notes", "Phone Numbers", "Phonetic First Name", "Phonetic Last Name", "Phonetic Middle Name", "Prefix", "Relationship to Me", "Street Addresses", "Suffix", "URLs"]
+  - `WFInput` () Contact
 
 ## Get Details of Event Attendees
 
 - identifier: `is.workflow.actions.properties.eventattendees`  ·  class `WFContentItemPropertiesAction`
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Email Address", "Is Me", "Name", "Role", "Status", "Type"]
+  - `WFInput` () Event Attendee
 
 ## Get Details of Files
 
@@ -1508,6 +1638,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Creation Date", "File Extension", "File Path", "File Size", "Last Modified Date", "Name"]
+  - `WFInput` () File
 
 ## Get Details of Health Sample
 
@@ -1522,6 +1653,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Album", "Camera Make", "Camera Model", "Creation Date", "Date Taken", "Duration", "File Extension", "File Path", "File Size", "Frame Rate", "Height", "Is Favorite", "Is a Screen Recording", "Is a Screenshot", "Last Modified Date", "Location", "Media Type", "Metadata Dictionary", "Name", "Orientation", "Photo Type", "Width"]
+  - `WFInput` () Image
 
 ## Get Details of iTunes Artist
 
@@ -1530,6 +1662,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Artwork", "Artwork URL", "Genre", "Name", "Store ID", "Store URL", "Type"]
+  - `WFInput` () iTunes artist
 
 ## Get Details of iTunes Product
 
@@ -1538,6 +1671,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Artist", "Artwork", "Artwork URL", "Currency Code", "Description", "Duration", "Formatted Price", "Genre", "Is Explicit", "Name", "Price", "Release Date", "Store ID", "Store URL", "Streamable"]
+  - `WFInput` () iTunes Product
 
 ## Get Details of Locations
 
@@ -1547,6 +1681,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Altitude", "City", "Country", "Label", "Latitude", "Longitude", "Name", "Phone Number", "State", "Street", "URL", "ZIP Code"]
+  - `WFInput` () Location
 
 ## Get Details of Music
 
@@ -1555,6 +1690,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - output: Artist
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Album", "Album Artist", "Album Artwork", "Album Track #", "Artist", "Comments", "Composer", "Date Added", "Disc #", "Duration", "File Path", "Genre", "Is Cloud Item", "Is Explicit", "Last Played Date", "Lyrics", "Media Kind", "Name", "Play Count", "Rating", "Release Date", "Skip Count", "Title"]
+  - `WFInput` () Music
 
 ## Get Details of Parked Car
 
@@ -1562,6 +1698,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - icon: car.fill (Tint)
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Date", "Location", "Name", "Notes", "Photo", "Was Location Set by User"]
+  - `WFInput` () Parked Car
 
 ## Get Details of Podcast
 
@@ -1569,6 +1706,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - output: Details of Podcasts
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Artist", "Artwork", "Artwork URL", "Episode Count", "Feed URL", "Genre", "Name", "Store ID", "Store URL"]
+  - `WFInput` () Podcast
 
 ## Get Details of Podcast Episode
 
@@ -1576,18 +1714,21 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - output: Details of Podcast Episodes
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Artwork", "Artwork URL", "Author", "Description", "Duration", "Genres", "Name", "Release Date", "Store ID", "Store URL", "Title"]
+  - `WFInput` () Podcast episode
 
 ## Get Details of Reminders
 
 - identifier: `is.workflow.actions.properties.reminders`  ·  class `WFContentItemPropertiesAction`
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Completion Date", "Creation Date", "Due Date", "File Extension", "File Path", "File Size", "Has Alarms", "Has Subtasks", "Images", "Is Completed", "Is Flagged", "Last Modified Date", "List", "Name", "Notes", "Parent Reminder", "Priority", "Reminder Location", "Subtasks", "Tags", "Title", "URL"]
+  - `WFInput` () Reminder
 
 ## Get Details of Ride Status
 
 - identifier: `is.workflow.actions.properties.ridestatus`  ·  class `WFContentItemPropertiesAction`
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Driver", "Drop Off Location", "Drop Off Time", "Maximum Price", "Minimum Price", "Name", "Pickup Location", "Pickup Time", "Ride Option Name", "Vehicle Information"]
+  - `WFInput` () Ride Status
 
 ## Get Details of Safari Web Page
 
@@ -1596,18 +1737,21 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - output: Details of Safari Web Pages
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Name", "Page Contents", "Page Selection", "Page URL"]
+  - `WFInput` () Safari Web Page
 
 ## Get Details of Shazam
 
 - identifier: `is.workflow.actions.properties.shazam`  ·  class `WFContentItemPropertiesAction`
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Apple Music ID", "Apple Music URL", "Artist", "Artwork", "Is Explicit", "Lyric Snippet Synced", "Lyrics Snippet", "Name", "Shazam URL", "Title", "Video URL"]
+  - `WFInput` () Shazam media
 
 ## Get Details of Shortcut
 
 - identifier: `is.workflow.actions.properties.workflow`  ·  class `WFContentItemPropertiesAction`
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Action Count", "Creation Date", "File Extension", "File Path", "File Size", "Folder", "Icon", "Last Modified Date", "Name"]
+  - `WFInput` () Shortcut
 
 ## Get Details of Trello Item
 
@@ -1615,6 +1759,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - input types: WFTrelloBoardContentItem, WFTrelloListContentItem, WFTrelloCardContentItem (required)
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Card Attachments", "Card Due Date", "Description", "Name", "URL"]
+  - `WFInput` () Trello item
 
 ## Get Details of Ulysses Sheet
 
@@ -1622,6 +1767,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - input types: WFUlyssesSheetContentItem (required)
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Contents", "Identifier", "Keywords", "Name", "Notes", "Title"]
+  - `WFInput` () Ulysses sheet
 
 ## Get Details of Weather Conditions
 
@@ -1629,6 +1775,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFContentItemPropertyName` () Detail choices=["Air Pollutants", "Air Quality Category", "Air Quality Index", "Condition", "Date", "Dewpoint", "Feels Like", "High", "Humidity", "Location", "Low", "Name", "Precipitation Amount", "Precipitation Chance", "Pressure", "Sunrise Time", "Sunset Time", "Temperature", "UV Index", "Visibility", "Wind Direction", "Wind Speed"]
+  - `WFInput` () Weather Conditions
 
 ## Get Device Details
 
@@ -1783,6 +1930,9 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - flags: ResidentCompatible
 - parameters:
   - `WFGetGroupType` () Get choices=["All Groups", "Group At Index"]
+  - `ShowWhenRun` () Show When Run
+  - `WFGroupIndex` () Group Index
+  - `matches` () Matches
 
 ## Get Halfway Point
 
@@ -2087,7 +2237,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - Gets the common parent directory of the files passed in.
 - summary: `Get parent directory of ${WFInput}`
 - input types: public.data (required)
-- output: Get Parent Directory (public.folder)
+- output: Parent Directory (public.folder)
 - keywords: file, files, folder, root
 - icon: arrow.turn.left.up (Tint)
 - parameters:
@@ -2466,6 +2616,13 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
   - `WFEventOccurrenceMode` () Occurrence choices=["Next Occurrence", "Specified Year"]
   - `WFPhotoPickerTypes` () Include choices=["Images", "Live Photos", "Videos"]
   - `WFPickingMode` () Type choices=["Files", "Folders"]
+  - `SelectMultiple` () Select Multiple
+  - `WFDateActionDate` () Date
+  - `WFDateActionMode` () Date
+  - `WFEventOccurrenceSpecifiedYear` () Year
+  - `WFExportSongActionSelectMultiple` () Select Multiple Songs
+  - `WFSelectMultiple` () Select Multiple
+  - `WFSelectMultiplePhotos` () Select Multiple
 
 ## Intercom
 
@@ -2810,6 +2967,11 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 - output: Matches
 - keywords: finding, matching, searching, regular, expression, regexp
 - flags: ResidentCompatible
+- parameters:
+  - `ShowWhenRun` () Show When Run
+  - `WFMatchTextCaseSensitive` () Case Sensitive: When disabled, the capitalization of letters is ignored.
+  - `WFMatchTextPattern` () Pattern
+  - `text` () Text
 
 ## Measurement
 
@@ -3212,6 +3374,7 @@ All 434 built-in actions, from WorkflowKit's action registry ([how](extraction.m
 You can also choose to have the flashlight pulse.
 - parameters:
   - `state` () State choices=["off", "on"]
+  - `ShowWhenRun` () Show When Run
 
 ## Play Music
 
@@ -3987,6 +4150,8 @@ You can also choose to have the flashlight pulse.
 - Enable or disable the Accessibility Keyboard, allowing typing by clicking on the screen.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set AirDrop Receiving
 
@@ -4004,6 +4169,8 @@ You can also choose to have the flashlight pulse.
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Alternate Pointer Actions
 
@@ -4011,6 +4178,8 @@ You can also choose to have the flashlight pulse.
 - Enable or disable Alternate Pointer Actions, allowing the use of switches or gesture to trigger mouse actions such as clicks.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Always On
 
@@ -4021,6 +4190,7 @@ When Always On is activated, your Apple Watch face will be visible even when you
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
   - `state` () State choices=["off", "on"]
+  - `ShowWhenRun` () Show When Run
 
 ## Set Always On Display
 
@@ -4031,6 +4201,8 @@ When Always On is activated, your Apple Watch face will be visible even when you
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () Always On Display
+  - `ShowWhenRun` () Show When Run
 
 ## Set Announce Notifications
 
@@ -4038,6 +4210,8 @@ When Always On is activated, your Apple Watch face will be visible even when you
 - Sets Announce Notifications to on or off. When on, Siri will announce notifications from new apps that send Time Sensitive notifications or direct messages.
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Appearance
 
@@ -4049,12 +4223,15 @@ When Always On is activated, your Apple Watch face will be visible even when you
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
   - `style` () Appearance choices=["dark", "light"]
+  - `ShowWhenRun` () Show When Run
 
 ## Set Appearance on Apple TV
 
 - identifier: `com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Set Appearance on Apple TV
 - icon: appearance.darkmode (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Set Audio Descriptions
 
@@ -4062,6 +4239,8 @@ When Always On is activated, your Apple Watch face will be visible even when you
 - Automatically play audio descriptions. Audio Descriptions can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Auto-Launch Audio Apps
 
@@ -4072,6 +4251,7 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
   - `state` () state choices=["off", "on"]
+  - `ShowWhenRun` () Show When Run
 
 ## Set Background Sounds Timer Interval
 
@@ -4079,11 +4259,18 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Sets the timer interval for background sounds. Background sounds mask unwanted environmental noise and can be used when media is playing. Background sounds can also be enabled under Accessibility in Settings.
 - parameters:
   - `interval` () Interval choices=["duration", "endInterval"]
+  - `ShowWhenRun` () Show When Run
+  - `always` () Always use these settings
+  - `duration` () Duration
+  - `endInterval` () Time
 
 ## Set Background Sounds Volume
 
 - identifier: `com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent`  ·  class `None`
 - Sets the volume for background sounds.
+- parameters:
+  - `ShowWhenRun` () Show When Run
+  - `volumeValue` () volume
 
 ## Set Bluetooth
 
@@ -4094,6 +4281,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Brightness
 
@@ -4102,6 +4291,9 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - keywords: screen, display, backlight
 - icon: sun.max.fill (Blue)
 - flags: InputPassthrough
+- parameters:
+  - `ShowWhenRun` () Show When Run
+  - `WFBrightness` () Brightness: If you set the brightness using a variable, use a number between 0 and 1 (for example, pass 0.5 for half brightness).
 
 ## Set Cellular Data
 
@@ -4112,6 +4304,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Classic Invert
 
@@ -4119,6 +4313,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Reverses the colors of the display. Classic Invert can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Closed Captions+SDH
 
@@ -4126,6 +4322,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Use closed captions for the deaf and hard of hearing. Closed captions can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Color Filters
 
@@ -4133,6 +4331,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Enable or disable Color Filters, allowing the display's colors to be adjusted as desired.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Dictionary Value
 
@@ -4156,6 +4356,7 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
   - `state` () State choices=["off", "on"]
+  - `ShowWhenRun` () Show When Run
 
 ## Set Flashlight
 
@@ -4170,6 +4371,9 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `ShowWhenRun` () Show When Run
+  - `WFFlashlightLevel` () Brightness
+  - `state` () State
 
 ## Set Focus
 
@@ -4199,6 +4403,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Enable or disable Full Keyboard Access, allowing use of the device with only a keyboard.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Head Pointer
 
@@ -4206,6 +4412,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Enable or disable Head Pointer, allowing movement of the mouse cursor using your head.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Hotspot Password
 
@@ -4224,6 +4432,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Enable or disable Hover Text.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Hover Typing
 
@@ -4231,6 +4441,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Enable or disable Hover Typing.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Increase Contrast
 
@@ -4238,6 +4450,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Increase color contrast between app foreground and background colors. Increase Contrast can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Live Captions
 
@@ -4245,6 +4459,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Enable or disable Live Captions.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Live Speech
 
@@ -4252,6 +4468,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Enable or disable Live Speech.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Low Power Mode
 
@@ -4262,6 +4480,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () Low Power Mode
+  - `ShowWhenRun` () Show When Run
 
 ## Set Mono Audio
 
@@ -4269,6 +4489,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Mono Audio enables the left and right speakers to play the same content. Mono Audio can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Motion Cues
 
@@ -4276,6 +4498,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Enable or disable Motion Cues.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Mouse Keys
 
@@ -4283,6 +4507,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Enable or disable Mouse Keys, allowing the movement of the mouse cursor using the keyboard.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Name
 
@@ -4308,6 +4534,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Noise Control Mode
 
@@ -4331,6 +4559,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Parked Car
 
@@ -4357,6 +4587,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Reduce Motion
 
@@ -4364,6 +4596,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Reduce the motion of the user interface, including the parallax effect of icons. Reduce Motion can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Reduce Transparency
 
@@ -4371,6 +4605,8 @@ When Auto-Launch Audio Apps is on, the app actively playing media will be shown 
 - Improve contrast by reducing transparency and blurs on some backgrounds to increase legibility. Reduce Transparency can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Schooltime
 
@@ -4381,6 +4617,7 @@ Schooltime limits Apple Watch features during school hours.
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
   - `state` () State choices=["off", "on"]
+  - `ShowWhenRun` () Show When Run
 
 ## Set Silence Unknown Callers
 
@@ -4391,6 +4628,8 @@ Schooltime limits Apple Watch features during school hours.
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Silent Mode
 
@@ -4401,6 +4640,7 @@ Silent Mode mutes most Apple Watch sounds.
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
   - `state` () State choices=["off", "on"]
+  - `ShowWhenRun` () Show When Run
 
 ## Set Slow Keys
 
@@ -4408,6 +4648,8 @@ Silent Mode mutes most Apple Watch sounds.
 - Enable or disable Slow Keys, allowing the keyboard to avoid recognizing rapid key presses.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Smart Invert
 
@@ -4415,6 +4657,8 @@ Silent Mode mutes most Apple Watch sounds.
 - Reverses the colors of the display except for images, media and some apps that use dark color styles. Smart Invert can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Stage Manager
 
@@ -4424,6 +4668,10 @@ Silent Mode mutes most Apple Watch sounds.
 - icon: squares.leading.rectangle (Blue)
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `ShowWhenRun` () Show When Run
+  - `showDock` () Show Dock
+  - `showRecentApps` () Show Recent Apps
+  - `state` () State
 
 ## Set Sticky Keys
 
@@ -4431,6 +4679,8 @@ Silent Mode mutes most Apple Watch sounds.
 - Enable or disable Sticky Keys, making it easier to press keyboard modifier keys.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Switch Control
 
@@ -4438,6 +4688,8 @@ Silent Mode mutes most Apple Watch sounds.
 - Switch Control highlights items on the screen to control through an adaptive accessory. Switch Control can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Theater Mode
 
@@ -4448,6 +4700,7 @@ Theater Mode mutes most Apple Watch sounds and limits display activity.
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
   - `state` () State choices=["off", "on"]
+  - `ShowWhenRun` () Show When Run
 
 ## Set True Tone
 
@@ -4458,6 +4711,8 @@ Theater Mode mutes most Apple Watch sounds and limits display activity.
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Variable
 
@@ -4477,6 +4732,8 @@ Theater Mode mutes most Apple Watch sounds and limits display activity.
 - Voice Control allows you to use your voice to control your iOS device. Voice Control can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set VoiceOver
 
@@ -4484,6 +4741,8 @@ Theater Mode mutes most Apple Watch sounds and limits display activity.
 - VoiceOver speaks items on the screen. VoiceOver can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Set Volume
 
@@ -4528,6 +4787,7 @@ When Wake on Wrist Raise is on, the screen will wake when you raise your wrist.
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
   - `state` () state choices=["off", "on"]
+  - `ShowWhenRun` () Show When Run
 
 ## Set Wallpaper Photo
 
@@ -4558,6 +4818,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
   - `state` () State choices=["off", "on"]
+  - `ShowWhenRun` () Show When Run
 
 ## Set Wi-Fi
 
@@ -4568,6 +4829,8 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 - flags: InputPassthrough
 - parameters:
   - `operation` () Operation choices=["set", "toggle"]
+  - `OnValue` () State
+  - `ShowWhenRun` () Show When Run
 
 ## Set Zoom
 
@@ -4575,6 +4838,8 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 - Zoom magnifies the entire screen. Zoom can also be enabled under Accessibility in Settings.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Share
 
@@ -4688,6 +4953,9 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 
 - identifier: `com.apple.Notes.ICNotesFolderIntent`  ·  class `None`
 - Get quick access to one of your Notes folders.
+- parameters:
+  - `ShowWhenRun` () Show When Run
+  - `folder` () Folder
 
 ## Show Notification
 
@@ -4716,16 +4984,24 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 
 - identifier: `com.apple.news.TodayIntent`  ·  class `None`
 - Shows stories from the Today feed in Apple News.
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Show Topic
 
 - identifier: `com.apple.news.TagIntent`  ·  class `None`
 - Shows stories about the topic you choose.
+- parameters:
+  - `ShowWhenRun` () Show When Run
+  - `tag` () Topic
 
 ## Show Weather
 
 - identifier: `com.apple.weather.WeatherIntent`  ·  class `None`
 - Shows and gets the current weather for the specified location.
+- parameters:
+  - `ShowWhenRun` () Show When Run
+  - `location` () Location
 
 ## Show Web View
 
@@ -4834,6 +5110,9 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 - flags: ResidentCompatible
 - parameters:
   - `WFTextSeparator` () Separator choices=["Custom", "Every Character", "New Lines", "Spaces"]
+  - `ShowWhenRun` () Show When Run
+  - `WFTextCustomSeparator` () Custom
+  - `text` () Text
 
 ## Start Screen Saver
 
@@ -5001,6 +5280,8 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 - Enable or disable Background Sounds.
 - parameters:
   - `operation` () Operation choices=["toggle", "turn"]
+  - `ShowWhenRun` () Show When Run
+  - `state` () State
 
 ## Translate Text
 
@@ -5058,60 +5339,80 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
 
 - identifier: `com.apple.TVRemoteUIService.LaunchApplicationIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.LaunchRemoteIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
 - icon: appletvremote.gen4.fill (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.LaunchScreenSaverIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
 - icon: tv.fill (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.PauseContentIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
 - icon: playpause.fill (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.ReduceLoudSoundsIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
 - icon: ear.trianglebadge.exclamationmark (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.SkipContentIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
 - icon: forward.fill (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.SleepAppleTVIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
 - icon: sleep (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.SwitchUserAccountIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
 - icon: person.crop.circle (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.ToggleCaptionsIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
 - icon: captions.bubble.fill (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Action
 
 - identifier: `com.apple.TVRemoteUIService.WakeAppleTVIntent`  ·  class `WFHandleCustomIntentAction`
 - output: Unknown Action
 - icon: power (Black)
+- parameters:
+  - `ShowWhenRun` () Show When Run
 
 ## Unknown Intent
 

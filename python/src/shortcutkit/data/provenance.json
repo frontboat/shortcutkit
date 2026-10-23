@@ -1,15 +1,15 @@
 {
-  "extractedAt": "2026-09-04T16:48:45Z",
-  "macOS": { "version": "27.0", "build": "26A5421a", "arch": "arm64" },
-  "shortcutsApp": { "version": "10.0", "build": "5037.0.17" },
+  "extractedAt": "2026-10-23T05:51:31Z",
+  "macOS": { "version": "27.2", "build": "26B118", "arch": "arm64" },
+  "shortcutsApp": { "version": "10.0", "build": "5114.0.6.204" },
   "workflowKit": "10.0",
   "actionKit": "1.0",
-  "toolKit": {"indexerSource": "BackgroundShortcutRunner", "launchServicesSequence": 11580, "osVersion": "26A5421a", "source": "Tools-prod.v79-8281961B-2D2A-4863-967F-B85898F44141.sqlite", "toolkitVersion": "9C1DBC60-6B3D-4993-B5BA-1525716A6D98"},
+  "toolKit": {"indexerSource": "BackgroundShortcutRunner", "launchServicesSequence": 1520, "osVersion": "26B118", "source": "Tools-prod.v80-C530B2C4-CFA0-4E2A-AE27-3619A368CFE8.sqlite", "toolkitVersion": "E50FF70A-C76D-4AD4-B3B2-7FCD0C692ECD"},
   "counts": {
     "builtinActions": 434,
-    "appleAppIntents": 1441,
+    "appleAppIntents": 1449,
     "identifierStrings": 411,
-    "appProvidedActions": 264
+    "appProvidedActions": 284
   },
   "note": "appProvidedActions counts the App Intents actions of apps installed on the extracting machine; that dump and toolkit-registry.json are local and not committed."
 }

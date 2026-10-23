@@ -920,6 +920,10 @@ export type ComAppleAppKitKeyPointsParams = Partial<ParamTypes["com.apple.AppKit
 export type ComAppleAppKitListParams = Partial<ParamTypes["com.apple.AppKit.WritingToolsTransformListIntent"]>;
 /** Parameters of Table (`com.apple.AppKit.WritingToolsTransformTableIntent`). */
 export type ComAppleAppKitTableParams = Partial<ParamTypes["com.apple.AppKit.WritingToolsTransformTableIntent"]>;
+/** Parameters of Install Application (`com.apple.AppStore.InstallApplicationIntent`). */
+export type AppStoreInstallApplicationParams = Partial<ParamTypes["com.apple.AppStore.InstallApplicationIntent"]>;
+/** Parameters of Find Marketplace Application (`com.apple.AppStore.MarketplaceApplication`). */
+export type AppStoreFindMarketplaceApplicationParams = Partial<ParamTypes["com.apple.AppStore.MarketplaceApplication"]>;
 /** Parameters of Search App Store (`com.apple.AppStore.SystemSearchIntent`). */
 export type AppStoreSearchAppStoreParams = Partial<ParamTypes["com.apple.AppStore.SystemSearchIntent"]>;
 /** Parameters of Open Game Center Settings (`com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks`). */
@@ -958,8 +962,6 @@ export type ComAppleMagnifierDetectFurnitureParams = Partial<ParamTypes["com.app
 export type ComAppleMagnifierDetectPeopleParams = Partial<ParamTypes["com.apple.Magnifier.DetectPeopleIntent"]>;
 /** Parameters of Detect Text (`com.apple.Magnifier.DetectTextIntent`). */
 export type ComAppleMagnifierDetectTextParams = Partial<ParamTypes["com.apple.Magnifier.DetectTextIntent"]>;
-/** Parameters of Find This (`com.apple.Magnifier.FindSessionAppIntent`). */
-export type ComAppleMagnifierFindThisParams = Partial<ParamTypes["com.apple.Magnifier.FindSessionAppIntent"]>;
 /** Parameters of Follow Up (`com.apple.Magnifier.FollowUpVQAAppIntent`). */
 export type ComAppleMagnifierFollowUpParams = Partial<ParamTypes["com.apple.Magnifier.FollowUpVQAAppIntent"]>;
 /** Parameters of Start Point & Speak (`com.apple.Magnifier.PointAndSpeakIntent`). */
@@ -1032,22 +1034,24 @@ export type MessagesSetConversationReadStatusParams = Partial<ParamTypes["com.ap
 export type MessagesSetMessageReadStatusParams = Partial<ParamTypes["com.apple.MobileSMS.SetMessageReadStatusIntent"]>;
 /** Parameters of Undo Send Message (`com.apple.MobileSMS.UnsendMessageIntent`). */
 export type MessagesUndoSendMessageParams = Partial<ParamTypes["com.apple.MobileSMS.UnsendMessageIntent"]>;
-/** Parameters of Add Music Items to Library (`com.apple.Music.AddMusicItemToLibrarySiriIntent`). */
-export type MusicAddMusicItemsToLibraryParams = Partial<ParamTypes["com.apple.Music.AddMusicItemToLibrarySiriIntent"]>;
-/** Parameters of Add Music Items to Playlist (`com.apple.Music.AddMusicItemToPlaylistSiriIntent`). */
-export type MusicAddMusicItemsToPlaylistParams = Partial<ParamTypes["com.apple.Music.AddMusicItemToPlaylistSiriIntent"]>;
-/** Parameters of Create station (`com.apple.Music.CreateStationSiriIntent`). */
+/** Parameters of Add Music Item to Library (`com.apple.Music.AddMusicItemToLibrarySiriIntent`). */
+export type MusicAddMusicItemToLibraryParams = Partial<ParamTypes["com.apple.Music.AddMusicItemToLibrarySiriIntent"]>;
+/** Parameters of Add Music Item to Playlist (`com.apple.Music.AddMusicItemToPlaylistSiriIntent`). */
+export type MusicAddMusicItemToPlaylistParams = Partial<ParamTypes["com.apple.Music.AddMusicItemToPlaylistSiriIntent"]>;
+/** Parameters of Create New Playlist (`com.apple.Music.CreatePlaylistSiriIntent`). */
+export type MusicCreateNewPlaylistParams = Partial<ParamTypes["com.apple.Music.CreatePlaylistSiriIntent"]>;
+/** Parameters of Create Station (`com.apple.Music.CreateStationSiriIntent`). */
 export type MusicCreateStationParams = Partial<ParamTypes["com.apple.Music.CreateStationSiriIntent"]>;
 /** Parameters of Open Music Item (`com.apple.Music.OpenMusicItemSiriIntent`). */
 export type MusicOpenMusicItemParams = Partial<ParamTypes["com.apple.Music.OpenMusicItemSiriIntent"]>;
 /** Parameters of Play Audio (`com.apple.Music.PlayMusicItemSiriIntent`). */
 export type MusicPlayAudioParams = Partial<ParamTypes["com.apple.Music.PlayMusicItemSiriIntent"]>;
-/** Parameters of SearchMusicSiriIntent_Title (`com.apple.Music.SearchMusicSiriIntent`). */
-export type MusicSearchMusicSiriIntentTitleParams = Partial<ParamTypes["com.apple.Music.SearchMusicSiriIntent"]>;
+/** Parameters of Search Music (`com.apple.Music.SearchMusicSiriIntent`). */
+export type MusicSearchMusicParams = Partial<ParamTypes["com.apple.Music.SearchMusicSiriIntent"]>;
 /** Parameters of Set Music Item Affinity (`com.apple.Music.UpdateMusicItemAffinitySiriIntent`). */
 export type MusicSetMusicItemAffinityParams = Partial<ParamTypes["com.apple.Music.UpdateMusicItemAffinitySiriIntent"]>;
-/** Parameters of WarmupMusicQueueSiriIntent_Title (`com.apple.Music.WarmupMusicQueueSiriIntent`). */
-export type MusicWarmupMusicQueueSiriIntentTitleParams = Partial<ParamTypes["com.apple.Music.WarmupMusicQueueSiriIntent"]>;
+/** Parameters of Warmup Audio Queue (`com.apple.Music.WarmupMusicQueueSiriIntent`). */
+export type MusicWarmupAudioQueueParams = Partial<ParamTypes["com.apple.Music.WarmupMusicQueueSiriIntent"]>;
 /** Parameters of Add File to Note (`com.apple.Notes.AddFileAttachmentLinkAction`). */
 export type NotesAddFileToNoteParams = Partial<ParamTypes["com.apple.Notes.AddFileAttachmentLinkAction"]>;
 /** Parameters of Add Link (`com.apple.Notes.AddLinkAttachmentLinkAction`). */
@@ -1398,12 +1402,20 @@ export type SafariFindTabGroupsParams = Partial<ParamTypes["com.apple.Safari.Tab
 export type SafariFindWindowParams = Partial<ParamTypes["com.apple.Safari.WindowEntity"]>;
 /** Parameters of Find Accessibility Settings (`com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink`). */
 export type ComAppleSettingsFindAccessibilitySettingsParams = Partial<ParamTypes["com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink"]>;
+/** Parameters of Get AirDrop (`com.apple.Settings.AirDropEntity`). */
+export type SettingsGetAirDropParams = Partial<ParamTypes["com.apple.Settings.AirDropEntity"]>;
+/** Parameters of Update AirDrop (`com.apple.Settings.AirDropEntity-UpdatableEntity`). */
+export type SettingsUpdateAirDropParams = Partial<ParamTypes["com.apple.Settings.AirDropEntity-UpdatableEntity"]>;
+/** Parameters of Find AirDrop & Continuity Settings (`com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink`). */
+export type ComAppleSettingsFindAirDropContinuitySettingsParams = Partial<ParamTypes["com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink"]>;
+/** Parameters of Check who can AirPlay to this computer (`com.apple.Settings.AirPlayIntent`). */
+export type SettingsCheckWhoCanAirPlayToThisComputerParams = Partial<ParamTypes["com.apple.Settings.AirPlayIntent"]>;
+/** Parameters of Get AirPlay Receiver Status (`com.apple.Settings.AirPlayReceiverIntent`). */
+export type SettingsGetAirPlayReceiverStatusParams = Partial<ParamTypes["com.apple.Settings.AirPlayReceiverIntent"]>;
+/** Parameters of Get AirPlay Password Status (`com.apple.Settings.AirPlayRequiresPasswordIntent`). */
+export type SettingsGetAirPlayPasswordStatusParams = Partial<ParamTypes["com.apple.Settings.AirPlayRequiresPasswordIntent"]>;
 /** Parameters of Find Apple Account Settings (`com.apple.Settings.AppleAccountSettingsDeepLink`). */
 export type ComAppleSettingsFindAppleAccountSettingsParams = Partial<ParamTypes["com.apple.Settings.AppleAccountSettingsDeepLink"]>;
-/** Parameters of Find Application Notifications (`com.apple.Settings.ApplicationNotificationsSettings`). */
-export type ComAppleSettingsFindApplicationNotificationsParams = Partial<ParamTypes["com.apple.Settings.ApplicationNotificationsSettings"]>;
-/** Parameters of Edit Application Notifications (`com.apple.Settings.ApplicationNotificationsSettings-UpdatableEntity`). */
-export type ComAppleSettingsEditApplicationNotificationsParams = Partial<ParamTypes["com.apple.Settings.ApplicationNotificationsSettings-UpdatableEntity"]>;
 /** Parameters of Get Automatically Set Date & Time (`com.apple.Settings.AutoDateTimeEntity`). */
 export type SettingsGetAutomaticallySetDateTimeParams = Partial<ParamTypes["com.apple.Settings.AutoDateTimeEntity"]>;
 /** Parameters of Get Automatically hide and show the menu bar (`com.apple.Settings.AutoHideMenuBarOptionEntity`). */
@@ -1430,8 +1442,6 @@ export type ComAppleSettingsFindClassProgressSettingsParams = Partial<ParamTypes
 export type ComAppleSettingsFindClassroomSettingsParams = Partial<ParamTypes["com.apple.Settings.ClassroomDynamicDeepLinks"]>;
 /** Parameters of Edit Clock Options (`com.apple.Settings.ClockOptionsEntity-UpdatableEntity`). */
 export type ComAppleSettingsEditClockOptionsParams = Partial<ParamTypes["com.apple.Settings.ClockOptionsEntity-UpdatableEntity"]>;
-/** Parameters of Edit Control Center Module (`com.apple.Settings.ControlCenterModule-UpdatableEntity`). */
-export type ComAppleSettingsEditControlCenterModuleParams = Partial<ParamTypes["com.apple.Settings.ControlCenterModule-UpdatableEntity"]>;
 /** Parameters of Find Menu Bar Settings (`com.apple.Settings.ControlCenterSettingsSettingsDeepLink`). */
 export type ComAppleSettingsFindMenuBarSettingsParams = Partial<ParamTypes["com.apple.Settings.ControlCenterSettingsSettingsDeepLink"]>;
 /** Parameters of Find Date & Time Settings (`com.apple.Settings.DateAndTimeExtensionSettingsDeepLink`). */
@@ -1470,6 +1480,8 @@ export type ComAppleSettingsFindGameCenterSettingsParams = Partial<ParamTypes["c
 export type ComAppleSettingsFindGameControllersSettingsParams = Partial<ParamTypes["com.apple.Settings.GameControllerMacSettingsSettingsDeepLink"]>;
 /** Parameters of Get Startup Disk (`com.apple.Settings.GetStartupDiskIntent`). */
 export type ComAppleSettingsGetStartupDiskParams = Partial<ParamTypes["com.apple.Settings.GetStartupDiskIntent"]>;
+/** Parameters of Get Handoff Status (`com.apple.Settings.HandoffIntent`). */
+export type SettingsGetHandoffStatusParams = Partial<ParamTypes["com.apple.Settings.HandoffIntent"]>;
 /** Parameters of Get 24-Hour Time (`com.apple.Settings.HourFormatEntity`). */
 export type SettingsGet24HourTimeParams = Partial<ParamTypes["com.apple.Settings.HourFormatEntity"]>;
 /** Parameters of Update 24-Hour Time (`com.apple.Settings.HourFormatEntity-UpdatableEntity`). */
@@ -1478,6 +1490,8 @@ export type SettingsUpdate24HourTimeParams = Partial<ParamTypes["com.apple.Setti
 export type ComAppleSettingsFindKeyboardSettingsParams = Partial<ParamTypes["com.apple.Settings.KeyboardSettingsSettingsDeepLink"]>;
 /** Parameters of Find Language & Region Settings (`com.apple.Settings.LocalizationSettingsDeepLink`). */
 export type ComAppleSettingsFindLanguageRegionSettingsParams = Partial<ParamTypes["com.apple.Settings.LocalizationSettingsDeepLink"]>;
+/** Parameters of Edit Menu Bar Control (`com.apple.Settings.MenuBarControl-UpdatableEntity`). */
+export type ComAppleSettingsEditMenuBarControlParams = Partial<ParamTypes["com.apple.Settings.MenuBarControl-UpdatableEntity"]>;
 /** Parameters of Get Mission Control (`com.apple.Settings.MissionControlEntity`). */
 export type ComAppleSettingsGetMissionControlParams = Partial<ParamTypes["com.apple.Settings.MissionControlEntity"]>;
 /** Parameters of Update Mission Control (`com.apple.Settings.MissionControlEntity-UpdatableEntity`). */
@@ -1500,10 +1514,10 @@ export type ComAppleSettingsEditNotificationCenterParams = Partial<ParamTypes["c
 export type ComAppleSettingsFindNotificationsSettingsParams = Partial<ParamTypes["com.apple.Settings.NotificationsSettingsSettingsDeepLink"]>;
 /** Parameters of Open Accessibility Settings (`com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink`). */
 export type ComAppleSettingsOpenAccessibilitySettingsParams = Partial<ParamTypes["com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink"]>;
+/** Parameters of Open AirDrop & Continuity Settings (`com.apple.Settings.OpenAirDropHandoffExtensionSettingsDeepLink`). */
+export type ComAppleSettingsOpenAirDropContinuitySettingsParams = Partial<ParamTypes["com.apple.Settings.OpenAirDropHandoffExtensionSettingsDeepLink"]>;
 /** Parameters of Open Apple Account Settings (`com.apple.Settings.OpenAppleAccountSettingsDeepLink`). */
 export type ComAppleSettingsOpenAppleAccountSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenAppleAccountSettingsDeepLink"]>;
-/** Parameters of Open Application Notifications Settings (`com.apple.Settings.OpenApplicationNotificationsSettings`). */
-export type ComAppleSettingsOpenApplicationNotificationsSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenApplicationNotificationsSettings"]>;
 /** Parameters of Open Automatically Set Date & Time Setting (`com.apple.Settings.OpenAutomaticallySetDateTimeSetting`). */
 export type SettingsOpenAutomaticallySetDateTimeSettingParams = Partial<ParamTypes["com.apple.Settings.OpenAutomaticallySetDateTimeSetting"]>;
 /** Parameters of Open Automatically Set Time Zone Setting (`com.apple.Settings.OpenAutomaticallySetTimeZoneSetting`). */
@@ -1524,8 +1538,6 @@ export type ComAppleSettingsOpenClassroomSettingsParams = Partial<ParamTypes["co
 export type ComAppleSettingsOpenClockOptionsParams = Partial<ParamTypes["com.apple.Settings.OpenClockOptionsEntity"]>;
 /** Parameters of Open an Internet Accountʼs Settings (`com.apple.Settings.OpenConfiguredInternetAccountSettings`). */
 export type ComAppleSettingsOpenAnInternetAccountʼsSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenConfiguredInternetAccountSettings"]>;
-/** Parameters of Open Control Center module setting (`com.apple.Settings.OpenControlCenterModule`). */
-export type ComAppleSettingsOpenControlCenterModuleSettingParams = Partial<ParamTypes["com.apple.Settings.OpenControlCenterModule"]>;
 /** Parameters of Open Menu Bar Settings (`com.apple.Settings.OpenControlCenterSettingsSettingsDeepLink`). */
 export type ComAppleSettingsOpenMenuBarSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenControlCenterSettingsSettingsDeepLink"]>;
 /** Parameters of Open the Current Time Zone Setting (`com.apple.Settings.OpenCurrentTimeZoneSetting`). */
@@ -1562,6 +1574,8 @@ export type ComAppleSettingsOpenListOfInternetAccountsParams = Partial<ParamType
 export type ComAppleSettingsOpenKeyboardSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenKeyboardSettingsSettingsDeepLink"]>;
 /** Parameters of Open Language & Region Settings (`com.apple.Settings.OpenLocalizationSettingsDeepLink`). */
 export type ComAppleSettingsOpenLanguageRegionSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenLocalizationSettingsDeepLink"]>;
+/** Parameters of Open Menu Bar Controls setting (`com.apple.Settings.OpenMenuBarControl`). */
+export type ComAppleSettingsOpenMenuBarControlsSettingParams = Partial<ParamTypes["com.apple.Settings.OpenMenuBarControl"]>;
 /** Parameters of Open Mission Control Settings (`com.apple.Settings.OpenMissionControlSettingsEntity`). */
 export type ComAppleSettingsOpenMissionControlSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenMissionControlSettingsEntity"]>;
 /** Parameters of Open Mouse Settings (`com.apple.Settings.OpenMouseExtensionSettingsDeepLink`). */
@@ -1580,6 +1594,14 @@ export type ComAppleSettingsOpenScreenTimeSettingsParams = Partial<ParamTypes["c
 export type ComAppleSettingsOpenSiriSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenSiriSetupSettingsDeepLink"]>;
 /** Parameters of Open Software Update Settings (`com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink`). */
 export type ComAppleSettingsOpenSoftwareUpdateSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink"]>;
+/** Parameters of Open Sound Settings (`com.apple.Settings.OpenSoundSettingsDeepLink`). */
+export type ComAppleSettingsOpenSoundSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenSoundSettingsDeepLink"]>;
+/** Parameters of Open Feedback Sound Settings (`com.apple.Settings.OpenSoundSettingsFeedbackSoundEntity`). */
+export type ComAppleSettingsOpenFeedbackSoundSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenSoundSettingsFeedbackSoundEntity"]>;
+/** Parameters of Open User Interface Sound Effects Settings (`com.apple.Settings.OpenSoundSettingsInterfaceEffectsEntity`). */
+export type ComAppleSettingsOpenUserInterfaceSoundEffectsSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenSoundSettingsInterfaceEffectsEntity"]>;
+/** Parameters of Open Startup Sound Settings (`com.apple.Settings.OpenSoundSettingsStartupSoundEntity`). */
+export type ComAppleSettingsOpenStartupSoundSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenSoundSettingsStartupSoundEntity"]>;
 /** Parameters of Open Search Settings (`com.apple.Settings.OpenSpotlightSettingsDeepLinks`). */
 export type ComAppleSettingsOpenSearchSettingsParams = Partial<ParamTypes["com.apple.Settings.OpenSpotlightSettingsDeepLinks"]>;
 /** Parameters of Open Startup Disk Settings (`com.apple.Settings.OpenStartupDiskSettingsDeepLink`). */
@@ -1610,8 +1632,6 @@ export type ComAppleSettingsOpenWindowsSettingsParams = Partial<ParamTypes["com.
 export type ComAppleSettingsFindPasswordsSettingsParams = Partial<ParamTypes["com.apple.Settings.PasswordsSettingsExtensionSettingsDeepLink"]>;
 /** Parameters of Find About Settings (`com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink`). */
 export type ComAppleSettingsFindAboutSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink"]>;
-/** Parameters of Find AirDrop & Continuity Settings (`com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink`). */
-export type ComAppleSettingsFindAirDropContinuitySettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink"]>;
 /** Parameters of Find Appearance Settings (`com.apple.Settings.PlaceholderAppearanceSettingsDeepLink`). */
 export type ComAppleSettingsFindAppearanceSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderAppearanceSettingsDeepLink"]>;
 /** Parameters of Find Displays Settings (`com.apple.Settings.PlaceholderDisplaysExtSettingsDeepLink`). */
@@ -1624,8 +1644,6 @@ export type ComAppleSettingsFindLoginItemsSettingsParams = Partial<ParamTypes["c
 export type ComAppleSettingsFindNetworkSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderNetworkSettingsDeepLink"]>;
 /** Parameters of Open About Settings (`com.apple.Settings.PlaceholderOpenAboutExtensionSettingsDeepLink`). */
 export type ComAppleSettingsOpenAboutSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderOpenAboutExtensionSettingsDeepLink"]>;
-/** Parameters of Open AirDrop & Continuity Settings (`com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink`). */
-export type ComAppleSettingsOpenAirDropContinuitySettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink"]>;
 /** Parameters of Open Appearance Settings (`com.apple.Settings.PlaceholderOpenAppearanceSettingsDeepLink`). */
 export type ComAppleSettingsOpenAppearanceSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderOpenAppearanceSettingsDeepLink"]>;
 /** Parameters of Open Displays Settings (`com.apple.Settings.PlaceholderOpenDisplaysExtSettingsDeepLink`). */
@@ -1642,8 +1660,6 @@ export type ComAppleSettingsOpenPrintersScannersSettingsParams = Partial<ParamTy
 export type ComAppleSettingsOpenPrivacySecuritySettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink"]>;
 /** Parameters of Open Sharing Settings (`com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink`). */
 export type ComAppleSettingsOpenSharingSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink"]>;
-/** Parameters of Open Sound Settings (`com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink`). */
-export type ComAppleSettingsOpenSoundSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink"]>;
 /** Parameters of Open Transfer or Reset Settings (`com.apple.Settings.PlaceholderOpenTransferResetExtensionSettingsDeepLink`). */
 export type ComAppleSettingsOpenTransferOrResetSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderOpenTransferResetExtensionSettingsDeepLink"]>;
 /** Parameters of Open Users & Groups Settings (`com.apple.Settings.PlaceholderOpenUsersGroupsSettingsDeepLink`). */
@@ -1654,8 +1670,6 @@ export type ComAppleSettingsFindPrintersScannersSettingsParams = Partial<ParamTy
 export type ComAppleSettingsFindPrivacySecuritySettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderSecurityPrivacyExtensionSettingsDeepLink"]>;
 /** Parameters of Find Sharing Settings (`com.apple.Settings.PlaceholderSharingSettingsDeepLink`). */
 export type ComAppleSettingsFindSharingSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderSharingSettingsDeepLink"]>;
-/** Parameters of Find Sound Settings (`com.apple.Settings.PlaceholderSoundSettingsDeepLink`). */
-export type ComAppleSettingsFindSoundSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderSoundSettingsDeepLink"]>;
 /** Parameters of Find Transfer or Reset Settings (`com.apple.Settings.PlaceholderTransferResetExtensionSettingsDeepLink`). */
 export type ComAppleSettingsFindTransferOrResetSettingsParams = Partial<ParamTypes["com.apple.Settings.PlaceholderTransferResetExtensionSettingsDeepLink"]>;
 /** Parameters of Find Users & Groups Settings (`com.apple.Settings.PlaceholderUsersGroupsSettingsDeepLink`). */
@@ -1694,8 +1708,6 @@ export type ComAppleSettingsUpdateShowWallpaperAsScreenSaverOnMainDisplayParams 
 export type ComAppleSettingsGetShowScreenSaverAsWallpaperOnMainDisplayParams = Partial<ParamTypes["com.apple.Settings.ShowAsWallpaperEntity"]>;
 /** Parameters of Update Show screen saver as wallpaper on main display (`com.apple.Settings.ShowAsWallpaperEntity-UpdatableEntity`). */
 export type ComAppleSettingsUpdateShowScreenSaverAsWallpaperOnMainDisplayParams = Partial<ParamTypes["com.apple.Settings.ShowAsWallpaperEntity-UpdatableEntity"]>;
-/** Parameters of Get Show Battery Percentage (`com.apple.Settings.ShowBatteryPercentageEntity`). */
-export type ComAppleSettingsGetShowBatteryPercentageParams = Partial<ParamTypes["com.apple.Settings.ShowBatteryPercentageEntity"]>;
 /** Parameters of Update Show Battery Percentage (`com.apple.Settings.ShowBatteryPercentageEntity-UpdatableEntity`). */
 export type ComAppleSettingsUpdateShowBatteryPercentageParams = Partial<ParamTypes["com.apple.Settings.ShowBatteryPercentageEntity-UpdatableEntity"]>;
 /** Parameters of Update Show menu bar background (`com.apple.Settings.ShowMenuBarBackgroundEntity-UpdatableEntity`). */
@@ -1718,6 +1730,20 @@ export type ComAppleSettingsUpdateSmartZoomParams = Partial<ParamTypes["com.appl
 export type ComAppleSettingsSoftwareUpdateSettingsExtensionIntentsParams = Partial<ParamTypes["com.apple.Settings.SoftwareUpdateSettingsExtensionIntents"]>;
 /** Parameters of Find Software Update Settings (`com.apple.Settings.SoftwareUpdateSettingsExtensionSettingsDeepLink`). */
 export type ComAppleSettingsFindSoftwareUpdateSettingsParams = Partial<ParamTypes["com.apple.Settings.SoftwareUpdateSettingsExtensionSettingsDeepLink"]>;
+/** Parameters of Find Sound Settings (`com.apple.Settings.SoundSettingsDeepLink`). */
+export type ComAppleSettingsFindSoundSettingsParams = Partial<ParamTypes["com.apple.Settings.SoundSettingsDeepLink"]>;
+/** Parameters of Get Feedback Sound Settings (`com.apple.Settings.SoundSettingsFeedbackSoundEntity`). */
+export type ComAppleSettingsGetFeedbackSoundSettingsParams = Partial<ParamTypes["com.apple.Settings.SoundSettingsFeedbackSoundEntity"]>;
+/** Parameters of Update a Feedback Sound Settings's Play feedback when volume is changed (`com.apple.Settings.SoundSettingsFeedbackSoundEntity-UpdatableEntity`). */
+export type ComAppleSettingsUpdateAFeedbackSoundSettingsSPlayFeedbackWhenVolumeIsChangedParams = Partial<ParamTypes["com.apple.Settings.SoundSettingsFeedbackSoundEntity-UpdatableEntity"]>;
+/** Parameters of Get User Interface Sound Effects Settings (`com.apple.Settings.SoundSettingsInterfaceEffectsEntity`). */
+export type ComAppleSettingsGetUserInterfaceSoundEffectsSettingsParams = Partial<ParamTypes["com.apple.Settings.SoundSettingsInterfaceEffectsEntity"]>;
+/** Parameters of Update a User Interface Sound Effects Settings's Play user interface sound effects (`com.apple.Settings.SoundSettingsInterfaceEffectsEntity-UpdatableEntity`). */
+export type ComAppleSettingsUpdateAUserInterfaceSoundEffectsSettingsSPlayUserInterfaceSoundEffectsParams = Partial<ParamTypes["com.apple.Settings.SoundSettingsInterfaceEffectsEntity-UpdatableEntity"]>;
+/** Parameters of Get Startup Sound Settings (`com.apple.Settings.SoundSettingsStartupSoundEntity`). */
+export type ComAppleSettingsGetStartupSoundSettingsParams = Partial<ParamTypes["com.apple.Settings.SoundSettingsStartupSoundEntity"]>;
+/** Parameters of Update a Startup Sound Settings's Play sound on startup (`com.apple.Settings.SoundSettingsStartupSoundEntity-UpdatableEntity`). */
+export type ComAppleSettingsUpdateAStartupSoundSettingsSPlaySoundOnStartupParams = Partial<ParamTypes["com.apple.Settings.SoundSettingsStartupSoundEntity-UpdatableEntity"]>;
 /** Parameters of Find Search Settings (`com.apple.Settings.SpotlightSettingsDeepLinks`). */
 export type ComAppleSettingsFindSearchSettingsParams = Partial<ParamTypes["com.apple.Settings.SpotlightSettingsDeepLinks"]>;
 /** Parameters of Find Startup Disk Settings (`com.apple.Settings.StartupDiskSettingsDeepLink`). */
@@ -1782,10 +1808,10 @@ export type ComAppleSettingsUpdateShowDesktopParams = Partial<ParamTypes["com.ap
 export type ComAppleSettingsTrackpadSmartZoomEntityParams = Partial<ParamTypes["com.apple.Settings.TrackpadSmartZoomEntity"]>;
 /** Parameters of Update Smart zoom (`com.apple.Settings.TrackpadSmartZoomEntity-UpdatableEntity`). */
 export type ComAppleSettingsTrackpadSmartZoomEntityUpdatableEntityParams = Partial<ParamTypes["com.apple.Settings.TrackpadSmartZoomEntity-UpdatableEntity"]>;
-/** Parameters of Get Swipe between pages (`com.apple.Settings.TrackpadSwipeBetweenAppsEntity`). */
-export type ComAppleSettingsTrackpadSwipeBetweenAppsEntityParams = Partial<ParamTypes["com.apple.Settings.TrackpadSwipeBetweenAppsEntity"]>;
-/** Parameters of Update Swipe between pages (`com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity`). */
-export type ComAppleSettingsTrackpadSwipeBetweenAppsEntityUpdatableEntityParams = Partial<ParamTypes["com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity"]>;
+/** Parameters of Get Swipe between spaces (`com.apple.Settings.TrackpadSwipeBetweenAppsEntity`). */
+export type ComAppleSettingsGetSwipeBetweenSpacesParams = Partial<ParamTypes["com.apple.Settings.TrackpadSwipeBetweenAppsEntity"]>;
+/** Parameters of Update Swipe between spaces (`com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity`). */
+export type ComAppleSettingsUpdateSwipeBetweenSpacesParams = Partial<ParamTypes["com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity"]>;
 /** Parameters of Get Swipe between pages (`com.apple.Settings.TrackpadSwipeBetweenPagesEntity`). */
 export type ComAppleSettingsTrackpadSwipeBetweenPagesEntityParams = Partial<ParamTypes["com.apple.Settings.TrackpadSwipeBetweenPagesEntity"]>;
 /** Parameters of Update Swipe between pages (`com.apple.Settings.TrackpadSwipeBetweenPagesEntity-UpdatableEntity`). */
@@ -1814,6 +1840,10 @@ export type ComAppleSettingsFindWiFiSettingsParams = Partial<ParamTypes["com.app
 export type ComAppleSettingsGetWidgetSettingsParams = Partial<ParamTypes["com.apple.Settings.WidgetSettingsEntity"]>;
 /** Parameters of Edit Widget Settings (`com.apple.Settings.WidgetSettingsEntity-UpdatableEntity`). */
 export type ComAppleSettingsEditWidgetSettingsParams = Partial<ParamTypes["com.apple.Settings.WidgetSettingsEntity-UpdatableEntity"]>;
+/** Parameters of Get iPhone Widgets (`com.apple.Settings.WidgetsAndOnenessEntity`). */
+export type SettingsGetIphoneWidgetsParams = Partial<ParamTypes["com.apple.Settings.WidgetsAndOnenessEntity"]>;
+/** Parameters of Update iPhone Widgets (`com.apple.Settings.WidgetsAndOnenessEntity-UpdatableEntity`). */
+export type SettingsUpdateIphoneWidgetsParams = Partial<ParamTypes["com.apple.Settings.WidgetsAndOnenessEntity-UpdatableEntity"]>;
 /** Parameters of Get Windows Settings (`com.apple.Settings.WindowsSettingsEntity`). */
 export type ComAppleSettingsGetWindowsSettingsParams = Partial<ParamTypes["com.apple.Settings.WindowsSettingsEntity"]>;
 /** Parameters of Edit Windows Settings (`com.apple.Settings.WindowsSettingsEntity-UpdatableEntity`). */
@@ -2098,14 +2128,28 @@ export type FinderRevealItemsParams = Partial<ParamTypes["com.apple.finder.Revea
 export type FinderSearchInFinderParams = Partial<ParamTypes["com.apple.finder.SearchInBrowserIntent"]>;
 /** Parameters of Trash Items (`com.apple.finder.TrashItemsIntent`). */
 export type FinderTrashItemsParams = Partial<ParamTypes["com.apple.finder.TrashItemsIntent"]>;
+/** Parameters of Set Geo Fence notification on a person’s movement (`com.apple.findmy.CreateIncomingGeofenceIntent`). */
+export type ComAppleFindmySetGeoFenceNotificationOnAPersonSMovementParams = Partial<ParamTypes["com.apple.findmy.CreateIncomingGeofenceIntent"]>;
+/** Parameters of Set Geofence notification to be received by person (`com.apple.findmy.CreateOutgoingGeofenceIntent`). */
+export type ComAppleFindmySetGeofenceNotificationToBeReceivedByPersonParams = Partial<ParamTypes["com.apple.findmy.CreateOutgoingGeofenceIntent"]>;
+/** Parameters of Find Item (`com.apple.findmy.FindItemIntent`). */
+export type ComAppleFindmyFindItemParams = Partial<ParamTypes["com.apple.findmy.FindItemIntent"]>;
+/** Parameters of Find Person (`com.apple.findmy.FindPersonIntent`). */
+export type ComAppleFindmyFindPersonParams = Partial<ParamTypes["com.apple.findmy.FindPersonIntent"]>;
+/** Parameters of Find Geofence (`com.apple.findmy.GeofenceEntity`). */
+export type ComAppleFindmyFindGeofenceParams = Partial<ParamTypes["com.apple.findmy.GeofenceEntity"]>;
 /** Parameters of Find Item (`com.apple.findmy.ItemEntity`). */
-export type ComAppleFindmyFindItemParams = Partial<ParamTypes["com.apple.findmy.ItemEntity"]>;
+export type ComAppleFindmyItemEntityParams = Partial<ParamTypes["com.apple.findmy.ItemEntity"]>;
+/** Parameters of Open Item (`com.apple.findmy.OpenItemIntent`). */
+export type ComAppleFindmyOpenItemParams = Partial<ParamTypes["com.apple.findmy.OpenItemIntent"]>;
+/** Parameters of Open Module (`com.apple.findmy.OpenModuleIntent`). */
+export type ComAppleFindmyOpenModuleParams = Partial<ParamTypes["com.apple.findmy.OpenModuleIntent"]>;
+/** Parameters of Open Person (`com.apple.findmy.OpenPersonIntent`). */
+export type ComAppleFindmyOpenPersonParams = Partial<ParamTypes["com.apple.findmy.OpenPersonIntent"]>;
 /** Parameters of Find Person (`com.apple.findmy.PersonEntity`). */
-export type ComAppleFindmyFindPersonParams = Partial<ParamTypes["com.apple.findmy.PersonEntity"]>;
-/** Parameters of Find Item (`com.apple.findmy.WidgetItemEntity`). */
-export type ComAppleFindmyWidgetItemEntityParams = Partial<ParamTypes["com.apple.findmy.WidgetItemEntity"]>;
-/** Parameters of Find Person (`com.apple.findmy.WidgetPersonEntity`). */
-export type ComAppleFindmyWidgetPersonEntityParams = Partial<ParamTypes["com.apple.findmy.WidgetPersonEntity"]>;
+export type ComAppleFindmyPersonEntityParams = Partial<ParamTypes["com.apple.findmy.PersonEntity"]>;
+/** Parameters of Set Location Sharing Setting (`com.apple.findmy.SetShareLocationSettingIntent`). */
+export type ComAppleFindmySetLocationSharingSettingParams = Partial<ParamTypes["com.apple.findmy.SetShareLocationSettingIntent"]>;
 /** Parameters of Add Item to Board (`com.apple.freeform.CRLAddItemToBoardIntent`). */
 export type FreeformAddItemToBoardParams = Partial<ParamTypes["com.apple.freeform.CRLAddItemToBoardIntent"]>;
 /** Parameters of Find Board (`com.apple.freeform.CRLBoardEntity`). */
@@ -2464,6 +2508,8 @@ export type NewsUnselectIngredientParams = Partial<ParamTypes["com.apple.news.Un
 export type NewsChangeNewsSettingsParams = Partial<ParamTypes["com.apple.news.WFAppSettingEntityUpdaterAction"]>;
 /** Parameters of Get News Settings (`com.apple.news.WFGetAppSettingAction`). */
 export type NewsGetNewsSettingsParams = Partial<ParamTypes["com.apple.news.WFGetAppSettingAction"]>;
+/** Parameters of DoNotUseThisExtensionIntent (`com.apple.omniSearch.SearchToolExtension.DoNotUseThisExtensionIntent`). */
+export type ComAppleOmniSearchSearchToolExtensionDoNotUseThisExtensionIntentParams = Partial<ParamTypes["com.apple.omniSearch.SearchToolExtension.DoNotUseThisExtensionIntent"]>;
 /** Parameters of Search (`com.apple.omniSearch.SearchToolExtension.SearchTool`). */
 export type ComAppleOmniSearchSearchToolExtensionSearchParams = Partial<ParamTypes["com.apple.omniSearch.SearchToolExtension.SearchTool"]>;
 /** Parameters of SearchTool Control (`com.apple.omniSearch.SearchToolExtension.SearchToolControl`). */
@@ -2630,6 +2676,8 @@ export type ComAppleShortcutsSearchInShortcutsParams = Partial<ParamTypes["com.a
 export type ComAppleShortcutsSetShortcutAttributesParams = Partial<ParamTypes["com.apple.shortcuts.SetShortcutAttributesAction"]>;
 /** Parameters of Stop Shortcut (`com.apple.shortcuts.StopWorkflowAction`). */
 export type ComAppleShortcutsStopShortcutParams = Partial<ParamTypes["com.apple.shortcuts.StopWorkflowAction"]>;
+/** Parameters of Dummy intent to ensure AppSearchEntity is indexed (`com.apple.siri.-MarketplaceIntents-AppIntents.DummyIntent`). */
+export type ComAppleSiriMarketplaceIntentsAppIntentsDummyIntentToEnsureAppSearchEntityIsIndexedParams = Partial<ParamTypes["com.apple.siri.-MarketplaceIntents-AppIntents.DummyIntent"]>;
 /** Parameters of Add Audio Item to Library (`com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent`). */
 export type ComAppleSiriAudioAppIntentsExtensionAddAudioItemToLibraryParams = Partial<ParamTypes["com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent"]>;
 /** Parameters of Add Audio Item to Playlist (`com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent`). */
@@ -2642,8 +2690,6 @@ export type ComAppleSiriAudioAppIntentsExtensionLikeAudioItemParams = Partial<Pa
 export type ComAppleSiriAudioAppIntentsExtensionWholeHouseAudioPlaceholderIntentParams = Partial<ParamTypes["com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent"]>;
 /** Parameters of EditPhotoWarmth (`com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos`). */
 export type ComAppleSiriPhotosFlowToolsSiriPhotosFlowToolsEditPhotoWarmthComApplePhotosParams = Partial<ParamTypes["com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos"]>;
-/** Parameters of InteractiveInstallApplicationTool (`com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool`). */
-export type ComAppleSiriSiriAppLaunchFlowToolsSiriAppLaunchFlowToolsInteractiveInstallApplicationToolParams = Partial<ParamTypes["com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool"]>;
 /** Parameters of AddAudioToLibrary (`com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music`). */
 export type ComAppleSiriSiriAudioToolsSiriAudioToolsAddAudioToLibraryToolComAppleMusicParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music"]>;
 /** Parameters of AddAudioToLibrary (`com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts`). */
@@ -2658,8 +2704,8 @@ export type ComAppleSiriSiriAudioToolsSiriAudioToolsPlayAudioToolComAppleIBooksX
 export type ComAppleSiriSiriAudioToolsSiriAudioToolsPlayAudioToolComApplePodcastsParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts"]>;
 /** Parameters of UpdateAudioAffinity (`com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music`). */
 export type ComAppleSiriSiriAudioToolsSiriAudioToolsUpdateAudioAffinityToolComAppleMusicParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music"]>;
-/** Parameters of CrisisDialog (`com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool`). */
-export type ComAppleSiriSiriCrisisFlowToolsSiriCrisisFlowToolsCrisisDialogFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool"]>;
+/** Parameters of Get Crisis Resources (`com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool`). */
+export type ComAppleSiriSiriCrisisFlowToolsSiriCrisisFlowToolsGetCrisisResourcesFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool"]>;
 /** Parameters of Get Current Location (`com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity`). */
 export type ComAppleSiriSiriGeoSiriGeoAppIntentExtensionGetCurrentLocationParams = Partial<ParamTypes["com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity"]>;
 /** Parameters of Get Current Route (`com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity`). */
@@ -2732,6 +2778,14 @@ export type ComAppleSiriSiriVideoAppIntentsFindsAVideoParams = Partial<ParamType
 export type ComAppleSiriSiriVideoAppIntentsPlaysAVideoParams = Partial<ParamTypes["com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent"]>;
 /** Parameters of Find Video content (`com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool`). */
 export type ComAppleSiriSiriVideoFlowToolsSiriVideoFlowToolsFindVideoContentToolParams = Partial<ParamTypes["com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool"]>;
+/** Parameters of Create Incoming Geofence (`com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy`). */
+export type ComAppleSiriFindmySiriFindMyFlowToolsSiriFindMyFlowToolsCreateIncomingGeofenceToolComAppleFindmyParams = Partial<ParamTypes["com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy"]>;
+/** Parameters of Create Outgoing Geofence (`com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy`). */
+export type ComAppleSiriFindmySiriFindMyFlowToolsSiriFindMyFlowToolsCreateOutgoingGeofenceToolComAppleFindmyParams = Partial<ParamTypes["com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy"]>;
+/** Parameters of Find Item Location (`com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy`). */
+export type ComAppleSiriFindmySiriFindMyFlowToolsSiriFindMyFlowToolsFindItemLocationToolComAppleFindmyParams = Partial<ParamTypes["com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy"]>;
+/** Parameters of Play Item Sound (`com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy`). */
+export type ComAppleSiriFindmySiriFindMyFlowToolsSiriFindMyFlowToolsPlayItemSoundToolComAppleFindmyParams = Partial<ParamTypes["com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy"]>;
 /** Parameters of Messages Post Reading Action Tool (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent`). */
 export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionMessagesPostReadingActionToolParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent"]>;
 /** Parameters of Prepare To Read Conversation Tool (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent`). */
@@ -2830,16 +2884,6 @@ export type StocksFindWatchlistParams = Partial<ParamTypes["com.apple.stocks.Wat
 export type SettingsGetAccentColorParams = Partial<ParamTypes["com.apple.systempreferences.AccentColorEntity"]>;
 /** Parameters of Update Accent color (`com.apple.systempreferences.AccentColorEntity-UpdatableEntity`). */
 export type SettingsUpdateAccentColorParams = Partial<ParamTypes["com.apple.systempreferences.AccentColorEntity-UpdatableEntity"]>;
-/** Parameters of Get AirDrop (`com.apple.systempreferences.AirDropEntity`). */
-export type SettingsGetAirDropParams = Partial<ParamTypes["com.apple.systempreferences.AirDropEntity"]>;
-/** Parameters of Update AirDrop (`com.apple.systempreferences.AirDropEntity-UpdatableEntity`). */
-export type SettingsUpdateAirDropParams = Partial<ParamTypes["com.apple.systempreferences.AirDropEntity-UpdatableEntity"]>;
-/** Parameters of Check who can AirPlay to this computer (`com.apple.systempreferences.AirPlayIntent`). */
-export type SettingsCheckWhoCanAirPlayToThisComputerParams = Partial<ParamTypes["com.apple.systempreferences.AirPlayIntent"]>;
-/** Parameters of Get AirPlay Receiver Status (`com.apple.systempreferences.AirPlayReceiverIntent`). */
-export type SettingsGetAirPlayReceiverStatusParams = Partial<ParamTypes["com.apple.systempreferences.AirPlayReceiverIntent"]>;
-/** Parameters of Get AirPlay Password Status (`com.apple.systempreferences.AirPlayRequiresPasswordIntent`). */
-export type SettingsGetAirPlayPasswordStatusParams = Partial<ParamTypes["com.apple.systempreferences.AirPlayRequiresPasswordIntent"]>;
 /** Parameters of Get Tint window background with wallpaper color (`com.apple.systempreferences.AllowWallPaperTintingEntity`). */
 export type SettingsGetTintWindowBackgroundWithWallpaperColorParams = Partial<ParamTypes["com.apple.systempreferences.AllowWallPaperTintingEntity"]>;
 /** Parameters of Update Tint window background with wallpaper color (`com.apple.systempreferences.AllowWallPaperTintingEntity-UpdatableEntity`). */
@@ -3498,8 +3542,6 @@ export type SettingsGetGuestUserSParentalControlStatusParams = Partial<ParamType
 export type SettingsGetGuestUserSSharedFoldersAccessStatusParams = Partial<ParamTypes["com.apple.systempreferences.GuestSharedAccessStatusIntent"]>;
 /** Parameters of Get Guest User’s Status (`com.apple.systempreferences.GuestStatusIntent`). */
 export type SettingsGetGuestUserSStatusParams = Partial<ParamTypes["com.apple.systempreferences.GuestStatusIntent"]>;
-/** Parameters of Get Handoff Status (`com.apple.systempreferences.HandoffIntent`). */
-export type SettingsGetHandoffStatusParams = Partial<ParamTypes["com.apple.systempreferences.HandoffIntent"]>;
 /** Parameters of Get Highlight color (`com.apple.systempreferences.HighlightColorEntity`). */
 export type SettingsGetHighlightColorParams = Partial<ParamTypes["com.apple.systempreferences.HighlightColorEntity"]>;
 /** Parameters of Update Highlight color (`com.apple.systempreferences.HighlightColorEntity-UpdatableEntity`). */
@@ -3568,8 +3610,6 @@ export type SettingsOpenAccessibilityVoiceControlSettingsParams = Partial<ParamT
 export type SettingsOpenAccessibilityVoiceOverSettingsParams = Partial<ParamTypes["com.apple.systempreferences.OpenAccessibilityVoiceOverStaticDeepLinks"]>;
 /** Parameters of Open Accessibility Zoom Settings (`com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks`). */
 export type SettingsOpenAccessibilityZoomSettingsParams = Partial<ParamTypes["com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks"]>;
-/** Parameters of Open AirDrop & Continuity (`com.apple.systempreferences.OpenAirDropHandoffDeepLinks`). */
-export type SettingsOpenAirDropContinuityParams = Partial<ParamTypes["com.apple.systempreferences.OpenAirDropHandoffDeepLinks"]>;
 /** Parameters of Open Appearance Settings (`com.apple.systempreferences.OpenAppearanceSettingsDeepLink`). */
 export type SettingsOpenAppearanceSettingsParams = Partial<ParamTypes["com.apple.systempreferences.OpenAppearanceSettingsDeepLink"]>;
 /** Parameters of Open Automatically adjust brightness (`com.apple.systempreferences.OpenAutoBrightnessEntityDeepLink`). */
@@ -3606,14 +3646,6 @@ export type SettingsOpenPrintersScannersParams = Partial<ParamTypes["com.apple.s
 export type SettingsOpenPrivacySecurityParams = Partial<ParamTypes["com.apple.systempreferences.OpenPrivacySecurityDeepLinks"]>;
 /** Parameters of Open Share keyboard and mouse (`com.apple.systempreferences.OpenShareKeyboardEntityDeepLink`). */
 export type SettingsOpenShareKeyboardAndMouseParams = Partial<ParamTypes["com.apple.systempreferences.OpenShareKeyboardEntityDeepLink"]>;
-/** Parameters of Open Sound (`com.apple.systempreferences.OpenSoundSettingsDeepLinks`). */
-export type SettingsOpenSoundParams = Partial<ParamTypes["com.apple.systempreferences.OpenSoundSettingsDeepLinks"]>;
-/** Parameters of Open Feedback Sound Settings (`com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity`). */
-export type SettingsOpenFeedbackSoundSettingsParams = Partial<ParamTypes["com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity"]>;
-/** Parameters of Open User Interface Sound Effects Settings (`com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity`). */
-export type SettingsOpenUserInterfaceSoundEffectsSettingsParams = Partial<ParamTypes["com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity"]>;
-/** Parameters of Open Startup Sound Settings (`com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity`). */
-export type SettingsOpenStartupSoundSettingsParams = Partial<ParamTypes["com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity"]>;
 /** Parameters of Open Transfer or Reset (`com.apple.systempreferences.OpenTransferResetDeepLinks`). */
 export type SettingsOpenTransferOrResetParams = Partial<ParamTypes["com.apple.systempreferences.OpenTransferResetDeepLinks"]>;
 /** Parameters of Open True Tone (`com.apple.systempreferences.OpenTrueToneEntityDeepLink`). */
@@ -3654,18 +3686,6 @@ export type SettingsUpdateShowScrollBarsParams = Partial<ParamTypes["com.apple.s
 export type SettingsGetSidebarIconSizeParams = Partial<ParamTypes["com.apple.systempreferences.SidebarIconSizeEntity"]>;
 /** Parameters of Update Sidebar icon size (`com.apple.systempreferences.SidebarIconSizeEntity-UpdatableEntity`). */
 export type SettingsUpdateSidebarIconSizeParams = Partial<ParamTypes["com.apple.systempreferences.SidebarIconSizeEntity-UpdatableEntity"]>;
-/** Parameters of Get Feedback Sound Settings (`com.apple.systempreferences.SoundSettingsFeedbackSoundEntity`). */
-export type SettingsGetFeedbackSoundSettingsParams = Partial<ParamTypes["com.apple.systempreferences.SoundSettingsFeedbackSoundEntity"]>;
-/** Parameters of Update a Feedback Sound Settings's Play feedback when volume is changed (`com.apple.systempreferences.SoundSettingsFeedbackSoundEntity-UpdatableEntity`). */
-export type SettingsUpdateAFeedbackSoundSettingsSPlayFeedbackWhenVolumeIsChangedParams = Partial<ParamTypes["com.apple.systempreferences.SoundSettingsFeedbackSoundEntity-UpdatableEntity"]>;
-/** Parameters of Get User Interface Sound Effects Settings (`com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity`). */
-export type SettingsGetUserInterfaceSoundEffectsSettingsParams = Partial<ParamTypes["com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity"]>;
-/** Parameters of Update a User Interface Sound Effects Settings's Play user interface sound effects (`com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity-UpdatableEntity`). */
-export type SettingsUpdateAUserInterfaceSoundEffectsSettingsSPlayUserInterfaceSoundEffectsParams = Partial<ParamTypes["com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity-UpdatableEntity"]>;
-/** Parameters of Get Startup Sound Settings (`com.apple.systempreferences.SoundSettingsStartupSoundEntity`). */
-export type SettingsGetStartupSoundSettingsParams = Partial<ParamTypes["com.apple.systempreferences.SoundSettingsStartupSoundEntity"]>;
-/** Parameters of Update a Startup Sound Settings's Play sound on startup (`com.apple.systempreferences.SoundSettingsStartupSoundEntity-UpdatableEntity`). */
-export type SettingsUpdateAStartupSoundSettingsSPlaySoundOnStartupParams = Partial<ParamTypes["com.apple.systempreferences.SoundSettingsStartupSoundEntity-UpdatableEntity"]>;
 /** Parameters of High Power Mode (`com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent`). */
 export type SettingsHighPowerModeParams = Partial<ParamTypes["com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent"]>;
 /** Parameters of High Power Mode (`com.apple.systempreferences.ToggleHighPowerModeOnBatteryIntent`). */
@@ -3688,10 +3708,6 @@ export type SettingsGetUserLoginItemsParams = Partial<ParamTypes["com.apple.syst
 export type SettingsGetUserSPlatformSingleSignOnStatusParams = Partial<ParamTypes["com.apple.systempreferences.UserSSOIntent"]>;
 /** Parameters of Update a VPN Configuration's Connect On Demand (`com.apple.systempreferences.VPNConfigurationEntity-UpdatableEntity`). */
 export type SettingsUpdateAVpnConfigurationSConnectOnDemandParams = Partial<ParamTypes["com.apple.systempreferences.VPNConfigurationEntity-UpdatableEntity"]>;
-/** Parameters of Get iPhone Widgets (`com.apple.systempreferences.WidgetsAndOnenessEntity`). */
-export type SettingsGetIphoneWidgetsParams = Partial<ParamTypes["com.apple.systempreferences.WidgetsAndOnenessEntity"]>;
-/** Parameters of Update iPhone Widgets (`com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity`). */
-export type SettingsUpdateIphoneWidgetsParams = Partial<ParamTypes["com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity"]>;
 /** Parameters of Find User Notification Type (`com.apple.usernotificationsd.UserNotificationEntity`). */
 export type ComAppleUsernotificationsdFindUserNotificationTypeParams = Partial<ParamTypes["com.apple.usernotificationsd.UserNotificationEntity"]>;
 /** Parameters of Set Wallpaper (`com.apple.wallpaper.agent.SetWallpaperIntent`). */

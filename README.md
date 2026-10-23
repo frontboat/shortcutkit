@@ -32,7 +32,7 @@ are archived ([shortcuts-js](https://github.com/joshfarrant/shortcuts-js),
 [Cherri](https://github.com/electrikmilk/cherri) is a separate language with its own compiler.
 
 - All 434 built-in actions, typed, with documentation on hover.
-- 1,441 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 73 more.
+- 1,449 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 73 more.
 - Third-party app actions, given their descriptor.
 - If, Repeat, Repeat with Each, and Choose from Menu blocks.
 - A wrong key or value fails at compile time in TypeScript, and at `action()` in Python.
@@ -136,7 +136,7 @@ Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut")
 
 ## Status
 
-Extracted from macOS 27.0 and Shortcuts 10.0. A future macOS can break re-extraction, but not
+Extracted from macOS 27.2 and Shortcuts 10.0. A future macOS can break re-extraction, but not
 the published packages, which ship the data.
 
 ## Contributing

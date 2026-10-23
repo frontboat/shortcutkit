@@ -1986,7 +1986,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    *
    * Summary: `Get parent directory of ${WFInput}`
    *
-   * Output: Get Parent Directory
+   * Output: Parent Directory
    *
    * Parameters: `WFInput`
    */
@@ -4566,6 +4566,24 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_app_kit_table: "com.apple.AppKit.WritingToolsTransformTableIntent",
   /**
+   * **Install Application**
+   *
+   * Initiates the install process for a concrete Application from an App Marketplace. (App Store)
+   *
+   * Parameters: `application`
+   */
+  app_store_install_application: "com.apple.AppStore.InstallApplicationIntent",
+  /**
+   * **Find Marketplace Application**
+   *
+   *  (App Store)
+   *
+   * Output: Marketplace Application
+   *
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  app_store_find_marketplace_application: "com.apple.AppStore.MarketplaceApplication",
+  /**
    * **Search App Store**
    *
    * Navigate to search results. (App Store)
@@ -4724,14 +4742,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_magnifier_detect_text: "com.apple.Magnifier.DetectTextIntent",
   /**
-   * **Find This**
-   *
-   * FIND_SESSION_VQA_APP_INTENT_DESCRIPTION (Magnifier)
-   *
-   * Parameters: `searchTerm`
-   */
-  com_apple_magnifier_find_this: "com.apple.Magnifier.FindSessionAppIntent",
-  /**
    * **Follow Up**
    *
    * Ask a follow-up question about the current camera view. (Magnifier)
@@ -4866,7 +4876,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
   /**
    * **Add stops**
    *
-   * maps_MapsUpdateNavigationWaypointsIntent_1.0.0_intent_description (Maps)
+   * Update the list of waypoints for a navigation session. (Maps)
    *
    * Output: Current Route
    *
@@ -5042,25 +5052,37 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   messages_undo_send_message: "com.apple.MobileSMS.UnsendMessageIntent",
   /**
-   * **Add Music Items to Library**
+   * **Add Music Item to Library**
    *
-   * Adds the specified items to your Library (Music)
+   * Adds the specified item to your Library (Music)
    *
-   * Parameters: `audioEntity`, `ShowWhenRun`, `OpenWhenRun`
+   * Parameters: `audioEntity`, `musicAccountIDOverride`, `ShowWhenRun`
    */
-  music_add_music_items_to_library: "com.apple.Music.AddMusicItemToLibrarySiriIntent",
+  music_add_music_item_to_library: "com.apple.Music.AddMusicItemToLibrarySiriIntent",
   /**
-   * **Add Music Items to Playlist**
+   * **Add Music Item to Playlist**
    *
-   * Adds the specified items to a playlist (Music)
+   * Adds the specified item to a playlist (Music)
    *
-   * Parameters: `audioEntity`, `playlist`, `OpenWhenRun`
+   * Parameters: `audioEntity`, `playlist`, `musicAccountIDOverride`, `ShowWhenRun`
    */
-  music_add_music_items_to_playlist: "com.apple.Music.AddMusicItemToPlaylistSiriIntent",
+  music_add_music_item_to_playlist: "com.apple.Music.AddMusicItemToPlaylistSiriIntent",
   /**
-   * **Create station**
+   * **Create New Playlist**
    *
-   * Start a station based on the current playlist item (Music)
+   * Creates a new playlist with a title (Music)
+   *
+   * Output: Playlist
+   *
+   * Parameters: `name`, `content`, `musicAccountIDOverride`
+   */
+  music_create_new_playlist: "com.apple.Music.CreatePlaylistSiriIntent",
+  /**
+   * **Create Station**
+   *
+   * Creates a station based on the currently playing item (Music)
+   *
+   * Parameters: `requestIdentifierOverride`
    */
   music_create_station: "com.apple.Music.CreateStationSiriIntent",
   /**
@@ -5076,35 +5098,37 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    *
    * Plays the specified item on the desired devices (Music)
    *
-   * Parameters: `warmupAudioQueueResult`, `audioEntity`, `playbackAttributes`, `queueLocation`
+   * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `warmupAudioQueueResult`, `requestIdentifierOverride`, `musicAccountIDOverride`
    */
   music_play_audio: "com.apple.Music.PlayMusicItemSiriIntent",
   /**
-   * **SearchMusicSiriIntent_Title**
+   * **Search Music**
    *
-   * SearchMusicSiriIntent_Description (Music)
+   * Searches for the specified content in Apple Music (Music)
    *
    * Parameters: `criteria`
    */
-  music_search_music_siri_intent_title: "com.apple.Music.SearchMusicSiriIntent",
+  music_search_music: "com.apple.Music.SearchMusicSiriIntent",
   /**
    * **Set Music Item Affinity**
    *
    * Set the affinity of the specified item (Music)
    *
-   * Parameters: `target`, `affinityState`, `OpenWhenRun`
+   * Output: Album
+   *
+   * Parameters: `target`, `affinityState`, `musicAccountIDOverride`
    */
   music_set_music_item_affinity: "com.apple.Music.UpdateMusicItemAffinitySiriIntent",
   /**
-   * **WarmupMusicQueueSiriIntent_Title**
+   * **Warmup Audio Queue**
    *
-   * WarmupMusicQueueSiriIntent_Description (Music)
+   * Warmup the queue with the specified item on the desired devices (Music)
    *
    * Output: Warmup Audio Queue Result
    *
-   * Parameters: `audioEntity`, `playbackAttributes`
+   * Parameters: `audioEntity`, `playbackAttributes`, `requestIdentifierOverride`, `musicAccountIDOverride`
    */
-  music_warmup_music_queue_siri_intent_title: "com.apple.Music.WarmupMusicQueueSiriIntent",
+  music_warmup_audio_queue: "com.apple.Music.WarmupMusicQueueSiriIntent",
   /**
    * **Add File to Note**
    *
@@ -5583,6 +5607,8 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Clean Up**
    *
    * Opens the specified photo to Clean Up. (Photos)
+   *
+   * Parameters: `asset`
    */
   photos_clean_up: "com.apple.Photos.CleanupIntent",
   /**
@@ -5617,6 +5643,8 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Crop**
    *
    * Opens the photo to Crop. (Photos)
+   *
+   * Parameters: `asset`
    */
   photos_crop: "com.apple.Photos.CropIntent",
   /**
@@ -5658,7 +5686,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    *
    * Enables or disables Portrait mode for the photo. (Photos)
    *
-   * Parameters: `enabled`, `ShowWhenRun`
+   * Parameters: `asset`, `enabled`, `ShowWhenRun`
    */
   photos_portrait_mode: "com.apple.Photos.EnableDepthIntent",
   /**
@@ -5721,6 +5749,8 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * **Markup**
    *
    * Opens the photo to Markup. (Photos)
+   *
+   * Parameters: `asset`
    */
   photos_markup: "com.apple.Photos.MarkupIntent",
   /**
@@ -6106,7 +6136,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    *
    * Sets the aperture of the photo to the specified value. (Photos)
    *
-   * Parameters: `value`, `ShowWhenRun`
+   * Parameters: `asset`, `value`, `ShowWhenRun`
    */
   photos_set_aperture: "com.apple.Photos.SetApertureIntent",
   /**
@@ -6114,7 +6144,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    *
    * Sets the specified audio mix. (Photos)
    *
-   * Parameters: `audioMix`
+   * Parameters: `asset`, `audioMix`
    */
   photos_set_audio_mix: "com.apple.Photos.SetAudioMixIntent",
   /**
@@ -6122,7 +6152,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    *
    * Sets the exposure of the photo to the specified value. (Photos)
    *
-   * Parameters: `value`, `ShowWhenRun`
+   * Parameters: `asset`, `value`, `ShowWhenRun`
    */
   photos_set_exposure: "com.apple.Photos.SetExposureIntent",
   /**
@@ -6130,7 +6160,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    *
    * Sets the specified playback speed. (Photos)
    *
-   * Parameters: `playbackRate`
+   * Parameters: `asset`, `playbackRate`
    */
   photos_set_playback_speed: "com.apple.Photos.SetPlaybackRateIntent",
   /**
@@ -6138,7 +6168,7 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    *
    * Sets the saturation of the photo to the specified value. (Photos)
    *
-   * Parameters: `value`, `ShowWhenRun`
+   * Parameters: `asset`, `value`, `ShowWhenRun`
    */
   photos_set_saturation: "com.apple.Photos.SetSaturationIntent",
   /**
@@ -6146,13 +6176,15 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    *
    * Set the warmth of the photo to the specified value. (Photos)
    *
-   * Parameters: `value`, `ShowWhenRun`
+   * Parameters: `asset`, `value`, `ShowWhenRun`
    */
   photos_set_warmth: "com.apple.Photos.SetWarmthIntent",
   /**
    * **Straighten**
    *
    * Straightens the photo. (Photos)
+   *
+   * Parameters: `asset`
    */
   photos_straighten: "com.apple.Photos.StraightenIntent",
   /**
@@ -6608,6 +6640,60 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_settings_find_accessibility_settings: "com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink",
   /**
+   * **Get AirDrop**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Output: AirDrop
+   *
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  settings_get_air_drop: "com.apple.Settings.AirDropEntity",
+  /**
+   * **Update AirDrop**
+   *
+   * Change the AirDrop value of AirDrop (SettingsPlaceholder)
+   *
+   * Output: AirDrop
+   *
+   * Parameters: `entity`, `value`
+   */
+  settings_update_air_drop: "com.apple.Settings.AirDropEntity-UpdatableEntity",
+  /**
+   * **Find AirDrop & Continuity Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Output: AirDrop & Continuity Settings
+   *
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  com_apple_settings_find_air_drop_continuity_settings: "com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink",
+  /**
+   * **Check who can AirPlay to this computer**
+   *
+   * Check who can AirPlay to this computer (SettingsPlaceholder)
+   *
+   * Output: Allow AirPlay for
+   */
+  settings_check_who_can_air_play_to_this_computer: "com.apple.Settings.AirPlayIntent",
+  /**
+   * **Get AirPlay Receiver Status**
+   *
+   * Allow nearby Apple devices to send video and audio content to your Mac with AirPlay. (SettingsPlaceholder)
+   *
+   * Output: AirPlay Receiver Enabled
+   */
+  settings_get_air_play_receiver_status: "com.apple.Settings.AirPlayReceiverIntent",
+  /**
+   * **Get AirPlay Password Status**
+   *
+   * Ask for password when starting AirPlay. (SettingsPlaceholder)
+   *
+   * Output: AirPlay Password Enabled
+   */
+  settings_get_air_play_password_status: "com.apple.Settings.AirPlayRequiresPasswordIntent",
+  /**
    * **Find Apple Account Settings**
    *
    *  (SettingsPlaceholder)
@@ -6617,36 +6703,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_apple_account_settings: "com.apple.Settings.AppleAccountSettingsDeepLink",
-  /**
-   * **Find Application Notifications**
-   *
-   *  (SettingsPlaceholder)
-   *
-   * Output: Application Notifications
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  com_apple_settings_find_application_notifications: "com.apple.Settings.ApplicationNotificationsSettings",
-  /**
-   * **Edit Application Notifications**
-   *
-   * Edit Application Notifications
- • Alert style
- • Critical alerts
- • Allow notifications
- • Time sensitive notifications
- • Badge application icon
- • Notification grouping
- • Play sound for notification
- • Show in Notification Center
- • Show notifications on lock screen
- • Show previews (SettingsPlaceholder)
-   *
-   * Output: Application Notifications
-   *
-   * Parameters: `alertStyle`, `allowCriticalAlerts`, `allowNotifications`, `allowTimeSensitive`, `badgeAppIcon`, `entity`, `notificationGrouping`, `playSounds`, `showInNotificationCenter`, `showOnLockScreen`, `showPreviews`
-   */
-  com_apple_settings_edit_application_notifications: "com.apple.Settings.ApplicationNotificationsSettings-UpdatableEntity",
   /**
    * **Get Automatically Set Date & Time**
    *
@@ -6781,18 +6837,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `announceTime`, `clockStyle`, `entity`, `flashSeparators`, `showAMPM`, `showDate`, `showDayOfWeek`, `showSeconds`, `timeAnnouncementsInterval`
    */
   com_apple_settings_edit_clock_options: "com.apple.Settings.ClockOptionsEntity-UpdatableEntity",
-  /**
-   * **Edit Control Center Module**
-   *
-   * Edit Control Center Module
- • Always Show in Menu Bar
- • Show in Menu Bar (SettingsPlaceholder)
-   *
-   * Output: Control Center Module
-   *
-   * Parameters: `alwaysShowInMenuBar`, `entity`, `showInMenuBar`
-   */
-  com_apple_settings_edit_control_center_module: "com.apple.Settings.ControlCenterModule-UpdatableEntity",
   /**
    * **Find Menu Bar Settings**
    *
@@ -6998,6 +7042,14 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_settings_get_startup_disk: "com.apple.Settings.GetStartupDiskIntent",
   /**
+   * **Get Handoff Status**
+   *
+   * Allow Handoff between this Mac and your iCloud devices (SettingsPlaceholder)
+   *
+   * Output: Handoff Enabled
+   */
+  settings_get_handoff_status: "com.apple.Settings.HandoffIntent",
+  /**
    * **Get 24-Hour Time**
    *
    *  (SettingsPlaceholder)
@@ -7037,6 +7089,18 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_language_region_settings: "com.apple.Settings.LocalizationSettingsDeepLink",
+  /**
+   * **Edit Menu Bar Control**
+   *
+   * Edit Menu Bar Control
+ • Always Show in Menu Bar
+ • Show in Menu Bar (SettingsPlaceholder)
+   *
+   * Output: Menu Bar Control
+   *
+   * Parameters: `alwaysShowInMenuBar`, `entity`, `showInMenuBar`
+   */
+  com_apple_settings_edit_menu_bar_control: "com.apple.Settings.MenuBarControl-UpdatableEntity",
   /**
    * **Get Mission Control**
    *
@@ -7156,6 +7220,14 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_settings_open_accessibility_settings: "com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink",
   /**
+   * **Open AirDrop & Continuity Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Parameters: `target`
+   */
+  com_apple_settings_open_air_drop_continuity_settings: "com.apple.Settings.OpenAirDropHandoffExtensionSettingsDeepLink",
+  /**
    * **Open Apple Account Settings**
    *
    *  (SettingsPlaceholder)
@@ -7163,14 +7235,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `target`
    */
   com_apple_settings_open_apple_account_settings: "com.apple.Settings.OpenAppleAccountSettingsDeepLink",
-  /**
-   * **Open Application Notifications Settings**
-   *
-   *  (SettingsPlaceholder)
-   *
-   * Parameters: `target`
-   */
-  com_apple_settings_open_application_notifications_settings: "com.apple.Settings.OpenApplicationNotificationsSettings",
   /**
    * **Open Automatically Set Date & Time Setting**
    *
@@ -7251,14 +7315,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `target`
    */
   com_apple_settings_open_an_internet_accountʼs_settings: "com.apple.Settings.OpenConfiguredInternetAccountSettings",
-  /**
-   * **Open Control Center module setting**
-   *
-   *  (SettingsPlaceholder)
-   *
-   * Parameters: `target`
-   */
-  com_apple_settings_open_control_center_module_setting: "com.apple.Settings.OpenControlCenterModule",
   /**
    * **Open Menu Bar Settings**
    *
@@ -7404,6 +7460,14 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_settings_open_language_region_settings: "com.apple.Settings.OpenLocalizationSettingsDeepLink",
   /**
+   * **Open Menu Bar Controls setting**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Parameters: `target`
+   */
+  com_apple_settings_open_menu_bar_controls_setting: "com.apple.Settings.OpenMenuBarControl",
+  /**
    * **Open Mission Control Settings**
    *
    *  (SettingsPlaceholder)
@@ -7475,6 +7539,38 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `target`
    */
   com_apple_settings_open_software_update_settings: "com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink",
+  /**
+   * **Open Sound Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Parameters: `target`
+   */
+  com_apple_settings_open_sound_settings: "com.apple.Settings.OpenSoundSettingsDeepLink",
+  /**
+   * **Open Feedback Sound Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Parameters: `target`
+   */
+  com_apple_settings_open_feedback_sound_settings: "com.apple.Settings.OpenSoundSettingsFeedbackSoundEntity",
+  /**
+   * **Open User Interface Sound Effects Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Parameters: `target`
+   */
+  com_apple_settings_open_user_interface_sound_effects_settings: "com.apple.Settings.OpenSoundSettingsInterfaceEffectsEntity",
+  /**
+   * **Open Startup Sound Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Parameters: `target`
+   */
+  com_apple_settings_open_startup_sound_settings: "com.apple.Settings.OpenSoundSettingsStartupSoundEntity",
   /**
    * **Open Search Settings**
    *
@@ -7600,16 +7696,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_settings_find_about_settings: "com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink",
   /**
-   * **Find AirDrop & Continuity Settings**
-   *
-   *  (SettingsPlaceholder)
-   *
-   * Output: AirDrop & Continuity Settings
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  com_apple_settings_find_air_drop_continuity_settings: "com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink",
-  /**
    * **Find Appearance Settings**
    *
    *  (SettingsPlaceholder)
@@ -7667,14 +7753,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `target`
    */
   com_apple_settings_open_about_settings: "com.apple.Settings.PlaceholderOpenAboutExtensionSettingsDeepLink",
-  /**
-   * **Open AirDrop & Continuity Settings**
-   *
-   *  (SettingsPlaceholder)
-   *
-   * Parameters: `target`
-   */
-  com_apple_settings_open_air_drop_continuity_settings: "com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink",
   /**
    * **Open Appearance Settings**
    *
@@ -7740,14 +7818,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_settings_open_sharing_settings: "com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink",
   /**
-   * **Open Sound Settings**
-   *
-   *  (SettingsPlaceholder)
-   *
-   * Parameters: `target`
-   */
-  com_apple_settings_open_sound_settings: "com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink",
-  /**
    * **Open Transfer or Reset Settings**
    *
    *  (SettingsPlaceholder)
@@ -7793,16 +7863,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_sharing_settings: "com.apple.Settings.PlaceholderSharingSettingsDeepLink",
-  /**
-   * **Find Sound Settings**
-   *
-   *  (SettingsPlaceholder)
-   *
-   * Output: Sound Settings
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  com_apple_settings_find_sound_settings: "com.apple.Settings.PlaceholderSoundSettingsDeepLink",
   /**
    * **Find Transfer or Reset Settings**
    *
@@ -7988,16 +8048,6 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_settings_update_show_screen_saver_as_wallpaper_on_main_display: "com.apple.Settings.ShowAsWallpaperEntity-UpdatableEntity",
   /**
-   * **Get Show Battery Percentage**
-   *
-   *  (SettingsPlaceholder)
-   *
-   * Output: Show Battery Percentage
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  com_apple_settings_get_show_battery_percentage: "com.apple.Settings.ShowBatteryPercentageEntity",
-  /**
    * **Update Show Battery Percentage**
    *
    * Change the Show Battery Percentage value of Show Battery Percentage (SettingsPlaceholder)
@@ -8103,6 +8153,76 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
   com_apple_settings_find_software_update_settings: "com.apple.Settings.SoftwareUpdateSettingsExtensionSettingsDeepLink",
+  /**
+   * **Find Sound Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Output: Sound Settings
+   *
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  com_apple_settings_find_sound_settings: "com.apple.Settings.SoundSettingsDeepLink",
+  /**
+   * **Get Feedback Sound Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Output: Feedback Sound Settings
+   *
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  com_apple_settings_get_feedback_sound_settings: "com.apple.Settings.SoundSettingsFeedbackSoundEntity",
+  /**
+   * **Update a Feedback Sound Settings's Play feedback when volume is changed**
+   *
+   * Change the Play feedback when volume is changed value of Feedback Sound Settings (SettingsPlaceholder)
+   *
+   * Output: Feedback Sound Settings
+   *
+   * Parameters: `entity`, `value`
+   */
+  com_apple_settings_update_a_feedback_sound_settings_s_play_feedback_when_volume_is_changed: "com.apple.Settings.SoundSettingsFeedbackSoundEntity-UpdatableEntity",
+  /**
+   * **Get User Interface Sound Effects Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Output: User Interface Sound Effects Settings
+   *
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  com_apple_settings_get_user_interface_sound_effects_settings: "com.apple.Settings.SoundSettingsInterfaceEffectsEntity",
+  /**
+   * **Update a User Interface Sound Effects Settings's Play user interface sound effects**
+   *
+   * Change the Play user interface sound effects value of User Interface Sound Effects Settings (SettingsPlaceholder)
+   *
+   * Output: User Interface Sound Effects Settings
+   *
+   * Parameters: `entity`, `value`
+   */
+  com_apple_settings_update_a_user_interface_sound_effects_settings_s_play_user_interface_sound_effects: "com.apple.Settings.SoundSettingsInterfaceEffectsEntity-UpdatableEntity",
+  /**
+   * **Get Startup Sound Settings**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Output: Startup Sound Settings
+   *
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  com_apple_settings_get_startup_sound_settings: "com.apple.Settings.SoundSettingsStartupSoundEntity",
+  /**
+   * **Update a Startup Sound Settings's Play sound on startup**
+   *
+   * Change the Play sound on startup value of Startup Sound Settings (SettingsPlaceholder)
+   *
+   * Output: Startup Sound Settings
+   *
+   * Parameters: `entity`, `value`
+   */
+  com_apple_settings_update_a_startup_sound_settings_s_play_sound_on_startup: "com.apple.Settings.SoundSettingsStartupSoundEntity-UpdatableEntity",
   /**
    * **Find Search Settings**
    *
@@ -8424,25 +8544,25 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    */
   com_apple_Settings_TrackpadSmartZoomEntity_UpdatableEntity: "com.apple.Settings.TrackpadSmartZoomEntity-UpdatableEntity",
   /**
-   * **Get Swipe between pages**
+   * **Get Swipe between spaces**
    *
    *  (SettingsPlaceholder)
    *
-   * Output: Swipe between pages
+   * Output: Swipe between spaces
    *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
-  com_apple_Settings_TrackpadSwipeBetweenAppsEntity: "com.apple.Settings.TrackpadSwipeBetweenAppsEntity",
+  com_apple_settings_get_swipe_between_spaces: "com.apple.Settings.TrackpadSwipeBetweenAppsEntity",
   /**
-   * **Update Swipe between pages**
+   * **Update Swipe between spaces**
    *
-   * Change the Swipe between pages value of Swipe between pages (SettingsPlaceholder)
+   * Change the Swipe between spaces value of Swipe between spaces (SettingsPlaceholder)
    *
-   * Output: Swipe between pages
+   * Output: Swipe between spaces
    *
    * Parameters: `entity`, `value`
    */
-  com_apple_Settings_TrackpadSwipeBetweenAppsEntity_UpdatableEntity: "com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity",
+  com_apple_settings_update_swipe_between_spaces: "com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity",
   /**
    * **Get Swipe between pages**
    *
@@ -8586,6 +8706,26 @@ Water Lock protects against accidental input when you use your Apple Watch in wa
    * Parameters: `entity`, `showWidgetsInStageManager`, `showWidgetsOnDesktop`, `widgetAppearance`
    */
   com_apple_settings_edit_widget_settings: "com.apple.Settings.WidgetSettingsEntity-UpdatableEntity",
+  /**
+   * **Get iPhone Widgets**
+   *
+   *  (SettingsPlaceholder)
+   *
+   * Output: iPhone Widgets
+   *
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  settings_get_iphone_widgets: "com.apple.Settings.WidgetsAndOnenessEntity",
+  /**
+   * **Update iPhone Widgets**
+   *
+   * Change the iPhone Widgets value of iPhone Widgets (SettingsPlaceholder)
+   *
+   * Output: iPhone Widgets
+   *
+   * Parameters: `entity`, `useiPhoneWidgets`
+   */
+  settings_update_iphone_widgets: "com.apple.Settings.WidgetsAndOnenessEntity-UpdatableEntity",
   /**
    * **Get Windows Settings**
    *
@@ -9808,6 +9948,56 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   finder_trash_items: "com.apple.finder.TrashItemsIntent",
   /**
+   * **Set Geo Fence notification on a person’s movement**
+   *
+   * Create a geofence notification that alerts the geofence creator when a LocatablePerson (other than the creator) meets the trigger condition (Find My)
+   *
+   * Output: Geofence
+   *
+   * Parameters: `person`, `isRecurring`, `trigger`, `location`, `OpenWhenRun`
+   */
+  com_apple_findmy_set_geo_fence_notification_on_a_person_s_movement: "com.apple.findmy.CreateIncomingGeofenceIntent",
+  /**
+   * **Set Geofence notification to be received by person**
+   *
+   * Create a geofence notification that alerts a LocatablePerson (other than the creator) when the geofence creator meets the trigger condition. (Find My)
+   *
+   * Output: Geofence
+   *
+   * Parameters: `person`, `isRecurring`, `trigger`, `location`, `OpenWhenRun`
+   */
+  com_apple_findmy_set_geofence_notification_to_be_received_by_person: "com.apple.findmy.CreateOutgoingGeofenceIntent",
+  /**
+   * **Find Item**
+   *
+   * Find item location in the background. This will wait until we find the device location before returning. (Find My)
+   *
+   * Output: Item Location Response
+   *
+   * Parameters: `item`, `OpenWhenRun`
+   */
+  com_apple_findmy_find_item: "com.apple.findmy.FindItemIntent",
+  /**
+   * **Find Person**
+   *
+   * Find a person’s location. (Find My)
+   *
+   * Output: Location
+   *
+   * Parameters: `person`, `OpenWhenRun`
+   */
+  com_apple_findmy_find_person: "com.apple.findmy.FindPersonIntent",
+  /**
+   * **Find Geofence**
+   *
+   *  (Find My)
+   *
+   * Output: Geofence
+   *
+   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   */
+  com_apple_findmy_find_geofence: "com.apple.findmy.GeofenceEntity",
+  /**
    * **Find Item**
    *
    *  (Find My)
@@ -9816,7 +10006,31 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
-  com_apple_findmy_find_item: "com.apple.findmy.ItemEntity",
+  com_apple_findmy_ItemEntity: "com.apple.findmy.ItemEntity",
+  /**
+   * **Open Item**
+   *
+   * Opens Item in the Find My app (Find My)
+   *
+   * Parameters: `target`, `showDetails`
+   */
+  com_apple_findmy_open_item: "com.apple.findmy.OpenItemIntent",
+  /**
+   * **Open Module**
+   *
+   * Opens module in the Find My app (Find My)
+   *
+   * Parameters: `target`
+   */
+  com_apple_findmy_open_module: "com.apple.findmy.OpenModuleIntent",
+  /**
+   * **Open Person**
+   *
+   * Opens Person in the Find My app (Find My)
+   *
+   * Parameters: `target`, `showDetails`
+   */
+  com_apple_findmy_open_person: "com.apple.findmy.OpenPersonIntent",
   /**
    * **Find Person**
    *
@@ -9826,27 +10040,15 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    *
    * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
    */
-  com_apple_findmy_find_person: "com.apple.findmy.PersonEntity",
+  com_apple_findmy_PersonEntity: "com.apple.findmy.PersonEntity",
   /**
-   * **Find Item**
+   * **Set Location Sharing Setting**
    *
-   *  (Find My)
+   * Turn location sharing on/off (Find My)
    *
-   * Output: Item
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
+   * Parameters: `isEnabled`
    */
-  com_apple_findmy_WidgetItemEntity: "com.apple.findmy.WidgetItemEntity",
-  /**
-   * **Find Person**
-   *
-   *  (Find My)
-   *
-   * Output: Person
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  com_apple_findmy_WidgetPersonEntity: "com.apple.findmy.WidgetPersonEntity",
+  com_apple_findmy_set_location_sharing_setting: "com.apple.findmy.SetShareLocationSettingIntent",
   /**
    * **Add Item to Board**
    *
@@ -10123,8 +10325,8 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Edit Book Settings
  • Font
  • Font Size
- • Is Allow Multiple Columns
- • Is Text Justified
+ • Allow Multiple Columns
+ • Text Justified
  • Page Navigation Setting
  • Theme (Books)
    *
@@ -10350,7 +10552,7 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    *
    * Jumps to the date of the given event and highlights it. (Calendar)
    *
-   * Parameters: `target`
+   * Parameters: `target`, `additionalEvents`
    */
   calendar_highlight_event: "com.apple.iCal.HighlightEventIntent",
   /**
@@ -11444,6 +11646,12 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   news_get_news_settings: "com.apple.news.WFGetAppSettingAction",
   /**
+   * **DoNotUseThisExtensionIntent**
+   *
+   *  (SearchToolExtension)
+   */
+  com_apple_omni_search_search_tool_extension_do_not_use_this_extension_intent: "com.apple.omniSearch.SearchToolExtension.DoNotUseThisExtensionIntent",
+  /**
    * **Search**
    *
    * Answer user's query (SearchToolExtension)
@@ -11460,7 +11668,7 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    *
    * Output: SearchTool control command result
    *
-   * Parameters: `command`, `originatorPID`, `useMiniMC`
+   * Parameters: `command`
    */
   com_apple_omni_search_search_tool_extension_search_tool_control: "com.apple.omniSearch.SearchToolExtension.SearchToolControl",
   /**
@@ -11468,7 +11676,7 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    *
    * Adds audio item to the user's library (Podcasts)
    *
-   * Parameters: `audioEntity`
+   * Parameters: `audioEntity`, `linkcliPersonaIDOverride`
    */
   podcasts_add_audio_to_library: "com.apple.podcasts.AddAudioToLibraryIntent",
   /**
@@ -11850,7 +12058,7 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    *
    * Output: Reminder
    *
-   * Parameters: `title`, `note`, `isFlagged`, `images`, `tags`, `urls`, `dueDate`, `recurrence`, `locationTrigger`, `list`, `section`, `isAllDay`, `earlyAlert`, `vehicleTrigger`, `priorityLevel`, `parentReminder`, `contactPerson`, `assignedPerson`, `subtasks`
+   * Parameters: `title`, `note`, `isFlagged`, `images`, `tags`, `urls`, `dueDate`, `recurrence`, `locationTrigger`, `list`, `section`, `isAllDay`, `earlyAlert`, `isUrgent`, `vehicleTrigger`, `priorityLevel`, `parentReminder`, `contactPerson`, `assignedPerson`, `subtasks`
    */
   reminders_create_reminder: "com.apple.reminders.TTRCreateReminderAppIntent",
   /**
@@ -11959,7 +12167,7 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    *
    * Output: Reminder
    *
-   * Parameters: `target`, `isCompleted`, `isFlagged`, `title`, `note`, `images`, `tags`, `urls`, `dueDate`, `recurrence`, `locationTrigger`, `subtasks`, `list`, `section`, `earlyAlert`, `vehicleTrigger`, `contactPerson`, `assignedPerson`, `priorityLevel`, `parent`
+   * Parameters: `target`, `isCompleted`, `isFlagged`, `title`, `note`, `images`, `tags`, `urls`, `dueDate`, `recurrence`, `locationTrigger`, `subtasks`, `list`, `section`, `earlyAlert`, `isUrgent`, `vehicleTrigger`, `contactPerson`, `assignedPerson`, `priorityLevel`, `parent`
    */
   reminders_update_reminder_properties: "com.apple.reminders.UpdateReminderAppIntent",
   /**
@@ -12195,6 +12403,14 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_shortcuts_stop_shortcut: "com.apple.shortcuts.StopWorkflowAction",
   /**
+   * **Dummy intent to ensure AppSearchEntity is indexed**
+   *
+   * Dummy intent to ensure AppSearchEntity is indexed (com.apple.siri.-MarketplaceIntents-AppIntents)
+   *
+   * Parameters: `appSearch`
+   */
+  com_apple_siri_marketplace_intents_app_intents_dummy_intent_to_ensure_app_search_entity_is_indexed: "com.apple.siri.-MarketplaceIntents-AppIntents.DummyIntent",
+  /**
    * **Add Audio Item to Library**
    *
    * Add an audio item to the person’s library (AudioAppIntentsExtension)
@@ -12242,14 +12458,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `target`, `adjustmentType`, `value`, `isPercentage`
    */
   com_apple_siri_PhotosFlowTools_SiriPhotosFlowTools_EditPhotoWarmth_com_apple_Photos: "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos",
-  /**
-   * **InteractiveInstallApplicationTool**
-   *
-   * A standalone tool to interactively install or update marketplace applications. (SiriAppLaunchFlowTools)
-   *
-   * Parameters: `applications`, `isUpdate`
-   */
-  com_apple_siri_SiriAppLaunchFlowTools_SiriAppLaunchFlowTools_InteractiveInstallApplicationTool: "com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool",
   /**
    * **AddAudioToLibrary**
    *
@@ -12307,13 +12515,13 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_siri_SiriAudioTools_SiriAudioTools_UpdateAudioAffinityTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music",
   /**
-   * **CrisisDialog**
+   * **Get Crisis Resources**
    *
-   * Handles crisis dialog for emergency and CSAM situations (SiriCrisisFlowTools)
+   * Offline lookup of verified crisis-support resources (SiriCrisisFlowTools)
    *
-   * Parameters: `situation`
+   * Parameters: `resourceCategories`
    */
-  com_apple_siri_SiriCrisisFlowTools_SiriCrisisFlowTools_CrisisDialogFlowTool: "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool",
+  com_apple_siri_SiriCrisisFlowTools_SiriCrisisFlowTools_GetCrisisResourcesFlowTool: "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool",
   /**
    * **Get Current Location**
    *
@@ -12596,6 +12804,38 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `content`
    */
   com_apple_siri_SiriVideoFlowTools_SiriVideoFlowTools_FindVideoContentTool: "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool",
+  /**
+   * **Create Incoming Geofence**
+   *
+   * Create an incoming geofence notification for a person at a location. (Find My)
+   *
+   * Parameters: `person`, `location`, `trigger`, `isRecurring`
+   */
+  com_apple_siri_findmy_SiriFindMyFlowTools_SiriFindMyFlowTools_CreateIncomingGeofenceTool_com_apple_findmy: "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy",
+  /**
+   * **Create Outgoing Geofence**
+   *
+   * Create an outgoing geofence notification for a person at a location. (Find My)
+   *
+   * Parameters: `person`, `location`, `trigger`, `isRecurring`
+   */
+  com_apple_siri_findmy_SiriFindMyFlowTools_SiriFindMyFlowTools_CreateOutgoingGeofenceTool_com_apple_findmy: "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy",
+  /**
+   * **Find Item Location**
+   *
+   * Find the location of a Find My item. (Find My)
+   *
+   * Parameters: `item`
+   */
+  com_apple_siri_findmy_SiriFindMyFlowTools_SiriFindMyFlowTools_FindItemLocationTool_com_apple_findmy: "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy",
+  /**
+   * **Play Item Sound**
+   *
+   * Play a sound on a Find My item. (Find My)
+   *
+   * Parameters: `item`
+   */
+  com_apple_siri_findmy_SiriFindMyFlowTools_SiriFindMyFlowTools_PlayItemSoundTool_com_apple_findmy: "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy",
   /**
    * **Messages Post Reading Action Tool**
    *
@@ -12998,50 +13238,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `entity`, `value`
    */
   settings_update_accent_color: "com.apple.systempreferences.AccentColorEntity-UpdatableEntity",
-  /**
-   * **Get AirDrop**
-   *
-   *  (System Settings)
-   *
-   * Output: AirDrop
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  settings_get_air_drop: "com.apple.systempreferences.AirDropEntity",
-  /**
-   * **Update AirDrop**
-   *
-   * Change the AirDrop value of AirDrop (System Settings)
-   *
-   * Output: AirDrop
-   *
-   * Parameters: `entity`, `value`
-   */
-  settings_update_air_drop: "com.apple.systempreferences.AirDropEntity-UpdatableEntity",
-  /**
-   * **Check who can AirPlay to this computer**
-   *
-   * Check who can AirPlay to this computer (System Settings)
-   *
-   * Output: Allow AirPlay for
-   */
-  settings_check_who_can_air_play_to_this_computer: "com.apple.systempreferences.AirPlayIntent",
-  /**
-   * **Get AirPlay Receiver Status**
-   *
-   * Allow nearby Apple devices to send video and audio content to your Mac with AirPlay. (System Settings)
-   *
-   * Output: AirPlay Receiver Enabled
-   */
-  settings_get_air_play_receiver_status: "com.apple.systempreferences.AirPlayReceiverIntent",
-  /**
-   * **Get AirPlay Password Status**
-   *
-   * Ask for password when starting AirPlay. (System Settings)
-   *
-   * Output: AirPlay Password Enabled
-   */
-  settings_get_air_play_password_status: "com.apple.systempreferences.AirPlayRequiresPasswordIntent",
   /**
    * **Get Tint window background with wallpaper color**
    *
@@ -16317,14 +16513,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   settings_get_guest_user_s_status: "com.apple.systempreferences.GuestStatusIntent",
   /**
-   * **Get Handoff Status**
-   *
-   * Allow Handoff between this Mac and your iCloud devices (System Settings)
-   *
-   * Output: Handoff Enabled
-   */
-  settings_get_handoff_status: "com.apple.systempreferences.HandoffIntent",
-  /**
    * **Get Highlight color**
    *
    *  (System Settings)
@@ -16609,14 +16797,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   settings_open_accessibility_zoom_settings: "com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks",
   /**
-   * **Open AirDrop & Continuity**
-   *
-   *  (System Settings)
-   *
-   * Parameters: `target`
-   */
-  settings_open_air_drop_continuity: "com.apple.systempreferences.OpenAirDropHandoffDeepLinks",
-  /**
    * **Open Appearance Settings**
    *
    *  (System Settings)
@@ -16760,38 +16940,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `target`
    */
   settings_open_share_keyboard_and_mouse: "com.apple.systempreferences.OpenShareKeyboardEntityDeepLink",
-  /**
-   * **Open Sound**
-   *
-   *  (System Settings)
-   *
-   * Parameters: `target`
-   */
-  settings_open_sound: "com.apple.systempreferences.OpenSoundSettingsDeepLinks",
-  /**
-   * **Open Feedback Sound Settings**
-   *
-   *  (System Settings)
-   *
-   * Parameters: `target`
-   */
-  settings_open_feedback_sound_settings: "com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity",
-  /**
-   * **Open User Interface Sound Effects Settings**
-   *
-   *  (System Settings)
-   *
-   * Parameters: `target`
-   */
-  settings_open_user_interface_sound_effects_settings: "com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity",
-  /**
-   * **Open Startup Sound Settings**
-   *
-   *  (System Settings)
-   *
-   * Parameters: `target`
-   */
-  settings_open_startup_sound_settings: "com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity",
   /**
    * **Open Transfer or Reset**
    *
@@ -16971,66 +17119,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   settings_update_sidebar_icon_size: "com.apple.systempreferences.SidebarIconSizeEntity-UpdatableEntity",
   /**
-   * **Get Feedback Sound Settings**
-   *
-   *  (System Settings)
-   *
-   * Output: Feedback Sound Settings
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  settings_get_feedback_sound_settings: "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity",
-  /**
-   * **Update a Feedback Sound Settings's Play feedback when volume is changed**
-   *
-   * Change the Play feedback when volume is changed value of Feedback Sound Settings (System Settings)
-   *
-   * Output: Feedback Sound Settings
-   *
-   * Parameters: `entity`, `value`
-   */
-  settings_update_a_feedback_sound_settings_s_play_feedback_when_volume_is_changed: "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity-UpdatableEntity",
-  /**
-   * **Get User Interface Sound Effects Settings**
-   *
-   *  (System Settings)
-   *
-   * Output: User Interface Sound Effects Settings
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  settings_get_user_interface_sound_effects_settings: "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity",
-  /**
-   * **Update a User Interface Sound Effects Settings's Play user interface sound effects**
-   *
-   * Change the Play user interface sound effects value of User Interface Sound Effects Settings (System Settings)
-   *
-   * Output: User Interface Sound Effects Settings
-   *
-   * Parameters: `entity`, `value`
-   */
-  settings_update_a_user_interface_sound_effects_settings_s_play_user_interface_sound_effects: "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity-UpdatableEntity",
-  /**
-   * **Get Startup Sound Settings**
-   *
-   *  (System Settings)
-   *
-   * Output: Startup Sound Settings
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  settings_get_startup_sound_settings: "com.apple.systempreferences.SoundSettingsStartupSoundEntity",
-  /**
-   * **Update a Startup Sound Settings's Play sound on startup**
-   *
-   * Change the Play sound on startup value of Startup Sound Settings (System Settings)
-   *
-   * Output: Startup Sound Settings
-   *
-   * Parameters: `entity`, `value`
-   */
-  settings_update_a_startup_sound_settings_s_play_sound_on_startup: "com.apple.systempreferences.SoundSettingsStartupSoundEntity-UpdatableEntity",
-  /**
    * **High Power Mode**
    *
    *  (System Settings)
@@ -17132,26 +17220,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `connectOnDemand`, `entity`
    */
   settings_update_a_vpn_configuration_s_connect_on_demand: "com.apple.systempreferences.VPNConfigurationEntity-UpdatableEntity",
-  /**
-   * **Get iPhone Widgets**
-   *
-   *  (System Settings)
-   *
-   * Output: iPhone Widgets
-   *
-   * Parameters: `WFContentItemFilter`, `WFContentItemSortProperty`, `WFContentItemSortOrder`, `WFContentItemLimitEnabled`, `WFContentItemLimitNumber`, `WFCompoundType`, `WFContentItemInputParameter`
-   */
-  settings_get_iphone_widgets: "com.apple.systempreferences.WidgetsAndOnenessEntity",
-  /**
-   * **Update iPhone Widgets**
-   *
-   * Change the iPhone Widgets value of iPhone Widgets (System Settings)
-   *
-   * Output: iPhone Widgets
-   *
-   * Parameters: `entity`, `useiPhoneWidgets`
-   */
-  settings_update_iphone_widgets: "com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity",
   /**
    * **Find User Notification Type**
    *
@@ -17622,7 +17690,7 @@ export const ACTIONS = {
   "is.workflow.actions.getnameofemoji": { name: "Get Name of Emoji", params: ["WFInput"], output: "Name of Emoji", outputTypes: ["NSString"] },
   "is.workflow.actions.getonscreencontent": { name: "Get What’s On Screen", params: [], output: "On-Screen Content", outputTypes: ["public.data"] },
   "is.workflow.actions.getonscreencontext": { name: "Get What’s On Screen", params: ["WFOnScreenContextResultType", "WFOnScreenContextScope", "WFOnScreenContextLimitEnabled", "WFOnScreenContextLimit"], output: "On-Screen Content", outputTypes: ["WFContentItem", "WFStringContentItem", "WFURLContentItem", "WFCalendarEventContentItem", "WFContactContentItem", "WFEmailContentItem", "WFMessageContentItem", "WFPhotoMediaContentItem", "WFReminderContentItem", "WFLinkEntityContentItem"] },
-  "is.workflow.actions.getparentdirectory": { name: "Get Parent Directory", params: ["WFInput"], output: "Get Parent Directory", outputTypes: ["public.folder"] },
+  "is.workflow.actions.getparentdirectory": { name: "Get Parent Directory", params: ["WFInput"], output: "Parent Directory", outputTypes: ["public.folder"] },
   "is.workflow.actions.getparkedcarlocation": { name: "Get Parked Car Location", params: [], output: "Car Location", outputTypes: ["WFParkedCarContentItem"] },
   "is.workflow.actions.getpodcastsfromlibrary": { name: "Get Podcasts from Library", params: [], output: "Podcasts", outputTypes: ["WFPodcastShowContentItem"] },
   "is.workflow.actions.getrichtextfromhtml": { name: "Make Rich Text from HTML", params: ["WFHTML"], output: "Rich Text from HTML", outputTypes: ["public.html"] },
@@ -17880,6 +17948,8 @@ export const ACTIONS = {
   "com.apple.AppKit.WritingToolsTransformKeyPointsIntent": { name: "Key Points", params: ["app", "processInstanceIdentifier"], output: "Writing Tools Result", outputTypes: ["com.apple.AppKit.WritingToolsResult"], descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsTransformKeyPointsIntent" } },
   "com.apple.AppKit.WritingToolsTransformListIntent": { name: "List", params: ["app", "processInstanceIdentifier"], output: "Writing Tools Result", outputTypes: ["com.apple.AppKit.WritingToolsResult"], descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsTransformListIntent" } },
   "com.apple.AppKit.WritingToolsTransformTableIntent": { name: "Table", params: ["app", "processInstanceIdentifier"], output: "Writing Tools Result", outputTypes: ["com.apple.AppKit.WritingToolsResult"], descriptor: { BundleIdentifier: "com.apple.AppKit", Name: "com.apple.AppKit", TeamIdentifier: "0000000000", AppIntentIdentifier: "WritingToolsTransformTableIntent" } },
+  "com.apple.AppStore.InstallApplicationIntent": { name: "Install Application", params: ["application"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.AppStore", Name: "App Store", TeamIdentifier: "0000000000", AppIntentIdentifier: "InstallApplicationIntent" } },
+  "com.apple.AppStore.MarketplaceApplication": { name: "Find Marketplace Application", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Marketplace Application", outputTypes: ["com.apple.AppStore.MarketplaceApplication"], descriptor: { BundleIdentifier: "com.apple.AppStore", Name: "App Store", TeamIdentifier: "0000000000", AppIntentIdentifier: "MarketplaceApplication" } },
   "com.apple.AppStore.SystemSearchIntent": { name: "Search App Store", params: ["criteria"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.AppStore", Name: "App Store", TeamIdentifier: "0000000000", AppIntentIdentifier: "SystemSearchIntent" } },
   "com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks": { name: "Open Game Center Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.GameCenter.Settings.DeviceExpertExtension", Name: "GameCenterSettingsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenGameCenterSettingsDeepLinks" } },
   "com.apple.GenerativePlaygroundApp.CreateImageIntent": { name: "Create Image", params: ["prompt", "style", "input_image_path", "previously_generated_image_id", "ShowWhenRun"], output: "Image", outputTypes: ["com.apple.GenerativePlaygroundApp.GeneratedImageEntity"], descriptor: { BundleIdentifier: "com.apple.GenerativePlaygroundApp", Name: "Image Playground", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateImageIntent" } },
@@ -17899,7 +17969,6 @@ export const ACTIONS = {
   "com.apple.Magnifier.DetectFurnitureIntent": { name: "Detect Furniture", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectFurnitureIntent" } },
   "com.apple.Magnifier.DetectPeopleIntent": { name: "Detect People", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectPeopleIntent" } },
   "com.apple.Magnifier.DetectTextIntent": { name: "Detect Text", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "DetectTextIntent" } },
-  "com.apple.Magnifier.FindSessionAppIntent": { name: "Find This", params: ["searchTerm"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindSessionAppIntent" } },
   "com.apple.Magnifier.FollowUpVQAAppIntent": { name: "Follow Up", params: ["prompt"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowUpVQAAppIntent" } },
   "com.apple.Magnifier.PointAndSpeakIntent": { name: "Start Point & Speak", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "PointAndSpeakIntent" } },
   "com.apple.Magnifier.ReaderModeIntent": { name: "Open Reader", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Magnifier", Name: "Magnifier", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReaderModeIntent" } },
@@ -17936,14 +18005,15 @@ export const ACTIONS = {
   "com.apple.MobileSMS.SetConversationReadStatusIntent": { name: "Set Conversation Read Status", params: ["conversation", "isRead"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetConversationReadStatusIntent" } },
   "com.apple.MobileSMS.SetMessageReadStatusIntent": { name: "Set Message Read Status", params: ["message", "isRead"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetMessageReadStatusIntent" } },
   "com.apple.MobileSMS.UnsendMessageIntent": { name: "Undo Send Message", params: ["message"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsendMessageIntent" } },
-  "com.apple.Music.AddMusicItemToLibrarySiriIntent": { name: "Add Music Items to Library", params: ["audioEntity", "ShowWhenRun", "OpenWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddMusicItemToLibrarySiriIntent" } },
-  "com.apple.Music.AddMusicItemToPlaylistSiriIntent": { name: "Add Music Items to Playlist", params: ["audioEntity", "playlist", "OpenWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddMusicItemToPlaylistSiriIntent" } },
-  "com.apple.Music.CreateStationSiriIntent": { name: "Create station", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateStationSiriIntent" } },
+  "com.apple.Music.AddMusicItemToLibrarySiriIntent": { name: "Add Music Item to Library", params: ["audioEntity", "musicAccountIDOverride", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddMusicItemToLibrarySiriIntent" } },
+  "com.apple.Music.AddMusicItemToPlaylistSiriIntent": { name: "Add Music Item to Playlist", params: ["audioEntity", "playlist", "musicAccountIDOverride", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddMusicItemToPlaylistSiriIntent" } },
+  "com.apple.Music.CreatePlaylistSiriIntent": { name: "Create New Playlist", params: ["name", "content", "musicAccountIDOverride"], output: "Playlist", outputTypes: ["com.apple.Music.PlaylistSiriEntity"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreatePlaylistSiriIntent" } },
+  "com.apple.Music.CreateStationSiriIntent": { name: "Create Station", params: ["requestIdentifierOverride"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateStationSiriIntent" } },
   "com.apple.Music.OpenMusicItemSiriIntent": { name: "Open Music Item", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMusicItemSiriIntent" } },
-  "com.apple.Music.PlayMusicItemSiriIntent": { name: "Play Audio", params: ["warmupAudioQueueResult", "audioEntity", "playbackAttributes", "queueLocation"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayMusicItemSiriIntent" } },
-  "com.apple.Music.SearchMusicSiriIntent": { name: "SearchMusicSiriIntent_Title", params: ["criteria"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMusicSiriIntent" } },
-  "com.apple.Music.UpdateMusicItemAffinitySiriIntent": { name: "Set Music Item Affinity", params: ["target", "affinityState", "OpenWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateMusicItemAffinitySiriIntent" } },
-  "com.apple.Music.WarmupMusicQueueSiriIntent": { name: "WarmupMusicQueueSiriIntent_Title", params: ["audioEntity", "playbackAttributes"], output: "Warmup Audio Queue Result", outputTypes: ["com.apple.Music.WarmupMusicQueueResultSiriEntity"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "WarmupMusicQueueSiriIntent" } },
+  "com.apple.Music.PlayMusicItemSiriIntent": { name: "Play Audio", params: ["audioEntity", "playbackAttributes", "queueLocation", "warmupAudioQueueResult", "requestIdentifierOverride", "musicAccountIDOverride"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlayMusicItemSiriIntent" } },
+  "com.apple.Music.SearchMusicSiriIntent": { name: "Search Music", params: ["criteria"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchMusicSiriIntent" } },
+  "com.apple.Music.UpdateMusicItemAffinitySiriIntent": { name: "Set Music Item Affinity", params: ["target", "affinityState", "musicAccountIDOverride"], output: "Album", outputTypes: ["com.apple.Music.AlbumSiriEntity", "com.apple.Music.AlgorithmicStationSiriEntity", "com.apple.Music.ArtistSiriEntity", "com.apple.Music.LiveStationSiriEntity", "com.apple.Music.PlaylistSiriEntity", "com.apple.Music.RadioShowEpisodeSiriEntity", "com.apple.Music.RadioShowSiriEntity", "com.apple.Music.SongCollectionSiriEntity", "com.apple.Music.SongSiriEntity"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateMusicItemAffinitySiriIntent" } },
+  "com.apple.Music.WarmupMusicQueueSiriIntent": { name: "Warmup Audio Queue", params: ["audioEntity", "playbackAttributes", "requestIdentifierOverride", "musicAccountIDOverride"], output: "Warmup Audio Queue Result", outputTypes: ["com.apple.Music.WarmupMusicQueueResultSiriEntity"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "WarmupMusicQueueSiriIntent" } },
   "com.apple.Notes.AddFileAttachmentLinkAction": { name: "Add File to Note", params: ["name", "file", "note", "OpenWhenRun"], output: "Attachment", outputTypes: ["com.apple.Notes.AttachmentEntity"], descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddFileAttachmentLinkAction" } },
   "com.apple.Notes.AddLinkAttachmentLinkAction": { name: "Add Link", params: ["name", "url", "note", "OpenWhenRun"], output: "Attachment", outputTypes: ["com.apple.Notes.AttachmentEntity"], descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddLinkAttachmentLinkAction" } },
   "com.apple.Notes.AddOrRemoveNoteLockLinkAction": { name: "Add or Remove Note Lock", params: ["operation", "target", "OpenWhenRun"], output: "Note", outputTypes: ["com.apple.Notes.NoteEntity"], descriptor: { BundleIdentifier: "com.apple.Notes", Name: "Notes", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddOrRemoveNoteLockLinkAction" } },
@@ -17998,16 +18068,16 @@ export const ACTIONS = {
   "com.apple.Photos.ApplyFilterIntent": { name: "Apply Filter", params: ["asset", "effect"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplyFilterIntent" } },
   "com.apple.Photos.ApplyStyleIntent": { name: "Apply Style", params: ["asset", "style"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplyStyleIntent" } },
   "com.apple.Photos.AssetEntity": { name: "Find Photo", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Photo", outputTypes: ["com.apple.Photos.AssetEntity"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "AssetEntity" } },
-  "com.apple.Photos.CleanupIntent": { name: "Clean Up", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CleanupIntent" } },
+  "com.apple.Photos.CleanupIntent": { name: "Clean Up", params: ["asset"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CleanupIntent" } },
   "com.apple.Photos.CopyPasteEditsIntent": { name: "Copy and Paste Edits", params: ["sourceAsset", "destinationAssets"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CopyPasteEditsIntent" } },
   "com.apple.Photos.CreateAlbumIntent": { name: "Create Album", params: ["title", "OpenWhenRun"], output: "Album", outputTypes: ["com.apple.Photos.AlbumEntity"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateAlbumIntent" } },
   "com.apple.Photos.CreateAssetsIntent": { name: "Save to Photos", params: ["files", "OpenWhenRun"], output: "Photo", outputTypes: ["com.apple.Photos.AssetEntity"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateAssetsIntent" } },
-  "com.apple.Photos.CropIntent": { name: "Crop", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CropIntent" } },
+  "com.apple.Photos.CropIntent": { name: "Crop", params: ["asset"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "CropIntent" } },
   "com.apple.Photos.DeleteAlbumsIntent": { name: "Delete Albums", params: ["entities"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAlbumsIntent" } },
   "com.apple.Photos.DeleteAssetsIntent": { name: "Delete Photos", params: ["entities"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DeleteAssetsIntent" } },
   "com.apple.Photos.DuplicateAssetsIntent": { name: "Duplicate Photos", params: ["assets", "OpenWhenRun"], output: "Photo", outputTypes: ["com.apple.Photos.AssetEntity"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "DuplicateAssetsIntent" } },
   "com.apple.Photos.EditAssetIntent": { name: "Edit Photo", params: ["asset"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditAssetIntent" } },
-  "com.apple.Photos.EnableDepthIntent": { name: "Portrait Mode", params: ["enabled", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EnableDepthIntent" } },
+  "com.apple.Photos.EnableDepthIntent": { name: "Portrait Mode", params: ["asset", "enabled", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EnableDepthIntent" } },
   "com.apple.Photos.EnhanceIntent": { name: "Auto Enhance Photo", params: ["assets", "enabled"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "EnhanceIntent" } },
   "com.apple.Photos.FavoriteAssetsIntent": { name: "Favorite Photos", params: ["assets", "action"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FavoriteAssetsIntent" } },
   "com.apple.Photos.FavoriteMemoriesIntent": { name: "Favorite Memories", params: ["memories", "action"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FavoriteMemoriesIntent" } },
@@ -18015,7 +18085,7 @@ export const ACTIONS = {
   "com.apple.Photos.FilterLibraryIntent": { name: "Set Library View", params: ["viewMode"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "FilterLibraryIntent" } },
   "com.apple.Photos.HideAssetsIntent": { name: "Hide Photos", params: ["assets", "action"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "HideAssetsIntent" } },
   "com.apple.Photos.HidePeopleIntent": { name: "Hide People or Pets", params: ["people", "action"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "HidePeopleIntent" } },
-  "com.apple.Photos.MarkupIntent": { name: "Markup", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MarkupIntent" } },
+  "com.apple.Photos.MarkupIntent": { name: "Markup", params: ["asset"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MarkupIntent" } },
   "com.apple.Photos.MemoryEntity": { name: "Find Memory", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Memory", outputTypes: ["com.apple.Photos.MemoryEntity"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MemoryEntity" } },
   "com.apple.Photos.MoveAssetsToPersonalLibraryIntent": { name: "Move to Personal Library", params: ["assets"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveAssetsToPersonalLibraryIntent" } },
   "com.apple.Photos.MoveAssetsToSharedLibraryIntent": { name: "Move to Shared Library", params: ["assets"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "MoveAssetsToSharedLibraryIntent" } },
@@ -18062,13 +18132,13 @@ export const ACTIONS = {
   "com.apple.Photos.RevealAlbumsIntent": { name: "REVEAL_ALBUMS_INTENT_TITLE", params: ["albums"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealAlbumsIntent" } },
   "com.apple.Photos.RevealAssetsIntent": { name: "REVEAL_ASSETS_INTENT_TITLE", params: ["assets", "pluralDestination"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealAssetsIntent" } },
   "com.apple.Photos.RotateIntent": { name: "Rotate", params: ["assets", "clockwise"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "RotateIntent" } },
-  "com.apple.Photos.SetApertureIntent": { name: "Set Aperture", params: ["value", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetApertureIntent" } },
-  "com.apple.Photos.SetAudioMixIntent": { name: "Set Audio Mix", params: ["audioMix"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetAudioMixIntent" } },
-  "com.apple.Photos.SetExposureIntent": { name: "Set Exposure", params: ["value", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetExposureIntent" } },
-  "com.apple.Photos.SetPlaybackRateIntent": { name: "Set Playback Speed", params: ["playbackRate"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetPlaybackRateIntent" } },
-  "com.apple.Photos.SetSaturationIntent": { name: "Set Saturation", params: ["value", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetSaturationIntent" } },
-  "com.apple.Photos.SetWarmthIntent": { name: "Set Warmth", params: ["value", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWarmthIntent" } },
-  "com.apple.Photos.StraightenIntent": { name: "Straighten", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "StraightenIntent" } },
+  "com.apple.Photos.SetApertureIntent": { name: "Set Aperture", params: ["asset", "value", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetApertureIntent" } },
+  "com.apple.Photos.SetAudioMixIntent": { name: "Set Audio Mix", params: ["asset", "audioMix"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetAudioMixIntent" } },
+  "com.apple.Photos.SetExposureIntent": { name: "Set Exposure", params: ["asset", "value", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetExposureIntent" } },
+  "com.apple.Photos.SetPlaybackRateIntent": { name: "Set Playback Speed", params: ["asset", "playbackRate"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetPlaybackRateIntent" } },
+  "com.apple.Photos.SetSaturationIntent": { name: "Set Saturation", params: ["asset", "value", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetSaturationIntent" } },
+  "com.apple.Photos.SetWarmthIntent": { name: "Set Warmth", params: ["asset", "value", "ShowWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWarmthIntent" } },
+  "com.apple.Photos.StraightenIntent": { name: "Straighten", params: ["asset"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "StraightenIntent" } },
   "com.apple.Preview.AutoEnhanceIntent": { name: "Enhance Documents", params: ["target", "OpenWhenRun"], output: "Document", outputTypes: ["com.apple.Preview.DocumentEntity"], descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoEnhanceIntent" } },
   "com.apple.Preview.BookmarkIntent": { name: "Bookmark Pages", params: ["pages", "OpenWhenRun"], output: "Page", outputTypes: ["com.apple.Preview.PageEntity"], descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "BookmarkIntent" } },
   "com.apple.Preview.CloseIntent": { name: "Close Documents", params: ["documents"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Preview", Name: "Preview", TeamIdentifier: "0000000000", AppIntentIdentifier: "CloseIntent" } },
@@ -18119,9 +18189,13 @@ export const ACTIONS = {
   "com.apple.Safari.TabGroupEntity": { name: "Find Tab Groups", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Tab Group", outputTypes: ["com.apple.Safari.TabGroupEntity"], descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "TabGroupEntity" } },
   "com.apple.Safari.WindowEntity": { name: "Find Window", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Window", outputTypes: ["com.apple.Safari.WindowEntity"], descriptor: { BundleIdentifier: "com.apple.Safari", Name: "Safari", TeamIdentifier: "0000000000", AppIntentIdentifier: "WindowEntity" } },
   "com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink": { name: "Find Accessibility Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Accessibility Settings", outputTypes: ["com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AccessibilitySettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.AirDropEntity": { name: "Get AirDrop", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "AirDrop", outputTypes: ["com.apple.Settings.AirDropEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirDropEntity" } },
+  "com.apple.Settings.AirDropEntity-UpdatableEntity": { name: "Update AirDrop", params: ["entity", "value"], output: "AirDrop", outputTypes: ["com.apple.Settings.AirDropEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirDropEntity-UpdatableEntity" } },
+  "com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink": { name: "Find AirDrop & Continuity Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "AirDrop & Continuity Settings", outputTypes: ["com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirDropHandoffExtensionSettingsDeepLink" } },
+  "com.apple.Settings.AirPlayIntent": { name: "Check who can AirPlay to this computer", params: [], output: "Allow AirPlay for", outputTypes: ["com.apple.Settings.AirPlayAccessEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirPlayIntent" } },
+  "com.apple.Settings.AirPlayReceiverIntent": { name: "Get AirPlay Receiver Status", params: [], output: "AirPlay Receiver Enabled", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirPlayReceiverIntent" } },
+  "com.apple.Settings.AirPlayRequiresPasswordIntent": { name: "Get AirPlay Password Status", params: [], output: "AirPlay Password Enabled", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirPlayRequiresPasswordIntent" } },
   "com.apple.Settings.AppleAccountSettingsDeepLink": { name: "Find Apple Account Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Apple Account Settings", outputTypes: ["com.apple.Settings.AppleAccountSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AppleAccountSettingsDeepLink" } },
-  "com.apple.Settings.ApplicationNotificationsSettings": { name: "Find Application Notifications", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Application Notifications", outputTypes: ["com.apple.Settings.ApplicationNotificationsSettings"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplicationNotificationsSettings" } },
-  "com.apple.Settings.ApplicationNotificationsSettings-UpdatableEntity": { name: "Edit Application Notifications", params: ["alertStyle", "allowCriticalAlerts", "allowNotifications", "allowTimeSensitive", "badgeAppIcon", "entity", "notificationGrouping", "playSounds", "showInNotificationCenter", "showOnLockScreen", "showPreviews"], output: "Application Notifications", outputTypes: ["com.apple.Settings.ApplicationNotificationsSettings"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ApplicationNotificationsSettings-UpdatableEntity" } },
   "com.apple.Settings.AutoDateTimeEntity": { name: "Get Automatically Set Date & Time", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Automatically Set Date & Time", outputTypes: ["com.apple.Settings.AutoDateTimeEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoDateTimeEntity" } },
   "com.apple.Settings.AutoHideMenuBarOptionEntity": { name: "Get Automatically hide and show the menu bar", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Automatically hide and show the menu bar", outputTypes: ["com.apple.Settings.AutoHideMenuBarOptionEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoHideMenuBarOptionEntity" } },
   "com.apple.Settings.AutoHideMenuBarOptionEntity-UpdatableEntity": { name: "Update Automatically hide and show the menu bar", params: ["autoHideMenuBar", "entity"], output: "Automatically hide and show the menu bar", outputTypes: ["com.apple.Settings.AutoHideMenuBarOptionEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "AutoHideMenuBarOptionEntity-UpdatableEntity" } },
@@ -18135,7 +18209,6 @@ export const ACTIONS = {
   "com.apple.Settings.ClassKitSettingsSettingsDeepLink": { name: "Find Class Progress Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Class Progress Settings", outputTypes: ["com.apple.Settings.ClassKitSettingsSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClassKitSettingsSettingsDeepLink" } },
   "com.apple.Settings.ClassroomDynamicDeepLinks": { name: "Find Classroom Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Classroom Settings", outputTypes: ["com.apple.Settings.ClassroomDynamicDeepLinks"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClassroomDynamicDeepLinks" } },
   "com.apple.Settings.ClockOptionsEntity-UpdatableEntity": { name: "Edit Clock Options", params: ["announceTime", "clockStyle", "entity", "flashSeparators", "showAMPM", "showDate", "showDayOfWeek", "showSeconds", "timeAnnouncementsInterval"], output: "Clock Options", outputTypes: ["com.apple.Settings.ClockOptionsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ClockOptionsEntity-UpdatableEntity" } },
-  "com.apple.Settings.ControlCenterModule-UpdatableEntity": { name: "Edit Control Center Module", params: ["alwaysShowInMenuBar", "entity", "showInMenuBar"], output: "Control Center Module", outputTypes: ["com.apple.Settings.ControlCenterModule"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ControlCenterModule-UpdatableEntity" } },
   "com.apple.Settings.ControlCenterSettingsSettingsDeepLink": { name: "Find Menu Bar Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Menu Bar Settings", outputTypes: ["com.apple.Settings.ControlCenterSettingsSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ControlCenterSettingsSettingsDeepLink" } },
   "com.apple.Settings.DateAndTimeExtensionSettingsDeepLink": { name: "Find Date & Time Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Date & Time Settings", outputTypes: ["com.apple.Settings.DateAndTimeExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "DateAndTimeExtensionSettingsDeepLink" } },
   "com.apple.Settings.DateTimeEntity": { name: "Get The Current Date & Time", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "The Current Date & Time", outputTypes: ["com.apple.Settings.DateTimeEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "DateTimeEntity" } },
@@ -18155,10 +18228,12 @@ export const ACTIONS = {
   "com.apple.Settings.GameCenterMacOsSettingsExtensionSettingsDeepLink": { name: "Find Game Center Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Game Center Settings", outputTypes: ["com.apple.Settings.GameCenterMacOsSettingsExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GameCenterMacOsSettingsExtensionSettingsDeepLink" } },
   "com.apple.Settings.GameControllerMacSettingsSettingsDeepLink": { name: "Find Game Controllers Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Game Controllers Settings", outputTypes: ["com.apple.Settings.GameControllerMacSettingsSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GameControllerMacSettingsSettingsDeepLink" } },
   "com.apple.Settings.GetStartupDiskIntent": { name: "Get Startup Disk", params: [], output: "Name of the current startup disk", outputTypes: ["string"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetStartupDiskIntent" } },
+  "com.apple.Settings.HandoffIntent": { name: "Get Handoff Status", params: [], output: "Handoff Enabled", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "HandoffIntent" } },
   "com.apple.Settings.HourFormatEntity": { name: "Get 24-Hour Time", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "24-Hour Time", outputTypes: ["com.apple.Settings.HourFormatEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "HourFormatEntity" } },
   "com.apple.Settings.HourFormatEntity-UpdatableEntity": { name: "Update 24-Hour Time", params: ["entity", "value"], output: "24-Hour Time", outputTypes: ["com.apple.Settings.HourFormatEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "HourFormatEntity-UpdatableEntity" } },
   "com.apple.Settings.KeyboardSettingsSettingsDeepLink": { name: "Find Keyboard Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Keyboard Settings", outputTypes: ["com.apple.Settings.KeyboardSettingsSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "KeyboardSettingsSettingsDeepLink" } },
   "com.apple.Settings.LocalizationSettingsDeepLink": { name: "Find Language & Region Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Language & Region Settings", outputTypes: ["com.apple.Settings.LocalizationSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "LocalizationSettingsDeepLink" } },
+  "com.apple.Settings.MenuBarControl-UpdatableEntity": { name: "Edit Menu Bar Control", params: ["alwaysShowInMenuBar", "entity", "showInMenuBar"], output: "Menu Bar Control", outputTypes: ["com.apple.Settings.MenuBarControl"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "MenuBarControl-UpdatableEntity" } },
   "com.apple.Settings.MissionControlEntity": { name: "Get Mission Control", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Mission Control", outputTypes: ["com.apple.Settings.MissionControlEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "MissionControlEntity" } },
   "com.apple.Settings.MissionControlEntity-UpdatableEntity": { name: "Update Mission Control", params: ["entity", "value"], output: "Mission Control", outputTypes: ["com.apple.Settings.MissionControlEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "MissionControlEntity-UpdatableEntity" } },
   "com.apple.Settings.MissionControlSettingsEntity": { name: "Get Mission Control Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Mission Control Settings", outputTypes: ["com.apple.Settings.MissionControlSettingsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "MissionControlSettingsEntity" } },
@@ -18170,8 +18245,8 @@ export const ACTIONS = {
   "com.apple.Settings.NotificationCenterEntity-UpdatableEntity": { name: "Edit Notification Center", params: ["allowWhenLocked", "allowWhenSharing", "allowWhenSleeping", "entity", "showPreviews", "summarizePreviews"], output: "Notification Center", outputTypes: ["com.apple.Settings.NotificationCenterEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "NotificationCenterEntity-UpdatableEntity" } },
   "com.apple.Settings.NotificationsSettingsSettingsDeepLink": { name: "Find Notifications Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Notifications Settings", outputTypes: ["com.apple.Settings.NotificationsSettingsSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "NotificationsSettingsSettingsDeepLink" } },
   "com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink": { name: "Open Accessibility Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilitySettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenAirDropHandoffExtensionSettingsDeepLink": { name: "Open AirDrop & Continuity Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAirDropHandoffExtensionSettingsDeepLink" } },
   "com.apple.Settings.OpenAppleAccountSettingsDeepLink": { name: "Open Apple Account Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppleAccountSettingsDeepLink" } },
-  "com.apple.Settings.OpenApplicationNotificationsSettings": { name: "Open Application Notifications Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenApplicationNotificationsSettings" } },
   "com.apple.Settings.OpenAutomaticallySetDateTimeSetting": { name: "Open Automatically Set Date & Time Setting", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutomaticallySetDateTimeSetting" } },
   "com.apple.Settings.OpenAutomaticallySetTimeZoneSetting": { name: "Open Automatically Set Time Zone Setting", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutomaticallySetTimeZoneSetting" } },
   "com.apple.Settings.OpenBiometricsAndPasswordSettingsEntityDeepLinks": { name: "Open Touch ID & Password Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenBiometricsAndPasswordSettingsEntityDeepLinks" } },
@@ -18182,7 +18257,6 @@ export const ACTIONS = {
   "com.apple.Settings.OpenClassroomDynamicDeepLinks": { name: "Open Classroom Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenClassroomDynamicDeepLinks" } },
   "com.apple.Settings.OpenClockOptionsEntity": { name: "Open Clock Options", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenClockOptionsEntity" } },
   "com.apple.Settings.OpenConfiguredInternetAccountSettings": { name: "Open an Internet Accountʼs Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenConfiguredInternetAccountSettings" } },
-  "com.apple.Settings.OpenControlCenterModule": { name: "Open Control Center module setting", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenControlCenterModule" } },
   "com.apple.Settings.OpenControlCenterSettingsSettingsDeepLink": { name: "Open Menu Bar Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenControlCenterSettingsSettingsDeepLink" } },
   "com.apple.Settings.OpenCurrentTimeZoneSetting": { name: "Open the Current Time Zone Setting", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCurrentTimeZoneSetting" } },
   "com.apple.Settings.OpenDateAndTimeExtensionSettingsDeepLink": { name: "Open Date & Time Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenDateAndTimeExtensionSettingsDeepLink" } },
@@ -18201,6 +18275,7 @@ export const ACTIONS = {
   "com.apple.Settings.OpenInternetAccountsSettings": { name: "Open List of Internet Accounts", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenInternetAccountsSettings" } },
   "com.apple.Settings.OpenKeyboardSettingsSettingsDeepLink": { name: "Open Keyboard Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenKeyboardSettingsSettingsDeepLink" } },
   "com.apple.Settings.OpenLocalizationSettingsDeepLink": { name: "Open Language & Region Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenLocalizationSettingsDeepLink" } },
+  "com.apple.Settings.OpenMenuBarControl": { name: "Open Menu Bar Controls setting", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMenuBarControl" } },
   "com.apple.Settings.OpenMissionControlSettingsEntity": { name: "Open Mission Control Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMissionControlSettingsEntity" } },
   "com.apple.Settings.OpenMouseExtensionSettingsDeepLink": { name: "Open Mouse Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenMouseExtensionSettingsDeepLink" } },
   "com.apple.Settings.OpenNotificationCenterEntity": { name: "Open Notification Center Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenNotificationCenterEntity" } },
@@ -18210,6 +18285,10 @@ export const ACTIONS = {
   "com.apple.Settings.OpenScreenTimeDeepLinksIntent": { name: "Open Screen Time Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenScreenTimeDeepLinksIntent" } },
   "com.apple.Settings.OpenSiriSetupSettingsDeepLink": { name: "Open Siri Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSiriSetupSettingsDeepLink" } },
   "com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink": { name: "Open Software Update Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoftwareUpdateSettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.OpenSoundSettingsDeepLink": { name: "Open Sound Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsDeepLink" } },
+  "com.apple.Settings.OpenSoundSettingsFeedbackSoundEntity": { name: "Open Feedback Sound Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsFeedbackSoundEntity" } },
+  "com.apple.Settings.OpenSoundSettingsInterfaceEffectsEntity": { name: "Open User Interface Sound Effects Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsInterfaceEffectsEntity" } },
+  "com.apple.Settings.OpenSoundSettingsStartupSoundEntity": { name: "Open Startup Sound Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsStartupSoundEntity" } },
   "com.apple.Settings.OpenSpotlightSettingsDeepLinks": { name: "Open Search Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSpotlightSettingsDeepLinks" } },
   "com.apple.Settings.OpenStartupDiskSettingsDeepLink": { name: "Open Startup Disk Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStartupDiskSettingsDeepLink" } },
   "com.apple.Settings.OpenStartupDiskStaticDeepLinks": { name: "Open Startup Disk Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenStartupDiskStaticDeepLinks" } },
@@ -18225,14 +18304,12 @@ export const ACTIONS = {
   "com.apple.Settings.OpenWindowsSettingsEntity": { name: "Open Windows Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenWindowsSettingsEntity" } },
   "com.apple.Settings.PasswordsSettingsExtensionSettingsDeepLink": { name: "Find Passwords Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Passwords Settings", outputTypes: ["com.apple.Settings.PasswordsSettingsExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PasswordsSettingsExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink": { name: "Find About Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "About Settings", outputTypes: ["com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderAboutExtensionSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink": { name: "Find AirDrop & Continuity Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "AirDrop & Continuity Settings", outputTypes: ["com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderAirDropHandoffExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderAppearanceSettingsDeepLink": { name: "Find Appearance Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Appearance Settings", outputTypes: ["com.apple.Settings.PlaceholderAppearanceSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderAppearanceSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderDisplaysExtSettingsDeepLink": { name: "Find Displays Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Displays Settings", outputTypes: ["com.apple.Settings.PlaceholderDisplaysExtSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderDisplaysExtSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderLockScreenSettingsDeepLink": { name: "Find Lock Screen Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Lock Screen Settings", outputTypes: ["com.apple.Settings.PlaceholderLockScreenSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderLockScreenSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderLoginItemsSettingsDeepLink": { name: "Find Login Items Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Login Items Settings", outputTypes: ["com.apple.Settings.PlaceholderLoginItemsSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderLoginItemsSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderNetworkSettingsDeepLink": { name: "Find Network Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Network Settings", outputTypes: ["com.apple.Settings.PlaceholderNetworkSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderNetworkSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderOpenAboutExtensionSettingsDeepLink": { name: "Open About Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenAboutExtensionSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink": { name: "Open AirDrop & Continuity Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderOpenAppearanceSettingsDeepLink": { name: "Open Appearance Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenAppearanceSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderOpenDisplaysExtSettingsDeepLink": { name: "Open Displays Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenDisplaysExtSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderOpenLockScreenSettingsDeepLink": { name: "Open Lock Screen Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenLockScreenSettingsDeepLink" } },
@@ -18241,13 +18318,11 @@ export const ACTIONS = {
   "com.apple.Settings.PlaceholderOpenPrinterScannerSettingsSettingsDeepLink": { name: "Open Printers & Scanners Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenPrinterScannerSettingsSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink": { name: "Open Privacy & Security Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink": { name: "Open Sharing Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenSharingSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink": { name: "Open Sound Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenSoundSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderOpenTransferResetExtensionSettingsDeepLink": { name: "Open Transfer or Reset Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenTransferResetExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderOpenUsersGroupsSettingsDeepLink": { name: "Open Users & Groups Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderOpenUsersGroupsSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderPrinterScannerSettingsSettingsDeepLink": { name: "Find Printers & Scanners Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Printers & Scanners Settings", outputTypes: ["com.apple.Settings.PlaceholderPrinterScannerSettingsSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderPrinterScannerSettingsSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderSecurityPrivacyExtensionSettingsDeepLink": { name: "Find Privacy & Security Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Privacy & Security Settings", outputTypes: ["com.apple.Settings.PlaceholderSecurityPrivacyExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderSecurityPrivacyExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderSharingSettingsDeepLink": { name: "Find Sharing Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Sharing Settings", outputTypes: ["com.apple.Settings.PlaceholderSharingSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderSharingSettingsDeepLink" } },
-  "com.apple.Settings.PlaceholderSoundSettingsDeepLink": { name: "Find Sound Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Sound Settings", outputTypes: ["com.apple.Settings.PlaceholderSoundSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderSoundSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderTransferResetExtensionSettingsDeepLink": { name: "Find Transfer or Reset Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Transfer or Reset Settings", outputTypes: ["com.apple.Settings.PlaceholderTransferResetExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderTransferResetExtensionSettingsDeepLink" } },
   "com.apple.Settings.PlaceholderUsersGroupsSettingsDeepLink": { name: "Find Users & Groups Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Users & Groups Settings", outputTypes: ["com.apple.Settings.PlaceholderUsersGroupsSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PlaceholderUsersGroupsSettingsDeepLink" } },
   "com.apple.Settings.PrefPanesDeepLink": { name: "Find Legacy Preference Pane Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Legacy Preference Pane Settings", outputTypes: ["com.apple.Settings.PrefPanesDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrefPanesDeepLink" } },
@@ -18267,7 +18342,6 @@ export const ACTIONS = {
   "com.apple.Settings.ShowAsScreenSaverEntity-UpdatableEntity": { name: "Update Show wallpaper as screen saver on main display", params: ["entity", "value"], output: "Show wallpaper as screen saver on main display", outputTypes: ["com.apple.Settings.ShowAsScreenSaverEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowAsScreenSaverEntity-UpdatableEntity" } },
   "com.apple.Settings.ShowAsWallpaperEntity": { name: "Get Show screen saver as wallpaper on main display", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Show screen saver as wallpaper on main display", outputTypes: ["com.apple.Settings.ShowAsWallpaperEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowAsWallpaperEntity" } },
   "com.apple.Settings.ShowAsWallpaperEntity-UpdatableEntity": { name: "Update Show screen saver as wallpaper on main display", params: ["entity", "value"], output: "Show screen saver as wallpaper on main display", outputTypes: ["com.apple.Settings.ShowAsWallpaperEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowAsWallpaperEntity-UpdatableEntity" } },
-  "com.apple.Settings.ShowBatteryPercentageEntity": { name: "Get Show Battery Percentage", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Show Battery Percentage", outputTypes: ["com.apple.Settings.ShowBatteryPercentageEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowBatteryPercentageEntity" } },
   "com.apple.Settings.ShowBatteryPercentageEntity-UpdatableEntity": { name: "Update Show Battery Percentage", params: ["entity", "showBatteryPercentage"], output: "Show Battery Percentage", outputTypes: ["com.apple.Settings.ShowBatteryPercentageEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowBatteryPercentageEntity-UpdatableEntity" } },
   "com.apple.Settings.ShowMenuBarBackgroundEntity-UpdatableEntity": { name: "Update Show menu bar background", params: ["entity", "showMenuBarBackground"], output: "Show menu bar background", outputTypes: ["com.apple.Settings.ShowMenuBarBackgroundEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowMenuBarBackgroundEntity-UpdatableEntity" } },
   "com.apple.Settings.ShowScreenSaverOnAllSpacesEntity": { name: "Get Show screen saver on all Spaces", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Show screen saver on all Spaces", outputTypes: ["com.apple.Settings.ShowScreenSaverOnAllSpacesEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowScreenSaverOnAllSpacesEntity" } },
@@ -18279,6 +18353,13 @@ export const ACTIONS = {
   "com.apple.Settings.SmartZoomEntity-UpdatableEntity": { name: "Update Smart zoom", params: ["entity", "value"], output: "Smart zoom", outputTypes: ["com.apple.Settings.SmartZoomEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SmartZoomEntity-UpdatableEntity" } },
   "com.apple.Settings.SoftwareUpdateSettingsExtensionIntents": { name: "SoftwareUpdateSettingsExtensionIntents", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoftwareUpdateSettingsExtensionIntents" } },
   "com.apple.Settings.SoftwareUpdateSettingsExtensionSettingsDeepLink": { name: "Find Software Update Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Software Update Settings", outputTypes: ["com.apple.Settings.SoftwareUpdateSettingsExtensionSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoftwareUpdateSettingsExtensionSettingsDeepLink" } },
+  "com.apple.Settings.SoundSettingsDeepLink": { name: "Find Sound Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Sound Settings", outputTypes: ["com.apple.Settings.SoundSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsDeepLink" } },
+  "com.apple.Settings.SoundSettingsFeedbackSoundEntity": { name: "Get Feedback Sound Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Feedback Sound Settings", outputTypes: ["com.apple.Settings.SoundSettingsFeedbackSoundEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsFeedbackSoundEntity" } },
+  "com.apple.Settings.SoundSettingsFeedbackSoundEntity-UpdatableEntity": { name: "Update a Feedback Sound Settings's Play feedback when volume is changed", params: ["entity", "value"], output: "Feedback Sound Settings", outputTypes: ["com.apple.Settings.SoundSettingsFeedbackSoundEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsFeedbackSoundEntity-UpdatableEntity" } },
+  "com.apple.Settings.SoundSettingsInterfaceEffectsEntity": { name: "Get User Interface Sound Effects Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "User Interface Sound Effects Settings", outputTypes: ["com.apple.Settings.SoundSettingsInterfaceEffectsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsInterfaceEffectsEntity" } },
+  "com.apple.Settings.SoundSettingsInterfaceEffectsEntity-UpdatableEntity": { name: "Update a User Interface Sound Effects Settings's Play user interface sound effects", params: ["entity", "value"], output: "User Interface Sound Effects Settings", outputTypes: ["com.apple.Settings.SoundSettingsInterfaceEffectsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsInterfaceEffectsEntity-UpdatableEntity" } },
+  "com.apple.Settings.SoundSettingsStartupSoundEntity": { name: "Get Startup Sound Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Startup Sound Settings", outputTypes: ["com.apple.Settings.SoundSettingsStartupSoundEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsStartupSoundEntity" } },
+  "com.apple.Settings.SoundSettingsStartupSoundEntity-UpdatableEntity": { name: "Update a Startup Sound Settings's Play sound on startup", params: ["entity", "value"], output: "Startup Sound Settings", outputTypes: ["com.apple.Settings.SoundSettingsStartupSoundEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsStartupSoundEntity-UpdatableEntity" } },
   "com.apple.Settings.SpotlightSettingsDeepLinks": { name: "Find Search Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Search Settings", outputTypes: ["com.apple.Settings.SpotlightSettingsDeepLinks"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SpotlightSettingsDeepLinks" } },
   "com.apple.Settings.StartupDiskSettingsDeepLink": { name: "Find Startup Disk Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Startup Disk Settings", outputTypes: ["com.apple.Settings.StartupDiskSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartupDiskSettingsDeepLink" } },
   "com.apple.Settings.StorageSettingsDeepLink": { name: "Find Storage Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Storage Settings", outputTypes: ["com.apple.Settings.StorageSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "StorageSettingsDeepLink" } },
@@ -18311,8 +18392,8 @@ export const ACTIONS = {
   "com.apple.Settings.TrackpadShowDesktopEntity-UpdatableEntity": { name: "Update Show Desktop", params: ["entity", "value"], output: "Show Desktop", outputTypes: ["com.apple.Settings.TrackpadShowDesktopEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadShowDesktopEntity-UpdatableEntity" } },
   "com.apple.Settings.TrackpadSmartZoomEntity": { name: "Get Smart zoom", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Smart zoom", outputTypes: ["com.apple.Settings.TrackpadSmartZoomEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadSmartZoomEntity" } },
   "com.apple.Settings.TrackpadSmartZoomEntity-UpdatableEntity": { name: "Update Smart zoom", params: ["entity", "value"], output: "Smart zoom", outputTypes: ["com.apple.Settings.TrackpadSmartZoomEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadSmartZoomEntity-UpdatableEntity" } },
-  "com.apple.Settings.TrackpadSwipeBetweenAppsEntity": { name: "Get Swipe between pages", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Swipe between pages", outputTypes: ["com.apple.Settings.TrackpadSwipeBetweenAppsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadSwipeBetweenAppsEntity" } },
-  "com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity": { name: "Update Swipe between pages", params: ["entity", "value"], output: "Swipe between pages", outputTypes: ["com.apple.Settings.TrackpadSwipeBetweenAppsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadSwipeBetweenAppsEntity-UpdatableEntity" } },
+  "com.apple.Settings.TrackpadSwipeBetweenAppsEntity": { name: "Get Swipe between spaces", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Swipe between spaces", outputTypes: ["com.apple.Settings.TrackpadSwipeBetweenAppsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadSwipeBetweenAppsEntity" } },
+  "com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity": { name: "Update Swipe between spaces", params: ["entity", "value"], output: "Swipe between spaces", outputTypes: ["com.apple.Settings.TrackpadSwipeBetweenAppsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadSwipeBetweenAppsEntity-UpdatableEntity" } },
   "com.apple.Settings.TrackpadSwipeBetweenPagesEntity": { name: "Get Swipe between pages", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Swipe between pages", outputTypes: ["com.apple.Settings.TrackpadSwipeBetweenPagesEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadSwipeBetweenPagesEntity" } },
   "com.apple.Settings.TrackpadSwipeBetweenPagesEntity-UpdatableEntity": { name: "Update Swipe between pages", params: ["entity", "value"], output: "Swipe between pages", outputTypes: ["com.apple.Settings.TrackpadSwipeBetweenPagesEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadSwipeBetweenPagesEntity-UpdatableEntity" } },
   "com.apple.Settings.TrackpadTapToClickEntity": { name: "Get Tap to click", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Tap to click", outputTypes: ["com.apple.Settings.TrackpadTapToClickEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrackpadTapToClickEntity" } },
@@ -18327,6 +18408,8 @@ export const ACTIONS = {
   "com.apple.Settings.WiFiSettingsDeepLink": { name: "Find Wi‑Fi Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Wi‑Fi Settings", outputTypes: ["com.apple.Settings.WiFiSettingsDeepLink"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "WiFiSettingsDeepLink" } },
   "com.apple.Settings.WidgetSettingsEntity": { name: "Get Widget Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Widget Settings", outputTypes: ["com.apple.Settings.WidgetSettingsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetSettingsEntity" } },
   "com.apple.Settings.WidgetSettingsEntity-UpdatableEntity": { name: "Edit Widget Settings", params: ["entity", "showWidgetsInStageManager", "showWidgetsOnDesktop", "widgetAppearance"], output: "Widget Settings", outputTypes: ["com.apple.Settings.WidgetSettingsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetSettingsEntity-UpdatableEntity" } },
+  "com.apple.Settings.WidgetsAndOnenessEntity": { name: "Get iPhone Widgets", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "iPhone Widgets", outputTypes: ["com.apple.Settings.WidgetsAndOnenessEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetsAndOnenessEntity" } },
+  "com.apple.Settings.WidgetsAndOnenessEntity-UpdatableEntity": { name: "Update iPhone Widgets", params: ["entity", "useiPhoneWidgets"], output: "iPhone Widgets", outputTypes: ["com.apple.Settings.WidgetsAndOnenessEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetsAndOnenessEntity-UpdatableEntity" } },
   "com.apple.Settings.WindowsSettingsEntity": { name: "Get Windows Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Windows Settings", outputTypes: ["com.apple.Settings.WindowsSettingsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "WindowsSettingsEntity" } },
   "com.apple.Settings.WindowsSettingsEntity-UpdatableEntity": { name: "Edit Windows Settings", params: ["askToKeepChangesWhenClosingDocuments", "closeWindowsWhenQuittingAnApplication", "entity", "preferTabsWhenOpeningDocuments"], output: "Windows Settings", outputTypes: ["com.apple.Settings.WindowsSettingsEntity"], descriptor: { BundleIdentifier: "com.apple.Settings", Name: "SettingsPlaceholder", TeamIdentifier: "0000000000", AppIntentIdentifier: "WindowsSettingsEntity-UpdatableEntity" } },
   "com.apple.ShortcutsActions.CellularPlanEntity": { name: "Find Cellular Plan", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Cellular Plan", outputTypes: ["com.apple.ShortcutsActions.CellularPlanEntity"], descriptor: { BundleIdentifier: "com.apple.ShortcutsActions", Name: "ShortcutsActions", TeamIdentifier: "0000000000", AppIntentIdentifier: "CellularPlanEntity" } },
@@ -18469,10 +18552,17 @@ export const ACTIONS = {
   "com.apple.finder.RevealItemsIntent": { name: "Reveal Items", params: ["targets", "openInNewWindow"], output: "File", outputTypes: ["com.apple.finder.FINodeEntity"], descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "RevealItemsIntent" } },
   "com.apple.finder.SearchInBrowserIntent": { name: "Search in Finder", params: ["criteria"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchInBrowserIntent" } },
   "com.apple.finder.TrashItemsIntent": { name: "Trash Items", params: ["entities", "OpenWhenRun"], output: "File", outputTypes: ["com.apple.finder.FINodeEntity"], descriptor: { BundleIdentifier: "com.apple.finder", Name: "Finder", TeamIdentifier: "0000000000", AppIntentIdentifier: "TrashItemsIntent" } },
+  "com.apple.findmy.CreateIncomingGeofenceIntent": { name: "Set Geo Fence notification on a person’s movement", params: ["person", "isRecurring", "trigger", "location", "OpenWhenRun"], output: "Geofence", outputTypes: ["com.apple.findmy.GeofenceEntity"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateIncomingGeofenceIntent" } },
+  "com.apple.findmy.CreateOutgoingGeofenceIntent": { name: "Set Geofence notification to be received by person", params: ["person", "isRecurring", "trigger", "location", "OpenWhenRun"], output: "Geofence", outputTypes: ["com.apple.findmy.GeofenceEntity"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "CreateOutgoingGeofenceIntent" } },
+  "com.apple.findmy.FindItemIntent": { name: "Find Item", params: ["item", "OpenWhenRun"], output: "Item Location Response", outputTypes: ["com.apple.findmy.ItemLocationResponse"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindItemIntent" } },
+  "com.apple.findmy.FindPersonIntent": { name: "Find Person", params: ["person", "OpenWhenRun"], output: "Location", outputTypes: ["com.apple.findmy.PersonEntityLocation"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindPersonIntent" } },
+  "com.apple.findmy.GeofenceEntity": { name: "Find Geofence", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Geofence", outputTypes: ["com.apple.findmy.GeofenceEntity"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "GeofenceEntity" } },
   "com.apple.findmy.ItemEntity": { name: "Find Item", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Item", outputTypes: ["com.apple.findmy.ItemEntity"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "ItemEntity" } },
+  "com.apple.findmy.OpenItemIntent": { name: "Open Item", params: ["target", "showDetails"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenItemIntent" } },
+  "com.apple.findmy.OpenModuleIntent": { name: "Open Module", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenModuleIntent" } },
+  "com.apple.findmy.OpenPersonIntent": { name: "Open Person", params: ["target", "showDetails"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenPersonIntent" } },
   "com.apple.findmy.PersonEntity": { name: "Find Person", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Person", outputTypes: ["com.apple.findmy.PersonEntity"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "PersonEntity" } },
-  "com.apple.findmy.WidgetItemEntity": { name: "Find Item", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Item", outputTypes: ["com.apple.findmy.WidgetItemEntity"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetItemEntity" } },
-  "com.apple.findmy.WidgetPersonEntity": { name: "Find Person", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Person", outputTypes: ["com.apple.findmy.WidgetPersonEntity"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetPersonEntity" } },
+  "com.apple.findmy.SetShareLocationSettingIntent": { name: "Set Location Sharing Setting", params: ["isEnabled"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetShareLocationSettingIntent" } },
   "com.apple.freeform.CRLAddItemToBoardIntent": { name: "Add Item to Board", params: ["target", "itemType", "text", "mediaItems", "url", "OpenWhenRun"], output: "Board", outputTypes: ["com.apple.freeform.CRLBoardEntity"], descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLAddItemToBoardIntent" } },
   "com.apple.freeform.CRLBoardEntity": { name: "Find Board", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Board", outputTypes: ["com.apple.freeform.CRLBoardEntity"], descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLBoardEntity" } },
   "com.apple.freeform.CRLChangeBoardCanvasGridIntent": { name: "Show/Hide Dot Grid", params: ["entity", "operation", "OpenWhenRun"], output: "Board", outputTypes: ["com.apple.freeform.CRLBoardEntity"], descriptor: { BundleIdentifier: "com.apple.freeform", Name: "Freeform", TeamIdentifier: "0000000000", AppIntentIdentifier: "CRLChangeBoardCanvasGridIntent" } },
@@ -18530,7 +18620,7 @@ export const ACTIONS = {
   "com.apple.iCal.EmailAttendeesIntent": { name: "Email Attendees", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmailAttendeesIntent" } },
   "com.apple.iCal.EmailOrganizerIntent": { name: "Email Organizer", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EmailOrganizerIntent" } },
   "com.apple.iCal.EventEntity": { name: "Find Event", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Event", outputTypes: ["com.apple.iCal.EventEntity"], descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "EventEntity" } },
-  "com.apple.iCal.HighlightEventIntent": { name: "Highlight Event", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "HighlightEventIntent" } },
+  "com.apple.iCal.HighlightEventIntent": { name: "Highlight Event", params: ["target", "additionalEvents"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "HighlightEventIntent" } },
   "com.apple.iCal.InboxItemEntity": { name: "Find Inbox Item", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Inbox Item", outputTypes: ["com.apple.iCal.InboxItemEntity"], descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "InboxItemEntity" } },
   "com.apple.iCal.JoinEventIntent": { name: "Join Event", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "JoinEventIntent" } },
   "com.apple.iCal.OpenCalendarEditorIntent": { name: "Open Calendar Editor", params: ["target", "enableDoneInitially"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iCal", Name: "Calendar", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenCalendarEditorIntent" } },
@@ -18652,9 +18742,10 @@ export const ACTIONS = {
   "com.apple.news.UnselectIngredientAppIntent": { name: "Unselect Ingredient", params: ["recipe", "ingredient"], output: "Recipe", outputTypes: ["com.apple.news.RecipeEntity"], descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnselectIngredientAppIntent" } },
   "com.apple.news.WFAppSettingEntityUpdaterAction": { name: "Change News Settings", params: ["entity", "AutoDownloadAudioStoriesEntity", "AutoDownloadEntity", "AutoDownloadMagazineIssuesEntity", "AutoDownloadPuzzlesEntity", "AutoDownloadRecipesEntity", "AutoDownloadSavedStoriesEntity", "AutoDownloadStoriesInFeedsEntity", "GameCenterEntity", "OptimizeStorageEntity", "RestrictStoriesInTodaySettingEntity"], output: "Automatically Download Audio Stories", outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFAppSettingEntityUpdaterAction" } },
   "com.apple.news.WFGetAppSettingAction": { name: "Get News Settings", params: ["entity"], output: "Automatically Download Audio Stories", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.news", Name: "News", TeamIdentifier: "0000000000", AppIntentIdentifier: "WFGetAppSettingAction" } },
+  "com.apple.omniSearch.SearchToolExtension.DoNotUseThisExtensionIntent": { name: "DoNotUseThisExtensionIntent", params: [], output: null, outputTypes: ["string"], descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "DoNotUseThisExtensionIntent" } },
   "com.apple.omniSearch.SearchToolExtension.SearchTool": { name: "Search", params: ["rawQuery", "rewrittenQuery", "simplifiedQuery", "structuredQuery", "typeIdentifiers", "context", "matchedEntities", "isFirstToolInvocation", "isOnScreenReference", "isSingleStepSearch", "invocationClient", "requestedProperties", "disambiguatedEntity", "ShowWhenRun"], output: "Search results", outputTypes: ["com.apple.omniSearch.SearchToolExtension.SearchEntity"], descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchTool" } },
-  "com.apple.omniSearch.SearchToolExtension.SearchToolControl": { name: "SearchTool Control", params: ["command", "originatorPID", "useMiniMC"], output: "SearchTool control command result", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchToolControl" } },
-  "com.apple.podcasts.AddAudioToLibraryIntent": { name: "Add Audio to Library", params: ["audioEntity"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddAudioToLibraryIntent" } },
+  "com.apple.omniSearch.SearchToolExtension.SearchToolControl": { name: "SearchTool Control", params: ["command"], output: "SearchTool control command result", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.omniSearch.SearchToolExtension", Name: "SearchToolExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchToolControl" } },
+  "com.apple.podcasts.AddAudioToLibraryIntent": { name: "Add Audio to Library", params: ["audioEntity", "linkcliPersonaIDOverride"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddAudioToLibraryIntent" } },
   "com.apple.podcasts.EpisodeEntity": { name: "Find Podcast Episode", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Podcast Episode", outputTypes: ["com.apple.podcasts.EpisodeEntity"], descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "EpisodeEntity" } },
   "com.apple.podcasts.FollowShowAppIntent": { name: "Follow Show", params: ["show", "OpenWhenRun"], output: "Podcast Show", outputTypes: ["com.apple.podcasts.ShowEntity"], descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "FollowShowAppIntent" } },
   "com.apple.podcasts.OpenAppLocationAppIntent": { name: "Open App Location", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppLocationAppIntent" } },
@@ -18695,7 +18786,7 @@ export const ACTIONS = {
   "com.apple.reminders.SectionEntity-UpdatableEntity": { name: "Update section collapsed state", params: ["entity", "isCollapsed"], output: "Section", outputTypes: ["com.apple.reminders.SectionEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SectionEntity-UpdatableEntity" } },
   "com.apple.reminders.SmartListEntity": { name: "Find Smart List", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Reminders Smart Lists", outputTypes: ["com.apple.reminders.SmartListEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "SmartListEntity" } },
   "com.apple.reminders.TTRCreateListAppIntent": { name: "Create List", params: ["name", "type", "group", "OpenWhenRun"], output: "List", outputTypes: ["com.apple.reminders.ListEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateListAppIntent" } },
-  "com.apple.reminders.TTRCreateReminderAppIntent": { name: "Create Reminder", params: ["title", "note", "isFlagged", "images", "tags", "urls", "dueDate", "recurrence", "locationTrigger", "list", "section", "isAllDay", "earlyAlert", "vehicleTrigger", "priorityLevel", "parentReminder", "contactPerson", "assignedPerson", "subtasks"], output: "Reminder", outputTypes: ["com.apple.reminders.ReminderEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateReminderAppIntent" } },
+  "com.apple.reminders.TTRCreateReminderAppIntent": { name: "Create Reminder", params: ["title", "note", "isFlagged", "images", "tags", "urls", "dueDate", "recurrence", "locationTrigger", "list", "section", "isAllDay", "earlyAlert", "isUrgent", "vehicleTrigger", "priorityLevel", "parentReminder", "contactPerson", "assignedPerson", "subtasks"], output: "Reminder", outputTypes: ["com.apple.reminders.ReminderEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRCreateReminderAppIntent" } },
   "com.apple.reminders.TTROpenListAppIntent": { name: "Open List", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTROpenListAppIntent" } },
   "com.apple.reminders.TTROpenSmartListAppIntent": { name: "Open List", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTROpenSmartListAppIntent" } },
   "com.apple.reminders.TTRSearchRemindersAppIntent": { name: "Search in Reminders", params: ["searchPhrase"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "TTRSearchRemindersAppIntent" } },
@@ -18706,7 +18797,7 @@ export const ACTIONS = {
   "com.apple.reminders.UpdateListLayoutAppIntent": { name: "Change Reminders List Layout", params: ["target", "listLayout", "OpenWhenRun"], output: "List", outputTypes: ["com.apple.reminders.ListEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListLayoutAppIntent" } },
   "com.apple.reminders.UpdateListShowsCompletedAppIntent": { name: "Show/Hide Completed Reminders", params: ["target", "showsCompleted", "OpenWhenRun"], output: "List", outputTypes: ["com.apple.reminders.ListEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListShowsCompletedAppIntent" } },
   "com.apple.reminders.UpdateListSortingStyleAppIntent": { name: "Change Reminders List Sorting Style", params: ["target", "sortingStyle", "OpenWhenRun"], output: "List", outputTypes: ["com.apple.reminders.ListEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateListSortingStyleAppIntent" } },
-  "com.apple.reminders.UpdateReminderAppIntent": { name: "Update Reminder properties", params: ["target", "isCompleted", "isFlagged", "title", "note", "images", "tags", "urls", "dueDate", "recurrence", "locationTrigger", "subtasks", "list", "section", "earlyAlert", "vehicleTrigger", "contactPerson", "assignedPerson", "priorityLevel", "parent"], output: "Reminder", outputTypes: ["com.apple.reminders.ReminderEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateReminderAppIntent" } },
+  "com.apple.reminders.UpdateReminderAppIntent": { name: "Update Reminder properties", params: ["target", "isCompleted", "isFlagged", "title", "note", "images", "tags", "urls", "dueDate", "recurrence", "locationTrigger", "subtasks", "list", "section", "earlyAlert", "isUrgent", "vehicleTrigger", "contactPerson", "assignedPerson", "priorityLevel", "parent"], output: "Reminder", outputTypes: ["com.apple.reminders.ReminderEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateReminderAppIntent" } },
   "com.apple.reminders.UpdateSectionAppIntent": { name: "Update section properties", params: ["target", "name", "isCollapsed"], output: "Section", outputTypes: ["com.apple.reminders.SectionEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateSectionAppIntent" } },
   "com.apple.reminders.UpdateSmartListAppIntent": { name: "Update reminders system smart list properties", params: ["target", "isHidden"], output: "Smart List", outputTypes: ["com.apple.reminders.SmartListEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateSmartListAppIntent" } },
   "com.apple.reminders.UpdateSmartListIsHiddenAppIntent": { name: "Show/Hide Reminders System Smart List", params: ["entity", "property", "OpenWhenRun"], output: "Smart List", outputTypes: ["com.apple.reminders.SmartListEntity"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateSmartListIsHiddenAppIntent" } },
@@ -18735,13 +18826,13 @@ export const ACTIONS = {
   "com.apple.shortcuts.SearchShortcutsAction": { name: "Search in Shortcuts", params: ["searchPhrase", "folder"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SearchShortcutsAction" } },
   "com.apple.shortcuts.SetShortcutAttributesAction": { name: "Set Shortcut Attributes", params: ["operation", "attribute", "shortcut", "state", "OpenWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetShortcutAttributesAction" } },
   "com.apple.shortcuts.StopWorkflowAction": { name: "Stop Shortcut", params: ["runningContextIdentifier"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.shortcuts", Name: "Shortcuts", TeamIdentifier: "0000000000", AppIntentIdentifier: "StopWorkflowAction" } },
+  "com.apple.siri.-MarketplaceIntents-AppIntents.DummyIntent": { name: "Dummy intent to ensure AppSearchEntity is indexed", params: ["appSearch"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.-MarketplaceIntents-AppIntents", Name: "com.apple.siri.-MarketplaceIntents-AppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "DummyIntent" } },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent": { name: "Add Audio Item to Library", params: ["audioEntity"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitAddAudioToLibraryIntent" } },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent": { name: "Add Audio Item to Playlist", params: ["audioEntity", "playlist"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitAddAudioToPlaylistIntent" } },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitPlayAudioIntent": { name: "Play Audio Item", params: ["audioEntity", "playbackAttributes", "queueLocation", "warmupAudioQueueResult"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitPlayAudioIntent" } },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent": { name: "Like Audio Item", params: ["target", "affinityState"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitUpdateAudioAffinityIntent" } },
   "com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent": { name: "Whole House Audio Placeholder Intent", params: ["destinations"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "WholeHouseAudioPlaceholderIntent" } },
   "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos": { name: "EditPhotoWarmth", params: ["target", "adjustmentType", "value", "isPercentage"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "Photos" } },
-  "com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool": { name: "InteractiveInstallApplicationTool", params: ["applications", "isUpdate"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriAppLaunchFlowTools", Name: "SiriAppLaunchFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "InteractiveInstallApplicationTool" } },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music": { name: "AddAudioToLibrary", params: ["audioEntity"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts": { name: "AddAudioToLibrary", params: ["audioEntity"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "podcasts" } },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music": { name: "AddAudioToPlaylist", params: ["audioEntity", "playlist"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
@@ -18749,7 +18840,7 @@ export const ACTIONS = {
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "iBooksX" } },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "podcasts" } },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { name: "UpdateAudioAffinity", params: ["target", "affinityState"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool": { name: "CrisisDialog", params: ["situation"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriCrisisFlowTools", Name: "SiriCrisisFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CrisisDialogFlowTool" } },
+  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool": { name: "Get Crisis Resources", params: ["resourceCategories"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriCrisisFlowTools", Name: "SiriCrisisFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetCrisisResourcesFlowTool" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": { name: "Get Current Location", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Location", outputTypes: ["com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity"], descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CurrentLocationEntity" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity": { name: "Get Current Route", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Route", outputTypes: ["com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity"], descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "NavigationSessionEntity" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.SiriGeoAppIntent": { name: "SiriGeoAppIntent", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriGeoAppIntent" } },
@@ -18786,6 +18877,10 @@ export const ACTIONS = {
   "com.apple.siri.SiriVideoAppIntents.InternalFindVideoIntent": { name: "Finds a video", params: ["content"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalFindVideoIntent" } },
   "com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent": { name: "Plays a video", params: ["content"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalPlayContentIntent" } },
   "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool": { name: "Find Video content", params: ["content"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoFlowTools", Name: "SiriVideoFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindVideoContentTool" } },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy": { name: "Create Incoming Geofence", params: ["person", "location", "trigger", "isRecurring"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "findmy" } },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy": { name: "Create Outgoing Geofence", params: ["person", "location", "trigger", "isRecurring"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "findmy" } },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy": { name: "Find Item Location", params: ["item"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "findmy" } },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy": { name: "Play Item Sound", params: ["item"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "findmy" } },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent": { name: "Messages Post Reading Action Tool", params: ["readableMessages"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "MessagesPostReadActionAppIntent" } },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent": { name: "Prepare To Read Conversation Tool", params: ["conversation"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareToReadConversationAppIntent" } },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitEditLastMessageIntent": { name: "SiriKitEditLastMessageIntent", params: ["content", "message"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitEditLastMessageIntent" } },
@@ -18835,11 +18930,6 @@ export const ACTIONS = {
   "com.apple.stocks.WatchlistEntity": { name: "Find Watchlist", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Watchlist", outputTypes: ["com.apple.stocks.WatchlistEntity"], descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "WatchlistEntity" } },
   "com.apple.systempreferences.AccentColorEntity": { name: "Get Accent color", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Accent color", outputTypes: ["com.apple.systempreferences.AccentColorEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AccentColorEntity" } },
   "com.apple.systempreferences.AccentColorEntity-UpdatableEntity": { name: "Update Accent color", params: ["entity", "value"], output: "Accent color", outputTypes: ["com.apple.systempreferences.AccentColorEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AccentColorEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.AirDropEntity": { name: "Get AirDrop", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "AirDrop", outputTypes: ["com.apple.systempreferences.AirDropEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirDropEntity" } },
-  "com.apple.systempreferences.AirDropEntity-UpdatableEntity": { name: "Update AirDrop", params: ["entity", "value"], output: "AirDrop", outputTypes: ["com.apple.systempreferences.AirDropEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirDropEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.AirPlayIntent": { name: "Check who can AirPlay to this computer", params: [], output: "Allow AirPlay for", outputTypes: ["com.apple.systempreferences.AirPlayAccessEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirPlayIntent" } },
-  "com.apple.systempreferences.AirPlayReceiverIntent": { name: "Get AirPlay Receiver Status", params: [], output: "AirPlay Receiver Enabled", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirPlayReceiverIntent" } },
-  "com.apple.systempreferences.AirPlayRequiresPasswordIntent": { name: "Get AirPlay Password Status", params: [], output: "AirPlay Password Enabled", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AirPlayRequiresPasswordIntent" } },
   "com.apple.systempreferences.AllowWallPaperTintingEntity": { name: "Get Tint window background with wallpaper color", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Tint window background with wallpaper color", outputTypes: ["com.apple.systempreferences.AllowWallPaperTintingEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AllowWallPaperTintingEntity" } },
   "com.apple.systempreferences.AllowWallPaperTintingEntity-UpdatableEntity": { name: "Update Tint window background with wallpaper color", params: ["entity", "value"], output: "Tint window background with wallpaper color", outputTypes: ["com.apple.systempreferences.AllowWallPaperTintingEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AllowWallPaperTintingEntity-UpdatableEntity" } },
   "com.apple.systempreferences.AppearanceEntity": { name: "Get Appearance", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Appearance", outputTypes: ["com.apple.systempreferences.AppearanceEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "AppearanceEntity" } },
@@ -19169,7 +19259,6 @@ export const ACTIONS = {
   "com.apple.systempreferences.GuestParentalControlStatusIntent": { name: "Get Guest User’s Parental Control Status", params: [], output: "Parental Control Status of Guest User", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "GuestParentalControlStatusIntent" } },
   "com.apple.systempreferences.GuestSharedAccessStatusIntent": { name: "Get Guest User’s Shared Folders Access Status", params: [], output: "Shared Folders Access Status of the Guest User", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "GuestSharedAccessStatusIntent" } },
   "com.apple.systempreferences.GuestStatusIntent": { name: "Get Guest User’s Status", params: [], output: "The Status of Guest User", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "GuestStatusIntent" } },
-  "com.apple.systempreferences.HandoffIntent": { name: "Get Handoff Status", params: [], output: "Handoff Enabled", outputTypes: ["bool"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "HandoffIntent" } },
   "com.apple.systempreferences.HighlightColorEntity": { name: "Get Highlight color", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Highlight color", outputTypes: ["com.apple.systempreferences.HighlightColorEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "HighlightColorEntity" } },
   "com.apple.systempreferences.HighlightColorEntity-UpdatableEntity": { name: "Update Highlight color", params: ["entity", "value"], output: "Highlight color", outputTypes: ["com.apple.systempreferences.HighlightColorEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "HighlightColorEntity-UpdatableEntity" } },
   "com.apple.systempreferences.IdentifierIntent": { name: "Get Account’s Identifier", params: ["accountEntity"], output: "Account Identifier", outputTypes: ["int"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "IdentifierIntent" } },
@@ -19204,7 +19293,6 @@ export const ACTIONS = {
   "com.apple.systempreferences.OpenAccessibilityVoiceControlStaticDeepLinks": { name: "Open Accessibility Voice Control Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityVoiceControlStaticDeepLinks" } },
   "com.apple.systempreferences.OpenAccessibilityVoiceOverStaticDeepLinks": { name: "Open Accessibility VoiceOver Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityVoiceOverStaticDeepLinks" } },
   "com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks": { name: "Open Accessibility Zoom Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAccessibilityZoomStaticDeepLinks" } },
-  "com.apple.systempreferences.OpenAirDropHandoffDeepLinks": { name: "Open AirDrop & Continuity", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAirDropHandoffDeepLinks" } },
   "com.apple.systempreferences.OpenAppearanceSettingsDeepLink": { name: "Open Appearance Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAppearanceSettingsDeepLink" } },
   "com.apple.systempreferences.OpenAutoBrightnessEntityDeepLink": { name: "Open Automatically adjust brightness", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutoBrightnessEntityDeepLink" } },
   "com.apple.systempreferences.OpenAutomaticReconnectEntityDeepLink": { name: "Open Automatically reconnect", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenAutomaticReconnectEntityDeepLink" } },
@@ -19223,10 +19311,6 @@ export const ACTIONS = {
   "com.apple.systempreferences.OpenPrinterScannerDeepLinks": { name: "Open Printers & Scanners", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenPrinterScannerDeepLinks" } },
   "com.apple.systempreferences.OpenPrivacySecurityDeepLinks": { name: "Open Privacy & Security", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenPrivacySecurityDeepLinks" } },
   "com.apple.systempreferences.OpenShareKeyboardEntityDeepLink": { name: "Open Share keyboard and mouse", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenShareKeyboardEntityDeepLink" } },
-  "com.apple.systempreferences.OpenSoundSettingsDeepLinks": { name: "Open Sound", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsDeepLinks" } },
-  "com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity": { name: "Open Feedback Sound Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsFeedbackSoundEntity" } },
-  "com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity": { name: "Open User Interface Sound Effects Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsInterfaceEffectsEntity" } },
-  "com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity": { name: "Open Startup Sound Settings", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenSoundSettingsStartupSoundEntity" } },
   "com.apple.systempreferences.OpenTransferResetDeepLinks": { name: "Open Transfer or Reset", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTransferResetDeepLinks" } },
   "com.apple.systempreferences.OpenTrueToneEntityDeepLink": { name: "Open True Tone", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenTrueToneEntityDeepLink" } },
   "com.apple.systempreferences.OpenUsersGroupsDeepLinks": { name: "Open Users & Groups", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenUsersGroupsDeepLinks" } },
@@ -19247,12 +19331,6 @@ export const ACTIONS = {
   "com.apple.systempreferences.ShowScrollBarsEntity-UpdatableEntity": { name: "Update Show scroll bars", params: ["entity", "value"], output: "Show scroll bars", outputTypes: ["com.apple.systempreferences.ShowScrollBarsEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ShowScrollBarsEntity-UpdatableEntity" } },
   "com.apple.systempreferences.SidebarIconSizeEntity": { name: "Get Sidebar icon size", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Sidebar icon size", outputTypes: ["com.apple.systempreferences.SidebarIconSizeEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SidebarIconSizeEntity" } },
   "com.apple.systempreferences.SidebarIconSizeEntity-UpdatableEntity": { name: "Update Sidebar icon size", params: ["entity", "value"], output: "Sidebar icon size", outputTypes: ["com.apple.systempreferences.SidebarIconSizeEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SidebarIconSizeEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity": { name: "Get Feedback Sound Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Feedback Sound Settings", outputTypes: ["com.apple.systempreferences.SoundSettingsFeedbackSoundEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsFeedbackSoundEntity" } },
-  "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity-UpdatableEntity": { name: "Update a Feedback Sound Settings's Play feedback when volume is changed", params: ["entity", "value"], output: "Feedback Sound Settings", outputTypes: ["com.apple.systempreferences.SoundSettingsFeedbackSoundEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsFeedbackSoundEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity": { name: "Get User Interface Sound Effects Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "User Interface Sound Effects Settings", outputTypes: ["com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsInterfaceEffectsEntity" } },
-  "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity-UpdatableEntity": { name: "Update a User Interface Sound Effects Settings's Play user interface sound effects", params: ["entity", "value"], output: "User Interface Sound Effects Settings", outputTypes: ["com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsInterfaceEffectsEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.SoundSettingsStartupSoundEntity": { name: "Get Startup Sound Settings", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Startup Sound Settings", outputTypes: ["com.apple.systempreferences.SoundSettingsStartupSoundEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsStartupSoundEntity" } },
-  "com.apple.systempreferences.SoundSettingsStartupSoundEntity-UpdatableEntity": { name: "Update a Startup Sound Settings's Play sound on startup", params: ["entity", "value"], output: "Startup Sound Settings", outputTypes: ["com.apple.systempreferences.SoundSettingsStartupSoundEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "SoundSettingsStartupSoundEntity-UpdatableEntity" } },
   "com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent": { name: "High Power Mode", params: ["value"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleHighPowerModeBatteryNoBatteryIntent" } },
   "com.apple.systempreferences.ToggleHighPowerModeOnBatteryIntent": { name: "High Power Mode", params: ["value"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleHighPowerModeOnBatteryIntent" } },
   "com.apple.systempreferences.ToggleLowPowerModeIntent": { name: "Low Power Mode", params: ["value"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "ToggleLowPowerModeIntent" } },
@@ -19264,8 +19342,6 @@ export const ACTIONS = {
   "com.apple.systempreferences.UserLoginItemsIntent": { name: "Get User Login Items", params: [], output: "User login items", outputTypes: ["com.apple.systempreferences.LoginItemEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "UserLoginItemsIntent" } },
   "com.apple.systempreferences.UserSSOIntent": { name: "Get User’s Platform Single Sign-on Status", params: ["userEntity"], output: "Platform Single Sign-on Status of the Specified User", outputTypes: ["string"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "UserSSOIntent" } },
   "com.apple.systempreferences.VPNConfigurationEntity-UpdatableEntity": { name: "Update a VPN Configuration's Connect On Demand", params: ["connectOnDemand", "entity"], output: "VPN Configuration", outputTypes: ["com.apple.systempreferences.VPNConfigurationEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "VPNConfigurationEntity-UpdatableEntity" } },
-  "com.apple.systempreferences.WidgetsAndOnenessEntity": { name: "Get iPhone Widgets", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "iPhone Widgets", outputTypes: ["com.apple.systempreferences.WidgetsAndOnenessEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetsAndOnenessEntity" } },
-  "com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity": { name: "Update iPhone Widgets", params: ["entity", "useiPhoneWidgets"], output: "iPhone Widgets", outputTypes: ["com.apple.systempreferences.WidgetsAndOnenessEntity"], descriptor: { BundleIdentifier: "com.apple.systempreferences", Name: "System Settings", TeamIdentifier: "0000000000", AppIntentIdentifier: "WidgetsAndOnenessEntity-UpdatableEntity" } },
   "com.apple.usernotificationsd.UserNotificationEntity": { name: "Find User Notification Type", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "User Notification Type", outputTypes: ["com.apple.usernotificationsd.UserNotificationEntity"], descriptor: { BundleIdentifier: "com.apple.usernotificationsd", Name: "usernotificationsd", TeamIdentifier: "0000000000", AppIntentIdentifier: "UserNotificationEntity" } },
   "com.apple.wallpaper.agent.SetWallpaperIntent": { name: "Set Wallpaper", params: ["wallpaper", "showOnAllSpaces", "showAsScreenSaver"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWallpaperIntent" } },
   "com.apple.wallpaper.agent.SetWallpaperPhotoIntent": { name: "Set Wallpaper Photo", params: ["photo", "showOnAllSpaces"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.wallpaper.agent", Name: "WallpaperAgent", TeamIdentifier: "0000000000", AppIntentIdentifier: "SetWallpaperPhotoIntent" } },
@@ -19731,6 +19807,8 @@ export const PARAM_KINDS = {
   "com.apple.AppKit.WritingToolsTransformKeyPointsIntent": { "app": "any", "processInstanceIdentifier": "text" },
   "com.apple.AppKit.WritingToolsTransformListIntent": { "app": "any", "processInstanceIdentifier": "text" },
   "com.apple.AppKit.WritingToolsTransformTableIntent": { "app": "any", "processInstanceIdentifier": "text" },
+  "com.apple.AppStore.InstallApplicationIntent": { "application": "any" },
+  "com.apple.AppStore.MarketplaceApplication": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.AppStore.SystemSearchIntent": { "criteria": "text" },
   "com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks": { "target": "string" },
   "com.apple.GenerativePlaygroundApp.CreateImageIntent": { "prompt": "text", "style": "any", "input_image_path": "any", "previously_generated_image_id": "text", "ShowWhenRun": "bool" },
@@ -19744,7 +19822,6 @@ export const PARAM_KINDS = {
   "com.apple.Home.ZoneEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.HydraUSDAppIntents.ConvertToUSDZ": { "file": "any" },
   "com.apple.Magnifier.AskVQAIntent": { "prompt": "text" },
-  "com.apple.Magnifier.FindSessionAppIntent": { "searchTerm": "text" },
   "com.apple.Magnifier.FollowUpVQAAppIntent": { "prompt": "text" },
   "com.apple.Magnifier.StartDetectionTypeIntent": { "detectionType": "string" },
   "com.apple.Maps.CalculateETAIntent": { "origin": "any", "destination": "any", "transportationType": "string", "departureTime": "text", "preferences": "string", "ShowWhenRun": "bool" },
@@ -19778,13 +19855,15 @@ export const PARAM_KINDS = {
   "com.apple.MobileSMS.SetConversationReadStatusIntent": { "conversation": "any", "isRead": "bool" },
   "com.apple.MobileSMS.SetMessageReadStatusIntent": { "message": "any", "isRead": "bool" },
   "com.apple.MobileSMS.UnsendMessageIntent": { "message": "any" },
-  "com.apple.Music.AddMusicItemToLibrarySiriIntent": { "audioEntity": "any", "ShowWhenRun": "bool", "OpenWhenRun": "bool" },
-  "com.apple.Music.AddMusicItemToPlaylistSiriIntent": { "audioEntity": "any", "playlist": "any", "OpenWhenRun": "bool" },
+  "com.apple.Music.AddMusicItemToLibrarySiriIntent": { "audioEntity": "any", "musicAccountIDOverride": "text", "ShowWhenRun": "bool" },
+  "com.apple.Music.AddMusicItemToPlaylistSiriIntent": { "audioEntity": "any", "playlist": "any", "musicAccountIDOverride": "text", "ShowWhenRun": "bool" },
+  "com.apple.Music.CreatePlaylistSiriIntent": { "name": "text", "content": "any", "musicAccountIDOverride": "text" },
+  "com.apple.Music.CreateStationSiriIntent": { "requestIdentifierOverride": "text" },
   "com.apple.Music.OpenMusicItemSiriIntent": { "target": "any" },
-  "com.apple.Music.PlayMusicItemSiriIntent": { "warmupAudioQueueResult": "any", "audioEntity": "any", "playbackAttributes": "string", "queueLocation": "string" },
+  "com.apple.Music.PlayMusicItemSiriIntent": { "audioEntity": "any", "playbackAttributes": "string", "queueLocation": "string", "warmupAudioQueueResult": "any", "requestIdentifierOverride": "text", "musicAccountIDOverride": "text" },
   "com.apple.Music.SearchMusicSiriIntent": { "criteria": "text" },
-  "com.apple.Music.UpdateMusicItemAffinitySiriIntent": { "target": "any", "affinityState": "string", "OpenWhenRun": "bool" },
-  "com.apple.Music.WarmupMusicQueueSiriIntent": { "audioEntity": "any", "playbackAttributes": "string" },
+  "com.apple.Music.UpdateMusicItemAffinitySiriIntent": { "target": "any", "affinityState": "string", "musicAccountIDOverride": "text" },
+  "com.apple.Music.WarmupMusicQueueSiriIntent": { "audioEntity": "any", "playbackAttributes": "string", "requestIdentifierOverride": "text", "musicAccountIDOverride": "text" },
   "com.apple.Notes.AddFileAttachmentLinkAction": { "name": "text", "file": "any", "note": "any", "OpenWhenRun": "bool" },
   "com.apple.Notes.AddLinkAttachmentLinkAction": { "name": "text", "url": "text", "note": "any", "OpenWhenRun": "bool" },
   "com.apple.Notes.AddOrRemoveNoteLockLinkAction": { "operation": "string", "target": "any", "OpenWhenRun": "bool" },
@@ -19837,14 +19916,16 @@ export const PARAM_KINDS = {
   "com.apple.Photos.ApplyFilterIntent": { "asset": "any", "effect": "string" },
   "com.apple.Photos.ApplyStyleIntent": { "asset": "any", "style": "string" },
   "com.apple.Photos.AssetEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Photos.CleanupIntent": { "asset": "any" },
   "com.apple.Photos.CopyPasteEditsIntent": { "sourceAsset": "any", "destinationAssets": "any" },
   "com.apple.Photos.CreateAlbumIntent": { "title": "text", "OpenWhenRun": "bool" },
   "com.apple.Photos.CreateAssetsIntent": { "files": "any", "OpenWhenRun": "bool" },
+  "com.apple.Photos.CropIntent": { "asset": "any" },
   "com.apple.Photos.DeleteAlbumsIntent": { "entities": "any" },
   "com.apple.Photos.DeleteAssetsIntent": { "entities": "any" },
   "com.apple.Photos.DuplicateAssetsIntent": { "assets": "any", "OpenWhenRun": "bool" },
   "com.apple.Photos.EditAssetIntent": { "asset": "any" },
-  "com.apple.Photos.EnableDepthIntent": { "enabled": "bool", "ShowWhenRun": "bool" },
+  "com.apple.Photos.EnableDepthIntent": { "asset": "any", "enabled": "bool", "ShowWhenRun": "bool" },
   "com.apple.Photos.EnhanceIntent": { "assets": "any", "enabled": "bool" },
   "com.apple.Photos.FavoriteAssetsIntent": { "assets": "any", "action": "string" },
   "com.apple.Photos.FavoriteMemoriesIntent": { "memories": "any", "action": "string" },
@@ -19852,6 +19933,7 @@ export const PARAM_KINDS = {
   "com.apple.Photos.FilterLibraryIntent": { "viewMode": "string" },
   "com.apple.Photos.HideAssetsIntent": { "assets": "any", "action": "string" },
   "com.apple.Photos.HidePeopleIntent": { "people": "any", "action": "string" },
+  "com.apple.Photos.MarkupIntent": { "asset": "any" },
   "com.apple.Photos.MemoryEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Photos.MoveAssetsToPersonalLibraryIntent": { "assets": "any" },
   "com.apple.Photos.MoveAssetsToSharedLibraryIntent": { "assets": "any" },
@@ -19898,12 +19980,13 @@ export const PARAM_KINDS = {
   "com.apple.Photos.RevealAlbumsIntent": { "albums": "any" },
   "com.apple.Photos.RevealAssetsIntent": { "assets": "any", "pluralDestination": "string" },
   "com.apple.Photos.RotateIntent": { "assets": "any", "clockwise": "bool" },
-  "com.apple.Photos.SetApertureIntent": { "value": "number", "ShowWhenRun": "bool" },
-  "com.apple.Photos.SetAudioMixIntent": { "audioMix": "string" },
-  "com.apple.Photos.SetExposureIntent": { "value": "number", "ShowWhenRun": "bool" },
-  "com.apple.Photos.SetPlaybackRateIntent": { "playbackRate": "string" },
-  "com.apple.Photos.SetSaturationIntent": { "value": "number", "ShowWhenRun": "bool" },
-  "com.apple.Photos.SetWarmthIntent": { "value": "number", "ShowWhenRun": "bool" },
+  "com.apple.Photos.SetApertureIntent": { "asset": "any", "value": "number", "ShowWhenRun": "bool" },
+  "com.apple.Photos.SetAudioMixIntent": { "asset": "any", "audioMix": "string" },
+  "com.apple.Photos.SetExposureIntent": { "asset": "any", "value": "number", "ShowWhenRun": "bool" },
+  "com.apple.Photos.SetPlaybackRateIntent": { "asset": "any", "playbackRate": "string" },
+  "com.apple.Photos.SetSaturationIntent": { "asset": "any", "value": "number", "ShowWhenRun": "bool" },
+  "com.apple.Photos.SetWarmthIntent": { "asset": "any", "value": "number", "ShowWhenRun": "bool" },
+  "com.apple.Photos.StraightenIntent": { "asset": "any" },
   "com.apple.Preview.AutoEnhanceIntent": { "target": "any", "OpenWhenRun": "bool" },
   "com.apple.Preview.BookmarkIntent": { "pages": "any", "OpenWhenRun": "bool" },
   "com.apple.Preview.CloseIntent": { "documents": "any" },
@@ -19953,9 +20036,10 @@ export const PARAM_KINDS = {
   "com.apple.Safari.TabGroupEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Safari.WindowEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.AirDropEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.AirDropEntity-UpdatableEntity": { "entity": "any", "value": "string" },
+  "com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.AppleAccountSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.ApplicationNotificationsSettings": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.ApplicationNotificationsSettings-UpdatableEntity": { "alertStyle": "string", "allowCriticalAlerts": "bool", "allowNotifications": "bool", "allowTimeSensitive": "bool", "badgeAppIcon": "bool", "entity": "any", "notificationGrouping": "string", "playSounds": "bool", "showInNotificationCenter": "bool", "showOnLockScreen": "bool", "showPreviews": "string" },
   "com.apple.Settings.AutoDateTimeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.AutoHideMenuBarOptionEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.AutoHideMenuBarOptionEntity-UpdatableEntity": { "autoHideMenuBar": "string", "entity": "any" },
@@ -19969,7 +20053,6 @@ export const PARAM_KINDS = {
   "com.apple.Settings.ClassKitSettingsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.ClassroomDynamicDeepLinks": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.ClockOptionsEntity-UpdatableEntity": { "announceTime": "bool", "clockStyle": "string", "entity": "any", "flashSeparators": "bool", "showAMPM": "bool", "showDate": "bool", "showDayOfWeek": "bool", "showSeconds": "bool", "timeAnnouncementsInterval": "string" },
-  "com.apple.Settings.ControlCenterModule-UpdatableEntity": { "alwaysShowInMenuBar": "bool", "entity": "any", "showInMenuBar": "bool" },
   "com.apple.Settings.ControlCenterSettingsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.DateAndTimeExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.DateTimeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -19992,6 +20075,7 @@ export const PARAM_KINDS = {
   "com.apple.Settings.HourFormatEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.Settings.KeyboardSettingsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.LocalizationSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.MenuBarControl-UpdatableEntity": { "alwaysShowInMenuBar": "bool", "entity": "any", "showInMenuBar": "bool" },
   "com.apple.Settings.MissionControlEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.MissionControlEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.Settings.MissionControlSettingsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20003,8 +20087,8 @@ export const PARAM_KINDS = {
   "com.apple.Settings.NotificationCenterEntity-UpdatableEntity": { "allowWhenLocked": "bool", "allowWhenSharing": "bool", "allowWhenSleeping": "bool", "entity": "any", "showPreviews": "string", "summarizePreviews": "bool" },
   "com.apple.Settings.NotificationsSettingsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink": { "target": "any" },
+  "com.apple.Settings.OpenAirDropHandoffExtensionSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.OpenAppleAccountSettingsDeepLink": { "target": "any" },
-  "com.apple.Settings.OpenApplicationNotificationsSettings": { "target": "any" },
   "com.apple.Settings.OpenAutomaticallySetDateTimeSetting": { "target": "any" },
   "com.apple.Settings.OpenAutomaticallySetTimeZoneSetting": { "target": "any" },
   "com.apple.Settings.OpenBiometricsAndPasswordSettingsEntityDeepLinks": { "target": "any" },
@@ -20015,7 +20099,6 @@ export const PARAM_KINDS = {
   "com.apple.Settings.OpenClassroomDynamicDeepLinks": { "target": "any" },
   "com.apple.Settings.OpenClockOptionsEntity": { "target": "any" },
   "com.apple.Settings.OpenConfiguredInternetAccountSettings": { "target": "any" },
-  "com.apple.Settings.OpenControlCenterModule": { "target": "any" },
   "com.apple.Settings.OpenControlCenterSettingsSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.OpenCurrentTimeZoneSetting": { "target": "any" },
   "com.apple.Settings.OpenDateAndTimeExtensionSettingsDeepLink": { "target": "any" },
@@ -20034,6 +20117,7 @@ export const PARAM_KINDS = {
   "com.apple.Settings.OpenInternetAccountsSettings": { "target": "string" },
   "com.apple.Settings.OpenKeyboardSettingsSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.OpenLocalizationSettingsDeepLink": { "target": "any" },
+  "com.apple.Settings.OpenMenuBarControl": { "target": "any" },
   "com.apple.Settings.OpenMissionControlSettingsEntity": { "target": "any" },
   "com.apple.Settings.OpenMouseExtensionSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.OpenNotificationCenterEntity": { "target": "any" },
@@ -20043,6 +20127,10 @@ export const PARAM_KINDS = {
   "com.apple.Settings.OpenScreenTimeDeepLinksIntent": { "target": "any" },
   "com.apple.Settings.OpenSiriSetupSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink": { "target": "any" },
+  "com.apple.Settings.OpenSoundSettingsDeepLink": { "target": "any" },
+  "com.apple.Settings.OpenSoundSettingsFeedbackSoundEntity": { "target": "any" },
+  "com.apple.Settings.OpenSoundSettingsInterfaceEffectsEntity": { "target": "any" },
+  "com.apple.Settings.OpenSoundSettingsStartupSoundEntity": { "target": "any" },
   "com.apple.Settings.OpenSpotlightSettingsDeepLinks": { "target": "any" },
   "com.apple.Settings.OpenStartupDiskSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.OpenStartupDiskStaticDeepLinks": { "target": "string" },
@@ -20058,14 +20146,12 @@ export const PARAM_KINDS = {
   "com.apple.Settings.OpenWindowsSettingsEntity": { "target": "any" },
   "com.apple.Settings.PasswordsSettingsExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderAppearanceSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderDisplaysExtSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderLockScreenSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderLoginItemsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderNetworkSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderOpenAboutExtensionSettingsDeepLink": { "target": "any" },
-  "com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.PlaceholderOpenAppearanceSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.PlaceholderOpenDisplaysExtSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.PlaceholderOpenLockScreenSettingsDeepLink": { "target": "any" },
@@ -20074,13 +20160,11 @@ export const PARAM_KINDS = {
   "com.apple.Settings.PlaceholderOpenPrinterScannerSettingsSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.PlaceholderOpenSecurityPrivacyExtensionSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink": { "target": "any" },
-  "com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.PlaceholderOpenTransferResetExtensionSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.PlaceholderOpenUsersGroupsSettingsDeepLink": { "target": "any" },
   "com.apple.Settings.PlaceholderPrinterScannerSettingsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderSecurityPrivacyExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderSharingSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.PlaceholderSoundSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderTransferResetExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PlaceholderUsersGroupsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PrefPanesDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20099,7 +20183,6 @@ export const PARAM_KINDS = {
   "com.apple.Settings.ShowAsScreenSaverEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.Settings.ShowAsWallpaperEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.ShowAsWallpaperEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.Settings.ShowBatteryPercentageEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.ShowBatteryPercentageEntity-UpdatableEntity": { "entity": "any", "showBatteryPercentage": "bool" },
   "com.apple.Settings.ShowMenuBarBackgroundEntity-UpdatableEntity": { "entity": "any", "showMenuBarBackground": "bool" },
   "com.apple.Settings.ShowScreenSaverOnAllSpacesEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20110,6 +20193,13 @@ export const PARAM_KINDS = {
   "com.apple.Settings.SmartZoomEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.SmartZoomEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.Settings.SoftwareUpdateSettingsExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.SoundSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.SoundSettingsFeedbackSoundEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.SoundSettingsFeedbackSoundEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
+  "com.apple.Settings.SoundSettingsInterfaceEffectsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.SoundSettingsInterfaceEffectsEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
+  "com.apple.Settings.SoundSettingsStartupSoundEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.SoundSettingsStartupSoundEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.Settings.SpotlightSettingsDeepLinks": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.StartupDiskSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.StorageSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20158,6 +20248,8 @@ export const PARAM_KINDS = {
   "com.apple.Settings.WiFiSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.WidgetSettingsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.WidgetSettingsEntity-UpdatableEntity": { "entity": "any", "showWidgetsInStageManager": "bool", "showWidgetsOnDesktop": "bool", "widgetAppearance": "string" },
+  "com.apple.Settings.WidgetsAndOnenessEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.WidgetsAndOnenessEntity-UpdatableEntity": { "entity": "any", "useiPhoneWidgets": "bool" },
   "com.apple.Settings.WindowsSettingsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.WindowsSettingsEntity-UpdatableEntity": { "askToKeepChangesWhenClosingDocuments": "bool", "closeWindowsWhenQuittingAnApplication": "bool", "entity": "any", "preferTabsWhenOpeningDocuments": "string" },
   "com.apple.ShortcutsActions.CellularPlanEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20275,10 +20367,17 @@ export const PARAM_KINDS = {
   "com.apple.finder.RevealItemsIntent": { "targets": "any", "openInNewWindow": "bool" },
   "com.apple.finder.SearchInBrowserIntent": { "criteria": "text" },
   "com.apple.finder.TrashItemsIntent": { "entities": "any", "OpenWhenRun": "bool" },
+  "com.apple.findmy.CreateIncomingGeofenceIntent": { "person": "any", "isRecurring": "bool", "trigger": "string", "location": "any", "OpenWhenRun": "bool" },
+  "com.apple.findmy.CreateOutgoingGeofenceIntent": { "person": "any", "isRecurring": "bool", "trigger": "string", "location": "any", "OpenWhenRun": "bool" },
+  "com.apple.findmy.FindItemIntent": { "item": "any", "OpenWhenRun": "bool" },
+  "com.apple.findmy.FindPersonIntent": { "person": "any", "OpenWhenRun": "bool" },
+  "com.apple.findmy.GeofenceEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.findmy.ItemEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.findmy.OpenItemIntent": { "target": "any", "showDetails": "bool" },
+  "com.apple.findmy.OpenModuleIntent": { "target": "string" },
+  "com.apple.findmy.OpenPersonIntent": { "target": "any", "showDetails": "bool" },
   "com.apple.findmy.PersonEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.findmy.WidgetItemEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.findmy.WidgetPersonEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.findmy.SetShareLocationSettingIntent": { "isEnabled": "bool" },
   "com.apple.freeform.CRLAddItemToBoardIntent": { "target": "any", "itemType": "string", "text": "text", "mediaItems": "any", "url": "text", "OpenWhenRun": "bool" },
   "com.apple.freeform.CRLBoardEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.freeform.CRLChangeBoardCanvasGridIntent": { "entity": "any", "operation": "string", "OpenWhenRun": "bool" },
@@ -20331,7 +20430,7 @@ export const PARAM_KINDS = {
   "com.apple.iCal.EmailAttendeesIntent": { "target": "any" },
   "com.apple.iCal.EmailOrganizerIntent": { "target": "any" },
   "com.apple.iCal.EventEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.iCal.HighlightEventIntent": { "target": "any" },
+  "com.apple.iCal.HighlightEventIntent": { "target": "any", "additionalEvents": "any" },
   "com.apple.iCal.InboxItemEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.iCal.JoinEventIntent": { "target": "any" },
   "com.apple.iCal.OpenCalendarEditorIntent": { "target": "any", "enableDoneInitially": "bool" },
@@ -20443,8 +20542,8 @@ export const PARAM_KINDS = {
   "com.apple.news.WFAppSettingEntityUpdaterAction": { "entity": "string", "AutoDownloadAudioStoriesEntity": "bool", "AutoDownloadEntity": "bool", "AutoDownloadMagazineIssuesEntity": "bool", "AutoDownloadPuzzlesEntity": "bool", "AutoDownloadRecipesEntity": "bool", "AutoDownloadSavedStoriesEntity": "bool", "AutoDownloadStoriesInFeedsEntity": "bool", "GameCenterEntity": "bool", "OptimizeStorageEntity": "bool", "RestrictStoriesInTodaySettingEntity": "bool" },
   "com.apple.news.WFGetAppSettingAction": { "entity": "string" },
   "com.apple.omniSearch.SearchToolExtension.SearchTool": { "rawQuery": "text", "rewrittenQuery": "text", "simplifiedQuery": "text", "structuredQuery": "any", "typeIdentifiers": "any", "context": "any", "matchedEntities": "any", "isFirstToolInvocation": "bool", "isOnScreenReference": "bool", "isSingleStepSearch": "bool", "invocationClient": "string", "requestedProperties": "any", "disambiguatedEntity": "any", "ShowWhenRun": "bool" },
-  "com.apple.omniSearch.SearchToolExtension.SearchToolControl": { "command": "text", "originatorPID": "number", "useMiniMC": "bool" },
-  "com.apple.podcasts.AddAudioToLibraryIntent": { "audioEntity": "any" },
+  "com.apple.omniSearch.SearchToolExtension.SearchToolControl": { "command": "text" },
+  "com.apple.podcasts.AddAudioToLibraryIntent": { "audioEntity": "any", "linkcliPersonaIDOverride": "text" },
   "com.apple.podcasts.EpisodeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.podcasts.FollowShowAppIntent": { "show": "any", "OpenWhenRun": "bool" },
   "com.apple.podcasts.OpenAppLocationAppIntent": { "target": "string" },
@@ -20485,7 +20584,7 @@ export const PARAM_KINDS = {
   "com.apple.reminders.SectionEntity-UpdatableEntity": { "entity": "any", "isCollapsed": "bool" },
   "com.apple.reminders.SmartListEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.reminders.TTRCreateListAppIntent": { "name": "text", "type": "string", "group": "any", "OpenWhenRun": "bool" },
-  "com.apple.reminders.TTRCreateReminderAppIntent": { "title": "text", "note": "text", "isFlagged": "bool", "images": "any", "tags": "text", "urls": "text", "dueDate": "text", "recurrence": "any", "locationTrigger": "any", "list": "any", "section": "any", "isAllDay": "bool", "earlyAlert": "any", "vehicleTrigger": "string", "priorityLevel": "string", "parentReminder": "any", "contactPerson": "any", "assignedPerson": "any", "subtasks": "text" },
+  "com.apple.reminders.TTRCreateReminderAppIntent": { "title": "text", "note": "text", "isFlagged": "bool", "images": "any", "tags": "text", "urls": "text", "dueDate": "text", "recurrence": "any", "locationTrigger": "any", "list": "any", "section": "any", "isAllDay": "bool", "earlyAlert": "any", "isUrgent": "bool", "vehicleTrigger": "string", "priorityLevel": "string", "parentReminder": "any", "contactPerson": "any", "assignedPerson": "any", "subtasks": "text" },
   "com.apple.reminders.TTROpenListAppIntent": { "target": "any" },
   "com.apple.reminders.TTROpenSmartListAppIntent": { "target": "any" },
   "com.apple.reminders.TTRSearchRemindersAppIntent": { "searchPhrase": "text" },
@@ -20496,7 +20595,7 @@ export const PARAM_KINDS = {
   "com.apple.reminders.UpdateListLayoutAppIntent": { "target": "any", "listLayout": "string", "OpenWhenRun": "bool" },
   "com.apple.reminders.UpdateListShowsCompletedAppIntent": { "target": "any", "showsCompleted": "bool", "OpenWhenRun": "bool" },
   "com.apple.reminders.UpdateListSortingStyleAppIntent": { "target": "any", "sortingStyle": "string", "OpenWhenRun": "bool" },
-  "com.apple.reminders.UpdateReminderAppIntent": { "target": "any", "isCompleted": "bool", "isFlagged": "bool", "title": "text", "note": "text", "images": "any", "tags": "text", "urls": "text", "dueDate": "text", "recurrence": "any", "locationTrigger": "any", "subtasks": "any", "list": "any", "section": "any", "earlyAlert": "any", "vehicleTrigger": "string", "contactPerson": "any", "assignedPerson": "any", "priorityLevel": "string", "parent": "any" },
+  "com.apple.reminders.UpdateReminderAppIntent": { "target": "any", "isCompleted": "bool", "isFlagged": "bool", "title": "text", "note": "text", "images": "any", "tags": "text", "urls": "text", "dueDate": "text", "recurrence": "any", "locationTrigger": "any", "subtasks": "any", "list": "any", "section": "any", "earlyAlert": "any", "isUrgent": "bool", "vehicleTrigger": "string", "contactPerson": "any", "assignedPerson": "any", "priorityLevel": "string", "parent": "any" },
   "com.apple.reminders.UpdateSectionAppIntent": { "target": "any", "name": "text", "isCollapsed": "bool" },
   "com.apple.reminders.UpdateSmartListAppIntent": { "target": "any", "isHidden": "bool" },
   "com.apple.reminders.UpdateSmartListIsHiddenAppIntent": { "entity": "string", "property": "bool", "OpenWhenRun": "bool" },
@@ -20521,13 +20620,13 @@ export const PARAM_KINDS = {
   "com.apple.shortcuts.SearchShortcutsAction": { "searchPhrase": "text", "folder": "any" },
   "com.apple.shortcuts.SetShortcutAttributesAction": { "operation": "string", "attribute": "string", "shortcut": "any", "state": "bool", "OpenWhenRun": "bool" },
   "com.apple.shortcuts.StopWorkflowAction": { "runningContextIdentifier": "text" },
+  "com.apple.siri.-MarketplaceIntents-AppIntents.DummyIntent": { "appSearch": "any" },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent": { "audioEntity": "any" },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent": { "audioEntity": "any", "playlist": "any" },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitPlayAudioIntent": { "audioEntity": "any", "playbackAttributes": "string", "queueLocation": "string", "warmupAudioQueueResult": "any" },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent": { "target": "any", "affinityState": "string" },
   "com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent": { "destinations": "any" },
   "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos": { "target": "any", "adjustmentType": "string", "value": "number", "isPercentage": "bool" },
-  "com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool": { "applications": "any", "isUpdate": "bool" },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music": { "audioEntity": "any" },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts": { "audioEntity": "any" },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music": { "audioEntity": "any", "playlist": "any" },
@@ -20535,7 +20634,7 @@ export const PARAM_KINDS = {
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { "audioEntity": "any", "playbackAttributes": "string", "queueLocation": "string", "destinations": "any" },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { "audioEntity": "any", "playbackAttributes": "string", "queueLocation": "string", "destinations": "any" },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { "target": "any", "affinityState": "string" },
-  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool": { "situation": "string" },
+  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool": { "resourceCategories": "string" },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent": { "origin": "any", "destinations": "any", "transportationType": "string", "preferences": "string", "ShowWhenRun": "bool" },
@@ -20566,6 +20665,10 @@ export const PARAM_KINDS = {
   "com.apple.siri.SiriVideoAppIntents.InternalFindVideoIntent": { "content": "any" },
   "com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent": { "content": "any" },
   "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool": { "content": "any" },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy": { "person": "any", "location": "any", "trigger": "string", "isRecurring": "bool" },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy": { "person": "any", "location": "any", "trigger": "string", "isRecurring": "bool" },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy": { "item": "any" },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy": { "item": "any" },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent": { "readableMessages": "any" },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent": { "conversation": "any" },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitEditLastMessageIntent": { "content": "text", "message": "any" },
@@ -20610,8 +20713,6 @@ export const PARAM_KINDS = {
   "com.apple.stocks.WatchlistEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AccentColorEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AccentColorEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AirDropEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.systempreferences.AirDropEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AllowWallPaperTintingEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AllowWallPaperTintingEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AppearanceEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20963,7 +21064,6 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.OpenAccessibilityVoiceControlStaticDeepLinks": { "target": "string" },
   "com.apple.systempreferences.OpenAccessibilityVoiceOverStaticDeepLinks": { "target": "string" },
   "com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks": { "target": "string" },
-  "com.apple.systempreferences.OpenAirDropHandoffDeepLinks": { "target": "string" },
   "com.apple.systempreferences.OpenAppearanceSettingsDeepLink": { "target": "any" },
   "com.apple.systempreferences.OpenAutoBrightnessEntityDeepLink": { "target": "any" },
   "com.apple.systempreferences.OpenAutomaticReconnectEntityDeepLink": { "target": "any" },
@@ -20982,10 +21082,6 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.OpenPrinterScannerDeepLinks": { "target": "string" },
   "com.apple.systempreferences.OpenPrivacySecurityDeepLinks": { "target": "string" },
   "com.apple.systempreferences.OpenShareKeyboardEntityDeepLink": { "target": "any" },
-  "com.apple.systempreferences.OpenSoundSettingsDeepLinks": { "target": "string" },
-  "com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity": { "target": "any" },
-  "com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity": { "target": "any" },
-  "com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity": { "target": "any" },
   "com.apple.systempreferences.OpenTransferResetDeepLinks": { "target": "string" },
   "com.apple.systempreferences.OpenTrueToneEntityDeepLink": { "target": "any" },
   "com.apple.systempreferences.OpenUsersGroupsDeepLinks": { "target": "string" },
@@ -21002,12 +21098,6 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.ShowScrollBarsEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.SidebarIconSizeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.SidebarIconSizeEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.SoundSettingsStartupSoundEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.systempreferences.SoundSettingsStartupSoundEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent": { "value": "bool" },
   "com.apple.systempreferences.ToggleHighPowerModeOnBatteryIntent": { "value": "bool" },
   "com.apple.systempreferences.ToggleLowPowerModeIntent": { "value": "bool" },
@@ -21018,8 +21108,6 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.UserIsAdminIntent": { "userEntity": "any" },
   "com.apple.systempreferences.UserSSOIntent": { "userEntity": "any" },
   "com.apple.systempreferences.VPNConfigurationEntity-UpdatableEntity": { "connectOnDemand": "bool", "entity": "any" },
-  "com.apple.systempreferences.WidgetsAndOnenessEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity": { "entity": "any", "useiPhoneWidgets": "bool" },
   "com.apple.usernotificationsd.UserNotificationEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.wallpaper.agent.SetWallpaperIntent": { "wallpaper": "any", "showOnAllSpaces": "bool", "showAsScreenSaver": "bool" },
   "com.apple.wallpaper.agent.SetWallpaperPhotoIntent": { "photo": "any", "showOnAllSpaces": "bool" },
@@ -21245,6 +21333,7 @@ export const PARAM_CHOICES = {
   "com.apple.AddressBook.ViewContactCardIntent": { "highlightedPropertyType": ["birthday", "contactRelation", "custom", "emailAddress", "note", "phoneNumber", "postalAddress"] },
   "com.apple.AppKit.WindowTabEntity": { "WFContentItemSortProperty": ["Random", "active", "appName", "groupIdentifier", "title"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.AppKit.WritingToolsRewriteIntent": { "type": ["WTUIRequestedToolCompose", "WTUIRequestedToolProofreading", "WTUIRequestedToolRewriteConcise", "WTUIRequestedToolRewriteFriendly", "WTUIRequestedToolRewriteOpenEnded", "WTUIRequestedToolRewriteProfessional", "WTUIRequestedToolRewriting", "WTUIRequestedToolSummary", "WTUIRequestedToolTransformKeyPoints", "WTUIRequestedToolTransformList", "WTUIRequestedToolTransformTable"] },
+  "com.apple.AppStore.MarketplaceApplication": { "WFContentItemSortProperty": ["Random", "genres"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.GameCenter.Settings.DeviceExpertExtension.OpenGameCenterSettingsDeepLinks": { "target": ["activitySharing", "allFriends", "editProfile", "friendRequests", "inviteFriends", "root", "signIn", "signOut", "viewProfile"] },
   "com.apple.GenerativePlaygroundApp.GenerateImageIntent": { "saveToLibrary": ["always", "askWhenRun", "never"] },
   "com.apple.Home.CameraClipEntity": { "WFContentItemSortProperty": ["Random", "startDate"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -21318,9 +21407,10 @@ export const PARAM_CHOICES = {
   "com.apple.Safari.TabGroupEntity": { "WFContentItemSortProperty": ["Random", "title"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Safari.WindowEntity": { "WFContentItemSortProperty": ["Random", "isPrivate", "tabs", "title"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
+  "com.apple.Settings.AirDropEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
+  "com.apple.Settings.AirDropEntity-UpdatableEntity": { "value": ["contactsOnly", "everyone", "off"] },
+  "com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.AppleAccountSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.Settings.ApplicationNotificationsSettings": { "WFContentItemSortProperty": ["Random", "alertStyle", "allowCriticalAlerts", "allowNotifications", "allowTimeSensitive", "badgeAppIcon", "notificationGrouping", "playSounds", "showInNotificationCenter", "showOnLockScreen", "showPreviews"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.Settings.ApplicationNotificationsSettings-UpdatableEntity": { "alertStyle": ["0", "1", "2"], "notificationGrouping": ["0", "1", "2"], "showPreviews": ["0", "1", "2", "3"] },
   "com.apple.Settings.AutoDateTimeEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.AutoHideMenuBarOptionEntity": { "WFContentItemSortProperty": ["Random", "autoHideMenuBar"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.AutoHideMenuBarOptionEntity-UpdatableEntity": { "autoHideMenuBar": ["always", "desktopOnly", "fullscreenOnly", "never"] },
@@ -21365,7 +21455,6 @@ export const PARAM_CHOICES = {
   "com.apple.Settings.OpenStartupDiskStaticDeepLinks": { "target": ["root"] },
   "com.apple.Settings.PasswordsSettingsExtensionSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.PlaceholderAppearanceSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.PlaceholderDisplaysExtSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.PlaceholderLockScreenSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -21374,7 +21463,6 @@ export const PARAM_CHOICES = {
   "com.apple.Settings.PlaceholderPrinterScannerSettingsSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.PlaceholderSecurityPrivacyExtensionSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.PlaceholderSharingSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.Settings.PlaceholderSoundSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.PlaceholderTransferResetExtensionSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.PlaceholderUsersGroupsSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.PrefPanesDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -21388,12 +21476,15 @@ export const PARAM_CHOICES = {
   "com.apple.Settings.SetupFamilyDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.ShowAsScreenSaverEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.ShowAsWallpaperEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.Settings.ShowBatteryPercentageEntity": { "WFContentItemSortProperty": ["Random", "showBatteryPercentage"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.ShowScreenSaverOnAllSpacesEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.ShowWallpaperOnAllSpacesEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.SiriSetupSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.SmartZoomEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.SoftwareUpdateSettingsExtensionSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
+  "com.apple.Settings.SoundSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
+  "com.apple.Settings.SoundSettingsFeedbackSoundEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
+  "com.apple.Settings.SoundSettingsInterfaceEffectsEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
+  "com.apple.Settings.SoundSettingsStartupSoundEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.SpotlightSettingsDeepLinks": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.StartupDiskSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.StorageSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -21433,6 +21524,7 @@ export const PARAM_CHOICES = {
   "com.apple.Settings.WiFiSettingsDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.WidgetSettingsEntity": { "WFContentItemSortProperty": ["Random", "showWidgetsInStageManager", "showWidgetsOnDesktop", "widgetAppearance"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.WidgetSettingsEntity-UpdatableEntity": { "widgetAppearance": ["0", "1", "2"] },
+  "com.apple.Settings.WidgetsAndOnenessEntity": { "WFContentItemSortProperty": ["Random", "useiPhoneWidgets"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.WindowsSettingsEntity": { "WFContentItemSortProperty": ["Random", "askToKeepChangesWhenClosingDocuments", "closeWindowsWhenQuittingAnApplication", "preferTabsWhenOpeningDocuments"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.Settings.WindowsSettingsEntity-UpdatableEntity": { "preferTabsWhenOpeningDocuments": ["0", "1", "2"] },
   "com.apple.ShortcutsActions.CellularPlanEntity": { "WFContentItemSortProperty": ["Random", "carrierName", "label", "phoneNumber"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -21477,10 +21569,12 @@ export const PARAM_CHOICES = {
   "com.apple.clock.TimerEntity": { "WFContentItemSortProperty": ["Random", "duration", "label"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.finder.CompressItemsIntent": { "format": ["appleArchive", "zip"] },
   "com.apple.finder.GetLocationIntent": { "location": ["airDrop", "applications", "computer", "desktop", "documents", "downloads", "home", "iCloudDrive", "iCloudDriveEDS", "library", "network", "recents", "shared", "startupDisk", "trash", "utilities"] },
-  "com.apple.findmy.ItemEntity": { "WFContentItemSortProperty": ["Random", "isThisDevice", "name", "owner"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.findmy.PersonEntity": { "WFContentItemSortProperty": ["Random", "contact"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.findmy.WidgetItemEntity": { "WFContentItemSortProperty": ["Random", "isThisDevice", "name", "owner"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.findmy.WidgetPersonEntity": { "WFContentItemSortProperty": ["Random", "contact"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
+  "com.apple.findmy.CreateIncomingGeofenceIntent": { "trigger": ["onEntry", "onExit"] },
+  "com.apple.findmy.CreateOutgoingGeofenceIntent": { "trigger": ["onEntry", "onExit"] },
+  "com.apple.findmy.GeofenceEntity": { "WFContentItemSortProperty": ["Random", "isRecipientFacingNotification", "isRecurring", "location", "person", "trigger"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
+  "com.apple.findmy.ItemEntity": { "WFContentItemSortProperty": ["Random", "capabilities", "category", "customName", "isOriginatingDevice", "owner", "productName"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
+  "com.apple.findmy.OpenModuleIntent": { "target": ["devices", "items", "people", "settings"] },
+  "com.apple.findmy.PersonEntity": { "WFContentItemSortProperty": ["Random", "capabilities", "isFollowingMe", "isSharingLocation", "labeledLocations", "person"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.freeform.CRLAddItemToBoardIntent": { "itemType": ["circle", "line", "media", "roundedRectangle", "square", "star", "stickyNote", "textBox", "triangle", "url"] },
   "com.apple.freeform.CRLBoardEntity": { "WFContentItemSortProperty": ["Random", "creationDate", "lastModificationDate", "title"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.freeform.CRLChangeBoardCanvasGridIntent": { "operation": ["hide", "show", "toggle"] },
@@ -21569,8 +21663,8 @@ export const PARAM_CHOICES = {
   "com.apple.reminders.GroupEntity": { "WFContentItemSortProperty": ["Random", "name"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.reminders.ListEntity": { "WFContentItemSortProperty": ["Random", "name", "type"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.reminders.MoveRemindersAppIntent": { "position": ["bottom", "top"], "targetType": ["list", "parentReminder", "section"] },
-  "com.apple.reminders.OpenReminderAppIntent": { "inSmartList": ["all", "assigned", "completed", "flagged", "scheduled", "today"] },
-  "com.apple.reminders.OpenSmartListAppIntent": { "target": ["all", "assigned", "completed", "flagged", "scheduled", "today"] },
+  "com.apple.reminders.OpenReminderAppIntent": { "inSmartList": ["all", "assigned", "completed", "flagged", "scheduled", "today", "urgent"] },
+  "com.apple.reminders.OpenSmartListAppIntent": { "target": ["all", "assigned", "completed", "flagged", "scheduled", "today", "urgent"] },
   "com.apple.reminders.ReminderEntity": { "WFContentItemSortProperty": ["Random", "completionDate", "creationDate", "dueDate", "isCompleted", "isFlagged", "note", "recurrence", "tags", "title", "urls"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.reminders.RemotePreferencesEntity": { "WFContentItemSortProperty": ["Random", "timeZoneOverride"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.reminders.SectionEntity": { "WFContentItemSortProperty": ["Random", "name"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -21581,7 +21675,7 @@ export const PARAM_CHOICES = {
   "com.apple.reminders.UpdateListLayoutAppIntent": { "listLayout": ["columns", "list"] },
   "com.apple.reminders.UpdateListSortingStyleAppIntent": { "sortingStyle": ["creationDateNewestFirst", "creationDateOldestFirst", "default", "displayDateNewestFirst", "displayDateOldestFirst", "manual", "priorityHighestFirst", "priorityLowestFirst", "titleAscending", "titleDescending"] },
   "com.apple.reminders.UpdateReminderAppIntent": { "vehicleTrigger": ["connected", "disconnected"], "priorityLevel": ["high", "low", "medium", "none"] },
-  "com.apple.reminders.UpdateSmartListIsHiddenAppIntent": { "entity": ["all", "assigned", "completed", "flagged", "scheduled", "today"] },
+  "com.apple.reminders.UpdateSmartListIsHiddenAppIntent": { "entity": ["all", "assigned", "completed", "flagged", "scheduled", "today", "urgent"] },
   "com.apple.shortcuts.GetShortcutAttributesAction": { "attribute": ["allowWhenLocked", "onScreenContent", "pinInMenuBar", "quickActions", "receivesInputFromSearch", "showInShareSheet", "showOnWatch"] },
   "com.apple.shortcuts.OpenShortcutsStaticDeepLinks": { "target": ["advanced", "legalNotices", "root"] },
   "com.apple.shortcuts.SetShortcutAttributesAction": { "operation": ["toggle", "turn"], "attribute": ["allowWhenLocked", "onScreenContent", "pinInMenuBar", "quickActions", "receivesInputFromSearch", "showInShareSheet", "showOnWatch"] },
@@ -21592,7 +21686,7 @@ export const PARAM_CHOICES = {
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { "playbackAttributes": ["repeat", "shuffle"], "queueLocation": ["later", "next", "tail"] },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { "playbackAttributes": ["repeat", "shuffle"], "queueLocation": ["next", "tail"] },
   "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { "affinityState": ["dislike", "like", "unset"] },
-  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool": { "situation": ["abuse", "activeShooting", "assault", "bullying", "carAccident", "crisisSupport", "csamExplicit", "csamHelpBadActor", "csamHelpForContent", "csamHelpVictim", "danger", "domesticViolence", "dying", "eatingDisorder", "emergencyCall", "fire", "generalCrisis", "generalEmergency", "generalEmergencyHighRisk", "generalEmergencyLowRisk", "gunAssault", "help", "hostageSituation", "kidnapping", "medicalEmergency", "mentalHealthEmergency", "overdose", "poisonControl", "selfHarm", "sexualAssault", "stalking", "substanceAbuse", "suicide", "suicidePrevention", "terrorism", "violence", "violentEmergency"] },
+  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool": { "resourceCategories": ["addiction", "bullying", "childSafety", "disorderedEating", "domesticViolence", "financialScams", "lgbtqSupport", "mentalHealth", "moreResources", "personalSafety", "poisoning", "raceEthnicity", "sexualViolence", "suicideSelfHarm"] },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity": { "WFContentItemSortProperty": ["Random", "estimatedArrivalDate", "preferences", "transportationType", "waypoints"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent": { "transportationType": ["cycling", "driving", "transit", "walking"], "preferences": ["avoidBusyRoads", "avoidHighways", "avoidHills", "avoidStairs", "avoidTolls"] },
@@ -21600,14 +21694,14 @@ export const PARAM_CHOICES = {
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone": { "audioVisualMode": ["audio", "video"] },
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool": { "crisisResourceType": ["domesticViolence", "poisonControl", "sexualAssault", "suicidePrevention"] },
   "com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool": { "adjustmentType": ["warmth"] },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy": { "trigger": ["onEntry", "onExit"] },
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy": { "trigger": ["onEntry", "onExit"] },
   "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders": { "type": ["groceries", "standard"] },
   "com.apple.stocks.NewsTabDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.stocks.SymbolEntity": { "WFContentItemSortProperty": ["Random", "exchange", "name", "symbol"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.stocks.SymbolWidgetEntity": { "WFContentItemSortProperty": ["Random", "exchange", "name", "symbol"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.stocks.WatchlistEntity": { "WFContentItemSortProperty": ["Random", "name"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.systempreferences.AccentColorEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.systempreferences.AirDropEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.systempreferences.AirDropEntity-UpdatableEntity": { "value": ["contactsOnly", "everyone", "off"] },
   "com.apple.systempreferences.AllowWallPaperTintingEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.systempreferences.AppearanceEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.systempreferences.AppearanceEntity-UpdatableEntity": { "value": ["auto", "dark", "light"] },
@@ -21838,7 +21932,6 @@ export const PARAM_CHOICES = {
   "com.apple.systempreferences.OpenAccessibilityVoiceControlStaticDeepLinks": { "target": ["AX_FEATURE_VOICECONTROL", "AX_VOICE_CONTROL_AUDIO_DONATION_ENABLED", "AX_VOICE_CONTROL_COMMANDS", "AX_VOICE_CONTROL_LANGUAGE", "AX_VOICE_CONTROL_MIC", "AX_VOICE_CONTROL_OPEN_TRAINING", "AX_VOICE_CONTROL_OVERLAY", "AX_VOICE_CONTROL_OVERLAY_FADING_ENABLED", "AX_VOICE_CONTROL_PLAY_SOUND_ENABLED", "AX_VOICE_CONTROL_SHOW_HINTS_ENABLED", "AX_VOICE_CONTROL_VOCABULARY", "AX_VOICE_OPTION_COMMANDS_DELETE_ALL", "AX_VOICE_OPTION_COMMANDS_EXPORT", "AX_VOICE_OPTION_COMMANDS_IMPORT", "AX_VOICE_OPTION_VOCAB_DELETE_ALL", "AX_VOICE_OPTION_VOCAB_EXPORT", "AX_VOICE_OPTION_VOCAB_IMPORT"] },
   "com.apple.systempreferences.OpenAccessibilityVoiceOverStaticDeepLinks": { "target": ["AX_FEATURE_VOICEOVER", "AX_VO_OPEN_TRAINING", "AX_VO_OPEN_UTILITY"] },
   "com.apple.systempreferences.OpenAccessibilityZoomStaticDeepLinks": { "target": ["AX_FEATURE_ZOOM", "AX_TOUCH_BAR_ZOOM_ENABLE", "AX_ZOOM_ADJUST_SIZE", "AX_ZOOM_CHOOSE_DISPLAY", "AX_ZOOM_DISABLE_UNIVERSAL_CONTROL", "AX_ZOOM_ENABLE_GESTURE", "AX_ZOOM_ENABLE_HOTKEYS", "AX_ZOOM_FLASH", "AX_ZOOM_FOCUS_MOVEMENT", "AX_ZOOM_FOCUS_MOVEMENT_DELAY", "AX_ZOOM_FOLLOW_FOCUS_ACTIVATION", "AX_ZOOM_FOLLOW_FOCUS_MODE", "AX_ZOOM_FREEZE_PANNING", "AX_ZOOM_GESTURE_FIELD", "AX_ZOOM_INDIVIDUAL_DISPLAYS", "AX_ZOOM_INVERT", "AX_ZOOM_KEEP_STATIONARY", "AX_ZOOM_MAX_FACTOR", "AX_ZOOM_MIN_FACTOR", "AX_ZOOM_MONITOR_SELECTION", "AX_ZOOM_MONITOR_SELECTION_TRACKPAD", "AX_ZOOM_MOVE", "AX_ZOOM_RAPID", "AX_ZOOM_RESIZE_SHORTCUTS", "AX_ZOOM_RESTORE", "AX_ZOOM_RESTORE_SHORTCUT", "AX_ZOOM_SCREEN_SHARE", "AX_ZOOM_SMOOTH", "AX_ZOOM_STYLE_POPUP", "AX_ZOOM_TEMP_DETACH", "AX_ZOOM_TEMP_TOGGLE", "AX_ZOOM_TOGGLE_FS_AND_PIP", "AX_ZOOM_TRACKPAD", "zoomAppearance", "zoomControls", "zoomFollowFocus", "zoomHotkeyConfig", "zoomTempModifiersConfig"] },
-  "com.apple.systempreferences.OpenAirDropHandoffDeepLinks": { "target": ["root"] },
   "com.apple.systempreferences.OpenDisplaysSettingsDeepLinks": { "target": ["arrangement", "brightness", "colorProfiles", "edr", "hdr", "nightShift", "overscan", "presets", "refreshRate", "resolution", "root", "rotation", "sidecar", "underscan"] },
   "com.apple.systempreferences.OpenLockScreenDeepLinks": { "target": ["root"] },
   "com.apple.systempreferences.OpenLoginItemsDeepLinks": { "target": ["backgroundItems", "extensionItems", "root", "userItems"] },
@@ -21846,7 +21939,6 @@ export const PARAM_CHOICES = {
   "com.apple.systempreferences.OpenNewDeviceOutreachStaticDeepLinks": { "target": ["root"] },
   "com.apple.systempreferences.OpenPrinterScannerDeepLinks": { "target": ["root"] },
   "com.apple.systempreferences.OpenPrivacySecurityDeepLinks": { "target": ["accessibility", "advanced", "advertising", "allFiles", "analytics", "appBundles", "audioCapture", "automation", "bluetooth", "calendars", "camera", "contacts", "devTools", "fileVault", "filesAndFolders", "focus", "homeKit", "listenEvent", "locationServices", "lockdownMode", "media", "microphone", "motion", "nudityDetection", "passkeyAccess", "photos", "reminders", "remoteDesktop", "root", "screenCapture", "security", "speechRecognition", "systemServices"] },
-  "com.apple.systempreferences.OpenSoundSettingsDeepLinks": { "target": ["balance", "effects", "input", "mute", "output", "root", "volume"] },
   "com.apple.systempreferences.OpenTransferResetDeepLinks": { "target": ["root"] },
   "com.apple.systempreferences.OpenUsersGroupsDeepLinks": { "target": ["changeMyPassword", "root", "showGuest", "showMe"] },
   "com.apple.systempreferences.PaperSizeEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -21857,11 +21949,7 @@ export const PARAM_CHOICES = {
   "com.apple.systempreferences.ShowScrollBarsEntity-UpdatableEntity": { "value": ["0", "1", "2"] },
   "com.apple.systempreferences.SidebarIconSizeEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.systempreferences.SidebarIconSizeEntity-UpdatableEntity": { "value": ["1", "2", "3"] },
-  "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.systempreferences.SoundSettingsStartupSoundEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.systempreferences.TrueToneEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
-  "com.apple.systempreferences.WidgetsAndOnenessEntity": { "WFContentItemSortProperty": ["Random", "useiPhoneWidgets"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.usernotificationsd.UserNotificationEntity": { "WFContentItemSortProperty": ["Random", "application", "body", "date", "recipients", "sender", "summary", "threadIdentifier"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.wallpaper.agent.WallpaperEntity": { "WFContentItemSortProperty": ["Random", "isDownloaded", "name"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.weather.LocationEntity": { "WFContentItemSortProperty": ["Random", "locationOfInterestType", "name", "placemark", "secondaryName", "timeZoneIdentifier"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -22045,6 +22133,7 @@ export type ParamTypes = {
   "com.apple.NanoSettings.NPRFPingMyPhoneIntent": {
     /** State */
     "state": EnumValue<"off" | "on">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.NanoSettings.NPRFSetAlwaysOnIntent": {
@@ -22052,6 +22141,7 @@ export type ParamTypes = {
     "operation": EnumValue<"set" | "toggle">;
     /** State */
     "state": EnumValue<"off" | "on">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent": {
@@ -22059,6 +22149,7 @@ export type ParamTypes = {
     "operation": EnumValue<"set" | "toggle">;
     /** state */
     "state": EnumValue<"off" | "on">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.NanoSettings.NPRFSetFlashLightIntent": {
@@ -22066,6 +22157,7 @@ export type ParamTypes = {
     "operation": EnumValue<"set" | "toggle">;
     /** State */
     "state": EnumValue<"off" | "on">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.NanoSettings.NPRFSetSchoolTimeIntent": {
@@ -22073,6 +22165,7 @@ export type ParamTypes = {
     "operation": EnumValue<"set" | "toggle">;
     /** State */
     "state": EnumValue<"off" | "on">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.NanoSettings.NPRFSetSilentModeIntent": {
@@ -22080,6 +22173,7 @@ export type ParamTypes = {
     "operation": EnumValue<"set" | "toggle">;
     /** State */
     "state": EnumValue<"off" | "on">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.NanoSettings.NPRFSetTheaterModeIntent": {
@@ -22087,6 +22181,7 @@ export type ParamTypes = {
     "operation": EnumValue<"set" | "toggle">;
     /** State */
     "state": EnumValue<"off" | "on">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.NanoSettings.NPRFSetWakeOnWristRaiseIntent": {
@@ -22094,6 +22189,7 @@ export type ParamTypes = {
     "operation": EnumValue<"set" | "toggle">;
     /** state */
     "state": EnumValue<"off" | "on">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.NanoSettings.NPRFSetWaterLockIntent": {
@@ -22101,188 +22197,289 @@ export type ParamTypes = {
     "operation": EnumValue<"set" | "toggle">;
     /** State */
     "state": EnumValue<"off" | "on">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
-  "com.apple.Notes.ICNotesFolderIntent": { "folder": AnyValue; "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.LaunchApplicationIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.LaunchRemoteIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.LaunchScreenSaverIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.PauseContentIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.SkipContentIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.SleepAppleTVIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.SwitchUserAccountIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.ToggleCaptionsIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.TVRemoteUIService.WakeAppleTVIntent": { "ShowWhenRun": BoolValue };
+  "com.apple.Notes.ICNotesFolderIntent": {
+    /** Folder */
+    "folder": AnyValue;
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.LaunchApplicationIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.LaunchRemoteIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.LaunchScreenSaverIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.PauseContentIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.SkipContentIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.SleepAppleTVIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.SwitchUserAccountIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.ToggleCaptionsIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.TVRemoteUIService.WakeAppleTVIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
   "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent": {
     /** Background Sound */
     "backgroundSound": EnumValue<"Airplane" | "Babble" | "BalancedNoise" | "Boat" | "BrightNoise" | "Bus" | "DarkNoise" | "Fire" | "Night" | "Ocean" | "QuietNight" | "Rain" | "RainOnRoof" | "Steam" | "Stream" | "Train">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsTimerIntent": {
     /** Interval */
     "interval": EnumValue<"duration" | "endInterval">;
+    /** Duration */
     "duration": QuantityValue;
+    /** Time */
     "endInterval": TextValue;
+    /** Always use these settings */
     "always": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
-  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent": { "volumeValue": NumberValue; "ShowWhenRun": BoolValue };
+  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent": {
+    /** volume */
+    "volumeValue": NumberValue;
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAlternatePointerActionsIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAudioDescriptionsIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleBackgroundSoundsIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleCaptionsIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleClassicInvertIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleColorFiltersIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleContrastIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleFullKeyboardAccessIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHeadPointerIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTextIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleHoverTypingIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveCaptionsIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleLiveSpeechIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMonoAudioIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMotionCuesIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleMouseKeysIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleReduceMotionIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSlowKeysIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSmartInvertIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleStickyKeysIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleSwitchControlIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleTransparencyIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceControlIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleVoiceOverIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent": {
     /** Operation */
     "operation": EnumValue<"toggle" | "turn">;
+    /** State */
     "state": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "com.apple.facetime.facetime": {
@@ -22309,9 +22506,22 @@ export type ParamTypes = {
     /** Error If Not Recognized */
     "WFShazamMediaActionErrorIfNotRecognized": BoolValue;
   };
-  "com.apple.news.TagIntent": { "tag": AnyValue; "ShowWhenRun": BoolValue };
-  "com.apple.news.TodayIntent": { "ShowWhenRun": BoolValue };
-  "com.apple.weather.WeatherIntent": { "location": AnyValue; "ShowWhenRun": BoolValue };
+  "com.apple.news.TagIntent": {
+    /** Topic */
+    "tag": AnyValue;
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.news.TodayIntent": {
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
+  "com.apple.weather.WeatherIntent": {
+    /** Location */
+    "location": AnyValue;
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
   "com.panic.iOS.Transmit.Share": {
     /** Save To */
     "TransmitSaveTo": EnumValue<"Local" | "Remote">;
@@ -22464,7 +22674,9 @@ export type ParamTypes = {
   "is.workflow.actions.airplanemode.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.alert": {
@@ -22478,7 +22690,9 @@ export type ParamTypes = {
   "is.workflow.actions.announcenotifications.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.appearance": {
@@ -22486,6 +22700,7 @@ export type ParamTypes = {
     "operation": EnumValue<"set" | "toggle">;
     /** Appearance */
     "style": EnumValue<"dark" | "light">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.appendvariable": {
@@ -22495,19 +22710,31 @@ export type ParamTypes = {
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.ask": {
+    /** Prompt */
     "WFAskActionPrompt": TextValue;
     /** Input Type */
     "WFInputType": EnumValue<"Date" | "Date and Time" | "Number" | "Text" | "Time" | "URL">;
+    /** Default Answer */
     "WFAskActionDefaultAnswer": TextValue;
+    /** Default Number */
     "WFAskActionDefaultAnswerNumber": NumberValue;
+    /** URL */
     "urlAnswer": TextValue;
+    /** Default URL */
     "WFAskActionDefaultAnswerURL": TextValue;
+    /** Default Date */
     "WFAskActionDefaultAnswerDate": TextValue;
+    /** Default Time */
     "WFAskActionDefaultAnswerTime": TextValue;
+    /** Default Date and Time */
     "WFAskActionDefaultAnswerDateAndTime": TextValue;
+    /** Allow Decimal Numbers */
     "WFAskActionAllowsDecimalNumbers": BoolValue;
+    /** Allow Negative Numbers */
     "WFAskActionAllowsNegativeNumbers": BoolValue;
+    /** Allow Multiple Lines */
     "WFAllowsMultilineText": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.askllm": {
@@ -22537,7 +22764,9 @@ export type ParamTypes = {
   "is.workflow.actions.bluetooth.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.calculateexpression": {
@@ -22547,7 +22776,9 @@ export type ParamTypes = {
   "is.workflow.actions.cellulardata.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.choosefromlist": {
@@ -22613,7 +22844,12 @@ export type ParamTypes = {
     /** Destination Time Zone */
     "DestinationTimeZone": AnyValue;
   };
-  "is.workflow.actions.correctspelling": { "text": TextValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.correctspelling": {
+    /** Text */
+    "text": TextValue;
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
   "is.workflow.actions.count": {
     /** Type */
     "WFCountType": EnumValue<"Items" | "Characters" | "Words" | "Sentences" | "Lines">;
@@ -22713,7 +22949,9 @@ export type ParamTypes = {
   "is.workflow.actions.display.always-on.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** Always On Display */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.displaysleep": {  };
@@ -22962,10 +23200,13 @@ export type ParamTypes = {
   "is.workflow.actions.filter.apps": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the apps by. */
     "WFContentItemSortProperty": Loose<"Bundle Identifier" | "Launch Date" | "Name" | "Process Identifier" | "Random">;
+    /** Order: The order to sort the apps in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of apps retrieved. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of apps. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** apps */
@@ -22974,21 +23215,28 @@ export type ParamTypes = {
   "is.workflow.actions.filter.articles": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the articles by. */
     "WFContentItemSortProperty": Loose<"Author" | "Name" | "Number of Words" | "Published Date" | "Random" | "Title">;
+    /** Order: The order to sort the articles in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of articles that are passed as output. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of articles. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
+    /** articles */
     "WFContentItemInputParameter": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.filter.calendarevents": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the calendar events by. */
     "WFContentItemSortProperty": Loose<"Calendar" | "Creation Date" | "Duration" | "End Date" | "File Extension" | "File Path" | "Last Modified Date" | "My Status" | "Name" | "Number of Attendees" | "Random" | "Start Date" | "Title">;
+    /** Order: The order to sort the calendar events in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of calendar events retrieved. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of calendar events. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** calendar events */
@@ -22997,10 +23245,13 @@ export type ParamTypes = {
   "is.workflow.actions.filter.contacts": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the contacts by. */
     "WFContentItemSortProperty": Loose<"Birthday" | "Company" | "Creation Date" | "Department" | "File Extension" | "File Path" | "First Name" | "Job Title" | "Last Modified Date" | "Last Name" | "Middle Name" | "Name" | "Nickname" | "Phonetic First Name" | "Phonetic Last Name" | "Phonetic Middle Name" | "Prefix" | "Random" | "Suffix">;
+    /** Order: The order to sort the contacts in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of contacts retrieved. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of contacts. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** contacts */
@@ -23009,10 +23260,13 @@ export type ParamTypes = {
   "is.workflow.actions.filter.displays": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the displays by. */
     "WFContentItemSortProperty": Loose<"Name" | "Random" | "Scale">;
+    /** Order: The order to sort the displays in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of displays retrieved. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of displays. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** displays */
@@ -23021,55 +23275,74 @@ export type ParamTypes = {
   "is.workflow.actions.filter.eventattendees": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the event attendees by. */
     "WFContentItemSortProperty": Loose<"Email Address" | "Name" | "Random" | "Role" | "Status" | "Type">;
+    /** Order: The order to sort the event attendees in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of event attendees that are passed as output. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of event attendees. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
+    /** event attendees */
     "WFContentItemInputParameter": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.filter.files": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the files by. */
     "WFContentItemSortProperty": Loose<"Creation Date" | "File Extension" | "File Path" | "File Size" | "Last Modified Date" | "Name" | "Random">;
+    /** Order: The order to sort the files in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of files that are passed as output. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of files. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
+    /** files */
     "WFContentItemInputParameter": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.filter.health.quantity": {  };
   "is.workflow.actions.filter.images": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the images by. */
     "WFContentItemSortProperty": Loose<"Creation Date" | "Date Taken" | "Duration" | "File Extension" | "File Path" | "File Size" | "Frame Rate" | "Height" | "Last Modified Date" | "Name" | "Orientation" | "Random" | "Time Taken" | "Width">;
+    /** Order: The order to sort the images in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of images that are passed as output. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of images. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
+    /** images */
     "WFContentItemInputParameter": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.filter.locations": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the locations by. */
     "WFContentItemSortProperty": Loose<"Altitude" | "City" | "Country" | "Label" | "Latitude" | "Longitude" | "Name" | "Phone Number" | "Random" | "State" | "Street" | "ZIP Code">;
+    /** Order: The order to sort the locations in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of locations that are passed as output. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of locations. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
+    /** locations */
     "WFContentItemInputParameter": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.filter.music": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the music by. */
     "WFContentItemSortProperty": Loose<"Album" | "Album Artist" | "Album Track #" | "Artist" | "Composer" | "Date Added" | "Disc #" | "Duration" | "File Path" | "Genre" | "Last Played Date" | "Media Kind" | "Name" | "Play Count" | "Random" | "Rating" | "Release Date" | "Skip Count" | "Title">;
+    /** Order: The order to sort the music in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of music retrieved. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of music. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** music */
@@ -23078,10 +23351,13 @@ export type ParamTypes = {
   "is.workflow.actions.filter.photos": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the photos by. */
     "WFContentItemSortProperty": Loose<"Creation Date" | "Date Taken" | "Duration" | "File Extension" | "File Path" | "Frame Rate" | "Height" | "Last Modified Date" | "Media Type" | "Name" | "Random" | "Time Taken" | "Width">;
+    /** Order: The order to sort the photos in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of photos retrieved. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of photos. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** photos */
@@ -23090,10 +23366,13 @@ export type ParamTypes = {
   "is.workflow.actions.filter.reminders": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the reminders by. */
     "WFContentItemSortProperty": Loose<"Completion Date" | "Creation Date" | "Due Date" | "File Extension" | "File Path" | "Last Modified Date" | "List" | "Name" | "Priority" | "Random" | "Title">;
+    /** Order: The order to sort the reminders in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of reminders retrieved. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of reminders. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** reminders */
@@ -23102,10 +23381,13 @@ export type ParamTypes = {
   "is.workflow.actions.filter.vpns": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the VPNs by. */
     "WFContentItemSortProperty": Loose<"Name" | "Random" | "Server Address">;
+    /** Order: The order to sort the VPNs in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of VPNs retrieved. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of VPNs. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** VPNs */
@@ -23114,10 +23396,13 @@ export type ParamTypes = {
   "is.workflow.actions.filter.windows": {
     /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
     "WFContentItemFilter": FilterTemplateValue;
-    /** Sort by */
+    /** Sort by: Optionally, what to sort the windows by. */
     "WFContentItemSortProperty": Loose<"App Name" | "Height" | "Name" | "Random" | "Width" | "Window Index" | "X Position" | "Y Position">;
+    /** Order: The order to sort the windows in. */
     "WFContentItemSortOrder": string;
+    /** Limit: Whether or not to limit the number of windows retrieved. */
     "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of windows. */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** windows */
@@ -23127,8 +23412,11 @@ export type ParamTypes = {
   "is.workflow.actions.flashlight": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "state": BoolValue;
+    /** Brightness */
     "WFFlashlightLevel": NumberValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.format.date": {
@@ -23621,16 +23909,23 @@ export type ParamTypes = {
     "WFAskForType": EnumValue<"Files" | "Text" | "Date" | "Photos" | "Contacts" | "Email Address" | "Music" | "Phone Number">;
     /** Type */
     "WFPickingMode": EnumValue<"Files" | "Folders">;
+    /** Select Multiple */
     "SelectMultiple": BoolValue;
+    /** Date */
     "WFDateActionMode": StringValue;
+    /** Date */
     "WFDateActionDate": TextValue;
     /** Occurrence */
     "WFEventOccurrenceMode": EnumValue<"Next Occurrence" | "Specified Year">;
+    /** Year */
     "WFEventOccurrenceSpecifiedYear": StringValue;
     /** Include */
     "WFPhotoPickerTypes": EnumValue<"Images" | "Live Photos" | "Videos">;
+    /** Select Multiple */
     "WFSelectMultiplePhotos": BoolValue;
+    /** Select Multiple */
     "WFSelectMultiple": BoolValue;
+    /** Select Multiple Songs */
     "WFExportSongActionSelectMultiple": BoolValue;
   };
   "is.workflow.actions.instapaper.add": {
@@ -23685,7 +23980,9 @@ export type ParamTypes = {
   "is.workflow.actions.lowpowermode.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** Low Power Mode */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.makediskimage": {
@@ -23821,7 +24118,9 @@ export type ParamTypes = {
   "is.workflow.actions.nightshift.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.nothing": {  };
@@ -23890,7 +24189,9 @@ export type ParamTypes = {
   "is.workflow.actions.orientationlock.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.output": {
@@ -23983,7 +24284,9 @@ export type ParamTypes = {
   "is.workflow.actions.personalhotspot.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.phonenumber": {
@@ -24077,117 +24380,140 @@ export type ParamTypes = {
   "is.workflow.actions.properties.appearance": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Dark Mode Is On" | "Inverse Appearance" | "Name"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Appearance */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.appstore": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"# of Ratings" | "# of Ratings (This Version)" | "Artist" | "Artwork" | "Artwork URL" | "Bundle Identifier" | "Category" | "Content Rating" | "Currency Code" | "Description" | "Download Size" | "Formatted Price" | "Is Universal" | "Last Updated" | "Minimum OS Version" | "Name" | "Price" | "Rating" | "Rating (This Version)" | "Release Date" | "Release Notes" | "Screenshot URLs" | "Store ID" | "Store URL" | "Supported Devices" | "Supported Languages" | "Supports Game Center" | "Version" | "iPad Screenshot URLs"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** App Store App */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.articles": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Author" | "Body" | "Excerpt" | "Main Image URL" | "Name" | "Number of Words" | "Published Date" | "Title" | "URL"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Article */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.calendarevents": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Attachments" | "Attendees" | "Calendar" | "Canceled" | "Creation Date" | "Duration" | "End Date" | "File Extension" | "File Path" | "File Size" | "Has Alarms" | "Is All Day" | "Last Modified Date" | "Location" | "My Status" | "Name" | "Notes" | "Number of Attendees" | "Organizer" | "Organizer Is Me" | "Start Date" | "Title" | "URL"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Calendar Event */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.contacts": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Birthday" | "Company" | "Contact Photo" | "Creation Date" | "Department" | "Email Addresses" | "File Extension" | "File Path" | "File Size" | "First Name" | "Job Title" | "Last Modified Date" | "Last Name" | "Middle Name" | "Name" | "Nickname" | "Notes" | "Phone Numbers" | "Phonetic First Name" | "Phonetic Last Name" | "Phonetic Middle Name" | "Prefix" | "Relationship to Me" | "Street Addresses" | "Suffix" | "URLs"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Contact */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.eventattendees": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Email Address" | "Is Me" | "Name" | "Role" | "Status" | "Type"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Event Attendee */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.files": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Creation Date" | "File Extension" | "File Path" | "File Size" | "Last Modified Date" | "Name"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** File */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.health.quantity": {  };
   "is.workflow.actions.properties.images": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Album" | "Camera Make" | "Camera Model" | "Creation Date" | "Date Taken" | "Duration" | "File Extension" | "File Path" | "File Size" | "Frame Rate" | "Height" | "Is Favorite" | "Is a Screen Recording" | "Is a Screenshot" | "Last Modified Date" | "Location" | "Media Type" | "Metadata Dictionary" | "Name" | "Orientation" | "Photo Type" | "Width"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Image */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.itunesartist": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Artwork" | "Artwork URL" | "Genre" | "Name" | "Store ID" | "Store URL" | "Type"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** iTunes artist */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.itunesstore": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Artist" | "Artwork" | "Artwork URL" | "Currency Code" | "Description" | "Duration" | "Formatted Price" | "Genre" | "Is Explicit" | "Name" | "Price" | "Release Date" | "Store ID" | "Store URL" | "Streamable"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** iTunes Product */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.locations": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Altitude" | "City" | "Country" | "Label" | "Latitude" | "Longitude" | "Name" | "Phone Number" | "State" | "Street" | "URL" | "ZIP Code"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Location */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.music": {
     /** Detail */
     "WFContentItemPropertyName": EnumValue<"Album" | "Album Artist" | "Album Artwork" | "Album Track #" | "Artist" | "Comments" | "Composer" | "Date Added" | "Disc #" | "Duration" | "File Path" | "Genre" | "Is Cloud Item" | "Is Explicit" | "Last Played Date" | "Lyrics" | "Media Kind" | "Name" | "Play Count" | "Rating" | "Release Date" | "Skip Count" | "Title">;
+    /** Music */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.parkedcar": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Date" | "Location" | "Name" | "Notes" | "Photo" | "Was Location Set by User"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Parked Car */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.podcast": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Artwork" | "Artwork URL" | "Author" | "Description" | "Duration" | "Genres" | "Name" | "Release Date" | "Store ID" | "Store URL" | "Title"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Podcast episode */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.podcastshow": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Artist" | "Artwork" | "Artwork URL" | "Episode Count" | "Feed URL" | "Genre" | "Name" | "Store ID" | "Store URL"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Podcast */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.reminders": {
     /** Detail */
     "WFContentItemPropertyName": EnumValue<"Completion Date" | "Creation Date" | "Due Date" | "File Extension" | "File Path" | "File Size" | "Has Alarms" | "Has Subtasks" | "Images" | "Is Completed" | "Is Flagged" | "Last Modified Date" | "List" | "Name" | "Notes" | "Parent Reminder" | "Priority" | "Reminder Location" | "Subtasks" | "Tags" | "Title" | "URL">;
+    /** Reminder */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.ridestatus": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Driver" | "Drop Off Location" | "Drop Off Time" | "Maximum Price" | "Minimum Price" | "Name" | "Pickup Location" | "Pickup Time" | "Ride Option Name" | "Vehicle Information"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Ride Status */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.safariwebpage": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Name" | "Page Contents" | "Page Selection" | "Page URL"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Safari Web Page */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.shazam": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Apple Music ID" | "Apple Music URL" | "Artist" | "Artwork" | "Is Explicit" | "Lyric Snippet Synced" | "Lyrics Snippet" | "Name" | "Shazam URL" | "Title" | "Video URL"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Shazam media */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.trello": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Card Attachments" | "Card Due Date" | "Description" | "Name" | "URL"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Trello item */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.ulysses.sheet": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Contents" | "Identifier" | "Keywords" | "Name" | "Notes" | "Title"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Ulysses sheet */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.weather.conditions": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Air Pollutants" | "Air Quality Category" | "Air Quality Index" | "Condition" | "Date" | "Dewpoint" | "Feels Like" | "High" | "Humidity" | "Location" | "Low" | "Name" | "Precipitation Amount" | "Precipitation Chance" | "Pressure" | "Sunrise Time" | "Sunset Time" | "Temperature" | "UV Index" | "Visibility" | "Wind Direction" | "Wind Speed"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Weather Conditions */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.properties.workflow": {
     /** Detail */
     "WFContentItemPropertyName": Loose<"Action Count" | "Creation Date" | "File Extension" | "File Path" | "File Size" | "Folder" | "Icon" | "Last Modified Date" | "Name"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Shortcut */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.quit.app": {
@@ -24382,7 +24708,7 @@ export type ParamTypes = {
     "WFInput": AnyValue;
     /** Search: Keywords used to search for places. */
     "WFSearchQuery": TextValue;
-    /** Radius */
+    /** Radius: Radius of search area around the reference location. */
     "WFSearchRadius": QuantityValue;
     /** Sort By: How to order the search results - by relevance, or by distance from the reference location. */
     "WFSearchSortOrder": EnumValue<"Relevance" | "Distance">;
@@ -24466,7 +24792,12 @@ export type ParamTypes = {
     /** State */
     "WFAirDropState": StringValue;
   };
-  "is.workflow.actions.setbrightness": { "WFBrightness": NumberValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.setbrightness": {
+    /** Brightness: If you set the brightness using a variable, use a number between 0 and 1 (for example, pass 0.5 for half brightness). */
+    "WFBrightness": NumberValue;
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
   "is.workflow.actions.setclipboard": {
     /** Local Only: When enabled, the input will only be copied locally, and will not be shared to other devices via Handoff. */
     "WFLocalOnly": BoolValue;
@@ -24506,44 +24837,125 @@ export type ParamTypes = {
     "WFStoredContentGlobalValue": BoolValue;
   };
   "is.workflow.actions.setters.calendarevents": {
+    /** Detail: The property of the calendar event to edit. */
     "WFContentItemPropertyName": StringValue;
+    /** Edit: The operation to perform on the selected property of the calendar event. */
     "Mode": StringValue;
+    /** Calendar Event */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Specified: The value to remove from the selected property of the calendar event. If no value is provided, one will be requested when run. */
     "RemoveSpecifiedValue": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Value */
     "WFCalendarEventContentItemAttachments": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Value */
     "WFCalendarEventContentItemIsAllDay": BoolValue;
+    /** Value */
     "WFCalendarEventContentItemNotes": TextValue;
+    /** Value */
     "WFCalendarEventContentItemTitle": TextValue;
+    /** Value */
     "WFCalendarEventContentItemLocation": TextValue;
+    /** Value */
     "WFCalendarEventContentItemEndDate": TextValue;
+    /** Value */
     "WFCalendarEventContentItemDuration": QuantityValue;
+    /** Value */
     "WFCalendarEventContentItemStartDate": TextValue;
     /** Value */
     "WFCalendarEventContentItemMyStatus": Loose<"Accepted" | "Completed" | "Declined" | "Delegated" | "In Process" | "Pending" | "Tentative" | "Unknown"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Value */
     "WFCalendarEventContentItemAttendees": AnyValue;
+    /** Value */
     "WFCalendarEventContentItemURL": TextValue;
+    /** Role */
     "ValueLabel": BoolValue;
   };
-  "is.workflow.actions.setters.contacts": { "WFContentItemPropertyName": StringValue; "Mode": StringValue; "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">; "RemoveSpecifiedValue": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">; "WFContactContentItemPrefix": TextValue; "WFContactContentItemPhoneticLastName": TextValue; "WFContactContentItemJobTitle": TextValue; "WFContactContentItemURLs": TextValue; "WFContactContentItemCompany": TextValue; "WFContactContentItemDepartment": TextValue; "WFContactContentItemLastName": TextValue; "WFContactContentItemEmailAddresses": TextValue; "WFContactContentItemGroup": string | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">; "WFContactContentItemPhoneticFirstName": TextValue; "WFContactContentItemMiddleName": TextValue; "WFContactContentItemPhoneNumbers": TextValue; "WFContactContentItemSuffix": TextValue; "WFContactContentItemStreetAddresses": AnyValue; "WFContactContentItemFirstName": TextValue; "WFContactContentItemBirthday": TextValue; "WFContactContentItemContactPhoto": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">; "WFContactContentItemNickname": TextValue; "WFContactContentItemPhoneticMiddleName": TextValue; "WFContactContentItemNotes": TextValue; "ValueLabel": StringValue };
-  "is.workflow.actions.setters.reminders": {
+  "is.workflow.actions.setters.contacts": {
+    /** Detail: The property of the contact to edit. */
     "WFContentItemPropertyName": StringValue;
+    /** Edit: The operation to perform on the selected property of the contact. */
     "Mode": StringValue;
+    /** Contact */
     "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Specified: The value to remove from the selected property of the contact. If no value is provided, one will be requested when run. */
+    "RemoveSpecifiedValue": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Value */
+    "WFContactContentItemPrefix": TextValue;
+    /** Value */
+    "WFContactContentItemPhoneticLastName": TextValue;
+    /** Value */
+    "WFContactContentItemJobTitle": TextValue;
+    /** Value */
+    "WFContactContentItemURLs": TextValue;
+    /** Value */
+    "WFContactContentItemCompany": TextValue;
+    /** Value */
+    "WFContactContentItemDepartment": TextValue;
+    /** Value */
+    "WFContactContentItemLastName": TextValue;
+    /** Value */
+    "WFContactContentItemEmailAddresses": TextValue;
+    /** Value */
+    "WFContactContentItemGroup": string | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Value */
+    "WFContactContentItemPhoneticFirstName": TextValue;
+    /** Value */
+    "WFContactContentItemMiddleName": TextValue;
+    /** Value */
+    "WFContactContentItemPhoneNumbers": TextValue;
+    /** Value */
+    "WFContactContentItemSuffix": TextValue;
+    /** Value */
+    "WFContactContentItemStreetAddresses": AnyValue;
+    /** Value */
+    "WFContactContentItemFirstName": TextValue;
+    /** Value */
+    "WFContactContentItemBirthday": TextValue;
+    /** Value */
+    "WFContactContentItemContactPhoto": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Value */
+    "WFContactContentItemNickname": TextValue;
+    /** Value */
+    "WFContactContentItemPhoneticMiddleName": TextValue;
+    /** Value */
+    "WFContactContentItemNotes": TextValue;
+    /** Label */
+    "ValueLabel": StringValue;
+  };
+  "is.workflow.actions.setters.reminders": {
+    /** Detail: The property of the reminder to edit. */
+    "WFContentItemPropertyName": StringValue;
+    /** Edit: The operation to perform on the selected property of the reminder. */
+    "Mode": StringValue;
+    /** Reminder */
+    "WFInput": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Specified: The value to remove from the selected property of the reminder. If no value is provided, one will be requested when run. */
     "RemoveSpecifiedValue": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
     /** Value */
     "WFReminderContentItemPriority": Loose<"High" | "Low" | "Medium" | "None"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Value */
     "WFReminderContentItemWhenMessagingPerson": AnyValue;
+    /** Value */
     "WFReminderContentItemIsCompleted": BoolValue;
+    /** Value */
     "WFReminderContentItemImages": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Value */
     "WFReminderContentItemParentReminder": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Value */
     "WFReminderContentItemDueDate": TextValue;
     /** Value */
     "WFReminderContentItemList": Loose<"Reminders"> | Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Ask">;
+    /** Value */
     "WFReminderContentItemTags": TextValue;
+    /** Value */
     "WFReminderContentItemTitle": TextValue;
+    /** Value */
     "WFReminderContentItemSubtasks": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
+    /** Value */
     "WFReminderContentItemURL": TextValue;
+    /** Value */
     "WFReminderContentItemIsFlagged": BoolValue;
+    /** Value */
     "WFReminderContentItemNotes": TextValue;
   };
   "is.workflow.actions.setvalueforkey": {
@@ -24607,7 +25019,9 @@ export type ParamTypes = {
   "is.workflow.actions.silenceunknowncallers.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.sirikit.donation.handle": {
@@ -24669,9 +25083,13 @@ export type ParamTypes = {
   "is.workflow.actions.stagemanager.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "state": BoolValue;
+    /** Show Dock */
     "showDock": BoolValue;
+    /** Show Recent Apps */
     "showRecentApps": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.startscreensaver": {  };
@@ -24707,24 +25125,41 @@ export type ParamTypes = {
     "WFRecordingStart": EnumValue<"On Tap" | "Immediately">;
   };
   "is.workflow.actions.text.changecase": {
+    /** Text */
     "text": TextValue;
     /** Case */
     "WFCaseType": EnumValue<"Capitalize Every Word" | "Capitalize with Title Case" | "Capitalize with sentence case" | "UPPERCASE" | "cApItAlIzE wItH aLtErNaTiNg cAsE" | "lowercase">;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.text.combine": {
+    /** Text */
     "text": TextValue;
     /** Separator */
     "WFTextSeparator": EnumValue<"Custom" | "New Lines" | "Spaces">;
+    /** Custom */
     "WFTextCustomSeparator": TextValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
-  "is.workflow.actions.text.match": { "text": TextValue; "WFMatchTextPattern": TextValue; "WFMatchTextCaseSensitive": BoolValue; "ShowWhenRun": BoolValue };
+  "is.workflow.actions.text.match": {
+    /** Text */
+    "text": TextValue;
+    /** Pattern */
+    "WFMatchTextPattern": TextValue;
+    /** Case Sensitive: When disabled, the capitalization of letters is ignored. */
+    "WFMatchTextCaseSensitive": BoolValue;
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+  };
   "is.workflow.actions.text.match.getgroup": {
+    /** Matches */
     "matches": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "CurrentDate" | "DeviceDetails" | "CurrentApp">;
     /** Get */
     "WFGetGroupType": EnumValue<"All Groups" | "Group At Index">;
+    /** Group Index */
     "WFGroupIndex": NumberValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.text.replace": {
@@ -24740,10 +25175,13 @@ export type ParamTypes = {
     "WFInput": TextValue;
   };
   "is.workflow.actions.text.split": {
+    /** Text */
     "text": TextValue;
     /** Separator */
     "WFTextSeparator": EnumValue<"Custom" | "Every Character" | "New Lines" | "Spaces">;
+    /** Custom */
     "WFTextCustomSeparator": TextValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.text.translate": {
@@ -24827,7 +25265,9 @@ export type ParamTypes = {
   "is.workflow.actions.truetone.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.tumblr.post": {
@@ -24958,7 +25398,9 @@ export type ParamTypes = {
   "is.workflow.actions.wifi.set": {
     /** Operation */
     "operation": EnumValue<"set" | "toggle">;
+    /** State */
     "OnValue": BoolValue;
+    /** Show When Run */
     "ShowWhenRun": BoolValue;
   };
   "is.workflow.actions.wordpress.post": {
@@ -25134,7 +25576,7 @@ export type ParamTypes = {
     "app": AnyValue;
     /** Process Identifier: The process that will be told to insert text. */
     "processInstanceIdentifier": TextValue;
-    /** Text: The text to be inserted into the app's active text field. */
+    /** Text: The text to be inserted into the app’s active text field. */
     "text": TextValue;
     /** Replace Existing: When true, replaces the entire contents of the target text field. When false or unset, inserts at the current cursor. */
     "replaceExisting": BoolValue;
@@ -25152,7 +25594,7 @@ export type ParamTypes = {
     "text": TextValue;
     /** Replace Existing: When true, replaces the entire contents of the target text field. When false, replaces the current selection or inserts at cursor. */
     "replaceExisting": BoolValue;
-    /** Target Window Identifier: Window number (stringified) of the window that hosts the target text field. When provided on macOS, the bridge activates that window (`makeKeyAndOrderFront:`) before starting Writing Tools so AppKit's default `keyWindow.firstResponder` coordinator walk lands on the intended field — necessary when a transient popover has stolen key focus. */
+    /** Target Window Identifier: Window number (stringified) of the window that hosts the target text field. When provided on macOS, the bridge activates that window (`makeKeyAndOrderFront:`) before starting Writing Tools so AppKit’s default `keyWindow.firstResponder` coordinator walk lands on the intended field — necessary when a transient popover has stolen key focus. */
     "targetWindowIdentifier": TextValue;
     /** Target Frame: Bounding frame of the target text field (scene-relative, points). Formatted as a CGRect string. When provided with Target Window Identifier, the intent focuses that field before presenting the result. */
     "targetFrame": TextValue;
@@ -25315,8 +25757,30 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
+  "com.apple.AppStore.InstallApplicationIntent": {
+    /** Application: The concrete application to install, identified by bundleId, adamId, marketplaceId, and name. */
+    "application": AnyValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.AppStore.MarketplaceApplication": {
+    "WFContentItemFilter": AnyValue;
+    /** Sort by: Optionally, what to sort the marketplace application by. */
+    "WFContentItemSortProperty": EnumValue<"Random" | "genres">;
+    /** Order: The order to sort the marketplace application in. */
+    "WFContentItemSortOrder": TextValue;
+    /** Limit: Whether or not to limit the number of marketplace application retrieved. */
+    "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of marketplace application. */
+    "WFContentItemLimitNumber": NumberValue;
+    "WFCompoundType": EnumValue<"0" | "1">;
+    /** marketplace application */
+    "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
   "com.apple.AppStore.SystemSearchIntent": {
-    /** Criteria: Search criteria used when searching in app */
+    /** Criteria: Search criteria used when searching in app. */
     "criteria": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -25342,11 +25806,11 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.GenerativePlaygroundApp.GenerateImageIntent": {
-    /** Description: Text that describes the image */
+    /** Description: Text that describes the image. */
     "prompt": TextValue;
-    /** Style: Style of the generated image */
+    /** Style: Style of the generated image. */
     "style": AnyValue;
-    /** Photo: Template for the generated image */
+    /** Photo: Template for the generated image. */
     "image": AnyValue;
     /** Save to Playground: Whether to save the generated image to the person’s library. */
     "saveToLibrary": EnumValue<"always" | "askWhenRun" | "never">;
@@ -25491,12 +25955,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.Magnifier.FindSessionAppIntent": {
-    /** Search Term */
-    "searchTerm": TextValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
   "com.apple.Magnifier.FollowUpVQAAppIntent": {
     /** Prompt */
     "prompt": TextValue;
@@ -25566,7 +26024,7 @@ export type ParamTypes = {
     "places": AnyValue;
     /** Attributes: The attributes to highlight on shown places. */
     "attributes": EnumValue<"address" | "businessHours" | "phoneNumber" | "postalCode" | "priceRange" | "rating" | "structuredAttribute">;
-    /** Language Id: The language identifier */
+    /** Language Id: The language identifier. */
     "languageId": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -25703,29 +26161,29 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.MobileSMS.DraftMessageIntent": {
-    /** To: The destination of the message. Can be recipients, or a specific conversation */
+    /** To: The destination of the message. Can be recipients, or a specific conversation. */
     "destination": AnyValue;
-    /** Subject: The subject of the message */
+    /** Subject: The subject of the message. */
     "subject": TextValue;
-    /** Content: The primary body of the message */
+    /** Content: The primary body of the message. */
     "content": TextValue;
     /** Audio Message: The audio message to send with the message. */
     "audioMessage": AnyValue;
-    /** Attachments: Files such as images to be sent with the message */
+    /** Attachments: Files such as images to be sent with the message. */
     "attachments": AnyValue;
-    /** Locations: Locations to include in the message */
+    /** Locations: Locations to include in the message. */
     "locations": AnyValue;
-    /** Links: URLs to include in the message */
+    /** Links: URLs to include in the message. */
     "links": TextValue;
-    /** Date: The date to send the message, if sent at a later time */
+    /** Date: The date to send the message, if sent at a later time. */
     "scheduledDate": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.MobileSMS.EditSentMessageIntent": {
-    /** Message: The message to edit */
+    /** Message: The message to edit. */
     "message": AnyValue;
-    /** Content: The new content to replace the original content with */
+    /** Content: The new content to replace the original content with. */
     "content": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -25791,21 +26249,21 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.MobileSMS.SendMessageIntent": {
-    /** To: The recipient or group to send the message to */
+    /** To: The recipient or group to send the message to. */
     "destination": AnyValue;
-    /** Subject: The subject of the message */
+    /** Subject: The subject of the message. */
     "subject": TextValue;
-    /** Content: The content of the message */
+    /** Content: The content of the message. */
     "content": TextValue;
     /** Audio Message: The audio message to send with the message. */
     "audioMessage": AnyValue;
-    /** Attachments: The attachments to send with the message */
+    /** Attachments: The attachments to send with the message. */
     "attachments": AnyValue;
-    /** Locations: The locations to send with the message */
+    /** Locations: The locations to send with the message. */
     "locations": AnyValue;
-    /** Links: The links to send with the message */
+    /** Links: The links to send with the message. */
     "links": TextValue;
-    /** Date: The scheduled date for sending the message */
+    /** Date: The scheduled date for sending the message. */
     "scheduledDate": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -25841,82 +26299,95 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.MobileSMS.SetMessageReadStatusIntent": {
-    /** Message: The message to apply the read status to */
+    /** Message: The message to apply the read status to. */
     "message": AnyValue;
-    /** Read Status: A Boolean value that indicates whether to mark the message as read or unread */
+    /** Read Status: A Boolean value that indicates whether to mark the message as read or unread. */
     "isRead": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.MobileSMS.UnsendMessageIntent": {
-    /** Message: The message to unsend */
+    /** Message: The message to unsend. */
     "message": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Music.AddMusicItemToLibrarySiriIntent": {
-    /** Audio Item: The item to add to the library, such as a song, album, playlist, or audiobook */
+    /** Audio Item: The item to add to the library, such as a song, album, playlist, or audiobook. */
     "audioEntity": AnyValue;
+    "musicAccountIDOverride": TextValue;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
-    /** Open When Run */
-    "OpenWhenRun": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Music.AddMusicItemToPlaylistSiriIntent": {
-    /** Audio Item: The item to add to the playlist, such as a song or album */
+    /** Audio Item: The item to add to the playlist, such as a song or album. */
     "audioEntity": AnyValue;
-    /** Playlist: The target playlist */
+    /** Playlist: The target playlist. */
     "playlist": AnyValue;
-    /** Open When Run */
-    "OpenWhenRun": BoolValue;
+    "musicAccountIDOverride": TextValue;
+    /** Show When Run */
+    "ShowWhenRun": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Music.CreatePlaylistSiriIntent": {
+    /** Title: Title of the new playlist. */
+    "name": TextValue;
+    /** Content: The content to add to the playlist. */
+    "content": AnyValue;
+    "musicAccountIDOverride": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Music.CreateStationSiriIntent": {
+    "requestIdentifierOverride": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Music.OpenMusicItemSiriIntent": {
-    /** Target: Target item to open */
+    /** Target: Target item to open. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Music.PlayMusicItemSiriIntent": {
-    /** Warmup Audio Queue Result: Optional pre loaded and warmed up queue */
-    "warmupAudioQueueResult": AnyValue;
-    /** Audio Item: The item to play, such as a song, album, playlist, or podcast episode */
+    /** Audio Item: The item to play, such as a song, album, playlist, or podcast episode. */
     "audioEntity": AnyValue;
-    /** Playback Attributes: Attributes that define how the item plays, such as shuffle or repeat mode */
+    /** Playback Attributes: Attributes that define how the item plays, such as shuffle or repeat mode. */
     "playbackAttributes": EnumValue<"repeat" | "shuffle">;
-    /** Queue Location: The position in the playback queue to play the item, such as play next or add to the end of the queue */
+    /** Queue Location: The position in the playback queue to play the item, such as play next or add to the end of the queue. */
     "queueLocation": EnumValue<"next" | "tail">;
+    /** Warmup Audio Queue Result: Optional pre loaded and warmed up queue. */
+    "warmupAudioQueueResult": AnyValue;
+    "requestIdentifierOverride": TextValue;
+    "musicAccountIDOverride": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Music.SearchMusicSiriIntent": {
-    /** Text: Search criteria used when searching in app */
+    /** Text: Search criteria used when searching in app. */
     "criteria": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Music.UpdateMusicItemAffinitySiriIntent": {
-    /** Target: The audio item whose affinity state will be updated */
+    /** Target: The audio item whose affinity state will be updated. */
     "target": AnyValue;
-    /** Affinity State: The affinity state to set */
+    /** Affinity State: The affinity state to set. */
     "affinityState": EnumValue<"dislike" | "like" | "unset">;
-    /** Open When Run */
-    "OpenWhenRun": BoolValue;
+    "musicAccountIDOverride": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Music.WarmupMusicQueueSiriIntent": {
     /** Audio Item: The item to warmup, such as a song, album, playlist, podcast episode, etc… */
     "audioEntity": AnyValue;
-    /** Playback Attributes: Attributes that define how the item plays, such as shuffle or repeat mode */
+    /** Playback Attributes: Attributes that define how the item plays, such as shuffle or repeat mode. */
     "playbackAttributes": EnumValue<"repeat" | "shuffle">;
+    "requestIdentifierOverride": TextValue;
+    "musicAccountIDOverride": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -26351,7 +26822,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.ApplyStyleIntent": {
-    /** The photo to apply style to: Photo */
+    /** Photo: The photo to apply style to */
     "asset": AnyValue;
     /** Style: The style to apply */
     "style": EnumValue<"cloudCover" | "colorful" | "dreamyHues" | "earthy" | "original" | "starkBW" | "urbanCool" | "warmAuthentic">;
@@ -26375,6 +26846,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.CleanupIntent": {
+    /** Photo: The photo to clean up */
+    "asset": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -26403,6 +26876,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.CropIntent": {
+    /** Photo: The photo to crop */
+    "asset": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -26433,6 +26908,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.EnableDepthIntent": {
+    /** Photo: The photo to enable depth to */
+    "asset": AnyValue;
     /** Enabled */
     "enabled": BoolValue;
     /** Show When Run */
@@ -26495,6 +26972,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.MarkupIntent": {
+    /** Photo: The photo to mark up */
+    "asset": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -26567,33 +27046,33 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent": {
-    /** Photos: Photos to be added */
+    /** Photos: Photos to be added. */
     "assets": AnyValue;
-    /** Album: Album to add photos to */
+    /** Album: Album to add photos to. */
     "album": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent": {
-    /** Criteria: Criteria for the attributed search */
+    /** Criteria: Criteria for the attributed search. */
     "criteria": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosCleanupPhotoAssistantIntent": {
-    /** Photo: Photo to cleanup */
+    /** Photo: Photo to cleanup. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosCopyEditsAssistantIntent": {
-    /** Photo: Photo to copy edits from */
+    /** Photo: Photo to copy edits from. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosCreateAlbumAssistantIntent": {
-    /** Name: Name of the album to create */
+    /** Name: Name of the album to create. */
     "name": TextValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -26601,31 +27080,31 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosCreateAssetsAssistantIntent": {
-    /** Files: Files to create photos with */
+    /** Files: Files to create photos with. */
     "files": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosCropAssistantIntent": {
-    /** Photo: Photo to be cropped */
+    /** Photo: Photo to be cropped. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosDeleteAlbumsAssistantIntent": {
-    /** Albums: Albums to be deleted */
+    /** Albums: Albums to be deleted. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosDeleteAssetsAssistantIntent": {
-    /** Photos: Photos to be deleted */
+    /** Photos: Photos to be deleted. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosDuplicateAssetsAssistantIntent": {
-    /** Photos: Photos to duplicate */
+    /** Photos: Photos to duplicate. */
     "entities": AnyValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -26633,7 +27112,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosEditAssetAssistantIntent": {
-    /** Photo: Photo to edit */
+    /** Photo: Photo to edit. */
     "asset": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -26645,61 +27124,61 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosFavoriteMemoriesAssistantIntent": {
-    /** Memories: The memories to favorite */
+    /** Memories: The memories to favorite. */
     "memories": AnyValue;
-    /** Action: Favorite Action */
+    /** Action: Favorite Action. */
     "action": EnumValue<"favorite" | "unfavorite">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosFilterLibraryAssistantIntent": {
-    /** Library View: The library view to set */
+    /** Library View: The library view to set. */
     "viewMode": EnumValue<"both" | "personal" | "shared">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosMoveAssetsToPersonalLibraryAssistantIntent": {
-    /** Photos: The photos to move */
+    /** Photos: The photos to move. */
     "assets": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent": {
-    /** Photos: The photos to move */
+    /** Photos: The photos to move. */
     "assets": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent": {
-    /** Description: Description of the Memory movie */
+    /** Description: Description of the Memory movie. */
     "query": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosPasteEditsAssistantIntent": {
-    /** Photos: Photos to paste edits to */
+    /** Photos: Photos to paste edits to. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent": {
-    /** Album: Album to remove photos from */
+    /** Album: Album to remove photos from. */
     "album": AnyValue;
-    /** Photos: Photos to be removed */
+    /** Photos: Photos to be removed. */
     "assets": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosSearchAssistantIntent": {
-    /** Text: Search criteria used when searching in app */
+    /** Text: Search criteria used when searching in app. */
     "criteria": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosSetDepthAssistantIntent": {
-    /** Photo: Photo to change depth for */
+    /** Photo: Photo to change depth for. */
     "target": AnyValue;
-    /** Value: Depth value to set */
+    /** Value: Depth value to set. */
     "value": NumberValue;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
@@ -26707,9 +27186,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosSetExposureAssistantIntent": {
-    /** Photo: Photo to apply exposure to */
+    /** Photo: Photo to apply exposure to. */
     "target": AnyValue;
-    /** Value: Value for exposure change */
+    /** Value: Value for exposure change. */
     "value": NumberValue;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
@@ -26717,25 +27196,25 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosSetFilterAssistantIntent": {
-    /** Photo: Photo to apply filter to */
+    /** Photo: Photo to apply filter to. */
     "target": AnyValue;
-    /** Filter: Filter to apply */
+    /** Filter: Filter to apply. */
     "filterType": EnumValue<"amber" | "blackAndWhite" | "bright" | "coolRose" | "cozy" | "dramatic" | "dramaticCool" | "dramaticWarm" | "ethereal" | "gold" | "luminous" | "mono" | "mutedBW" | "natural" | "neutral" | "noir" | "original" | "quiet" | "roseGold" | "silvertone" | "standard" | "starkBW" | "vibrant" | "vivid" | "vividCool" | "vividWarm">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosSetRotationAssistantIntent": {
-    /** Photo: Photo to be rotated */
+    /** Photo: Photo to be rotated. */
     "target": AnyValue;
-    /** Direction: Direction to rotate photo */
+    /** Direction: Direction to rotate photo. */
     "direction": EnumValue<"clockwise" | "counterClockwise">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosSetSaturationAssistantIntent": {
-    /** Photo: Photo to apply saturation to */
+    /** Photo: Photo to apply saturation to. */
     "target": AnyValue;
-    /** Value: Value for saturation change */
+    /** Value: Value for saturation change. */
     "value": NumberValue;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
@@ -26743,9 +27222,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosSetWarmthAssistantIntent": {
-    /** Photo: Photo to apply warmth to */
+    /** Photo: Photo to apply warmth to. */
     "target": AnyValue;
-    /** Value: Value for warmth change */
+    /** Value: Value for warmth change. */
     "value": NumberValue;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
@@ -26753,15 +27232,15 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosStraightenAssistantIntent": {
-    /** Photo: Photo to be straightened */
+    /** Photo: Photo to be straightened. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosToggleDepthAssistantIntent": {
-    /** Photo: Photo to change depth for */
+    /** Photo: Photo to change depth for. */
     "target": AnyValue;
-    /** State: Whether depth effect is enabled */
+    /** State: Whether depth effect is enabled. */
     "isEnabled": BoolValue;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
@@ -26769,39 +27248,39 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosToggleSuggestedEditsAssistantIntent": {
-    /** Photo: Photo to enhance */
+    /** Photo: Photo to enhance. */
     "target": AnyValue;
-    /** Enabled: Value for toggling enhancement */
+    /** Enabled: Value for toggling enhancement. */
     "isEnabled": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosUpdateAlbumAssistantIntent": {
-    /** Album: Album to update */
+    /** Album: Album to update. */
     "target": AnyValue;
-    /** Name: Name of the album to update to */
+    /** Name: Name of the album to update to. */
     "name": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosUpdateAssetAssistantIntent": {
-    /** Photos: Photos to update */
+    /** Photos: Photos to update. */
     "target": AnyValue;
-    /** Name: Name of the photo to update to */
+    /** Name: Name of the photo to update to. */
     "name": TextValue;
-    /** Favorite: Whether to mark the photo as favorite */
+    /** Favorite: Whether to mark the photo as favorite. */
     "isFavorite": BoolValue;
-    /** Hidden: Whether to hide the photo */
+    /** Hidden: Whether to hide the photo. */
     "isHidden": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.PhotosUpdateRecognizedPersonAssistantIntent": {
-    /** Person: Person to update */
+    /** Person: Person to update. */
     "target": AnyValue;
-    /** Favorite: Whether to update the person as favorite */
+    /** Favorite: Whether to update the person as favorite. */
     "isFavorite": BoolValue;
-    /** Name: Name of the person to rename to */
+    /** Name: Name of the person to rename to. */
     "name": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -26853,6 +27332,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.SetApertureIntent": {
+    /** Photo: The photo to set aperture to */
+    "asset": AnyValue;
     /** Value: The aperture value to set */
     "value": NumberValue;
     /** Show When Run */
@@ -26861,12 +27342,16 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.SetAudioMixIntent": {
+    /** Video: The video to set audio mix to */
+    "asset": AnyValue;
     /** Audio Mix: Audio mix to set */
     "audioMix": EnumValue<"camera" | "standard" | "studio" | "voice">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.SetExposureIntent": {
+    /** Photo: The photo to set exposure to */
+    "asset": AnyValue;
     /** Value: The exposure value to set */
     "value": NumberValue;
     /** Show When Run */
@@ -26875,12 +27360,16 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.SetPlaybackRateIntent": {
-    /** Playback Speed */
+    /** Video: The video to set playback rate to */
+    "asset": AnyValue;
+    /** Playback Speed: Playback speed to set */
     "playbackRate": EnumValue<"normal" | "slow">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.SetSaturationIntent": {
+    /** Photo: The photo to set saturation to */
+    "asset": AnyValue;
     /** Value: The saturation value to set */
     "value": NumberValue;
     /** Show When Run */
@@ -26889,6 +27378,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.SetWarmthIntent": {
+    /** Photo: The photo to set warmth to */
+    "asset": AnyValue;
     /** Value: The warmth value to set */
     "value": NumberValue;
     /** Show When Run */
@@ -26897,11 +27388,13 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Photos.StraightenIntent": {
+    /** Photo: The photo to straighten */
+    "asset": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Preview.AutoEnhanceIntent": {
-    /** Documents: Documents to automatically enhance */
+    /** Documents: Documents to automatically enhance. */
     "target": AnyValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -26923,7 +27416,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Preview.DeletePageIntent": {
-    /** Pages: Pages to delete */
+    /** Pages: Pages to delete. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -26977,17 +27470,17 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Preview.InsertPageIntent": {
-    /** Documents: Image or PDF files to insert as pages */
+    /** Documents: Image or PDF files to insert as pages. */
     "files": AnyValue;
-    /** Placement: Whether the new pages are inserted before or after the specified page */
+    /** Placement: Whether the new pages are inserted before or after the specified page. */
     "isAfter": BoolValue;
-    /** Page: Page relative to which the files will be inserted */
+    /** Page: Page relative to which the files will be inserted. */
     "page": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Preview.OpenIntent": {
-    /** Documents: Files to open as documents in the reader */
+    /** Documents: Files to open as documents in the reader. */
     "files": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -27001,11 +27494,11 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Preview.ResizeIntent": {
-    /** Documents: Documents to resize */
+    /** Documents: Documents to resize. */
     "documents": AnyValue;
-    /** Width: Width to set for the documents (leave empty to preserve aspect ratio based on the specified height) */
+    /** Width: Width to set for the documents (leave empty to preserve aspect ratio based on the specified height). */
     "width": NumberValue;
-    /** Height: Height to set for the documents (leave empty to preserve aspect ratio based on the specified width) */
+    /** Height: Height to set for the documents (leave empty to preserve aspect ratio based on the specified width). */
     "height": NumberValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -27019,15 +27512,15 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Preview.RevealPageIntent": {
-    /** Page: Page to go to */
+    /** Page: Page to go to. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Preview.RotateIntent": {
-    /** Documents: Documents to rotate */
+    /** Documents: Documents to rotate. */
     "documents": AnyValue;
-    /** Clockwise: Direction the documents will be rotated in */
+    /** Clockwise: Direction the documents will be rotated in. */
     "isClockwise": BoolValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -27035,9 +27528,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Preview.RotatePageIntent": {
-    /** Pages: Pages to rotate */
+    /** Pages: Pages to rotate. */
     "pages": AnyValue;
-    /** Clockwise: Direction the pages will be rotated in */
+    /** Clockwise: Direction the pages will be rotated in. */
     "isClockwise": BoolValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -27051,9 +27544,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Preview.SearchIntent": {
-    /** Documents: Documents to search in */
+    /** Documents: Documents to search in. */
     "documents": AnyValue;
-    /** Search Terms: Terms used for searching in the documents */
+    /** Search Terms: Terms used for searching in the documents. */
     "criteria": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -27075,17 +27568,17 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Safari.BookmarkTabIntent": {
-    /** Tab: Tab to bookmark */
+    /** Tab: Tab to bookmark. */
     "tab": AnyValue;
-    /** Title: Bookmark name */
+    /** Title: Bookmark name. */
     "name": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Safari.BookmarkURLIntent": {
-    /** URL: URL to bookmark */
+    /** URL: URL to bookmark. */
     "url": TextValue;
-    /** Name: Bookmark name */
+    /** Name: Bookmark name. */
     "name": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -27103,7 +27596,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Safari.CloseWindowsIntent": {
-    /** Windows: Windows to close */
+    /** Windows: Windows to close. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -27127,7 +27620,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Safari.CreateNewWindow": {
-    /** Private Browsing: Whether to open the window in private browsing */
+    /** Private Browsing: Whether to open the window in private browsing. */
     "isPrivate": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -27143,7 +27636,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Safari.DeleteBookmarks": {
-    /** Bookmarks: Bookmarks to delete */
+    /** Bookmarks: Bookmarks to delete. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -27155,9 +27648,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Safari.FindOnPage": {
-    /** Phrase: The phrase to find */
+    /** Phrase: The phrase to find. */
     "searchPhrase": TextValue;
-    /** Tab: The tab to find the phrase on */
+    /** Tab: The tab to find the phrase on. */
     "tab": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -27179,9 +27672,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Safari.LoadURLInTab": {
-    /** URL: URL to load */
+    /** URL: URL to load. */
     "url": TextValue;
-    /** Tab: Tabs to load URL in */
+    /** Tab: Tabs to load URL in. */
     "tab": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -27215,7 +27708,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Safari.OpenTab": {
-    /** Tab: Tab to switch to */
+    /** Tab: Tab to switch to. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -27233,7 +27726,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Safari.QuickWebsiteSearchIntent": {
-    /** Text: Search query */
+    /** Text: Search query. */
     "term": TextValue;
     /** Website: Searchable website to perform the search. */
     "website": AnyValue;
@@ -27348,6 +27841,58 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
+  "com.apple.Settings.AirDropEntity": {
+    "WFContentItemFilter": AnyValue;
+    /** Sort by */
+    "WFContentItemSortProperty": EnumValue<"Random" | "value">;
+    /** Order */
+    "WFContentItemSortOrder": TextValue;
+    /** Limit */
+    "WFContentItemLimitEnabled": BoolValue;
+    /** Get */
+    "WFContentItemLimitNumber": NumberValue;
+    "WFCompoundType": EnumValue<"0" | "1">;
+    /** airdrop */
+    "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.AirDropEntity-UpdatableEntity": {
+    /** AirDrop */
+    "entity": AnyValue;
+    /** AirDrop to update on AirDrop */
+    "value": EnumValue<"contactsOnly" | "everyone" | "off">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink": {
+    "WFContentItemFilter": AnyValue;
+    /** Sort by: Optionally, what to sort the airdrop & continuity settings by. */
+    "WFContentItemSortProperty": EnumValue<"Random">;
+    /** Order: The order to sort the airdrop & continuity settings in. */
+    "WFContentItemSortOrder": TextValue;
+    /** Limit: Whether or not to limit the number of airdrop & continuity settings retrieved. */
+    "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of airdrop & continuity settings. */
+    "WFContentItemLimitNumber": NumberValue;
+    "WFCompoundType": EnumValue<"0" | "1">;
+    /** airdrop & continuity settings */
+    "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.AirPlayIntent": {
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.AirPlayReceiverIntent": {
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.AirPlayRequiresPasswordIntent": {
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
   "com.apple.Settings.AppleAccountSettingsDeepLink": {
     "WFContentItemFilter": AnyValue;
     /** Sort by: Optionally, what to sort the apple account settings by. */
@@ -27361,48 +27906,6 @@ export type ParamTypes = {
     "WFCompoundType": EnumValue<"0" | "1">;
     /** apple account settings */
     "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.Settings.ApplicationNotificationsSettings": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by: Optionally, what to sort the application notifications by. */
-    "WFContentItemSortProperty": EnumValue<"Random" | "alertStyle" | "allowCriticalAlerts" | "allowNotifications" | "allowTimeSensitive" | "badgeAppIcon" | "notificationGrouping" | "playSounds" | "showInNotificationCenter" | "showOnLockScreen" | "showPreviews">;
-    /** Order: The order to sort the application notifications in. */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit: Whether or not to limit the number of application notifications retrieved. */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get: The maximum number of application notifications. */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** application notifications */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.Settings.ApplicationNotificationsSettings-UpdatableEntity": {
-    /** Alert style to update on Application Notifications */
-    "alertStyle": EnumValue<"0" | "1" | "2">;
-    /** Critical alerts to update on Application Notifications */
-    "allowCriticalAlerts": BoolValue;
-    /** Allow notifications to update on Application Notifications */
-    "allowNotifications": BoolValue;
-    /** Time sensitive notifications to update on Application Notifications */
-    "allowTimeSensitive": BoolValue;
-    /** Badge application icon to update on Application Notifications */
-    "badgeAppIcon": BoolValue;
-    /** Application Notifications */
-    "entity": AnyValue;
-    /** Notification grouping to update on Application Notifications */
-    "notificationGrouping": EnumValue<"0" | "1" | "2">;
-    /** Play sound for notification to update on Application Notifications */
-    "playSounds": BoolValue;
-    /** Show in Notification Center to update on Application Notifications */
-    "showInNotificationCenter": BoolValue;
-    /** Show notifications on lock screen to update on Application Notifications */
-    "showOnLockScreen": BoolValue;
-    /** Show previews to update on Application Notifications */
-    "showPreviews": EnumValue<"0" | "1" | "2" | "3">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -27581,16 +28084,6 @@ export type ParamTypes = {
     "showSeconds": BoolValue;
     /** Interval to update on Clock Options */
     "timeAnnouncementsInterval": EnumValue<"EveryHalfHourInterval" | "EveryHourInterval" | "EveryQuarterHourInterval">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.Settings.ControlCenterModule-UpdatableEntity": {
-    /** Always Show in Menu Bar to update on Control Center Module */
-    "alwaysShowInMenuBar": BoolValue;
-    /** Control Center Module */
-    "entity": AnyValue;
-    /** Show in Menu Bar to update on Control Center Module */
-    "showInMenuBar": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -27890,6 +28383,10 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
+  "com.apple.Settings.HandoffIntent": {
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
   "com.apple.Settings.HourFormatEntity": {
     "WFContentItemFilter": AnyValue;
     /** Sort by */
@@ -27943,6 +28440,16 @@ export type ParamTypes = {
     "WFCompoundType": EnumValue<"0" | "1">;
     /** language & region settings */
     "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.MenuBarControl-UpdatableEntity": {
+    /** Always Show in Menu Bar to update on Menu Bar Control */
+    "alwaysShowInMenuBar": BoolValue;
+    /** Menu Bar Control */
+    "entity": AnyValue;
+    /** Show in Menu Bar to update on Menu Bar Control */
+    "showInMenuBar": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -28096,14 +28603,14 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.Settings.OpenAppleAccountSettingsDeepLink": {
-    /** Apple Account Settings */
+  "com.apple.Settings.OpenAirDropHandoffExtensionSettingsDeepLink": {
+    /** AirDrop & Continuity Settings */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.Settings.OpenApplicationNotificationsSettings": {
-    /** Application Notifications */
+  "com.apple.Settings.OpenAppleAccountSettingsDeepLink": {
+    /** Apple Account Settings */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -28164,12 +28671,6 @@ export type ParamTypes = {
   };
   "com.apple.Settings.OpenConfiguredInternetAccountSettings": {
     /** Internet Accounts: Go to a specific Internet Accountʼs settings page */
-    "target": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.Settings.OpenControlCenterModule": {
-    /** Control Center Module */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -28282,6 +28783,12 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
+  "com.apple.Settings.OpenMenuBarControl": {
+    /** Menu Bar Control */
+    "target": AnyValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
   "com.apple.Settings.OpenMissionControlSettingsEntity": {
     /** Mission Control Settings */
     "target": AnyValue;
@@ -28332,6 +28839,30 @@ export type ParamTypes = {
   };
   "com.apple.Settings.OpenSoftwareUpdateSettingsExtensionSettingsDeepLink": {
     /** Software Update Settings */
+    "target": AnyValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.OpenSoundSettingsDeepLink": {
+    /** Sound Settings */
+    "target": AnyValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.OpenSoundSettingsFeedbackSoundEntity": {
+    /** Feedback Sound Settings */
+    "target": AnyValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.OpenSoundSettingsInterfaceEffectsEntity": {
+    /** User Interface Sound Effects Settings */
+    "target": AnyValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.OpenSoundSettingsStartupSoundEntity": {
+    /** Startup Sound Settings */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -28446,22 +28977,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by: Optionally, what to sort the airdrop & continuity settings by. */
-    "WFContentItemSortProperty": EnumValue<"Random">;
-    /** Order: The order to sort the airdrop & continuity settings in. */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit: Whether or not to limit the number of airdrop & continuity settings retrieved. */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get: The maximum number of airdrop & continuity settings. */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** airdrop & continuity settings */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
   "com.apple.Settings.PlaceholderAppearanceSettingsDeepLink": {
     "WFContentItemFilter": AnyValue;
     /** Sort by: Optionally, what to sort the appearance settings by. */
@@ -28548,12 +29063,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink": {
-    /** AirDrop & Continuity Settings */
-    "target": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
   "com.apple.Settings.PlaceholderOpenAppearanceSettingsDeepLink": {
     /** Appearance Settings */
     "target": AnyValue;
@@ -28598,12 +29107,6 @@ export type ParamTypes = {
   };
   "com.apple.Settings.PlaceholderOpenSharingSettingsDeepLink": {
     /** Sharing Settings */
-    "target": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink": {
-    /** Sound Settings */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -28664,22 +29167,6 @@ export type ParamTypes = {
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
     /** sharing settings */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.Settings.PlaceholderSoundSettingsDeepLink": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by: Optionally, what to sort the sound settings by. */
-    "WFContentItemSortProperty": EnumValue<"Random">;
-    /** Order: The order to sort the sound settings in. */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit: Whether or not to limit the number of sound settings retrieved. */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get: The maximum number of sound settings. */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** sound settings */
     "WFContentItemInputParameter": EnumValue<"Library">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -28920,22 +29407,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.Settings.ShowBatteryPercentageEntity": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by */
-    "WFContentItemSortProperty": EnumValue<"Random" | "showBatteryPercentage">;
-    /** Order */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** show battery percentage */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
   "com.apple.Settings.ShowBatteryPercentageEntity-UpdatableEntity": {
     /** Show Battery Percentage */
     "entity": AnyValue;
@@ -29057,6 +29528,94 @@ export type ParamTypes = {
     "WFCompoundType": EnumValue<"0" | "1">;
     /** software update settings */
     "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.SoundSettingsDeepLink": {
+    "WFContentItemFilter": AnyValue;
+    /** Sort by: Optionally, what to sort the sound settings by. */
+    "WFContentItemSortProperty": EnumValue<"Random">;
+    /** Order: The order to sort the sound settings in. */
+    "WFContentItemSortOrder": TextValue;
+    /** Limit: Whether or not to limit the number of sound settings retrieved. */
+    "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of sound settings. */
+    "WFContentItemLimitNumber": NumberValue;
+    "WFCompoundType": EnumValue<"0" | "1">;
+    /** sound settings */
+    "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.SoundSettingsFeedbackSoundEntity": {
+    "WFContentItemFilter": AnyValue;
+    /** Sort by */
+    "WFContentItemSortProperty": EnumValue<"Random" | "value">;
+    /** Order */
+    "WFContentItemSortOrder": TextValue;
+    /** Limit */
+    "WFContentItemLimitEnabled": BoolValue;
+    /** Get */
+    "WFContentItemLimitNumber": NumberValue;
+    "WFCompoundType": EnumValue<"0" | "1">;
+    /** feedback sound settings */
+    "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.SoundSettingsFeedbackSoundEntity-UpdatableEntity": {
+    /** Feedback Sound Settings */
+    "entity": AnyValue;
+    /** Play feedback when volume is changed to update on Feedback Sound Settings */
+    "value": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.SoundSettingsInterfaceEffectsEntity": {
+    "WFContentItemFilter": AnyValue;
+    /** Sort by */
+    "WFContentItemSortProperty": EnumValue<"Random" | "value">;
+    /** Order */
+    "WFContentItemSortOrder": TextValue;
+    /** Limit */
+    "WFContentItemLimitEnabled": BoolValue;
+    /** Get */
+    "WFContentItemLimitNumber": NumberValue;
+    "WFCompoundType": EnumValue<"0" | "1">;
+    /** user interface sound effects settings */
+    "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.SoundSettingsInterfaceEffectsEntity-UpdatableEntity": {
+    /** User Interface Sound Effects Settings */
+    "entity": AnyValue;
+    /** Play user interface sound effects to update on User Interface Sound Effects Settings */
+    "value": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.SoundSettingsStartupSoundEntity": {
+    "WFContentItemFilter": AnyValue;
+    /** Sort by */
+    "WFContentItemSortProperty": EnumValue<"Random" | "value">;
+    /** Order */
+    "WFContentItemSortOrder": TextValue;
+    /** Limit */
+    "WFContentItemLimitEnabled": BoolValue;
+    /** Get */
+    "WFContentItemLimitNumber": NumberValue;
+    "WFCompoundType": EnumValue<"0" | "1">;
+    /** startup sound settings */
+    "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.SoundSettingsStartupSoundEntity-UpdatableEntity": {
+    /** Startup Sound Settings */
+    "entity": AnyValue;
+    /** Play sound on startup to update on Startup Sound Settings */
+    "value": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -29479,15 +30038,15 @@ export type ParamTypes = {
     /** Get */
     "WFContentItemLimitNumber": NumberValue;
     "WFCompoundType": EnumValue<"0" | "1">;
-    /** swipe between pages */
+    /** swipe between spaces */
     "WFContentItemInputParameter": EnumValue<"Library">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity": {
-    /** Swipe between pages */
+    /** Swipe between spaces */
     "entity": AnyValue;
-    /** Swipe between pages to update on Swipe between pages */
+    /** Swipe between spaces to update on Swipe between spaces */
     "value": EnumValue<"0" | "1" | "2">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -29669,6 +30228,30 @@ export type ParamTypes = {
     "showWidgetsOnDesktop": BoolValue;
     /** Dim widgets on desktop to update on Widget Settings */
     "widgetAppearance": EnumValue<"0" | "1" | "2">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.WidgetsAndOnenessEntity": {
+    "WFContentItemFilter": AnyValue;
+    /** Sort by */
+    "WFContentItemSortProperty": EnumValue<"Random" | "useiPhoneWidgets">;
+    /** Order */
+    "WFContentItemSortOrder": TextValue;
+    /** Limit */
+    "WFContentItemLimitEnabled": BoolValue;
+    /** Get */
+    "WFContentItemLimitNumber": NumberValue;
+    "WFCompoundType": EnumValue<"0" | "1">;
+    /** iphone widgets */
+    "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.Settings.WidgetsAndOnenessEntity-UpdatableEntity": {
+    /** iPhone Widgets */
+    "entity": AnyValue;
+    /** iPhone Widgets to update on iPhone Widgets */
+    "useiPhoneWidgets": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -30237,7 +30820,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.WritingTools.WritingToolsAppIntentsExtension.RewriteTextIntent": {
-    /** Text: The text to be rewritten */
+    /** Text: The text to be rewritten. */
     "text": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30257,7 +30840,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.calls.PhoneAppIntentsExtension.AnswerCallIntent": {
-    /** Call: The incoming call to answer */
+    /** Call: The incoming call to answer. */
     "call": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30311,43 +30894,43 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent": {
-    /** Audio Visual Mode: Call mode, either audio or video */
+    /** Audio Visual Mode: Call mode, either audio or video. */
     "audioVisualMode": EnumValue<"audio" | "video">;
-    /** Destination: Target destination for the outgoing conference call */
+    /** Destination: Target destination for the outgoing conference call. */
     "destination": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.calls.PhoneAppIntentsExtension.EndCallIntent": {
-    /** Call: The incoming or ongoing call to end */
+    /** Call: The incoming or ongoing call to end. */
     "call": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent": {
-    /** Audio Route: The audio route to set for the call */
+    /** Audio Route: The audio route to set for the call. */
     "audioRoute": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.calls.PhoneAppIntentsExtension.StartEmergencyCallIntent": {
-    /** Destination: Target destination for the outgoing emergency call */
+    /** Destination: Target destination for the outgoing emergency call. */
     "destination": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.calls.PhoneAppIntentsExtension.StartFaceTimeCallIntent": {
-    /** Audio Visual Mode: Call mode, either audio or video */
+    /** Audio Visual Mode: Call mode, either audio or video. */
     "audioVisualMode": EnumValue<"audio" | "video">;
-    /** Destination: Target destination for the outgoing call */
+    /** Destination: Target destination for the outgoing call. */
     "destination": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.calls.PhoneAppIntentsExtension.StartTelephonyCallIntent": {
-    /** Audio Visual Mode: Call mode, either audio or video */
+    /** Audio Visual Mode: Call mode, either audio or video. */
     "audioVisualMode": EnumValue<"audio" | "video">;
-    /** Destination: Target destination for the outgoing call */
+    /** Destination: Target destination for the outgoing call. */
     "destination": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30427,59 +31010,59 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.AssistantCancelTimerIntent": {
-    /** Timers: Timers to cancel */
+    /** Timers: Timers to cancel. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.AssistantCreateAlarmIntent": {
-    /** Time: Alarm time */
+    /** Time: Alarm time. */
     "time": TextValue;
-    /** Label: Alarm label */
+    /** Label: Alarm label. */
     "label": TextValue;
-    /** Recurrence Days: Alarm repeating schedule */
+    /** Recurrence Days: Alarm repeating schedule. */
     "recurrenceDays": AnyValue;
-    /** Can Snooze: If the alarm can be snoozed or not */
+    /** Can Snooze: If the alarm can be snoozed or not. */
     "canSnooze": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.AssistantCreateTimerIntent": {
-    /** Duration: Timer duration */
+    /** Duration: Timer duration. */
     "duration": AnyValue;
-    /** Label: Timer label */
+    /** Label: Timer label. */
     "label": TextValue;
-    /** Is Sleep Timer: If it is sleep timer or not */
+    /** Is Sleep Timer: If it is sleep timer or not. */
     "isSleepTimer": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.AssistantDeleteAlarmIntent": {
-    /** Alarms: Alarms to delete */
+    /** Alarms: Alarms to delete. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.AssistantLapStopwatchIntent": {
-    /** Stopwatch: Stopwatch to modify */
+    /** Stopwatch: Stopwatch to modify. */
     "stopwatch": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.AssistantPauseTimerIntent": {
-    /** Timer: Timer to pause */
+    /** Timer: Timer to pause. */
     "timer": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.AssistantResetStopwatchIntent": {
-    /** Stopwatch: Stopwatch to reset */
+    /** Stopwatch: Stopwatch to reset. */
     "stopwatch": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.AssistantResumeTimerIntent": {
-    /** Timer: Timer to resume */
+    /** Timer: Timer to resume. */
     "timer": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30490,7 +31073,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.AssistantStopStopwatchIntent": {
-    /** Stopwatch: Stopwatch to stop */
+    /** Stopwatch: Stopwatch to stop. */
     "stopwatch": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30506,7 +31089,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.DismissAlarmIntent": {
-    /** Alarm: Alarm to dismiss */
+    /** Alarm: Alarm to dismiss. */
     "alarm": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30564,9 +31147,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.SnoozeAlarmIntent": {
-    /** Alarm: Alarm to snooze */
+    /** Alarm: Alarm to snooze. */
     "alarm": AnyValue;
-    /** Duration: Snooze duration */
+    /** Duration: Snooze duration. */
     "duration": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30598,29 +31181,29 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.UpdateAlarmIntent": {
-    /** Alarm: Alarm to update */
+    /** Alarm: Alarm to update. */
     "alarm": AnyValue;
-    /** Is Enabled: True to enable the alarm, False to disable the alarm */
+    /** Is Enabled: True to enable the alarm, False to disable the alarm. */
     "isEnabled": BoolValue;
-    /** Time: Alarm time */
+    /** Time: Alarm time. */
     "time": TextValue;
-    /** Label: Alarm label */
+    /** Label: Alarm label. */
     "label": TextValue;
-    /** Recurrence Days: Alarm repeating schedule */
+    /** Recurrence Days: Alarm repeating schedule. */
     "recurrenceDays": AnyValue;
-    /** Allows Snooze: If the alarm allows snooze or not */
+    /** Allows Snooze: If the alarm allows snooze or not. */
     "allowsSnooze": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.clock.UpdateTimerIntent": {
-    /** Timer: Timer to update */
+    /** Timer: Timer to update. */
     "timer": AnyValue;
     /** Duration: Timer duration. */
     "duration": AnyValue;
-    /** Label: Timer label */
+    /** Label: Timer label. */
     "label": TextValue;
-    /** Is Sleep Timer: If the timer is a sleep timer */
+    /** Is Sleep Timer: If the timer is a sleep timer. */
     "isSleepTimer": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30686,9 +31269,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.finder.CreateFolderIntent": {
-    /** Name: Name to use for the folder to be created */
+    /** Name: Name to use for the folder to be created. */
     "fileName": TextValue;
-    /** Parent Folder: Parent folder where the folder will be created */
+    /** Parent Folder: Parent folder where the folder will be created. */
     "target": AnyValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -30734,9 +31317,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.finder.MoveItemsIntent": {
-    /** Items: Files or folders to move */
+    /** Items: Files or folders to move. */
     "entities": AnyValue;
-    /** Folder: Folder where the files will be moved */
+    /** Folder: Folder where the files will be moved. */
     "destinationFolder": AnyValue;
     /** Overwrite at Destination: Whether to keep or overwrite existing items with the same names in the destination folder */
     "overwriteConflicts": BoolValue;
@@ -30746,15 +31329,15 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.finder.OpenItemIntent": {
-    /** Item: File or folder to open in the owning app */
+    /** Item: File or folder to open in the owning app. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.finder.RenameItemIntent": {
-    /** Item: File or folder to be renamed */
+    /** Item: File or folder to be renamed. */
     "target": AnyValue;
-    /** Name: New name for the file or folder */
+    /** Name: New name for the file or folder. */
     "newName": TextValue;
     /** Overwrite Extensions: Whether to overwrite or preserve an existing file extension */
     "overwriteExtension": BoolValue;
@@ -30778,17 +31361,77 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.finder.TrashItemsIntent": {
-    /** Items: Names of the files or folders to trash, with or without extension */
+    /** Items: Names of the files or folders to trash, with or without extension. */
     "entities": AnyValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
+  "com.apple.findmy.CreateIncomingGeofenceIntent": {
+    /** Person: The person whose location and fulfillment of the geofence trigger condition will notify the originator. */
+    "person": AnyValue;
+    /** Is Recurring: Specifies whether the notification should be sent every time the trigger condition is met or only once. */
+    "isRecurring": BoolValue;
+    /** Trigger: The event that triggers the geofence notification. */
+    "trigger": EnumValue<"onEntry" | "onExit">;
+    /** Location: The location linked to the geofence notification. */
+    "location": AnyValue;
+    /** Open When Run */
+    "OpenWhenRun": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.findmy.CreateOutgoingGeofenceIntent": {
+    /** Person: The recipient of the geofence notification. */
+    "person": AnyValue;
+    /** Is Recurring: Specifies whether the notification should be sent every time the trigger condition is met or only once. */
+    "isRecurring": BoolValue;
+    /** Trigger: The event that triggers the geofence notification. */
+    "trigger": EnumValue<"onEntry" | "onExit">;
+    /** Location: The location linked to the geofence notification. */
+    "location": AnyValue;
+    /** Open When Run */
+    "OpenWhenRun": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.findmy.FindItemIntent": {
+    /** Item: The item for which the user is requesting location information. */
+    "item": AnyValue;
+    /** Open When Run */
+    "OpenWhenRun": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.findmy.FindPersonIntent": {
+    /** Person: The person for whom the user is requesting location information. */
+    "person": AnyValue;
+    /** Open When Run */
+    "OpenWhenRun": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.findmy.GeofenceEntity": {
+    "WFContentItemFilter": AnyValue;
+    /** Sort by: Optionally, what to sort the geofence by. */
+    "WFContentItemSortProperty": EnumValue<"Random" | "isRecipientFacingNotification" | "isRecurring" | "location" | "person" | "trigger">;
+    /** Order: The order to sort the geofence in. */
+    "WFContentItemSortOrder": TextValue;
+    /** Limit: Whether or not to limit the number of geofence retrieved. */
+    "WFContentItemLimitEnabled": BoolValue;
+    /** Get: The maximum number of geofence. */
+    "WFContentItemLimitNumber": NumberValue;
+    "WFCompoundType": EnumValue<"0" | "1">;
+    /** geofence */
+    "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
   "com.apple.findmy.ItemEntity": {
     "WFContentItemFilter": AnyValue;
     /** Sort by: Optionally, what to sort the item by. */
-    "WFContentItemSortProperty": EnumValue<"Random" | "isThisDevice" | "name" | "owner">;
+    "WFContentItemSortProperty": EnumValue<"Random" | "capabilities" | "category" | "customName" | "isOriginatingDevice" | "owner" | "productName">;
     /** Order: The order to sort the item in. */
     "WFContentItemSortOrder": TextValue;
     /** Limit: Whether or not to limit the number of item retrieved. */
@@ -30798,13 +31441,35 @@ export type ParamTypes = {
     "WFCompoundType": EnumValue<"0" | "1">;
     /** item */
     "WFContentItemInputParameter": EnumValue<"Library">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.findmy.OpenItemIntent": {
+    /** Item: The Item to be opened in the Find My app */
+    "target": AnyValue;
+    /** Show Details */
+    "showDetails": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.findmy.OpenModuleIntent": {
+    /** Module: The Module to be open in the Find My app */
+    "target": EnumValue<"devices" | "items" | "people" | "settings">;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.findmy.OpenPersonIntent": {
+    /** Person: The Person to be open in the Find My app */
+    "target": AnyValue;
+    /** Show Details */
+    "showDetails": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.findmy.PersonEntity": {
     "WFContentItemFilter": AnyValue;
     /** Sort by: Optionally, what to sort the person by. */
-    "WFContentItemSortProperty": EnumValue<"Random" | "contact">;
+    "WFContentItemSortProperty": EnumValue<"Random" | "capabilities" | "isFollowingMe" | "isSharingLocation" | "labeledLocations" | "person">;
     /** Order: The order to sort the person in. */
     "WFContentItemSortOrder": TextValue;
     /** Limit: Whether or not to limit the number of person retrieved. */
@@ -30817,48 +31482,22 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.findmy.WidgetItemEntity": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by: Optionally, what to sort the item by. */
-    "WFContentItemSortProperty": EnumValue<"Random" | "isThisDevice" | "name" | "owner">;
-    /** Order: The order to sort the item in. */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit: Whether or not to limit the number of item retrieved. */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get: The maximum number of item. */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** item */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.findmy.WidgetPersonEntity": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by: Optionally, what to sort the person by. */
-    "WFContentItemSortProperty": EnumValue<"Random" | "contact">;
-    /** Order: The order to sort the person in. */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit: Whether or not to limit the number of person retrieved. */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get: The maximum number of person. */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** person */
-    "WFContentItemInputParameter": EnumValue<"Library">;
+  "com.apple.findmy.SetShareLocationSettingIntent": {
+    /** Is Enabled: Indicates whether the app-level location sharing setting is enabled or disabled. */
+    "isEnabled": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.freeform.CRLAddItemToBoardIntent": {
-    /** Board: Board to add the item to */
+    /** Board: Board to add the item to. */
     "target": AnyValue;
     /** Item: Item to add */
     "itemType": EnumValue<"circle" | "line" | "media" | "roundedRectangle" | "square" | "star" | "stickyNote" | "textBox" | "triangle" | "url">;
-    /** Text: Text to add */
+    /** Text: Text to add. */
     "text": TextValue;
-    /** Media: Media to add */
+    /** Media: Media to add. */
     "mediaItems": AnyValue;
-    /** URL: URL to add */
+    /** URL: URL to add. */
     "url": TextValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -30926,7 +31565,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.freeform.CRLCreateBoardIntent": {
-    /** Name: Name for the new board (optional) */
+    /** Name: Name for the new board (optional). */
     "title": TextValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -30934,7 +31573,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.freeform.CRLDeleteBoardIntent": {
-    /** Boards: One or more boards to delete */
+    /** Boards: One or more boards to delete. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30968,7 +31607,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.freeform.CRLOpenBoardIntent": {
-    /** Board: Board to open */
+    /** Board: Board to open. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -30982,9 +31621,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.freeform.CRLUpdateBoardIntent": {
-    /** Board: Board to rename */
+    /** Board: Board to rename. */
     "target": AnyValue;
-    /** Name: New name for the board */
+    /** Name: New name for the board. */
     "title": TextValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -31128,7 +31767,7 @@ export type ParamTypes = {
   "com.apple.iBooksX.BookReaderNavigatePageInBookIntent": {
     /** Direction: Page turn direction (next or previous) */
     "direction": EnumValue<"next" | "previous">;
-    /** Book: Book to navigate in */
+    /** Book: Book to navigate in. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -31174,9 +31813,9 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.iBooksX.ChangeFontSizeIntent": {
-    /** Font Change: Font size to update to */
+    /** Font Change: Font size to update to. */
     "changeOperation": EnumValue<"decrease" | "increase">;
-    /** Settings: Settings of the book to update */
+    /** Settings: Settings of the book to update. */
     "target": AnyValue;
     /** Book: Specific book from your library to open */
     "book": AnyValue;
@@ -31294,17 +31933,17 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.iBooksX.UpdateBookSettingsIntent": {
-    /** Settings: Settings of the book to update */
+    /** Settings: Settings of the book to update. */
     "target": AnyValue;
-    /** Font: Font to update to */
+    /** Font: Font to update to. */
     "font": EnumValue<"default">;
-    /** Theme: Theme to update to */
+    /** Theme: Theme to update to. */
     "theme": EnumValue<"darkMode" | "lightMode" | "theme1" | "theme2" | "theme3" | "theme4" | "theme5" | "theme6">;
-    /** Navigation Behavior: Navigation style to update to */
+    /** Navigation Behavior: Navigation style to update to. */
     "pageNavigationSetting": EnumValue<"continuousScroll" | "pageTurning">;
-    /** Justify Text: Whether to justify the text */
+    /** Justify Text: Whether to justify the text. */
     "isTextJustified": BoolValue;
-    /** Allow Multiple Columns: Whether to allow multiple columns */
+    /** Allow Multiple Columns: Whether to allow multiple columns. */
     "isAllowMultipleColumns": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -31450,6 +32089,8 @@ export type ParamTypes = {
   "com.apple.iCal.HighlightEventIntent": {
     /** Event: Event to highlight */
     "target": AnyValue;
+    /** Additional Events: Additional events whose calendars should also be made visible */
+    "additionalEvents": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -31726,19 +32367,19 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.journal.CreateEntryIntent": {
-    /** Message: Message to add to the entry */
+    /** Message: Message to add to the entry. */
     "message": TextValue;
-    /** Title: Title to add to the entry */
+    /** Title: Title to add to the entry. */
     "title": TextValue;
     /** Location Name: New entry location name parameter */
     "locationName": TextValue;
-    /** Media Items: New entry media items */
+    /** Media Items: New entry media items. */
     "mediaItems": AnyValue;
-    /** Location: Current location to add to the entry */
+    /** Location: Current location to add to the entry. */
     "location": AnyValue;
     /** Add Bookmark: Bookmark the entry. */
     "entryBookmark": BoolValue;
-    /** Date: Date to add to the entry */
+    /** Date: Date to add to the entry. */
     "entryDate": TextValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
@@ -31848,7 +32489,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.ArchiveMessageIntent": {
-    /** Messages: Email messages to archive */
+    /** Messages: Email messages to archive. */
     "entities": AnyValue;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
@@ -31856,31 +32497,31 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.ComposeMessageIntent": {
-    /** Recipient: Recipients of the email message */
+    /** Recipient: Recipients of the email message. */
     "to": AnyValue;
-    /** Cc: Cc recipients of the email message */
+    /** Cc: Cc recipients of the email message. */
     "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message */
+    /** Bcc: Bcc recipients of the email message. */
     "bcc": AnyValue;
-    /** Subject: Subject of the email message */
+    /** Subject: Subject of the email message. */
     "subject": TextValue;
-    /** Body: Body text of the email message */
+    /** Body: Body text of the email message. */
     "body": TextValue;
-    /** From: Account to send the email message with */
+    /** From: Account to send the email message with. */
     "account": AnyValue;
-    /** Attachments: Attachments of the email message */
+    /** Attachments: Attachments of the email message. */
     "attachments": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.DeleteDraftIntent": {
-    /** Draft: Email drafts to delete */
+    /** Draft: Email drafts to delete. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.DeleteMessageIntent": {
-    /** Messages: Email messages to delete */
+    /** Messages: Email messages to delete. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -31902,21 +32543,21 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.ForwardMessageIntent": {
-    /** Recipient: Recipients of the email message */
+    /** Recipient: Recipients of the email message. */
     "to": AnyValue;
-    /** Cc: Cc recipients of the email message */
+    /** Cc: Cc recipients of the email message. */
     "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message */
+    /** Bcc: Bcc recipients of the email message. */
     "bcc": AnyValue;
-    /** Subject: Subject of the email message */
+    /** Subject: Subject of the email message. */
     "subject": TextValue;
-    /** Body: Body text of the email message */
+    /** Body: Body text of the email message. */
     "body": TextValue;
-    /** From: Account to send the email message with */
+    /** From: Account to send the email message with. */
     "account": AnyValue;
-    /** Attachments: Attachments of the email message */
+    /** Attachments: Attachments of the email message. */
     "attachments": AnyValue;
-    /** Message: Mail thread to forward */
+    /** Message: Mail thread to forward. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -31954,29 +32595,29 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.ReplyMessageIntent": {
-    /** Recipient: Recipients of the email message */
+    /** Recipient: Recipients of the email message. */
     "to": AnyValue;
-    /** Cc: Cc recipients of the email message */
+    /** Cc: Cc recipients of the email message. */
     "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message */
+    /** Bcc: Bcc recipients of the email message. */
     "bcc": AnyValue;
-    /** Subject: Subject of the email message */
+    /** Subject: Subject of the email message. */
     "subject": TextValue;
-    /** Body: Body text of the email message */
+    /** Body: Body text of the email message. */
     "body": TextValue;
-    /** From: Account to send the email message with */
+    /** From: Account to send the email message with. */
     "account": AnyValue;
-    /** Attachments: Attachments of the email message */
+    /** Attachments: Attachments of the email message. */
     "attachments": AnyValue;
-    /** Reply All: Reply to all recipients */
+    /** Reply All: Reply to all recipients. */
     "isReplyAll": BoolValue;
-    /** Message: Mail thread to reply to */
+    /** Message: Mail thread to reply to. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.SaveDraftIntent": {
-    /** Draft: Email draft to save */
+    /** Draft: Email draft to save. */
     "target": AnyValue;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
@@ -31990,15 +32631,15 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.SearchMailIntent": {
-    /** Text: Search criteria used when searching in app */
+    /** Text: Search criteria used when searching in app. */
     "criteria": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.SendDraftIntent": {
-    /** Schedule for Date: Date to send the email message */
+    /** Schedule for Date: Date to send the email message. */
     "sendLaterDate": TextValue;
-    /** Draft: Email draft to send */
+    /** Draft: Email draft to send. */
     "target": AnyValue;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
@@ -32046,16 +32687,16 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.mail.UpdateMessageIntent": {
-    /** Message: Email messages to update */
+    /** Message: Email messages to update. */
     "target": AnyValue;
-    /** Read: Whether to mark the emails as read */
+    /** Read: Whether to mark the emails as read. */
     "isRead": BoolValue;
-    /** Flagged: Whether to flag the emails */
+    /** Flagged: Whether to flag the emails. */
     "isFlagged": BoolValue;
-    /** Junk: Whether to junk the emails */
+    /** Junk: Whether to junk the emails. */
     "isJunk": BoolValue;
     "flagColor": EnumValue<"blue" | "defaultColor" | "gray" | "green" | "orange" | "purple" | "red" | "yellow">;
-    /** Mailbox: Destination mailbox to move email messages to */
+    /** Mailbox: Destination mailbox to move email messages to. */
     "mailbox": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -32620,6 +33261,10 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
+  "com.apple.omniSearch.SearchToolExtension.DoNotUseThisExtensionIntent": {
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
   "com.apple.omniSearch.SearchToolExtension.SearchTool": {
     /** rawQuery: The raw user query with no additional rewrite. */
     "rawQuery": TextValue;
@@ -32655,16 +33300,13 @@ export type ParamTypes = {
   "com.apple.omniSearch.SearchToolExtension.SearchToolControl": {
     /** command: Command to run in SearchToolExtension */
     "command": TextValue;
-    /** originatorPID: originatorPID, used for prewarmMemoryCreationQU */
-    "originatorPID": NumberValue;
-    /** useMiniMC: use mini memory creation model, used for prewarmMemoryCreationQU */
-    "useMiniMC": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.podcasts.AddAudioToLibraryIntent": {
     /** Audio Item: The item to add to the library (e.g., song, album, playlist, audiobook) */
     "audioEntity": AnyValue;
+    "linkcliPersonaIDOverride": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -32985,13 +33627,13 @@ export type ParamTypes = {
     /** Caption */
     "caption": TextValue;
     /** In Smart List */
-    "inSmartList": EnumValue<"all" | "assigned" | "completed" | "flagged" | "scheduled" | "today">;
+    "inSmartList": EnumValue<"all" | "assigned" | "completed" | "flagged" | "scheduled" | "today" | "urgent">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.reminders.OpenSmartListAppIntent": {
     /** Smart List Type: Smart list to open */
-    "target": EnumValue<"all" | "assigned" | "completed" | "flagged" | "scheduled" | "today">;
+    "target": EnumValue<"all" | "assigned" | "completed" | "flagged" | "scheduled" | "today" | "urgent">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -33096,7 +33738,7 @@ export type ParamTypes = {
     "dueDate": TextValue;
     /** Recurrence: The recurrence of the reminder. */
     "recurrence": AnyValue;
-    /** Location: The location of the reminder */
+    /** Location: The location of the reminder. */
     "locationTrigger": AnyValue;
     /** Target List: Parent list to add the reminder to */
     "list": AnyValue;
@@ -33106,6 +33748,8 @@ export type ParamTypes = {
     "isAllDay": BoolValue;
     /** Early Reminder: Early reminder to add to the reminder */
     "earlyAlert": AnyValue;
+    /** Urgent: Set whether the reminder has an urgent alarm */
+    "isUrgent": BoolValue;
     /** Vehicle Trigger: Vehicle trigger to add to the reminder */
     "vehicleTrigger": EnumValue<"connected" | "disconnected">;
     /** Priority: Priority level to add to the reminder */
@@ -33245,6 +33889,8 @@ export type ParamTypes = {
     "section": AnyValue;
     /** UpdateReminderAppIntent_Early Reminder */
     "earlyAlert": AnyValue;
+    /** UpdateReminderAppIntent_Urgent */
+    "isUrgent": BoolValue;
     /** UpdateReminderAppIntent_Vehicle Trigger */
     "vehicleTrigger": EnumValue<"connected" | "disconnected">;
     /** UpdateReminderAppIntent_When Messaging */
@@ -33278,7 +33924,7 @@ export type ParamTypes = {
   };
   "com.apple.reminders.UpdateSmartListIsHiddenAppIntent": {
     /** SmartList: Reminders smart list to update */
-    "entity": EnumValue<"all" | "assigned" | "completed" | "flagged" | "scheduled" | "today">;
+    "entity": EnumValue<"all" | "assigned" | "completed" | "flagged" | "scheduled" | "today" | "urgent">;
     /** Hide: Hidden state to set to the reminders smart list */
     "property": BoolValue;
     /** Open When Run */
@@ -33462,36 +34108,42 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
+  "com.apple.siri.-MarketplaceIntents-AppIntents.DummyIntent": {
+    /** AppSearch: The app search entity */
+    "appSearch": AnyValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent": {
-    /** Audio Item: The item to add to the library, such as a song, album, playlist, or audiobook */
+    /** Audio Item: The item to add to the library, such as a song, album, playlist, or audiobook. */
     "audioEntity": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent": {
-    /** Audio Item: The item to add to the playlist, such as a song or album */
+    /** Audio Item: The item to add to the playlist, such as a song or album. */
     "audioEntity": AnyValue;
-    /** Playlist: The target playlist */
+    /** Playlist: The target playlist. */
     "playlist": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.AudioAppIntentsExtension.SiriKitPlayAudioIntent": {
-    /** Audio Item: The item to play, such as a song, album, playlist, or podcast episode */
+    /** Audio Item: The item to play, such as a song, album, playlist, or podcast episode. */
     "audioEntity": AnyValue;
-    /** Playback Attributes: Attributes that define how the item plays, such as shuffle or repeat mode */
+    /** Playback Attributes: Attributes that define how the item plays, such as shuffle or repeat mode. */
     "playbackAttributes": EnumValue<"repeat" | "shuffle">;
-    /** Queue Location: The position in the playback queue to play the item, such as play next or add to the end of the queue */
+    /** Queue Location: The position in the playback queue to play the item, such as play next or add to the end of the queue. */
     "queueLocation": EnumValue<"next" | "tail">;
-    /** Warmup Audio Queue Result: Optional pre loaded and warmed up queue */
+    /** Warmup Audio Queue Result: Optional pre loaded and warmed up queue. */
     "warmupAudioQueueResult": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent": {
-    /** Target: The audio item whose affinity state will be updated */
+    /** Target: The audio item whose affinity state will be updated. */
     "target": AnyValue;
-    /** Affinity State: The affinity state to set */
+    /** Affinity State: The affinity state to set. */
     "affinityState": EnumValue<"dislike" | "like" | "unset">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -33503,7 +34155,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos": {
-    /** Photo: Photo to apply warmth to */
+    /** Photo: Photo to apply warmth to. */
     "target": AnyValue;
     /** Adjustment Type: The type of adjustment to make */
     "adjustmentType": EnumValue<"warmth">;
@@ -33514,16 +34166,8 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool": {
-    /** Applications: List of marketplace applications to install or update */
-    "applications": AnyValue;
-    /** Is Update: Whether this is an update operation */
-    "isUpdate": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
   "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music": {
-    /** Audio Item: The item to add to the library, such as a song, album, playlist, or audiobook */
+    /** Audio Item: The item to add to the library, such as a song, album, playlist, or audiobook. */
     "audioEntity": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -33535,19 +34179,19 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music": {
-    /** Audio Item: The item to add to the playlist, such as a song or album */
+    /** Audio Item: The item to add to the playlist, such as a song or album. */
     "audioEntity": AnyValue;
-    /** Playlist: The target playlist */
+    /** Playlist: The target playlist. */
     "playlist": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music": {
-    /** Audio Item: The item to play, such as a song, album, playlist, or podcast episode */
+    /** Audio Item: The item to play, such as a song, album, playlist, or podcast episode. */
     "audioEntity": AnyValue;
-    /** Playback Attributes: Attributes that define how the item plays, such as shuffle or repeat mode */
+    /** Playback Attributes: Attributes that define how the item plays, such as shuffle or repeat mode. */
     "playbackAttributes": EnumValue<"repeat" | "shuffle">;
-    /** Queue Location: The position in the playback queue to play the item, such as play next or add to the end of the queue */
+    /** Queue Location: The position in the playback queue to play the item, such as play next or add to the end of the queue. */
     "queueLocation": EnumValue<"next" | "tail">;
     /** Destinations */
     "destinations": AnyValue;
@@ -33579,16 +34223,16 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": {
-    /** Target: The audio item whose affinity state will be updated */
+    /** Target: The audio item whose affinity state will be updated. */
     "target": AnyValue;
-    /** Affinity State: The affinity state to set */
+    /** Affinity State: The affinity state to set. */
     "affinityState": EnumValue<"dislike" | "like" | "unset">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool": {
-    /** Situation: The crisis or CSAM situation */
-    "situation": EnumValue<"abuse" | "activeShooting" | "assault" | "bullying" | "carAccident" | "crisisSupport" | "csamExplicit" | "csamHelpBadActor" | "csamHelpForContent" | "csamHelpVictim" | "danger" | "domesticViolence" | "dying" | "eatingDisorder" | "emergencyCall" | "fire" | "generalCrisis" | "generalEmergency" | "generalEmergencyHighRisk" | "generalEmergencyLowRisk" | "gunAssault" | "help" | "hostageSituation" | "kidnapping" | "medicalEmergency" | "mentalHealthEmergency" | "overdose" | "poisonControl" | "selfHarm" | "sexualAssault" | "stalking" | "substanceAbuse" | "suicide" | "suicidePrevention" | "terrorism" | "violence" | "violentEmergency">;
+  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool": {
+    /** Resource Categories: Crisis-support categories to look up */
+    "resourceCategories": EnumValue<"addiction" | "bullying" | "childSafety" | "disorderedEating" | "domesticViolence" | "financialScams" | "lgbtqSupport" | "mentalHealth" | "moreResources" | "personalSafety" | "poisoning" | "raceEthnicity" | "sexualViolence" | "suicideSelfHarm">;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -33629,13 +34273,13 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent": {
-    /** Origin: Origin location to start navigation */
+    /** Origin: Origin location to start navigation. */
     "origin": AnyValue;
-    /** Destinations: Destination locations to start navigation */
+    /** Destinations: Destination locations to start navigation. */
     "destinations": AnyValue;
-    /** Transportation Type: The transportation type */
+    /** Transportation Type: The transportation type. */
     "transportationType": EnumValue<"cycling" | "driving" | "transit" | "walking">;
-    /** Preferences: Navigation preferences */
+    /** Preferences: Navigation preferences. */
     "preferences": EnumValue<"avoidBusyRoads" | "avoidHighways" | "avoidHills" | "avoidStairs" | "avoidTolls">;
     /** Show When Run */
     "ShowWhenRun": BoolValue;
@@ -33647,89 +34291,89 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail": {
-    /** Recipient: Recipients of the email message */
+    /** Recipient: Recipients of the email message. */
     "to": AnyValue;
-    /** Cc: Cc recipients of the email message */
+    /** Cc: Cc recipients of the email message. */
     "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message */
+    /** Bcc: Bcc recipients of the email message. */
     "bcc": AnyValue;
-    /** Subject: Subject of the email message */
+    /** Subject: Subject of the email message. */
     "subject": TextValue;
-    /** Body: Body text of the email message */
+    /** Body: Body text of the email message. */
     "body": TextValue;
-    /** From: Account to send the email message with */
+    /** From: Account to send the email message with. */
     "account": AnyValue;
-    /** Attachments: Attachments of the email message */
+    /** Attachments: Attachments of the email message. */
     "attachments": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail": {
-    /** Recipient: Recipients of the email message */
+    /** Recipient: Recipients of the email message. */
     "to": AnyValue;
-    /** Cc: Cc recipients of the email message */
+    /** Cc: Cc recipients of the email message. */
     "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message */
+    /** Bcc: Bcc recipients of the email message. */
     "bcc": AnyValue;
-    /** Subject: Subject of the email message */
+    /** Subject: Subject of the email message. */
     "subject": TextValue;
-    /** Body: Body text of the email message */
+    /** Body: Body text of the email message. */
     "body": TextValue;
-    /** From: Account to send the email message with */
+    /** From: Account to send the email message with. */
     "account": AnyValue;
-    /** Attachments: Attachments of the email message */
+    /** Attachments: Attachments of the email message. */
     "attachments": AnyValue;
-    /** Message: Mail thread to forward */
+    /** Message: Mail thread to forward. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail": {
-    /** Recipient: Recipients of the email message */
+    /** Recipient: Recipients of the email message. */
     "to": AnyValue;
-    /** Cc: Cc recipients of the email message */
+    /** Cc: Cc recipients of the email message. */
     "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message */
+    /** Bcc: Bcc recipients of the email message. */
     "bcc": AnyValue;
-    /** Subject: Subject of the email message */
+    /** Subject: Subject of the email message. */
     "subject": TextValue;
-    /** Body: Body text of the email message */
+    /** Body: Body text of the email message. */
     "body": TextValue;
-    /** From: Account to send the email message with */
+    /** From: Account to send the email message with. */
     "account": AnyValue;
-    /** Attachments: Attachments of the email message */
+    /** Attachments: Attachments of the email message. */
     "attachments": AnyValue;
-    /** Message: Mail thread to reply to */
+    /** Message: Mail thread to reply to. */
     "target": AnyValue;
-    /** Reply All: Reply to all recipients */
+    /** Reply All: Reply to all recipients. */
     "isReplyAll": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail": {
-    /** Schedule for Date: Date to send the email message */
+    /** Schedule for Date: Date to send the email message. */
     "sendLaterDate": TextValue;
-    /** Draft: Email draft to send */
+    /** Draft: Email draft to send. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail": {
-    /** Recipient: Recipients of the email message */
+    /** Recipient: Recipients of the email message. */
     "to": AnyValue;
-    /** Cc: Cc recipients of the email message */
+    /** Cc: Cc recipients of the email message. */
     "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message */
+    /** Bcc: Bcc recipients of the email message. */
     "bcc": AnyValue;
-    /** Subject: Subject of the email message */
+    /** Subject: Subject of the email message. */
     "subject": TextValue;
-    /** Body: Body text of the email message */
+    /** Body: Body text of the email message. */
     "body": TextValue;
-    /** From: Account to send the email message with */
+    /** From: Account to send the email message with. */
     "account": AnyValue;
-    /** Attachments: Attachments of the email message */
+    /** Attachments: Attachments of the email message. */
     "attachments": AnyValue;
-    /** Draft: Email draft to update */
+    /** Draft: Email draft to update. */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -33771,15 +34415,15 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": {
-    /** Call: The incoming call to answer */
+    /** Call: The incoming call to answer. */
     "call": AnyValue;
-    /** Audio Route: The audio route to set for the call */
+    /** Audio Route: The audio route to set for the call. */
     "audioRoute": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool": {
-    /** Audio Route: The audio route to set for the call */
+    /** Audio Route: The audio route to set for the call. */
     "audioRoute": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -33811,21 +34455,21 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime": {
-    /** Destination: Target destination for the outgoing call */
+    /** Destination: Target destination for the outgoing call. */
     "destination": AnyValue;
-    /** Audio Visual Mode: Call mode, either audio or video */
+    /** Audio Visual Mode: Call mode, either audio or video. */
     "audioVisualMode": EnumValue<"audio" | "video">;
-    /** Audio Route: The audio route to set for the call */
+    /** Audio Route: The audio route to set for the call. */
     "audioRoute": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone": {
-    /** Destination: Target destination for the outgoing call */
+    /** Destination: Target destination for the outgoing call. */
     "destination": AnyValue;
-    /** Audio Visual Mode: Call mode, either audio or video */
+    /** Audio Visual Mode: Call mode, either audio or video. */
     "audioVisualMode": EnumValue<"audio" | "video">;
-    /** Audio Route: The audio route to set for the call */
+    /** Audio Route: The audio route to set for the call. */
     "audioRoute": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -33833,15 +34477,15 @@ export type ParamTypes = {
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool": {
     /** Crisis Resource Type */
     "crisisResourceType": EnumValue<"domesticViolence" | "poisonControl" | "sexualAssault" | "suicidePrevention">;
-    /** Audio Route: The audio route to set for the call */
+    /** Audio Route: The audio route to set for the call. */
     "audioRoute": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": {
-    /** Destination: Target destination for the outgoing emergency call */
+    /** Destination: Target destination for the outgoing emergency call. */
     "destination": AnyValue;
-    /** Audio Route: The audio route to set for the call */
+    /** Audio Route: The audio route to set for the call. */
     "audioRoute": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -33863,21 +34507,21 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock": {
-    /** Timers: Timers to cancel */
+    /** Timers: Timers to cancel. */
     "entities": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock": {
-    /** Alarm: Alarm to dismiss */
+    /** Alarm: Alarm to dismiss. */
     "alarm": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock": {
-    /** Alarm: Alarm to snooze */
+    /** Alarm: Alarm to snooze. */
     "alarm": AnyValue;
-    /** Duration: Snooze duration */
+    /** Duration: Snooze duration. */
     "duration": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -33922,6 +34566,42 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy": {
+    /** Person: The person whose location and fulfillment of the geofence trigger condition will notify the originator. */
+    "person": AnyValue;
+    /** Location: The location linked to the geofence notification. */
+    "location": AnyValue;
+    /** Trigger: The event that triggers the geofence notification. */
+    "trigger": EnumValue<"onEntry" | "onExit">;
+    /** Is Recurring: Specifies whether the notification should be sent every time the trigger condition is met or only once. */
+    "isRecurring": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy": {
+    /** Person: The recipient of the geofence notification. */
+    "person": AnyValue;
+    /** Location: The location linked to the geofence notification. */
+    "location": AnyValue;
+    /** Trigger: The event that triggers the geofence notification. */
+    "trigger": EnumValue<"onEntry" | "onExit">;
+    /** Is Recurring: Specifies whether the notification should be sent every time the trigger condition is met or only once. */
+    "isRecurring": BoolValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy": {
+    /** Item: The item for which the user is requesting location information. */
+    "item": AnyValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
+  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy": {
+    /** Item: The item on which to play the sound. */
+    "item": AnyValue;
+    /** The app that provides this action. `action()` adds it; pass it only to override. */
+    "AppIntentDescriptor"?: DictionaryValue;
+  };
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent": {
     /** Readable Messages: The list of readable message entities that need to be processed after they are read. */
     "readableMessages": AnyValue;
@@ -33935,43 +34615,43 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitEditLastMessageIntent": {
-    /** Content: The new content to replace the original content with */
+    /** Content: The new content to replace the original content with. */
     "content": TextValue;
-    /** Message: The message to edit */
+    /** Message: The message to edit. */
     "message": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitPrepareMessagesForReadingIntent": {
-    /** Message: The message to apply the read status to */
+    /** Message: The message to apply the read status to. */
     "message": AnyValue;
-    /** Is Read: A Boolean value that indicates whether to mark the message as read or unread */
+    /** Is Read: A Boolean value that indicates whether to mark the message as read or unread. */
     "isRead": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitSendMessageIntent": {
-    /** To: The recipient or group to send the message to */
+    /** To: The recipient or group to send the message to. */
     "destination": AnyValue;
-    /** Subject: The subject of the message */
+    /** Subject: The subject of the message. */
     "subject": TextValue;
-    /** Content: The content of the message */
+    /** Content: The content of the message. */
     "content": TextValue;
     /** Audio Message: The audio message to send with the message. */
     "audioMessage": AnyValue;
-    /** Attachments: The attachments to send with the message */
+    /** Attachments: The attachments to send with the message. */
     "attachments": AnyValue;
-    /** Locations: The locations to send with the message */
+    /** Locations: The locations to send with the message. */
     "locations": AnyValue;
-    /** Links: The links to send with the message */
+    /** Links: The links to send with the message. */
     "links": TextValue;
-    /** Date: The scheduled date for sending the message */
+    /** Date: The scheduled date for sending the message. */
     "scheduledDate": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent": {
-    /** Message: The message to unsend */
+    /** Message: The message to unsend. */
     "message": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -33991,23 +34671,23 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS": {
-    /** To: The recipient or group to send the message to */
+    /** To: The recipient or group to send the message to. */
     "destination": AnyValue;
-    /** Subject: The subject of the message */
+    /** Subject: The subject of the message. */
     "subject": TextValue;
-    /** Content: The content of the message */
+    /** Content: The content of the message. */
     "content": TextValue;
-    /** Attachments: The attachments to send with the message */
+    /** Attachments: The attachments to send with the message. */
     "attachments": AnyValue;
-    /** Locations: The locations to send with the message */
+    /** Locations: The locations to send with the message. */
     "locations": AnyValue;
-    /** Links: The links to send with the message */
+    /** Links: The links to send with the message. */
     "links": TextValue;
     /** Audio Message: The audio message to send with the message. */
     "audioMessage": AnyValue;
     /** Is audio message: is this an audio message */
     "isAudioMessage": BoolValue;
-    /** Date: The scheduled date for sending the message */
+    /** Date: The scheduled date for sending the message. */
     "scheduledDate": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -34063,23 +34743,23 @@ export type ParamTypes = {
   "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS": {
     /** draft message: the draft message we are updating with the given parameter values */
     "draft": AnyValue;
-    /** To: The recipient or group to send the message to */
+    /** To: The recipient or group to send the message to. */
     "destination": AnyValue;
-    /** Subject: The subject of the message */
+    /** Subject: The subject of the message. */
     "subject": TextValue;
-    /** Content: The content of the message */
+    /** Content: The content of the message. */
     "content": TextValue;
-    /** Attachments: The attachments to send with the message */
+    /** Attachments: The attachments to send with the message. */
     "attachments": AnyValue;
-    /** Locations: The locations to send with the message */
+    /** Locations: The locations to send with the message. */
     "locations": AnyValue;
-    /** Links: The links to send with the message */
+    /** Links: The links to send with the message. */
     "links": TextValue;
     /** Audio Message: The audio message to send with the message. */
     "audioMessage": AnyValue;
     /** Is audio message: is this an audio message */
     "isAudioMessage": BoolValue;
-    /** Date: The scheduled date for sending the message */
+    /** Date: The scheduled date for sending the message. */
     "scheduledDate": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -34101,7 +34781,7 @@ export type ParamTypes = {
     "list": AnyValue;
     /** Flag: A boolean value indicating whether the reminder is flagged. */
     "isFlagged": BoolValue;
-    /** Location: The location of the reminder */
+    /** Location: The location of the reminder. */
     "locationTrigger": AnyValue;
     /** List Name: Name of list to create */
     "name": TextValue;
@@ -34127,7 +34807,7 @@ export type ParamTypes = {
     "list": AnyValue;
     /** Flag: A boolean value indicating whether the reminder is flagged. */
     "isFlagged": BoolValue;
-    /** Location: The location of the reminder */
+    /** Location: The location of the reminder. */
     "locationTrigger": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -34391,42 +35071,6 @@ export type ParamTypes = {
     "entity": AnyValue;
     /** Accent color to update on Accent color */
     "value": StringValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.AirDropEntity": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by */
-    "WFContentItemSortProperty": EnumValue<"Random" | "value">;
-    /** Order */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** airdrop */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.AirDropEntity-UpdatableEntity": {
-    /** AirDrop */
-    "entity": AnyValue;
-    /** AirDrop to update on AirDrop */
-    "value": EnumValue<"contactsOnly" | "everyone" | "off">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.AirPlayIntent": {
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.AirPlayReceiverIntent": {
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.AirPlayRequiresPasswordIntent": {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
@@ -38388,10 +39032,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.systempreferences.HandoffIntent": {
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
   "com.apple.systempreferences.HighlightColorEntity": {
     "WFContentItemFilter": AnyValue;
     /** Sort by */
@@ -38612,12 +39252,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.systempreferences.OpenAirDropHandoffDeepLinks": {
-    /** AirDrop & Continuity */
-    "target": EnumValue<"root">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
   "com.apple.systempreferences.OpenAppearanceSettingsDeepLink": {
     /** Mouse setting */
     "target": AnyValue;
@@ -38722,30 +39356,6 @@ export type ParamTypes = {
   };
   "com.apple.systempreferences.OpenShareKeyboardEntityDeepLink": {
     /** Allow your pointer and keyboard to move between any nearby Mac or iPad */
-    "target": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.OpenSoundSettingsDeepLinks": {
-    /** Sound */
-    "target": EnumValue<"balance" | "effects" | "input" | "mute" | "output" | "root" | "volume">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity": {
-    /** Feedback Sound Settings */
-    "target": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity": {
-    /** User Interface Sound Effects Settings */
-    "target": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity": {
-    /** Startup Sound Settings */
     "target": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
@@ -38922,78 +39532,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };
-  "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by */
-    "WFContentItemSortProperty": EnumValue<"Random" | "value">;
-    /** Order */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** feedback sound settings */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.SoundSettingsFeedbackSoundEntity-UpdatableEntity": {
-    /** Feedback Sound Settings */
-    "entity": AnyValue;
-    /** Play feedback when volume is changed to update on Feedback Sound Settings */
-    "value": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by */
-    "WFContentItemSortProperty": EnumValue<"Random" | "value">;
-    /** Order */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** user interface sound effects settings */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity-UpdatableEntity": {
-    /** User Interface Sound Effects Settings */
-    "entity": AnyValue;
-    /** Play user interface sound effects to update on User Interface Sound Effects Settings */
-    "value": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.SoundSettingsStartupSoundEntity": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by */
-    "WFContentItemSortProperty": EnumValue<"Random" | "value">;
-    /** Order */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** startup sound settings */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.SoundSettingsStartupSoundEntity-UpdatableEntity": {
-    /** Startup Sound Settings */
-    "entity": AnyValue;
-    /** Play sound on startup to update on Startup Sound Settings */
-    "value": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
   "com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent": {
     /** High Power Mode */
     "value": BoolValue;
@@ -39069,30 +39607,6 @@ export type ParamTypes = {
     "connectOnDemand": BoolValue;
     /** VPN Configuration */
     "entity": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.WidgetsAndOnenessEntity": {
-    "WFContentItemFilter": AnyValue;
-    /** Sort by */
-    "WFContentItemSortProperty": EnumValue<"Random" | "useiPhoneWidgets">;
-    /** Order */
-    "WFContentItemSortOrder": TextValue;
-    /** Limit */
-    "WFContentItemLimitEnabled": BoolValue;
-    /** Get */
-    "WFContentItemLimitNumber": NumberValue;
-    "WFCompoundType": EnumValue<"0" | "1">;
-    /** iphone widgets */
-    "WFContentItemInputParameter": EnumValue<"Library">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: DictionaryValue;
-  };
-  "com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity": {
-    /** iPhone Widgets */
-    "entity": AnyValue;
-    /** iPhone Widgets to update on iPhone Widgets */
-    "useiPhoneWidgets": BoolValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: DictionaryValue;
   };

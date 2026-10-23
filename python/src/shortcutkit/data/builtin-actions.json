@@ -21,6 +21,12 @@
     "Key": "state",
     "Label": "State",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -54,6 +60,12 @@
     ],
     "Key": "state",
     "Label": "State",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -89,6 +101,12 @@
     "Key": "state",
     "Label": "state",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -122,6 +140,12 @@
     ],
     "Key": "state",
     "Label": "State",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -157,6 +181,12 @@
     "Key": "state",
     "Label": "State",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -190,6 +220,12 @@
     ],
     "Key": "state",
     "Label": "State",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -225,6 +261,12 @@
     "Key": "state",
     "Label": "State",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -258,6 +300,12 @@
     ],
     "Key": "state",
     "Label": "state",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -293,6 +341,12 @@
     "Key": "state",
     "Label": "State",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -308,7 +362,21 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.Notes.ICNotesFolderIntent",
   "IntentName": "ICNotesFolderIntent",
   "Name": "Show Notes Folder",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "folder",
+    "Label": "Folder",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.LaunchApplicationIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -324,7 +392,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.LaunchRemoteIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -341,7 +417,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.LaunchScreenSaverIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -358,7 +442,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.PauseContentIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -376,7 +468,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.ReduceLoudSoundsIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -394,7 +494,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.SkipContentIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -412,7 +520,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.SleepAppleTVIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -429,7 +545,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.SwitchUserAccountIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -446,7 +570,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.ToggleCaptionsIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -464,7 +596,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.ToggleSystemAppearanceIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -480,7 +620,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Set Appearance on Apple TV",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.TVRemoteUIService.WakeAppleTVIntent": {
   "ActionClass": "WFHandleCustomIntentAction",
@@ -497,7 +645,15 @@
    "DisclosureLevel": "Public",
    "OutputName": "Unknown Action",
    "OutputNameSource": "WFAction"
-  }
+  },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundIntent": {
   "AppDefinition": {
@@ -535,6 +691,12 @@
     "Key": "backgroundSound",
     "Label": "Background Sound",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -560,6 +722,30 @@
     "Key": "interval",
     "Label": "Interval",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "always",
+    "Label": "Always use these settings",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "duration",
+    "Label": "Duration",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "endInterval",
+    "Label": "Time",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -575,7 +761,21 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.UniversalAccess.UASettingsShortcuts.UASetBackgroundSoundsVolumeIntent",
   "IntentName": "UASetBackgroundSoundsVolumeIntent",
   "Name": "Set Background Sounds Volume",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "volumeValue",
+    "Label": "volume",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.UniversalAccess.UASettingsShortcuts.UAToggleAccessibilityKeyboardIntent": {
   "AppDefinition": {
@@ -598,6 +798,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -624,6 +836,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -648,6 +872,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -674,6 +910,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -698,6 +946,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -724,6 +984,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -748,6 +1020,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -774,6 +1058,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -798,6 +1094,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -824,6 +1132,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -848,6 +1168,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -874,6 +1206,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -898,6 +1242,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -924,6 +1280,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -948,6 +1316,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -974,6 +1354,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -998,6 +1390,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -1024,6 +1428,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -1048,6 +1464,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -1074,6 +1502,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -1098,6 +1538,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -1124,6 +1576,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -1148,6 +1612,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -1174,6 +1650,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -1199,6 +1687,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -1223,6 +1723,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -1461,7 +1973,21 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.news.TagIntent",
   "IntentName": "TagIntent",
   "Name": "Show Topic",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "tag",
+    "Label": "Topic",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.news.TodayIntent": {
   "AppDefinition": {
@@ -1475,7 +2001,15 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.news.TodayIntent",
   "IntentName": "TodayIntent",
   "Name": "Show Today Feed",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.apple.weather.WeatherIntent": {
   "AppDefinition": {
@@ -1492,7 +2026,21 @@
   "IntentIdentifier": "sirikit.intents.custom.com.apple.weather.WeatherIntent",
   "IntentName": "WeatherIntent",
   "Name": "Show Weather",
-  "NameSource": "ToolKit"
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "location",
+    "Label": "Location",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
  },
  "com.panic.iOS.Transmit.Share": {
   "ActionClass": "WFShareExtensionAction",
@@ -2817,6 +3365,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -2900,6 +3460,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "RequiredResources": [
@@ -2948,6 +3520,12 @@
     ],
     "Key": "style",
     "Label": "Appearance",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -3119,6 +3697,78 @@
     "Key": "WFInputType",
     "Label": "Input Type",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAllowsMultilineText",
+    "Label": "Allow Multiple Lines",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAskActionAllowsDecimalNumbers",
+    "Label": "Allow Decimal Numbers",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAskActionAllowsNegativeNumbers",
+    "Label": "Allow Negative Numbers",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAskActionDefaultAnswer",
+    "Label": "Default Answer",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAskActionDefaultAnswerDate",
+    "Label": "Default Date",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAskActionDefaultAnswerDateAndTime",
+    "Label": "Default Date and Time",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAskActionDefaultAnswerNumber",
+    "Label": "Default Number",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAskActionDefaultAnswerTime",
+    "Label": "Default Time",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAskActionDefaultAnswerURL",
+    "Label": "Default URL",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFAskActionPrompt",
+    "Label": "Prompt",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "urlAnswer",
+    "Label": "URL",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "RequiredResources": [
@@ -3233,9 +3883,7 @@
       ],
       "WFResourceClass": "WFParameterRelationResource"
      },
-     {
-      "resource": "WFUseModelWebSearchResource"
-     }
+     "WFUseModelWebSearchResource"
     ]
    },
    {
@@ -3438,6 +4086,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ]
  },
@@ -3513,6 +4173,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -3979,6 +4651,20 @@
    "OutputName": "Corrected Spelling",
    "OutputNameSource": "WFAction"
   },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "text",
+    "Label": "Text",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true
  },
  "is.workflow.actions.count": {
@@ -4914,6 +5600,8 @@
   "Description": {
    "DescriptionSummary": "Switches into the Shortcuts app and continues to the next action."
   },
+  "Discontinued": true,
+  "DiscontinuedByShortcuts": true,
   "FillingProvider": "WFBundledActionProvider",
   "InputPassthrough": true,
   "LocallyProcessesData": true,
@@ -4962,6 +5650,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "Always On Display",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7247,6 +7947,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the apps by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Bundle Identifier",
      "Launch Date",
@@ -7256,6 +7958,30 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of apps retrieved.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of apps.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the apps in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7293,6 +8019,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the articles by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Author",
      "Name",
@@ -7303,6 +8031,36 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContentItemInputParameter",
+    "Label": "articles",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of articles that are passed as output.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of articles.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the articles in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7335,6 +8093,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the calendar events by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Calendar",
      "Creation Date",
@@ -7352,6 +8112,30 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of calendar events retrieved.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of calendar events.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the calendar events in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7390,6 +8174,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the contacts by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Birthday",
      "Company",
@@ -7413,6 +8199,30 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of contacts retrieved.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of contacts.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the contacts in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7453,6 +8263,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the displays by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Name",
      "Random",
@@ -7460,6 +8272,30 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of displays retrieved.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of displays.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the displays in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7490,6 +8326,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the event attendees by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Email Address",
      "Name",
@@ -7500,6 +8338,36 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContentItemInputParameter",
+    "Label": "event attendees",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of event attendees that are passed as output.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of event attendees.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the event attendees in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7529,6 +8397,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the files by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Creation Date",
      "File Extension",
@@ -7540,6 +8410,36 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContentItemInputParameter",
+    "Label": "files",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of files that are passed as output.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of files.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the files in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7594,6 +8494,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the images by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Creation Date",
      "Date Taken",
@@ -7612,6 +8514,36 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContentItemInputParameter",
+    "Label": "images",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of images that are passed as output.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of images.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the images in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7642,6 +8574,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the locations by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Altitude",
      "City",
@@ -7658,6 +8592,36 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContentItemInputParameter",
+    "Label": "locations",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of locations that are passed as output.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of locations.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the locations in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7698,6 +8662,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the music by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Album",
      "Album Artist",
@@ -7721,6 +8687,30 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of music retrieved.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of music.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the music in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7768,6 +8758,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the photos by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Creation Date",
      "Date Taken",
@@ -7785,6 +8777,30 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of photos retrieved.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of photos.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the photos in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7822,6 +8838,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the reminders by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Completion Date",
      "Creation Date",
@@ -7837,6 +8855,30 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of reminders retrieved.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of reminders.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the reminders in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7893,6 +8935,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the VPNs by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "Name",
      "Random",
@@ -7900,6 +8944,30 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of VPNs retrieved.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of VPNs.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the VPNs in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -7938,6 +9006,8 @@
     "Source": "ToolKit"
    },
    {
+    "Description": "Optionally, what to sort the windows by.",
+    "DescriptionSource": "ToolKit",
     "Items": [
      "App Name",
      "Height",
@@ -7950,6 +9020,30 @@
     ],
     "Key": "WFContentItemSortProperty",
     "Label": "Sort by",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "Whether or not to limit the number of windows retrieved.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitEnabled",
+    "Label": "Limit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The maximum number of windows.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemLimitNumber",
+    "Label": "Get",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The order to sort the windows in.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemSortOrder",
+    "Label": "Order",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -8049,6 +9143,24 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFFlashlightLevel",
+    "Label": "Brightness",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]
@@ -10111,8 +11223,7 @@
       "WFResourceClass": "WFParameterRelationResource"
      }
     ],
-    "StepperNoun": "%d Items",
-    "StepperPrefix": "Get"
+    "StepperNoun": "Get %d Items"
    }
   ],
   "RequiredResources": [
@@ -10141,8 +11252,7 @@
   "Output": {
    "DisclosureLevel": "Public",
    "Multiple": true,
-   "OutputName": "Get Parent Directory",
-   "OutputNameSource": "WFAction",
+   "OutputName": "Parent Directory",
    "Types": [
     "public.folder"
    ]
@@ -12888,6 +13998,48 @@
     "Key": "WFPickingMode",
     "Label": "Type",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "SelectMultiple",
+    "Label": "Select Multiple",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFDateActionDate",
+    "Label": "Date",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFDateActionMode",
+    "Label": "Date",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFEventOccurrenceSpecifiedYear",
+    "Label": "Year",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFExportSongActionSelectMultiple",
+    "Label": "Select Multiple Songs",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFSelectMultiple",
+    "Label": "Select Multiple",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFSelectMultiplePhotos",
+    "Label": "Select Multiple",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true
@@ -13397,6 +14549,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "Low Power Mode",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -14467,6 +15631,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "RequiredResources": []
@@ -15040,6 +16216,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -16006,6 +17194,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "RequiredResources": [
@@ -16797,6 +17997,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Appearance",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "WFContentItemClass": "WFAppearanceSettingContentItem"
@@ -16849,6 +18055,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "App Store App",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true,
@@ -16883,6 +18095,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Article",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -16931,6 +18149,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Calendar Event",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true,
@@ -16976,6 +18200,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Contact",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true,
@@ -17001,6 +18231,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Event Attendee",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17031,6 +18267,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "File",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17095,6 +18337,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Image",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true,
@@ -17125,6 +18373,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "iTunes artist",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17165,6 +18419,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "iTunes Product",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true,
@@ -17196,6 +18456,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Location",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17251,6 +18517,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Music",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "WFContentItemClass": "WFMPMediaContentItem",
@@ -17279,6 +18551,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Parked Car",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17320,6 +18598,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Podcast episode",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "WFContentItemClass": "WFPodcastEpisodeContentItem"
@@ -17352,6 +18636,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Podcast",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17394,6 +18684,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Reminder",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "WFContentItemClass": "WFReminderContentItem",
@@ -17420,6 +18716,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Ride Status",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17451,6 +18753,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Safari Web Page",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "WFContentItemClass": "WFSafariWebPageContentItem"
@@ -17477,6 +18785,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Shazam media",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17511,6 +18825,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Trello item",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17548,6 +18868,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Ulysses sheet",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -17590,6 +18916,12 @@
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Weather Conditions",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true,
@@ -17619,6 +18951,12 @@
     ],
     "Key": "WFContentItemPropertyName",
     "Label": "Detail",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Shortcut",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -19438,6 +20776,7 @@
    },
    {
     "Class": "WFSearchLocalBusinessesRadiusParameter",
+    "Description": "Radius of search area around the reference location.",
     "Key": "WFSearchRadius",
     "Label": "Radius",
     "Prompt": "How far away would you like to search?",
@@ -20216,6 +21555,22 @@
     "MinimumIconName": "BrightnessSliderLow"
    }
   },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "If you set the brightness using a variable, use a number between 0 and 1 (for example, pass 0.5 for half brightness).",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFBrightness",
+    "Label": "Brightness",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ],
   "RateLimit": {
    "Delay": 1,
    "MaxDelay": 30,
@@ -20560,6 +21915,102 @@
     "Key": "WFCalendarEventContentItemMyStatus",
     "Label": "Value",
     "Source": "ToolKit"
+   },
+   {
+    "Description": "The operation to perform on the selected property of the calendar event.",
+    "DescriptionSource": "ToolKit",
+    "Key": "Mode",
+    "Label": "Edit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The value to remove from the selected property of the calendar event. If no value is provided, one will be requested when run.",
+    "DescriptionSource": "ToolKit",
+    "Key": "RemoveSpecifiedValue",
+    "Label": "Specified",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ValueLabel",
+    "Label": "Role",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemAttachments",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemAttendees",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemDuration",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemEndDate",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemIsAllDay",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemLocation",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemNotes",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemStartDate",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemTitle",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFCalendarEventContentItemURL",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The property of the calendar event to edit.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Calendar Event",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "RemoteExecuteOnPlatforms": [
@@ -20579,6 +22030,164 @@
   },
   "FillingProvider": "WFBundledActionProvider",
   "Name": "Edit Contact",
+  "Parameters": [
+   {
+    "Description": "The operation to perform on the selected property of the contact.",
+    "DescriptionSource": "ToolKit",
+    "Key": "Mode",
+    "Label": "Edit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The value to remove from the selected property of the contact. If no value is provided, one will be requested when run.",
+    "DescriptionSource": "ToolKit",
+    "Key": "RemoveSpecifiedValue",
+    "Label": "Specified",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ValueLabel",
+    "Label": "Label",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemBirthday",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemCompany",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemContactPhoto",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemDepartment",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemEmailAddresses",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemFirstName",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemGroup",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemJobTitle",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemLastName",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemMiddleName",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemNickname",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemNotes",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemPhoneNumbers",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemPhoneticFirstName",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemPhoneticLastName",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemPhoneticMiddleName",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemPrefix",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemStreetAddresses",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemSuffix",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFContactContentItemURLs",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The property of the contact to edit.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Contact",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ],
   "RequiredResources": [
    "WFContactAccessResource"
   ],
@@ -20610,6 +22219,102 @@
     ],
     "Key": "WFReminderContentItemPriority",
     "Label": "Value",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The operation to perform on the selected property of the reminder.",
+    "DescriptionSource": "ToolKit",
+    "Key": "Mode",
+    "Label": "Edit",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The value to remove from the selected property of the reminder. If no value is provided, one will be requested when run.",
+    "DescriptionSource": "ToolKit",
+    "Key": "RemoveSpecifiedValue",
+    "Label": "Specified",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "The property of the reminder to edit.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFContentItemPropertyName",
+    "Label": "Detail",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFInput",
+    "Label": "Reminder",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemDueDate",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemImages",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemIsCompleted",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemIsFlagged",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemNotes",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemParentReminder",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemSubtasks",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemTags",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemTitle",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemURL",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFReminderContentItemWhenMessagingPerson",
+    "Label": "Value",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -21196,6 +22901,18 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "RequiredResources": [
@@ -21646,6 +23363,30 @@
     "Key": "operation",
     "Label": "Operation",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "showDock",
+    "Label": "Show Dock",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "showRecentApps",
+    "Label": "Show Recent Apps",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "state",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "RequiredResources": [
@@ -22059,6 +23800,18 @@
     "Key": "WFCaseType",
     "Label": "Case",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "text",
+    "Label": "Text",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true
@@ -22103,6 +23856,24 @@
     "Key": "WFTextSeparator",
     "Label": "Separator",
     "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFTextCustomSeparator",
+    "Label": "Custom",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "text",
+    "Label": "Text",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
    }
   ],
   "ResidentCompatible": true,
@@ -22136,6 +23907,34 @@
     "Key": "WFMatchTextPattern"
    }
   },
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Description": "When disabled, the capitalization of letters is ignored.",
+    "DescriptionSource": "ToolKit",
+    "Key": "WFMatchTextCaseSensitive",
+    "Label": "Case Sensitive",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFMatchTextPattern",
+    "Label": "Pattern",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "text",
+    "Label": "Text",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ],
   "ResidentCompatible": true
  },
  "is.workflow.actions.text.match.getgroup": {
@@ -22175,6 +23974,24 @@
     ],
     "Key": "WFGetGroupType",
     "Label": "Get",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFGroupIndex",
+    "Label": "Group Index",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "matches",
+    "Label": "Matches",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -22292,6 +24109,24 @@
     ],
     "Key": "WFTextSeparator",
     "Label": "Separator",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "WFTextCustomSeparator",
+    "Label": "Custom",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "text",
+    "Label": "Text",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -22890,6 +24725,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ],
@@ -24128,6 +25975,18 @@
     ],
     "Key": "operation",
     "Label": "Operation",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "OnValue",
+    "Label": "State",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
     "Source": "ToolKit"
    }
   ]

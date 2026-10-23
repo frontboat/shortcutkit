@@ -6,7 +6,36 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
-## Unreleased
+## 1.0.0 (2026-10-22)
+
+Data from the final macOS 27.2 (build 26B118). Code that uses Apple's app actions may need
+these changes:
+
+- **Settings moved** from `com.apple.systempreferences.*` to `com.apple.Settings.*`. Eight
+  constants, such as `settings_get_air_drop` and `settings_get_handoff_status`, keep their names.
+  The sound and AirDrop constants gain a `com_apple_` prefix (`settings_get_startup_sound_settings`
+  is now `com_apple_settings_get_startup_sound_settings`); `settings_open_sound` and
+  `settings_open_air_drop_continuity` become `com_apple_settings_open_sound_settings` and
+  `com_apple_settings_open_air_drop_continuity_settings`. Those constants pointed to Apple's
+  `Placeholder…` actions in 0.8.1 and now point to the real ones.
+- **Renamed by Apple:** `music_add_music_items_to_library` → `music_add_music_item_to_library`,
+  `music_add_music_items_to_playlist` → `music_add_music_item_to_playlist`,
+  `music_search_music_siri_intent_title` → `music_search_music`,
+  `music_warmup_music_queue_siri_intent_title` → `music_warmup_audio_queue`, and
+  `com_apple_Settings_TrackpadSwipeBetweenAppsEntity` (and its `_UpdatableEntity`) →
+  `com_apple_settings_get_swipe_between_spaces` / `com_apple_settings_update_swipe_between_spaces`.
+- **Find My:** `com_apple_findmy_find_item` and `com_apple_findmy_find_person` are now the Find
+  Item and Find Person intents, not entities. New: geofences, Open Item, Open Person, Share
+  Location. The widget entities are gone.
+- **Removed by Apple:** Magnifier's Find This, the Settings notification and Control Center
+  module actions, Show Battery Percentage, and two Siri tools.
+- **New parameters:** `isUrgent` on Reminders' create and update, `asset` on 11 Photos edits,
+  `additionalEvents` on Calendar's Highlight Event, and account overrides on Music. Music's Add
+  to Library, Add to Playlist, and Update Affinity lose `OpenWhenRun`.
+- Two new entries are Apple placeholders the index doesn't hide: `DoNotUseThisExtensionIntent`
+  (omniSearch) and `DummyIntent` (MarketplaceKit). They're kept because the index lists them.
+
+Library and docs:
 
 - Every public function and method in both packages has hover documentation. `action()` says
   which checks apply to which identifiers, and `CONDITION` names the codes verified against the
@@ -14,10 +43,124 @@ the section for a fresh extraction from the diff against the committed data.
 - Action constants' hover text shows name, description, summary, output, and parameters as
   separate paragraphs instead of one run-on line.
 - Parameter keys have hover text: the editor's label and Apple's description where the data has
-  them (4,845 of 5,970 keys), so `WFStoredContentGlobalValue` explains itself as you type it.
+  them (6,607 of 7,435 keys), so `WFStoredContentGlobalValue` explains itself as you type it.
 - A failed `Shortcut.sign()` names the input file.
 - READMEs, CONTRIBUTING, and the docs are shorter; the npm and PyPI descriptions give the
   action counts.
+
+### Data: macOS 27.2 (26B118), Shortcuts 10.0 build 5114.0.6.204, extracted 2026-10-23T05:51:31Z
+
+Recommended bump: **major**
+
+- Added actions (42):
+  - `com.apple.AppStore.InstallApplicationIntent`
+  - `com.apple.AppStore.MarketplaceApplication`
+  - `com.apple.Music.CreatePlaylistSiriIntent`
+  - `com.apple.Settings.AirDropEntity`
+  - `com.apple.Settings.AirDropEntity-UpdatableEntity`
+  - `com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink`
+  - `com.apple.Settings.AirPlayIntent`
+  - `com.apple.Settings.AirPlayReceiverIntent`
+  - `com.apple.Settings.AirPlayRequiresPasswordIntent`
+  - `com.apple.Settings.HandoffIntent`
+  - `com.apple.Settings.MenuBarControl-UpdatableEntity`
+  - `com.apple.Settings.OpenAirDropHandoffExtensionSettingsDeepLink`
+  - `com.apple.Settings.OpenMenuBarControl`
+  - `com.apple.Settings.OpenSoundSettingsDeepLink`
+  - `com.apple.Settings.OpenSoundSettingsFeedbackSoundEntity`
+  - `com.apple.Settings.OpenSoundSettingsInterfaceEffectsEntity`
+  - `com.apple.Settings.OpenSoundSettingsStartupSoundEntity`
+  - `com.apple.Settings.SoundSettingsDeepLink`
+  - `com.apple.Settings.SoundSettingsFeedbackSoundEntity`
+  - `com.apple.Settings.SoundSettingsFeedbackSoundEntity-UpdatableEntity`
+  - `com.apple.Settings.SoundSettingsInterfaceEffectsEntity`
+  - `com.apple.Settings.SoundSettingsInterfaceEffectsEntity-UpdatableEntity`
+  - `com.apple.Settings.SoundSettingsStartupSoundEntity`
+  - `com.apple.Settings.SoundSettingsStartupSoundEntity-UpdatableEntity`
+  - `com.apple.Settings.WidgetsAndOnenessEntity`
+  - `com.apple.Settings.WidgetsAndOnenessEntity-UpdatableEntity`
+  - `com.apple.findmy.CreateIncomingGeofenceIntent`
+  - `com.apple.findmy.CreateOutgoingGeofenceIntent`
+  - `com.apple.findmy.FindItemIntent`
+  - `com.apple.findmy.FindPersonIntent`
+  - `com.apple.findmy.GeofenceEntity`
+  - `com.apple.findmy.OpenItemIntent`
+  - `com.apple.findmy.OpenModuleIntent`
+  - `com.apple.findmy.OpenPersonIntent`
+  - `com.apple.findmy.SetShareLocationSettingIntent`
+  - `com.apple.omniSearch.SearchToolExtension.DoNotUseThisExtensionIntent`
+  - `com.apple.siri.-MarketplaceIntents-AppIntents.DummyIntent`
+  - `com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool`
+  - `com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy`
+  - `com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy`
+  - `com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy`
+  - `com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy`
+- Removed actions (34):
+  - `com.apple.Magnifier.FindSessionAppIntent`
+  - `com.apple.Settings.ApplicationNotificationsSettings`
+  - `com.apple.Settings.ApplicationNotificationsSettings-UpdatableEntity`
+  - `com.apple.Settings.ControlCenterModule-UpdatableEntity`
+  - `com.apple.Settings.OpenApplicationNotificationsSettings`
+  - `com.apple.Settings.OpenControlCenterModule`
+  - `com.apple.Settings.PlaceholderAirDropHandoffExtensionSettingsDeepLink`
+  - `com.apple.Settings.PlaceholderOpenAirDropHandoffExtensionSettingsDeepLink`
+  - `com.apple.Settings.PlaceholderOpenSoundSettingsDeepLink`
+  - `com.apple.Settings.PlaceholderSoundSettingsDeepLink`
+  - `com.apple.Settings.ShowBatteryPercentageEntity`
+  - `com.apple.findmy.WidgetItemEntity`
+  - `com.apple.findmy.WidgetPersonEntity`
+  - `com.apple.siri.SiriAppLaunchFlowTools.SiriAppLaunchFlowTools.InteractiveInstallApplicationTool`
+  - `com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.CrisisDialogFlowTool`
+  - `com.apple.systempreferences.AirDropEntity`
+  - `com.apple.systempreferences.AirDropEntity-UpdatableEntity`
+  - `com.apple.systempreferences.AirPlayIntent`
+  - `com.apple.systempreferences.AirPlayReceiverIntent`
+  - `com.apple.systempreferences.AirPlayRequiresPasswordIntent`
+  - `com.apple.systempreferences.HandoffIntent`
+  - `com.apple.systempreferences.OpenAirDropHandoffDeepLinks`
+  - `com.apple.systempreferences.OpenSoundSettingsDeepLinks`
+  - `com.apple.systempreferences.OpenSoundSettingsFeedbackSoundEntity`
+  - `com.apple.systempreferences.OpenSoundSettingsInterfaceEffectsEntity`
+  - `com.apple.systempreferences.OpenSoundSettingsStartupSoundEntity`
+  - `com.apple.systempreferences.SoundSettingsFeedbackSoundEntity`
+  - `com.apple.systempreferences.SoundSettingsFeedbackSoundEntity-UpdatableEntity`
+  - `com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity`
+  - `com.apple.systempreferences.SoundSettingsInterfaceEffectsEntity-UpdatableEntity`
+  - `com.apple.systempreferences.SoundSettingsStartupSoundEntity`
+  - `com.apple.systempreferences.SoundSettingsStartupSoundEntity-UpdatableEntity`
+  - `com.apple.systempreferences.WidgetsAndOnenessEntity`
+  - `com.apple.systempreferences.WidgetsAndOnenessEntity-UpdatableEntity`
+- Added parameters (24):
+  - `com.apple.Music.AddMusicItemToLibrarySiriIntent.musicAccountIDOverride`
+  - `com.apple.Music.AddMusicItemToPlaylistSiriIntent.ShowWhenRun`
+  - `com.apple.Music.AddMusicItemToPlaylistSiriIntent.musicAccountIDOverride`
+  - `com.apple.Music.CreateStationSiriIntent.requestIdentifierOverride`
+  - `com.apple.Music.PlayMusicItemSiriIntent.musicAccountIDOverride`
+  - `com.apple.Music.PlayMusicItemSiriIntent.requestIdentifierOverride`
+  - `com.apple.Music.UpdateMusicItemAffinitySiriIntent.musicAccountIDOverride`
+  - `com.apple.Music.WarmupMusicQueueSiriIntent.musicAccountIDOverride`
+  - `com.apple.Music.WarmupMusicQueueSiriIntent.requestIdentifierOverride`
+  - `com.apple.Photos.CleanupIntent.asset`
+  - `com.apple.Photos.CropIntent.asset`
+  - `com.apple.Photos.EnableDepthIntent.asset`
+  - `com.apple.Photos.MarkupIntent.asset`
+  - `com.apple.Photos.SetApertureIntent.asset`
+  - `com.apple.Photos.SetAudioMixIntent.asset`
+  - `com.apple.Photos.SetExposureIntent.asset`
+  - `com.apple.Photos.SetPlaybackRateIntent.asset`
+  - `com.apple.Photos.SetSaturationIntent.asset`
+  - `com.apple.Photos.SetWarmthIntent.asset`
+  - `com.apple.Photos.StraightenIntent.asset`
+  - `com.apple.iCal.HighlightEventIntent.additionalEvents`
+  - `com.apple.podcasts.AddAudioToLibraryIntent.linkcliPersonaIDOverride`
+  - `com.apple.reminders.TTRCreateReminderAppIntent.isUrgent`
+  - `com.apple.reminders.UpdateReminderAppIntent.isUrgent`
+- Removed parameters (5):
+  - `com.apple.Music.AddMusicItemToLibrarySiriIntent.OpenWhenRun`
+  - `com.apple.Music.AddMusicItemToPlaylistSiriIntent.OpenWhenRun`
+  - `com.apple.Music.UpdateMusicItemAffinitySiriIntent.OpenWhenRun`
+  - `com.apple.omniSearch.SearchToolExtension.SearchToolControl.originatorPID`
+  - `com.apple.omniSearch.SearchToolExtension.SearchToolControl.useMiniMC`
 
 ## 0.8.1 (2026-10-01)
 

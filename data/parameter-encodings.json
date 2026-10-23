@@ -1721,7 +1721,7 @@
     "is.workflow.actions.getnameofemoji" : "Name of Emoji",
     "is.workflow.actions.getonscreencontent" : "On-Screen Content",
     "is.workflow.actions.getonscreencontext" : "On-Screen Images",
-    "is.workflow.actions.getparentdirectory" : "Get Parent Directory",
+    "is.workflow.actions.getparentdirectory" : "Parent Directory",
     "is.workflow.actions.getparkedcarlocation" : "Car Location",
     "is.workflow.actions.getpodcastsfromlibrary" : "Podcasts",
     "is.workflow.actions.getrichtextfromhtml" : "Rich Text from HTML",
@@ -32063,16 +32063,6 @@
           "Value" : {
             "WFActionParameterFilterPrefix" : 1,
             "WFActionParameterFilterTemplates" : [
-
-            ],
-            "WFContentPredicateBoundedDate" : false
-          },
-          "WFSerializationType" : "WFContentPredicateTableTemplate"
-        },
-        {
-          "Value" : {
-            "WFActionParameterFilterPrefix" : 1,
-            "WFActionParameterFilterTemplates" : [
               {
                 "Bounded" : true,
                 "Operator" : 1000,
@@ -32087,9 +32077,19 @@
             "WFContentPredicateBoundedDate" : false
           },
           "WFSerializationType" : "WFContentPredicateTableTemplate"
+        },
+        {
+          "Value" : {
+            "WFActionParameterFilterPrefix" : 1,
+            "WFActionParameterFilterTemplates" : [
+
+            ],
+            "WFContentPredicateBoundedDate" : false
+          },
+          "WFSerializationType" : "WFContentPredicateTableTemplate"
         }
       ],
-      "stateClass" : "_TtGC11WorkflowKitP10$2b85ed53038_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_35RowTemplateFindFilterParameterState__",
+      "stateClass" : "_TtGC11WorkflowKitP10$1d3a2489838_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_35RowTemplateFindFilterParameterState__",
       "usedBy" : [
         "is.workflow.actions.filter.apps",
         "is.workflow.actions.filter.articles",
@@ -32112,7 +32112,7 @@
           "WFSerializationType" : "WFContentPredicateTableTemplate"
         }
       ],
-      "stateClass" : "_TtGC11WorkflowKitP10$2b85ed53038_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_36RowTemplateConditionalParameterState__",
+      "stateClass" : "_TtGC11WorkflowKitP10$1d3a2489838_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_36RowTemplateConditionalParameterState__",
       "usedBy" : [
         "is.workflow.actions.conditional"
       ]
@@ -32345,72 +32345,72 @@
     }
   },
   "stateClassSelectors" : {
-    "_TtGC11WorkflowKitP10$2b85ed53038_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_35RowTemplateFindFilterParameterState__" : [
+    "_TtGC11WorkflowKitP10$1d3a2489838_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_35RowTemplateFindFilterParameterState__" : [
       "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:",
-      "init",
       "serializedRepresentation",
+      "init",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
-    "_TtGC11WorkflowKitP10$2b85ed53038_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_36RowTemplateConditionalParameterState__" : [
+    "_TtGC11WorkflowKitP10$1d3a2489838_SwiftVariableSupportingParameterStateGVS_27TableTemplateParameterStateVS_36RowTemplateConditionalParameterState__" : [
       "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:",
-      "init",
       "serializedRepresentation",
+      "init",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFAppDescriptorParameterState" : [
       "legacySerializedRepresentation",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFArchiveFormatSubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFBooleanSubstitutableState" : [
       "initWithBoolValue:",
       "initWithNumberSubstitutableState:",
       "initWithNumber:",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFCalendarSubstitutableState" : [
       "initWithCalendar:",
       "initWithRemindersList:",
       "legacySerializedRepresentation",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFCodableAttributeBackedSubstitutableState" : [
       "serializedRepresentation",
       "initWithSerializedRepresentation:variableProvider:parameter:",
       "initWithValue:codableAttribute:stringLocalizer:",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFColorParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFContactFieldEntry" : [
       "serializedRepresentation",
       "initWithSerializedRepresentation:variableProvider:parameter:",
       "initWithContact:",
-      "initWithPhoneNumber:",
       "initWithCoder:",
+      "initWithPhoneNumber:",
       "initWithEmailAddress:",
       "initWithCustomHandle:",
       "initWithHandleString:",
@@ -32418,8 +32418,11 @@
       "initWithMessageGroup:"
     ],
     "WFDateFieldParameterState" : [
-      "initWithVariable:",
       "serializedRepresentation",
+      "initWithPreprocessedDate:",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
+      "serializedRepresentation",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:",
       "initWithVariableString:",
       "initWithVariableString:userInputInsertionIndex:",
@@ -32427,170 +32430,170 @@
     ],
     "WFDictionaryParameterState" : [
       "serializedRepresentation",
+      "initWithKeyValuePairs:identity:",
       "initWithKeyValuePairs:",
-      "initWithSerializedRepresentation:variableProvider:parameter:",
-      "initWithKeyValuePairs:identity:"
+      "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFDisplayParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFFileParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFFontParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFHFTriggerActionSetsBuilderParameterState" : [
       "serializedRepresentation",
-      "initWithSerializedRepresentation:variableProvider:parameter:",
       "initWithActionSets:homeIdentifier:",
       "initWithSerializedActionSets:homeIdentifier:",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
       "serializedActionSets"
     ],
     "WFHMCharacteristicSubstitutableState" : [
       "serializedRepresentation",
-      "initWithSerializedRepresentation:variableProvider:parameter:",
       "initWithCharacteristic:homeIdentifier:",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
       "serializedCharacteristic",
       "setSerializedCharacteristic:",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFHMHomeAreaSubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFHMServiceParameterState" : [
       "serializedRepresentation",
-      "initWithSerializedRepresentation:variableProvider:parameter:",
       "initWithService:homeIdentifier:",
+      "initWithSerializedRepresentation:variableProvider:parameter:",
       "initWithSerializedService:homeIdentifier:",
       "serializedService",
       "setSerializedService:"
     ],
     "WFINObjectSubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFINPaymentMethodParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFINRideOptionParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFIntentDescriptorParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFiTunesStoreCountrySubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFLocationParameterState" : [
       "initWithValue:",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFMediaItemState" : [
       "initWithMediaType:persistentID:",
       "initWithMediaType:persistentID:storeID:",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFMediaRouteState" : [
       "initWithRoute:",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFNSUnitSubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFNumberParameterState" : [
-      "initWithNumber:",
       "serializedRepresentation",
+      "initWithNumber:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFNumberStringSubstitutableState" : [
+      "serializedRepresentation",
       "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
       "initWithVariable:",
-      "initWithValue:",
-      "serializedRepresentation",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFNumberSubstitutableState" : [
       "initWithNumber:",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFPHAssetCollectionState" : [
       "initWithCollection:",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFPlaylistSubstitutableState" : [
       "initWithPlaylist:",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFPodcastSubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFPosterParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFQuantityParameterState" : [
-      "initWithVariable:",
       "serializedRepresentation",
+      "initWithVariable:",
       "initWithMagnitudeState:unitString:",
-      "initWithSerializedRepresentation:variableProvider:parameter:",
-      "initWithMagnitudeState:unitString:variable:"
+      "initWithMagnitudeState:unitString:variable:",
+      "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFSSHKeyParameterState" : [
       "serializedRepresentation",
@@ -32602,72 +32605,72 @@
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFStringSubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFTimeZonePickerParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFTrelloBoardSubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFTrelloListSubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFTumblrBlogSubstitutableState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFUIRecordingEventState" : [
-      "initWithEvent:",
       "serializedRepresentation",
+      "initWithEvent:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFURLStringParameterState" : [
-      "initWithVariable:",
       "serializedRepresentation",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:",
       "initWithVariableString:",
       "initWithVariableString:userInputInsertionIndex:",
       "shouldSerializeAsPlainString"
     ],
     "WFVariableParameterState" : [
-      "initWithVariable:",
       "serializedRepresentation",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFVariableStringParameterState" : [
-      "initWithVariable:",
       "serializedRepresentation",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:",
       "initWithVariableString:",
       "initWithVariableString:userInputInsertionIndex:",
       "shouldSerializeAsPlainString"
     ],
     "WFVPNParameterState" : [
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ],
     "WFWorkflowParameterState" : [
       "legacySerializedRepresentation",
-      "initWithVariable:",
-      "initWithValue:",
       "serializedRepresentation",
+      "initWithValue:",
+      "initWithVariable:",
       "initWithSerializedRepresentation:variableProvider:parameter:"
     ]
   },

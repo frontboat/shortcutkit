@@ -30,7 +30,7 @@ are archived ([python-shortcuts](https://github.com/alexander-akhmetov/python-sh
 [Cherri](https://github.com/electrikmilk/cherri) is a separate language with its own compiler.
 
 - All 434 built-in actions as constants, so a typo is an `AttributeError`.
-- 1,441 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 73 more.
+- 1,449 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 73 more.
 - Third-party app actions, given their descriptor.
 - If, Repeat, Repeat with Each, and Choose from Menu blocks.
 - A wrong key or value raises `ValueError` before anything is written.

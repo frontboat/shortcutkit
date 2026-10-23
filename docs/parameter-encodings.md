@@ -88,7 +88,7 @@ Each of the 99 parameter classes names one of 48 state classes, and that class's
 ### WFDateFieldParameterState
 
 - uses: 26
-- selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithVariable:`, `initWithVariableString:`, `initWithVariableString:userInputInsertionIndex:`, `serializedRepresentation`, `shouldSerializeAsPlainString`
+- selectors: `initWithPreprocessedDate:`, `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithVariable:`, `initWithVariableString:`, `initWithVariableString:userInputInsertionIndex:`, `serializedRepresentation`, `shouldSerializeAsPlainString`
 - parameter classes:
   - `WFDateFieldParameter` (26 uses): `UASetBackgroundSoundsTimerIntent`, `addnewevent`, `addnewreminder`
 
