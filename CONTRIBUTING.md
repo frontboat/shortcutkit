@@ -7,6 +7,8 @@ Issues and pull requests are welcome. If you change code:
 - Don't hand-edit generated files. Change the generator or the data and re-run it.
 - When the engine verifier fails, find the engine's rule and put it in the data. Don't
   special-case the failing key.
+- If you change a README example, change its copy in `test/readme-examples.ts` too; `bun test`
+  fails until they match.
 
 ## Development
 
@@ -19,6 +21,7 @@ bun run build         # dist/, which npm ships
 
 cd python && python3 -m venv .venv && .venv/bin/pip install -e .
 .venv/bin/python -m shortcutkit demo /tmp/Demo.shortcut
+.venv/bin/python ../test/readme_examples.py   # runs python/README.md's examples
 ```
 
 CI runs all of this on macOS, plus the verifier below. It can't sign: runners have no iCloud

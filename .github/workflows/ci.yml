@@ -42,6 +42,7 @@ jobs:
           cd python
           python3 -m venv .venv && .venv/bin/pip install -q -e .
           .venv/bin/python -c "from shortcutkit import ACTIONS; assert len(ACTIONS) > 1800 and sum(1 for a in ACTIONS.values() if 'descriptor' in a) > 1400"
+          .venv/bin/python ../test/readme_examples.py
       # Filter Contacts builds its sort-property state through the Contacts framework, which waits
       # forever for a privacy answer on a runner that was never asked. Record "denied" (as on the
       # extraction Mac) for the processes the image attributes requests to.

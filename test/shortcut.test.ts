@@ -1,5 +1,9 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, spyOn, test } from "bun:test";
+import { existsSync, mkdtempSync, readFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import * as readmeExamples from "./readme-examples";
 
 describe("shortcutkit", () => {
   test("validates identifiers and parameter keys against the definitions", () => {
@@ -233,5 +237,31 @@ describe("App Intents actions", () => {
     const withDescriptor = Object.values(ACTIONS).filter((a) => "descriptor" in a).length;
     expect(withDescriptor).toBe(1449);
     expect(new Set(Object.keys(actions)).size).toBe(Object.keys(ACTIONS).length);
+  });
+  test("the README's examples are test/readme-examples.ts, and they run", async () => {
+    const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+    const copy = readFileSync(new URL("./readme-examples.ts", import.meta.url), "utf8");
+    const blocks = [...readme.matchAll(/```ts\n([\s\S]*?)```/g)].map((m) => m[1]!.replace(/^import .*\n\n?/gm, ""));
+    expect(blocks.length).toBe(Object.keys(readmeExamples).length);
+    for (const b of blocks) expect(copy).toContain(b);
+
+    const cwd = process.cwd(), dir = mkdtempSync(join(tmpdir(), "shortcutkit-readme-"));
+    const sign = spyOn(Shortcut, "sign").mockImplementation((_input, output) => output);
+    process.chdir(dir);
+    try {
+      await readmeExamples.greeting();
+      expect(existsSync("Greeting.shortcut")).toBe(true);
+      expect(sign).toHaveBeenCalledWith("Greeting.shortcut", "Greeting-signed.shortcut");
+    } finally {
+      process.chdir(cwd);
+      sign.mockRestore();
+    }
+    readmeExamples.shareSheet();
+    const s = new Shortcut("T");
+    const name = s.action(actions.ask, {});
+    readmeExamples.controlFlow(s, name);
+    readmeExamples.applesApps(s);
+    readmeExamples.otherApps(s, name);
+    expect(s.actions.length).toBe(1 + 5 + 2 + 1);
   });
 });
