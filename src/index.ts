@@ -167,9 +167,9 @@ export class Shortcut {
   }
 
   /**
-   * Append an action and return it; `ref()` it to use its output. For identifiers in the catalog,
-   * wrong keys and values fail to compile, and unknown keys and unreadable references also throw at
-   * run time. Other identifiers pass through unchecked.
+   * Append an action and return it; `ref()` it to use its output. Catalog identifiers are checked:
+   * wrong keys and values don't compile, and unknown keys or unreadable references throw. Other
+   * identifiers pass through unchecked.
    */
   action<I extends string>(identifier: I, params: ParamsFor<I> = {} as ParamsFor<I>): Action {
     const definition = getDefinition(identifier);
@@ -215,10 +215,10 @@ export class Shortcut {
   }
 
   // Control flow: a block is a group sharing GroupingIdentifier; WFControlFlowMode 0 opens, 1 is a middle branch, 2 closes.
-  /** Open an If block on `subject_`. `condition` is a `CONDITION` name or code; `value` is what it compares with, if anything. Returns the id for `otherwise()` and `endIf()`. */
-  if(subject_: Attachment, condition: Condition | number, value?: string | number): string {
+  /** Open an If block on `subject`. `condition` is a `CONDITION` name or code; `value` is what it compares with, if anything. Returns the id for `otherwise()` and `endIf()`. */
+  if(subject: Attachment, condition: Condition | number, value?: string | number): string {
     const gid = uuid();
-    const params: Record<string, Value> = { GroupingIdentifier: gid, WFControlFlowMode: 0, WFInput: subject(subject_), WFCondition: typeof condition === "number" ? condition : CONDITION[condition] };
+    const params: Record<string, Value> = { GroupingIdentifier: gid, WFControlFlowMode: 0, WFInput: { Type: "Variable", Variable: subject }, WFCondition: typeof condition === "number" ? condition : CONDITION[condition] };
     if (typeof value === "number") params.WFNumberValue = value;
     else if (value !== undefined) params.WFConditionalActionString = value;
     this.action("is.workflow.actions.conditional", params);

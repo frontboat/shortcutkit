@@ -221,8 +221,8 @@ class Shortcut:
         self.defs = _load_definitions(definitions)
 
     def action(self, identifier, /, **params):
-        """Append an action and return it; ref() it to use its output. For identifiers in the catalog,
-        unknown keys, wrong value kinds, and unreadable references raise ValueError. Other
+        """Append an action and return it; ref() it to use its output. Catalog identifiers are
+        checked: unknown keys, wrong value kinds, and unreadable references raise ValueError. Other
         identifiers pass through unchecked. `identifier` is positional-only, so a parameter can
         have that name."""
         definition = self.defs.get(identifier)
