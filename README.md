@@ -7,99 +7,48 @@ Build, validate, and sign Apple Shortcuts (`.shortcut`) files from TypeScript or
 [![npm](https://img.shields.io/npm/v/shortcutkit)](https://www.npmjs.com/package/shortcutkit)
 [![PyPI](https://img.shields.io/pypi/v/shortcutkit)](https://pypi.org/project/shortcutkit/)
 
+A shortcut that asks your name and says hello:
+
 ```ts
 import { Shortcut, actions, ref, text } from "shortcutkit";
 
-const s = new Shortcut("Greeting", { color: "Teal" });
-const got = s.action(actions.getstoredcontent, { WFStoredContentKey: "greeting" });
-s.action(actions.showresult, { Text: text("Stored: ", ref(got)) });
-await s.write();                                        // Greeting.shortcut
+const s = new Shortcut("Greeting");
+const name = s.action(actions.ask, { WFAskActionPrompt: "What's your name?" });
+s.action(actions.showresult, { Text: text("Hello, ", ref(name), "!") });
+
+await s.write(); // Greeting.shortcut
 Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut");
 ```
 
-Open `Greeting-signed.shortcut` and Shortcuts imports it. Shortcuts rejects unsigned files, and
-signing needs a Mac signed into iCloud; everything before `sign()` runs on any OS.
+Open `Greeting-signed.shortcut` and Shortcuts adds it to your library. Shortcuts only imports
+signed files, and signing needs a Mac with an iCloud login; everything else runs on any OS.
 
-## About
+## Why
 
-Apple has never documented the `.shortcut` format or what its actions accept. shortcutkit
-does not guess at either. The tools in this repository load WorkflowKit and ActionKit, the
-private frameworks behind the Shortcuts app, and ask their own classes to describe and
-serialize every built-in action. The actions of Apple's apps come from the Shortcuts app's
-action index, the only readable copy of the App Intents registry. Every action identifier,
-parameter key, value encoding, and icon color, and even the UTF-16 offset rule for embedded
-references, came out of the engine rather than from someone reading files.
+The action catalog is extracted from the Shortcuts app's own frameworks, not written by hand,
+and one command refreshes it after a macOS update. Earlier libraries kept hand-written lists and
+are archived ([shortcuts-js](https://github.com/joshfarrant/shortcuts-js),
+[python-shortcuts](https://github.com/alexander-akhmetov/python-shortcuts));
+[Cherri](https://github.com/electrikmilk/cherri) is a separate language with its own compiler.
 
-That turns an undocumented format into a typed one. In TypeScript, a wrong parameter key or a
-string where a boolean belongs is a compile error. In Python the same checks run when you call
-`action()`. A file built from plain code signs, imports, and runs.
+- All 434 built-in actions, typed, with documentation on hover.
+- 1,441 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 73 more.
+- Third-party app actions, given their descriptor.
+- If, Repeat, Repeat with Each, and Choose from Menu blocks.
+- A wrong key or value fails at compile time in TypeScript, and at `action()` in Python.
 
-The data stays current the same way it was made. After a macOS update, one command re-extracts
-everything in about ten seconds, and another prints what Apple changed and the semver bump it
-calls for.
-
-## Features
-
-- **Every built-in action, typed.** All 434, with each action's name, description, summary,
-  output, and parameters as hover documentation in your editor.
-- **Apple's apps too.** 1,441 App Intents actions from 77 Apple apps and system components
-  (Create Reminder, Create Note, Send Message, the System Settings toggles), under the keys the
-  Shortcuts app itself assigns them.
-- **Parameters checked before you run anything.** A wrong key, or `"yes"` where a switch takes
-  a boolean, is a compile error in TypeScript and a `ValueError` in Python. Where a parameter
-  accepts a variable, its type names the kinds the engine reads there.
-- **References serialized the way the app writes them.** Pass `ref()` to any parameter that
-  takes one; `action()` wraps it into the form that parameter needs.
-- **Control flow.** If/Otherwise, Repeat, Repeat with Each, and Choose from Menu blocks, with
-  the grouping identifiers managed for you.
-- **Any app's actions.** Third-party App Intents pass through with the descriptor you supply.
-- **Signing.** `Shortcut.sign()` wraps `shortcuts sign`; a signed file imports on any device.
-
-## How it compares
-
-Earlier libraries for writing Shortcuts as code kept their action lists by hand. The two most
-used are archived: [shortcuts-js](https://github.com/joshfarrant/shortcuts-js) (TypeScript, 129
-actions) since 2023 and [python-shortcuts](https://github.com/alexander-akhmetov/python-shortcuts)
-(Python) since 2024. [Cherri](https://github.com/electrikmilk/cherri), the active project in this
-space, takes a different approach: a programming language with its own compiler, editor
-extension, and package manager, whose actions are defined in that language.
-
-shortcutkit is a library, not a language. You write TypeScript or Python you already know, and
-the action catalog comes from the Shortcuts engine rather than from a maintainer. It covers all
-434 built-in actions and 1,441 Apple App Intents today, and the next macOS update is one
-`bun run extract` away.
-
-## Installation
+## Install
 
 ```bash
-npm install shortcutkit      # or: bun add shortcutkit
+npm install shortcutkit   # Node 20+ or Bun
+pip install shortcutkit   # Python 3.9+
 ```
-
-Python:
-
-```bash
-pip install shortcutkit
-```
-
-### Requirements
-
-- TypeScript: Node 20 or newer, or Bun. The published package is plain ES module JavaScript
-  with type declarations.
-- Python: 3.9 or newer.
-- Signing: a Mac signed into iCloud. `sign()` runs `shortcuts sign`, which refuses to work
-  without an iCloud login even in `anyone` mode. CI runners have no iCloud login.
-
-Everything except signing works on any OS. `write()` converts the plist to binary with `plutil`
-when it is present and otherwise writes XML.
 
 ## Usage
 
-These examples build on the one at the top: `s` is a `Shortcut`, and `got` is an action.
+These examples build on the one at the top.
 
 ### Share sheet
-
-A shortcut offered from the share sheet declares its surfaces and the input it accepts, and
-reads that input with `shortcutInput()`:
 
 ```ts
 import { shortcutInput } from "shortcutkit";
@@ -109,38 +58,26 @@ const links = s.action(actions.runjavascriptonwebpage, { WFInput: shortcutInput(
 s.action(actions.showresult, { Text: text("Links: ", ref(links)) });
 ```
 
-`types` takes `ActionExtension` (share sheet), `QuickActions` (Finder and Services menus),
-`MenuBar`, `NCWidget`, `WatchKit`, `Sleep`, and `ReceivesOnScreenContent`.
-
 ### Control flow
 
-`if()` returns a grouping identifier that the matching `otherwise()` and `endIf()` calls take
-back:
-
 ```ts
-const gid = s.if(ref(got), "has_any_value");
-s.action(actions.showresult, { Text: text("Stored value: ", ref(got)) });
+const gid = s.if(ref(name), "has_any_value");
+s.action(actions.showresult, { Text: text("Hello, ", ref(name)) });
 s.otherwise(gid);
-s.action(actions.showresult, { Text: text("Nothing stored") });
+s.action(actions.showresult, { Text: text("Hello, stranger") });
 s.endIf(gid);
 ```
 
 ### Apple's apps
-
-Apple's App Intents actions are in the catalog under the Shortcuts app's own keys. Their
-parameters are typed like the built-ins, and `action()` adds the `AppIntentDescriptor` each
-one carries in the file:
 
 ```ts
 const r = s.action(actions.reminders_create_reminder, { title: text("Buy milk"), priorityLevel: "high" });
 s.action(actions.notes_create_note, { name: "Shopping", content: text("Added ", ref(r)) });
 ```
 
-### Actions from other apps
+### Other apps
 
-Third-party App Intents actions are not in the catalog. Pass the identifier as a string and
-the descriptor yourself; the parameters are typed as `Record<string, Value>`, and `action()`
-writes them as given:
+Pass the identifier and descriptor yourself; the parameters are untyped.
 
 ```ts
 s.action("com.example.app.CreateNoteIntent", {
@@ -149,97 +86,62 @@ s.action("com.example.app.CreateNoteIntent", {
     AppIntentIdentifier: "CreateNoteIntent", ActionRequiresAppInstallation: true,
   },
   title: text("Hello"),
-  body: ref(got),
+  body: ref(name),
 });
 ```
 
 ### Python
 
-The Python package has the same API and the same bundled data, with snake_case names and
-run-time value checks in place of compile-time ones:
+Same API in snake_case. See [`python/README.md`](python/README.md).
 
 ```python
 from shortcutkit import Shortcut, actions, ref, text
 
-s = Shortcut("Greeting", color="Teal")
-got = s.action(actions.GETSTOREDCONTENT, WFStoredContentKey="greeting")
-s.action(actions.SHOWRESULT, Text=text("Stored: ", ref(got)))
+s = Shortcut("Greeting")
+name = s.action(actions.ASK, WFAskActionPrompt="What's your name?")
+s.action(actions.SHOWRESULT, Text=text("Hello, ", ref(name), "!"))
+
 s.write()
 Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut")
 ```
 
-See [`python/README.md`](python/README.md) for the full Python surface.
-
-### Demo
-
-A demo builds a working shortcut with storage, an If/Otherwise block, and output. The Python
-package ships it; for TypeScript, run it from a clone:
-
-```bash
-python -m shortcutkit demo out.shortcut
-bun run demo out.shortcut               # from a clone of this repository
-```
-
 ## API
-
-The TypeScript names are below. Python uses the same names in snake_case (`if_()`,
-`end_if()`, `repeat_each()`); its action constants are upper case (`actions.SHOWRESULT`).
 
 | Export | What it does |
 |---|---|
-| `new Shortcut(name, { color, glyph, types, inputClasses })` | A shortcut. `color` is a palette name (`"Teal"`) or a raw value; `types` and `inputClasses` set where it appears and what input it takes. |
-| `s.action(id, params)` | Appends an action and returns it. Checks keys and value kinds, and adds the descriptor for Apple's App Intents. |
-| `s.if(subject, condition, value?)`, `s.otherwise(gid)`, `s.endIf(gid)` | An If block. `condition` is a `CONDITION` name or a raw code. |
-| `s.repeatEach(items)`, `s.endRepeatEach(gid)` | A Repeat with Each block. The closer returns an action; `ref()` it for the Repeat Results. |
-| `s.repeatCount(n)`, `s.endRepeatCount(gid)` | A Repeat block, with the same Repeat Results. |
+| `new Shortcut(name, { color, glyph, types, inputClasses })` | A shortcut. |
+| `s.action(id, params)` | Appends an action and returns it. |
+| `s.if(subject, condition, value?)`, `s.otherwise(gid)`, `s.endIf(gid)` | An If block. |
+| `s.repeatEach(items)`, `s.endRepeatEach(gid)` | A Repeat with Each block. |
+| `s.repeatCount(n)`, `s.endRepeatCount(gid)` | A Repeat block. |
 | `s.chooseFromMenu(prompt, items)`, `s.menuItem(gid, title)`, `s.endMenu(gid)` | A Choose from Menu block. |
-| `s.write(path?)` | Writes the unsigned file, `<name>.shortcut` by default, and resolves to its path. |
-| `Shortcut.sign(input, output, mode?)` | Signs with `shortcuts sign`. `mode` is `"anyone"` (the default) or `"people-who-know-me"`. |
-| `s.toPlist()`, `s.toXml()` | The shortcut as a plist object or as XML. |
-| `ref(action, outputName?)` | Another action's output. |
-| `variable(name)`, `repeatItem()`, `repeatIndex()` | A named variable; the current item and index inside a repeat. |
-| `shortcutInput()`, `clipboard()`, `currentDate()`, `ask(prompt?)`, `deviceDetails()`, `currentApp()` | The app's special variables. |
-| `text(...parts)` | A string with embedded references. |
-| `subject(attachment)` | The If-subject form. `if()` and `action()` apply it for you. |
-| `actions`, `ACTIONS` | Identifier constants, and the catalog entry for each: name, parameters, output, and output content types. |
-| `getAction(id)`, `getDefinition(id)` | The catalog entry for any identifier; the engine's full definition for a built-in (icon, keywords, parameter classes, required resources). |
-| `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | Per action and key: the value kind, the enumeration choices, and the reference kinds the engine reads. |
-| `CONDITION`, `ICON_COLORS` | If condition codes and the icon palette. |
-| `provenance` | The macOS and Shortcuts build that produced the data. |
-
-Every action also has a named parameter type (`ShowresultParams`,
-`RemindersCreateReminderParams`), and `OutputTypes<id>` gives its output content types.
+| `s.write(path?)` | Writes the unsigned file and returns its path. |
+| `Shortcut.sign(input, output, mode?)` | Signs a file with `shortcuts sign`. |
+| `s.toPlist()`, `s.toXml()` | The shortcut as a plist object or XML. |
+| `ref(action)` | An action's output. |
+| `text(...parts)` | A string with references in it. |
+| `variable(name)`, `repeatItem()`, `repeatIndex()` | Named and repeat variables. |
+| `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `deviceDetails()`, `currentApp()` | Special variables. |
+| `actions`, `getAction(id)`, `getDefinition(id)` | Action identifiers and their catalog entries. |
+| `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | What each parameter accepts. |
+| `CONDITION`, `ICON_COLORS`, `provenance` | If conditions, icon colors, and the build the data came from. |
 
 ## Documentation
 
-- [`docs/shortcut-file-format.md`](docs/shortcut-file-format.md): the `.shortcut` format end
-  to end, every field.
-- [`docs/builtin-actions-reference.md`](docs/builtin-actions-reference.md): all 434 built-in
-  actions with their parameters.
-- [`docs/apple-app-intents-reference.md`](docs/apple-app-intents-reference.md): the 1,441 App
-  Intents actions of Apple's apps, by app, with parameter kinds and enumeration cases.
-- [`docs/parameter-encodings.md`](docs/parameter-encodings.md): how each parameter class is
-  serialized.
-- [`docs/extraction.md`](docs/extraction.md): how the data was obtained, what did not work,
-  and what remains approximate. A handful of condition codes rest on community documentation.
-
-## Contributing
-
-Issues and pull requests are welcome. [`CONTRIBUTING.md`](CONTRIBUTING.md) covers the
-development setup, the engine verifier, the repository layout, and refreshing the data after a
-macOS update.
-
-```bash
-git clone https://github.com/frontboat/shortcutkit.git && cd shortcutkit
-bun install && bun test
-```
+- [Shortcut file format](docs/shortcut-file-format.md)
+- [Built-in actions](docs/builtin-actions-reference.md)
+- [Apple app actions](docs/apple-app-intents-reference.md)
+- [Parameter encodings](docs/parameter-encodings.md)
+- [How the data was extracted](docs/extraction.md), and what is still approximate
 
 ## Status
 
-The data was extracted on macOS 27.0 with Shortcuts 10.0 (see `data/provenance.json`).
-Generated files declare minimum client version 900, which any current Shortcuts accepts. The
-private classes the tools call can change with any release; the package itself depends only on
-the committed data. Generated shortcuts import and run.
+Extracted from macOS 27.0 and Shortcuts 10.0. A future macOS can break re-extraction, but not
+the published packages, which ship the data.
+
+## Contributing
+
+Issues and pull requests are welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## License
 
