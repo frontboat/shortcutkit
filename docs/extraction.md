@@ -296,11 +296,12 @@ it. `Shortcut.action()` applies the same table at run time in both packages.
   under `WFVariableParameterState`), as in Apple's gallery files and the library.
 - **Control flow.** Grouping identifier plus mode 0/1/2, observed in the library and the
   gallery for If, Otherwise, Repeat with Each, Repeat, and Choose from Menu.
-- **Condition codes.** 100/101 from `supportedComparisonOperators` on the subject states;
-  99 and 1002 from the gallery's filter templates; 0 and 2 from the library; the rest from
-  community documentation, marked as such in the format reference. The operator labels are not
-  in any strings table on disk (only "is", "contains", "does not contain", "is before" and "is
-  after" appear), so they could not be read back from the framework.
+- **Condition codes.** Each code loaded as a Filter Files row; the engine's row state names
+  the operator it parsed (`selectedOperator`, recorded as `filterOperators` in
+  `data/encoding-table.json`). Codes outside that set trap the engine. Apple's gallery has one
+  calendar filter with 1002 and a "7 days" value; the engine names 1002 "is today", so the
+  number there is left over, and the editor's own default for Find Calendar Events writes 1000,
+  "is in the next". 100/101 also appear in `supportedComparisonOperators` on the subject states.
 - **App Intents actions.** The gallery's Summarize Text and Notes actions show the on-disk
   form; `dump-appintents-actions.py` builds the same identifier and descriptor for every
   installed app from its `Metadata.appintents` bundle.
@@ -309,8 +310,6 @@ it. `Shortcut.action()` applies the same table at run time in both packages.
 
 ### What is still approximate
 
-- Condition codes 1, 3, 4, 5, 8, 9, 999, 1000, 1001, 1003 rest on community documentation.
-  Every observed use agrees with it; none contradicts it.
 - The generator emits the legacy single-condition If. Shortcuts migrates it on load. Multi-
   condition If needs the `WFConditions` template, which the format reference documents but the
   helper does not yet build.

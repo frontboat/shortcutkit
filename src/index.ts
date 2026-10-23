@@ -66,7 +66,7 @@ export const ICON_COLORS = {
 export type IconColor = keyof typeof ICON_COLORS;
 export const DEFAULT_GLYPH = 61440;
 
-/** If condition codes. less_than, greater_than, contains, has_any_value, and has_no_value are verified against the engine or Apple's files; the rest follow community documentation. */
+/** If condition codes. Each code's meaning is the engine's own (`filterOperators` in data/encoding-table.json). */
 export const CONDITION = {
   less_than: 0, less_or_equal: 1, greater_than: 2, greater_or_equal: 3, is: 4, is_not: 5, begins_with: 8, ends_with: 9,
   contains: 99, has_any_value: 100, has_no_value: 101, does_not_contain: 999, is_between: 1003,

@@ -58,21 +58,20 @@ ICON_COLORS = {
 DEFAULT_GLYPH = 61440  # +[WFWorkflowIcon defaultGlyphCharacter]
 
 # Legacy WFCondition codes for is.workflow.actions.conditional. Shortcuts still reads these
-# and migrates them to the modern WFConditions template on load. Codes marked (v) were
-# verified against shortcuts on this Mac or Apple's gallery; the rest follow the same
-# enumeration as documented by the community (shortcuts-js, Cherri).
+# and migrates them to the modern WFConditions template on load. Each code's meaning is the
+# engine's own (filterOperators in data/encoding-table.json).
 CONDITION = {
-    "less_than": 0,            # (v) numbers
+    "less_than": 0,
     "less_or_equal": 1,
-    "greater_than": 2,         # (v) numbers
+    "greater_than": 2,
     "greater_or_equal": 3,
     "is": 4,
     "is_not": 5,
     "begins_with": 8,
     "ends_with": 9,
-    "contains": 99,            # (v) as filter Operator in the gallery
-    "has_any_value": 100,      # (v) supportedComparisonOperators of every subject state
-    "has_no_value": 101,       # (v)
+    "contains": 99,
+    "has_any_value": 100,
+    "has_no_value": 101,
     "does_not_contain": 999,
     "is_between": 1003,
 }

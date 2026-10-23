@@ -4,7 +4,7 @@
 //   - a WFVariableString with embedded variables (the WFTextTokenString form)
 //   - every parameter state class, constructed with a plain value and with a variable
 //   - the 15 icon palette colors as WFWorkflowIcon reports them
-//   - the operator codes each conditional subject type supports
+//   - the operator codes each conditional subject type supports, and what each code means
 // See jxa-prelude.js for why this is JXA.
 //
 //   cat tools/jxa-prelude.js tools/extract-encoding-table.js > /tmp/x.js
@@ -87,6 +87,22 @@ function run(argv) {
     ops[cn] = { subjectType: plain(attempt(() => c.subjectType), 0), operators: o === undefined ? null : o };
   }
   out.conditionalSubjectOperators = ops;
+
+  // What each operator code means: load a Filter Files row with the code and read the name the
+  // engine's row state gives it (`selectedOperator`). Only the codes it names are listed; any
+  // other code traps the process (6 and 1004 were tried).
+  const reg = klass("WFActionRegistry").sharedRegistry;
+  const filterOperators = {};
+  for (const code of [0, 1, 2, 3, 4, 5, 8, 9, 99, 100, 101, 999, 1000, 1001, 1002, 1003]) {
+    filterOperators[code] = attempt(() => {
+      const row = { Property: "Name", Operator: code, Removable: true, Values: { String: "x", Unit: 4 } };
+      const t = { WFSerializationType: "WFContentPredicateTableTemplate", Value: { WFActionParameterFilterPrefix: 1, WFContentPredicateBoundedDate: false, WFActionParameterFilterTemplates: [row] } };
+      const a = reg.createActionWithIdentifierSerializedParameters("is.workflow.actions.filter.files", $({ WFContentItemFilter: t }));
+      const m = str(a.parameterStateForKey("WFContentItemFilter").debugDescription).match(/selectedOperator: ([^,]+?), parameterStates/);
+      return m ? m[1] : null;
+    });
+  }
+  out.filterOperators = filterOperators;
 
   // App Intents parameters. WorkflowKit maps each LinkMetadata value type to one of its own
   // parameter classes (-[LNValueType wf_parameterDefinitionWithParameterMetadata:]), whose

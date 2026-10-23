@@ -155,6 +155,24 @@
     }
   },
   "defaultGlyphCharacter" : 61440,
+  "filterOperators" : {
+    "0" : "is less than",
+    "1" : "is less than or equal to",
+    "2" : "is greater than",
+    "3" : "is greater than or equal to",
+    "4" : "is",
+    "5" : "is not",
+    "8" : "begins with",
+    "9" : "ends with",
+    "99" : "contains",
+    "100" : "has any value",
+    "101" : "does not have any value",
+    "999" : "does not contain",
+    "1000" : "is in the next",
+    "1001" : "is in the last",
+    "1002" : "is today",
+    "1003" : "is between"
+  },
   "iconPalette" : [
     {
       "color" : "Red:1.000000 Green:0.262745 Blue:0.317647",

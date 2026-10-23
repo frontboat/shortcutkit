@@ -157,24 +157,23 @@ Blocks are separate actions sharing a `GroupingIdentifier` (a UUID) with `WFCont
 - **Choose from Menu**: `is.workflow.actions.choosefrommenu`, mode 0 with `WFMenuPrompt` and
   `WFMenuItems` (array of titles); one mode 1 per item carrying `WFMenuItemTitle`; mode 2.
 
-**Condition codes** (`WFCondition`, and `Operator` in filter templates):
+**Condition codes** (`WFCondition`, and `Operator` in filter templates). The meanings are the
+engine's own: loading a filter row with each code, its row state names the operator
+(`filterOperators` in `data/encoding-table.json`). Any other code traps the engine.
 
-| code | meaning | evidence |
-|---|---|---|
-| 100 | has any value | `supportedComparisonOperators` on every subject state |
-| 101 | does not have any value | same; library |
-| 99 | contains | gallery filter "Name contains …" |
-| 999 | does not contain | community |
-| 4 / 5 | is / is not | community |
-| 8 / 9 | begins with / ends with | community (Swift types `BeginsWithStringOperator`, `EndsWithStringOperator` exist) |
-| 0 / 1 | is less than / is less than or equal to | library uses 0 with a number |
-| 2 / 3 | is greater than / is greater than or equal to | library uses 2 with a number |
-| 1003 | is between | community |
-| 1002 | is in the next (dates) | gallery: Start Date, Unit 16, Number "7" |
-| 1000 / 1001 | is today / is in the last (dates) | community |
+| code | meaning | code | meaning |
+|---|---|---|---|
+| 4 | is | 0 | is less than |
+| 5 | is not | 1 | is less than or equal to |
+| 99 | contains | 2 | is greater than |
+| 999 | does not contain | 3 | is greater than or equal to |
+| 8 | begins with | 1003 | is between |
+| 9 | ends with | 1000 | is in the next (dates) |
+| 100 | has any value | 1001 | is in the last (dates) |
+| 101 | does not have any value | 1002 | is today (dates) |
 
-No strings table on disk has these labels. Codes marked community come from shortcuts-js and
-Cherri and match every observed use.
+Which codes a property offers depends on its type: the date codes only apply to dates, and
+App Intents properties offer only what their query declares.
 
 **Filter templates** (`WFContentItemFilter` on Filter actions, `WFConditions` on modern If):
 
@@ -185,8 +184,8 @@ Cherri and match every observed use.
              "WFActionParameterFilterTemplates": [
                { "Property": "Name", "Operator": 99, "Removable": true,
                  "Values": { "Unit": 4, "String": <token string> } },
-               { "Property": "Start Date", "Operator": 1002, "Removable": false, "Bounded": true,
-                 "Values": { "Unit": 16, "Number": "7" } } ] } }
+               { "Property": "Start Date", "Operator": 1000, "Removable": false, "Bounded": true,
+                 "Values": { "Unit": 16, "Number": "7" } } ] } }    Start Date is in the next 7 days
 ```
 
 ## 5. Naming, signing and import

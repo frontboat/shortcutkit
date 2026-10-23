@@ -6,6 +6,13 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## Unreleased
+
+- The format reference had two date operators swapped: 1000 is "is in the next" and 1002 is
+  "is today". Every operator code's meaning now comes from the engine, which names the
+  operator when it loads a filter row (`filterOperators` in `data/encoding-table.json`);
+  none rests on community documentation any more.
+
 ## 1.0.0 (2026-10-22)
 
 Data from the final macOS 27.2 (build 26B118). Code that uses Apple's app actions may need
