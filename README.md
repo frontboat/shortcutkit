@@ -1,6 +1,6 @@
 # shortcutkit
 
-Build, validate and sign Apple Shortcuts (`.shortcut`) files from TypeScript or Python.
+Build, validate, and sign Apple Shortcuts (`.shortcut`) files from TypeScript or Python.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/frontboat/shortcutkit/ci.yml?branch=main)](https://github.com/frontboat/shortcutkit/actions)
@@ -8,68 +8,69 @@ Build, validate and sign Apple Shortcuts (`.shortcut`) files from TypeScript or 
 ## About
 
 Apple has never documented the `.shortcut` format or what its actions accept. shortcutkit
-does not guess at either. The tools in this repository load WorkflowKit and ActionKit, the private
-frameworks behind the Shortcuts app, and ask their own classes to describe and serialize
-every built-in action. Apple's own apps' actions come from the Shortcuts app's action index,
-the only readable copy of the App Intents registry. Every action identifier, parameter key, value encoding, icon colour, and even the
-UTF-16 offset rule for embedded references came out of the engine, not from a person reading
-files. The package cannot disagree with the app.
+does not guess at either. The tools in this repository load WorkflowKit and ActionKit, the
+private frameworks behind the Shortcuts app, and ask their own classes to describe and
+serialize every built-in action. The actions of Apple's apps come from the Shortcuts app's
+action index, the only readable copy of the App Intents registry. Every action identifier,
+parameter key, value encoding, and icon color, and even the UTF-16 offset rule for embedded
+references, came out of the engine rather than from someone reading files.
 
 That turns an undocumented format into a typed one. In TypeScript, a wrong parameter key or a
 string where a boolean belongs is a compile error. In Python the same checks run when you call
-`action()`. A file built from plain code signs, imports and runs.
+`action()`. A file built from plain code signs, imports, and runs.
 
 The data stays current the same way it was made. After a macOS update, one command re-extracts
-everything in about a minute and prints a diff of what Apple changed, along with the semver
-bump it deserves. `data/provenance.json` records which macOS and Shortcuts build produced the
-files you are using.
+everything in about ten seconds, and another prints what Apple changed and the semver bump it
+calls for.
 
 ## Features
 
 - **Every built-in action, typed.** `actions.*` lists all 434 identifiers, with each action's
-  name, description, summary, output and parameter keys as hover documentation.
-- **Apple's apps too.** 1,441 App Intents actions from 77 Apple apps and system components,
-  Create Reminder, Create Note, Send Message, the System Settings toggles, under the keys the
+  name, description, summary, output, and parameter keys as hover documentation. Each action's
+  output content types are on `ACTIONS[id].outputTypes` and on the `Action` that `action()`
+  returns.
+- **Apple's apps too.** 1,441 App Intents actions from 77 Apple apps and system components
+  (Create Reminder, Create Note, Send Message, the System Settings toggles), under the keys the
   Shortcuts app itself assigns them: `actions.reminders_create_reminder`. Enumeration cases are
-  typed, and the `AppIntentDescriptor` the file needs is added for you.
+  typed, and `action()` adds the `AppIntentDescriptor` the file needs.
 - **Parameters checked before you run anything.** `{ WFStoredContentGlobalValue: "yes" }` is a
-  compile error; a switch takes a boolean or a reference. Enumeration choices are suggested.
-  A plain value slot also accepts a reference where the engine reads one, and the type says
-  which: a Filter action's sort key takes none, a variable picker takes any except Ask, and the
-  engine was asked about every key (`PARAM_VARIABLE_TYPES`). Every action has a named
-  parameter type (`ShowresultParams`, `RemindersCreateReminderParams`), and its output content
-  types are on `ACTIONS[id].outputTypes` and on the returned `Action`.
-- **Value helpers that match the engine's serialization.** `ref()` to another action's output,
-  `variable()`, `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `deviceDetails()`,
-  `currentApp()`, `text()` for strings with embedded references. A bare `ref()` is what every
-  picker parameter takes; for a text parameter it is wrapped into the token string the engine
-  writes, and for an If subject into the form the app writes.
+  compile error, because a switch takes a boolean or a reference. Your editor suggests
+  enumeration choices. A plain value slot accepts a reference wherever the engine reads one, and
+  its type names the kinds of reference allowed: a Filter action's sort key allows none; a
+  variable picker allows every kind except Ask. `PARAM_VARIABLE_TYPES` holds the engine's
+  answer for every key. Every action has a named parameter type (`ShowresultParams`,
+  `RemindersCreateReminderParams`).
+- **Value helpers that match the engine's serialization.** `ref()` refers to another action's
+  output; `variable()`, `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`,
+  `deviceDetails()`, and `currentApp()` cover named variables and the app's special ones;
+  `text()` builds strings with embedded references. Pass a bare `ref()` wherever a reference is
+  allowed: picker parameters take it as it is, and `action()` wraps it into the token string a
+  text parameter needs or the form an If subject needs.
 - **Control flow.** `if()` / `otherwise()` / `endIf()`, `repeatEach()` / `endRepeatEach()`,
-  `repeatCount()` / `endRepeatCount()` and `chooseFromMenu()` / `menuItem()` / `endMenu()`
+  `repeatCount()` / `endRepeatCount()`, and `chooseFromMenu()` / `menuItem()` / `endMenu()`
   manage the grouping identifiers for you.
-- **App Intents from installed apps.** Any identifier outside the built-in set is accepted;
-  built-in identifiers and their parameter keys are also validated at run time.
+- **App Intents from installed apps.** Pass any identifier outside the catalog as a string.
+  Identifiers starting with `is.workflow.` must be built-ins, and their parameter keys are
+  checked at run time.
 - **Definitions and provenance.** `getAction(id)` describes any identifier, built-in or App
-  Intent: name, parameter keys and kinds, output, descriptor. `getDefinition(id)` returns the
-  engine's full record for a built-in (icon, keywords, parameter classes, required resources);
-  `provenance` says which build produced the data.
-- **Signing.** `Shortcut.sign()` wraps `shortcuts sign` so the output imports on any device.
+  Intent: name, parameter keys and kinds, output, and descriptor. `getDefinition(id)` returns
+  the engine's full record for a built-in (icon, keywords, parameter classes, required
+  resources); `provenance` says which build produced the data.
+- **Signing.** `Shortcut.sign()` wraps `shortcuts sign`; a signed file imports on any device.
 
 ## How it compares
 
-Every earlier library for writing Shortcuts as code kept its action list by hand, and that is
-how the two most used ones ended: [shortcuts-js](https://github.com/joshfarrant/shortcuts-js)
-(TypeScript, 129 actions, archived 2023) and
-[python-shortcuts](https://github.com/alexander-akhmetov/python-shortcuts) (Python, archived
-2024) both stopped once keeping up with Apple became a chore.
-[Cherri](https://github.com/electrikmilk/cherri) is the active project in this space and takes
-a different shape: a programming language with its own compiler, editor extension and package
-manager, whose actions are defined in that language.
+Earlier libraries for writing Shortcuts as code kept their action lists by hand. The two most
+used are archived: [shortcuts-js](https://github.com/joshfarrant/shortcuts-js) (TypeScript, 129
+actions) since 2023 and [python-shortcuts](https://github.com/alexander-akhmetov/python-shortcuts)
+(Python) since 2024. [Cherri](https://github.com/electrikmilk/cherri), the active project in this
+space, takes a different approach: a programming language with its own compiler, editor
+extension, and package manager, whose actions are defined in that language.
 
 shortcutkit is a library, not a language. You write TypeScript or Python you already know, and
-the action catalogue comes from the Shortcuts engine rather than from a maintainer. All 434
-built-in actions and 1,441 Apple App Intents are covered today, and the next macOS update is
-one `bun run extract` away.
+the action catalog comes from the Shortcuts engine rather than from a maintainer. It covers all
+434 built-in actions and 1,441 Apple App Intents today, and the next macOS update is one
+`bun run extract` away.
 
 ## Installation
 
@@ -85,12 +86,14 @@ pip install shortcutkit
 
 ### Requirements
 
-- Node 20 or newer, or Bun, for the TypeScript package. The published package is plain ES
-  module JavaScript with type declarations. Python 3.9 or newer for the Python package.
-- A Mac signed into iCloud for `sign()`. It runs `shortcuts sign`, which refuses to work
-  without an iCloud login even in `anyone` mode, so it cannot run on CI runners. `write()`
-  converts the plist to binary with `plutil` when present and otherwise leaves the XML form.
-  Building, validating and writing the unsigned file works anywhere.
+- TypeScript: Node 20 or newer, or Bun. The published package is plain ES module JavaScript
+  with type declarations.
+- Python: 3.9 or newer.
+- Signing: a Mac signed into iCloud. `sign()` runs `shortcuts sign`, which refuses to work
+  without an iCloud login even in `anyone` mode. CI runners have no iCloud login.
+
+Building, validating, and writing the unsigned file work anywhere. `write()` converts the plist
+to binary with `plutil` when it is present and otherwise writes XML.
 
 ## Usage
 
@@ -118,7 +121,7 @@ s.action(actions.showresult, { Text: text("Links: ", ref(links)) });
 ```
 
 `types` takes `ActionExtension` (share sheet), `QuickActions` (Finder and Services menus),
-`MenuBar`, `NCWidget`, `WatchKit`, `Sleep` and `ReceivesOnScreenContent`.
+`MenuBar`, `NCWidget`, `WatchKit`, `Sleep`, and `ReceivesOnScreenContent`.
 
 ### Control flow
 
@@ -135,9 +138,9 @@ s.endIf(gid);
 
 ### Apple's apps
 
-Apple's App Intents actions are in the catalogue under the Shortcuts app's own keys. Their
-parameters are typed like the built-ins, and the `AppIntentDescriptor` every such action
-carries in the file is added automatically:
+Apple's App Intents actions are in the catalog under the Shortcuts app's own keys. Their
+parameters are typed like the built-ins, and `action()` adds the `AppIntentDescriptor` each
+one carries in the file:
 
 ```ts
 const r = s.action(actions.reminders_create_reminder, { title: text("Buy milk"), priorityLevel: "high" });
@@ -146,18 +149,25 @@ s.action(actions.notes_create_note, { name: "Shopping", content: text("Added ", 
 
 ### Actions from other apps
 
-Third-party App Intents actions are not in the catalogue, so pass the identifier as a string
-and the descriptor yourself. Parameter keys are then typed as `Record<string, Value>` and
-passed through as given:
+Third-party App Intents actions are not in the catalog. Pass the identifier as a string and
+the descriptor yourself; the parameters are typed as `Record<string, Value>`, and `action()`
+writes them as given:
 
 ```ts
-s.action("com.example.app.CreateNote", { title: text("Hello"), body: ref(got) });
+s.action("com.example.app.CreateNoteIntent", {
+  AppIntentDescriptor: {
+    BundleIdentifier: "com.example.app", Name: "Example", TeamIdentifier: "ABCDE12345",
+    AppIntentIdentifier: "CreateNoteIntent", ActionRequiresAppInstallation: true,
+  },
+  title: text("Hello"),
+  body: ref(got),
+});
 ```
 
 ### Python
 
-Same API and same bundled data, with snake_case names and run-time value checks instead of
-compile-time ones:
+The Python package has the same API and the same bundled data, with snake_case names and
+run-time value checks in place of compile-time ones:
 
 ```python
 from shortcutkit import Shortcut, actions, ref, text
@@ -173,12 +183,12 @@ See [`python/README.md`](python/README.md) for the full Python surface.
 
 ### Demo
 
-Both packages ship a demo that builds a working shortcut with storage, an If/Otherwise block
-and output:
+A demo builds a working shortcut with storage, an If/Otherwise block, and output. The Python
+package ships it; for TypeScript, run it from a clone:
 
 ```bash
-bun run demo out.shortcut
 python -m shortcutkit demo out.shortcut
+bun run demo out.shortcut               # from a clone of this repository
 ```
 
 ## Documentation
@@ -207,9 +217,9 @@ cd python && python3 -m venv .venv && .venv/bin/pip install -e .
 .venv/bin/python -m shortcutkit demo /tmp/Demo.shortcut
 ```
 
-CI runs the type check, the tests, a Node import of the built package, a Python install, the
-engine verification below and an unsigned build of the demo shortcut on macOS. Signing is not
-exercised in CI because the runner has no iCloud login.
+CI runs on macOS: the type check, the tests, a Node import of the built package, a Python
+install, the engine verification below, and an unsigned build of the demo shortcut. It cannot
+sign, because the runner has no iCloud login.
 
 ### Verifying against the engine
 
@@ -217,35 +227,35 @@ exercised in CI because the runner has no iCloud login.
 bun run verify        # ~3 min on a Mac that has opened Shortcuts.app once
 ```
 
-Both packages are driven over every action, every parameter key and every value form their
-types admit, and the results are diffed against each other and then loaded through the
-Shortcuts engine's own action objects, which report whether each value was read. Forms the
-library refuses are written raw too, and the engine must refuse them as well. Whole shortcuts
-built through every block helper are imported the way the app imports a file. The run fails on
-any case the engine does not read; see `docs/extraction.md` for what it reports instead of
-failing.
+The verifier drives both packages over every action, parameter key, and value form their types
+admit, diffs the two packages' output, and loads every case through the Shortcuts engine's own
+action objects, which report whether each value was read. It also writes the forms the library
+refuses, and the engine must refuse those too. Last, it builds whole shortcuts through every
+block helper and imports them the way the app imports a file. The run fails on any case the
+engine does not read, except on a Shortcuts build older than the data's, where it reports the
+misses as version gaps (see `docs/extraction.md`).
 
 ### Repository layout
 
 | Path | Contents |
 |---|---|
-| `src/` | The TypeScript package source. `src/generated/actions.ts` is produced by the tools. `bun run build` bundles it into `dist/`, which is what npm ships. |
-| `python/` | The Python package. `actions.py` and `data/` are produced by the tools. |
+| `src/` | The TypeScript package source. The tools generate `src/generated/`. `bun run build` bundles the source into `dist/`, which is what npm ships. |
+| `python/` | The Python package. The tools generate `actions.py` and `data/`. |
 | `data/` | Everything extracted from the engine: definitions, parameter encodings, serialization table, `apple-app-intents.json` from the Shortcuts app's registry, and `provenance.json`. |
-| `docs/` | The format reference, action reference, encodings reference and extraction notes. |
+| `docs/` | The format reference, action reference, encodings reference, and extraction notes. |
 | `tools/` | The extraction pipeline. |
 
 Never hand-edit the generated files. Change the generator or the data and re-run the pipeline.
 
 ### Regenerating the data
 
-The extracted data is committed on purpose. It can only be produced on a Mac, through private
-API that changes between releases, so committing it is what makes the package reproducible.
-To refresh after a macOS update, on any Mac that has opened Shortcuts.app at least once. No
-Xcode is needed: the probes are JavaScript for Automation scripts run by `osascript`, because
-ActionKit, which defines about a quarter of the built-in actions, only loads into Apple's own
-platform binaries. Apple's App Intents come from the Shortcuts app's action index, which
-Shortcuts writes on launch.
+The extracted data is committed on purpose. Only a Mac can produce it, through private API that
+changes between releases; committing it keeps the package reproducible. Refresh it after a
+macOS update on any Mac that has opened Shortcuts.app at least once. No Xcode is needed. The
+probes are JavaScript for Automation scripts run by `osascript`, because ActionKit, which
+defines 53 of the built-in actions, loads only into Apple's platform binaries, and `osascript`
+is one. Apple's App Intents come from the Shortcuts app's action index, which Shortcuts writes
+on launch.
 
 ```bash
 bun run extract        # ~10 s: loads WorkflowKit and ActionKit in osascript, dumps and serializes everything
@@ -254,21 +264,21 @@ bun run diff-data      # what changed vs the committed data, and the semver bump
 bun run changelog      # the same as a CHANGELOG.md section
 ```
 
-Both packages and the data are versioned together. A refresh that only adds actions or
+The two packages and the data share one version number. A refresh that only adds actions or
 parameters is a minor release. One that removes or retypes any is a major release, because the
-generated catalogue is part of the type surface. Bump `package.json` and
-`python/pyproject.toml` together and add the `bun run changelog` output to `CHANGELOG.md`.
+generated catalog is part of the type surface. Bump `package.json` and `python/pyproject.toml`
+together and add the `bun run changelog` output to `CHANGELOG.md`.
 
-The tools also dump Apple's gallery workflows, installed apps' App Intents actions and the raw
-identifier list. Those files are local and gitignored.
+The tools also write local, gitignored dumps of Apple's gallery workflows, installed apps' App
+Intents actions, and the raw identifier list.
 
 ## Status
 
-Data extracted on macOS 27.0 with Shortcuts 10.0 (see `data/provenance.json`). Generated files
-declare minimum client version 900, which any current Shortcuts accepts. The private classes
-the tools call can change with any release; the package itself depends only on the committed
-data. Generated shortcuts import and run.
+The data was extracted on macOS 27.0 with Shortcuts 10.0 (see `data/provenance.json`).
+Generated files declare minimum client version 900, which any current Shortcuts accepts. The
+private classes the tools call can change with any release; the package itself depends only on
+the committed data. Generated shortcuts import and run.
 
 ## License
 
-shortcutkit is licensed under the MIT license. See [`LICENSE`](LICENSE) for details.
+[MIT](LICENSE).

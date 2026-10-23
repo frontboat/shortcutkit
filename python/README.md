@@ -21,7 +21,7 @@ where a boolean belongs raises `ValueError`. A file built from plain code signs,
 runs. Pure Python, no dependencies. Signing shells out to the macOS `shortcuts` command;
 everything else runs anywhere.
 
-The data regenerates in about a minute after any macOS update, with a diff of what Apple
+The data regenerates in about ten seconds after any macOS update, with a diff of what Apple
 changed and the semver bump it deserves. `PROVENANCE` records which macOS and Shortcuts build
 produced the bundled files.
 
