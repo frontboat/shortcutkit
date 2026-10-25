@@ -197,6 +197,55 @@ engine. The gallery confirms the on-disk form: values are plain, not wrapped
 Requirement: Shortcuts.app must have run once on the extracting Mac so the index exists. The
 `toolKit` field of `data/provenance.json` records which index version was read.
 
+### Apple's entity types: properties and Find filters
+
+A Find action's rows ("Date is in the last 7 days", "Sender is …") and a reference to one
+property of an entity ("Message's Body") depend on the entity type, which the action catalogue
+does not describe. The index does: `EntityProperties` lists each entity's properties with a
+protobuf type blob, `EntityPropertyLocalizations` their names, and `PredicateTemplates` (keyed
+`builtin.query.<entity>`) the comparisons its query supports. ToolKit's own classes decode the
+blobs (`-[CCToolKitToolTypeInstance initWithData:error:]`,
+`CCToolKitToolTypeDefinitionVersion1QueryPredicateTemplates`, then `jsonDictionary`).
+`dump-toolkit-registry.py --entities` exports them for the 434 entity types Apple's actions
+output or find, and `extract-entities.js` writes `data/apple-entities.json`.
+
+The index says which comparisons exist, not how a row is written. WorkflowKit does, and it
+needs no linkd for it. From the decoded properties the probe builds the LinkMetadata objects
+linkd would send (`LNPropertyMetadata`, `LNQueryParameterMetadata` with one
+`LNQueryParameterComparatorMetadata` per comparison, `LNQueryMetadata`, `LNEntityMetadata`),
+and `-[LNEntityMetadata wf_contentItemClassWithEntityValueType:queryMetadata:appBundleIdentifier:displayedAppBundleIdentifier:]`
+returns the entity's content item class (`WFLinkEntityContentItem_com.apple.MobileSMS_MessageEntity`),
+the same one the editor uses. Each of its properties reports:
+
+- its editing parameter (`parameterDefinition`), which decides the row's value key: a text
+  field writes `String`, a number field `Number`, a date field `Date`. Messages' sender is an
+  enumeration marked `WFLinkEntityContentPropertyUserInfoIsContactHandleKey`, and Apple's files
+  write it as `ContactHandle`;
+- `allowedOperators`, from the query's comparators by `-[LNQueryParameterMetadata wf_supportedContentOperators]`
+  (the probe checks each comparator type against the operator it stands for), with the date
+  operators WorkflowKit adds itself. The index also lists "does not contain" for 104 text
+  properties, which no comparator produces; the packages leave it out;
+- `timeUnits`, an NSCalendarUnit mask: the units the editor's picker
+  (`WorkflowKit.CalendarUnitPickerParameter`) offers for "is in the last".
+
+A Find action on the class (`WFContentItemFilterAction` with that `WFContentItemClass`) then
+loads one row per property and operator with a sample value. The row state must name the
+same operator and hold every value key; 906 rows do. A property aggrandizement must find the
+property on the class (`-[WFPropertyVariableAggrandizement processedContentClasses:]` is empty
+for an unknown name); 662 of the 889 properties do. The other 227 are typed by an enumeration
+or another entity, which WorkflowKit leaves off the class when it has no metadata for that
+type; their identifiers come from the index alone.
+
+The value forms come from the engine too. A date string under `Date` is dropped (it takes a
+plist date or a reference), a bare reference under `String` is dropped (it takes a token
+string), and a handle without a reference re-serializes as the plain string inside
+`WFTokenStringParameterState`. The verifier compares what the engine serializes back against
+what the library wrote, so a form the engine normalizes would fail it.
+
+Built-in Find actions use the same rows, but their operator lists are computed in Swift
+(`RowTemplateOperator` types in WorkflowKit) with no Objective-C entry point, and built-in
+properties report no `allowedOperators`. The packages leave those filters raw.
+
 ## Parameter value encoding
 
 The definitions say which parameter keys exist and which parameter class each uses, but not
@@ -258,6 +307,10 @@ The round trip above checks value forms against state classes in isolation. `bun
    state-class round-trip table. Whole shortcuts go through
    `-[WFWorkflowFile initWithDictionary:name:performMigration:]`, which is how the app imports a
    file. A form the library refuses must not be read either, or the restriction is too tight.
+   Find filters and property references on Apple's entity types load through each entity's
+   content item class, built as in [the entity section](#apples-entity-types-properties-and-find-filters):
+   every row must come back with its property, operator and value keys and serialize back as
+   written, and every property aggrandizement must parse and find its property.
 
 The verifier fails on any case the engine does not read. Three outcomes are reported rather than
 failed, each counted and named in the summary: keys on actions the engine itself loads as
@@ -315,3 +368,7 @@ it. `Shortcut.action()` applies the same table at run time in both packages.
   helper does not yet build.
 - Specialised value dictionaries (contacts, locations, file bookmarks, colors) are documented
   from examples rather than exhaustively.
+- Filter rows are typed and checked only for Apple's App Intents Find actions. Rows on
+  properties edited by a variable picker (rich text such as a message body), a URL field or a
+  duration have no value form the packages write yet, and enumeration-typed entity properties
+  are not filterable without linkd's metadata.

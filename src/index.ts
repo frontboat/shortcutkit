@@ -6,7 +6,8 @@ import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition, type ActionDefinition } from "./definitions.js";
 import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
-import type { AskAttachment, Attachment, ConditionSubject, TokenString, Value, VariableType } from "./values.js";
+import { CALENDAR_UNITS, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type EntityId, type EntityProperty } from "./generated/entities.js";
+import type { AskAttachment, Attachment, ConditionSubject, FilterRow, FilterTemplateValue, TokenString, Value, VariableType, Where } from "./values.js";
 
 export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
 export type { PlistValue } from "./plist.js";
@@ -14,12 +15,13 @@ export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
 export { provenance, type Provenance } from "./provenance.js";
 export type * from "./generated/params.js";
+export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, ENTITY_PROPERTIES, type FilterRows, type EntityId, type EntityProperty } from "./generated/entities.js";
 
 /** Parameters accepted for an identifier: typed per key for built-in actions, open for anything else. */
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
 
-/** An action as `action()` returns it; pass it to `ref()` to use its output. */
-export type Action = { WFWorkflowActionIdentifier: string; WFWorkflowActionParameters: Record<string, Value>; outputName?: string; outputTypes?: readonly string[] };
+/** An action as `action()` returns it; pass it to `ref()` to use its output, or to `property()` for one of its properties. */
+export type Action<I extends string = string> = { WFWorkflowActionIdentifier: I; WFWorkflowActionParameters: Record<string, Value>; outputName?: string; outputTypes?: readonly string[] };
 /** Content types an action's output can be (`WFStringContentItem`, `NSURL`, an App Intents entity, …). Shortcuts converts between many of them at run time, so this is a description, not a restriction. */
 export type OutputTypes<I extends ActionId> = (typeof ACTIONS)[I]["outputTypes"];
 /** What the catalog knows about an identifier, built-in or App Intent. */
@@ -108,6 +110,88 @@ export const repeatItem = (): Attachment<"Variable"> => attachment({ Type: "Vari
 /** The current index (1-based) inside a Repeat block. */
 export const repeatIndex = (): Attachment<"Variable"> => attachment({ Type: "Variable", VariableName: "Repeat Index" });
 
+/** The entity type an action outputs, when it is one of Apple's (ENTITY_PROPERTIES). */
+type OutputEntity<I extends string> = I extends ActionId ? Extract<OutputTypes<I>[number], EntityId> : never;
+/** What `property()` takes for an action's output: the entity's property identifiers when the catalog knows the entity, else any name. */
+export type PropertyName<I extends string> = [OutputEntity<I>] extends [never] ? string : EntityProperty<OutputEntity<I>>;
+
+/**
+ * One property of an action's output or of any reference, as the editor's property picker writes it
+ * (a `WFPropertyVariableAggrandizement`): `property(found, "body")`, `property(repeatItem(), "date")`.
+ * Given an action whose output is one of Apple's entity types, the name must be one of its
+ * properties (ENTITY_PROPERTIES), which the compiler also checks.
+ */
+export function property<I extends string>(source: Action<I>, name: PropertyName<I>): Attachment<"ActionOutput">;
+export function property<T extends VariableType>(source: Attachment<T>, name: string): Attachment<T>;
+export function property(source: Action | Attachment, name: string): Attachment {
+  if (!isAttachment(source)) {
+    const entities = (source.outputTypes ?? []).filter((t): t is EntityId => t in ENTITY_PROPERTIES);
+    const known = new Set<string>(entities.flatMap((e) => ENTITY_PROPERTIES[e]));
+    if (entities.length && !known.has(name)) throw new Error(`${entities.join(" / ")} has no property ${name}; it has ${[...known].sort().join(", ")}`);
+  }
+  const a = isAttachment(source) ? source : ref(source);
+  const prior = Array.isArray(a.Value.Aggrandizements) ? a.Value.Aggrandizements : [];
+  return attachment({ ...a.Value, Aggrandizements: [...prior, { Type: "WFPropertyVariableAggrandizement", PropertyName: name }] });
+}
+
+/** Find conditions that must all hold. Each row is `[property, operator, ...values]`, typed per Find action (FilterRows):
+ *  `where(["date", "is_in_the_last", 7, "days"], ["author", "is", ref(contact)])`. */
+export const where = <const R extends FilterRow>(...rows: R[]): Where<R> => ({ match: "all", rows });
+/** Find conditions of which any one must hold; rows as for `where()`. */
+export const whereAny = <const R extends FilterRow>(...rows: R[]): Where<R> => ({ match: "any", rows });
+const isWhere = (v: unknown): v is Where => typeof v === "object" && v !== null && Array.isArray((v as Where).rows) && ((v as Where).match === "all" || (v as Where).match === "any");
+
+type FilterProperty = { operators: readonly number[]; values: string; units?: readonly number[] };
+/** Encode where() rows for a Find action: each value goes under the row key its kind uses (see docs/shortcut-file-format.md). */
+function encodeFilter(identifier: string, w: Where): FilterTemplateValue {
+  const table = (FILTERS as Record<string, Record<string, FilterProperty>>)[identifier];
+  if (!table) throw new Error(`${identifier}: where() rows need a Find action of Apple's App Intents (FILTERS); pass a WFContentPredicateTableTemplate here`);
+  const codes = FILTER_OPERATORS as Record<string, number>;
+  const rows = w.rows.map(([prop, op, ...args]) => {
+    const p = table[prop];
+    if (!p) throw new Error(`${identifier}: no filterable property ${prop}; filterable: ${Object.keys(table).join(", ")}`);
+    const at = `${identifier} ${prop} ${op}`;
+    const offered = Object.keys(codes).filter((n) => p.operators.includes(codes[n]!));
+    if (!offered.includes(op)) throw new Error(`${identifier} ${prop}: no operator ${op}; offered: ${offered.join(", ")}`);
+    const arity = op === "is_today" ? 0 : op === "is_between" || op === "is_in_the_last" || op === "is_in_the_next" ? 2 : 1;
+    if (args.length !== arity) throw new Error(`${at}: takes ${arity} value(s), got ${args.length}`);
+    return { Property: prop, Operator: codes[op]!, Removable: true, Values: rowValues(at, p, op, args) };
+  });
+  return { WFSerializationType: "WFContentPredicateTableTemplate", Value: { WFActionParameterFilterPrefix: w.match === "all" ? 1 : 0, WFContentPredicateBoundedDate: false, WFActionParameterFilterTemplates: rows } };
+}
+function rowValues(at: string, p: FilterProperty, op: string, args: unknown[]): Record<string, PlistValue> {
+  const check = (ok: boolean, v: unknown, what: string) => { if (!ok) throw new Error(`${at}: expected ${what}, got ${JSON.stringify(v)}`); };
+  const one = (v: unknown, kind: string): [string, PlistValue] => {
+    switch (kind) {
+      case "number": check(typeof v === "number" || isAttachment(v), v, "a number or a reference"); return ["Number", v as PlistValue];
+      case "bool": check(typeof v === "boolean" || isAttachment(v), v, "a boolean or a reference"); return ["Bool", v as PlistValue];
+      case "date": check(v instanceof Date || isAttachment(v), v, "a Date or a reference"); return ["Date", v as PlistValue];
+      case "text": case "contactHandle": {
+        const isToken = typeof v === "object" && v !== null && (v as TokenString).WFSerializationType === "WFTextTokenString";
+        check(typeof v === "string" || isToken || isAttachment(v), v, "a string, text() or a reference");
+        // The engine drops a bare reference in a text row; it reads the token string the editor writes.
+        const t = isAttachment(v) ? text(v) : (v as string | TokenString);
+        if (kind === "text") return ["String", t as PlistValue];
+        // A handle is wrapped in its state class, holding the plain string when there is no reference in it (as the engine writes it).
+        const plainHandle = typeof t === "string" ? t : Object.keys(t.Value.attachmentsByRange).length ? null : t.Value.string;
+        return ["ContactHandle", { WFSerializationType: "WFTokenStringParameterState", Value: (plainHandle ?? t) as PlistValue }];
+      }
+    }
+    throw new Error(`${at}: no row key for values of kind ${kind}`);
+  };
+  if (op === "is_today") return {};
+  if (op === "is_in_the_last" || op === "is_in_the_next") {
+    const [n, unit] = args;
+    check(typeof n === "number" || isAttachment(n), n, "a number or a reference");
+    const units = Object.keys(CALENDAR_UNITS).filter((u) => (p.units ?? []).includes(CALENDAR_UNITS[u as keyof typeof CALENDAR_UNITS]));
+    check(isAttachment(unit) || units.includes(unit as string), unit, `a reference or one of ${units.join(", ")}`);
+    return { Number: n as PlistValue, Unit: isAttachment(unit) ? unit : CALENDAR_UNITS[unit as keyof typeof CALENDAR_UNITS] };
+  }
+  if (op === "is_between") return { Date: one(args[0], p.values)[1], AnotherDate: one(args[1], p.values)[1] };
+  const [k, v] = one(args[0], p.values);
+  return { [k]: v };
+}
+
 /** The variable types (Ask, ActionOutput, Variable, …) referenced anywhere in a value: a bare attachment, a token string's attachments, or a wrapped If subject. */
 function referenceTypes(v: unknown): string[] {
   if (isAttachment(v)) return [String(v.Value.Type)];
@@ -171,7 +255,7 @@ export class Shortcut {
    * wrong keys and values don't compile, and unknown keys or unreadable references throw. Other
    * identifiers pass through unchecked.
    */
-  action<I extends string>(identifier: I, params: ParamsFor<I> = {} as ParamsFor<I>): Action {
+  action<I extends string>(identifier: I, params: ParamsFor<I> = {} as ParamsFor<I>): Action<I> {
     const definition = getDefinition(identifier);
     const catalog = (ACTIONS as Record<string, { params: readonly string[]; output: string | null; outputTypes?: readonly string[]; descriptor?: AppIntentDescriptor }>)[identifier];
     if (!definition && !catalog && identifier.startsWith("is.workflow.")) throw new Error(`unknown built-in action ${identifier}`);
@@ -200,11 +284,12 @@ export class Shortcut {
         const bad = referenceTypes(v).filter((t) => !allowed.includes(t));
         if (bad.length > 0) throw new Error(`${identifier}.${k}: the engine does not read a ${bad.join("/")} reference here (it reads ${allowed.length ? allowed.join(", ") : "only a plain value"})`);
       }
-      normalized[k] = kinds[k] === "text" && isAttachment(v) ? text(v) : kinds[k] === "subject" && isAttachment(v) ? subject(v) : v;
+      if (isWhere(v) && kinds[k] !== "filter") throw new Error(`${identifier}.${k}: where() rows go only in a Find action's WFContentItemFilter`);
+      normalized[k] = kinds[k] === "text" && isAttachment(v) ? text(v) : kinds[k] === "subject" && isAttachment(v) ? subject(v) : isWhere(v) ? encodeFilter(identifier, v) : v;
     }
     // App Intents actions carry a descriptor naming the app that provides them (see docs/shortcut-file-format.md §2).
     const descriptor: Record<string, Value> = catalog?.descriptor ? { AppIntentDescriptor: { ...catalog.descriptor, ActionRequiresAppInstallation: true } } : {};
-    const entry: Action = {
+    const entry: Action<I> = {
       WFWorkflowActionIdentifier: identifier,
       WFWorkflowActionParameters: { UUID: uuid(), ...descriptor, ...normalized },
       outputName: definition?.Output?.OutputName ?? catalog?.output ?? undefined,

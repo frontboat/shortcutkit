@@ -1,7 +1,7 @@
 // README.md's TypeScript examples, verbatim apart from imports. tsc checks that they compile;
 // test/shortcut.test.ts checks that they match the README and runs them. Later examples continue
 // the first one, so they take its `s` and `name`.
-import { Shortcut, actions, ref, text, shortcutInput, type Action } from "../src/index";
+import { Shortcut, actions, ref, text, shortcutInput, where, property, type Action } from "../src/index";
 
 export async function greeting() {
 const s = new Shortcut("Greeting");
@@ -29,6 +29,13 @@ s.endIf(gid);
 export function applesApps(s: Shortcut) {
 const r = s.action(actions.reminders_create_reminder, { title: text("Buy milk"), priorityLevel: "high" });
 s.action(actions.notes_create_note, { name: "Shopping", content: text("Added ", ref(r)) });
+}
+
+export function findingThings(s: Shortcut) {
+const found = s.action(actions.messages_find_message, {
+  WFContentItemFilter: where(["author", "is", "+15055550100"], ["date", "is_in_the_last", 7, "days"]),
+});
+s.action(actions.showresult, { Text: text(property(found, "body")) });
 }
 
 export function otherApps(s: Shortcut, name: Action) {

@@ -26,9 +26,12 @@ Value helpers return the exact structures WorkflowKit's state classes serialize:
   ask("Prompt")      WFTextTokenAttachment  -> ask each time
   text("a ", ref(x)) WFTextTokenString      -> text with embedded references
   subject(att)       {"Type": "Variable", "Variable": att}  (the If condition's subject; pickers take the bare attachment)
-Plain str / int / float / bool / list are written as-is.
+  property_(x, "body")  a reference to one property of x (a WFPropertyVariableAggrandizement)
+  where(row, ...)    Find conditions, encoded by action() for the Find action's entity
+Plain str / int / float / bool / list / datetime are written as-is.
 """
 import copy
+import datetime
 import functools
 import json
 import pathlib
@@ -182,6 +185,111 @@ def subject(attachment):
     return {"Type": "Variable", "Variable": attachment}
 
 
+def property_(source, name):
+    """One property of an action's output or of any reference, as the editor's property picker writes
+    it (a WFPropertyVariableAggrandizement): property_(found, "body"), property_(repeat_item(), "date").
+    Given an action whose output is one of Apple's entity types, the name must be one of its
+    properties (ENTITY_PROPERTIES)."""
+    if not _is_reference(source):
+        entities = [t for t in source.get("_outputTypes", []) if t in ENTITY_PROPERTIES]
+        known = {p for e in entities for p in ENTITY_PROPERTIES[e]}
+        if entities and name not in known:
+            raise ValueError(f"{' / '.join(entities)} has no property {name}; it has {', '.join(sorted(known))}")
+        source = ref(source)
+    prior = source["Value"].get("Aggrandizements")
+    return _attachment({**source["Value"], "Aggrandizements": [*(prior if isinstance(prior, list) else []), {"Type": "WFPropertyVariableAggrandizement", "PropertyName": name}]})
+
+
+def where(*rows):
+    """Find conditions that must all hold. Each row is (property, operator, *values), checked against
+    the Find action's FILTERS entry by action(): where(("date", "is_in_the_last", 7, "days"), ("author", "is", ref(contact)))."""
+    return {"match": "all", "rows": [tuple(r) for r in rows]}
+
+
+def where_any(*rows):
+    """Find conditions of which any one must hold; rows as for where()."""
+    return {"match": "any", "rows": [tuple(r) for r in rows]}
+
+
+def _is_where(value):
+    return isinstance(value, dict) and set(value) == {"match", "rows"} and value["match"] in ("all", "any")
+
+
+def _encode_filter(identifier, w):
+    """Encode where() rows for a Find action: each value goes under the row key its kind uses (see docs/shortcut-file-format.md)."""
+    table = FILTERS.get(identifier)
+    if table is None:
+        raise ValueError(f"{identifier}: where() rows need a Find action of Apple's App Intents (FILTERS); pass a WFContentPredicateTableTemplate here")
+    rows = []
+    for row in w["rows"]:
+        prop, op, *args = row
+        p = table.get(prop)
+        if p is None:
+            raise ValueError(f"{identifier}: no filterable property {prop}; filterable: {', '.join(table)}")
+        at = f"{identifier} {prop} {op}"
+        offered = [n for n, c in FILTER_OPERATORS.items() if c in p["operators"]]
+        if op not in offered:
+            raise ValueError(f"{identifier} {prop}: no operator {op}; offered: {', '.join(offered)}")
+        arity = 0 if op == "is_today" else 2 if op in ("is_between", "is_in_the_last", "is_in_the_next") else 1
+        if len(args) != arity:
+            raise ValueError(f"{at}: takes {arity} value(s), got {len(args)}")
+        rows.append({"Property": prop, "Operator": FILTER_OPERATORS[op], "Removable": True, "Values": _row_values(at, p, op, args)})
+    return {"WFSerializationType": "WFContentPredicateTableTemplate",
+            "Value": {"WFActionParameterFilterPrefix": 1 if w["match"] == "all" else 0, "WFContentPredicateBoundedDate": False, "WFActionParameterFilterTemplates": rows}}
+
+
+def _is_attachment(v):
+    return isinstance(v, dict) and v.get("WFSerializationType") == "WFTextTokenAttachment"
+
+
+def _row_values(at, p, op, args):
+    def check(ok, v, what):
+        if not ok:
+            raise ValueError(f"{at}: expected {what}, got {v!r}")
+
+    def one(v, kind):
+        if kind == "number":
+            check(_is_attachment(v) or (isinstance(v, (int, float)) and not isinstance(v, bool)), v, "a number or a reference")
+            return "Number", v
+        if kind == "bool":
+            check(_is_attachment(v) or isinstance(v, bool), v, "a boolean or a reference")
+            return "Bool", v
+        if kind == "date":
+            check(_is_attachment(v) or isinstance(v, datetime.datetime), v, "a datetime or a reference")
+            return "Date", v if _is_attachment(v) else _utc(v)
+        if kind in ("text", "contactHandle"):
+            is_token = isinstance(v, dict) and v.get("WFSerializationType") == "WFTextTokenString"
+            check(isinstance(v, str) or is_token or _is_attachment(v), v, "a string, text() or a reference")
+            # The engine drops a bare reference in a text row; it reads the token string the editor writes.
+            t = text(v) if _is_attachment(v) else v
+            if kind == "text":
+                return "String", t
+            # A handle is wrapped in its state class, holding the plain string when there is no reference in it (as the engine writes it).
+            plain = t if isinstance(t, str) else None if t["Value"]["attachmentsByRange"] else t["Value"]["string"]
+            return "ContactHandle", {"WFSerializationType": "WFTokenStringParameterState", "Value": t if plain is None else plain}
+        raise ValueError(f"{at}: no row key for values of kind {kind}")
+
+    if op == "is_today":
+        return {}
+    if op in ("is_in_the_last", "is_in_the_next"):
+        n, unit = args
+        check(_is_attachment(n) or (isinstance(n, (int, float)) and not isinstance(n, bool)), n, "a number or a reference")
+        units = [u for u, c in CALENDAR_UNITS.items() if c in p.get("units", [])]
+        check(_is_attachment(unit) or unit in units, unit, f"a reference or one of {', '.join(units)}")
+        return {"Number": n, "Unit": unit if _is_attachment(unit) else CALENDAR_UNITS[unit]}
+    if op == "is_between":
+        return {"Date": one(args[0], p["values"])[1], "AnotherDate": one(args[1], p["values"])[1]}
+    k, v = one(args[0], p["values"])
+    return {k: v}
+
+
+def _utc(d):
+    """A datetime as plistlib writes it: naive, in UTC, whole seconds. Naive input is taken to be UTC already."""
+    if d.tzinfo is not None:
+        d = d.astimezone(datetime.timezone.utc).replace(tzinfo=None)
+    return d.replace(microsecond=0)
+
+
 def picker(attachment):
     """Deprecated, misnamed: this is the If-subject form. Pass a bare reference to picker parameters."""
     """Wrap an attachment for WFVariablePickerParameter keys (e.g. WFInput on Repeat with Each)."""
@@ -245,6 +353,8 @@ class Shortcut:
         kinds = PARAM_KINDS.get(identifier, {})
         restricted = PARAM_VARIABLE_TYPES.get(identifier, {})
         for key, value in params.items():
+            if _is_where(value) and kinds.get(key) != "filter":
+                raise ValueError(f"{identifier}.{key}: where() rows go only in a Find action's WFContentItemFilter")
             problem = _check_kind(kinds.get(key, "any"), value)
             if problem:
                 raise ValueError(f"{identifier}.{key}: {problem}")
@@ -256,7 +366,8 @@ class Shortcut:
         # Text parameters never hold a bare attachment: the engine writes a lone variable as a
         # token string with one placeholder. Wrap it so ref() works for text keys too.
         params = {k: (text(v) if kinds.get(k) == "text" and _is_reference(v) and v.get("WFSerializationType") == "WFTextTokenAttachment"
-                      else subject(v) if kinds.get(k) == "subject" and _is_reference(v) and v.get("WFSerializationType") == "WFTextTokenAttachment" else v)
+                      else subject(v) if kinds.get(k) == "subject" and _is_reference(v) and v.get("WFSerializationType") == "WFTextTokenAttachment"
+                      else _encode_filter(identifier, v) if _is_where(v) else v)
                   for k, v in params.items()}
         # App Intents actions carry a descriptor naming the app that provides them.
         head = {"UUID": str(uuid.uuid4()).upper()}
@@ -355,7 +466,7 @@ class Shortcut:
             "WFWorkflowOutputContentItemClasses": [],
             "WFWorkflowImportQuestions": [],
             "WFWorkflowHasShortcutInputVariables": any(
-                json.dumps(a).find('"ExtensionInput"') >= 0 for a in actions),
+                json.dumps(a, default=str).find('"ExtensionInput"') >= 0 for a in actions),
             "WFWorkflowHasOutputFallback": False,
             "WFWorkflowActions": actions,
         }
@@ -410,10 +521,12 @@ def demo(out):
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
 from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES  # noqa: E402
+from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, ENTITY_PROPERTIES  # noqa: E402  (generated Find filters and entity properties)
 
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
+           "property_", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "ENTITY_PROPERTIES",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "1.0.0"
+__version__ = "1.1.0"

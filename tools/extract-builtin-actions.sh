@@ -1,7 +1,7 @@
 #!/bin/bash
 # Regenerate data/builtin-actions.json, docs/builtin-actions-reference.md,
 # data/parameter-encodings.json, docs/parameter-encodings.md, data/encoding-table.json,
-# data/apple-app-intents.json, docs/apple-app-intents-reference.md and
+# data/apple-app-intents.json, docs/apple-app-intents-reference.md, data/apple-entities.json and
 # data/builtin-action-identifiers.txt from the Shortcuts engine on this Mac.
 #
 #   bun run extract          # or ./tools/extract-builtin-actions.sh from the repo root
@@ -40,8 +40,11 @@ echo "round-tripping every value form through the engine's parsers"
 jxa verify-encodings "$data/parameter-encodings.json" "$data/encoding-table.json" "$data/encoding-roundtrips.json"
 
 echo "reading the Shortcuts app's action registry"
-python3 "$here/dump-toolkit-registry.py" "$data"
+python3 "$here/dump-toolkit-registry.py" --entities "$work/entities.json" "$data"
 python3 "$here/render-apple-app-intents.py" "$data/apple-app-intents.json" "$docs/apple-app-intents-reference.md"
+
+echo "building Apple's entity types in WorkflowKit: properties and Find filters"
+jxa extract-entities "$work/entities.json" "$data/encoding-table.json" "$data/apple-entities.json"
 
 echo "filling names, output names and enumeration cases the definitions leave out"
 python3 "$here/annotate-builtin-actions.py" "$data/builtin-actions.json" "$data/toolkit-names.json" "$data/parameter-encodings.json"
@@ -54,7 +57,7 @@ mkdir -p "$out/python/src/shortcutkit/data" && cp "$data/builtin-actions.json" "
 [ -f "$data/provenance.json" ] && cp "$data/provenance.json" "$out/python/src/shortcutkit/data/provenance.json"
 
 echo "generating typed action catalogues"
-python3 "$here/generate-action-catalog.py" "$data/builtin-actions.json" "$data/apple-app-intents.json"
+python3 "$here/generate-action-catalog.py" "$data/builtin-actions.json" "$data/apple-app-intents.json" "$data/apple-entities.json"
 if [ -d "$out/node_modules" ]; then (cd "$out" && bunx tsc -p tsconfig.build.json); fi
 
 echo "dumping Apple's gallery workflows and installed apps' App Intents actions"

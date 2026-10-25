@@ -2,11 +2,12 @@
 packages' output can be diffed. Run from the repo root with the python venv:
     python/.venv/bin/python test/verify/fixture.py out.json
 """
+import datetime
 import json
 import sys
 
 sys.path.insert(0, "python/src")
-from shortcutkit import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, Shortcut, actions, ref, text, variable, shortcut_input, clipboard, current_date, ask, device_details, current_app, repeat_item  # noqa: E402
+from shortcutkit import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, ENTITY_PROPERTIES, Shortcut, actions, ref, text, variable, shortcut_input, clipboard, current_date, ask, device_details, current_app, repeat_item, property_, where, where_any  # noqa: E402
 
 encodings = json.load(open("data/parameter-encodings.json"))
 DEFAULTS = encodings["actionDefaults"]
@@ -76,6 +77,46 @@ for identifier in ACTIONS:
             expect = "deviceValidated" if is_plain(value) and rt is not None and rt.get("readsPlain") is False else "read"
             cases.append({"identifier": identifier, "key": key, "kind": kind, "form": form, "params": params, "expect": expect})
 
+filter_cases = []
+DATE = datetime.datetime(2026, 1, 1, tzinfo=datetime.timezone.utc)
+PLAIN = {"text": "hello", "contactHandle": "+15055550100", "number": 5, "bool": True, "date": DATE}
+OPERATOR_NAME = {c: n for n, c in FILTER_OPERATORS.items()}
+
+
+def row_forms(prop, op, kind, units):
+    if op == "is_today":
+        return [("none", (prop, op))]
+    if op in ("is_in_the_last", "is_in_the_next"):
+        unit = next(u for u, c in CALENDAR_UNITS.items() if c in units)
+        return [("number+unit", (prop, op, 5, unit)), ("ref+ref", (prop, op, REF, REF))]
+    if op == "is_between":
+        return [("plain+plain", (prop, op, PLAIN[kind], PLAIN[kind])), ("ref+ref", (prop, op, REF, REF))]
+    return [("plain", (prop, op, PLAIN[kind])), ("ref", (prop, op, REF))] + ([("text+ref", (prop, op, text("Hi ", REF)))] if kind in ("text", "contactHandle") else [])
+
+
+for identifier, props in FILTERS.items():
+    first = []
+    for prop, p in props.items():
+        for code in p["operators"]:
+            forms = row_forms(prop, OPERATOR_NAME[code], p["values"], p.get("units", []))
+            if len(first) < list(props).index(prop) + 1:
+                first.append(forms[0][1])
+            for form, row in forms:
+                a = Shortcut("Case").action(identifier, WFContentItemFilter=where(row))
+                filter_cases.append({"identifier": identifier, "form": f"{prop} {OPERATOR_NAME[code]} {form}", "filter": a["WFWorkflowActionParameters"]["WFContentItemFilter"]})
+    a = Shortcut("Case").action(identifier, WFContentItemFilter=where_any(*first))
+    filter_cases.append({"identifier": identifier, "form": "any of each property", "filter": a["WFWorkflowActionParameters"]["WFContentItemFilter"]})
+
+property_cases = []
+producers = Shortcut("Producers")
+for entity, props in ENTITY_PROPERTIES.items():
+    by = entity if entity in ACTIONS else next((i for i, a in ACTIONS.items() if entity in a["outputTypes"]), None)
+    if by is None:
+        continue
+    a = producers.action(by)
+    for name in props:
+        property_cases.append({"entity": entity, "property": name, "attachment": property_(a, name)})
+
 s = Shortcut("Blocks", color="Teal", types=["ActionExtension"], input_classes=["WFSafariWebPageContentItem", "WFURLContentItem"])
 got = s.action(actions.GETSTOREDCONTENT, WFStoredContentKey="k")
 c = s.if_(ref(got), "has_any_value")
@@ -96,7 +137,19 @@ s.menu_item(m, "A"); s.action(actions.SHOWRESULT, Text=ref(got))
 s.menu_item(m, "B"); s.action(actions.SHOWRESULT, Text=shortcut_input())
 s.end_menu(m)
 s.action(actions.NOTES_CREATE_NOTE, name="n", content=text("c ", ref(got)))
+found = s.action("com.apple.MobileSMS.MessageEntity", WFContentItemFilter=where(("date", "is_in_the_last", 7, "days"), ("author", "is", ref(got))))
+each = s.repeat_each(ref(found))
+s.action(actions.SHOWRESULT, Text=text(property_(repeat_item(), "body"), " ", property_(found, "date")))
+s.end_repeat_each(each)
 shortcuts = [{"name": "Blocks", "plist": s.to_plist(), "actionCount": len(s.actions)}]
 
-json.dump({"cases": cases, "shortcuts": shortcuts}, open(sys.argv[1], "w"), indent=1, ensure_ascii=False)
-print(len(cases), "parameter cases across", len({c["identifier"] for c in cases}), "actions;", len(shortcuts), "whole shortcuts ->", sys.argv[1])
+def dates(o):
+    """Dates cross JSON as {"$date": ...} (whole seconds, UTC), as fixture.ts writes them; the library already made them naive UTC."""
+    if isinstance(o, datetime.datetime):
+        return {"$date": o.strftime("%Y-%m-%dT%H:%M:%SZ")}
+    raise TypeError(type(o).__name__)
+
+
+json.dump({"cases": cases, "filterCases": filter_cases, "propertyCases": property_cases, "shortcuts": shortcuts}, open(sys.argv[1], "w"), indent=1, ensure_ascii=False, default=dates)
+print(len(cases), "parameter cases across", len({c["identifier"] for c in cases}), "actions;", len(filter_cases), "filters across", len(FILTERS), "Find actions;",
+      len(property_cases), "properties;", len(shortcuts), "whole shortcuts ->", sys.argv[1])

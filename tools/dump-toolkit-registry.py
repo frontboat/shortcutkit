@@ -18,8 +18,9 @@ Writes:
                                 cases for every identifier (local; used to fill what the
                                 engine's definitions leave out)
 
-usage: dump-toolkit-registry.py [--db PATH] [DATA_DIR]
+usage: dump-toolkit-registry.py [--db PATH] [--entities PATH] [DATA_DIR]
 """
+import base64
 import glob
 import json
 import os
@@ -110,10 +111,49 @@ def value_kind(info):
     return "any"
 
 
+def export_entities(con, apple, path):
+    """The entity types Apple's actions output or find, with their properties and filter templates
+    as the index stores them (protobuf blobs, base64). extract-entities.js decodes them with
+    ToolKit's own classes and has WorkflowKit build the filters from them."""
+    wanted = {t for a in apple for t in a["outputTypes"]} | {a["identifier"] for a in apple if any(p["key"] == "WFContentItemFilter" for p in a["parameters"])}
+    kinds = dict(con.execute("select rowId, kind from Types"))
+    display = {}
+    for type_id, name in con.execute("select typeId, name from TypeDisplayRepresentations where locale='en' and name is not null and name != ''"):
+        display.setdefault(type_id, name)
+    entities, referenced = {}, set()
+    for type_id in sorted(wanted):
+        if kinds.get(type_id) != 2:
+            continue
+        props = []
+        for pid, ti in con.execute("select id, typeInstance from EntityProperties where typeId=? order by rowid", (type_id,)):
+            loc = con.execute("select displayName from EntityPropertyLocalizations where typeId=? and propertyId=? and locale='en'", (type_id, pid)).fetchone()
+            props.append({"id": pid, "name": loc[0] if loc else None, "typeInstance": base64.b64encode(ti).decode()})
+        template = con.execute("select comparison from PredicateTemplates where typeId=?", (f"builtin.query.{type_id}",)).fetchone()
+        tool = next((a for a in apple if a["identifier"] == type_id), None)
+        bundle, type_name = read_bundle_and_name(con.execute("select id from Types where rowId=?", (type_id,)).fetchone()[0])
+        app = con.execute("select l.name from Types t join ContainerMetadataLocalizations l on l.containerId = t.sourceContainerId and l.locale='en' where t.rowId=?", (type_id,)).fetchone()
+        entities[type_id] = {"name": display.get(type_id), "bundleIdentifier": bundle, "typeName": type_name, "app": app[0] if app else None,
+                             "find": type_id if tool else None,
+                             "properties": props, "comparison": base64.b64encode(template[0]).decode() if template else None}
+    # Kind and cases of every custom type a property may name (entity, or enum with its cases).
+    custom = {}
+    for type_id, kind in kinds.items():
+        if kind in (2, 3, 4) and type_id.startswith("com.apple."):
+            entry = {"kind": TYPE_KIND[kind]}
+            if TYPE_KIND[kind] == "enum":
+                entry["cases"] = [{"id": i, "title": t} for i, t in con.execute("select id, title from EnumerationCases where typeId=? and locale='en' order by id", (type_id,))]
+            custom[type_id] = entry
+    json.dump({"entities": entities, "types": custom}, open(path, "w"), ensure_ascii=False)
+    return len(entities)
+
+
 def main(argv):
     db = None
     if "--db" in argv:
         db = argv[argv.index("--db") + 1]; argv = [a for i, a in enumerate(argv) if a != "--db" and argv[i - 1] != "--db"]
+    entities_path = None
+    if "--entities" in argv:
+        entities_path = argv[argv.index("--entities") + 1]; argv = [a for i, a in enumerate(argv) if a != "--entities" and argv[i - 1] != "--entities"]
     data = pathlib.Path(argv[1]) if len(argv) > 1 else pathlib.Path(__file__).resolve().parent.parent / "data"
     if not db:
         found = sorted(glob.glob(DEFAULT_DB))
@@ -191,6 +231,9 @@ def main(argv):
     for suffix in [""] + ([f".{prov['osVersion']}"] if prov.get("osVersion") else []):
         json.dump({"provenance": prov, "tools": tools}, open(data / f"toolkit-registry{suffix}.json", "w"), indent=1, ensure_ascii=False)
         json.dump(names, open(data / f"toolkit-names{suffix}.json", "w"), indent=1, ensure_ascii=False, sort_keys=True)
+    if entities_path:
+        n = export_entities(con, apple, entities_path)
+        print(f"{n} Apple entity types -> {entities_path}")
     by_provider = {}
     for t in tools:
         by_provider[t["provider"]] = by_provider.get(t["provider"], 0) + 1

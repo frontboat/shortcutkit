@@ -2,7 +2,7 @@
 // the types allow, plus whole shortcuts built through the block helpers, and writes what the
 // library produced. tools/verify-library-output.js then loads all of it through the engine.
 //   bun test/verify/fixture.ts out.json
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, ref, text, variable, shortcutInput, clipboard, currentDate, ask, deviceDetails, currentApp, repeatItem } from "../../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, ENTITY_PROPERTIES, ref, text, variable, shortcutInput, clipboard, currentDate, ask, deviceDetails, currentApp, repeatItem, property, where, whereAny } from "../../src/index";
 import encodings from "../../data/parameter-encodings.json";
 
 // expect: "read" (the library wrote it, the engine must read it) or "rejected" (the library refuses
@@ -68,6 +68,48 @@ for (const identifier of Object.keys(ACTIONS)) {
   }
 }
 
+// Find filters: every property of every Find action with FILTERS, every operator it offers, and each value form
+// (plain, and a reference where the row takes one), through where(); then one whereAny() row set per action.
+type FilterCase = { identifier: string; form: string; filter: unknown };
+const filterCases: FilterCase[] = [];
+const DATE = new Date("2026-01-01T00:00:00Z");
+const PLAIN: Record<string, unknown> = { text: "hello", contactHandle: "+15055550100", number: 5, bool: true, date: DATE };
+const operatorName = (code: number) => Object.keys(FILTER_OPERATORS).find((n) => FILTER_OPERATORS[n as keyof typeof FILTER_OPERATORS] === code)!;
+function rowForms(prop: string, op: string, kind: string, units: readonly number[]): Array<[string, unknown[]]> {
+  if (op === "is_today") return [["none", [prop, op]]];
+  if (op === "is_in_the_last" || op === "is_in_the_next") {
+    const unit = Object.keys(CALENDAR_UNITS).find((u) => units.includes(CALENDAR_UNITS[u as keyof typeof CALENDAR_UNITS]))!;
+    return [["number+unit", [prop, op, 5, unit]], ["ref+ref", [prop, op, REF, REF]]];
+  }
+  if (op === "is_between") return [["plain+plain", [prop, op, PLAIN[kind], PLAIN[kind]]], ["ref+ref", [prop, op, REF, REF]]];
+  return [["plain", [prop, op, PLAIN[kind]]], ["ref", [prop, op, REF]], ...(kind === "text" || kind === "contactHandle" ? [["text+ref", [prop, op, text("Hi ", REF)]] as [string, unknown[]]] : [])];
+}
+for (const [identifier, props] of Object.entries(FILTERS as Record<string, Record<string, { operators: readonly number[]; values: string; units?: readonly number[] }>>)) {
+  const first: unknown[][] = [];
+  for (const [prop, p] of Object.entries(props)) {
+    for (const code of p.operators) {
+      const forms = rowForms(prop, operatorName(code), p.values, p.units ?? []);
+      if (first.length < Object.keys(props).indexOf(prop) + 1) first.push(forms[0]![1]);
+      for (const [form, row] of forms) {
+        const a = new Shortcut("Case").action(identifier, { WFContentItemFilter: where(row as never) } as never);
+        filterCases.push({ identifier, form: `${prop} ${operatorName(code)} ${form}`, filter: a.WFWorkflowActionParameters.WFContentItemFilter });
+      }
+    }
+  }
+  const a = new Shortcut("Case").action(identifier, { WFContentItemFilter: whereAny(...(first as never[])) } as never);
+  filterCases.push({ identifier, form: "any of each property", filter: a.WFWorkflowActionParameters.WFContentItemFilter });
+}
+// Properties: every property of every entity type, through property() on an action that outputs it.
+type PropertyCase = { entity: string; property: string; attachment: unknown };
+const propertyCases: PropertyCase[] = [];
+const producers = new Shortcut("Producers");
+for (const [entity, props] of Object.entries(ENTITY_PROPERTIES as Record<string, readonly string[]>)) {
+  const by = entity in ACTIONS ? entity : Object.keys(ACTIONS).find((id) => (ACTIONS as Record<string, { outputTypes: readonly string[] }>)[id]!.outputTypes.includes(entity));
+  if (!by) continue;
+  const a = producers.action(by, {} as never);
+  for (const name of props) propertyCases.push({ entity, property: name, attachment: property(a as never, name) });
+}
+
 // Whole shortcuts through the helpers: control flow, loop variables, share sheet, text wrapping.
 const s = new Shortcut("Blocks", { color: "Teal", types: ["ActionExtension"], inputClasses: ["WFSafariWebPageContentItem", "WFURLContentItem"] });
 const got = s.action(actions.getstoredcontent, { WFStoredContentKey: "k" });
@@ -90,9 +132,18 @@ s.menuItem(m, "A"); s.action(actions.showresult, { Text: ref(got) });
 s.menuItem(m, "B"); s.action(actions.showresult, { Text: shortcutInput() });
 s.endMenu(m);
 s.action(actions.notes_create_note, { name: "n", content: text("c ", ref(got)) });
+const found = s.action("com.apple.MobileSMS.MessageEntity", { WFContentItemFilter: where(["date", "is_in_the_last", 7, "days"], ["author", "is", ref(got)]) });
+const each = s.repeatEach(ref(found));
+s.action(actions.showresult, { Text: text(property(repeatItem(), "body"), " ", property(found, "date")) });
+s.endRepeatEach(each);
 const shortcuts = [{ name: "Blocks", plist: s.toPlist(), actionCount: s.actions.length }];
 
 const out = process.argv[2];
 if (!out) throw new Error("usage: bun test/verify/fixture.ts out.json");
-await Bun.write(out, JSON.stringify({ cases, shortcuts }, null, 1));
-console.log(cases.length, "parameter cases across", new Set(cases.map((x) => x.identifier)).size, "actions;", shortcuts.length, "whole shortcuts ->", out);
+// Dates cross JSON as { $date } (whole seconds, UTC), which fixture.py writes too and the verifier revives.
+function dates(this: unknown, key: string, value: unknown) {
+  const raw = (this as Record<string, unknown>)[key];
+  return raw instanceof Date ? { $date: raw.toISOString().replace(/\.\d{3}Z$/, "Z") } : value;
+}
+await Bun.write(out, JSON.stringify({ cases, filterCases, propertyCases, shortcuts }, dates, 1));
+console.log(cases.length, "parameter cases across", new Set(cases.map((x) => x.identifier)).size, "actions;", filterCases.length, "filters across", Object.keys(FILTERS).length, "Find actions;", propertyCases.length, "properties;", shortcuts.length, "whole shortcuts ->", out);

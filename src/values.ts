@@ -18,7 +18,11 @@ export type Picker = ConditionSubject;
 export type DictionaryValue = { WFSerializationType: "WFDictionaryFieldValue"; Value: { WFDictionaryFieldValueItems: Array<{ WFItemType: number; WFKey: TokenString; WFValue: TokenString | DictionaryValue }> } };
 export type QuantityValue = { WFSerializationType: "WFQuantityFieldValue"; Value: { Unit: string; Magnitude?: number | TokenString } };
 export type FilterTemplateValue = { WFSerializationType: "WFContentPredicateTableTemplate"; Value: { WFActionParameterFilterPrefix: 0 | 1; WFContentPredicateBoundedDate?: boolean; WFActionParameterFilterTemplates: Array<{ Property: string; Operator: number; Removable?: boolean; Bounded?: boolean; Values: Record<string, PlistValue | TokenString> }> } };
-export type Value = PlistValue | Attachment | TokenString | ConditionSubject | DictionaryValue | QuantityValue | FilterTemplateValue;
+/** One condition of a Find filter: `[property, operator, ...values]`. FilterRows (generated) lists the rows each Find action takes. */
+export type FilterRow = readonly [string, string, ...unknown[]];
+/** Find conditions from `where()` or `whereAny()`; `action()` encodes them for the Find action's entity. */
+export type Where<R extends FilterRow = FilterRow> = { readonly match: "all" | "any"; readonly rows: readonly R[] };
+export type Value = PlistValue | Attachment | TokenString | ConditionSubject | DictionaryValue | QuantityValue | FilterTemplateValue | Where;
 
 /** Keeps literal suggestions in editors while still accepting any string. */
 export type Loose<T extends string> = T | (string & {});
@@ -27,6 +31,7 @@ export type BoolValue = boolean | Attachment;                       // WFBoolean
 export type NumberValue = number | Attachment;                      // WFNumberSubstitutableState, WFNumberStringSubstitutableState
 export type StringValue = string | Attachment;                      // WFStringSubstitutableState (enumerations, pickers)
 export type EnumValue<T extends string> = Loose<T> | Attachment;    // WFStringSubstitutableState with a choice list
+export type DateValue = Date | Attachment;                          // WFDateSubstitutableState (filter rows): a plist date
 export type TextValue = string | TokenString | Attachment;          // WFVariableStringParameterState, WFURLStringParameterState, WFDateFieldParameterState
 export type PickerValue = Attachment;                               // WFVariableParameterState: a bare reference (engine, gallery and library agree)
 export type SubjectValue = ConditionSubject | Attachment;           // If's WFInput; action() wraps a bare attachment

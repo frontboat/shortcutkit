@@ -104,7 +104,10 @@ V = { "Type": "ActionOutput", "OutputUUID": "<UUID of the action>", "OutputName"
   | { "Type": "Clipboard" } | { "Type": "CurrentDate" } | { "Type": "DeviceDetails" } | { "Type": "CurrentApp" }
 ```
 `V` may also carry `"Aggrandizements": [{"Type": "WFCoercionVariableAggrandizement", "CoercionItemClass": "WFStringContentItem"}]`
-to coerce the value, or a property aggrandizement to read a field of it.
+to coerce the value, or a property aggrandizement to read a field of it:
+`{"Type": "WFPropertyVariableAggrandizement", "PropertyName": "body"}`. For an App Intents
+entity, `PropertyName` is the property's identifier (`ENTITY_PROPERTIES` in the packages lists
+them, from `data/apple-entities.json`).
 
 **Text with references** (`WFTextTokenString`), used by text, URL, and date inputs:
 
@@ -187,6 +190,30 @@ App Intents properties offer only what their query declares.
                { "Property": "Start Date", "Operator": 1000, "Removable": false, "Bounded": true,
                  "Values": { "Unit": 16, "Number": "7" } } ] } }    Start Date is in the next 7 days
 ```
+
+**Row values.** The editing parameter of a row's property decides which `Values` key holds
+its value. The engine keeps every key it knows and drops the rest; Apple's files also carry
+leftovers from earlier edits (`"Unit": 4` above).
+
+| property edited by | key | value |
+|---|---|---|
+| text field | `String` | string or token string (a bare attachment is dropped) |
+| number field | `Number` | number, numeric string, or attachment |
+| switch | `Bool` | bool or attachment |
+| date field | `Date`, and `AnotherDate` for 1003 | plist `<date>` or attachment (a date string is dropped) |
+| contact handle (Messages' sender) | `ContactHandle` | `{"WFSerializationType": "WFTokenStringParameterState", "Value": <string, or token string when it holds a reference>}` |
+| enumeration (built-in) | `Enumeration` | `{"WFSerializationType": "WFStringSubstitutableState", "Value": "Video"}` |
+
+1000 and 1001 take `Number`, the count, and `Unit`, an NSCalendarUnit (4 years, 8 months,
+8192 weeks, 16 days, 32 hours, 64 minutes, 128 seconds) or an attachment. Each date property
+lists the units it offers (`timeUnits` in `data/apple-entities.json`). 1002 takes no value.
+Some built-in Find actions require a bounded date row: Find Calendar Events replaces a filter
+without a bounded Start Date row with its default, "Start Date is in the next 7 days".
+
+`data/apple-entities.json` holds, for each of Apple's App Intents Find actions, the
+filterable properties with their operators and value kind, as WorkflowKit builds them from
+Apple's index. `where()` writes rows from that data; the built-in Find actions' operator lists
+live in Swift with no Objective-C entry point, so the packages leave their filters raw.
 
 ## 5. Naming, signing and import
 

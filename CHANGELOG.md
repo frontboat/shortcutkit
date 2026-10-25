@@ -6,8 +6,24 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
-## Unreleased
+## 1.1.0 (2026-10-23)
 
+- Find conditions for 75 Find actions in Apple's apps: `where(...rows)` and `whereAny(...rows)`
+  (Python `where`, `where_any`) take rows like `["date", "is_in_the_last", 7, "days"]`, typed
+  per action in TypeScript (`FilterRows`) and checked by `action()` in both packages against
+  the properties, operators, value kinds and calendar units the engine builds for each entity.
+  `WFContentItemFilter` on those actions is now typed as `where()` rows or a raw
+  `WFContentPredicateTableTemplate` instead of any value.
+- `property(source, name)` (Python `property_`) references one property of an action's
+  output or of any variable, as the editor's property picker writes it. Given an action that
+  outputs one of Apple's entity types, the name is checked against its properties.
+- New data: `data/apple-entities.json`, Apple's 434 entity types with 889 properties, from the
+  Shortcuts app's index and built by WorkflowKit (`tools/extract-entities.js`). New exports:
+  `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`.
+- Plist dates: `Date` values (Python `datetime`) are written as `<date>`.
+- `Action` is generic over its identifier; `action()` returns `Action<I>`.
+- `bun run verify` loads every library-written filter and property reference through the
+  entity's content item class.
 - The format reference had two date operators swapped: 1000 is "is in the next" and 1002 is
   "is today". Every operator code's meaning now comes from the engine, which names the
   operator when it loads a filter row (`filterOperators` in `data/encoding-table.json`);

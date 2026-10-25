@@ -17,7 +17,7 @@ python3 "$root/test/verify/parity.py" "$work/fixture-ts.json" "$work/fixture-py.
 echo "round-tripping value forms through the engine's state classes"
 jxa verify-encodings "$root/data/parameter-encodings.json" "$root/data/encoding-table.json" "$work/roundtrips.json"
 echo "loading every case and whole shortcut through the engine"
-if ! jxa verify-library-output "$work/fixture-ts.json" "$root/data/apple-app-intents.json" "$root/data/parameter-encodings.json" "$root/data/encoding-table.json" "$work/roundtrips.json" "$work/report.json" "$root/data/provenance.json"; then
+if ! jxa verify-library-output "$work/fixture-ts.json" "$root/data/apple-app-intents.json" "$root/data/parameter-encodings.json" "$root/data/encoding-table.json" "$work/roundtrips.json" "$work/report.json" "$root/data/provenance.json" "$root/data/apple-entities.json"; then
   # The report lives in $work, which the trap removes; print the failures while it exists.
   [ -f "$work/report.json" ] && python3 - "$work/report.json" <<'PY'
 import collections, json, sys

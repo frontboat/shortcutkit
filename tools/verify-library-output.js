@@ -10,9 +10,15 @@
 // checked against the state-class round-trip table (verify-encodings.js) via the parameter class
 // the engine assigns to their value type. Whole shortcuts are loaded with
 // -[WFWorkflowFile initWithDictionary:name:performMigration:], as the app imports a file.
+// Find filters and property references on Apple's entity types are loaded through the entity's
+// content item class, which WorkflowKit builds from apple-entities.json as it would from linkd's
+// metadata (entityContentClass() in the prelude): each filter must come back with every row's
+// property, operator and value keys, serialized as written; each property aggrandizement must
+// parse and find its property on the class. Properties the class leaves out without linkd (enum
+// and entity-typed ones) are counted as unverifiable.
 //
 //   cat tools/jxa-prelude.js tools/verify-library-output.js > /tmp/x.js
-//   osascript -l JavaScript /tmp/x.js fixture.json data/apple-app-intents.json data/parameter-encodings.json data/encoding-table.json data/encoding-roundtrips.json report.json
+//   osascript -l JavaScript /tmp/x.js fixture.json data/apple-app-intents.json data/parameter-encodings.json data/encoding-table.json data/encoding-roundtrips.json report.json [data/provenance.json] [data/apple-entities.json]
 const LEGACY_KEYS = { "is.workflow.actions.conditional": ["WFInput", "WFCondition", "WFConditionalActionString", "WFNumberValue", "WFConditionalLegacyComparisonBehavior", "WFEnumerationValue", "WFBooleanValue", "WFDate", "WFAnotherDate", "WFDuration"], "is.workflow.actions.choosefrommenu": ["WFMenuPrompt", "WFMenuItems", "WFMenuItemTitle", "WFMenuItemAttributedTitle"] };
 function formOf(v) {
   if (typeof v === "string") return "string"; if (typeof v === "number") return "number"; if (typeof v === "boolean") return "bool";
@@ -37,7 +43,7 @@ function compareBuilds(a, b) {
   return 0;
 }
 function run(argv) {
-  if (argv.length < 6) throw new Error("usage: verify-library-output.js fixture.json apple-app-intents.json parameter-encodings.json encoding-table.json encoding-roundtrips.json report.json [provenance.json]");
+  if (argv.length < 6) throw new Error("usage: verify-library-output.js fixture.json apple-app-intents.json parameter-encodings.json encoding-table.json encoding-roundtrips.json report.json [provenance.json] [apple-entities.json]");
   loadEngine(); console.log("engine loaded");
   // An engine older than the one the data was extracted from (a CI runner a macOS behind) lacks keys
   // added since and hides some it later reads. There, a key this engine does not define or hides is
@@ -104,6 +110,56 @@ function run(argv) {
       else failures.push({ identifier: c.identifier, key: c.key, kind: c.kind, form: c.form, verdict: "state class " + st + " says " + r, via: "state class" });
     }
   }
+  // Find filters and property references on Apple's entity types, through each entity's content item class.
+  const entityChecks = { filters: 0, properties: 0, unverifiableProperties: 0 };
+  if (argv[7] && !only) {
+    console.log("loading Find filters and property references through entity content item classes");
+    loadLinkMetadata();
+    const entities = readJSON(argv[7]).entities, classes = {};
+    const classFor = (id) => {
+      if (!(id in classes)) {
+        const e = entities[id], props = {};
+        for (const [pid, p] of Object.entries(e.properties)) props[pid] = { name: p.name, type: p.type, operators: p.filter && p.filter.operators };
+        const built = entityContentClass(e, props);
+        classes[id] = built && built.name;
+      }
+      return classes[id];
+    };
+    const same = (a, b) => JSON.stringify(sortKeys(a)) === JSON.stringify(sortKeys(b));
+    for (const c of fixture.filterCases || []) {
+      entityChecks.filters++;
+      const cn = classFor(c.identifier);
+      const fail = (verdict) => failures.push({ identifier: c.identifier, key: "WFContentItemFilter", form: c.form, verdict, via: "entity content item class" });
+      if (!cn) { fail("no content item class for the entity"); continue; }
+      const written = c.filter.Value.WFActionParameterFilterTemplates;
+      const got = loadFilter(cn, revive(c.filter));
+      const bad = written.map((w, i) => {
+        const r = got.rows[i];
+        if (!r) return "row " + i + " dropped";
+        if (r.property !== w.Property || r.operator !== table.filterOperators[w.Operator]) return "row " + i + " read as " + r.property + " " + r.operator;
+        const lost = Object.keys(w.Values).filter((k) => !(k in r.values));
+        return lost.length ? "row " + i + " lost " + lost.join(", ") : null;
+      }).filter(Boolean);
+      if (got.rows.length !== written.length) bad.push("read " + got.rows.length + " rows, wrote " + written.length);
+      else if (!bad.length && !same(got.serialized, c.filter)) bad.push("serialized back differently: " + JSON.stringify(got.serialized).slice(0, 300));
+      if (bad.length) fail(bad.join("; ")); else passed++;
+    }
+    for (const c of fixture.propertyCases || []) {
+      const p = entities[c.entity].properties[c.property];
+      if (!p.contentClasses) { entityChecks.unverifiableProperties++; continue; }
+      entityChecks.properties++;
+      const fail = (verdict) => failures.push({ identifier: c.entity, key: c.property, form: "property()", verdict, via: "entity content item class" });
+      const st = make("WFVariableParameterState", "initWithSerializedRepresentation:variableProvider:parameter:", $(c.attachment), null, null);
+      const vars = isNil(st) ? null : st.containedVariables;
+      const ags = vars && count(vars) === 1 ? vars.objectAtIndex(0).aggrandizements : null;
+      const ag = ags && count(ags) ? ags.objectAtIndex(count(ags) - 1) : null;
+      if (!ag || cls(ag) !== "WFPropertyVariableAggrandizement" || str(ag.propertyName) !== c.property) { fail("the engine did not parse the property aggrandizement"); continue; }
+      const cn = classFor(c.entity);
+      const yields = cn ? items(ag.processedContentClasses($.NSOrderedSet.orderedSetWithObject(klass(cn)))) : null;
+      if (!yields || count(yields) === 0) fail("the entity's content item class has no property " + c.property); else passed++;
+    }
+    console.log(`${entityChecks.filters} filters and ${entityChecks.properties} property references loaded (${entityChecks.unverifiableProperties} properties the class leaves out without linkd)`);
+  }
   // Whole shortcuts through the file loader, as the app imports them.
   console.log("cases done; loading whole shortcuts");
   const shortcuts = [];
@@ -132,7 +188,7 @@ function run(argv) {
     } else failures.push({ shortcut: s.name, verdict: "file did not load" });
     shortcuts.push(entry);
   }
-  const summary = { cases: fixture.cases.length, engineChecked, tableChecked, unverifiable, missingTemplates, missingActions: [...missingIds].sort(), rejectedConfirmed, deviceValidated, engineBuild, dataBuild, versionGaps, passed, failures: failures.length, shortcuts };
+  const summary = { cases: fixture.cases.length, entityChecks, engineChecked, tableChecked, unverifiable, missingTemplates, missingActions: [...missingIds].sort(), rejectedConfirmed, deviceValidated, engineBuild, dataBuild, versionGaps, passed, failures: failures.length, shortcuts };
   if (versionGaps.length) {
     const byKey = {}; for (const g of versionGaps) byKey[g] = (byKey[g] || 0) + 1;
     console.log("version gaps (this engine is older than the data's; not failures):"); for (const [g, k] of Object.entries(byKey)) console.log("  " + k + " x " + g);

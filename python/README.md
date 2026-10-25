@@ -32,6 +32,8 @@ are archived ([python-shortcuts](https://github.com/alexander-akhmetov/python-sh
 - All 434 built-in actions as constants, so a typo is an `AttributeError`.
 - 1,449 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 73 more.
 - Third-party app actions, given their descriptor.
+- Checked conditions for 75 Find actions in Apple's apps, such as Find Messages and Find Notes,
+  and the properties of what they find.
 - If, Repeat, Repeat with Each, and Choose from Menu blocks.
 - A wrong key or value raises `ValueError` before anything is written.
 - Pure Python, no dependencies.
@@ -76,6 +78,19 @@ r = s.action(actions.REMINDERS_CREATE_REMINDER, title=text("Buy milk"), priority
 s.action(actions.NOTES_CREATE_NOTE, name="Shopping", content=text("Added ", ref(r)))
 ```
 
+### Finding things
+
+A Find action for Apple's apps takes conditions checked against what it finds: its properties,
+their operators, and the units of a date range. `property_()` reads one property of the results.
+
+```python
+from shortcutkit import where, property_
+
+found = s.action(actions.MESSAGES_FIND_MESSAGE,
+                 WFContentItemFilter=where(("author", "is", "+15055550100"), ("date", "is_in_the_last", 7, "days")))
+s.action(actions.SHOWRESULT, Text=text(property_(found, "body")))
+```
+
 ### Other apps
 
 Pass the identifier and descriptor yourself; the parameters are not checked.
@@ -109,6 +124,9 @@ s.action(
 | `text(*parts)` | A string with references in it. |
 | `variable(name)`, `repeat_item()`, `repeat_index()` | Named and repeat variables. |
 | `shortcut_input()`, `clipboard()`, `current_date()`, `ask()`, `device_details()`, `current_app()` | Special variables. |
+| `where(*rows)`, `where_any(*rows)` | Conditions for a Find action's `WFContentItemFilter`. |
+| `property_(source, name)` | One property of an action's output or a variable. |
+| `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS` | What each Find action can filter on, and each entity type's properties. |
 | `actions`, `ACTIONS`, `get_action(id)` | Action identifiers and their catalog entries. |
 | `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | What each parameter accepts. |
 | `CONDITION`, `ICON_COLORS`, `PROVENANCE` | If conditions, icon colors, and the build the data came from. |

@@ -1,6 +1,6 @@
 // Minimal XML property-list writer. Shortcuts and `shortcuts sign` read XML plists;
 // `Shortcut.write` converts to binary with plutil when available for parity with Apple's files.
-export type PlistValue = string | number | boolean | PlistValue[] | { [key: string]: PlistValue };
+export type PlistValue = string | number | boolean | Date | PlistValue[] | { [key: string]: PlistValue };
 
 function escape(text: string): string {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -12,6 +12,8 @@ function node(value: PlistValue, indent: string): string {
   if (typeof value === "number") {
     return Number.isInteger(value) ? `${indent}<integer>${value}</integer>\n` : `${indent}<real>${value}</real>\n`;
   }
+  // Whole seconds in UTC, the form plutil and Python's plistlib write.
+  if (value instanceof Date) return `${indent}<date>${value.toISOString().replace(/\.\d{3}Z$/, "Z")}</date>\n`;
   if (Array.isArray(value)) {
     if (value.length === 0) return `${indent}<array/>\n`;
     return `${indent}<array>\n${value.map((v) => node(v, indent + "\t")).join("")}${indent}</array>\n`;

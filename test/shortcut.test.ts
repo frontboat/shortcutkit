@@ -2,7 +2,7 @@ import { describe, expect, spyOn, test } from "bun:test";
 import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, FILTERS, ENTITY_PROPERTIES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 import * as readmeExamples from "./readme-examples";
 
 describe("shortcutkit", () => {
@@ -238,6 +238,47 @@ describe("App Intents actions", () => {
     expect(withDescriptor).toBe(1449);
     expect(new Set(Object.keys(actions)).size).toBe(Object.keys(ACTIONS).length);
   });
+  test("Find filters encode each row under the key its value kind uses", () => {
+    const s = new Shortcut("Messages");
+    const who = s.action(actions.ask, { WFAskActionPrompt: "Who?" });
+    const found = s.action(actions.messages_find_message, {
+      WFContentItemFilter: where(["author", "is", ref(who)], ["author", "is_not", "+15055550100"], ["date", "is_in_the_last", 7, "days"], ["date", "is_between", new Date("2026-01-01T00:00:00Z"), ref(who)], ["date", "is_today"]),
+    });
+    const f = found.WFWorkflowActionParameters.WFContentItemFilter as { Value: { WFActionParameterFilterPrefix: number; WFActionParameterFilterTemplates: Array<{ Property: string; Operator: number; Values: Record<string, unknown> }> } };
+    expect(f.Value.WFActionParameterFilterPrefix).toBe(1);
+    const [author, plainAuthor, last7, between, today] = f.Value.WFActionParameterFilterTemplates;
+    expect(author).toMatchObject({ Property: "author", Operator: 4, Values: { ContactHandle: { WFSerializationType: "WFTokenStringParameterState", Value: text(ref(who)) } } });
+    expect(plainAuthor!.Values).toEqual({ ContactHandle: { WFSerializationType: "WFTokenStringParameterState", Value: "+15055550100" } });
+    expect(last7).toMatchObject({ Operator: 1001, Values: { Number: 7, Unit: 16 } });
+    expect(between!.Values).toEqual({ Date: new Date("2026-01-01T00:00:00Z"), AnotherDate: ref(who) });
+    expect(today).toMatchObject({ Operator: 1002, Values: {} });
+    expect(s.toXml()).toContain("<date>2026-01-01T00:00:00Z</date>");
+    const convo = s.action(actions.messages_find_conversation, { WFContentItemFilter: whereAny(["displayName", "is", "Heather"], ["displayName", "contains", ref(who)]) });
+    const c = convo.WFWorkflowActionParameters.WFContentItemFilter as typeof f;
+    expect(c.Value.WFActionParameterFilterPrefix).toBe(0);
+    expect(c.Value.WFActionParameterFilterTemplates.map((r) => r.Values)).toEqual([{ String: "Heather" }, { String: text(ref(who)) }]);
+    // @ts-expect-error contains is not offered for the sender
+    expect(() => s.action(actions.messages_find_message, { WFContentItemFilter: where(["author", "contains", "x"]) })).toThrow(/no operator contains; offered: is, is_not/);
+    // @ts-expect-error not a calendar unit
+    expect(() => s.action(actions.messages_find_message, { WFContentItemFilter: where(["date", "is_in_the_last", 7, "fortnights"]) })).toThrow(/one of years/);
+    // @ts-expect-error not a filterable property
+    expect(() => s.action(actions.messages_find_message, { WFContentItemFilter: where(["body", "contains", "x"]) })).toThrow(/no filterable property body/);
+    // @ts-expect-error where() rows only go in a Find filter
+    expect(() => s.action(actions.showresult, { Text: where(["a", "is", "b"]) })).toThrow(/only in a Find action/);
+    expect(() => s.action(actions.filter_files, { WFContentItemFilter: where(["Name", "is", "x"]) as never })).toThrow(/need a Find action of Apple's App Intents/);
+    expect(Object.keys(FILTERS).length).toBe(75);
+  });
+  test("property() references one property of an output, checked against the entity", () => {
+    const s = new Shortcut("Messages");
+    const found = s.action(actions.messages_find_message, {});
+    const body = property(found, "body");
+    expect(body.Value).toMatchObject({ Type: "ActionOutput", OutputName: "Message", Aggrandizements: [{ Type: "WFPropertyVariableAggrandizement", PropertyName: "body" }] });
+    expect(property(repeatItem(), "date").Value).toEqual({ Type: "Variable", VariableName: "Repeat Item", Aggrandizements: [{ Type: "WFPropertyVariableAggrandizement", PropertyName: "date" }] });
+    expect(property(body, "length").Value.Aggrandizements).toHaveLength(2);
+    // @ts-expect-error not a property of Message
+    expect(() => property(found, "bodyy")).toThrow(/has no property bodyy/);
+    expect(Object.values(ENTITY_PROPERTIES).flat().length).toBe(889);
+  });
   test("the README's examples are test/readme-examples.ts, and they run", async () => {
     const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
     const copy = readFileSync(new URL("./readme-examples.ts", import.meta.url), "utf8");
@@ -261,7 +302,8 @@ describe("App Intents actions", () => {
     const name = s.action(actions.ask, {});
     readmeExamples.controlFlow(s, name);
     readmeExamples.applesApps(s);
+    readmeExamples.findingThings(s);
     readmeExamples.otherApps(s, name);
-    expect(s.actions.length).toBe(1 + 5 + 2 + 1);
+    expect(s.actions.length).toBe(1 + 5 + 2 + 2 + 1);
   });
 });
