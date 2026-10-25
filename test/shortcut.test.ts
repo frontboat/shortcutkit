@@ -279,6 +279,22 @@ describe("App Intents actions", () => {
     expect(() => property(found, "bodyy")).toThrow(/has no property bodyy/);
     expect(Object.values(ENTITY_PROPERTIES).flat().length).toBe(889);
   });
+  test("the engine's own filter rules cover every class and entity type", () => {
+    // data/engine-filters.json and data/linkd-properties.json come from `bun run extract-filters`
+    // (docs/extraction.md, "The engine's own filter rules"); the packages do not type from them yet.
+    const engine = JSON.parse(readFileSync(new URL("../data/engine-filters.json", import.meta.url), "utf8"));
+    expect(Object.keys(engine.subjectTypes).length).toBe(95);
+    expect(Object.keys(engine.builtin).length).toBe(30);
+    expect(Object.keys(engine.entities).length).toBe(Object.keys(ENTITY_PROPERTIES).length);
+    const linkd = JSON.parse(readFileSync(new URL("../data/linkd-properties.json", import.meta.url), "utf8"));
+    expect(Object.keys(linkd.entities).length).toBe(Object.keys(ENTITY_PROPERTIES).length);
+    expect(linkd.alternatesRemaining).toBe(0);
+    const yields = Object.values(linkd.entities as Record<string, { yields?: Record<string, string[]> }>).flatMap((e) => Object.values(e.yields ?? {}));
+    expect(yields.length).toBe(889);
+    expect(yields.filter((y) => y.length).length).toBe(866);
+    // Every type with several queries carries the class built with each.
+    for (const e of Object.values(linkd.entities as Record<string, { queries?: string[]; byQuery?: Record<string, unknown> }>)) if (e.queries) expect(Object.keys(e.byQuery ?? {}).sort()).toEqual([...e.queries].sort());
+  });
   test("the README's examples are test/readme-examples.ts, and they run", async () => {
     const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
     const copy = readFileSync(new URL("./readme-examples.ts", import.meta.url), "utf8");

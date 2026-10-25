@@ -242,9 +242,137 @@ string), and a handle without a reference re-serializes as the plain string insi
 `WFTokenStringParameterState`. The verifier compares what the engine serializes back against
 what the library wrote, so a form the engine normalizes would fail it.
 
-Built-in Find actions use the same rows, but their operator lists are computed in Swift
-(`RowTemplateOperator` types in WorkflowKit) with no Objective-C entry point, and built-in
-properties report no `allowedOperators`. The packages leave those filters raw.
+Built-in Find actions use the same rows, but their operator lists are computed in Swift with
+no Objective-C entry point, and built-in properties report no `allowedOperators`. The next
+section is how those lists, and the enum properties the index route cannot build, were read
+anyway. The packages do not use that data yet; `where()` still types only what this section
+describes.
+
+### The engine's own filter rules: an engine host, lldb, and a loader shortcut
+
+`bun run extract-filters` (`tools/extract-engine-filters.sh`, about 25 s) writes
+`data/engine-filters.json` and `data/linkd-properties.json`; `--check` adds a ten-minute
+cross-check against the real linkd. It is a separate, optional step because it needs the Xcode
+Command Line Tools and a shortcut imported into the Shortcuts app. Three things stood in the
+way, and each has its own tool.
+
+**linkd refuses every process we control.** Apple's App Intents registry, linkd, serves its
+metadata over XPC (`com.apple.linkd.registry`) and rejects callers without the entitlement of
+that name: its log says `RegistryEntitlementAudit: com.apple.osascript (pid …) lacks
+com.apple.linkd.registry`, and `swift` scripts are rejected the same way. Shortcuts.app,
+siriactionsd and two of Shortcuts' XPC services (`BackgroundShortcutRunner`, `ShortcutsMacHelper`)
+have it. The way in is a shortcut: the Run JavaScript for Mac Automation action runs its script
+inside `ShortcutsMacHelper`, where `LNMetadataProvider` answers. `tools/linkd/loader.js` is that
+script; it evaluates `~/.shortcutkit-dev/payload.js` and returns what it produces.
+`tools/linkd/build-loader.ts` wraps it in a signed shortcut named `SK <sha256 of the script>`
+(importing a changed shortcut under an existing name confuses the app's run queue, so every
+version gets a new name), and `tools/linkd/run-payload.sh` runs any payload through it from the
+terminal after one run from the app has answered the JavaScript permission prompt. The helper is
+sandboxed but writes to the user's home, so long payloads stream progress to
+`~/.shortcutkit-dev/linkd/` and resume from it. A payload that hangs blocks every later run until
+`killall siriactionsd`. The helper has WorkflowKit loaded but not ActionKit, and loading
+ActionKit or touching `WFActionRegistry` there deadlocks, so the payloads only read metadata and
+build entity classes.
+
+Two payloads exist. `archive-metadata.js` saves linkd's `LNEntityMetadata`, `LNEnumMetadata` and
+`LNQueryMetadata` for every Apple bundle as keyed archives (79 bundles, 7 s); everything below
+runs against those archives, outside the helper. `resolve-properties.js` is the cross-check
+(`--check`): it builds each entity's class from the real metadata inside the helper, over XPC
+to linkd, and asks which content a property reference to each of its properties yields, in
+about ten minutes; `tools/compare-linkd-properties.py` requires its answers to match the
+host's, and they do on all 889. It also shows that linkd's queries carry no parameters at all
+(`MessageQuery` has none), so the editor's Find filter rows come from the index's
+`PredicateTemplates`, which is what `where()` already uses.
+
+**The filter rules are private Swift.** Which properties of a class the editor offers, which
+operators each one gets, and which of those survive a bounded filter are three static functions
+of `WorkflowKit.RowTemplateFindFilterParameterState`: `filterableProperties(for:)`,
+`possibleOperators(contentItemClass:contentProperty:bounded:)` and `subjectType(contentProperty:)`.
+They are not exported, so nothing can `dlsym` them, and they take Swift calling conventions
+(`self` in x20 for the operators' `contentOperator` getters). `tools/engine-host` is a small
+Objective-C host, `skhost`, that loads the three frameworks and runs a JXA probe through OSAKit,
+with C functions the probe can bind: `sk_describe(class)` calls the three functions and returns
+each property's subject type and operator list, each operator as its code (from the protocol's
+`contentOperator` getter, called through a 14-instruction trampoline, `trampoline.s`) and its
+Swift type name (`IsEqualOperator<RowTemplateStringValueType>`), whose generic argument names
+the row's value type. `run.sh` runs the host under lldb for two reasons: lldb reads the shared
+cache's private symbol table and writes the seven addresses into the process (`addresses.py`)
+before anything runs, and a breakpoint returns from `+[WFActionKitStaticInitializer load]`
+before its platform-binary assertion (it checks `SecTaskGetCodeSignStatus` for
+`CS_PLATFORM_BINARY`), so ActionKit's content item classes load into a non-platform process.
+That assertion is all the initializer does; the check cannot be interposed because the SDK
+marks `SecTaskGetCodeSignStatus` unavailable and the dyld interpose section needs it by address.
+
+**WorkflowKit needs linkd to build enum properties.** Building an entity class with an
+enum-typed property makes WorkflowKit ask `LNMetadataProvider` for the enum's metadata, which
+it cannot get here. With `SK_LINKD_DIR` set, the host replaces seven `LNMetadataProvider`
+lookups (`entitiesForBundleIdentifier:error:`, `enumsForBundleIdentifier:error:`,
+`entityForBundleIdentifier:withEntityIdentifier:error:`, `queriesWithError:` and three more)
+with answers from the archives, and the classes come out whole: 256 filterable properties across
+the 434 entities, against 147 the index route types, the 80 enum-typed ones among them.
+`tools/extract-engine-filters.js` runs this for every entity (built exactly as
+`extract-entities.js` builds it) and for the 30 content item classes the built-in Find and
+Filter actions name in their definitions (`WFContentItemClass`): 294 filterable properties with
+their operators, which `data/apple-entities.json` has nothing on. Running the probe again from
+the committed tools reproduced the first results exactly.
+
+**The app builds entities from linkd, not from the index, and the two differ.** The same probe
+in its `linkd` mode builds each entity the way the Shortcuts app does, from linkd's own
+`LNEntityMetadata` and `LNQueryMetadata`, and writes `data/linkd-properties.json`: the engine's
+rules for that class, what each property reference yields (866 of the 889 properties resolve;
+the 23 left are Notes', whose linkd metadata names properties by their titles), and the type's
+queries. Against the index-built classes, 114 of the 434 entity types come out the same and
+320 differ: the linkd-built class has filterable properties the index-built one lacks in 196
+types (Call History's Message gets duration and isRead beside date, Clock's Alarm gets enabled)
+and the same properties with other operators in 123. Two facts about the engine fell out of
+that work. The engine registers one content item class per type name
+(`WFLinkEntityContentItem_<bundle>_<type>`), so building a type a second time in one process,
+from other metadata or another query, silently returns the first class; `extract-engine-filters.sh`
+therefore runs the host once per mode and once more per extra query. And linkd knows several
+queries for five types (Contacts' `ContactEntityQuery` and `ContactEntityIDPassthroughQuery`,
+Stocks' `SymbolQuery` and `SymbolNotInWatchlistQuery`, …), and the class depends on the query:
+Contacts gets emailAddresses and phoneNumbers filters from the first and none from the second.
+The index records which query each entity-typed parameter was indexed with, inside the
+parameter's `typeInstance` (`dump-toolkit-registry.py --entities` reads it into `queries`), and
+the host builds that one first (`query`), the others in later passes (`byQuery`). For Contacts
+and Music the index names one; for Stocks, Podcasts and Shortcuts' navigation it names both,
+and which one a given Find action gets is open.
+
+What the data says, beyond the lists themselves:
+
+- A property's subject type is the value class's `+tableTemplateSubjectType` (ContentKit): 0
+  for anything without its own (contacts, files, entities, enums), 1 Bool, 2 String (and rich
+  text, URL, email address, phone number, location), 3 Number, 4 Date, 5 Measurement, 6 file
+  size, 7 Duration and time interval, 9 App. `subjectTypes` in the data lists all 95 classes.
+  Message bodies, event notes and URL properties are therefore plain string rows; the index
+  route dropped them only because their editing parameter is a variable picker.
+- The row value keys the engine reads are the raw values of
+  `RowTemplateFindFilterParameterState`'s key types, read by calling their `rawValue` getters
+  under lldb (`swiftcall.py`): `Bool`, `Date`, `AnotherDate`, `Email`, `Phone`, `Number`, `String`,
+  `Unit`, `ByteCountUnit`, `MeasurementUnit`, `ContactHandle`, and `Enumeration` for four
+  enumeration kinds (string, number, speakable string, and `EnumerationLinkValueKey`, the App
+  Intents enum, whose value type is `LNDynamicOption`). String rows also carry a style (plain,
+  URL, location, phone number, email address; `RowTemplateStringStyle`).
+- Where the engine's lists and the index's can be compared (the 145 properties `where()`
+  types), 143 agree.
+
+Open, in order of how much they block: the shapes of the values under `Enumeration` (App
+Intents enums), `MeasurementUnit` and `ByteCountUnit`, and of a styled string, which no probe
+has read yet; the 34 Bool properties, for which `possibleOperators` returns nothing although
+the editor shows a switch, so another code path supplies the operator; the index listing
+properties and operators the engine does not (266 filterable against 256, and "does not
+contain" on different properties); Messages' Sender, an email-address value that the string
+row code rejects (`Unexpected property class WFEmailAddress`) while the editor offers "is";
+Notes' title-named date rows, present in the index and absent from the engine; and the query
+behind a Find action whose type has several (Stocks' Symbol gets name and symbol filters from
+`SymbolQuery` and none from `SymbolNotInWatchlistQuery`). Each one is engine behavior not yet
+reverse-engineered, not a disagreement to settle by rule.
+
+When a macOS update renames the Swift symbols, `addresses.py` stops at launch and names the
+missing one; `image lookup -r -s RowTemplateFindFilter` in lldb on a process that loaded
+WorkflowKit finds the new names. `tools/engine-host/calls.py` (the selectors, functions and
+strings a function references), `strs.py` (WorkflowKit's string tables) and `swiftcall.py`
+(call a Swift getter and decode its String) are the lldb commands that found the current ones.
 
 ## Parameter value encoding
 
@@ -368,7 +496,8 @@ it. `Shortcut.action()` applies the same table at run time in both packages.
   helper does not yet build.
 - Specialised value dictionaries (contacts, locations, file bookmarks, colors) are documented
   from examples rather than exhaustively.
-- Filter rows are typed and checked only for Apple's App Intents Find actions. Rows on
-  properties edited by a variable picker (rich text such as a message body), a URL field or a
-  duration have no value form the packages write yet, and enumeration-typed entity properties
-  are not filterable without linkd's metadata.
+- Filter rows are typed and checked only for Apple's App Intents Find actions, from the index
+  route. The engine's own rules for every class, built-in and App Intents, are extracted
+  (`data/engine-filters.json`) but not yet typed: rows on rich text, URLs, durations,
+  measurements, file sizes and App Intents enumerations need value shapes the probes have not
+  read (see the open list under the engine's filter rules).

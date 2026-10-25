@@ -6,6 +6,23 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## Unreleased
+
+- New optional extraction step, `bun run extract-filters` (about 25 s), reads WorkflowKit's own
+  Find-filter rules (`data/engine-filters.json`: every content item class's subject type; for the
+  30 built-in Find/Filter classes and all 434 Apple entity types, each filterable property's
+  operators, bounded operators and Swift value type) and builds every entity type from linkd's
+  real metadata and query, as the Shortcuts app does (`data/linkd-properties.json`: the same rules
+  for those classes, what each of the 889 property references yields, and the type's queries).
+  `--check` re-resolves the properties inside `ShortcutsMacHelper` against the real linkd and
+  requires agreement. Three new tools make it possible: `tools/linkd` runs scripts inside
+  `ShortcutsMacHelper`, the one process we can drive that linkd answers, through a loader
+  shortcut; `tools/engine-host` loads ActionKit past its platform-binary check, serves linkd's
+  archived metadata to WorkflowKit, and calls the private Swift filter functions;
+  `tools/extract-engine-filters.js` runs in it. `dump-toolkit-registry.py --entities` now also
+  reads the App Intents query each entity-typed parameter was indexed with. The packages do not
+  type from the new data yet. Method and open questions in `docs/extraction.md`.
+
 ## 1.1.0 (2026-10-23)
 
 - Find conditions for 75 Find actions in Apple's apps: `where(...rows)` and `whereAny(...rows)`

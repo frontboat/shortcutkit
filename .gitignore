@@ -45,3 +45,6 @@ data/app-provided-actions.json
 data/builtin-action-identifiers.txt
 data/toolkit-registry*.json
 data/toolkit-names*.json
+
+# Built engine host (tools/engine-host/build.sh)
+tools/engine-host/build/

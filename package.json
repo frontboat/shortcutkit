@@ -23,6 +23,7 @@
     "typecheck": "tsc --noEmit -p .",
     "demo": "bun run src/cli.ts demo",
     "extract": "./tools/extract-builtin-actions.sh",
+    "extract-filters": "./tools/extract-engine-filters.sh",
     "diff-data": "python3 tools/diff-data.py",
     "changelog": "python3 tools/diff-data.py --changelog",
     "verify": "./test/verify/run.sh"

@@ -210,10 +210,22 @@ lists the units it offers (`timeUnits` in `data/apple-entities.json`). 1002 take
 Some built-in Find actions require a bounded date row: Find Calendar Events replaces a filter
 without a bounded Start Date row with its default, "Start Date is in the next 7 days".
 
+The engine's full set of `Values` keys, read from WorkflowKit's row state type: `String`,
+`Number`, `Bool`, `Date`, `AnotherDate`, `Email`, `Phone`, `ContactHandle`, `Enumeration`,
+`Unit` (calendar), `MeasurementUnit` and `ByteCountUnit`. Which one a property takes follows its
+value class's subject type (`subjectTypes` in `data/engine-filters.json`): strings, rich text,
+URLs, email addresses, phone numbers and locations are string rows; measurements take a number
+and `MeasurementUnit`; file sizes a number and `ByteCountUnit`; durations a number and a
+calendar `Unit`. The forms under `Email`, `Phone`, `MeasurementUnit`, `ByteCountUnit` and an
+App Intents enumeration are not yet read from the engine.
+
 `data/apple-entities.json` holds, for each of Apple's App Intents Find actions, the
 filterable properties with their operators and value kind, as WorkflowKit builds them from
-Apple's index. `where()` writes rows from that data; the built-in Find actions' operator lists
-live in Swift with no Objective-C entry point, so the packages leave their filters raw.
+Apple's index; `where()` writes rows from that data. `data/engine-filters.json` holds the
+engine's own lists for the same entities and for the 30 content item classes behind the
+built-in Find and Filter actions, and `data/linkd-properties.json` the lists for the entities
+as the app builds them, from linkd's metadata (`docs/extraction.md`, "The engine's own filter
+rules"); the packages do not type from either yet, so built-in filters stay raw.
 
 ## 5. Naming, signing and import
 

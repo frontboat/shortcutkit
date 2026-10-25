@@ -63,6 +63,91 @@ def read_bundle_and_name(blob):
     return None, None
 
 
+def protobuf_fields(blob):
+    """Top-level (field number, value) pairs of a protobuf message, or None if the bytes are not one."""
+    i, out = 0, []
+
+    def varint():
+        nonlocal i
+        v = shift = 0
+        while True:
+            c = blob[i]; i += 1; v |= (c & 0x7F) << shift; shift += 7
+            if not c & 0x80:
+                return v
+    try:
+        while i < len(blob):
+            tag = varint(); field, wire = tag >> 3, tag & 7
+            if wire == 0:
+                out.append((field, varint()))
+            elif wire == 2:
+                n = varint()
+                if i + n > len(blob):
+                    return None
+                out.append((field, blob[i:i + n])); i += n
+            elif wire == 1:
+                out.append((field, blob[i:i + 8])); i += 8
+            elif wire == 5:
+                out.append((field, blob[i:i + 4])); i += 4
+            else:
+                return None
+    except IndexError:
+        return None
+    return out
+
+
+def two_strings(blob):
+    fs = protobuf_fields(blob)
+    if fs and len(fs) >= 2 and all(isinstance(v, bytes) for _, v in fs[:2]):
+        try:
+            return fs[0][1].decode(), fs[1][1].decode()
+        except UnicodeDecodeError:
+            return None
+    return None
+
+
+def embedded_queries(con):
+    """The App Intents query each entity-typed parameter was indexed with: {type id: {Swift query type}}.
+    A parameter's typeInstance embeds the entity's definition (properties, display names) under
+    {1: type reference, 2: {1: {1: header, 2: {properties..., 9: {query type, bundle}}}}}; a union-typed
+    parameter embeds one such definition per member type. linkd knows several queries for some types
+    (Contacts' ContactEntityQuery and ContactEntityIDPassthroughQuery), and the one the index names
+    is the one the editor builds the parameter's content item class from."""
+    def sub(fs, n):
+        return [v for f, v in fs if f == n and isinstance(v, bytes)]
+
+    def type_ref(blob):
+        fs = protobuf_fields(blob)
+        if not fs:
+            return None
+        inner = sub(fs, 2)
+        s = two_strings(inner[0]) if inner else two_strings(blob)
+        return s if s and s[0].startswith("com.") and not s[1].endswith("Query") else None
+
+    def collect(blob, acc, depth=0):
+        fs = protobuf_fields(blob)
+        if fs is None or depth > 40:
+            return
+        refs, defs = sub(fs, 1), sub(fs, 2)
+        if refs and defs:
+            ref = type_ref(refs[0])
+            wrapper = protobuf_fields(defs[0]) if ref else None
+            for d in (sub(wrapper, 1) if wrapper else []):
+                df = protobuf_fields(d)
+                for body in (sub(df, 2) if df else []):
+                    bf = protobuf_fields(body)
+                    for q in (sub(bf, 9) if bf else []):
+                        s = two_strings(q)
+                        if s and s[0].endswith("Query"):
+                            acc.setdefault(f"{ref[0]}.{ref[1]}", set()).add(s[0])
+        for _, v in fs:
+            if isinstance(v, bytes) and v:
+                collect(v, acc, depth + 1)
+    acc = {}
+    for (blob,) in con.execute("select typeInstance from Parameters"):
+        collect(blob, acc)
+    return acc
+
+
 def type_info(con, type_row_id):
     row = con.execute("select id, kind from Types where rowId=?", (type_row_id,)).fetchone()
     if not row:
@@ -120,6 +205,7 @@ def export_entities(con, apple, path):
     display = {}
     for type_id, name in con.execute("select typeId, name from TypeDisplayRepresentations where locale='en' and name is not null and name != ''"):
         display.setdefault(type_id, name)
+    queries = embedded_queries(con)
     entities, referenced = {}, set()
     for type_id in sorted(wanted):
         if kinds.get(type_id) != 2:
@@ -134,6 +220,7 @@ def export_entities(con, apple, path):
         app = con.execute("select l.name from Types t join ContainerMetadataLocalizations l on l.containerId = t.sourceContainerId and l.locale='en' where t.rowId=?", (type_id,)).fetchone()
         entities[type_id] = {"name": display.get(type_id), "bundleIdentifier": bundle, "typeName": type_name, "app": app[0] if app else None,
                              "find": type_id if tool else None,
+                             "queries": sorted(queries.get(type_id, ())),
                              "properties": props, "comparison": base64.b64encode(template[0]).decode() if template else None}
     # Kind and cases of every custom type a property may name (entity, or enum with its cases).
     custom = {}
