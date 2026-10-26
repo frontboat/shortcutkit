@@ -46,14 +46,12 @@ Load the engine into a process and ask the same object Shortcuts.app asks:
    objects keyed by identifier. `WFIntentActionProvider` adds Apple's SiriKit custom intents
    (Apple Watch settings, Accessibility toggles, a Notes folder intent): it has no definitions
    call, so `-createAllAvailableActions` is walked and each action's `definition` taken. It also
-   lists intents of installed App Store apps; those are skipped, keeping only intents whose app
-   resolves under `/System` or to no app at all. 434 definitions in total. That rule is too
-   strict: Keynote, Numbers and Pages come preinstalled on every Mac but live in `/Applications`
-   with an App Store receipt, so their nine SiriKit intents (Open Presentation, Create Spreadsheet
-   from Template, ...) are visible in the editor and absent here, while the same apps' six App
-   Intents are in the catalogue through the registry route below, which accepts any Apple-signed
-   app. Accepting `com.apple.` bundle identifiers here too would add them (443 definitions); it is
-   listed as open under [coverage](#what-the-editor-shows-that-the-catalogue-does-not).
+   lists intents of installed App Store apps; those are skipped, keeping intents whose app
+   resolves to no app at all, under `/System`, or to a `com.apple.` bundle identifier. The last
+   test was added for Keynote, Numbers and Pages, which come preinstalled but live in
+   `/Applications` with an App Store receipt: a `/System`-only rule dropped their fifteen SiriKit
+   intents (nine the editor lists, six the index hides as iOS-only) while the registry route below
+   kept the same apps' App Intents. 449 definitions in total.
 3. Unwrap. `WFActionDefinition`, `WFParameterDefinition` and `WFActionDescriptionDefinition` are
    each a wrapper around one `NSDictionary` ivar. `WFParameterSummary` and
    `WFParameterSummaryValue` expose their format string, title, possible values, and the
@@ -148,13 +146,15 @@ readable form. `tools/dump-toolkit-registry.py` reads it:
   "Battery Level", Statistics says "Average").
 
 The committed `data/apple-app-intents.json` keeps the `WFLinkActionProvider` tools whose
-container is an Apple bundle; those ship with macOS. Two groups are left out (150 on macOS
+container is an Apple bundle; those ship with macOS. Two groups are left out (281 on macOS
 27): tools with `visibilityFlags` 0, which is what the editor on this Mac does not offer
 (among built-ins: iPad-only Stage Manager, the retired Watch Me Do; among App Intents:
-internal helpers such as "Fetch Contact Avatars" and a Photos "workaround" intent), and
-intents whose system protocols mark them as widget, control, Live Activity or Focus
-configurations (`SystemToolProtocols`; see Apple's "App intent types" page), which configure
-a widget rather than run in a shortcut. What those two rules and the other probes' rules leave
+internal helpers such as "Fetch Contact Avatars", a Photos "workaround" intent, and every
+widget, control and Live Activity configuration intent, whose system protocols say so:
+`SystemToolProtocols`, see Apple's "App intent types" page); and the 135 intents linkd marks
+not discoverable (`data/linkd-actions.json`), Siri-only intents the app refuses to import. The
+four Focus-filter intents also carry a configuration protocol, but the index shows them and so
+does the editor, so they stay. What those rules and the other probes' rules leave
 out of the editor's list, and which of the hidden tools still work, is in
 [the coverage section](#what-the-editor-shows-that-the-catalogue-does-not). 473 of the remaining entries carry the
 `synthesizedTool` protocol: "Get …" and "Update …" actions Shortcuts derives from an app's
@@ -210,17 +210,18 @@ Requirement: Shortcuts.app must have run once on the extracting Mac so the index
 The editor's action list is that same index, so "is everything in the editor writable?" is a
 diff, not a scroll: `tools/audit-catalogue-coverage.py` lists every indexed tool the editor
 shows (`visibilityFlags` other than 0) that the catalogue lacks, with the rule that left it out,
-and fails on one no rule explains. On macOS 27 the editor shows 1,914 tools, the catalogue has
-1,883 entries, and the 68 missing fall under four rules:
+and fails on one no rule explains. On macOS 27 the editor shows 1,914 tools. The first audit,
+against a catalogue of 1,883 entries, found 68 missing under four rules, two of them wrong:
 
-- **Third-party apps** (25 here: Ghostty, Tailscale): by design, since the catalogue covers
+- **Third-party apps** (25 here, from two installed apps): by design, since the catalogue covers
   Apple's apps; `action()` takes them untyped.
 - **Configuration-only intents** (4: the Messages, Safari, Calendar and Mail Focus filters):
-  `dump-toolkit-registry.py` drops intents whose system protocols are widget, control, Live
+  `dump-toolkit-registry.py` dropped intents whose system protocols are widget, control, Live
   Activity or Focus configurations. The index itself hides every widget, control and Live
-  Activity configuration (`visibilityFlags` 0), so the rule only ever removes these four, which
-  the index flags visible like any other action. Whether the editor lists them is unchecked;
-  Apple's documentation says nothing either way. Open.
+  Activity configuration (`visibilityFlags` 0), so the rule only ever removed these four, which
+  the index flags visible like any other action. Checked in the editor: Mail's category lists
+  "Set Mail Focus Filter" under a "Focus" heading. Fixed: the dump records the protocols but
+  no longer filters on them, and the four are in the catalogue.
 - **Legacy interchange actions** (30: Bear, Tweetbot, WhatsApp, Add PDF to Books): served by
   `WFInterchangeActionProvider`, which no probe enumerates. The provider lists 56 and the
   engine marks each unavailable until its app is installed; the one Apple entry, Add PDF to
@@ -228,17 +229,24 @@ and fails on one no rule explains. On macOS 27 the editor shows 1,914 tools, the
   so it is never available on a Mac. Checked for that one; the other 29 are not installed here.
 - **SiriKit intents of Apple apps outside /System** (9: Keynote's Open Presentation and Play
   Presentation in Show Mode, Numbers' Create Spreadsheet from Template, Pages' Open Document,
-  ...): `extract-builtin-actions.js` keeps only intents whose app is under `/System`, on the
-  assumption that anything else is an App Store app. Keynote, Numbers and Pages come
-  preinstalled but live in `/Applications` with an App Store receipt and update through the
-  store, so the rule drops them while the registry route keeps the same apps' six App Intents.
-  The rule is wrong; accepting `com.apple.` bundle identifiers there would add the nine (443
-  definitions, 1,892 entries, a minor data refresh). A CI runner has no iWork, so its engine
-  would mark those nine missing, which the verifier already reports rather than fails. Open.
+  ...): the definition probe kept only intents whose app is under `/System`, on the assumption
+  that anything else is an App Store app; Keynote, Numbers and Pages come preinstalled but live
+  in `/Applications` with an App Store receipt. Fixed: `isSystemBundle()` in the prelude also
+  accepts `com.apple.` bundle identifiers, which adds the nine and six index-hidden iOS-only
+  twins (449 definitions). Both kinds import: a shortcut on Keynote's Create Presentation from
+  Theme and one on the index-hidden `KNiOSOpenAnyDocumentIntent` were accepted by the import
+  sheet, as every hidden built-in is. A CI runner has no iWork, so its engine marks them
+  missing, which the verifier reports rather than fails.
 
-The index's hidden tools (`visibilityFlags` 0) stay out except the 22 hidden built-ins, which
-the catalogue keeps so that old files still reproduce (iPad-only Stage Manager, the retired Watch
-Me Do, the pre-Apple-Intelligence Get What's On Screen). Every hidden built-in is served by the
+With the two rules fixed, every app group the editor lists on this Mac (App Store, Apple
+Intelligence, Books, ... Weather: 41 groups) maps to catalogue entries, apart from the two
+third-party apps; the groups with no index container of their own (Apple Intelligence,
+FaceTime, Terminal, Disk Utility, Passwords, Mission Control, Time Machine) are built-ins and
+System Settings or AppKit intents that the editor files under the app's name.
+
+The index's hidden tools (`visibilityFlags` 0) stay out except the hidden built-ins, which the
+catalogue keeps so that old files still reproduce (iPad-only Stage Manager, the retired Watch Me
+Do, the pre-Apple-Intelligence Get What's On Screen). Every hidden built-in is served by the
 engine on this Mac, so the question was whether hidden means unusable or merely unlisted.
 
 **Hidden actions, tested.** Two shortcuts were built with the library, signed and imported.
@@ -261,19 +269,33 @@ in the app's import step (`-[WFLinkActionProvider createActionsForRequests:allow
 and `+[NSError(WFUnsupportedOnPlatform) wf_unsupportedActionErrorWithType:platformIdiom:]` are
 the WorkflowKit symbols on that path; the message is WorkflowKit's string).
 
-**What that means for the catalogue.** Of the 1,500 App Intents entries, 776 have linkd action
-metadata (`actions.json`, from `action-metadata.js` over the 79 Apple bundles), and 135 of those
-are `assistantOnly` and not discoverable: Siri-only intents such as Reminders' Open List, News'
-Start Cooking, Books' Play Most Recent Audiobook, Clock's and Photos' assistant twins. A file
-that uses any of them will not import on this build. Among the tools that have action metadata,
+**What that meant for the catalogue.** Of the 1,500 App Intents entries the first audit saw,
+776 had linkd action metadata (`action-metadata.js` over every Apple bundle the index knows),
+and 135 of those were `assistantOnly` and not discoverable: Siri-only intents such as Reminders'
+Open List, News' Start Cooking, Books' Play Most Recent Audiobook, and Clock's and Photos'
+assistant twins of ordinary actions (`PhotosCropAssistantIntent` beside `CropIntent`). A file
+that uses any of them does not import. Among the tools that have action metadata,
 `assistantOnly` is exactly `visibilityFlags == 2` in the index (135 of 135, none of the 641
 discoverable ones), but the same value is normal for the synthesized entity tools and the flow
-tools, which do import, so the index alone cannot name them: dropping or flagging those 135 needs
-`actions.json`, which only the loader shortcut can produce. The other 724 entries without action
-metadata are the synthesized Get/Update/Find tools (keyed by entity), the flow tools, the SiriKit
-intents the definition probe serves, and a few whose linkd bundle differs from the index's
-(System Settings deep links). Whether the 135 should leave the catalogue (a removal, hence a
-major data refresh) or stay marked is a decision not yet taken. Open.
+tools, which do import, so the index alone cannot name them. They now leave the catalogue by
+linkd's word: `bun run extract-filters` saves the payload's output as `data/linkd-actions.json`
+(committed) and `dump-toolkit-registry.py` drops every tool it marks not discoverable, counting
+them in its summary, with a warning when the file is absent. The bundle list the payloads take
+comes from the full local index, not from the committed catalogue, since the catalogue is what
+they filter; deriving it from the catalogue shrank the next run by ten actions. The entries
+without action metadata are the synthesized Get/Update/Find tools (keyed by entity), the flow
+tools, the SiriKit intents the definition probe serves, and a few whose linkd bundle differs
+from the index's (System Settings deep links); they are untouched.
+
+One of the 135 had been the catalogue's own Create Note. The index gives the same key,
+`notes_create_note`, to three tools, and the generator's dedupe had chosen
+`com.apple.Notes.CreateNoteIntent`, the Siri-only one, over `com.apple.mobilenotes.SharingExtension`
+because the latter's identifier looks like a variant. The editor writes the SharingExtension
+identifier (a shortcut built in the editor and read from `~/Library/Shortcuts/Shortcuts.sqlite`
+shows it), with `contents` where the Siri intent had `content`; the README example and the
+fixtures now write that. Removing the Siri-only entries also removes the 21 entity types only
+they output (Music's `SiriEntity` family): 413 entity types and 752 properties remain, and the
+Find filters are unchanged at 150 actions and 403 properties.
 
 A Find action's rows ("Date is in the last 7 days", "Sender is …") and a reference to one
 property of an entity ("Message's Body") depend on the entity type, which the action catalogue
@@ -648,10 +670,10 @@ it. `Shortcut.action()` applies the same table at run time in both packages.
   are not offered (see the open list under the engine's filter rules). Under osascript the
   verifier can only build the index's classes, which lack some of those properties; rows on
   them are checked in the engine host (`bun run verify` runs it when it is built).
-- Coverage of the editor's list has two open rules, both in
-  [the coverage section](#what-the-editor-shows-that-the-catalogue-does-not): the SiriKit
-  probe's `/System` test, which drops the preinstalled iWork apps' nine intents, and the
-  configuration-protocol test, which drops four Focus-filter intents the index flags visible.
+- Coverage of the editor's list has no open rule
+  ([the coverage section](#what-the-editor-shows-that-the-catalogue-does-not)). The rules were
+  checked on one Mac and one editor build; a rule the index or linkd changes on a later macOS
+  shows up as an audit failure, not silently.
 
 ### Run-time observations
 

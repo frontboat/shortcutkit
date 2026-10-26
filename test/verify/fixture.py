@@ -79,7 +79,7 @@ for identifier in ACTIONS:
 
 filter_cases = []
 DATE = datetime.datetime(2026, 1, 1, tzinfo=datetime.timezone.utc)
-PLAIN = {"text": "hello", "email": "a@b.co", "phone": "+15055550100", "contactHandle": "+15055550100", "number": 5, "bool": True, "date": DATE}
+PLAIN = {"text": "hello", "email": "a@b.co", "phone": "+15555550100", "contactHandle": "+15555550100", "number": 5, "bool": True, "date": DATE}
 OPERATOR_NAME = {c: n for n, c in FILTER_OPERATORS.items()}
 
 
@@ -152,7 +152,7 @@ m = s.choose_from_menu("Pick", ["A", "B"])
 s.menu_item(m, "A"); s.action(actions.SHOWRESULT, Text=ref(got))
 s.menu_item(m, "B"); s.action(actions.SHOWRESULT, Text=shortcut_input())
 s.end_menu(m)
-s.action(actions.NOTES_CREATE_NOTE, name="n", content=text("c ", ref(got)))
+s.action(actions.NOTES_CREATE_NOTE, name="n", contents=text("c ", ref(got)))
 found = s.action("com.apple.MobileSMS.MessageEntity", WFContentItemFilter=where(("date", "is_in_the_last", 7, "days"), ("author", "is", ref(got))))
 each = s.repeat_each(ref(found))
 s.action(actions.SHOWRESULT, Text=text(property_(repeat_item(), "body"), " ", property_(found, "date")))

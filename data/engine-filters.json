@@ -12019,9 +12019,6 @@
         "valueClass" : "WFLinkEnumerationContentItem_com.apple.calls.PhoneAppIntentsExtension_CallRecordType"
       }
     },
-    "com.apple.calls.PhoneAppIntentsExtension.ConferenceCall" : {
-
-    },
     "com.apple.campo.ConversationEntity" : {
 
     },
@@ -12231,9 +12228,6 @@
         "valueClass" : "WFLinkEnumerationContentItem_com.apple.clock_AlarmTriggerState"
       }
     },
-    "com.apple.clock.StopwatchEntity" : {
-
-    },
     "com.apple.clock.TimerEntity" : {
       "label" : {
         "bounded" : [
@@ -12431,45 +12425,8 @@
         "valueClass" : "NSString"
       }
     },
-    "com.apple.findmy.ItemLocationResponse" : {
-
-    },
     "com.apple.findmy.PersonEntity" : {
 
-    },
-    "com.apple.findmy.PersonEntityLocation" : {
-      "location" : {
-        "bounded" : [
-          {
-            "code" : 4,
-            "type" : "IsEqualOperator<RowTemplateStringValueType>"
-          }
-        ],
-        "operators" : [
-          {
-            "code" : 4,
-            "type" : "IsEqualOperator<RowTemplateStringValueType>"
-          },
-          {
-            "code" : 5,
-            "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
-          },
-          {
-            "code" : 99,
-            "type" : "ContainsOperator<RowTemplateStringValueType>"
-          },
-          {
-            "code" : 8,
-            "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
-          },
-          {
-            "code" : 9,
-            "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
-          }
-        ],
-        "subjectType" : 2,
-        "valueClass" : "LNEntity_GeoToolbox_PlaceDescriptorEntity"
-      }
     },
     "com.apple.freeform.CRLBoardEntity" : {
       "creationDate" : {
@@ -12650,12 +12607,6 @@
         "subjectType" : 2,
         "valueClass" : "NSString"
       }
-    },
-    "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity" : {
-
-    },
-    "com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentEntity" : {
-
     },
     "com.apple.GenerativePlaygroundApp.GeneratedImageEntity" : null,
     "com.apple.Home.CameraClipEntity" : {
@@ -14686,37 +14637,6 @@
         "valueClass" : "NSAttributedString"
       }
     },
-    "com.apple.Music.AlbumSiriEntity" : {
-
-    },
-    "com.apple.Music.AlgorithmicStationSiriEntity" : {
-
-    },
-    "com.apple.Music.ArtistSiriEntity" : {
-
-    },
-    "com.apple.Music.LiveStationSiriEntity" : {
-
-    },
-    "com.apple.Music.PlaylistSiriEntity" : {
-
-    },
-    "com.apple.Music.RadioShowEpisodeSiriEntity" : {
-
-    },
-    "com.apple.Music.RadioShowSiriEntity" : {
-
-    },
-    "com.apple.Music.SongCollectionSiriEntity" : {
-
-    },
-    "com.apple.Music.SongSiriEntity" : {
-
-    },
-    "com.apple.Music.WarmupMusicQueueResultSiriEntity" : null,
-    "com.apple.musicrecognition.mac.ShazamSongEntity" : {
-
-    },
     "com.apple.news.AutoDownloadAudioStoriesEntity" : {
 
     },
@@ -14799,9 +14719,6 @@
       }
     },
     "com.apple.Notes.TagEntity" : {
-
-    },
-    "com.apple.omniSearch.SearchToolExtension.SearchEntity" : {
 
     },
     "com.apple.Photos.AlbumEntity" : {
@@ -15379,7 +15296,6 @@
         "valueClass" : "NSString"
       }
     },
-    "com.apple.podcasts.WarmupAudioQueueResult" : null,
     "com.apple.Preview.DocumentEntity" : {
       "kind" : {
         "bounded" : [
@@ -17411,9 +17327,6 @@
       }
     },
     "com.apple.ShortcutsActions.ChargeLimit" : null,
-    "com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitMessageEntity" : {
-
-    },
     "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity" : null,
     "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity" : {
       "estimatedArrivalDate" : {
@@ -17609,9 +17522,6 @@
         "subjectType" : 2,
         "valueClass" : "NSString"
       }
-    },
-    "com.apple.stocks.SymbolQuoteEntity" : {
-
     },
     "com.apple.stocks.SymbolWidgetEntity" : {
       "name" : {
@@ -20161,7 +20071,7 @@
             "comparisonType" : 2,
             "formatted" : "5 MB",
             "predicateClass" : "WFContentComparisonPredicate",
-            "value" : "<WFFileSize: 0x794d68cc00>",
+            "value" : "<WFFileSize: 0x762b995c80>",
             "valueClass" : "WFFileSize"
           },
           "property" : "File Size",
@@ -20211,7 +20121,7 @@
             "comparisonType" : 2,
             "predicateClass" : "WFContentComparisonPredicate",
             "timeInterval" : 300,
-            "value" : "<WFTimeInterval: 0x7951a32040>",
+            "value" : "<WFTimeInterval: 0x7623987c00>",
             "valueClass" : "WFTimeInterval"
           },
           "property" : "Duration",

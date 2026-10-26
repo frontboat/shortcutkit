@@ -1806,6 +1806,477 @@
   ],
   "WFStartCallActionType": "FaceTime"
  },
+ "com.apple.iWork.Keynote.KNDocumentPlayIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Keynote"
+  },
+  "Description": {
+   "DescriptionSummary": "Open the presentation in show mode."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Keynote.KNDocumentPlayIntent",
+  "IntentName": "KNDocumentPlayIntent",
+  "Name": "Play Presentation in Show Mode",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "file",
+    "Label": "Keynote Presentation",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Keynote.KNDocumentRehearseIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Keynote"
+  },
+  "Description": {
+   "DescriptionSummary": "Open the presentation in slideshow rehearsal mode."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Keynote.KNDocumentRehearseIntent",
+  "IntentName": "KNDocumentRehearseIntent",
+  "Name": "Open Presentation in Rehearsal Mode",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "file",
+    "Label": "Keynote Presentation",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Keynote.KNiOSCreateNewOutlineIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Keynote"
+  },
+  "Description": {
+   "DescriptionSummary": "Create a new presentation in outline view."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Keynote.KNiOSCreateNewOutlineIntent",
+  "IntentName": "KNiOSCreateNewOutlineIntent",
+  "Name": "Create Presentation in Outline View",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Keynote"
+  },
+  "Description": {
+   "DescriptionSummary": "Open the specified presentation in Keynote."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent",
+  "IntentName": "KNiOSOpenAnyDocumentIntent",
+  "Name": "Open Presentation",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "file",
+    "Label": "Keynote Presentation",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Keynote.TSADocumentCreateIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Keynote"
+  },
+  "Description": {
+   "DescriptionSummary": "Create a new presentation from a theme."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Keynote.TSADocumentCreateIntent",
+  "IntentName": "TSADocumentCreateIntent",
+  "Name": "Create Presentation from Theme",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "templateItem",
+    "Label": "Theme",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Keynote.TSADocumentOpenIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Keynote"
+  },
+  "Description": {
+   "DescriptionSummary": "Open the specified presentation in Keynote."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Keynote.TSADocumentOpenIntent",
+  "IntentName": "TSADocumentOpenIntent",
+  "Name": "Open Presentation",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "file",
+    "Label": "Keynote Presentation",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "password",
+    "Label": "Presentation Password",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Numbers"
+  },
+  "Description": {
+   "DescriptionSummary": "Add a record to the end of a form in an existing spreadsheet."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent",
+  "IntentName": "TNiOSAddValuesToFormIntent",
+  "Name": "Add Record to Form",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "formName",
+    "Label": "Form Name",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "spreadsheet",
+    "Label": "Numbers Spreadsheet",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "values",
+    "Label": "Values",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Numbers"
+  },
+  "Description": {
+   "DescriptionSummary": "Add a populated body row to the top or bottom of a table in a spreadsheet."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent",
+  "IntentName": "TNiOSAddValuesToSpreadsheetIntent",
+  "Name": "Add Row to Top or Bottom of Table",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Items": [
+     "bottom",
+     "top"
+    ],
+    "Key": "position",
+    "Label": "Top/Bottom",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "sheetName",
+    "Label": "Sheet Name",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "spreadsheet",
+    "Label": "Numbers Spreadsheet",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "tableName",
+    "Label": "Table Name",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "values",
+    "Label": "Values",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Numbers.TNiOSOpenAnyDocumentIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Numbers"
+  },
+  "Description": {
+   "DescriptionSummary": "Open the specified spreadsheet in Numbers."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Numbers.TNiOSOpenAnyDocumentIntent",
+  "IntentName": "TNiOSOpenAnyDocumentIntent",
+  "Name": "Open Spreadsheet",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "file",
+    "Label": "Numbers Spreadsheet",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Numbers.TSADocumentCreateIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Numbers"
+  },
+  "Description": {
+   "DescriptionSummary": "Create a new spreadsheet from a template."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Numbers.TSADocumentCreateIntent",
+  "IntentName": "TSADocumentCreateIntent",
+  "Name": "Create Spreadsheet from Template",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "templateItem",
+    "Label": "Template",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Numbers.TSADocumentOpenIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Numbers"
+  },
+  "Description": {
+   "DescriptionSummary": "Open the specified spreadsheet in Numbers."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Numbers.TSADocumentOpenIntent",
+  "IntentName": "TSADocumentOpenIntent",
+  "Name": "Open Spreadsheet",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "file",
+    "Label": "Numbers Spreadsheet",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "password",
+    "Label": "Spreadsheet Password",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Pages.TPDocumentBeginPresenterModeIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Pages"
+  },
+  "Description": {
+   "DescriptionSummary": "Open the Pages document in presenter mode."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Pages.TPDocumentBeginPresenterModeIntent",
+  "IntentName": "TPDocumentBeginPresenterModeIntent",
+  "Name": "Open Document in Presenter Mode",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "file",
+    "Label": "Pages Document",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Pages.TPiOSOpenAnyDocumentIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Pages"
+  },
+  "Description": {
+   "DescriptionSummary": "Open an existing document."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Pages.TPiOSOpenAnyDocumentIntent",
+  "IntentName": "TPiOSOpenAnyDocumentIntent",
+  "Name": "Open Pages Document",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "file",
+    "Label": "Pages Document",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Pages.TSADocumentCreateIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Pages"
+  },
+  "Description": {
+   "DescriptionSummary": "Create a new document from a template."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Pages.TSADocumentCreateIntent",
+  "IntentName": "TSADocumentCreateIntent",
+  "Name": "Create Document from Template",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "templateItem",
+    "Label": "Template",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
+ "com.apple.iWork.Pages.TSADocumentOpenIntent": {
+  "AppDefinition": {
+   "BundleIdentifier": "com.apple.iWork.Pages"
+  },
+  "Description": {
+   "DescriptionSummary": "Open the specified document in Pages."
+  },
+  "Discoverable": 1,
+  "FillingProvider": "WFIntentActionProvider",
+  "IntentIdentifier": "sirikit.intents.custom.com.apple.iWork.Pages.TSADocumentOpenIntent",
+  "IntentName": "TSADocumentOpenIntent",
+  "Name": "Open Document",
+  "NameSource": "ToolKit",
+  "Parameters": [
+   {
+    "Key": "ShowWhenRun",
+    "Label": "Show When Run",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "file",
+    "Label": "Pages Document",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   },
+   {
+    "Key": "password",
+    "Label": "Document Password",
+    "LabelSource": "ToolKit",
+    "Source": "ToolKit"
+   }
+  ]
+ },
  "com.apple.mobilephone.call": {
   "ActionClass": "WFStartCallAction",
   "ActionKeywords": "phone|number|dial|mobile|telephone",

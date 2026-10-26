@@ -6,22 +6,40 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
-## Unreleased
+## 2.0.0 (2026-10-26)
 
+- **Breaking: 135 Siri-only App Intents leave the catalogue.** linkd marks them not discoverable
+  (`assistantOnly`), and the Shortcuts app refuses to import any file that uses one ("contains
+  features not supported on this device"; verified with Reminders' Get Default List and Books'
+  Open Most Recent Book). They were Siri twins of actions that stay (`PhotosCropAssistantIntent`
+  beside Crop, Reminders' Open List, News' Start Cooking, Books' Play Most Recent Audiobook).
+  `bun run extract-filters` now saves linkd's verdict as `data/linkd-actions.json` and the
+  registry dump applies it. One removed entry was the catalogue's own `notes_create_note`
+  target: the editor's Create Note is `com.apple.mobilenotes.SharingExtension`, so that key now
+  points there and its text parameter is `contents`, not `content`. The 21 entity types only
+  those intents output stay out with them (413 entity types, 752 properties).
+- The preinstalled iWork apps' 15 SiriKit intents join the built-in definitions (449): Keynote's
+  Open Presentation and Play Presentation in Show Mode, Numbers' Create Spreadsheet from
+  Template, Pages' Open Document, and the rest. The definition probe had kept only apps under
+  `/System`; it now also accepts Apple bundle identifiers.
 - `tools/audit-catalogue-coverage.py` diffs every action the Shortcuts editor shows on this Mac
   (the app's own index) against the catalogue and names the rule behind each gap; on macOS 27
-  the editor shows 1914, the catalogue has 1883, and the 68 it lacks are third-party apps,
+  the editor shows 1914, the catalogue had 1883, and the 68 it lacked were third-party apps,
   four Focus-filter intents, legacy interchange actions of apps that are not installed, and
-  nine iWork SiriKit intents the definition probe skips because the apps update through the
-  App Store, the one rule found wrong (docs/extraction.md, "What the editor shows that the
-  catalogue does not").
+  nine iWork SiriKit intents the definition probe skipped because the apps update through the
+  App Store. The last two rules were wrong and are fixed: the iWork fix above, and the four
+  Focus filters (Set Mail / Messages / Safari / Calendar Focus Filter) join the catalogue,
+  since the editor lists them (Mail's category shows "Set Mail Focus Filter" under a "Focus"
+  heading); the registry dump no longer drops intents with configuration protocols, which the
+  index hides itself for widgets, controls and Live Activities. What remains outside the
+  catalogue is third-party apps, the Siri-only intents, and interchange actions
+  (docs/extraction.md, "What the editor shows that the catalogue does not").
 - `tools/linkd/action-metadata.js`, a loader-shortcut payload, saves linkd's availability
   annotations and visibility metadata for every Apple App Intents action. Verified against the
   app: a built-in the editor hides still imports and runs, and an App Intents action linkd marks
   not discoverable is refused at import ("features not supported on this device") even though
-  the engine loads it. 135 catalogue entries are such Siri-only intents (`assistantOnly` in
-  linkd); the audit names them, and whether they leave the catalogue is an open decision. The
-  docs record the import rule, what a verifier "case" is, the helper and lldb failure modes met
+  the engine loads it. That is the rule behind the removal above; the audit names any that
+  return. The docs record the import rule, what a verifier "case" is, the helper and lldb failure modes met
   on the way, and the run-time observations (Messages' Spotlight timeout, sort strings, Run
   Shell Script's shell path) that no offline check can make. `tools/jxa-probe.sh` and
   `tools/engine-host/syms.sh` run one-off engine probes and symbol searches without
@@ -45,44 +63,127 @@ the section for a fresh extraction from the diff against the committed data.
   `Unit`, built-in enumerations as `WFStringSubstitutableState` with the property's `items`,
   App Intents enumerations as `WFLinkEnumerationSubstitutableState` with the case identifier
   (`cases` per property). Each property now carries its `valueClass`.
-- `where()` rows are typed from the engine's own rules: 150 Find actions instead of 75, the 14
-  built-in Find and Filter actions (Filter Files, Find Photos, Find Contacts, ...) and 136 in
-  Apple's apps, 403 properties. New row forms: file sizes take a number and a unit from
-  `BYTE_COUNT_UNITS` (`["File Size", "greater_than", 5, "MB"]`), durations a number and a
-  calendar unit, email and phone properties write `Email` and `Phone`, built-in enumerations
-  (Reminders' Priority, Photos' Album) and App Intents enumerations (Photos' assetType) take a
-  choice, listed in `FILTERS` as `choices` and typed in TypeScript. App Intents Find actions are
-  typed from the entity as the app builds it (linkd's metadata), so Find Messages gains `body`
-  contains and `subject`. Find Calendar Events needs a bounded Start Date row, which `action()`
-  now marks (`BOUNDED_FILTERS`) and refuses to leave out, since the engine would replace the
-  whole filter with its default. Bool properties stay untyped (the engine lists no operator for
-  them).
-  `bun run verify` loads the built-in rows through their engine actions and, when the engine host
-  is built, every App Intents row through the linkd-built class. Method and open questions in
-  `docs/extraction.md`.
-
-## 1.1.0 (2026-10-23)
-
-- Find conditions for 75 Find actions in Apple's apps: `where(...rows)` and `whereAny(...rows)`
-  (Python `where`, `where_any`) take rows like `["date", "is_in_the_last", 7, "days"]`, typed
-  per action in TypeScript (`FilterRows`) and checked by `action()` in both packages against
-  the properties, operators, value kinds and calendar units the engine builds for each entity.
-  `WFContentItemFilter` on those actions is now typed as `where()` rows or a raw
-  `WFContentPredicateTableTemplate` instead of any value.
-- `property(source, name)` (Python `property_`) references one property of an action's
-  output or of any variable, as the editor's property picker writes it. Given an action that
-  outputs one of Apple's entity types, the name is checked against its properties.
-- New data: `data/apple-entities.json`, Apple's 434 entity types with 889 properties, from the
-  Shortcuts app's index and built by WorkflowKit (`tools/extract-entities.js`). New exports:
-  `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`.
+- Find conditions: `where(...rows)` and `whereAny(...rows)` (Python `where`, `where_any`) take
+  rows like `["date", "is_in_the_last", 7, "days"]` for `WFContentItemFilter` on 150 Find
+  actions, the 14 built-in Find and Filter actions (Filter Files, Find Photos, Find Contacts, ...)
+  and 136 in Apple's apps, 403 properties. The rows are typed per action in TypeScript
+  (`FilterRows`) and checked by `action()` in both packages against the properties, operators,
+  value kinds and calendar units the engine computes for each entity. File sizes take a number
+  and a unit from `BYTE_COUNT_UNITS` (`["File Size", "greater_than", 5, "MB"]`), durations a
+  number and a calendar unit, email and phone properties write `Email` and `Phone`, built-in
+  enumerations (Reminders' Priority, Photos' Album) and App Intents enumerations (Photos'
+  assetType) take a choice, listed in `FILTERS` as `choices` and typed in TypeScript. App
+  Intents Find actions are typed from the entity as the app builds it (linkd's metadata), so
+  Find Messages has `body` contains and `subject`. Find Calendar Events needs a bounded Start
+  Date row, which `action()` marks (`BOUNDED_FILTERS`) and refuses to leave out, since the
+  engine would replace the whole filter with its default. Bool properties stay untyped (the
+  engine lists no operator for them). `WFContentItemFilter` on those actions is typed as
+  `where()` rows or a raw `WFContentPredicateTableTemplate` instead of any value.
+- `property(source, name)` (Python `property_`) references one property of an action's output
+  or of any variable, as the editor's property picker writes it. Given an action that outputs
+  one of Apple's entity types, the name is checked against its properties.
+- New data: `data/apple-entities.json`, Apple's entity types with their properties from the
+  Shortcuts app's index, built by WorkflowKit (`tools/extract-entities.js`); the generator takes
+  its Find filters from the engine files above and falls back to this one for an entity the host
+  did not build. New exports: `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`,
+  `CALENDAR_UNITS`, `BYTE_COUNT_UNITS`, `BOUNDED_FILTERS`.
 - Plist dates: `Date` values (Python `datetime`) are written as `<date>`.
 - `Action` is generic over its identifier; `action()` returns `Action<I>`.
 - `bun run verify` loads every library-written filter and property reference through the
-  entity's content item class.
+  entity's content item class: the built-in rows through their engine actions and, when the
+  engine host is built, every App Intents row through the linkd-built class. Method and open
+  questions in `docs/extraction.md`.
 - The format reference had two date operators swapped: 1000 is "is in the next" and 1002 is
   "is today". Every operator code's meaning now comes from the engine, which names the
   operator when it loads a filter row (`filterOperators` in `data/encoding-table.json`);
   none rests on community documentation any more.
+
+### Data: macOS 27.2 (26B118), Shortcuts 10.0 build 5114.0.6.204, extracted 2026-10-26T07:45:57Z
+
+Recommended bump: **major**
+
+- Added actions (19):
+  - `com.apple.iWork.Keynote.KNDocumentPlayIntent`
+  - `com.apple.iWork.Keynote.KNDocumentRehearseIntent`
+  - `com.apple.iWork.Keynote.KNiOSCreateNewOutlineIntent`
+  - `com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent`
+  - `com.apple.iWork.Keynote.TSADocumentCreateIntent`
+  - `com.apple.iWork.Keynote.TSADocumentOpenIntent`
+  - `com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent`
+  - `com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent`
+  - `com.apple.iWork.Numbers.TNiOSOpenAnyDocumentIntent`
+  - `com.apple.iWork.Numbers.TSADocumentCreateIntent`
+  - `com.apple.iWork.Numbers.TSADocumentOpenIntent`
+  - `com.apple.iWork.Pages.TPDocumentBeginPresenterModeIntent`
+  - `com.apple.iWork.Pages.TPiOSOpenAnyDocumentIntent`
+  - `com.apple.iWork.Pages.TSADocumentCreateIntent`
+  - `com.apple.iWork.Pages.TSADocumentOpenIntent`
+  - `com.apple.MobileSMS.ConversationListFocusFilterAction`
+  - `com.apple.Safari.OpenTabGroupForFocus`
+  - `com.apple.iCal.SetCalendarFocusConfiguration`
+  - `com.apple.mail.MailFocusConfigurationAction`
+- Removed actions (135):
+  - `com.apple.AddressBook.CreateContactIntent`
+  - `com.apple.AddressBook.DeleteContactIntent`
+  - `com.apple.AddressBook.SearchInContactsIntent`
+  - `com.apple.AddressBook.UpdateContactIntent`
+  - `com.apple.AddressBook.ViewContactCardIntent`
+  - `com.apple.Magnifier.DetectDoorsIntent`
+  - `com.apple.Magnifier.DetectFurnitureIntent`
+  - `com.apple.Magnifier.DetectPeopleIntent`
+  - `com.apple.Magnifier.DetectTextIntent`
+  - `com.apple.MobileSMS.DraftMessageIntent`
+  - `com.apple.MobileSMS.OpenMessageIntent`
+  - `com.apple.MobileSMS.SendCollaborationMessageIntent`
+  - `com.apple.Music.AddMusicItemToLibrarySiriIntent`
+  - `com.apple.Music.AddMusicItemToPlaylistSiriIntent`
+  - `com.apple.Music.CreatePlaylistSiriIntent`
+  - `com.apple.Music.CreateStationSiriIntent`
+  - `com.apple.Music.OpenMusicItemSiriIntent`
+  - `com.apple.Music.PlayMusicItemSiriIntent`
+  - `com.apple.Music.SearchMusicSiriIntent`
+  - `com.apple.Music.UpdateMusicItemAffinitySiriIntent`
+  - `com.apple.Music.WarmupMusicQueueSiriIntent`
+  - `com.apple.Notes.ApplyFormattingLinkAction`
+  - `com.apple.Notes.CreateNoteIntent`
+  - `com.apple.Notes.NoteAppendTextIntent`
+  - `com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent`
+  - `com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent`
+  - `com.apple.Photos.PhotosCleanupPhotoAssistantIntent`
+  - `com.apple.Photos.PhotosCopyEditsAssistantIntent`
+  - `com.apple.Photos.PhotosCreateAlbumAssistantIntent`
+  - `com.apple.Photos.PhotosCreateAssetsAssistantIntent`
+  - `com.apple.Photos.PhotosCropAssistantIntent`
+  - `com.apple.Photos.PhotosDeleteAlbumsAssistantIntent`
+  - `com.apple.Photos.PhotosDeleteAssetsAssistantIntent`
+  - `com.apple.Photos.PhotosDuplicateAssetsAssistantIntent`
+  - `com.apple.Photos.PhotosEditAssetAssistantIntent`
+  - `com.apple.Photos.PhotosFavoriteMemoriesAssistantIntent`
+  - `com.apple.Photos.PhotosFilterLibraryAssistantIntent`
+  - `com.apple.Photos.PhotosMoveAssetsToPersonalLibraryAssistantIntent`
+  - `com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent`
+  - `com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent`
+  - `com.apple.Photos.PhotosPasteEditsAssistantIntent`
+  - `com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent`
+  - `com.apple.Photos.PhotosSetDepthAssistantIntent`
+  - `com.apple.Photos.PhotosSetExposureAssistantIntent`
+  - `com.apple.Photos.PhotosSetFilterAssistantIntent`
+  - `com.apple.Photos.PhotosSetRotationAssistantIntent`
+  - `com.apple.Photos.PhotosSetSaturationAssistantIntent`
+  - `com.apple.Photos.PhotosSetWarmthAssistantIntent`
+  - `com.apple.Photos.PhotosStraightenAssistantIntent`
+  - `com.apple.Photos.PhotosToggleDepthAssistantIntent`
+  - `com.apple.Photos.PhotosToggleSuggestedEditsAssistantIntent`
+  - `com.apple.Photos.PhotosUpdateAlbumAssistantIntent`
+  - `com.apple.Photos.PhotosUpdateAssetAssistantIntent`
+  - `com.apple.Photos.PhotosUpdateRecognizedPersonAssistantIntent`
+  - `com.apple.Spotlight.SearchUIContinuationIntent`
+  - `com.apple.Spotlight.SearchUIOpenKnowledgeIntent`
+  - `com.apple.calls.PhoneAppIntentsExtension.AnswerCallIntent`
+  - `com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent`
+  - `com.apple.calls.PhoneAppIntentsExtension.EndCallIntent`
+  - `com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent`
+  - … 75 more
 
 ## 1.0.0 (2026-10-22)
 

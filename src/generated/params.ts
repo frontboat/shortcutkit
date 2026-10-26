@@ -106,6 +106,36 @@ export type ComAppleUniversalAccessUASettingsShortcutsUAToggleVoiceOverIntentPar
 export type ComAppleUniversalAccessUASettingsShortcutsUAToggleZoomIntentParams = Partial<ParamTypes["com.apple.UniversalAccess.UASettingsShortcuts.UAToggleZoomIntent"]>;
 /** Parameters of FaceTime (`com.apple.facetime.facetime`). */
 export type ComAppleFacetimeFacetimeParams = Partial<ParamTypes["com.apple.facetime.facetime"]>;
+/** Parameters of Play Presentation in Show Mode (`com.apple.iWork.Keynote.KNDocumentPlayIntent`). */
+export type ComAppleIWorkKeynoteKNDocumentPlayIntentParams = Partial<ParamTypes["com.apple.iWork.Keynote.KNDocumentPlayIntent"]>;
+/** Parameters of Open Presentation in Rehearsal Mode (`com.apple.iWork.Keynote.KNDocumentRehearseIntent`). */
+export type ComAppleIWorkKeynoteKNDocumentRehearseIntentParams = Partial<ParamTypes["com.apple.iWork.Keynote.KNDocumentRehearseIntent"]>;
+/** Parameters of Create Presentation in Outline View (`com.apple.iWork.Keynote.KNiOSCreateNewOutlineIntent`). */
+export type ComAppleIWorkKeynoteKNiOSCreateNewOutlineIntentParams = Partial<ParamTypes["com.apple.iWork.Keynote.KNiOSCreateNewOutlineIntent"]>;
+/** Parameters of Open Presentation (`com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent`). */
+export type ComAppleIWorkKeynoteKNiOSOpenAnyDocumentIntentParams = Partial<ParamTypes["com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent"]>;
+/** Parameters of Create Presentation from Theme (`com.apple.iWork.Keynote.TSADocumentCreateIntent`). */
+export type ComAppleIWorkKeynoteTSADocumentCreateIntentParams = Partial<ParamTypes["com.apple.iWork.Keynote.TSADocumentCreateIntent"]>;
+/** Parameters of Open Presentation (`com.apple.iWork.Keynote.TSADocumentOpenIntent`). */
+export type ComAppleIWorkKeynoteTSADocumentOpenIntentParams = Partial<ParamTypes["com.apple.iWork.Keynote.TSADocumentOpenIntent"]>;
+/** Parameters of Add Record to Form (`com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent`). */
+export type ComAppleIWorkNumbersTNiOSAddValuesToFormIntentParams = Partial<ParamTypes["com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent"]>;
+/** Parameters of Add Row to Top or Bottom of Table (`com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent`). */
+export type ComAppleIWorkNumbersTNiOSAddValuesToSpreadsheetIntentParams = Partial<ParamTypes["com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent"]>;
+/** Parameters of Open Spreadsheet (`com.apple.iWork.Numbers.TNiOSOpenAnyDocumentIntent`). */
+export type ComAppleIWorkNumbersTNiOSOpenAnyDocumentIntentParams = Partial<ParamTypes["com.apple.iWork.Numbers.TNiOSOpenAnyDocumentIntent"]>;
+/** Parameters of Create Spreadsheet from Template (`com.apple.iWork.Numbers.TSADocumentCreateIntent`). */
+export type ComAppleIWorkNumbersTSADocumentCreateIntentParams = Partial<ParamTypes["com.apple.iWork.Numbers.TSADocumentCreateIntent"]>;
+/** Parameters of Open Spreadsheet (`com.apple.iWork.Numbers.TSADocumentOpenIntent`). */
+export type ComAppleIWorkNumbersTSADocumentOpenIntentParams = Partial<ParamTypes["com.apple.iWork.Numbers.TSADocumentOpenIntent"]>;
+/** Parameters of Open Document in Presenter Mode (`com.apple.iWork.Pages.TPDocumentBeginPresenterModeIntent`). */
+export type ComAppleIWorkPagesTPDocumentBeginPresenterModeIntentParams = Partial<ParamTypes["com.apple.iWork.Pages.TPDocumentBeginPresenterModeIntent"]>;
+/** Parameters of Open Pages Document (`com.apple.iWork.Pages.TPiOSOpenAnyDocumentIntent`). */
+export type ComAppleIWorkPagesTPiOSOpenAnyDocumentIntentParams = Partial<ParamTypes["com.apple.iWork.Pages.TPiOSOpenAnyDocumentIntent"]>;
+/** Parameters of Create Document from Template (`com.apple.iWork.Pages.TSADocumentCreateIntent`). */
+export type ComAppleIWorkPagesTSADocumentCreateIntentParams = Partial<ParamTypes["com.apple.iWork.Pages.TSADocumentCreateIntent"]>;
+/** Parameters of Open Document (`com.apple.iWork.Pages.TSADocumentOpenIntent`). */
+export type ComAppleIWorkPagesTSADocumentOpenIntentParams = Partial<ParamTypes["com.apple.iWork.Pages.TSADocumentOpenIntent"]>;
 /** Parameters of Call (`com.apple.mobilephone.call`). */
 export type ComAppleMobilephoneCallParams = Partial<ParamTypes["com.apple.mobilephone.call"]>;
 /** Parameters of Post to Shared Album (`com.apple.mobileslideshow.StreamShareService`). */
@@ -874,16 +904,6 @@ export type WorkoutEndParams = Partial<ParamTypes["is.workflow.actions.workout.e
 export type WorkoutStartParams = Partial<ParamTypes["is.workflow.actions.workout.start"]>;
 /** Parameters of Find Contact (`com.apple.AddressBook.ContactEntity`). */
 export type ContactsFindContactParams = Partial<ParamTypes["com.apple.AddressBook.ContactEntity"]>;
-/** Parameters of Create Contact (`com.apple.AddressBook.CreateContactIntent`). */
-export type ContactsCreateContactParams = Partial<ParamTypes["com.apple.AddressBook.CreateContactIntent"]>;
-/** Parameters of Delete Contact (`com.apple.AddressBook.DeleteContactIntent`). */
-export type ContactsDeleteContactParams = Partial<ParamTypes["com.apple.AddressBook.DeleteContactIntent"]>;
-/** Parameters of Search in Contacts App (`com.apple.AddressBook.SearchInContactsIntent`). */
-export type ContactsSearchInContactsAppParams = Partial<ParamTypes["com.apple.AddressBook.SearchInContactsIntent"]>;
-/** Parameters of Update Contact Details (`com.apple.AddressBook.UpdateContactIntent`). */
-export type ContactsUpdateContactDetailsParams = Partial<ParamTypes["com.apple.AddressBook.UpdateContactIntent"]>;
-/** Parameters of View Contact Card (`com.apple.AddressBook.ViewContactCardIntent`). */
-export type ContactsViewContactCardParams = Partial<ParamTypes["com.apple.AddressBook.ViewContactCardIntent"]>;
 /** Parameters of Fetch Intelligence Commands (`com.apple.AppKit.FetchIntelligenceCommands`). */
 export type ComAppleAppKitFetchIntelligenceCommandsParams = Partial<ParamTypes["com.apple.AppKit.FetchIntelligenceCommands"]>;
 /** Parameters of Insert Intelligence Text (`com.apple.AppKit.InsertIntelligenceText`). */
@@ -954,14 +974,6 @@ export type ComAppleHydraUsdAppIntentsConvertToUsdzParams = Partial<ParamTypes["
 export type ComAppleMagnifierAskAQuestionParams = Partial<ParamTypes["com.apple.Magnifier.AskVQAIntent"]>;
 /** Parameters of Describe This (`com.apple.Magnifier.DescribeThisIntent`). */
 export type ComAppleMagnifierDescribeThisParams = Partial<ParamTypes["com.apple.Magnifier.DescribeThisIntent"]>;
-/** Parameters of Detect Doors (`com.apple.Magnifier.DetectDoorsIntent`). */
-export type ComAppleMagnifierDetectDoorsParams = Partial<ParamTypes["com.apple.Magnifier.DetectDoorsIntent"]>;
-/** Parameters of Detect Furniture (`com.apple.Magnifier.DetectFurnitureIntent`). */
-export type ComAppleMagnifierDetectFurnitureParams = Partial<ParamTypes["com.apple.Magnifier.DetectFurnitureIntent"]>;
-/** Parameters of Detect People (`com.apple.Magnifier.DetectPeopleIntent`). */
-export type ComAppleMagnifierDetectPeopleParams = Partial<ParamTypes["com.apple.Magnifier.DetectPeopleIntent"]>;
-/** Parameters of Detect Text (`com.apple.Magnifier.DetectTextIntent`). */
-export type ComAppleMagnifierDetectTextParams = Partial<ParamTypes["com.apple.Magnifier.DetectTextIntent"]>;
 /** Parameters of Follow Up (`com.apple.Magnifier.FollowUpVQAAppIntent`). */
 export type ComAppleMagnifierFollowUpParams = Partial<ParamTypes["com.apple.Magnifier.FollowUpVQAAppIntent"]>;
 /** Parameters of Start Point & Speak (`com.apple.Magnifier.PointAndSpeakIntent`). */
@@ -1000,12 +1012,12 @@ export type ComAppleMediaRemoteAppIntentsExtensionConnectToSpeakerIntentParams =
 export type MessagesOpenInboxParams = Partial<ParamTypes["com.apple.MobileSMS.ChangeFilterModeIntent"]>;
 /** Parameters of Find Conversation (`com.apple.MobileSMS.ConversationEntity`). */
 export type MessagesFindConversationParams = Partial<ParamTypes["com.apple.MobileSMS.ConversationEntity"]>;
+/** Parameters of Set Messages Focus Filter (`com.apple.MobileSMS.ConversationListFocusFilterAction`). */
+export type MessagesSetMessagesFocusFilterParams = Partial<ParamTypes["com.apple.MobileSMS.ConversationListFocusFilterAction"]>;
 /** Parameters of Delete Conversations (`com.apple.MobileSMS.DeleteConversationIntent`). */
 export type MessagesDeleteConversationsParams = Partial<ParamTypes["com.apple.MobileSMS.DeleteConversationIntent"]>;
 /** Parameters of Delete Messages (`com.apple.MobileSMS.DeleteMessageIntent`). */
 export type MessagesDeleteMessagesParams = Partial<ParamTypes["com.apple.MobileSMS.DeleteMessageIntent"]>;
-/** Parameters of Draft Message (`com.apple.MobileSMS.DraftMessageIntent`). */
-export type MessagesDraftMessageParams = Partial<ParamTypes["com.apple.MobileSMS.DraftMessageIntent"]>;
 /** Parameters of Edit Sent Message (`com.apple.MobileSMS.EditSentMessageIntent`). */
 export type MessagesEditSentMessageParams = Partial<ParamTypes["com.apple.MobileSMS.EditSentMessageIntent"]>;
 /** Parameters of Mark as Read (`com.apple.MobileSMS.MarkConversationAsUnreadIntent`). */
@@ -1014,14 +1026,10 @@ export type MessagesMarkAsReadParams = Partial<ParamTypes["com.apple.MobileSMS.M
 export type MessagesFindMessageParams = Partial<ParamTypes["com.apple.MobileSMS.MessageEntity"]>;
 /** Parameters of Open Conversation (`com.apple.MobileSMS.OpenConversationIntent`). */
 export type MessagesOpenConversationParams = Partial<ParamTypes["com.apple.MobileSMS.OpenConversationIntent"]>;
-/** Parameters of Reveal Message (`com.apple.MobileSMS.OpenMessageIntent`). */
-export type MessagesRevealMessageParams = Partial<ParamTypes["com.apple.MobileSMS.OpenMessageIntent"]>;
 /** Parameters of Remove Tapback (`com.apple.MobileSMS.RemoveTapbackIntent`). */
 export type MessagesRemoveTapbackParams = Partial<ParamTypes["com.apple.MobileSMS.RemoveTapbackIntent"]>;
 /** Parameters of Search in Messages (`com.apple.MobileSMS.SearchMessagesIntent`). */
 export type MessagesSearchInMessagesParams = Partial<ParamTypes["com.apple.MobileSMS.SearchMessagesIntent"]>;
-/** Parameters of Send Collaboration Message (`com.apple.MobileSMS.SendCollaborationMessageIntent`). */
-export type MessagesSendCollaborationMessageParams = Partial<ParamTypes["com.apple.MobileSMS.SendCollaborationMessageIntent"]>;
 /** Parameters of Send Message (`com.apple.MobileSMS.SendMessageIntent`). */
 export type MessagesSendMessageParams = Partial<ParamTypes["com.apple.MobileSMS.SendMessageIntent"]>;
 /** Parameters of Send Tapback (`com.apple.MobileSMS.SendMessageReactionIntent`). */
@@ -1034,24 +1042,6 @@ export type MessagesSetConversationReadStatusParams = Partial<ParamTypes["com.ap
 export type MessagesSetMessageReadStatusParams = Partial<ParamTypes["com.apple.MobileSMS.SetMessageReadStatusIntent"]>;
 /** Parameters of Undo Send Message (`com.apple.MobileSMS.UnsendMessageIntent`). */
 export type MessagesUndoSendMessageParams = Partial<ParamTypes["com.apple.MobileSMS.UnsendMessageIntent"]>;
-/** Parameters of Add Music Item to Library (`com.apple.Music.AddMusicItemToLibrarySiriIntent`). */
-export type MusicAddMusicItemToLibraryParams = Partial<ParamTypes["com.apple.Music.AddMusicItemToLibrarySiriIntent"]>;
-/** Parameters of Add Music Item to Playlist (`com.apple.Music.AddMusicItemToPlaylistSiriIntent`). */
-export type MusicAddMusicItemToPlaylistParams = Partial<ParamTypes["com.apple.Music.AddMusicItemToPlaylistSiriIntent"]>;
-/** Parameters of Create New Playlist (`com.apple.Music.CreatePlaylistSiriIntent`). */
-export type MusicCreateNewPlaylistParams = Partial<ParamTypes["com.apple.Music.CreatePlaylistSiriIntent"]>;
-/** Parameters of Create Station (`com.apple.Music.CreateStationSiriIntent`). */
-export type MusicCreateStationParams = Partial<ParamTypes["com.apple.Music.CreateStationSiriIntent"]>;
-/** Parameters of Open Music Item (`com.apple.Music.OpenMusicItemSiriIntent`). */
-export type MusicOpenMusicItemParams = Partial<ParamTypes["com.apple.Music.OpenMusicItemSiriIntent"]>;
-/** Parameters of Play Audio (`com.apple.Music.PlayMusicItemSiriIntent`). */
-export type MusicPlayAudioParams = Partial<ParamTypes["com.apple.Music.PlayMusicItemSiriIntent"]>;
-/** Parameters of Search Music (`com.apple.Music.SearchMusicSiriIntent`). */
-export type MusicSearchMusicParams = Partial<ParamTypes["com.apple.Music.SearchMusicSiriIntent"]>;
-/** Parameters of Set Music Item Affinity (`com.apple.Music.UpdateMusicItemAffinitySiriIntent`). */
-export type MusicSetMusicItemAffinityParams = Partial<ParamTypes["com.apple.Music.UpdateMusicItemAffinitySiriIntent"]>;
-/** Parameters of Warmup Audio Queue (`com.apple.Music.WarmupMusicQueueSiriIntent`). */
-export type MusicWarmupAudioQueueParams = Partial<ParamTypes["com.apple.Music.WarmupMusicQueueSiriIntent"]>;
 /** Parameters of Add File to Note (`com.apple.Notes.AddFileAttachmentLinkAction`). */
 export type NotesAddFileToNoteParams = Partial<ParamTypes["com.apple.Notes.AddFileAttachmentLinkAction"]>;
 /** Parameters of Add Link (`com.apple.Notes.AddLinkAttachmentLinkAction`). */
@@ -1060,8 +1050,6 @@ export type NotesAddLinkParams = Partial<ParamTypes["com.apple.Notes.AddLinkAtta
 export type NotesAddOrRemoveNoteLockParams = Partial<ParamTypes["com.apple.Notes.AddOrRemoveNoteLockLinkAction"]>;
 /** Parameters of Add Tags to Notes (`com.apple.Notes.AddTagsToNotesLinkAction`). */
 export type NotesAddTagsToNotesParams = Partial<ParamTypes["com.apple.Notes.AddTagsToNotesLinkAction"]>;
-/** Parameters of Apply Formatting to Selected Text (`com.apple.Notes.ApplyFormattingLinkAction`). */
-export type NotesApplyFormattingToSelectedTextParams = Partial<ParamTypes["com.apple.Notes.ApplyFormattingLinkAction"]>;
 /** Parameters of Find Attachment (`com.apple.Notes.AttachmentEntity`). */
 export type NotesFindAttachmentParams = Partial<ParamTypes["com.apple.Notes.AttachmentEntity"]>;
 /** Parameters of Change Folder View Setting (`com.apple.Notes.ChangeFolderSettingLinkAction`). */
@@ -1078,8 +1066,6 @@ export type NotesCloseNoteParams = Partial<ParamTypes["com.apple.Notes.CloseNote
 export type NotesAppendChecklistItemParams = Partial<ParamTypes["com.apple.Notes.CreateChecklistItemLinkAction"]>;
 /** Parameters of Create Folder (`com.apple.Notes.CreateFolderLinkAction`). */
 export type NotesCreateFolderParams = Partial<ParamTypes["com.apple.Notes.CreateFolderLinkAction"]>;
-/** Parameters of Create Note (`com.apple.Notes.CreateNoteIntent`). */
-export type NotesCreateNoteParams = Partial<ParamTypes["com.apple.Notes.CreateNoteIntent"]>;
 /** Parameters of Add Table to Note (`com.apple.Notes.CreateTableLinkAction`). */
 export type NotesAddTableToNoteParams = Partial<ParamTypes["com.apple.Notes.CreateTableLinkAction"]>;
 /** Parameters of Create Tag (`com.apple.Notes.CreateTagLinkAction`). */
@@ -1108,8 +1094,6 @@ export type NotesInsertMentionParams = Partial<ParamTypes["com.apple.Notes.Inser
 export type NotesInsertNoteLinkParams = Partial<ParamTypes["com.apple.Notes.InsertNoteLinkLinkAction"]>;
 /** Parameters of Move Notes to Folder (`com.apple.Notes.MoveNotesToFolderLinkAction`). */
 export type NotesMoveNotesToFolderParams = Partial<ParamTypes["com.apple.Notes.MoveNotesToFolderLinkAction"]>;
-/** Parameters of Append to Note (`com.apple.Notes.NoteAppendTextIntent`). */
-export type NotesAppendToNoteParams = Partial<ParamTypes["com.apple.Notes.NoteAppendTextIntent"]>;
 /** Parameters of Open Account (`com.apple.Notes.OpenAccountLinkAction`). */
 export type NotesOpenAccountParams = Partial<ParamTypes["com.apple.Notes.OpenAccountLinkAction"]>;
 /** Parameters of Open Notes View (`com.apple.Notes.OpenAppLocationLinkAction`). */
@@ -1212,70 +1196,10 @@ export type PhotosOpenViewParams = Partial<ParamTypes["com.apple.Photos.OpenDest
 export type PhotosCreateMemoryParams = Partial<ParamTypes["com.apple.Photos.OpenMemoryCreationViewIntent"]>;
 /** Parameters of Find Person (`com.apple.Photos.PersonEntity`). */
 export type PhotosFindPersonParams = Partial<ParamTypes["com.apple.Photos.PersonEntity"]>;
-/** Parameters of Add Photos to Album (`com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent`). */
-export type ComApplePhotosPhotosAddAssetsToAlbumAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosAddAssetsToAlbumAssistantIntent"]>;
-/** Parameters of Search Photos (`com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent`). */
-export type PhotosSearchPhotosParams = Partial<ParamTypes["com.apple.Photos.PhotosAttributedSearchMediaAssistantIntent"]>;
-/** Parameters of Cleanup Photo (`com.apple.Photos.PhotosCleanupPhotoAssistantIntent`). */
-export type PhotosCleanupPhotoParams = Partial<ParamTypes["com.apple.Photos.PhotosCleanupPhotoAssistantIntent"]>;
-/** Parameters of Copy Edits (`com.apple.Photos.PhotosCopyEditsAssistantIntent`). */
-export type PhotosCopyEditsParams = Partial<ParamTypes["com.apple.Photos.PhotosCopyEditsAssistantIntent"]>;
-/** Parameters of Create Album (`com.apple.Photos.PhotosCreateAlbumAssistantIntent`). */
-export type ComApplePhotosPhotosCreateAlbumAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosCreateAlbumAssistantIntent"]>;
-/** Parameters of Create Photos (`com.apple.Photos.PhotosCreateAssetsAssistantIntent`). */
-export type PhotosCreatePhotosParams = Partial<ParamTypes["com.apple.Photos.PhotosCreateAssetsAssistantIntent"]>;
-/** Parameters of Crop Photo (`com.apple.Photos.PhotosCropAssistantIntent`). */
-export type PhotosCropPhotoParams = Partial<ParamTypes["com.apple.Photos.PhotosCropAssistantIntent"]>;
-/** Parameters of Delete Albums (`com.apple.Photos.PhotosDeleteAlbumsAssistantIntent`). */
-export type ComApplePhotosPhotosDeleteAlbumsAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosDeleteAlbumsAssistantIntent"]>;
-/** Parameters of Delete Photos (`com.apple.Photos.PhotosDeleteAssetsAssistantIntent`). */
-export type ComApplePhotosPhotosDeleteAssetsAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosDeleteAssetsAssistantIntent"]>;
-/** Parameters of Duplicate Photos (`com.apple.Photos.PhotosDuplicateAssetsAssistantIntent`). */
-export type ComApplePhotosPhotosDuplicateAssetsAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosDuplicateAssetsAssistantIntent"]>;
-/** Parameters of Edit Photo (`com.apple.Photos.PhotosEditAssetAssistantIntent`). */
-export type ComApplePhotosPhotosEditAssetAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosEditAssetAssistantIntent"]>;
 /** Parameters of Present Search Results (`com.apple.Photos.PhotosEntityCollectionSearchAssistantIntent`). */
 export type PhotosPresentSearchResultsParams = Partial<ParamTypes["com.apple.Photos.PhotosEntityCollectionSearchAssistantIntent"]>;
-/** Parameters of Favorite Memories (`com.apple.Photos.PhotosFavoriteMemoriesAssistantIntent`). */
-export type ComApplePhotosPhotosFavoriteMemoriesAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosFavoriteMemoriesAssistantIntent"]>;
-/** Parameters of Set Library View (`com.apple.Photos.PhotosFilterLibraryAssistantIntent`). */
-export type ComApplePhotosPhotosFilterLibraryAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosFilterLibraryAssistantIntent"]>;
-/** Parameters of Move to Personal Library (`com.apple.Photos.PhotosMoveAssetsToPersonalLibraryAssistantIntent`). */
-export type ComApplePhotosPhotosMoveAssetsToPersonalLibraryAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosMoveAssetsToPersonalLibraryAssistantIntent"]>;
-/** Parameters of Move to Shared Library (`com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent`). */
-export type ComApplePhotosPhotosMoveAssetsToSharedLibraryAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosMoveAssetsToSharedLibraryAssistantIntent"]>;
-/** Parameters of Create a Memory (`com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent`). */
-export type PhotosCreateAMemoryParams = Partial<ParamTypes["com.apple.Photos.PhotosOpenMemoryCreationViewAssistantIntent"]>;
-/** Parameters of Paste Edits (`com.apple.Photos.PhotosPasteEditsAssistantIntent`). */
-export type PhotosPasteEditsParams = Partial<ParamTypes["com.apple.Photos.PhotosPasteEditsAssistantIntent"]>;
-/** Parameters of Remove Photos from Album (`com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent`). */
-export type ComApplePhotosPhotosRemoveAssetsFromAlbumAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosRemoveAssetsFromAlbumAssistantIntent"]>;
 /** Parameters of Search (`com.apple.Photos.PhotosSearchAssistantIntent`). */
 export type PhotosSearchParams = Partial<ParamTypes["com.apple.Photos.PhotosSearchAssistantIntent"]>;
-/** Parameters of Set Depth (`com.apple.Photos.PhotosSetDepthAssistantIntent`). */
-export type PhotosSetDepthParams = Partial<ParamTypes["com.apple.Photos.PhotosSetDepthAssistantIntent"]>;
-/** Parameters of Set Exposure (`com.apple.Photos.PhotosSetExposureAssistantIntent`). */
-export type ComApplePhotosPhotosSetExposureAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosSetExposureAssistantIntent"]>;
-/** Parameters of Apply Filter (`com.apple.Photos.PhotosSetFilterAssistantIntent`). */
-export type ComApplePhotosPhotosSetFilterAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosSetFilterAssistantIntent"]>;
-/** Parameters of Rotate Photo (`com.apple.Photos.PhotosSetRotationAssistantIntent`). */
-export type PhotosRotatePhotoParams = Partial<ParamTypes["com.apple.Photos.PhotosSetRotationAssistantIntent"]>;
-/** Parameters of Set Saturation (`com.apple.Photos.PhotosSetSaturationAssistantIntent`). */
-export type ComApplePhotosPhotosSetSaturationAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosSetSaturationAssistantIntent"]>;
-/** Parameters of Set Warmth (`com.apple.Photos.PhotosSetWarmthAssistantIntent`). */
-export type ComApplePhotosPhotosSetWarmthAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosSetWarmthAssistantIntent"]>;
-/** Parameters of Straighten Photo (`com.apple.Photos.PhotosStraightenAssistantIntent`). */
-export type PhotosStraightenPhotoParams = Partial<ParamTypes["com.apple.Photos.PhotosStraightenAssistantIntent"]>;
-/** Parameters of Toggle Depth Effect (`com.apple.Photos.PhotosToggleDepthAssistantIntent`). */
-export type PhotosToggleDepthEffectParams = Partial<ParamTypes["com.apple.Photos.PhotosToggleDepthAssistantIntent"]>;
-/** Parameters of Enhance Photo (`com.apple.Photos.PhotosToggleSuggestedEditsAssistantIntent`). */
-export type PhotosEnhancePhotoParams = Partial<ParamTypes["com.apple.Photos.PhotosToggleSuggestedEditsAssistantIntent"]>;
-/** Parameters of Rename Album (`com.apple.Photos.PhotosUpdateAlbumAssistantIntent`). */
-export type ComApplePhotosPhotosUpdateAlbumAssistantIntentParams = Partial<ParamTypes["com.apple.Photos.PhotosUpdateAlbumAssistantIntent"]>;
-/** Parameters of Update Photo (`com.apple.Photos.PhotosUpdateAssetAssistantIntent`). */
-export type PhotosUpdatePhotoParams = Partial<ParamTypes["com.apple.Photos.PhotosUpdateAssetAssistantIntent"]>;
-/** Parameters of Update Person (`com.apple.Photos.PhotosUpdateRecognizedPersonAssistantIntent`). */
-export type PhotosUpdatePersonParams = Partial<ParamTypes["com.apple.Photos.PhotosUpdateRecognizedPersonAssistantIntent"]>;
 /** Parameters of Remove Photos From Album (`com.apple.Photos.RemoveAssetsFromAlbumIntent`). */
 export type PhotosRemovePhotosFromAlbumParams = Partial<ParamTypes["com.apple.Photos.RemoveAssetsFromAlbumIntent"]>;
 /** Parameters of Rename Album (`com.apple.Photos.RenameAlbumIntent`). */
@@ -1382,6 +1306,8 @@ export type SafariOpenReadingListItemParams = Partial<ParamTypes["com.apple.Safa
 export type SafariSwitchTabParams = Partial<ParamTypes["com.apple.Safari.OpenTab"]>;
 /** Parameters of Open Tab Group (`com.apple.Safari.OpenTabGroup`). */
 export type SafariOpenTabGroupParams = Partial<ParamTypes["com.apple.Safari.OpenTabGroup"]>;
+/** Parameters of Set Safari Focus Filter (`com.apple.Safari.OpenTabGroupForFocus`). */
+export type SafariSetSafariFocusFilterParams = Partial<ParamTypes["com.apple.Safari.OpenTabGroupForFocus"]>;
 /** Parameters of Open View (`com.apple.Safari.OpenView`). */
 export type SafariOpenViewParams = Partial<ParamTypes["com.apple.Safari.OpenView"]>;
 /** Parameters of Search Website (`com.apple.Safari.QuickWebsiteSearchIntent`). */
@@ -1886,10 +1812,6 @@ export type SpotlightClearCurrentSearchParams = Partial<ParamTypes["com.apple.Sp
 export type SpotlightGetCurrentSearchQueryParams = Partial<ParamTypes["com.apple.Spotlight.SearchFieldEntity"]>;
 /** Parameters of Open Search (`com.apple.Spotlight.SearchSpotlightIntent`). */
 export type SpotlightOpenSearchParams = Partial<ParamTypes["com.apple.Spotlight.SearchSpotlightIntent"]>;
-/** Parameters of Continue Search in App (`com.apple.Spotlight.SearchUIContinuationIntent`). */
-export type SpotlightContinueSearchInAppParams = Partial<ParamTypes["com.apple.Spotlight.SearchUIContinuationIntent"]>;
-/** Parameters of Open Siri Knowledge Page (`com.apple.Spotlight.SearchUIOpenKnowledgeIntent`). */
-export type SpotlightOpenSiriKnowledgePageParams = Partial<ParamTypes["com.apple.Spotlight.SearchUIOpenKnowledgeIntent"]>;
 /** Parameters of Show Search (`com.apple.Spotlight.ToggleSpotlightIntent`). */
 export type SpotlightShowSearchParams = Partial<ParamTypes["com.apple.Spotlight.ToggleSpotlightIntent"]>;
 /** Parameters of Close an App (`com.apple.SystemIntents.CloseApplicationIntent`). */
@@ -1988,26 +1910,12 @@ export type ComAppleWritingToolsWritingToolsAppIntentsExtensionRewriteTextParams
 export type ComAppleWritingToolsWritingToolsAppIntentsExtensionSummarizeTextParams = Partial<ParamTypes["com.apple.WritingTools.WritingToolsAppIntentsExtension.SummarizeTextIntent"]>;
 /** Parameters of Calculator (`com.apple.calculator.LaunchCalculatorOpenIntent`). */
 export type CalculatorCalculatorParams = Partial<ParamTypes["com.apple.calculator.LaunchCalculatorOpenIntent"]>;
-/** Parameters of Answer the call (`com.apple.calls.PhoneAppIntentsExtension.AnswerCallIntent`). */
-export type ComAppleCallsPhoneAppIntentsExtensionAnswerTheCallParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.AnswerCallIntent"]>;
 /** Parameters of Find Emergency Destination (`com.apple.calls.PhoneAppIntentsExtension.CallEmergencyDestination`). */
 export type ComAppleCallsPhoneAppIntentsExtensionFindEmergencyDestinationParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.CallEmergencyDestination"]>;
 /** Parameters of Find Call Message (`com.apple.calls.PhoneAppIntentsExtension.CallMessage`). */
 export type ComAppleCallsPhoneAppIntentsExtensionFindCallMessageParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.CallMessage"]>;
 /** Parameters of Find Call Record (`com.apple.calls.PhoneAppIntentsExtension.CallRecord`). */
 export type ComAppleCallsPhoneAppIntentsExtensionFindCallRecordParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.CallRecord"]>;
-/** Parameters of Create a conference call (`com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent`). */
-export type FaceTimeCreateAConferenceCallParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.CreateConferenceCallIntent"]>;
-/** Parameters of Ends the call (`com.apple.calls.PhoneAppIntentsExtension.EndCallIntent`). */
-export type ComAppleCallsPhoneAppIntentsExtensionEndsTheCallParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.EndCallIntent"]>;
-/** Parameters of Set audio route for an ongoing call (`com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent`). */
-export type ComAppleCallsPhoneAppIntentsExtensionSetAudioRouteForAnOngoingCallParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.SetCallAudioRouteIntent"]>;
-/** Parameters of Start an emergency call (`com.apple.calls.PhoneAppIntentsExtension.StartEmergencyCallIntent`). */
-export type ComAppleCallsPhoneAppIntentsExtensionStartAnEmergencyCallParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.StartEmergencyCallIntent"]>;
-/** Parameters of Start a FaceTime call (`com.apple.calls.PhoneAppIntentsExtension.StartFaceTimeCallIntent`). */
-export type FaceTimeStartAFaceTimeCallParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.StartFaceTimeCallIntent"]>;
-/** Parameters of Start a Telephony call (`com.apple.calls.PhoneAppIntentsExtension.StartTelephonyCallIntent`). */
-export type PhoneStartATelephonyCallParams = Partial<ParamTypes["com.apple.calls.PhoneAppIntentsExtension.StartTelephonyCallIntent"]>;
 /** Parameters of Clear Current Search (`com.apple.campo.ClearSpotlightIntent`). */
 export type ComAppleCampoClearCurrentSearchParams = Partial<ParamTypes["com.apple.campo.ClearSpotlightIntent"]>;
 /** Parameters of Resume Conversation (`com.apple.campo.ResumeConversationIntent`). */
@@ -2016,72 +1924,40 @@ export type ComAppleCampoResumeConversationParams = Partial<ParamTypes["com.appl
 export type ComAppleCampoGetCurrentSearchQueryParams = Partial<ParamTypes["com.apple.campo.SearchFieldEntity"]>;
 /** Parameters of Open Search (`com.apple.campo.SearchSpotlightIntent`). */
 export type ComAppleCampoOpenSearchParams = Partial<ParamTypes["com.apple.campo.SearchSpotlightIntent"]>;
-/** Parameters of Continue Search in App (`com.apple.campo.SearchUIContinuationIntent`). */
-export type ComAppleCampoContinueSearchInAppParams = Partial<ParamTypes["com.apple.campo.SearchUIContinuationIntent"]>;
-/** Parameters of Open Siri Knowledge Page (`com.apple.campo.SearchUIOpenKnowledgeIntent`). */
-export type ComAppleCampoOpenSiriKnowledgePageParams = Partial<ParamTypes["com.apple.campo.SearchUIOpenKnowledgeIntent"]>;
 /** Parameters of Show Search (`com.apple.campo.ToggleSpotlightIntent`). */
 export type ComAppleCampoShowSearchParams = Partial<ParamTypes["com.apple.campo.ToggleSpotlightIntent"]>;
 /** Parameters of Add City (`com.apple.clock.AddWorldClockIntent`). */
 export type ClockAddCityParams = Partial<ParamTypes["com.apple.clock.AddWorldClockIntent"]>;
 /** Parameters of Find Alarm (`com.apple.clock.AssistantAlarmEntity`). */
 export type ClockFindAlarmParams = Partial<ParamTypes["com.apple.clock.AssistantAlarmEntity"]>;
-/** Parameters of Cancel Timers (`com.apple.clock.AssistantCancelTimerIntent`). */
-export type ClockCancelTimersParams = Partial<ParamTypes["com.apple.clock.AssistantCancelTimerIntent"]>;
-/** Parameters of Add Alarm (`com.apple.clock.AssistantCreateAlarmIntent`). */
-export type ClockAddAlarmParams = Partial<ParamTypes["com.apple.clock.AssistantCreateAlarmIntent"]>;
-/** Parameters of Start Timer (`com.apple.clock.AssistantCreateTimerIntent`). */
-export type ClockStartTimerParams = Partial<ParamTypes["com.apple.clock.AssistantCreateTimerIntent"]>;
-/** Parameters of Delete Alarms (`com.apple.clock.AssistantDeleteAlarmIntent`). */
-export type ClockDeleteAlarmsParams = Partial<ParamTypes["com.apple.clock.AssistantDeleteAlarmIntent"]>;
-/** Parameters of Lap Stopwatch (`com.apple.clock.AssistantLapStopwatchIntent`). */
-export type ClockLapStopwatchParams = Partial<ParamTypes["com.apple.clock.AssistantLapStopwatchIntent"]>;
-/** Parameters of Pause Timer (`com.apple.clock.AssistantPauseTimerIntent`). */
-export type ClockPauseTimerParams = Partial<ParamTypes["com.apple.clock.AssistantPauseTimerIntent"]>;
-/** Parameters of Reset Stopwatch (`com.apple.clock.AssistantResetStopwatchIntent`). */
-export type ClockResetStopwatchParams = Partial<ParamTypes["com.apple.clock.AssistantResetStopwatchIntent"]>;
-/** Parameters of Resume Timer (`com.apple.clock.AssistantResumeTimerIntent`). */
-export type ClockResumeTimerParams = Partial<ParamTypes["com.apple.clock.AssistantResumeTimerIntent"]>;
-/** Parameters of Start Stopwatch (`com.apple.clock.AssistantStartStopwatchIntent`). */
-export type ClockStartStopwatchParams = Partial<ParamTypes["com.apple.clock.AssistantStartStopwatchIntent"]>;
-/** Parameters of Stop Stopwatch (`com.apple.clock.AssistantStopStopwatchIntent`). */
-export type ClockStopStopwatchParams = Partial<ParamTypes["com.apple.clock.AssistantStopStopwatchIntent"]>;
 /** Parameters of Cancel Timer (`com.apple.clock.CancelTimerIntent`). */
 export type ClockCancelTimerParams = Partial<ParamTypes["com.apple.clock.CancelTimerIntent"]>;
 /** Parameters of Delete Alarms (`com.apple.clock.DeleteAlarmIntent`). */
-export type ComAppleClockDeleteAlarmIntentParams = Partial<ParamTypes["com.apple.clock.DeleteAlarmIntent"]>;
-/** Parameters of Dismiss Alarm (`com.apple.clock.DismissAlarmIntent`). */
-export type ClockDismissAlarmParams = Partial<ParamTypes["com.apple.clock.DismissAlarmIntent"]>;
+export type ClockDeleteAlarmsParams = Partial<ParamTypes["com.apple.clock.DeleteAlarmIntent"]>;
 /** Parameters of Get Current Timer (`com.apple.clock.GetCurrentTimerDetailsIntent`). */
 export type ClockGetCurrentTimerParams = Partial<ParamTypes["com.apple.clock.GetCurrentTimerDetailsIntent"]>;
 /** Parameters of Get Time for City (`com.apple.clock.GetTimeForCityIntent`). */
 export type ClockGetTimeForCityParams = Partial<ParamTypes["com.apple.clock.GetTimeForCityIntent"]>;
 /** Parameters of Lap Stopwatch (`com.apple.clock.LapStopwatchIntent`). */
-export type ComAppleClockLapStopwatchIntentParams = Partial<ParamTypes["com.apple.clock.LapStopwatchIntent"]>;
+export type ClockLapStopwatchParams = Partial<ParamTypes["com.apple.clock.LapStopwatchIntent"]>;
 /** Parameters of Opens Alarm (`com.apple.clock.OpenAlarmIntent`). */
 export type ClockOpensAlarmParams = Partial<ParamTypes["com.apple.clock.OpenAlarmIntent"]>;
 /** Parameters of Open Tab (`com.apple.clock.OpenTab`). */
 export type ClockOpenTabParams = Partial<ParamTypes["com.apple.clock.OpenTab"]>;
 /** Parameters of Pause Timer (`com.apple.clock.PauseTimerIntent`). */
-export type ComAppleClockPauseTimerIntentParams = Partial<ParamTypes["com.apple.clock.PauseTimerIntent"]>;
+export type ClockPauseTimerParams = Partial<ParamTypes["com.apple.clock.PauseTimerIntent"]>;
 /** Parameters of Remove City (`com.apple.clock.RemoveWorldClockIntent`). */
 export type ClockRemoveCityParams = Partial<ParamTypes["com.apple.clock.RemoveWorldClockIntent"]>;
 /** Parameters of Reset Stopwatch (`com.apple.clock.ResetStopwatchIntent`). */
-export type ComAppleClockResetStopwatchIntentParams = Partial<ParamTypes["com.apple.clock.ResetStopwatchIntent"]>;
+export type ClockResetStopwatchParams = Partial<ParamTypes["com.apple.clock.ResetStopwatchIntent"]>;
 /** Parameters of Resume Timer (`com.apple.clock.ResumeTimerIntent`). */
-export type ComAppleClockResumeTimerIntentParams = Partial<ParamTypes["com.apple.clock.ResumeTimerIntent"]>;
-/** Parameters of Snooze Alarm (`com.apple.clock.SnoozeAlarmIntent`). */
-export type ClockSnoozeAlarmParams = Partial<ParamTypes["com.apple.clock.SnoozeAlarmIntent"]>;
+export type ClockResumeTimerParams = Partial<ParamTypes["com.apple.clock.ResumeTimerIntent"]>;
 /** Parameters of Start Stopwatch (`com.apple.clock.StartStopwatchIntent`). */
-export type ComAppleClockStartStopwatchIntentParams = Partial<ParamTypes["com.apple.clock.StartStopwatchIntent"]>;
+export type ClockStartStopwatchParams = Partial<ParamTypes["com.apple.clock.StartStopwatchIntent"]>;
 /** Parameters of Stop the Stopwatch (`com.apple.clock.StopStopwatchIntent`). */
 export type ClockStopTheStopwatchParams = Partial<ParamTypes["com.apple.clock.StopStopwatchIntent"]>;
 /** Parameters of Find Timer (`com.apple.clock.TimerEntity`). */
 export type ClockFindTimerParams = Partial<ParamTypes["com.apple.clock.TimerEntity"]>;
-/** Parameters of Update Alarm (`com.apple.clock.UpdateAlarmIntent`). */
-export type ClockUpdateAlarmParams = Partial<ParamTypes["com.apple.clock.UpdateAlarmIntent"]>;
-/** Parameters of Update Timer (`com.apple.clock.UpdateTimerIntent`). */
-export type ClockUpdateTimerParams = Partial<ParamTypes["com.apple.clock.UpdateTimerIntent"]>;
 /** Parameters of Put Display to Sleep (`com.apple.controlcenter.DisplaySleepIntent`). */
 export type ComAppleControlcenterPutDisplayToSleepParams = Partial<ParamTypes["com.apple.controlcenter.DisplaySleepIntent"]>;
 /** Parameters of Lock the screen (`com.apple.controlcenter.LockScreenIntent`). */
@@ -2132,22 +2008,12 @@ export type FinderTrashItemsParams = Partial<ParamTypes["com.apple.finder.TrashI
 export type ComAppleFindmySetGeoFenceNotificationOnAPersonSMovementParams = Partial<ParamTypes["com.apple.findmy.CreateIncomingGeofenceIntent"]>;
 /** Parameters of Set Geofence notification to be received by person (`com.apple.findmy.CreateOutgoingGeofenceIntent`). */
 export type ComAppleFindmySetGeofenceNotificationToBeReceivedByPersonParams = Partial<ParamTypes["com.apple.findmy.CreateOutgoingGeofenceIntent"]>;
-/** Parameters of Find Item (`com.apple.findmy.FindItemIntent`). */
-export type ComAppleFindmyFindItemParams = Partial<ParamTypes["com.apple.findmy.FindItemIntent"]>;
-/** Parameters of Find Person (`com.apple.findmy.FindPersonIntent`). */
-export type ComAppleFindmyFindPersonParams = Partial<ParamTypes["com.apple.findmy.FindPersonIntent"]>;
 /** Parameters of Find Geofence (`com.apple.findmy.GeofenceEntity`). */
 export type ComAppleFindmyFindGeofenceParams = Partial<ParamTypes["com.apple.findmy.GeofenceEntity"]>;
 /** Parameters of Find Item (`com.apple.findmy.ItemEntity`). */
-export type ComAppleFindmyItemEntityParams = Partial<ParamTypes["com.apple.findmy.ItemEntity"]>;
-/** Parameters of Open Item (`com.apple.findmy.OpenItemIntent`). */
-export type ComAppleFindmyOpenItemParams = Partial<ParamTypes["com.apple.findmy.OpenItemIntent"]>;
-/** Parameters of Open Module (`com.apple.findmy.OpenModuleIntent`). */
-export type ComAppleFindmyOpenModuleParams = Partial<ParamTypes["com.apple.findmy.OpenModuleIntent"]>;
-/** Parameters of Open Person (`com.apple.findmy.OpenPersonIntent`). */
-export type ComAppleFindmyOpenPersonParams = Partial<ParamTypes["com.apple.findmy.OpenPersonIntent"]>;
+export type ComAppleFindmyFindItemParams = Partial<ParamTypes["com.apple.findmy.ItemEntity"]>;
 /** Parameters of Find Person (`com.apple.findmy.PersonEntity`). */
-export type ComAppleFindmyPersonEntityParams = Partial<ParamTypes["com.apple.findmy.PersonEntity"]>;
+export type ComAppleFindmyFindPersonParams = Partial<ParamTypes["com.apple.findmy.PersonEntity"]>;
 /** Parameters of Set Location Sharing Setting (`com.apple.findmy.SetShareLocationSettingIntent`). */
 export type ComAppleFindmySetLocationSharingSettingParams = Partial<ParamTypes["com.apple.findmy.SetShareLocationSettingIntent"]>;
 /** Parameters of Add Item to Board (`com.apple.freeform.CRLAddItemToBoardIntent`). */
@@ -2158,12 +2024,6 @@ export type FreeformFindBoardParams = Partial<ParamTypes["com.apple.freeform.CRL
 export type FreeformShowHideDotGridParams = Partial<ParamTypes["com.apple.freeform.CRLChangeBoardCanvasGridIntent"]>;
 /** Parameters of Show/Hide Object Connectors (`com.apple.freeform.CRLChangeBoardObjectConnectorsIntent`). */
 export type FreeformShowHideObjectConnectorsParams = Partial<ParamTypes["com.apple.freeform.CRLChangeBoardObjectConnectorsIntent"]>;
-/** Parameters of Change Fill Color (`com.apple.freeform.CRLChangeSelectionColorIntent`). */
-export type FreeformChangeFillColorParams = Partial<ParamTypes["com.apple.freeform.CRLChangeSelectionColorIntent"]>;
-/** Parameters of Change Font Size (`com.apple.freeform.CRLChangeSelectionFontSizeIntent`). */
-export type FreeformChangeFontSizeParams = Partial<ParamTypes["com.apple.freeform.CRLChangeSelectionFontSizeIntent"]>;
-/** Parameters of Change Font Style (`com.apple.freeform.CRLChangeSelectionFontStyleIntent`). */
-export type FreeformChangeFontStyleParams = Partial<ParamTypes["com.apple.freeform.CRLChangeSelectionFontStyleIntent"]>;
 /** Parameters of Create Board (`com.apple.freeform.CRLCreateBoardIntent`). */
 export type FreeformCreateBoardParams = Partial<ParamTypes["com.apple.freeform.CRLCreateBoardIntent"]>;
 /** Parameters of Delete Boards (`com.apple.freeform.CRLDeleteBoardIntent`). */
@@ -2176,20 +2036,8 @@ export type FreeformAddFilesToBoardParams = Partial<ParamTypes["com.apple.freefo
 export type FreeformAddPhotosToBoardParams = Partial<ParamTypes["com.apple.freeform.CRLInsertPhotosToBoardIntent"]>;
 /** Parameters of Open Board (`com.apple.freeform.CRLOpenBoardIntent`). */
 export type FreeformOpenBoardParams = Partial<ParamTypes["com.apple.freeform.CRLOpenBoardIntent"]>;
-/** Parameters of Resize Text (`com.apple.freeform.CRLResizeSelectionFontIntent_v2`). */
-export type FreeformResizeTextParams = Partial<ParamTypes["com.apple.freeform.CRLResizeSelectionFontIntent_v2"]>;
 /** Parameters of Rename Board (`com.apple.freeform.CRLUpdateBoardIntent`). */
 export type FreeformRenameBoardParams = Partial<ParamTypes["com.apple.freeform.CRLUpdateBoardIntent"]>;
-/** Parameters of Generate Knowledge Response (`com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateKnowledgeResponseIntent`). */
-export type ComAppleGenerativeassistanttoolsGenerativeAssistantExtensionGenerateKnowledgeResponseParams = Partial<ParamTypes["com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateKnowledgeResponseIntent"]>;
-/** Parameters of Generate Rich Content From Media (`com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentFromMediaIntent`). */
-export type ComAppleGenerativeassistanttoolsGenerativeAssistantExtensionGenerateRichContentFromMediaParams = Partial<ParamTypes["com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentFromMediaIntent"]>;
-/** Parameters of Generate Rich Content (`com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentIntent`). */
-export type ComAppleGenerativeassistanttoolsGenerativeAssistantExtensionGenerateRichContentParams = Partial<ParamTypes["com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerateRichContentIntent"]>;
-/** Parameters of On Screen Content Intent (`com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentIntent`). */
-export type ComAppleGenerativeassistanttoolsGenerativeAssistantExtensionOnScreenContentIntentParams = Partial<ParamTypes["com.apple.generativeassistanttools.GenerativeAssistantExtension.OnScreenContentIntent"]>;
-/** Parameters of Prewarm GenerativeAssistantExtension (`com.apple.generativeassistanttools.GenerativeAssistantExtension.PrewarmGenerativeAssistantExtensionIntent`). */
-export type ComAppleGenerativeassistanttoolsGenerativeAssistantExtensionPrewarmGenerativeAssistantExtensionParams = Partial<ParamTypes["com.apple.generativeassistanttools.GenerativeAssistantExtension.PrewarmGenerativeAssistantExtensionIntent"]>;
 /** Parameters of Generative Partner Prototype (`com.apple.gms.GenerativePartnerPrototypeExtension.GenerativePartnerPrototypeIntentChatGPT`). */
 export type ComAppleGmsGenerativePartnerPrototypeExtensionGenerativePartnerPrototypeParams = Partial<ParamTypes["com.apple.gms.GenerativePartnerPrototypeExtension.GenerativePartnerPrototypeIntentChatGPT"]>;
 /** Parameters of Open Collection (`com.apple.helpviewer.CollectionOpenIntent`). */
@@ -2204,50 +2052,28 @@ export type BooksSetAudiobookSleepTimerParams = Partial<ParamTypes["com.apple.iB
 export type BooksFindBooksParams = Partial<ParamTypes["com.apple.iBooksX.BookAppEntity"]>;
 /** Parameters of Change Book Appearance (`com.apple.iBooksX.BookReaderChangeThemeIntent`). */
 export type BooksChangeBookAppearanceParams = Partial<ParamTypes["com.apple.iBooksX.BookReaderChangeThemeIntent"]>;
-/** Parameters of Turn Page (`com.apple.iBooksX.BookReaderNavigatePageInBookIntent`). */
-export type BooksTurnPageParams = Partial<ParamTypes["com.apple.iBooksX.BookReaderNavigatePageInBookIntent"]>;
 /** Parameters of Turn Page (`com.apple.iBooksX.BookReaderNavigatePagesIntent`). */
-export type ComAppleIBooksXBookReaderNavigatePagesIntentParams = Partial<ParamTypes["com.apple.iBooksX.BookReaderNavigatePagesIntent"]>;
+export type BooksTurnPageParams = Partial<ParamTypes["com.apple.iBooksX.BookReaderNavigatePagesIntent"]>;
 /** Parameters of Get Book Settings (`com.apple.iBooksX.BookSettingsEntity`). */
 export type BooksGetBookSettingsParams = Partial<ParamTypes["com.apple.iBooksX.BookSettingsEntity"]>;
 /** Parameters of Edit Book Settings (`com.apple.iBooksX.BookSettingsEntity-UpdatableEntity`). */
 export type BooksEditBookSettingsParams = Partial<ParamTypes["com.apple.iBooksX.BookSettingsEntity-UpdatableEntity"]>;
 /** Parameters of Change Text Size (`com.apple.iBooksX.ChangeFontSizeIntent`). */
 export type BooksChangeTextSizeParams = Partial<ParamTypes["com.apple.iBooksX.ChangeFontSizeIntent"]>;
-/** Parameters of Open View or Collection in Books App (`com.apple.iBooksX.DeepLinkIntent`). */
-export type BooksOpenViewOrCollectionInBooksAppParams = Partial<ParamTypes["com.apple.iBooksX.DeepLinkIntent"]>;
 /** Parameters of Find Standard Collection (`com.apple.iBooksX.DefaultCollectionEntity`). */
 export type BooksFindStandardCollectionParams = Partial<ParamTypes["com.apple.iBooksX.DefaultCollectionEntity"]>;
-/** Parameters of Open Audio Item (`com.apple.iBooksX.OpenAudioIntent`). */
-export type BooksOpenAudioItemParams = Partial<ParamTypes["com.apple.iBooksX.OpenAudioIntent"]>;
 /** Parameters of Open Book (`com.apple.iBooksX.OpenBookIntent`). */
 export type BooksOpenBookParams = Partial<ParamTypes["com.apple.iBooksX.OpenBookIntent"]>;
 /** Parameters of Open Default Collection (`com.apple.iBooksX.OpenDefaultCollectionIntent`). */
 export type BooksOpenDefaultCollectionParams = Partial<ParamTypes["com.apple.iBooksX.OpenDefaultCollectionIntent"]>;
-/** Parameters of Open Most Recent Book (`com.apple.iBooksX.OpenMostRecentBookIntent`). */
-export type BooksOpenMostRecentBookParams = Partial<ParamTypes["com.apple.iBooksX.OpenMostRecentBookIntent"]>;
-/** Parameters of Open Specific Book (`com.apple.iBooksX.OpenSpecificBookIntent`). */
-export type BooksOpenSpecificBookParams = Partial<ParamTypes["com.apple.iBooksX.OpenSpecificBookIntent"]>;
 /** Parameters of Open View in Books App (`com.apple.iBooksX.OpenTabBarItemIntent`). */
 export type BooksOpenViewInBooksAppParams = Partial<ParamTypes["com.apple.iBooksX.OpenTabBarItemIntent"]>;
 /** Parameters of Open Table of Contents (`com.apple.iBooksX.OpenTableOfContentsIntent`). */
 export type BooksOpenTableOfContentsParams = Partial<ParamTypes["com.apple.iBooksX.OpenTableOfContentsIntent"]>;
-/** Parameters of Pause Current Audiobook (`com.apple.iBooksX.PauseCurrentAudiobookIntent`). */
-export type BooksPauseCurrentAudiobookParams = Partial<ParamTypes["com.apple.iBooksX.PauseCurrentAudiobookIntent"]>;
-/** Parameters of Play Audio Item (`com.apple.iBooksX.PlayAudioIntent`). */
-export type BooksPlayAudioItemParams = Partial<ParamTypes["com.apple.iBooksX.PlayAudioIntent"]>;
 /** Parameters of Play Audiobook (`com.apple.iBooksX.PlayAudiobookIntent`). */
 export type BooksPlayAudiobookParams = Partial<ParamTypes["com.apple.iBooksX.PlayAudiobookIntent"]>;
-/** Parameters of Play Most Recent Audiobook (`com.apple.iBooksX.PlayMostRecentAudiobookIntent`). */
-export type BooksPlayMostRecentAudiobookParams = Partial<ParamTypes["com.apple.iBooksX.PlayMostRecentAudiobookIntent"]>;
-/** Parameters of Play Specific Audiobook (`com.apple.iBooksX.PlaySpecificAudiobookIntent`). */
-export type BooksPlaySpecificAudiobookParams = Partial<ParamTypes["com.apple.iBooksX.PlaySpecificAudiobookIntent"]>;
-/** Parameters of Search in the Books App (`com.apple.iBooksX.SearchBooksAppIntent`). */
-export type BooksSearchInTheBooksAppParams = Partial<ParamTypes["com.apple.iBooksX.SearchBooksAppIntent"]>;
 /** Parameters of Search in Books (`com.apple.iBooksX.SearchBooksIntent`). */
 export type BooksSearchInBooksParams = Partial<ParamTypes["com.apple.iBooksX.SearchBooksIntent"]>;
-/** Parameters of UpdateReaderIntent (`com.apple.iBooksX.UpdateBookSettingsIntent`). */
-export type BooksUpdateReaderIntentParams = Partial<ParamTypes["com.apple.iBooksX.UpdateBookSettingsIntent"]>;
 /** Parameters of Create Calendar (`com.apple.iCal.CreateCalendarIntent`). */
 export type CalendarCreateCalendarParams = Partial<ParamTypes["com.apple.iCal.CreateCalendarIntent"]>;
 /** Parameters of Create Event (`com.apple.iCal.CreateEventIntent`). */
@@ -2282,6 +2108,8 @@ export type CalendarOpenEventDetailsParams = Partial<ParamTypes["com.apple.iCal.
 export type CalendarOpenEventEditorParams = Partial<ParamTypes["com.apple.iCal.OpenEventEditorIntent"]>;
 /** Parameters of Respond to Inbox Item (`com.apple.iCal.RespondToInboxItemIntent`). */
 export type CalendarRespondToInboxItemParams = Partial<ParamTypes["com.apple.iCal.RespondToInboxItemIntent"]>;
+/** Parameters of Set Calendar Focus Filter (`com.apple.iCal.SetCalendarFocusConfiguration`). */
+export type CalendarSetCalendarFocusFilterParams = Partial<ParamTypes["com.apple.iCal.SetCalendarFocusConfiguration"]>;
 /** Parameters of Find TransferableCalendarEntity <no loc> (`com.apple.iCal.TransferableCalendarEntity`). */
 export type CalendarFindTransferableCalendarEntityNoLocParams = Partial<ParamTypes["com.apple.iCal.TransferableCalendarEntity"]>;
 /** Parameters of Find TransferableSourceEntity <no loc> (`com.apple.iCal.TransferableSourceEntity`). */
@@ -2364,6 +2192,8 @@ export type MailDeleteMessageParams = Partial<ParamTypes["com.apple.mail.DeleteM
 export type MailFindDraftMessageParams = Partial<ParamTypes["com.apple.mail.DraftMessageEntity"]>;
 /** Parameters of Forward Message (`com.apple.mail.ForwardMessageIntent`). */
 export type MailForwardMessageParams = Partial<ParamTypes["com.apple.mail.ForwardMessageIntent"]>;
+/** Parameters of Set Mail Focus Filter (`com.apple.mail.MailFocusConfigurationAction`). */
+export type MailSetMailFocusFilterParams = Partial<ParamTypes["com.apple.mail.MailFocusConfigurationAction"]>;
 /** Parameters of Find Message (`com.apple.mail.MailMessage`). */
 export type MailFindMessageParams = Partial<ParamTypes["com.apple.mail.MailMessage"]>;
 /** Parameters of Find Message (`com.apple.mail.MailMessageEntity`). */
@@ -2372,10 +2202,6 @@ export type ComAppleMailMailMessageEntityParams = Partial<ParamTypes["com.apple.
 export type MailReplyMessageParams = Partial<ParamTypes["com.apple.mail.ReplyMessageIntent"]>;
 /** Parameters of Save Draft (`com.apple.mail.SaveDraftIntent`). */
 export type MailSaveDraftParams = Partial<ParamTypes["com.apple.mail.SaveDraftIntent"]>;
-/** Parameters of Show Siri Search Results (`com.apple.mail.SearchMailEntityIntent`). */
-export type MailShowSiriSearchResultsParams = Partial<ParamTypes["com.apple.mail.SearchMailEntityIntent"]>;
-/** Parameters of Search (`com.apple.mail.SearchMailIntent`). */
-export type MailSearchParams = Partial<ParamTypes["com.apple.mail.SearchMailIntent"]>;
 /** Parameters of Send Draft (`com.apple.mail.SendDraftIntent`). */
 export type MailSendDraftParams = Partial<ParamTypes["com.apple.mail.SendDraftIntent"]>;
 /** Parameters of Send an Email (`com.apple.mail.SendMail`). */
@@ -2389,17 +2215,13 @@ export type MailUnsubscribeMessageParams = Partial<ParamTypes["com.apple.mail.Un
 /** Parameters of Update Message (`com.apple.mail.UpdateMessageIntent`). */
 export type MailUpdateMessageParams = Partial<ParamTypes["com.apple.mail.UpdateMessageIntent"]>;
 /** Parameters of Create Note (`com.apple.mobilenotes.SharingExtension`). */
-export type ComAppleMobilenotesSharingExtensionParams = Partial<ParamTypes["com.apple.mobilenotes.SharingExtension"]>;
+export type NotesCreateNoteParams = Partial<ParamTypes["com.apple.mobilenotes.SharingExtension"]>;
 /** Parameters of Add Alarm (`com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent`). */
-export type ComAppleMobiletimerFrameworkMobileTimerIntentsMTCreateAlarmIntentParams = Partial<ParamTypes["com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent"]>;
+export type ClockAddAlarmParams = Partial<ParamTypes["com.apple.mobiletimer-framework.MobileTimerIntents.MTCreateAlarmIntent"]>;
 /** Parameters of Find Alarms (`com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent`). */
 export type ClockFindAlarmsParams = Partial<ParamTypes["com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent"]>;
 /** Parameters of Toggle Alarm (`com.apple.mobiletimer-framework.MobileTimerIntents.MTToggleAlarmIntent`). */
 export type ClockToggleAlarmParams = Partial<ParamTypes["com.apple.mobiletimer-framework.MobileTimerIntents.MTToggleAlarmIntent"]>;
-/** Parameters of Recognize Music (`com.apple.musicrecognition.mac.RecognizeAudioIntent`). */
-export type ComAppleMusicrecognitionMacRecognizeMusicParams = Partial<ParamTypes["com.apple.musicrecognition.mac.RecognizeAudioIntent"]>;
-/** Parameters of Open Recognized Song (`com.apple.musicrecognition.mac.ShazamSongEntityOpenIntent`). */
-export type ComAppleMusicrecognitionMacOpenRecognizedSongParams = Partial<ParamTypes["com.apple.musicrecognition.mac.ShazamSongEntityOpenIntent"]>;
 /** Parameters of Get Automatically Download Audio Stories (`com.apple.news.AutoDownloadAudioStoriesEntity`). */
 export type ComApplePreferencesGetAutomaticallyDownloadAudioStoriesParams = Partial<ParamTypes["com.apple.news.AutoDownloadAudioStoriesEntity"]>;
 /** Parameters of Update Automatically Download Audio Stories (`com.apple.news.AutoDownloadAudioStoriesEntity-UpdatableEntity`). */
@@ -2480,22 +2302,12 @@ export type NewsSaveArticleParams = Partial<ParamTypes["com.apple.news.SaveArtic
 export type NewsSaveRecipeParams = Partial<ParamTypes["com.apple.news.SaveRecipeAppIntent"]>;
 /** Parameters of Select Ingredient (`com.apple.news.SelectIngredientAppIntent`). */
 export type NewsSelectIngredientParams = Partial<ParamTypes["com.apple.news.SelectIngredientAppIntent"]>;
-/** Parameters of Show Details (`com.apple.news.ShowDetailsAppIntent`). */
-export type NewsShowDetailsParams = Partial<ParamTypes["com.apple.news.ShowDetailsAppIntent"]>;
-/** Parameters of Show Ingredients (`com.apple.news.ShowIngredientsAppIntent`). */
-export type NewsShowIngredientsParams = Partial<ParamTypes["com.apple.news.ShowIngredientsAppIntent"]>;
-/** Parameters of Show Instructions (`com.apple.news.ShowInstructionsAppIntent`). */
-export type NewsShowInstructionsParams = Partial<ParamTypes["com.apple.news.ShowInstructionsAppIntent"]>;
 /** Parameters of Show Next Step (`com.apple.news.ShowNextStepAppIntent`). */
 export type NewsShowNextStepParams = Partial<ParamTypes["com.apple.news.ShowNextStepAppIntent"]>;
 /** Parameters of Show Previous Step (`com.apple.news.ShowPreviousStepAppIntent`). */
 export type NewsShowPreviousStepParams = Partial<ParamTypes["com.apple.news.ShowPreviousStepAppIntent"]>;
 /** Parameters of Show Specific Step (`com.apple.news.ShowSpecificStepIntent`). */
 export type NewsShowSpecificStepParams = Partial<ParamTypes["com.apple.news.ShowSpecificStepIntent"]>;
-/** Parameters of Start Cooking (`com.apple.news.StartCookingAppIntent`). */
-export type NewsStartCookingParams = Partial<ParamTypes["com.apple.news.StartCookingAppIntent"]>;
-/** Parameters of Stop Cooking (`com.apple.news.StopCookingAppIntent`). */
-export type NewsStopCookingParams = Partial<ParamTypes["com.apple.news.StopCookingAppIntent"]>;
 /** Parameters of Unblock Channel or Topic (`com.apple.news.UnblockIntent`). */
 export type NewsUnblockChannelOrTopicParams = Partial<ParamTypes["com.apple.news.UnblockIntent"]>;
 /** Parameters of Unsave Article (`com.apple.news.UnsaveArticleIntent`). */
@@ -2508,42 +2320,14 @@ export type NewsUnselectIngredientParams = Partial<ParamTypes["com.apple.news.Un
 export type NewsChangeNewsSettingsParams = Partial<ParamTypes["com.apple.news.WFAppSettingEntityUpdaterAction"]>;
 /** Parameters of Get News Settings (`com.apple.news.WFGetAppSettingAction`). */
 export type NewsGetNewsSettingsParams = Partial<ParamTypes["com.apple.news.WFGetAppSettingAction"]>;
-/** Parameters of DoNotUseThisExtensionIntent (`com.apple.omniSearch.SearchToolExtension.DoNotUseThisExtensionIntent`). */
-export type ComAppleOmniSearchSearchToolExtensionDoNotUseThisExtensionIntentParams = Partial<ParamTypes["com.apple.omniSearch.SearchToolExtension.DoNotUseThisExtensionIntent"]>;
-/** Parameters of Search (`com.apple.omniSearch.SearchToolExtension.SearchTool`). */
-export type ComAppleOmniSearchSearchToolExtensionSearchParams = Partial<ParamTypes["com.apple.omniSearch.SearchToolExtension.SearchTool"]>;
-/** Parameters of SearchTool Control (`com.apple.omniSearch.SearchToolExtension.SearchToolControl`). */
-export type ComAppleOmniSearchSearchToolExtensionSearchToolControlParams = Partial<ParamTypes["com.apple.omniSearch.SearchToolExtension.SearchToolControl"]>;
-/** Parameters of Add Audio to Library (`com.apple.podcasts.AddAudioToLibraryIntent`). */
-export type PodcastsAddAudioToLibraryParams = Partial<ParamTypes["com.apple.podcasts.AddAudioToLibraryIntent"]>;
 /** Parameters of Find Podcast Episode (`com.apple.podcasts.EpisodeEntity`). */
 export type PodcastsFindPodcastEpisodeParams = Partial<ParamTypes["com.apple.podcasts.EpisodeEntity"]>;
-/** Parameters of Follow Show (`com.apple.podcasts.FollowShowAppIntent`). */
-export type PodcastsFollowShowParams = Partial<ParamTypes["com.apple.podcasts.FollowShowAppIntent"]>;
-/** Parameters of Open App Location (`com.apple.podcasts.OpenAppLocationAppIntent`). */
-export type PodcastsOpenAppLocationParams = Partial<ParamTypes["com.apple.podcasts.OpenAppLocationAppIntent"]>;
-/** Parameters of Open Audio Intent (`com.apple.podcasts.OpenAudioAppIntent`). */
-export type PodcastsOpenAudioIntentParams = Partial<ParamTypes["com.apple.podcasts.OpenAudioAppIntent"]>;
-/** Parameters of Open Channel (`com.apple.podcasts.OpenChannelAppIntent`). */
-export type PodcastsOpenChannelParams = Partial<ParamTypes["com.apple.podcasts.OpenChannelAppIntent"]>;
-/** Parameters of Open Episode (`com.apple.podcasts.OpenEpisodeAppIntent`). */
-export type PodcastsOpenEpisodeParams = Partial<ParamTypes["com.apple.podcasts.OpenEpisodeAppIntent"]>;
-/** Parameters of Open Show (`com.apple.podcasts.OpenShowAppIntent`). */
-export type PodcastsOpenShowParams = Partial<ParamTypes["com.apple.podcasts.OpenShowAppIntent"]>;
-/** Parameters of Play Episode (`com.apple.podcasts.PlayAudioIntent`). */
-export type PodcastsPlayEpisodeParams = Partial<ParamTypes["com.apple.podcasts.PlayAudioIntent"]>;
-/** Parameters of Play or Pause Station (`com.apple.podcasts.PlayPauseStationAppIntent`). */
-export type PodcastsPlayOrPauseStationParams = Partial<ParamTypes["com.apple.podcasts.PlayPauseStationAppIntent"]>;
 /** Parameters of Play or Pause Episode (`com.apple.podcasts.PlayPauseWidgetIntent`). */
 export type PodcastsPlayOrPauseEpisodeParams = Partial<ParamTypes["com.apple.podcasts.PlayPauseWidgetIntent"]>;
 /** Parameters of Find Podcast Collection (`com.apple.podcasts.PodcastCollectionEntity`). */
 export type PodcastsFindPodcastCollectionParams = Partial<ParamTypes["com.apple.podcasts.PodcastCollectionEntity"]>;
-/** Parameters of Search Podcasts (`com.apple.podcasts.SearchPodcastsAppIntent`). */
-export type PodcastsSearchPodcastsParams = Partial<ParamTypes["com.apple.podcasts.SearchPodcastsAppIntent"]>;
 /** Parameters of Find Podcast Show (`com.apple.podcasts.ShowEntity`). */
 export type PodcastsFindPodcastShowParams = Partial<ParamTypes["com.apple.podcasts.ShowEntity"]>;
-/** Parameters of Warmup Audio Queue (`com.apple.podcasts.WarmupAudioQueueIntent`). */
-export type PodcastsWarmupAudioQueueParams = Partial<ParamTypes["com.apple.podcasts.WarmupAudioQueueIntent"]>;
 /** Parameters of Cancel Print Job (`com.apple.printcenter.CancelPrintJob`). */
 export type ComApplePrintcenterCancelPrintJobParams = Partial<ParamTypes["com.apple.printcenter.CancelPrintJob"]>;
 /** Parameters of Open Print Center (`com.apple.printcenter.LaunchPrintCenterAppIntent`). */
@@ -2582,8 +2366,6 @@ export type RemindersMoveRemindersParams = Partial<ParamTypes["com.apple.reminde
 export type RemindersOpenGroupParams = Partial<ParamTypes["com.apple.reminders.OpenGroupAppIntent"]>;
 /** Parameters of Open Reminder In List (`com.apple.reminders.OpenReminderAppIntent`). */
 export type RemindersOpenReminderInListParams = Partial<ParamTypes["com.apple.reminders.OpenReminderAppIntent"]>;
-/** Parameters of Open Smart List (`com.apple.reminders.OpenSmartListAppIntent`). */
-export type RemindersOpenSmartListParams = Partial<ParamTypes["com.apple.reminders.OpenSmartListAppIntent"]>;
 /** Parameters of Find Reminder (`com.apple.reminders.ReminderEntity`). */
 export type RemindersFindReminderParams = Partial<ParamTypes["com.apple.reminders.ReminderEntity"]>;
 /** Parameters of Get User Defaults Entity (`com.apple.reminders.RemotePreferencesEntity`). */
@@ -2598,10 +2380,8 @@ export type RemindersFindSmartListParams = Partial<ParamTypes["com.apple.reminde
 export type RemindersCreateListParams = Partial<ParamTypes["com.apple.reminders.TTRCreateListAppIntent"]>;
 /** Parameters of Create Reminder (`com.apple.reminders.TTRCreateReminderAppIntent`). */
 export type RemindersCreateReminderParams = Partial<ParamTypes["com.apple.reminders.TTRCreateReminderAppIntent"]>;
-/** Parameters of Open List (`com.apple.reminders.TTROpenListAppIntent`). */
-export type RemindersOpenListParams = Partial<ParamTypes["com.apple.reminders.TTROpenListAppIntent"]>;
 /** Parameters of Open List (`com.apple.reminders.TTROpenSmartListAppIntent`). */
-export type ComAppleRemindersTTROpenSmartListAppIntentParams = Partial<ParamTypes["com.apple.reminders.TTROpenSmartListAppIntent"]>;
+export type RemindersOpenListParams = Partial<ParamTypes["com.apple.reminders.TTROpenSmartListAppIntent"]>;
 /** Parameters of Search in Reminders (`com.apple.reminders.TTRSearchRemindersAppIntent`). */
 export type RemindersSearchInRemindersParams = Partial<ParamTypes["com.apple.reminders.TTRSearchRemindersAppIntent"]>;
 /** Parameters of Update reminders group properties (`com.apple.reminders.UpdateGroupAppIntent`). */
@@ -2682,8 +2462,6 @@ export type ComAppleSiriMarketplaceIntentsAppIntentsDummyIntentToEnsureAppSearch
 export type ComAppleSiriAudioAppIntentsExtensionAddAudioItemToLibraryParams = Partial<ParamTypes["com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToLibraryIntent"]>;
 /** Parameters of Add Audio Item to Playlist (`com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent`). */
 export type ComAppleSiriAudioAppIntentsExtensionAddAudioItemToPlaylistParams = Partial<ParamTypes["com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent"]>;
-/** Parameters of Play Audio Item (`com.apple.siri.AudioAppIntentsExtension.SiriKitPlayAudioIntent`). */
-export type ComAppleSiriAudioAppIntentsExtensionPlayAudioItemParams = Partial<ParamTypes["com.apple.siri.AudioAppIntentsExtension.SiriKitPlayAudioIntent"]>;
 /** Parameters of Like Audio Item (`com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent`). */
 export type ComAppleSiriAudioAppIntentsExtensionLikeAudioItemParams = Partial<ParamTypes["com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent"]>;
 /** Parameters of Whole House Audio Placeholder Intent (`com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent`). */
@@ -2790,14 +2568,6 @@ export type ComAppleSiriFindmySiriFindMyFlowToolsSiriFindMyFlowToolsPlayItemSoun
 export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionMessagesPostReadingActionToolParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent"]>;
 /** Parameters of Prepare To Read Conversation Tool (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent`). */
 export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionPrepareToReadConversationToolParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent"]>;
-/** Parameters of SiriKitEditLastMessageIntent (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitEditLastMessageIntent`). */
-export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionSiriKitEditLastMessageIntentParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitEditLastMessageIntent"]>;
-/** Parameters of Prepare Messages for Reading (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitPrepareMessagesForReadingIntent`). */
-export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionPrepareMessagesForReadingParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitPrepareMessagesForReadingIntent"]>;
-/** Parameters of SiriKitSendMessageIntent (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitSendMessageIntent`). */
-export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionSiriKitSendMessageIntentParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitSendMessageIntent"]>;
-/** Parameters of SiriKitUnsendLastMessageIntent (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent`). */
-export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionSiriKitUnsendLastMessageIntentParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.SiriKitUnsendLastMessageIntent"]>;
 /** Parameters of Update a Draft (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool`). */
 export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionUpdateADraftParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool"]>;
 /** Parameters of Create Draft (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS`). */
@@ -2840,8 +2610,6 @@ export type StocksDeleteSymbolFromWatchlistParams = Partial<ParamTypes["com.appl
 export type StocksDeleteWatchlistParams = Partial<ParamTypes["com.apple.stocks.DeleteWatchlistsIntent"]>;
 /** Parameters of Follow Channel or Topic (`com.apple.stocks.FollowIntent`). */
 export type StocksFollowChannelOrTopicParams = Partial<ParamTypes["com.apple.stocks.FollowIntent"]>;
-/** Parameters of Get Symbol Quote (`com.apple.stocks.GetSymbolQuoteIntent`). */
-export type StocksGetSymbolQuoteParams = Partial<ParamTypes["com.apple.stocks.GetSymbolQuoteIntent"]>;
 /** Parameters of Create Watchlist (`com.apple.stocks.NewWatchlistIntent`). */
 export type StocksCreateWatchlistParams = Partial<ParamTypes["com.apple.stocks.NewWatchlistIntent"]>;
 /** Parameters of Find News Tab Deep Links (`com.apple.stocks.NewsTabDeepLink`). */
@@ -3757,7 +3525,7 @@ export type WeatherSetWindUnitParams = Partial<ParamTypes["com.apple.weather.Set
 /** Parameters of Find Synced Data (`com.apple.weather.SyncedDataEntity`). */
 export type WeatherFindSyncedDataParams = Partial<ParamTypes["com.apple.weather.SyncedDataEntity"]>;
 /** Parameters of Append to Note (`is.workflow.actions.appendnote`). */
-export type AppendnoteParams = Partial<ParamTypes["is.workflow.actions.appendnote"]>;
+export type NotesAppendToNoteParams = Partial<ParamTypes["is.workflow.actions.appendnote"]>;
 /** Parameters of Delete Photos (`is.workflow.actions.deletephotos`). */
 export type DeletephotosParams = Partial<ParamTypes["is.workflow.actions.deletephotos"]>;
 /** Parameters of Extract Text from Image (`is.workflow.actions.extracttextfromimage`). */

@@ -26,8 +26,15 @@ rm -f "$dev/progress.jsonl"
 python3 "$here/engine-filter-args.py" bundles "$data" > "$work/archive-args.json"
 "$here/linkd/run-payload.sh" "$here/linkd/archive-metadata.js" "$(cat "$work/archive-args.json")" "$dev/progress.jsonl"
 
+echo "saving what linkd says about each action (availability, visibility)"
+# data/linkd-actions.json: dump-toolkit-registry.py leaves out the actions linkd marks not
+# discoverable (Siri-only intents the app refuses to import), so `bun run extract` after this
+# step picks them up from the committed file.
+"$here/linkd/run-payload.sh" "$here/linkd/action-metadata.js" "$(cat "$work/archive-args.json")"
+python3 -c 'import json, sys; json.dump(json.load(open(sys.argv[1])), open(sys.argv[2], "w"), indent=1, sort_keys=True)' "$dev/actions.json" "$data/linkd-actions.json"
+
 echo "reading the Shortcuts app's entity index"
-python3 "$here/dump-toolkit-registry.py" --entities "$work/entities.json" "$work" > /dev/null
+python3 "$here/dump-toolkit-registry.py" --entities "$work/entities.json" --linkd-actions "$data/linkd-actions.json" "$work" > /dev/null
 
 echo "asking WorkflowKit's filter rules about every class (tools/engine-host, under lldb)"
 cat "$here/jxa-prelude.js" "$here/extract-entities.js" "$here/extract-engine-filters.js" > "$work/probe.js"

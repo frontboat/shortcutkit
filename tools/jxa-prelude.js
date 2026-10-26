@@ -59,11 +59,14 @@ function makeUInts(className, selector, a, b) {
   ObjC.bindFunction("objc_msgSend", ["void *", ["void *", "void *", "unsigned long", "unsigned short"]]);
   return ObjC.castRefToObject($.objc_msgSend(allocRef(className), $.sel_registerName(selector), a, b));
 }
-// WFIntentActionProvider also lists SiriKit intents of whatever App Store apps are installed
-// (Keynote, Pages, ...). Only intents whose app ships with macOS belong in committed data:
-// those resolve to /System or to no app at all (Apple Watch settings, Accessibility).
+// WFIntentActionProvider also lists SiriKit intents of whatever App Store apps are installed.
+// Only Apple's belong in committed data: intents whose app resolves to no app at all (Apple
+// Watch settings, Accessibility), under /System, or to an Apple bundle identifier. The last
+// covers Keynote, Numbers and Pages, which come preinstalled but live in /Applications with an
+// App Store receipt; the registry route keeps the same apps' App Intents by the same test.
 function isSystemBundle(bundleId) {
   if (!bundleId) return true;
+  if (bundleId.startsWith("com.apple.")) return true;
   const url = $.NSWorkspace.sharedWorkspace.URLForApplicationWithBundleIdentifier(bundleId);
   if (isNil(url)) return true;
   return str(url.path).startsWith("/System/");

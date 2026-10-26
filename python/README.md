@@ -29,11 +29,13 @@ are archived ([python-shortcuts](https://github.com/alexander-akhmetov/python-sh
 [shortcuts-js](https://github.com/joshfarrant/shortcuts-js));
 [Cherri](https://github.com/electrikmilk/cherri) is a separate language with its own compiler.
 
-- All 434 built-in actions as constants, so a typo is an `AttributeError`.
-- 1,449 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 73 more.
+- All 449 built-in actions as constants, so a typo is an `AttributeError`.
+- 1,318 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
+  actions the Shortcuts editor offers: the Siri-only intents the app refuses to import are left out.
 - Third-party app actions, given their descriptor.
-- Checked conditions for 75 Find actions in Apple's apps, such as Find Messages and Find Notes,
-  and the properties of what they find.
+- Checked conditions for 150 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find
+  Contacts, ...) and 136 in Apple's apps (Find Messages, Find Notes, ...), from the engine's own
+  rules, and the properties of what they find.
 - If, Repeat, Repeat with Each, and Choose from Menu blocks.
 - A wrong key or value raises `ValueError` before anything is written.
 - Pure Python, no dependencies.
@@ -75,7 +77,7 @@ s.end_if(gid)
 
 ```python
 r = s.action(actions.REMINDERS_CREATE_REMINDER, title=text("Buy milk"), priorityLevel="high")
-s.action(actions.NOTES_CREATE_NOTE, name="Shopping", content=text("Added ", ref(r)))
+s.action(actions.NOTES_CREATE_NOTE, name="Shopping", contents=text("Added ", ref(r)))
 ```
 
 ### Finding things
@@ -87,7 +89,7 @@ their operators, and the units of a date range. `property_()` reads one property
 from shortcutkit import where, property_
 
 found = s.action(actions.MESSAGES_FIND_MESSAGE,
-                 WFContentItemFilter=where(("author", "is", "+15055550100"), ("date", "is_in_the_last", 7, "days")))
+                 WFContentItemFilter=where(("author", "is", "+15555550100"), ("date", "is_in_the_last", 7, "days")))
 s.action(actions.SHOWRESULT, Text=text(property_(found, "body")))
 ```
 

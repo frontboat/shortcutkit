@@ -73,7 +73,7 @@ for (const identifier of Object.keys(ACTIONS)) {
 type FilterCase = { identifier: string; form: string; filter: unknown };
 const filterCases: FilterCase[] = [];
 const DATE = new Date("2026-01-01T00:00:00Z");
-const PLAIN: Record<string, unknown> = { text: "hello", email: "a@b.co", phone: "+15055550100", contactHandle: "+15055550100", number: 5, bool: true, date: DATE };
+const PLAIN: Record<string, unknown> = { text: "hello", email: "a@b.co", phone: "+15555550100", contactHandle: "+15555550100", number: 5, bool: true, date: DATE };
 const operatorName = (code: number) => Object.keys(FILTER_OPERATORS).find((n) => FILTER_OPERATORS[n as keyof typeof FILTER_OPERATORS] === code)!;
 function rowForms(prop: string, op: string, kind: string, units: readonly number[], choices: readonly string[]): Array<[string, unknown[]]> {
   if (op === "is_today") return [["none", [prop, op]]];
@@ -142,7 +142,7 @@ const m = s.chooseFromMenu("Pick", ["A", "B"]);
 s.menuItem(m, "A"); s.action(actions.showresult, { Text: ref(got) });
 s.menuItem(m, "B"); s.action(actions.showresult, { Text: shortcutInput() });
 s.endMenu(m);
-s.action(actions.notes_create_note, { name: "n", content: text("c ", ref(got)) });
+s.action(actions.notes_create_note, { name: "n", contents: text("c ", ref(got)) });
 const found = s.action("com.apple.MobileSMS.MessageEntity", { WFContentItemFilter: where(["date", "is_in_the_last", 7, "days"], ["author", "is", ref(got)]) });
 const each = s.repeatEach(ref(found));
 s.action(actions.showresult, { Text: text(property(repeatItem(), "body"), " ", property(found, "date")) });

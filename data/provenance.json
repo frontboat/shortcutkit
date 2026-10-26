@@ -1,13 +1,13 @@
 {
-  "extractedAt": "2026-10-23T05:51:31Z",
+  "extractedAt": "2026-10-26T08:31:33Z",
   "macOS": { "version": "27.2", "build": "26B118", "arch": "arm64" },
   "shortcutsApp": { "version": "10.0", "build": "5114.0.6.204" },
   "workflowKit": "10.0",
   "actionKit": "1.0",
-  "toolKit": {"indexerSource": "BackgroundShortcutRunner", "launchServicesSequence": 1520, "osVersion": "26B118", "source": "Tools-prod.v80-C530B2C4-CFA0-4E2A-AE27-3619A368CFE8.sqlite", "toolkitVersion": "E50FF70A-C76D-4AD4-B3B2-7FCD0C692ECD"},
+  "toolKit": {"indexerSource": "BackgroundShortcutRunner", "osVersion": "26B118", "source": "Tools-prod.v80.sqlite"},
   "counts": {
-    "builtinActions": 434,
-    "appleAppIntents": 1449,
+    "builtinActions": 449,
+    "appleAppIntents": 1318,
     "identifierStrings": 411,
     "appProvidedActions": 284
   },

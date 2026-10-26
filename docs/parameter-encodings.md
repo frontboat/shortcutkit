@@ -6,11 +6,11 @@ Each of the 99 parameter classes names one of 48 state classes, and that class's
 
 ### WFStringSubstitutableState
 
-- uses: 329
+- uses: 330
 - selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithVariable:`, `serializedRepresentation`
 - parameter classes:
   - `WFEnumerationParameter` (176 uses, default `"Video"`): `facetime`, `Share`, `additemtolist`
-  - `WFCustomIntentEnumerationParameter` (66 uses, default `"off"`): `NPRFPingMyPhoneIntent`, `NPRFSetAlwaysOnIntent`, `NPRFSetAutoLaunchAudioAppsIntent`
+  - `WFCustomIntentEnumerationParameter` (67 uses, default `"bottom"`): `TNiOSAddValuesToSpreadsheetIntent`, `NPRFPingMyPhoneIntent`, `NPRFSetAlwaysOnIntent`
   - `WFDynamicEnumerationParameter` (38 uses, default `"Driving"`): `apps`, `articles`, `calendarevents`
   - `WFContentItemFilterEnumerationParameter` (9 uses, default `"Library"`): `apps`, `calendarevents`, `contacts`
   - `WFAccountPickerParameter` (2 uses): `send`, `post`
@@ -45,18 +45,18 @@ Each of the 99 parameter classes names one of 48 state classes, and that class's
 
 ### WFBooleanSubstitutableState
 
-- uses: 250
+- uses: 265
 - selectors: `initWithBoolValue:`, `initWithNumber:`, `initWithNumberSubstitutableState:`, `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithVariable:`, `serializedRepresentation`
 - parameter classes:
-  - `WFSwitchParameter` (249 uses, default `true`): `RecognizeMusicIntent`, `NPRFPingMyPhoneIntent`, `NPRFSetAlwaysOnIntent`
+  - `WFSwitchParameter` (264 uses, default `true`): `KNDocumentPlayIntent`, `KNDocumentRehearseIntent`, `KNiOSCreateNewOutlineIntent`
   - `WFTumblrComposeInAppParameter` (1 use, default `false`): `post`
 
 ### WFVariableStringParameterState
 
-- uses: 194
+- uses: 202
 - selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithVariable:`, `initWithVariableString:`, `initWithVariableString:userInputInsertionIndex:`, `serializedRepresentation`, `shouldSerializeAsPlainString`
 - parameter classes:
-  - `WFTextInputParameter` (188 uses, default `"Do you want to continue?"`): `Share`, `additemtolist`, `addnewcalendar`
+  - `WFTextInputParameter` (196 uses, default `"Do you want to continue?"`): `TSADocumentOpenIntent`, `TNiOSAddValuesToFormIntent`, `TNiOSAddValuesToSpreadsheetIntent`
   - `WFStoredValueVariableFieldParameter` (3 uses): `deletestoredcontent`, `getstoredcontent`, `setstoredcontent`
   - `WFCountryFieldParameter` (1 use, default `"United States"`): `address`
   - `WFCustomDateFormatParameter` (1 use, default `"EEE, dd MMM yyyy HH:mm:ss Z"`): `date`
@@ -85,19 +85,19 @@ Each of the 99 parameter classes names one of 48 state classes, and that class's
   - `WFSliderParameter` (16 uses, default `10`): `UASetBackgroundSoundsVolumeIntent`, `flashlight`, `convert`
   - `WFFileLabelColorPickerParameter` (1 use): `label`
 
+### WFFileParameterState
+
+- uses: 33
+- selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithVariable:`, `serializedRepresentation`
+- parameter classes:
+  - `WFFilePickerParameter` (33 uses, default `{"displayName": "Shortcuts", "fileLocation": {"relativeSubpath": "", "WFFileLocationType": "Shortcut`): `KNDocumentPlayIntent`, `KNDocumentRehearseIntent`, `KNiOSOpenAnyDocumentIntent`
+
 ### WFDateFieldParameterState
 
 - uses: 26
 - selectors: `initWithPreprocessedDate:`, `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithVariable:`, `initWithVariableString:`, `initWithVariableString:userInputInsertionIndex:`, `serializedRepresentation`, `shouldSerializeAsPlainString`
 - parameter classes:
   - `WFDateFieldParameter` (26 uses): `UASetBackgroundSoundsTimerIntent`, `addnewevent`, `addnewreminder`
-
-### WFFileParameterState
-
-- uses: 22
-- selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithVariable:`, `serializedRepresentation`
-- parameter classes:
-  - `WFFilePickerParameter` (22 uses, default `{"displayName": "Shortcuts", "fileLocation": {"relativeSubpath": "", "WFFileLocationType": "Shortcut`): `compresspdf`, `open`, `save`
 
 ### WFLocationParameterState
 
@@ -154,6 +154,13 @@ Each of the 99 parameter classes names one of 48 state classes, and that class's
 - parameter classes:
   - `WFMediaRoutePickerParameter` (8 uses, default `{"isLocalDevice": true, "routeUID": "Speaker"}`): `handoffplayback`, `set`, `pausemusic`
 
+### WFCodableAttributeBackedSubstitutableState
+
+- uses: 6
+- selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithValue:codableAttribute:stringLocalizer:`, `initWithVariable:`, `serializedRepresentation`
+- parameter classes:
+  - `WFCustomIntentDynamicEnumerationParameter` (6 uses): `TSADocumentCreateIntent`, `TSADocumentCreateIntent`, `TSADocumentCreateIntent`
+
 ### WFURLStringParameterState
 
 - uses: 6
@@ -197,13 +204,6 @@ Each of the 99 parameter classes names one of 48 state classes, and that class's
 - parameter classes:
   - `WFOSAScriptEditorParameter` (2 uses, default `"on run {input, parameters}\n    (* Your script goes here *)\n    return input\nend run"`): `runapplescript`, `runjavascriptforautomation`
   - `WFVariableFieldParameter` (2 uses): `appendvariable`, `setvariable`
-
-### WFCodableAttributeBackedSubstitutableState
-
-- uses: 3
-- selectors: `initWithSerializedRepresentation:variableProvider:parameter:`, `initWithValue:`, `initWithValue:codableAttribute:stringLocalizer:`, `initWithVariable:`, `serializedRepresentation`
-- parameter classes:
-  - `WFCustomIntentDynamicEnumerationParameter` (3 uses): `TagIntent`, `ICNotesFolderIntent`, `WeatherIntent`
 
 ### WFINObjectSubstitutableState
 

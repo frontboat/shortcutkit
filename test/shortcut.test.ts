@@ -59,7 +59,7 @@ describe("shortcutkit", () => {
 
 describe("typed catalogue", () => {
   test("every built-in action has a key and parameter keys are typed", () => {
-    expect(Object.keys(ACTIONS).length).toBe(1883);
+    expect(Object.keys(ACTIONS).length).toBe(1767);
     expect(actions.setstoredcontent).toBe("is.workflow.actions.setstoredcontent");
     const s = new Shortcut("T");
     s.action(actions.setstoredcontent, { WFInput: "x", WFStoredContentKey: "k", WFStoredContentGlobalValue: true });
@@ -99,7 +99,7 @@ describe("definitions", () => {
     expect(d.Parameters?.map((p) => p.Class)).toEqual(["WFTextInputParameter", "WFStoredValueVariableFieldParameter", "WFSwitchParameter"]);
     expect(d.IconSymbol).toBe("cylinder.split.1x2.fill");
     expect(getDefinition("com.example.Nope")).toBeUndefined();
-    expect(Object.keys(allDefinitions()).length).toBe(434);
+    expect(Object.keys(allDefinitions()).length).toBe(449);
   });
 });
 
@@ -235,20 +235,33 @@ describe("App Intents actions", () => {
   });
   test("every App Intent has a descriptor and a unique key", () => {
     const withDescriptor = Object.values(ACTIONS).filter((a) => "descriptor" in a).length;
-    expect(withDescriptor).toBe(1449);
+    expect(withDescriptor).toBe(1318);
     expect(new Set(Object.keys(actions)).size).toBe(Object.keys(ACTIONS).length);
+  });
+  test("the catalogue holds what the editor offers: no Siri-only intent, and the preinstalled apps' SiriKit intents", () => {
+    // An intent linkd marks not discoverable is refused by the app's import sheet (docs/extraction.md,
+    // "What the editor shows that the catalogue does not"); data/linkd-actions.json is linkd's word.
+    const linkd = JSON.parse(readFileSync(join(import.meta.dir, "../data/linkd-actions.json"), "utf8")) as Record<string, Record<string, { discoverable: boolean; assistantOnly?: boolean }>>;
+    const notDiscoverable = Object.entries(linkd).flatMap(([bundle, acts]) => Object.entries(acts).filter(([, a]) => !a.discoverable).map(([id]) => `${bundle}.${id}`));
+    expect(notDiscoverable.length).toBe(265);
+    expect(notDiscoverable.filter((id) => id in ACTIONS)).toEqual([]);
+    expect(ACTIONS["com.apple.Photos.PhotosCropAssistantIntent" as keyof typeof ACTIONS]).toBeUndefined();
+    expect(ACTIONS[actions.photos_crop].name).toBe("Crop");
+    // Keynote, Numbers and Pages come preinstalled but update through the App Store; their SiriKit intents stay in.
+    expect(getDefinition("com.apple.iWork.Keynote.TSADocumentOpenIntent")?.Name).toBe("Open Presentation");
+    expect(getDefinition("com.apple.iWork.Numbers.TSADocumentCreateIntent")?.Name).toBe("Create Spreadsheet from Template");
   });
   test("Find filters encode each row under the key its value kind uses", () => {
     const s = new Shortcut("Messages");
     const who = s.action(actions.ask, { WFAskActionPrompt: "Who?" });
     const found = s.action(actions.messages_find_message, {
-      WFContentItemFilter: where(["author", "is", ref(who)], ["author", "is_not", "+15055550100"], ["date", "is_in_the_last", 7, "days"], ["date", "is_between", new Date("2026-01-01T00:00:00Z"), ref(who)], ["date", "is_today"]),
+      WFContentItemFilter: where(["author", "is", ref(who)], ["author", "is_not", "+15555550100"], ["date", "is_in_the_last", 7, "days"], ["date", "is_between", new Date("2026-01-01T00:00:00Z"), ref(who)], ["date", "is_today"]),
     });
     const f = found.WFWorkflowActionParameters.WFContentItemFilter as { Value: { WFActionParameterFilterPrefix: number; WFActionParameterFilterTemplates: Array<{ Property: string; Operator: number; Values: Record<string, unknown> }> } };
     expect(f.Value.WFActionParameterFilterPrefix).toBe(1);
     const [author, plainAuthor, last7, between, today] = f.Value.WFActionParameterFilterTemplates;
     expect(author).toMatchObject({ Property: "author", Operator: 4, Values: { ContactHandle: { WFSerializationType: "WFTokenStringParameterState", Value: text(ref(who)) } } });
-    expect(plainAuthor!.Values).toEqual({ ContactHandle: { WFSerializationType: "WFTokenStringParameterState", Value: "+15055550100" } });
+    expect(plainAuthor!.Values).toEqual({ ContactHandle: { WFSerializationType: "WFTokenStringParameterState", Value: "+15555550100" } });
     expect(last7).toMatchObject({ Operator: 1001, Values: { Number: 7, Unit: 16 } });
     expect(between!.Values).toEqual({ Date: new Date("2026-01-01T00:00:00Z"), AnotherDate: ref(who) });
     expect(today).toMatchObject({ Operator: 1002, Values: {} });
@@ -307,7 +320,7 @@ describe("App Intents actions", () => {
     expect(property(body, "length").Value.Aggrandizements).toHaveLength(2);
     // @ts-expect-error not a property of Message
     expect(() => property(found, "bodyy")).toThrow(/has no property bodyy/);
-    expect(Object.values(ENTITY_PROPERTIES).flat().length).toBe(889);
+    expect(Object.values(ENTITY_PROPERTIES).flat().length).toBe(752);
   });
   test("the engine's own filter rules cover every class and entity type", () => {
     // data/engine-filters.json and data/linkd-properties.json come from `bun run extract-filters`
@@ -320,8 +333,8 @@ describe("App Intents actions", () => {
     expect(Object.keys(linkd.entities).length).toBe(Object.keys(ENTITY_PROPERTIES).length);
     expect(linkd.alternatesRemaining).toBe(0);
     const yields = Object.values(linkd.entities as Record<string, { yields?: Record<string, string[]> }>).flatMap((e) => Object.values(e.yields ?? {}));
-    expect(yields.length).toBe(889);
-    expect(yields.filter((y) => y.length).length).toBe(866);
+    expect(yields.length).toBe(752);
+    expect(yields.filter((y) => y.length).length).toBe(729);
     // Every type with several queries carries the class built with each.
     for (const e of Object.values(linkd.entities as Record<string, { queries?: string[]; byQuery?: Record<string, unknown> }>)) if (e.queries) expect(Object.keys(e.byQuery ?? {}).sort()).toEqual([...e.queries].sort());
     // Row value forms: one sample per row value type the engine names, each read back, plus the byte-count unit codes.
@@ -359,5 +372,16 @@ describe("App Intents actions", () => {
     readmeExamples.builtInFind(s);
     readmeExamples.otherApps(s, name);
     expect(s.actions.length).toBe(1 + 5 + 2 + 2 + 1 + 1);
+  });
+});
+
+describe("release", () => {
+  test("the three version strings agree", () => {
+    const root = join(import.meta.dir, "..");
+    const npm = (JSON.parse(readFileSync(join(root, "package.json"), "utf8")) as { version: string }).version;
+    const pyproject = /^version = "([^"]+)"/m.exec(readFileSync(join(root, "python/pyproject.toml"), "utf8"))![1];
+    const module = /^__version__ = "([^"]+)"/m.exec(readFileSync(join(root, "python/src/shortcutkit/__init__.py"), "utf8"))![1];
+    expect(pyproject).toBe(npm);
+    expect(module).toBe(npm);
   });
 });

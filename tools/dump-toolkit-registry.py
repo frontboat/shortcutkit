@@ -9,6 +9,11 @@ com.apple.linkd.registry entitlement, which only Apple-signed code can carry. Fo
 records the exact WFWorkflowActionIdentifier Shortcuts writes into a file, the owning app,
 English names and descriptions, parameter keys with types, enumeration cases, and output types.
 
+Reads, when present:
+  data/linkd-actions.json       linkd's visibility per action (tools/linkd/action-metadata.js,
+                                `bun run extract-filters`); intents it marks not discoverable are
+                                Siri-only and the app refuses to import them, so they are left out
+
 Writes:
   data/apple-app-intents.json   App Intents of Apple's own apps and system components
                                 (committed; they ship with macOS)
@@ -25,6 +30,7 @@ import glob
 import json
 import os
 import pathlib
+import re
 import sqlite3
 import sys
 
@@ -38,7 +44,10 @@ PRIMITIVES = {0x08: "any", 0x10: "bool", 0x18: "int", 0x20: "double", 0x30: "str
 KIND_OF = {"string": "text", "richText": "text", "url": "text", "bool": "bool", "int": "number", "double": "number"}
 TYPE_KIND = {1: "primitive", 2: "entity", 3: "enum", 4: "enum", 6: "type"}
 # App Intents protocols that configure widgets, controls, Live Activities and Focus filters
-# (developer.apple.com/documentation/appintents/app-intent-types); not actions a shortcut runs.
+# (developer.apple.com/documentation/appintents/app-intent-types). Recorded per tool, not a
+# filter: the index hides the widget, control and Live Activity configurations itself, and the
+# four Focus filters it shows are in the editor (Mail's category lists "Set Mail Focus Filter"
+# under a "Focus" heading), so they stay in the catalogue.
 CONFIGURATION_PROTOCOLS = {"widgetConfiguration", "controlConfiguration", "liveActivity", "focusConfiguration"}
 
 
@@ -241,7 +250,12 @@ def main(argv):
     entities_path = None
     if "--entities" in argv:
         entities_path = argv[argv.index("--entities") + 1]; argv = [a for i, a in enumerate(argv) if a != "--entities" and argv[i - 1] != "--entities"]
+    linkd_actions = None
+    if "--linkd-actions" in argv:
+        linkd_actions = pathlib.Path(argv[argv.index("--linkd-actions") + 1]); argv = [a for i, a in enumerate(argv) if a != "--linkd-actions" and argv[i - 1] != "--linkd-actions"]
     data = pathlib.Path(argv[1]) if len(argv) > 1 else pathlib.Path(__file__).resolve().parent.parent / "data"
+    if linkd_actions is None:
+        linkd_actions = data / "linkd-actions.json"
     if not db:
         found = sorted(glob.glob(DEFAULT_DB))
         if not found:
@@ -305,13 +319,26 @@ def main(argv):
             descriptions = {p["key"]: p["description"] for p in params if p.get("description")}
             names[ident] = {"name": loc[0], "description": loc[2], "outputName": loc[1], "enumCases": enums, "labels": labels,
                             "descriptions": descriptions}
-    apple = [t for t in tools if t["provider"] == "WFLinkActionProvider" and str(t["app"].get("bundleIdentifier", "")).startswith("com.apple.")
-             and t["app"].get("teamId") in (None, "0000000000") and not t["hidden"] and not t["configuration"]]
-    excluded = sum(1 for t in tools if t["provider"] == "WFLinkActionProvider" and str(t["app"].get("bundleIdentifier", "")).startswith("com.apple.") and (t["hidden"] or t["configuration"]))
+    # Intents linkd marks not discoverable (Siri-only; `assistantOnly` in its visibility metadata)
+    # are refused by the app's import sheet, so they are left out. Only linkd knows: the index's
+    # visibilityFlags does not single them out. data/linkd-actions.json comes from
+    # tools/linkd/action-metadata.js (bun run extract-filters).
+    undiscoverable = set()
+    if linkd_actions.exists():
+        for bundle, acts in json.load(open(linkd_actions)).items():
+            undiscoverable.update(f"{bundle}.{aid}" for aid, a in (acts or {}).items() if not a.get("discoverable", True))
+    else:
+        print(f"warning: no {linkd_actions}; intents the app refuses to import (not discoverable in linkd) stay in the catalogue", file=sys.stderr)
+    is_apple_link = lambda t: t["provider"] == "WFLinkActionProvider" and str(t["app"].get("bundleIdentifier", "")).startswith("com.apple.")
+    apple = [t for t in tools if is_apple_link(t) and t["app"].get("teamId") in (None, "0000000000")
+             and not t["hidden"] and t["identifier"] not in undiscoverable]
+    excluded = sum(1 for t in tools if is_apple_link(t) and t["hidden"])
+    not_discoverable = sum(1 for t in tools if is_apple_link(t) and not t["hidden"] and t["identifier"] in undiscoverable)
     data.mkdir(parents=True, exist_ok=True)
-    prov = {"source": os.path.basename(db), "osVersion": meta.get("OSVersion"), "indexerSource": meta.get("IndexerSource"),
-            "toolkitVersion": json.loads(meta.get("VersionKey", "{}")).get("uuid"),
-            "launchServicesSequence": json.loads(meta.get("LaunchServicesDatabaseVersionKey", "{}")).get("sequenceNumber")}
+    # The index file name, its version key and the LaunchServices sequence are random or
+    # per-machine values; only the schema version and the OS build say what was read.
+    prov = {"source": re.sub(r"-[0-9A-Fa-f-]{36}(?=\.sqlite$)", "", os.path.basename(db)),
+            "osVersion": meta.get("OSVersion"), "indexerSource": meta.get("IndexerSource")}
     json.dump({"provenance": prov, "actions": {t["identifier"]: t for t in apple}}, open(data / "apple-app-intents.json", "w"), indent=1, ensure_ascii=False, sort_keys=True)
     # The app keeps one index and rebuilds it on every OS update, so these dumps are the only copy
     # of a release's index once the Mac moves on. Keep one per build beside the current one.
@@ -325,7 +352,7 @@ def main(argv):
     for t in tools:
         by_provider[t["provider"]] = by_provider.get(t["provider"], 0) + 1
     print(f"{len(tools)} tools in the index ({', '.join(f'{k} {v}' for k, v in sorted(by_provider.items()))}); "
-          f"{len(apple)} Apple App Intents -> {data / 'apple-app-intents.json'} ({excluded} hidden or configuration-only left out); {len(names)} names -> {data / 'toolkit-names.json'}")
+          f"{len(apple)} Apple App Intents -> {data / 'apple-app-intents.json'} ({excluded} hidden and {not_discoverable} not discoverable in linkd left out); {len(names)} names -> {data / 'toolkit-names.json'}")
 
 
 if __name__ == "__main__":

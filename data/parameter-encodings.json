@@ -6,6 +6,52 @@
       },
       "WFFaceTimeType" : "Video"
     },
+    "com.apple.iWork.Keynote.KNDocumentPlayIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Keynote.KNDocumentRehearseIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Keynote.KNiOSCreateNewOutlineIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Keynote.TSADocumentCreateIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Keynote.TSADocumentOpenIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent" : {
+      "position" : "bottom",
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Numbers.TNiOSOpenAnyDocumentIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Numbers.TSADocumentCreateIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Numbers.TSADocumentOpenIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Pages.TPDocumentBeginPresenterModeIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Pages.TPiOSOpenAnyDocumentIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Pages.TSADocumentCreateIntent" : {
+      "ShowWhenRun" : true
+    },
+    "com.apple.iWork.Pages.TSADocumentOpenIntent" : {
+      "ShowWhenRun" : true
+    },
     "com.apple.mobilephone.call" : {
       "IntentAppDefinition" : {
         "BundleIdentifier" : "com.apple.TelephonyUtilities.PhoneIntentHandler"
@@ -1522,6 +1568,21 @@
   },
   "actionOutputNames" : {
     "com.apple.facetime.facetime" : "FaceTime",
+    "com.apple.iWork.Keynote.KNDocumentPlayIntent" : "Play Presentation in Show Mode",
+    "com.apple.iWork.Keynote.KNDocumentRehearseIntent" : "Open Presentation in Rehearsal Mode",
+    "com.apple.iWork.Keynote.KNiOSCreateNewOutlineIntent" : "Create Presentation in Outline View",
+    "com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent" : "Open Presentation",
+    "com.apple.iWork.Keynote.TSADocumentCreateIntent" : "Create Presentation from Theme",
+    "com.apple.iWork.Keynote.TSADocumentOpenIntent" : "Open Presentation",
+    "com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent" : "Add Record to Form",
+    "com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent" : "Add Row to Top or Bottom of Table",
+    "com.apple.iWork.Numbers.TNiOSOpenAnyDocumentIntent" : "Open Spreadsheet",
+    "com.apple.iWork.Numbers.TSADocumentCreateIntent" : "Create Spreadsheet from Template",
+    "com.apple.iWork.Numbers.TSADocumentOpenIntent" : "Open Spreadsheet",
+    "com.apple.iWork.Pages.TPDocumentBeginPresenterModeIntent" : "Open Document in Presenter Mode",
+    "com.apple.iWork.Pages.TPiOSOpenAnyDocumentIntent" : "Open Pages Document",
+    "com.apple.iWork.Pages.TSADocumentCreateIntent" : "Create Document from Template",
+    "com.apple.iWork.Pages.TSADocumentOpenIntent" : "Open Document",
     "com.apple.mobilephone.call" : "Call",
     "com.apple.mobileslideshow.StreamShareService" : "Post to Shared Album",
     "com.apple.musicrecognition.RecognizeMusicIntent" : "Shazam Media",
@@ -2015,6 +2076,910 @@
           "DeviceDetails",
           "CurrentApp"
         ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Keynote.KNDocumentPlayIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "file",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Keynote.KNDocumentRehearseIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "file",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Keynote.KNiOSCreateNewOutlineIntent" : [
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "file",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Keynote.TSADocumentCreateIntent" : [
+      {
+        "class" : "WFCustomIntentDynamicEnumerationParameter",
+        "key" : "templateItem",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Keynote.TSADocumentOpenIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "file",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "password",
+        "plainSample" : "hello",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "Clipboard",
+          "CurrentApp",
+          "CurrentDate",
+          "DeviceDetails",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "spreadsheet",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "values",
+        "plainSample" : "hello",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "Clipboard",
+          "CurrentApp",
+          "CurrentDate",
+          "DeviceDetails",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "formName",
+        "plainSample" : "hello",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "Clipboard",
+          "CurrentApp",
+          "CurrentDate",
+          "DeviceDetails",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "spreadsheet",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "values",
+        "plainSample" : "hello",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "Clipboard",
+          "CurrentApp",
+          "CurrentDate",
+          "DeviceDetails",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFCustomIntentEnumerationParameter",
+        "key" : "position",
+        "plainSample" : "bottom",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "Ask"
+        ]
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "sheetName",
+        "plainSample" : "hello",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "Clipboard",
+          "CurrentApp",
+          "CurrentDate",
+          "DeviceDetails",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "tableName",
+        "plainSample" : "hello",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "Clipboard",
+          "CurrentApp",
+          "CurrentDate",
+          "DeviceDetails",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Numbers.TNiOSOpenAnyDocumentIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "file",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Numbers.TSADocumentCreateIntent" : [
+      {
+        "class" : "WFCustomIntentDynamicEnumerationParameter",
+        "key" : "templateItem",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Numbers.TSADocumentOpenIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "file",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "password",
+        "plainSample" : "hello",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "Clipboard",
+          "CurrentApp",
+          "CurrentDate",
+          "DeviceDetails",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Pages.TPDocumentBeginPresenterModeIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "file",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Pages.TPiOSOpenAnyDocumentIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "file",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Pages.TSADocumentCreateIntent" : [
+      {
+        "class" : "WFCustomIntentDynamicEnumerationParameter",
+        "key" : "templateItem",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      }
+    ],
+    "com.apple.iWork.Pages.TSADocumentOpenIntent" : [
+      {
+        "class" : "WFFilePickerParameter",
+        "key" : "file",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFTextInputParameter",
+        "key" : "password",
+        "plainSample" : "hello",
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
+        "variableTypes" : [
+          "ActionOutput",
+          "Ask",
+          "Clipboard",
+          "CurrentApp",
+          "CurrentDate",
+          "DeviceDetails",
+          "ExtensionInput",
+          "TriggerOutput",
+          "Variable"
+        ]
+      },
+      {
+        "class" : "WFSwitchParameter",
+        "key" : "ShowWhenRun",
+        "plainSample" : true,
+        "reads" : [
+          "ActionOutput",
+          "ExtensionInput",
+          "Variable",
+          "Clipboard",
+          "CurrentDate",
+          "Ask",
+          "DeviceDetails",
+          "CurrentApp"
+        ],
+        "readsPlain" : true,
         "variableTypes" : [
           "ActionOutput",
           "Ask",
@@ -31251,31 +32216,33 @@
       ]
     },
     "WFCustomIntentDynamicEnumerationParameter" : {
-      "count" : 3,
+      "count" : 6,
       "defaultExamples" : [
 
       ],
       "stateClass" : "WFCodableAttributeBackedSubstitutableState",
       "usedBy" : [
+        "com.apple.iWork.Keynote.TSADocumentCreateIntent",
+        "com.apple.iWork.Numbers.TSADocumentCreateIntent",
+        "com.apple.iWork.Pages.TSADocumentCreateIntent",
         "com.apple.news.TagIntent",
-        "com.apple.Notes.ICNotesFolderIntent",
-        "com.apple.weather.WeatherIntent"
+        "com.apple.Notes.ICNotesFolderIntent"
       ]
     },
     "WFCustomIntentEnumerationParameter" : {
-      "count" : 66,
+      "count" : 67,
       "defaultExamples" : [
+        "bottom",
         "off",
-        "set",
-        "on"
+        "set"
       ],
       "stateClass" : "WFStringSubstitutableState",
       "usedBy" : [
+        "com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent",
         "com.apple.NanoSettings.NPRFPingMyPhoneIntent",
         "com.apple.NanoSettings.NPRFSetAlwaysOnIntent",
         "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent",
-        "com.apple.NanoSettings.NPRFSetFlashLightIntent",
-        "com.apple.NanoSettings.NPRFSetSchoolTimeIntent"
+        "com.apple.NanoSettings.NPRFSetFlashLightIntent"
       ]
     },
     "WFDateActionPickerModeParameter" : {
@@ -31456,7 +32423,7 @@
       ]
     },
     "WFFilePickerParameter" : {
-      "count" : 22,
+      "count" : 33,
       "defaultExamples" : [
         {
           "displayName" : "Shortcuts",
@@ -31469,11 +32436,11 @@
       ],
       "stateClass" : "WFFileParameterState",
       "usedBy" : [
-        "is.workflow.actions.compresspdf",
-        "is.workflow.actions.documentpicker.open",
-        "is.workflow.actions.documentpicker.save",
-        "is.workflow.actions.ejectdisk",
-        "is.workflow.actions.file"
+        "com.apple.iWork.Keynote.KNDocumentPlayIntent",
+        "com.apple.iWork.Keynote.KNDocumentRehearseIntent",
+        "com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent",
+        "com.apple.iWork.Keynote.TSADocumentOpenIntent",
+        "com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent"
       ]
     },
     "WFFocusModesPickerParameter" : {
@@ -32031,7 +32998,7 @@
       ]
     },
     "WFSwitchParameter" : {
-      "count" : 249,
+      "count" : 264,
       "defaultExamples" : [
         true,
         false,
@@ -32039,16 +33006,26 @@
       ],
       "stateClass" : "WFBooleanSubstitutableState",
       "usedBy" : [
-        "com.apple.musicrecognition.RecognizeMusicIntent",
-        "com.apple.NanoSettings.NPRFPingMyPhoneIntent",
-        "com.apple.NanoSettings.NPRFSetAlwaysOnIntent",
-        "com.apple.NanoSettings.NPRFSetAutoLaunchAudioAppsIntent",
-        "com.apple.NanoSettings.NPRFSetFlashLightIntent"
+        "com.apple.iWork.Keynote.KNDocumentPlayIntent",
+        "com.apple.iWork.Keynote.KNDocumentRehearseIntent",
+        "com.apple.iWork.Keynote.KNiOSCreateNewOutlineIntent",
+        "com.apple.iWork.Keynote.KNiOSOpenAnyDocumentIntent",
+        "com.apple.iWork.Keynote.TSADocumentCreateIntent"
       ]
     },
     "WFTableTemplateContentItemFilterParameter" : {
       "count" : 14,
       "defaultExamples" : [
+        {
+          "Value" : {
+            "WFActionParameterFilterPrefix" : 1,
+            "WFActionParameterFilterTemplates" : [
+
+            ],
+            "WFContentPredicateBoundedDate" : false
+          },
+          "WFSerializationType" : "WFContentPredicateTableTemplate"
+        },
         {
           "Value" : {
             "WFActionParameterFilterPrefix" : 1,
@@ -32073,16 +33050,6 @@
                   "Unit" : 16
                 }
               }
-            ],
-            "WFContentPredicateBoundedDate" : false
-          },
-          "WFSerializationType" : "WFContentPredicateTableTemplate"
-        },
-        {
-          "Value" : {
-            "WFActionParameterFilterPrefix" : 1,
-            "WFActionParameterFilterTemplates" : [
-
             ],
             "WFContentPredicateBoundedDate" : false
           },
@@ -32128,7 +33095,7 @@
       ]
     },
     "WFTextInputParameter" : {
-      "count" : 188,
+      "count" : 196,
       "defaultExamples" : [
         "Do you want to continue?",
         "",
@@ -32136,11 +33103,11 @@
       ],
       "stateClass" : "WFVariableStringParameterState",
       "usedBy" : [
-        "com.panic.iOS.Transmit.Share",
-        "is.workflow.actions.additemtolist",
-        "is.workflow.actions.addnewcalendar",
-        "is.workflow.actions.addnewcontact",
-        "is.workflow.actions.addnewevent"
+        "com.apple.iWork.Keynote.TSADocumentOpenIntent",
+        "com.apple.iWork.Numbers.TNiOSAddValuesToFormIntent",
+        "com.apple.iWork.Numbers.TNiOSAddValuesToSpreadsheetIntent",
+        "com.apple.iWork.Numbers.TSADocumentOpenIntent",
+        "com.apple.iWork.Pages.TSADocumentOpenIntent"
       ]
     },
     "WFTimeZonePickerParameter" : {

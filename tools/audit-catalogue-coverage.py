@@ -10,14 +10,15 @@ listed with the rule that left it out. A visible tool no rule explains fails the
 The rules, as of macOS 27 (see docs/extraction.md, "What the editor shows that the catalogue
 does not"):
   third-party     the catalogue covers Apple's apps; `action()` takes these untyped
-  configuration   Focus-filter intents; `dump-toolkit-registry.py` leaves configuration-only
-                  intents out, though the index flags these four visible (open question)
+  siri-only       intents linkd marks not discoverable (`data/linkd-actions.json`); the index
+                  shows them but the app's import sheet refuses any file that uses one
   interchange     legacy actions of third-party apps served by WFInterchangeActionProvider,
                   which no probe enumerates; shown only when the app is installed (Add PDF to
                   Books names the iOS bundle id, so never on a Mac)
-  sirikit         SiriKit intents of Apple apps outside /System (Keynote, Numbers, Pages, which
-                  come preinstalled but update through the App Store); the definition probe
-                  keeps only apps under /System, which is the one rule known to be wrong
+  sirikit         SiriKit intents of Apple apps the definition probe did not serve; empty since
+                  the probe accepts Apple bundle identifiers (Keynote, Numbers and Pages come
+                  preinstalled but live outside /System), so a hit here means the probe ran on a
+                  Mac without the app or the rule regressed
 """
 import collections
 import json
@@ -29,18 +30,23 @@ data = Path(sys.argv[1]) if len(sys.argv) > 1 else root / "data"
 sys.path.insert(0, str(root / "python" / "src"))
 from shortcutkit.actions import ACTIONS  # noqa: E402
 
-CONFIGURATION = {"widgetConfiguration", "controlConfiguration", "liveActivity", "focusConfiguration"}
 registry = json.load(open(data / "toolkit-registry.json"))
 tools = registry["tools"]
 catalogue = set(ACTIONS)
+# linkd's per-action visibility (tools/linkd/action-metadata.js): the intents it marks not
+# discoverable (assistant-only) are refused by the app's import sheet. Among the tools that have
+# action metadata this is exactly visibilityFlags 2, but synthesized entity tools and flow tools
+# share that value and do import, so the index alone cannot name them.
+linkd = {f"{b}.{a}": m for b, acts in json.load(open(data / "linkd-actions.json")).items() for a, m in (acts or {}).items()}
+siri_only = {i for i, m in linkd.items() if not m["discoverable"]}
 
 
 def rule(t):
     app = (t.get("app") or {}).get("bundleIdentifier") or ""
     if not app.startswith("com.apple."):
         return "third-party"
-    if set(t["protocols"]) & CONFIGURATION:
-        return "configuration"
+    if t["identifier"] in siri_only:
+        return "siri-only"
     if t["provider"] == "WFInterchangeActionProvider":
         return "interchange"
     if t["provider"] == "WFIntentActionProvider":
@@ -58,31 +64,20 @@ hidden_out = collections.Counter(t["provider"] for t in tools if t["hidden"] and
 
 print(f"index {registry['provenance']['osVersion']}: {len(tools)} tools, {len(shown)} shown in the editor; catalogue {len(catalogue)} entries")
 print(f"shown and not in the catalogue: {len(missing)}")
-for name in ("third-party", "configuration", "interchange", "sirikit", "unexplained"):
+for name in ("third-party", "siri-only", "interchange", "sirikit", "unexplained"):
     group = by_rule.get(name, [])
     if not group:
         continue
     apps = collections.Counter((t.get("app") or {}).get("name") or (t.get("app") or {}).get("bundleIdentifier") for t in group)
     print(f"  {len(group):4} {name:14} " + ", ".join(f"{a} ({n})" for a, n in apps.most_common()))
-    if name in ("sirikit", "configuration", "unexplained"):
+    if name in ("sirikit", "unexplained"):
         for t in group:
             print(f"       {t['identifier']}  {t['name']}")
 print(f"hidden from the editor: {hidden_in} in the catalogue (every hidden built-in), "
       + ", ".join(f"{n} {p}" for p, n in hidden_out.most_common()) + " left out")
 
-# With linkd's action metadata saved (tools/linkd/action-metadata.js), the catalogue entries the
-# app refuses to import: intents linkd marks not discoverable (assistant-only). Among the tools
-# that have action metadata this is exactly visibilityFlags 2, but synthesized entity tools and
-# flow tools share that value and do import, so the index alone cannot name them.
-actions_json = Path.home() / ".shortcutkit-dev" / "linkd" / "actions.json"
-if actions_json.exists():
-    meta = {f"{b}.{a}": m for b, acts in json.load(open(actions_json)).items() for a, m in (acts or {}).items()}
-    with_meta = [i for i in catalogue if i in meta]
-    refused = sorted(i for i in with_meta if not meta[i]["discoverable"])
-    apps = collections.Counter(i.rsplit(".", 1)[0] for i in refused)
-    print(f"linkd action metadata ({actions_json}): {len(with_meta)} catalogue entries have it, "
-          f"{len(refused)} are not discoverable and will not import: " + ", ".join(f"{a} ({n})" for a, n in apps.most_common(8)) + (", ..." if len(apps) > 8 else ""))
-else:
-    print(f"no {actions_json}: run tools/linkd/run-payload.sh tools/linkd/action-metadata.js to list the catalogue entries the app refuses to import")
+refused = sorted(i for i in catalogue if i in siri_only)
+print(f"linkd action metadata: {sum(1 for i in catalogue if i in linkd)} catalogue entries have it, "
+      f"{len(refused)} are not discoverable and will not import" + (": " + ", ".join(refused) if refused else ""))
 if by_rule.get("unexplained"):
     sys.exit("visible tools no rule explains")

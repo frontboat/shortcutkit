@@ -28,12 +28,12 @@ s.endIf(gid);
 
 export function applesApps(s: Shortcut) {
 const r = s.action(actions.reminders_create_reminder, { title: text("Buy milk"), priorityLevel: "high" });
-s.action(actions.notes_create_note, { name: "Shopping", content: text("Added ", ref(r)) });
+s.action(actions.notes_create_note, { name: "Shopping", contents: text("Added ", ref(r)) });
 }
 
 export function findingThings(s: Shortcut) {
 const found = s.action(actions.messages_find_message, {
-  WFContentItemFilter: where(["author", "is", "+15055550100"], ["date", "is_in_the_last", 7, "days"]),
+  WFContentItemFilter: where(["author", "is", "+15555550100"], ["date", "is_in_the_last", 7, "days"]),
 });
 s.action(actions.showresult, { Text: text(property(found, "body")) });
 }

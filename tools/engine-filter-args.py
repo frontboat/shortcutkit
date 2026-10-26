@@ -11,9 +11,14 @@ import sys
 kind, data = sys.argv[1:3]
 entities = json.load(open(data + "/apple-entities.json"))["entities"]
 if kind == "bundles":
-    actions = json.load(open(data + "/apple-app-intents.json"))["actions"]
-    bundles = {e["bundleIdentifier"] for e in entities.values()} | {(a.get("app") or {}).get("bundleIdentifier") for a in actions.values()}
-    print(json.dumps({"bundles": sorted(bundles - {None}), "budgetMs": 120000}))
+    # Every Apple bundle the index knows, from the full local dump rather than the committed
+    # catalogue: the catalogue is itself filtered by what these payloads find (intents linkd marks
+    # not discoverable leave it), so deriving the bundle list from it would shrink the next run.
+    tools = json.load(open(data + "/toolkit-registry.json"))["tools"]
+    bundles = {(t.get("app") or {}).get("bundleIdentifier") for t in tools if t["provider"] == "WFLinkActionProvider"}
+    bundles |= {e["bundleIdentifier"] for e in entities.values()}
+    bundles = {b for b in bundles if b and b.startswith("com.apple.")}
+    print(json.dumps({"bundles": sorted(bundles), "budgetMs": 120000}))
 elif kind == "properties":
     chosen = json.load(open(data + "/linkd-properties.json"))["entities"]
     want = {}

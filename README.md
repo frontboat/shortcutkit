@@ -31,8 +31,9 @@ are archived ([shortcuts-js](https://github.com/joshfarrant/shortcuts-js),
 [python-shortcuts](https://github.com/alexander-akhmetov/python-shortcuts));
 [Cherri](https://github.com/electrikmilk/cherri) is a separate language with its own compiler.
 
-- All 434 built-in actions, typed, with documentation on hover.
-- 1,449 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 73 more.
+- All 449 built-in actions, typed, with documentation on hover.
+- 1,318 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
+  actions the Shortcuts editor offers: the Siri-only intents the app refuses to import are left out.
 - Third-party app actions, given their descriptor.
 - Typed conditions for 150 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find
   Contacts, ...) and 136 in Apple's apps (Find Messages, Find Notes, ...), from the engine's own
@@ -75,7 +76,7 @@ s.endIf(gid);
 
 ```ts
 const r = s.action(actions.reminders_create_reminder, { title: text("Buy milk"), priorityLevel: "high" });
-s.action(actions.notes_create_note, { name: "Shopping", content: text("Added ", ref(r)) });
+s.action(actions.notes_create_note, { name: "Shopping", contents: text("Added ", ref(r)) });
 ```
 
 ### Finding things
@@ -88,7 +89,7 @@ values each takes (an enumeration's choices, a file size's units), and the units
 import { where, property } from "shortcutkit";
 
 const found = s.action(actions.messages_find_message, {
-  WFContentItemFilter: where(["author", "is", "+15055550100"], ["date", "is_in_the_last", 7, "days"]),
+  WFContentItemFilter: where(["author", "is", "+15555550100"], ["date", "is_in_the_last", 7, "days"]),
 });
 s.action(actions.showresult, { Text: text(property(found, "body")) });
 ```
