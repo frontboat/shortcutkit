@@ -10,15 +10,18 @@
 // checked against the state-class round-trip table (verify-encodings.js) via the parameter class
 // the engine assigns to their value type. Whole shortcuts are loaded with
 // -[WFWorkflowFile initWithDictionary:name:performMigration:], as the app imports a file.
-// Find filters and property references on Apple's entity types are loaded through the entity's
-// content item class, which WorkflowKit builds from apple-entities.json as it would from linkd's
-// metadata (entityContentClass() in the prelude): each filter must come back with every row's
-// property, operator and value keys, serialized as written; each property aggrandizement must
-// parse and find its property on the class. Properties the class leaves out without linkd (enum
-// and entity-typed ones) are counted as unverifiable.
+// Find filters on built-in Find actions go through the engine's own action object like any other
+// parameter. Find filters and property references on Apple's entity types are loaded through the
+// entity's content item class: under tools/engine-host with linkd's archives served (SK_LINKD_DIR),
+// the class the app builds, from linkd's metadata and the query linkd-properties.json chose; under
+// osascript, the class WorkflowKit builds from apple-entities.json (entityContentClass() in the
+// prelude), which lacks the properties only linkd's metadata carries, so a row on one of those is
+// counted as unverifiable there, not failed. Each filter must come back with every row's property,
+// operator and value keys, serialized as written; each property aggrandizement must parse and find
+// its property on the class.
 //
 //   cat tools/jxa-prelude.js tools/verify-library-output.js > /tmp/x.js
-//   osascript -l JavaScript /tmp/x.js fixture.json data/apple-app-intents.json data/parameter-encodings.json data/encoding-table.json data/encoding-roundtrips.json report.json [data/provenance.json] [data/apple-entities.json]
+//   osascript -l JavaScript /tmp/x.js fixture.json data/apple-app-intents.json data/parameter-encodings.json data/encoding-table.json data/encoding-roundtrips.json report.json [data/provenance.json] [data/apple-entities.json] [data/linkd-properties.json]
 const LEGACY_KEYS = { "is.workflow.actions.conditional": ["WFInput", "WFCondition", "WFConditionalActionString", "WFNumberValue", "WFConditionalLegacyComparisonBehavior", "WFEnumerationValue", "WFBooleanValue", "WFDate", "WFAnotherDate", "WFDuration"], "is.workflow.actions.choosefrommenu": ["WFMenuPrompt", "WFMenuItems", "WFMenuItemTitle", "WFMenuItemAttributedTitle"] };
 function formOf(v) {
   if (typeof v === "string") return "string"; if (typeof v === "number") return "number"; if (typeof v === "boolean") return "bool";
@@ -43,7 +46,9 @@ function compareBuilds(a, b) {
   return 0;
 }
 function run(argv) {
-  if (argv.length < 6) throw new Error("usage: verify-library-output.js fixture.json apple-app-intents.json parameter-encodings.json encoding-table.json encoding-roundtrips.json report.json [provenance.json] [apple-entities.json]");
+  // Under tools/engine-host the arguments arrive in SK_ARGS rather than as osascript's argv.
+  if (!argv || !argv.length) { const a = $.NSProcessInfo.processInfo.environment.objectForKey("SK_ARGS"); argv = isNil(a) ? [] : JSON.parse(ObjC.unwrap(a)); }
+  if (argv.length < 6) throw new Error("usage: verify-library-output.js fixture.json apple-app-intents.json parameter-encodings.json encoding-table.json encoding-roundtrips.json report.json [provenance.json] [apple-entities.json] [linkd-properties.json]");
   loadEngine(); console.log("engine loaded");
   // An engine older than the one the data was extracted from (a CI runner a macOS behind) lacks keys
   // added since and hides some it later reads. There, a key this engine does not define or hides is
@@ -110,39 +115,67 @@ function run(argv) {
       else failures.push({ identifier: c.identifier, key: c.key, kind: c.kind, form: c.form, verdict: "state class " + st + " says " + r, via: "state class" });
     }
   }
-  // Find filters and property references on Apple's entity types, through each entity's content item class.
-  const entityChecks = { filters: 0, properties: 0, unverifiableProperties: 0 };
+  // Find filters: built-in Find actions through their engine action, Apple's entity types through each
+  // entity's content item class (linkd-built in the engine host, index-built under osascript).
+  const entityChecks = { filters: 0, properties: 0, unverifiableProperties: 0, indexOnlyRows: 0 };
+  const same = (a, b) => JSON.stringify(sortKeys(a)) === JSON.stringify(sortKeys(b));
+  const checkFilter = (c, got, fail, indexBuilt) => {
+    const written = c.filter.Value.WFActionParameterFilterTemplates;
+    const bad = written.map((w, i) => {
+      const r = got.rows[i];
+      if (!r) return "row " + i + " dropped";
+      if (r.property !== w.Property || r.operator !== table.filterOperators[w.Operator]) return "row " + i + " read as " + r.property + " " + r.operator;
+      const lost = Object.keys(w.Values).filter((k) => !(k in r.values));
+      return lost.length ? "row " + i + " lost " + lost.join(", ") : null;
+    }).filter(Boolean);
+    if (got.rows.length !== written.length) bad.push("read " + got.rows.length + " rows, wrote " + written.length);
+    else if (!bad.length && !same(got.serialized, c.filter)) bad.push("serialized back differently: " + JSON.stringify(got.serialized).slice(0, 300));
+    // The index-built class offers fewer properties and operators than the linkd-built one the app uses
+    // (docs/extraction.md); what it does not read here is checked in the engine host, not failed.
+    if (bad.length && indexBuilt && got.rows.length < written.length) { entityChecks.indexOnlyRows++; return; }
+    if (bad.length) fail(bad.join("; ")); else passed++;
+  };
+  for (const c of fixture.filterCases || []) {
+    const tpl = byId[c.identifier];
+    if (!tpl || (only && !only.test(c.identifier))) continue;
+    entityChecks.filters++;
+    const a = tpl.copyWithSerializedParameters($({ UUID: "00000000-0000-4000-8000-000000000001", WFContentItemFilter: revive(c.filter) }));
+    checkFilter(c, isNil(a) ? { rows: [], serialized: null } : filterState(a.parameterStateForKey("WFContentItemFilter")), (verdict) => failures.push({ identifier: c.identifier, key: "WFContentItemFilter", form: c.form, verdict, via: "engine action" }), false);
+  }
   if (argv[7] && !only) {
-    console.log("loading Find filters and property references through entity content item classes");
     loadLinkMetadata();
     const entities = readJSON(argv[7]).entities, classes = {};
+    // In the engine host with linkd's archives served, build each entity as the app does; otherwise from the index.
+    const linkdDir = env("SK_LINKD_DIR"), chosen = linkdDir && argv[8] ? readJSON(argv[8]).entities : null;
+    console.log("loading Find filters and property references through entity content item classes" + (chosen ? " built from linkd's metadata" : " built from the index"));
+    const provider = chosen ? make("LNMetadataProvider", "init") : null;
     const classFor = (id) => {
       if (!(id in classes)) {
-        const e = entities[id], props = {};
-        for (const [pid, p] of Object.entries(e.properties)) props[pid] = { name: p.name, type: p.type, operators: p.filter && p.filter.operators };
-        const built = entityContentClass(e, props);
-        classes[id] = built && built.name;
+        const e = entities[id];
+        if (chosen && chosen[id] && chosen[id].linkd) {
+          const list = provider.entitiesForBundleIdentifierError(e.bundleIdentifier, null); let ent = null;
+          for (let i = 0; i < count(list); i++) if (str(list.objectAtIndex(i).identifier) === e.typeName) ent = list.objectAtIndex(i);
+          const q = chosen[id].query ? provider.queryForBundleIdentifierWithFullyQualifiedIdentifierError(e.bundleIdentifier, chosen[id].query, null) : null;
+          const evt = make("LNEntityValueType", "initWithIdentifier:", e.typeName);
+          const ref = ent ? sendObjects(ObjC.castObjectToRef(ent), "wf_contentItemClassWithEntityValueType:queryMetadata:appBundleIdentifier:displayedAppBundleIdentifier:", evt, q && !isNil(q) ? q : null, e.bundleIdentifier, e.bundleIdentifier) : null;
+          const name = ref ? $.class_getName(ref) : "nil";
+          classes[id] = name === "nil" ? null : name;
+        } else {
+          const props = {};
+          for (const [pid, p] of Object.entries(e.properties)) props[pid] = { name: p.name, type: p.type, operators: p.filter && p.filter.operators };
+          const built = entityContentClass(e, props);
+          classes[id] = built && built.name;
+        }
       }
       return classes[id];
     };
-    const same = (a, b) => JSON.stringify(sortKeys(a)) === JSON.stringify(sortKeys(b));
     for (const c of fixture.filterCases || []) {
+      if (byId[c.identifier]) continue; // built-in: checked above
       entityChecks.filters++;
       const cn = classFor(c.identifier);
       const fail = (verdict) => failures.push({ identifier: c.identifier, key: "WFContentItemFilter", form: c.form, verdict, via: "entity content item class" });
       if (!cn) { fail("no content item class for the entity"); continue; }
-      const written = c.filter.Value.WFActionParameterFilterTemplates;
-      const got = loadFilter(cn, revive(c.filter));
-      const bad = written.map((w, i) => {
-        const r = got.rows[i];
-        if (!r) return "row " + i + " dropped";
-        if (r.property !== w.Property || r.operator !== table.filterOperators[w.Operator]) return "row " + i + " read as " + r.property + " " + r.operator;
-        const lost = Object.keys(w.Values).filter((k) => !(k in r.values));
-        return lost.length ? "row " + i + " lost " + lost.join(", ") : null;
-      }).filter(Boolean);
-      if (got.rows.length !== written.length) bad.push("read " + got.rows.length + " rows, wrote " + written.length);
-      else if (!bad.length && !same(got.serialized, c.filter)) bad.push("serialized back differently: " + JSON.stringify(got.serialized).slice(0, 300));
-      if (bad.length) fail(bad.join("; ")); else passed++;
+      checkFilter(c, loadFilter(cn, revive(c.filter)), fail, !chosen);
     }
     for (const c of fixture.propertyCases || []) {
       const p = entities[c.entity].properties[c.property];
@@ -156,9 +189,11 @@ function run(argv) {
       if (!ag || cls(ag) !== "WFPropertyVariableAggrandizement" || str(ag.propertyName) !== c.property) { fail("the engine did not parse the property aggrandizement"); continue; }
       const cn = classFor(c.entity);
       const yields = cn ? items(ag.processedContentClasses($.NSOrderedSet.orderedSetWithObject(klass(cn)))) : null;
+      // linkd's metadata names some properties by title (Notes), so the linkd-built class lacks what the index-built one has: counted, not failed (docs/extraction.md).
+      if ((!yields || count(yields) === 0) && chosen && p.contentClasses) { entityChecks.unverifiableProperties++; continue; }
       if (!yields || count(yields) === 0) fail("the entity's content item class has no property " + c.property); else passed++;
     }
-    console.log(`${entityChecks.filters} filters and ${entityChecks.properties} property references loaded (${entityChecks.unverifiableProperties} properties the class leaves out without linkd)`);
+    console.log(`${entityChecks.filters} filters and ${entityChecks.properties} property references loaded (${entityChecks.unverifiableProperties} properties the class leaves out without linkd` + (entityChecks.indexOnlyRows ? `, ${entityChecks.indexOnlyRows} filters on rows only the linkd-built class reads` : "") + ")");
   }
   // Whole shortcuts through the file loader, as the app imports them.
   console.log("cases done; loading whole shortcuts");
@@ -194,6 +229,8 @@ function run(argv) {
     console.log("version gaps (this engine is older than the data's; not failures):"); for (const [g, k] of Object.entries(byKey)) console.log("  " + k + " x " + g);
   }
   writeJSON(argv[5], { summary, failures: failures.slice(0, 500) });
-  console.log(`${fixture.cases.length} cases: ${engineChecked} loaded by engine actions, ${tableChecked} checked against state classes, ${unverifiable} unverifiable, ${missingTemplates} on actions the engine marks missing (${missingIds.size} such actions); ${passed} passed (${rejectedConfirmed} of them forms the library refuses that the engine refuses too), ${deviceValidated.length} plain values the engine checks against this device (${deviceValidated.join(", ") || "none"}), ${versionGaps.length} version gaps on this older engine, ${failures.length} failed; shortcuts: ${JSON.stringify(shortcuts)}`);
+  const line = `${fixture.cases.length} cases: ${engineChecked} loaded by engine actions, ${tableChecked} checked against state classes, ${unverifiable} unverifiable, ${missingTemplates} on actions the engine marks missing (${missingIds.size} such actions); ${passed} passed (${rejectedConfirmed} of them forms the library refuses that the engine refuses too), ${deviceValidated.length} plain values the engine checks against this device (${deviceValidated.join(", ") || "none"}), ${versionGaps.length} version gaps on this older engine, ${failures.length} failed; shortcuts: ${JSON.stringify(shortcuts)}`;
+  console.log(line);
   if (failures.length) throw new Error(failures.length + " case(s) the engine does not read; see " + argv[5]);
+  return line; // tools/engine-host prints the script's return value
 }

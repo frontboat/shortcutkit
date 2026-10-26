@@ -208,24 +208,50 @@ leftovers from earlier edits (`"Unit": 4` above).
 8192 weeks, 16 days, 32 hours, 64 minutes, 128 seconds) or an attachment. Each date property
 lists the units it offers (`timeUnits` in `data/apple-entities.json`). 1002 takes no value.
 Some built-in Find actions require a bounded date row: Find Calendar Events replaces a filter
-without a bounded Start Date row with its default, "Start Date is in the next 7 days".
+without a bounded Start Date row with its default, "Start Date is in the next 7 days". The row
+carries `Bounded: true` and the filter `WFContentPredicateBoundedDate: true`; the operators that
+count are the property's bounded ones (is, is today, is between, is in the next, is in the last).
+The requirement shows in the action's default filter (`actionDefaults` in
+`data/parameter-encodings.json`), from which the generator writes `BOUNDED_FILTERS`; `action()`
+marks the row and refuses a filter without one.
 
 The engine's full set of `Values` keys, read from WorkflowKit's row state type: `String`,
 `Number`, `Bool`, `Date`, `AnotherDate`, `Email`, `Phone`, `ContactHandle`, `Enumeration`,
-`Unit` (calendar), `MeasurementUnit` and `ByteCountUnit`. Which one a property takes follows its
-value class's subject type (`subjectTypes` in `data/engine-filters.json`): strings, rich text,
-URLs, email addresses, phone numbers and locations are string rows; measurements take a number
-and `MeasurementUnit`; file sizes a number and `ByteCountUnit`; durations a number and a
-calendar `Unit`. The forms under `Email`, `Phone`, `MeasurementUnit`, `ByteCountUnit` and an
-App Intents enumeration are not yet read from the engine.
+`Unit` (calendar), `MeasurementUnit` and `ByteCountUnit`. Which ones a row carries follows the
+property's row value type (`rowValues` in `data/engine-filters.json` holds a sample of each,
+read back through the engine):
 
-`data/apple-entities.json` holds, for each of Apple's App Intents Find actions, the
-filterable properties with their operators and value kind, as WorkflowKit builds them from
-Apple's index; `where()` writes rows from that data. `data/engine-filters.json` holds the
-engine's own lists for the same entities and for the 30 content item classes behind the
-built-in Find and Filter actions, and `data/linkd-properties.json` the lists for the entities
-as the app builds them, from linkd's metadata (`docs/extraction.md`, "The engine's own filter
-rules"); the packages do not type from either yet, so built-in filters stay raw.
+- A string row holds one key, chosen by the property's value class (`valueClass` per property):
+  `Email` for `WFEmailAddress`, `Phone` for `WFPhoneNumber`, `String` for everything else, URLs,
+  locations and street addresses included. The value is a token string or a plain string (the
+  editor writes plain strings when there is no reference). The engine reads only that key: an
+  email property given `String` compares against nothing.
+- A number row holds `Number`. A date row holds `Date` (a plist date), `Date` and `AnotherDate`
+  for "is between", nothing for "is today", and `Number` with a calendar `Unit` (an
+  `NSCalendarUnit`: 16 day, 32 hour, 64 minute, 8192 week) for "is in the last/next".
+- A duration row (time intervals, subject type 7) holds `Number` and a calendar `Unit`: 5 with
+  64 is 300 seconds.
+- A file size row holds `Number` and `ByteCountUnit`, a code the engine scales by a power of ten:
+  1 bytes, 2 KB (10³), 4 MB, 8 GB, 16 TB, 32 PB, 64 EB; any other code counts as bytes.
+- A built-in enumeration (Reminders' Priority, Photos' Album) holds `Enumeration` as
+  `{WFSerializationType: "WFStringSubstitutableState", Value: "High"}`; a bare string is dropped.
+  Static choices are the property's `items`; properties without them (albums, calendars) take any
+  string.
+- An App Intents enumeration holds `Enumeration` as
+  `{WFSerializationType: "WFLinkEnumerationSubstitutableState", Value: "<case identifier>"}`,
+  the case identifiers being `cases` per property in `data/linkd-properties.json`.
+- `ContactHandle` is a `WFTokenStringParameterState` around a token string, or a plain string
+  when it holds no reference. `MeasurementUnit` is a keyed archive of an `NSUnit`; no property
+  the engine offers filters on uses it.
+
+`where()` writes rows from the engine's own lists: `data/engine-filters.json` for the 14
+built-in Find and Filter actions (their content item classes) and `data/linkd-properties.json`
+for Apple's App Intents Find actions (the entity as the app builds it, from linkd's metadata),
+with `data/apple-entities.json`, the index route, standing in for an entity the engine host did
+not build (`docs/extraction.md`, "The engine's own filter rules"). Per property the generated
+`FILTERS` carry the operator codes, the value kind (which key the row holds), the units a
+number-and-unit row offers and an enumeration's choices. Bool properties are not offered: the
+engine lists no operator for them.
 
 ## 5. Naming, signing and import
 
@@ -237,6 +263,17 @@ out.shortcut` wraps the plist in an AEA container (magic `AEA1`). It needs an iC
 in `anyone` mode; without one it fails with "In order to do this, you must be signed into
 iCloud." `open out.shortcut` shows the import sheet. The app stores each shortcut as this same
 plist in `~/Library/Shortcuts/Shortcuts.sqlite`.
+
+**What the import sheet refuses.** "This shortcut can't be imported because it contains
+features not supported on this device" is the app's answer to an App Intents action that linkd
+marks not discoverable (`LNVisibilityMetadata.isDiscoverable` NO), such as Reminders'
+`GetDefaultListAppIntent`, even though its availability annotations allow every platform and
+WorkflowKit itself loads the file, converts it to a record and raises no import question. The
+check is in the app's import step, not in the engine. A built-in the editor hides
+(`visibilityFlags` 0 in the app's index, such as the old `is.workflow.actions.getonscreencontent`)
+imports and runs. See the extraction notes on
+[hidden actions](extraction.md#what-the-editor-shows-that-the-catalogue-does-not) for how this
+was established.
 
 **Running from the command line.** `shortcuts run "<name>"` returns the last action's output,
 and macOS asks "Allow … to output N items?" the first time (Always Allow silences it). End the

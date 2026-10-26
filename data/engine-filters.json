@@ -34,7 +34,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Bundle Path" : {
         "bounded" : [
@@ -69,7 +70,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Is Frontmost" : {
         "bounded" : [
@@ -78,7 +80,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is Hidden" : {
         "bounded" : [
@@ -87,7 +90,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is Running" : {
         "bounded" : [
@@ -96,7 +100,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Launch Date" : {
         "bounded" : [
@@ -163,7 +168,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Name" : {
         "bounded" : [
@@ -198,7 +210,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Process Identifier" : {
         "bounded" : [
@@ -249,7 +262,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       }
     },
     "WFAppearanceSettingContentItem" : {
@@ -260,7 +274,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Name" : {
         "bounded" : [
@@ -295,7 +310,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFAppStoreAppContentItem" : {
@@ -348,7 +364,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "# of Ratings (This Version)" : {
         "bounded" : [
@@ -399,7 +416,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Artwork URL" : {
         "bounded" : [
@@ -434,7 +452,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Bundle Identifier" : {
         "bounded" : [
@@ -469,7 +488,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Category" : {
         "bounded" : [
@@ -504,7 +524,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Content Rating" : {
         "bounded" : [
@@ -539,7 +560,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Currency Code" : {
         "bounded" : [
@@ -574,7 +596,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Description" : {
         "bounded" : [
@@ -609,7 +632,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Download Size" : {
         "bounded" : [
@@ -644,7 +668,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberByteCountUnitValueType>"
           }
         ],
-        "subjectType" : 6
+        "subjectType" : 6,
+        "valueClass" : "WFFileSize"
       },
       "Formatted Price" : {
         "bounded" : [
@@ -679,7 +704,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "iPad Screenshot URLs" : {
         "bounded" : [
@@ -714,7 +740,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Is Universal" : {
         "bounded" : [
@@ -723,7 +750,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Last Updated" : {
         "bounded" : [
@@ -790,7 +818,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Minimum OS Version" : {
         "bounded" : [
@@ -825,7 +860,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -860,7 +896,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Price" : {
         "bounded" : [
@@ -911,7 +948,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Rating" : {
         "bounded" : [
@@ -962,7 +1000,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Rating (This Version)" : {
         "bounded" : [
@@ -1013,7 +1052,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Release Date" : {
         "bounded" : [
@@ -1080,7 +1120,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Release Notes" : {
         "bounded" : [
@@ -1115,7 +1162,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Screenshot URLs" : {
         "bounded" : [
@@ -1150,7 +1198,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Store ID" : {
         "bounded" : [
@@ -1201,7 +1250,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Store URL" : {
         "bounded" : [
@@ -1236,7 +1286,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Supported Devices" : {
         "bounded" : [
@@ -1271,7 +1322,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Supported Languages" : {
         "bounded" : [
@@ -1306,7 +1358,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Supports Game Center" : {
         "bounded" : [
@@ -1315,7 +1368,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Version" : {
         "bounded" : [
@@ -1350,7 +1404,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFArticleContentItem" : {
@@ -1387,7 +1442,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Main Image URL" : {
         "bounded" : [
@@ -1422,7 +1478,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Name" : {
         "bounded" : [
@@ -1457,7 +1514,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Number of Words" : {
         "bounded" : [
@@ -1508,7 +1566,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Published Date" : {
         "bounded" : [
@@ -1575,7 +1634,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Title" : {
         "bounded" : [
@@ -1610,7 +1676,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "URL" : {
         "bounded" : [
@@ -1645,7 +1712,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "WFCalendarEventContentItem" : {
@@ -1655,6 +1723,9 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+
         ],
         "operators" : [
           {
@@ -1666,7 +1737,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Canceled" : {
         "bounded" : [
@@ -1675,7 +1747,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Creation Date" : {
         "bounded" : [
@@ -1734,7 +1807,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Duration" : {
         "bounded" : [
@@ -1769,7 +1852,14 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 7
+        "subjectType" : 7,
+        "timeUnits" : [
+          16,
+          32,
+          64,
+          128
+        ],
+        "valueClass" : "WFTimeInterval"
       },
       "End Date" : {
         "bounded" : [
@@ -1836,7 +1926,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "File Extension" : {
         "bounded" : [
@@ -1871,7 +1971,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Path" : {
         "bounded" : [
@@ -1906,7 +2007,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Has Alarms" : {
         "bounded" : [
@@ -1915,7 +2017,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is All Day" : {
         "bounded" : [
@@ -1924,7 +2027,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Last Modified Date" : {
         "bounded" : [
@@ -1983,7 +2087,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Location" : {
         "bounded" : [
@@ -2018,7 +2132,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "My Status" : {
         "bounded" : [
@@ -2026,6 +2141,16 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+          "Accepted",
+          "Completed",
+          "Declined",
+          "Delegated",
+          "In Process",
+          "Pending",
+          "Tentative",
+          "Unknown"
         ],
         "operators" : [
           {
@@ -2037,7 +2162,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -2072,7 +2198,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Notes" : {
         "bounded" : [
@@ -2107,7 +2234,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Number of Attendees" : {
         "bounded" : [
@@ -2158,7 +2286,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Organizer Is Me" : {
         "bounded" : [
@@ -2167,7 +2296,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Start Date" : {
         "bounded" : [
@@ -2234,7 +2364,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Title" : {
         "bounded" : [
@@ -2269,7 +2409,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFContactContentItem" : {
@@ -2338,7 +2479,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Company" : {
         "bounded" : [
@@ -2373,7 +2521,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Creation Date" : {
         "bounded" : [
@@ -2432,7 +2581,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Department" : {
         "bounded" : [
@@ -2467,7 +2626,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Email Addresses" : {
         "bounded" : [
@@ -2502,7 +2662,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "WFEmailAddress"
       },
       "File Extension" : {
         "bounded" : [
@@ -2537,7 +2698,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Path" : {
         "bounded" : [
@@ -2572,7 +2734,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "First Name" : {
         "bounded" : [
@@ -2607,7 +2770,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Group" : {
         "bounded" : [
@@ -2615,6 +2779,9 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+
         ],
         "operators" : [
           {
@@ -2626,7 +2793,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Has Photo" : {
         "bounded" : [
@@ -2635,7 +2803,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Job Title" : {
         "bounded" : [
@@ -2670,7 +2839,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Last Modified Date" : {
         "bounded" : [
@@ -2729,7 +2899,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Last Name" : {
         "bounded" : [
@@ -2764,7 +2944,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Middle Name" : {
         "bounded" : [
@@ -2799,7 +2980,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -2834,7 +3016,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Nickname" : {
         "bounded" : [
@@ -2869,7 +3052,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Notes" : {
         "bounded" : [
@@ -2904,7 +3088,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Phone Numbers" : {
         "bounded" : [
@@ -2939,7 +3124,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "WFPhoneNumber"
       },
       "Phonetic First Name" : {
         "bounded" : [
@@ -2974,7 +3160,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Phonetic Last Name" : {
         "bounded" : [
@@ -3009,7 +3196,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Phonetic Middle Name" : {
         "bounded" : [
@@ -3044,7 +3232,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Prefix" : {
         "bounded" : [
@@ -3079,7 +3268,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Relationship to Me" : {
         "bounded" : [
@@ -3087,6 +3277,21 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+          "mother",
+          "father",
+          "parent",
+          "brother",
+          "sister",
+          "son",
+          "daughter",
+          "child",
+          "friend",
+          "spouse",
+          "partner",
+          "assistant",
+          "manager"
         ],
         "operators" : [
           {
@@ -3098,7 +3303,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Street Addresses" : {
         "bounded" : [
@@ -3133,7 +3339,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "WFStreetAddress"
       },
       "Suffix" : {
         "bounded" : [
@@ -3168,7 +3375,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "URLs" : {
         "bounded" : [
@@ -3203,7 +3411,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "WFDisplayContentItem" : {
@@ -3214,7 +3423,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is Main Display" : {
         "bounded" : [
@@ -3223,7 +3433,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Name" : {
         "bounded" : [
@@ -3258,7 +3469,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Scale" : {
         "bounded" : [
@@ -3309,7 +3521,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       }
     },
     "WFEKParticipantContentItem" : {
@@ -3346,7 +3559,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "WFEmailAddress"
       },
       "Is Me" : {
         "bounded" : [
@@ -3355,7 +3569,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Name" : {
         "bounded" : [
@@ -3390,7 +3605,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Role" : {
         "bounded" : [
@@ -3399,6 +3615,13 @@
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
+        "items" : [
+          "Unknown",
+          "Required",
+          "Optional",
+          "Chair",
+          "Non-participant"
+        ],
         "operators" : [
           {
             "code" : 4,
@@ -3409,7 +3632,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Status" : {
         "bounded" : [
@@ -3418,6 +3642,16 @@
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
+        "items" : [
+          "Accepted",
+          "Completed",
+          "Declined",
+          "Delegated",
+          "In Process",
+          "Pending",
+          "Tentative",
+          "Unknown"
+        ],
         "operators" : [
           {
             "code" : 4,
@@ -3428,7 +3662,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Type" : {
         "bounded" : [
@@ -3437,6 +3672,13 @@
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
+        "items" : [
+          "Room",
+          "Group",
+          "Person",
+          "Resource",
+          "Unknown"
+        ],
         "operators" : [
           {
             "code" : 4,
@@ -3447,7 +3689,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFEvernoteContentItem" : {
@@ -3508,7 +3751,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Last Modified Date" : {
         "bounded" : [
@@ -3567,7 +3820,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Name" : {
         "bounded" : [
@@ -3602,7 +3865,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFGenericFileContentItem" : {
@@ -3663,7 +3927,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "File Extension" : {
         "bounded" : [
@@ -3698,7 +3972,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Path" : {
         "bounded" : [
@@ -3733,7 +4008,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Size" : {
         "bounded" : [
@@ -3768,7 +4044,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberByteCountUnitValueType>"
           }
         ],
-        "subjectType" : 6
+        "subjectType" : 6,
+        "valueClass" : "WFFileSize"
       },
       "Last Modified Date" : {
         "bounded" : [
@@ -3827,7 +4104,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Name" : {
         "bounded" : [
@@ -3862,7 +4149,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFHKSampleContentItem" : null,
@@ -3924,7 +4212,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Date Taken" : {
         "bounded" : [
@@ -3983,7 +4281,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Duration" : {
         "bounded" : [
@@ -4018,7 +4323,13 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 7
+        "subjectType" : 7,
+        "timeUnits" : [
+          32,
+          64,
+          128
+        ],
+        "valueClass" : "WFTimeInterval"
       },
       "File Extension" : {
         "bounded" : [
@@ -4053,7 +4364,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Path" : {
         "bounded" : [
@@ -4088,7 +4400,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Size" : {
         "bounded" : [
@@ -4123,7 +4436,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberByteCountUnitValueType>"
           }
         ],
-        "subjectType" : 6
+        "subjectType" : 6,
+        "valueClass" : "WFFileSize"
       },
       "Frame Rate" : {
         "bounded" : [
@@ -4146,7 +4460,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Height" : {
         "bounded" : [
@@ -4197,7 +4512,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Is a Screen Recording" : {
         "bounded" : [
@@ -4206,7 +4522,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is a Screenshot" : {
         "bounded" : [
@@ -4215,7 +4532,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is Favorite" : {
         "bounded" : [
@@ -4224,7 +4542,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Last Modified Date" : {
         "bounded" : [
@@ -4283,7 +4602,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Media Type" : {
         "bounded" : [
@@ -4291,6 +4620,11 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+          "Image",
+          "Video",
+          "Audio"
         ],
         "operators" : [
           {
@@ -4302,7 +4636,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -4337,7 +4672,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Orientation" : {
         "bounded" : [
@@ -4346,6 +4682,16 @@
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
+        "items" : [
+          "Up",
+          "Down",
+          "Left",
+          "Right",
+          "Up Mirrored",
+          "Down Mirrored",
+          "Left Mirrored",
+          "Right Mirrored"
+        ],
         "operators" : [
           {
             "code" : 4,
@@ -4356,7 +4702,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Photo Type" : {
         "bounded" : [
@@ -4365,6 +4712,12 @@
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
+        "items" : [
+          "HDR",
+          "Panorama",
+          "Burst",
+          "Live Photo"
+        ],
         "operators" : [
           {
             "code" : 4,
@@ -4375,7 +4728,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Time Taken" : {
         "bounded" : [
@@ -4434,7 +4788,13 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          32,
+          64,
+          128
+        ],
+        "valueClass" : "NSDate"
       },
       "Width" : {
         "bounded" : [
@@ -4485,7 +4845,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       }
     },
     "WFiTunesArtistContentItem" : {
@@ -4522,7 +4883,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Genre" : {
         "bounded" : [
@@ -4557,7 +4919,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -4592,7 +4955,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Store ID" : {
         "bounded" : [
@@ -4643,7 +5007,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Store URL" : {
         "bounded" : [
@@ -4678,7 +5043,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Type" : {
         "bounded" : [
@@ -4713,7 +5079,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFiTunesProductContentItem" : {
@@ -4750,7 +5117,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Currency Code" : {
         "bounded" : [
@@ -4785,7 +5153,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Description" : {
         "bounded" : [
@@ -4820,7 +5189,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Duration" : {
         "bounded" : [
@@ -4855,7 +5225,14 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 7
+        "subjectType" : 7,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "WFTimeInterval"
       },
       "Formatted Price" : {
         "bounded" : [
@@ -4890,7 +5267,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Genre" : {
         "bounded" : [
@@ -4925,7 +5303,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Is Explicit" : {
         "bounded" : [
@@ -4934,7 +5313,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Name" : {
         "bounded" : [
@@ -4969,7 +5349,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Price" : {
         "bounded" : [
@@ -5020,7 +5401,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Release Date" : {
         "bounded" : [
@@ -5087,7 +5469,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Store ID" : {
         "bounded" : [
@@ -5138,7 +5527,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Store URL" : {
         "bounded" : [
@@ -5173,7 +5563,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Streamable" : {
         "bounded" : [
@@ -5182,7 +5573,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       }
     },
     "WFLocationContentItem" : {
@@ -5235,7 +5627,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "City" : {
         "bounded" : [
@@ -5270,7 +5663,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Country" : {
         "bounded" : [
@@ -5305,7 +5699,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Label" : {
         "bounded" : [
@@ -5313,6 +5708,12 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+          "home",
+          "work",
+          "school",
+          "other"
         ],
         "operators" : [
           {
@@ -5324,7 +5725,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Latitude" : {
         "bounded" : [
@@ -5359,7 +5761,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Longitude" : {
         "bounded" : [
@@ -5394,7 +5797,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -5429,7 +5833,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Phone Number" : {
         "bounded" : [
@@ -5464,7 +5869,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "WFPhoneNumber"
       },
       "State" : {
         "bounded" : [
@@ -5499,7 +5905,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Street" : {
         "bounded" : [
@@ -5534,7 +5941,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "URL" : {
         "bounded" : [
@@ -5569,7 +5977,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "ZIP Code" : {
         "bounded" : [
@@ -5604,7 +6013,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFMPMediaContentItem" : {
@@ -5641,7 +6051,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Album Artist" : {
         "bounded" : [
@@ -5676,7 +6087,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Album Track #" : {
         "bounded" : [
@@ -5727,7 +6139,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Artist" : {
         "bounded" : [
@@ -5762,7 +6175,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Comments" : {
         "bounded" : [
@@ -5797,7 +6211,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Composer" : {
         "bounded" : [
@@ -5832,7 +6247,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Date Added" : {
         "bounded" : [
@@ -5891,7 +6307,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Disc #" : {
         "bounded" : [
@@ -5942,7 +6365,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Duration" : {
         "bounded" : [
@@ -5977,7 +6401,13 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 7
+        "subjectType" : 7,
+        "timeUnits" : [
+          32,
+          64,
+          128
+        ],
+        "valueClass" : "WFTimeInterval"
       },
       "File Path" : {
         "bounded" : [
@@ -6012,7 +6442,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Genre" : {
         "bounded" : [
@@ -6047,7 +6478,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Has Album Artwork" : {
         "bounded" : [
@@ -6056,7 +6488,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is Cloud Item" : {
         "bounded" : [
@@ -6065,7 +6498,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is Explicit" : {
         "bounded" : [
@@ -6074,7 +6508,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Last Played Date" : {
         "bounded" : [
@@ -6133,7 +6568,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Lyrics" : {
         "bounded" : [
@@ -6168,7 +6613,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Media Kind" : {
         "bounded" : [
@@ -6176,6 +6622,15 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+          "Movie",
+          "TV Show",
+          "Music",
+          "Podcast",
+          "Music Video",
+          "iTunes U",
+          "Audiobook"
         ],
         "operators" : [
           {
@@ -6187,7 +6642,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -6222,7 +6678,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Play Count" : {
         "bounded" : [
@@ -6273,7 +6730,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Rating" : {
         "bounded" : [
@@ -6324,7 +6782,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Release Date" : {
         "bounded" : [
@@ -6383,7 +6842,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Skip Count" : {
         "bounded" : [
@@ -6434,7 +6900,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Title" : {
         "bounded" : [
@@ -6469,7 +6936,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFParkedCarContentItem" : {
@@ -6538,7 +7006,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Name" : {
         "bounded" : [
@@ -6573,7 +7048,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Notes" : {
         "bounded" : [
@@ -6608,7 +7084,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Was Location Set by User" : {
         "bounded" : [
@@ -6617,7 +7094,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       }
     },
     "WFPhotoMediaContentItem" : {
@@ -6638,7 +7116,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Creation Date" : {
         "bounded" : [
@@ -6697,7 +7176,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Date Taken" : {
         "bounded" : [
@@ -6756,7 +7245,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Duration" : {
         "bounded" : [
@@ -6791,7 +7287,13 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 7
+        "subjectType" : 7,
+        "timeUnits" : [
+          32,
+          64,
+          128
+        ],
+        "valueClass" : "WFTimeInterval"
       },
       "File Extension" : {
         "bounded" : [
@@ -6826,7 +7328,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Path" : {
         "bounded" : [
@@ -6861,7 +7364,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Frame Rate" : {
         "bounded" : [
@@ -6884,7 +7388,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Height" : {
         "bounded" : [
@@ -6935,7 +7440,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Is a Screen Recording" : {
         "bounded" : [
@@ -6944,7 +7450,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is a Screenshot" : {
         "bounded" : [
@@ -6953,7 +7460,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is Favorite" : {
         "bounded" : [
@@ -6962,7 +7470,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Last Modified Date" : {
         "bounded" : [
@@ -7021,7 +7530,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Media Type" : {
         "bounded" : [
@@ -7029,6 +7548,11 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+          "Image",
+          "Video",
+          "Audio"
         ],
         "operators" : [
           {
@@ -7040,7 +7564,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -7075,7 +7600,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Orientation" : {
         "bounded" : [
@@ -7084,6 +7610,16 @@
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
+        "items" : [
+          "Up",
+          "Down",
+          "Left",
+          "Right",
+          "Up Mirrored",
+          "Down Mirrored",
+          "Left Mirrored",
+          "Right Mirrored"
+        ],
         "operators" : [
           {
             "code" : 4,
@@ -7094,7 +7630,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Photo Type" : {
         "bounded" : [
@@ -7103,6 +7640,12 @@
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
+        "items" : [
+          "HDR",
+          "Panorama",
+          "Burst",
+          "Live Photo"
+        ],
         "operators" : [
           {
             "code" : 4,
@@ -7113,7 +7656,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Time Taken" : {
         "bounded" : [
@@ -7172,7 +7716,13 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          32,
+          64,
+          128
+        ],
+        "valueClass" : "NSDate"
       },
       "Width" : {
         "bounded" : [
@@ -7223,7 +7773,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       }
     },
     "WFPodcastEpisodeContentItem" : {
@@ -7260,7 +7811,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Author" : {
         "bounded" : [
@@ -7295,7 +7847,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Description" : {
         "bounded" : [
@@ -7330,7 +7883,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Duration" : {
         "bounded" : [
@@ -7365,7 +7919,14 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 7
+        "subjectType" : 7,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "WFTimeInterval"
       },
       "Genres" : {
         "bounded" : [
@@ -7400,7 +7961,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -7435,7 +7997,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Release Date" : {
         "bounded" : [
@@ -7502,7 +8065,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Store ID" : {
         "bounded" : [
@@ -7553,7 +8123,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Store URL" : {
         "bounded" : [
@@ -7588,7 +8159,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Title" : {
         "bounded" : [
@@ -7623,7 +8195,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFPodcastShowContentItem" : {
@@ -7660,7 +8233,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Artwork URL" : {
         "bounded" : [
@@ -7695,7 +8269,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Episode Count" : {
         "bounded" : [
@@ -7730,7 +8305,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Feed URL" : {
         "bounded" : [
@@ -7765,7 +8341,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Genre" : {
         "bounded" : [
@@ -7800,7 +8377,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -7835,7 +8413,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Store ID" : {
         "bounded" : [
@@ -7886,7 +8465,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Store URL" : {
         "bounded" : [
@@ -7921,7 +8501,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "WFReminderContentItem" : {
@@ -7990,7 +8571,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Creation Date" : {
         "bounded" : [
@@ -8049,7 +8637,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Due Date" : {
         "bounded" : [
@@ -8116,7 +8714,16 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "File Extension" : {
         "bounded" : [
@@ -8151,7 +8758,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Path" : {
         "bounded" : [
@@ -8186,7 +8794,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Has Alarms" : {
         "bounded" : [
@@ -8195,7 +8804,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Has Subtasks" : {
         "bounded" : [
@@ -8204,7 +8814,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is Completed" : {
         "bounded" : [
@@ -8213,7 +8824,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is Flagged" : {
         "bounded" : [
@@ -8222,7 +8834,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Last Modified Date" : {
         "bounded" : [
@@ -8281,7 +8894,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "List" : {
         "bounded" : [
@@ -8289,6 +8912,9 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+
         ],
         "operators" : [
           {
@@ -8300,7 +8926,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -8335,7 +8962,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Notes" : {
         "bounded" : [
@@ -8370,7 +8998,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Priority" : {
         "bounded" : [
@@ -8378,6 +9007,12 @@
             "code" : 4,
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
+        ],
+        "items" : [
+          "None",
+          "Low",
+          "Medium",
+          "High"
         ],
         "operators" : [
           {
@@ -8389,7 +9024,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Tags" : {
         "bounded" : [
@@ -8405,7 +9041,8 @@
             "type" : "NotContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Title" : {
         "bounded" : [
@@ -8440,7 +9077,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "URL" : {
         "bounded" : [
@@ -8475,7 +9113,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "WFRideStatusContentItem" : {
@@ -8544,7 +9183,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Name" : {
         "bounded" : [
@@ -8579,7 +9225,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Pickup Time" : {
         "bounded" : [
@@ -8646,7 +9293,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Ride Option Name" : {
         "bounded" : [
@@ -8681,7 +9335,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Vehicle Information" : {
         "bounded" : [
@@ -8716,7 +9371,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFSafariWebPageContentItem" : {
@@ -8753,7 +9409,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Page URL" : {
         "bounded" : [
@@ -8788,7 +9445,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "WFShazamMediaContentItem" : {
@@ -8825,7 +9483,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Apple Music URL" : {
         "bounded" : [
@@ -8860,7 +9519,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Artist" : {
         "bounded" : [
@@ -8895,7 +9555,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Is Explicit" : {
         "bounded" : [
@@ -8904,7 +9565,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Lyric Snippet Synced" : {
         "bounded" : [
@@ -8939,7 +9601,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Lyrics Snippet" : {
         "bounded" : [
@@ -8974,7 +9637,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -9009,7 +9673,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Shazam URL" : {
         "bounded" : [
@@ -9044,7 +9709,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       },
       "Title" : {
         "bounded" : [
@@ -9079,7 +9745,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Video URL" : {
         "bounded" : [
@@ -9114,7 +9781,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "WFTrelloItemContentItem" : {
@@ -9183,7 +9851,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Description" : {
         "bounded" : [
@@ -9218,7 +9893,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -9253,7 +9929,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "URL" : {
         "bounded" : [
@@ -9288,7 +9965,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "WFUlyssesSheetContentItem" : {
@@ -9325,7 +10003,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Identifier" : {
         "bounded" : [
@@ -9360,7 +10039,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Keywords" : {
         "bounded" : [
@@ -9395,7 +10075,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Name" : {
         "bounded" : [
@@ -9430,7 +10111,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Notes" : {
         "bounded" : [
@@ -9465,7 +10147,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Title" : {
         "bounded" : [
@@ -9500,7 +10183,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFVPNContentItem" : {
@@ -9511,7 +10195,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Is On Demand Enabled" : {
         "bounded" : [
@@ -9520,7 +10205,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Name" : {
         "bounded" : [
@@ -9555,7 +10241,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Server Address" : {
         "bounded" : [
@@ -9590,7 +10277,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFWeatherDataContentItem" : {
@@ -9627,7 +10315,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Air Quality Index" : {
         "bounded" : [
@@ -9678,7 +10367,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Condition" : {
         "bounded" : [
@@ -9713,7 +10403,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Date" : {
         "bounded" : [
@@ -9780,7 +10471,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Humidity" : {
         "bounded" : [
@@ -9831,7 +10529,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Name" : {
         "bounded" : [
@@ -9866,7 +10565,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Precipitation Chance" : {
         "bounded" : [
@@ -9917,7 +10617,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Sunrise Time" : {
         "bounded" : [
@@ -9984,7 +10685,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Sunset Time" : {
         "bounded" : [
@@ -10051,7 +10759,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "UV Index" : {
         "bounded" : [
@@ -10102,7 +10817,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Wind Direction" : {
         "bounded" : [
@@ -10137,7 +10853,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "WFWindowContentItem" : {
@@ -10174,7 +10891,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Height" : {
         "bounded" : [
@@ -10225,7 +10943,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Is Hidden" : {
         "bounded" : [
@@ -10234,7 +10953,8 @@
         "operators" : [
 
         ],
-        "subjectType" : 1
+        "subjectType" : 1,
+        "valueClass" : "__NSCFBoolean"
       },
       "Name" : {
         "bounded" : [
@@ -10269,7 +10989,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Width" : {
         "bounded" : [
@@ -10320,7 +11041,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Window Index" : {
         "bounded" : [
@@ -10371,7 +11093,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "X Position" : {
         "bounded" : [
@@ -10422,7 +11145,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Y Position" : {
         "bounded" : [
@@ -10473,7 +11197,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       }
     },
     "WFWorkflowContentItem" : {
@@ -10526,7 +11251,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "Creation Date" : {
         "bounded" : [
@@ -10585,7 +11311,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "File Extension" : {
         "bounded" : [
@@ -10620,7 +11356,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Path" : {
         "bounded" : [
@@ -10655,7 +11392,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "File Size" : {
         "bounded" : [
@@ -10690,7 +11428,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberByteCountUnitValueType>"
           }
         ],
-        "subjectType" : 6
+        "subjectType" : 6,
+        "valueClass" : "WFFileSize"
       },
       "Folder" : {
         "bounded" : [
@@ -10725,7 +11464,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "Last Modified Date" : {
         "bounded" : [
@@ -10784,7 +11524,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "Name" : {
         "bounded" : [
@@ -10819,7 +11569,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     }
   },
@@ -10841,7 +11592,8 @@
             "type" : "ContainsOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEntityContentItem_com.apple.AddressBook_ContactLabeledValueEntity"
       },
       "phoneNumbers" : {
         "bounded" : [
@@ -10856,7 +11608,8 @@
             "type" : "ContainsOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEntityContentItem_com.apple.AddressBook_ContactLabeledValueEntity"
       }
     },
     "com.apple.AppIntents.AppIntents._ModelDelegationResultEntity" : {
@@ -10899,7 +11652,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "groupIdentifier" : {
         "bounded" : [
@@ -10930,7 +11684,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -10961,7 +11716,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.AppStore.MarketplaceApplication" : {
@@ -10994,7 +11750,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.calls.PhoneAppIntentsExtension.CallEmergencyDestination" : {
@@ -11027,7 +11784,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "type" : {
         "bounded" : [
@@ -11046,7 +11804,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.calls.PhoneAppIntentsExtension_EmergencyType"
       }
     },
     "com.apple.calls.PhoneAppIntentsExtension.CallMessage" : {
@@ -11111,7 +11870,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       }
     },
     "com.apple.calls.PhoneAppIntentsExtension.CallRecord" : {
@@ -11176,7 +11945,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "duration" : {
         "bounded" : [
@@ -11211,7 +11990,13 @@
             "type" : "OrderedComparisonOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 7
+        "subjectType" : 7,
+        "timeUnits" : [
+          32,
+          64,
+          128
+        ],
+        "valueClass" : "LNCodableValue_Swift_Duration"
       },
       "type" : {
         "bounded" : [
@@ -11230,7 +12015,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.calls.PhoneAppIntentsExtension_CallRecordType"
       }
     },
     "com.apple.calls.PhoneAppIntentsExtension.ConferenceCall" : {
@@ -11269,7 +12055,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.clock.AlarmEntity" : {
@@ -11298,7 +12085,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "label" : {
         "bounded" : [
@@ -11317,7 +12105,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "minutes" : {
         "bounded" : [
@@ -11344,7 +12133,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       }
     },
     "com.apple.clock.AssistantAlarmEntity" : {
@@ -11377,7 +12167,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "time" : {
         "bounded" : [
@@ -11416,7 +12207,8 @@
             "type" : "BetweenComparisonOperator<RowTemplateDateValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "valueClass" : "NSDateComponents"
       },
       "triggerState" : {
         "bounded" : [
@@ -11435,7 +12227,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.clock_AlarmTriggerState"
       }
     },
     "com.apple.clock.StopwatchEntity" : {
@@ -11471,7 +12264,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.finder.FINodeEntity" : {
@@ -11507,7 +12301,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "LNEntity_GeoToolbox_PlaceDescriptorEntity"
       },
       "trigger" : {
         "bounded" : [
@@ -11526,7 +12321,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.findmy_GeofenceTrigger"
       }
     },
     "com.apple.findmy.ItemEntity" : {
@@ -11547,7 +12343,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.findmy_ItemEntityCapability"
       },
       "category" : {
         "bounded" : [
@@ -11566,7 +12363,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.findmy_FindableItemCategory"
       },
       "customName" : {
         "bounded" : [
@@ -11597,7 +12395,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "productName" : {
         "bounded" : [
@@ -11628,7 +12427,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.findmy.ItemLocationResponse" : {
@@ -11667,7 +12467,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "LNEntity_GeoToolbox_PlaceDescriptorEntity"
       }
     },
     "com.apple.freeform.CRLBoardEntity" : {
@@ -11732,7 +12533,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "lastModificationDate" : {
         "bounded" : [
@@ -11795,7 +12606,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "title" : {
         "bounded" : [
@@ -11826,7 +12647,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.generativeassistanttools.GenerativeAssistantExtension.GenerativeResponseEntity" : {
@@ -11850,7 +12672,8 @@
             "type" : "IsEqualOperator<RowTemplateDateValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "valueClass" : "NSDate"
       },
       "startDate" : {
         "bounded" : [
@@ -11865,7 +12688,8 @@
             "type" : "IsEqualOperator<RowTemplateDateValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "valueClass" : "NSDate"
       }
     },
     "com.apple.Home.DeviceEntity" : {
@@ -11882,7 +12706,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "id" : {
         "bounded" : [
@@ -11897,7 +12722,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "name" : {
         "bounded" : [
@@ -11912,7 +12738,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "roomName" : {
         "bounded" : [
@@ -11927,7 +12754,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "zoneNames" : {
         "bounded" : [
@@ -11942,7 +12770,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Home.RoomEntity" : {
@@ -11959,7 +12788,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "name" : {
         "bounded" : [
@@ -11974,7 +12804,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "zoneNames" : {
         "bounded" : [
@@ -11989,7 +12820,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Home.SceneEntity" : {
@@ -12006,7 +12838,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "name" : {
         "bounded" : [
@@ -12021,7 +12854,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "sceneType" : {
         "bounded" : [
@@ -12036,7 +12870,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Home.SelectedHomeEntity" : null,
@@ -12054,7 +12889,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "name" : {
         "bounded" : [
@@ -12069,7 +12905,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.iBooksX.AudiobookAppEntity" : {
@@ -12102,7 +12939,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "genre" : {
         "bounded" : [
@@ -12133,7 +12971,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "purchaseDate" : {
         "bounded" : [
@@ -12196,7 +13035,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "seriesTitle" : {
         "bounded" : [
@@ -12227,7 +13076,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -12258,7 +13108,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "url" : {
         "bounded" : [
@@ -12289,7 +13140,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "com.apple.iBooksX.AudiobookEntity" : {
@@ -12322,7 +13174,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "genre" : {
         "bounded" : [
@@ -12353,7 +13206,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "narrator" : {
         "bounded" : [
@@ -12384,7 +13238,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "publisher" : {
         "bounded" : [
@@ -12415,7 +13270,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "purchaseDate" : {
         "bounded" : [
@@ -12478,7 +13334,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "releaseDate" : {
         "bounded" : [
@@ -12541,7 +13407,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "seriesTitle" : {
         "bounded" : [
@@ -12572,7 +13448,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -12603,7 +13480,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.iBooksX.BookAppEntity" : {
@@ -12636,7 +13514,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "contentType" : {
         "bounded" : [
@@ -12655,7 +13534,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.iBooksX_BookAppEntityContentType"
       },
       "genre" : {
         "bounded" : [
@@ -12686,7 +13566,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "purchaseDate" : {
         "bounded" : [
@@ -12749,7 +13630,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "seriesTitle" : {
         "bounded" : [
@@ -12780,7 +13671,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -12811,7 +13703,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "url" : {
         "bounded" : [
@@ -12842,7 +13735,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "com.apple.iBooksX.BookSettingsEntity" : {
@@ -12863,7 +13757,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.iBooksX_StubBookFont"
       },
       "fontSize" : {
         "bounded" : [
@@ -12882,7 +13777,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.iBooksX_StubBookFontSize"
       },
       "pageNavigationSetting" : {
         "bounded" : [
@@ -12901,7 +13797,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.iBooksX_BookPageNavigationSetting"
       },
       "theme" : {
         "bounded" : [
@@ -12920,7 +13817,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.iBooksX_BookThemeSetting"
       }
     },
     "com.apple.iBooksX.DefaultCollectionEntity" : null,
@@ -12938,7 +13836,8 @@
             "type" : "DateFilterOperator"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "valueClass" : "NSDate"
       },
       "note" : {
         "bounded" : [
@@ -12950,7 +13849,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSAttributedString"
       },
       "startDate" : {
         "bounded" : [
@@ -12962,7 +13862,8 @@
             "type" : "IsNotEqualOperator<RowTemplateDateValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "valueClass" : "NSDate"
       },
       "title" : {
         "bounded" : [
@@ -12993,7 +13894,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "virtualLocation" : {
         "bounded" : [
@@ -13024,7 +13926,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "com.apple.iCal.InboxItemEntity" : null,
@@ -13065,7 +13968,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSAttributedString"
       },
       "subject" : {
         "bounded" : [
@@ -13096,7 +14000,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.mail.MailMessage" : {
@@ -13137,7 +14042,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "sender" : {
         "bounded" : [
@@ -13152,7 +14067,8 @@
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEntityContentItem_com.apple.mail_MailAddresseeEntity"
       },
       "subject" : {
         "bounded" : [
@@ -13167,7 +14083,8 @@
             "type" : "IsEqualOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.mail.MailMessageEntity" : {
@@ -13181,7 +14098,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSAttributedString"
       },
       "dateReceived" : {
         "bounded" : [
@@ -13244,7 +14162,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "subject" : {
         "bounded" : [
@@ -13275,7 +14203,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Maps.CurrentLocationEntity" : null,
@@ -13344,7 +14273,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "preferences" : {
         "bounded" : [
@@ -13363,7 +14302,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Maps_NavigationPreferencesEnum"
       },
       "transportationType" : {
         "bounded" : [
@@ -13382,7 +14322,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Maps_TransportationTypeEnum"
       }
     },
     "com.apple.Maps.ParkingLocationDataEntity" : {
@@ -13396,7 +14337,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSAttributedString"
       },
       "place" : {
         "bounded" : [
@@ -13427,7 +14369,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "LNEntity_GeoToolbox_PlaceDescriptorEntity"
       },
       "time" : {
         "bounded" : [
@@ -13490,7 +14433,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       }
     },
     "com.apple.MobileSMS.ConversationEntity" : {
@@ -13555,7 +14508,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "displayName" : {
         "bounded" : [
@@ -13586,7 +14549,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.MobileSMS.MessageEntity" : {
@@ -13594,10 +14558,14 @@
         "bounded" : [
 
         ],
+        "items" : [
+
+        ],
         "operators" : [
 
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "WFEmailAddress"
       },
       "body" : {
         "bounded" : [
@@ -13609,7 +14577,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSAttributedString"
       },
       "date" : {
         "bounded" : [
@@ -13672,7 +14641,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "subject" : {
         "bounded" : [
@@ -13703,7 +14682,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSAttributedString"
       }
     },
     "com.apple.Music.AlbumSiriEntity" : {
@@ -13790,7 +14770,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Notes.ChecklistItemEntity" : {
@@ -13813,7 +14794,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Notes.TagEntity" : {
@@ -13840,7 +14822,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Photos_CollectionType"
       },
       "creationDate" : {
         "bounded" : [
@@ -13903,7 +14886,14 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "name" : {
         "bounded" : [
@@ -13934,7 +14924,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Photos.AssetEntity" : {
@@ -13955,7 +14946,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Photos_MediaType"
       },
       "creationDate" : {
         "bounded" : [
@@ -14018,7 +15010,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "location" : {
         "bounded" : [
@@ -14049,7 +15051,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "LNEntity_GeoToolbox_PlaceDescriptorEntity"
       }
     },
     "com.apple.Photos.MemoryEntity" : {
@@ -14085,7 +15088,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.podcasts.EpisodeEntity" : {
@@ -14130,7 +15134,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "releaseDate" : {
         "bounded" : [
@@ -14193,7 +15198,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "showName" : {
         "bounded" : [
@@ -14224,7 +15239,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -14255,7 +15271,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.podcasts.PodcastCollectionEntity" : {
@@ -14288,7 +15305,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.podcasts.ShowEntity" : {
@@ -14325,7 +15343,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -14356,7 +15375,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.podcasts.WarmupAudioQueueResult" : null,
@@ -14374,7 +15394,8 @@
             "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Preview_DocumentKind"
       },
       "title" : {
         "bounded" : [
@@ -14393,7 +15414,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Preview.PageEntity" : {
@@ -14429,7 +15451,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.reminders.ListEntity" : {
@@ -14462,7 +15485,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "type" : {
         "bounded" : [
@@ -14481,7 +15505,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.reminders_ListType"
       }
     },
     "com.apple.reminders.ReminderEntity" : {
@@ -14546,7 +15571,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "creationDate" : {
         "bounded" : [
@@ -14609,7 +15644,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "dueDate" : {
         "bounded" : [
@@ -14648,7 +15693,8 @@
             "type" : "BetweenComparisonOperator<RowTemplateDateValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "valueClass" : "NSDateComponents"
       },
       "note" : {
         "bounded" : [
@@ -14660,7 +15706,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSAttributedString"
       },
       "tags" : {
         "bounded" : [
@@ -14691,7 +15738,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -14722,7 +15770,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "urls" : {
         "bounded" : [
@@ -14753,7 +15802,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "com.apple.reminders.RemotePreferencesEntity" : {
@@ -14786,7 +15836,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.reminders.SectionEntity" : {
@@ -14819,7 +15870,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.reminders.SmartListEntity" : {
@@ -14840,7 +15892,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.reminders_SmartListType"
       }
     },
     "com.apple.Safari.BookmarkEntity" : {
@@ -14873,7 +15926,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -14904,7 +15958,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "url" : {
         "bounded" : [
@@ -14935,7 +15990,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "com.apple.Safari.HistoryEntity" : {
@@ -15000,7 +16056,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "name" : {
         "bounded" : [
@@ -15031,7 +16097,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "textContentSnippet" : {
         "bounded" : [
@@ -15062,7 +16129,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -15093,7 +16161,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "url" : {
         "bounded" : [
@@ -15124,7 +16193,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "com.apple.Safari.QuickWebsiteSearchProviderEntity" : {
@@ -15157,7 +16227,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "title" : {
         "bounded" : [
@@ -15188,7 +16259,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "topDomain" : {
         "bounded" : [
@@ -15219,7 +16291,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "url" : {
         "bounded" : [
@@ -15250,7 +16323,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "com.apple.Safari.ReadingListItemEntity" : {
@@ -15283,7 +16357,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "url" : {
         "bounded" : [
@@ -15314,7 +16389,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "com.apple.Safari.TabEntity" : {
@@ -15347,7 +16423,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "url" : {
         "bounded" : [
@@ -15378,7 +16455,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSURL"
       }
     },
     "com.apple.Safari.TabGroupEntity" : {
@@ -15411,7 +16489,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Safari.WindowEntity" : {
@@ -15444,7 +16523,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink" : null,
@@ -15466,7 +16546,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_AirDropAccessMode"
       }
     },
     "com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink" : null,
@@ -15493,7 +16574,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_AutoHideMenuBarOption"
       }
     },
     "com.apple.Settings.AutoTimeZoneEntity" : {
@@ -15573,7 +16655,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       }
     },
     "com.apple.Settings.DesktopSettingsEntity" : {
@@ -15594,7 +16686,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_ClickWallpaperOption"
       },
       "showWindowsFromAnApplication" : {
         "bounded" : [
@@ -15613,7 +16706,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_ShowWindowsOption"
       }
     },
     "com.apple.Settings.DesktopSettingsSettingsDeepLink" : null,
@@ -15636,7 +16730,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_DoubleClickToOption"
       },
       "magnification" : {
         "bounded" : [
@@ -15679,7 +16774,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       },
       "minimizeWindowsUsing" : {
         "bounded" : [
@@ -15698,7 +16794,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_MinimizeWindowsOption"
       },
       "positionOnScreen" : {
         "bounded" : [
@@ -15717,7 +16814,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_PositionOnScreenOption"
       },
       "size" : {
         "bounded" : [
@@ -15760,7 +16858,8 @@
             "type" : "OrderedComparisonOperator<RowTemplateNumberValueType>"
           }
         ],
-        "subjectType" : 3
+        "subjectType" : 3,
+        "valueClass" : "NSNumber"
       }
     },
     "com.apple.Settings.FamilyMemberDetailsDeepLink" : null,
@@ -15806,7 +16905,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_MouseTrackingSpeed"
       }
     },
     "com.apple.Settings.NotificationCenterEntity" : {
@@ -15827,7 +16927,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_ShowPreviewsOption"
       }
     },
     "com.apple.Settings.NotificationsSettingsSettingsDeepLink" : null,
@@ -15862,7 +16963,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_RecentDocumentsOption"
       }
     },
     "com.apple.Settings.ScreenTimeDeepLinks" : null,
@@ -15887,7 +16989,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_SecondaryClickPicker"
       }
     },
     "com.apple.Settings.SettingsEntity" : null,
@@ -15946,7 +17049,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_SwipeBetweenPagesPicker"
       }
     },
     "com.apple.Settings.TimeMachineSettingsSettingsDeepLink" : null,
@@ -15980,7 +17084,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.Settings.TrackpadAppExposeEntity" : {
@@ -16001,7 +17106,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_AppExposeGesturePicker"
       }
     },
     "com.apple.Settings.TrackpadClickPressureEntity" : {
@@ -16022,7 +17128,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_TrackpadClickPressure"
       }
     },
     "com.apple.Settings.TrackpadExtensionSettingsDeepLink" : null,
@@ -16050,7 +17157,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_LookUpDataDetectorPicker"
       }
     },
     "com.apple.Settings.TrackpadMissionControlEntity" : {
@@ -16071,7 +17179,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_MissionControlPicker"
       }
     },
     "com.apple.Settings.TrackpadNotificiationCenterEntity" : {
@@ -16101,7 +17210,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_TrackpadSecondaryClickPicker"
       }
     },
     "com.apple.Settings.TrackpadShowDesktopEntity" : {
@@ -16128,7 +17238,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_SwipeBetweenSpacesPicker"
       }
     },
     "com.apple.Settings.TrackpadSwipeBetweenPagesEntity" : {
@@ -16149,7 +17260,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_NavigationGesturePicker"
       }
     },
     "com.apple.Settings.TrackpadTapToClickEntity" : {
@@ -16173,7 +17285,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_TrackpadTrackingSpeed"
       }
     },
     "com.apple.Settings.TrackpadZoomInOutEntity" : {
@@ -16205,7 +17318,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_WidgetAppearanceOption"
       }
     },
     "com.apple.Settings.WiFiSettingsDeepLink" : null,
@@ -16227,7 +17341,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.Settings_PreferTabsOption"
       }
     },
     "com.apple.shortcuts.RootNavigationDestination" : null,
@@ -16251,7 +17366,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "label" : {
         "bounded" : [
@@ -16270,7 +17386,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "phoneNumber" : {
         "bounded" : [
@@ -16289,7 +17406,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.ShortcutsActions.ChargeLimit" : null,
@@ -16359,7 +17477,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "preferences" : {
         "bounded" : [
@@ -16378,7 +17506,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_NavigationPreferencesEnum"
       },
       "transportationType" : {
         "bounded" : [
@@ -16397,7 +17526,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_TransportationTypeEnum"
       }
     },
     "com.apple.Spotlight.SearchFieldEntity" : {
@@ -16430,7 +17560,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.stocks.NewsRecipeEntity" : {
@@ -16455,7 +17586,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "symbol" : {
         "bounded" : [
@@ -16474,7 +17606,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.stocks.SymbolQuoteEntity" : {
@@ -16498,7 +17631,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "symbol" : {
         "bounded" : [
@@ -16517,7 +17651,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.stocks.WatchlistEntity" : {
@@ -16538,7 +17673,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.AccentColorEntity" : {
@@ -16559,7 +17695,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_NSUserAccentColor"
       }
     },
     "com.apple.systempreferences.AccountEntity" : {
@@ -16586,7 +17723,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Appearance"
       }
     },
     "com.apple.systempreferences.AppearanceSettingsDeepLink" : null,
@@ -16626,7 +17764,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.AxAdaptiveVoiceShortcutsEntity" : {
@@ -16680,7 +17819,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_MADisplayFilterType"
       }
     },
     "com.apple.systempreferences.AxDwellActionEntity" : {
@@ -16701,7 +17841,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAVirtualKeyboardDefaultDwellAction"
       }
     },
     "com.apple.systempreferences.AxDwellAutoRevertEntity" : {
@@ -16725,7 +17866,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UADwellColorType"
       }
     },
     "com.apple.systempreferences.AxDwellInMenuExtraEntity" : {
@@ -16800,7 +17942,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAVirtualKeyboardAction"
       }
     },
     "com.apple.systempreferences.AxHotCornerBottomRightEntity" : {
@@ -16821,7 +17964,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAVirtualKeyboardAction"
       }
     },
     "com.apple.systempreferences.AxHotCornerMoveHomePanelEntity" : {
@@ -16845,7 +17989,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAVirtualKeyboardAction"
       }
     },
     "com.apple.systempreferences.AxHotCornerTopRightEntity" : {
@@ -16866,7 +18011,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAVirtualKeyboardAction"
       }
     },
     "com.apple.systempreferences.AxHoverTextActivationLockModeEntity" : {
@@ -16893,7 +18039,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAHoverTextModifier"
       }
     },
     "com.apple.systempreferences.AxHoverTypingEnableEntity" : {
@@ -16917,7 +18064,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAHoverTextTypingWindowPosition"
       }
     },
     "com.apple.systempreferences.AxIgnoreTrackpadEntity" : {
@@ -16950,7 +18098,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UADisplayTheme"
       }
     },
     "com.apple.systempreferences.AxKbAutoCapitalizationEntity" : {
@@ -16980,7 +18129,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAVirtualKeyboardMouseOption"
       }
     },
     "com.apple.systempreferences.AxKbRightClickEntity" : {
@@ -17082,7 +18232,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASpeakItemUnderMouseMode"
       }
     },
     "com.apple.systempreferences.AxSpokenPointerElementVerbosityEntity" : {
@@ -17103,7 +18254,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASpeakItemUnderMouseVerbosity"
       }
     },
     "com.apple.systempreferences.AxSpokenPronunciationsEntity" : {
@@ -17127,7 +18279,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASpeakSelectionHighlightOptions"
       }
     },
     "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceColorEntity" : {
@@ -17148,7 +18301,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASpeakSelectionHighlightColor"
       }
     },
     "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceStyleEntity" : {
@@ -17169,7 +18323,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASpeakSelectionSentenceStyle"
       }
     },
     "com.apple.systempreferences.AxSpokenSelectionHighlightWordColorEntity" : {
@@ -17190,7 +18345,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASpeakSelectionHighlightColor"
       }
     },
     "com.apple.systempreferences.AxSpokenSelectionShowControllerEntity" : {
@@ -17211,7 +18367,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASpokenContentControllerMode"
       }
     },
     "com.apple.systempreferences.AxSpokenTypingEchoCharsEntity" : {
@@ -17256,7 +18413,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAStickyKeysLocation"
       }
     },
     "com.apple.systempreferences.AxStickyKeysEntity" : {
@@ -17292,7 +18450,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UADisplayTheme"
       }
     },
     "com.apple.systempreferences.AxSwitchCursorSizeEntity" : {
@@ -17313,7 +18472,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASwitchControlCursorSize"
       }
     },
     "com.apple.systempreferences.AxSwitchHideAfterDelayEntity" : {
@@ -17343,7 +18503,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASwitchControlMouseMoveStyle"
       }
     },
     "com.apple.systempreferences.AxSwitchNavFeedbackEntity" : {
@@ -17364,7 +18525,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASwitchControlNavigationFeedback"
       }
     },
     "com.apple.systempreferences.AxSwitchResumeAutoScanningEntity" : {
@@ -17388,7 +18550,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UASwitchControlRestartOption"
       }
     },
     "com.apple.systempreferences.AxSystemTranscriptionEnabledEntity" : {
@@ -17430,7 +18593,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAVoiceControlOverlayMode"
       }
     },
     "com.apple.systempreferences.AxVoiceControlOverlayFadingEnabledEntity" : {
@@ -17472,7 +18636,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAFocusMovement"
       }
     },
     "com.apple.systempreferences.AxZoomFollowFocusActivationEntity" : {
@@ -17493,7 +18658,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAFocusActivationZone"
       }
     },
     "com.apple.systempreferences.AxZoomFollowFocusModeEntity" : {
@@ -17514,7 +18680,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAFocusFollowMode"
       }
     },
     "com.apple.systempreferences.AxZoomFreezePanningEntity" : {
@@ -17550,7 +18717,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAZoomMonitorSelectionTrackpadGesture"
       }
     },
     "com.apple.systempreferences.AxZoomMoveEntity" : {
@@ -17571,7 +18739,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAPanMode"
       }
     },
     "com.apple.systempreferences.AxZoomResizeShortcutsEntity" : {
@@ -17604,7 +18773,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_Z_UAZoomMode"
       }
     },
     "com.apple.systempreferences.AxZoomTempDetachEntity" : {
@@ -17641,7 +18811,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_ScrollerClicksOption"
       }
     },
     "com.apple.systempreferences.ComputerNameEntity" : {
@@ -17674,7 +18845,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.CurrentlyConnectedVPN" : {
@@ -17710,7 +18882,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.DeviceMemoryEntity" : {
@@ -17743,7 +18916,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.DeviceModelNameEntity" : {
@@ -17776,7 +18950,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.DeviceOSInfoEntity" : {
@@ -17809,7 +18984,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.DeviceProcessorEntity" : {
@@ -17842,7 +19018,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.DeviceSerialNumberEntity" : {
@@ -17875,7 +19052,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.DeviceStorageEntity" : {
@@ -17908,7 +19086,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.systempreferences.EnergySaverPaneDynamicDeepLinks" : null,
@@ -17943,7 +19122,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_NSUserHighlightColor"
       }
     },
     "com.apple.systempreferences.LoginItemEntity" : null,
@@ -17978,7 +19158,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_ShowScrollBarOption"
       }
     },
     "com.apple.systempreferences.SidebarIconSizeEntity" : {
@@ -17999,7 +19180,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.systempreferences_SidebarIconSize"
       }
     },
     "com.apple.systempreferences.SSOStatusEntity" : null,
@@ -18039,7 +19221,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.TransparencySettingsIntents.TransparencyStatusEntity" : {
@@ -18072,7 +19255,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.usernotificationsd.UserNotificationEntity" : {
@@ -18086,7 +19270,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "date" : {
         "bounded" : [
@@ -18149,7 +19334,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "summary" : {
         "bounded" : [
@@ -18180,7 +19375,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "threadIdentifier" : {
         "bounded" : [
@@ -18211,7 +19407,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.VoiceMemos.AudioQualityEntity" : {
@@ -18232,7 +19429,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.VoiceMemos_IntentAudioQuality"
       }
     },
     "com.apple.VoiceMemos.ClearDeletedEntity" : {
@@ -18253,7 +19451,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.VoiceMemos_IntentClearDeleted"
       }
     },
     "com.apple.VoiceMemos.LocationBasedNamingEntity" : {
@@ -18324,7 +19523,17 @@
             "type" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>"
           }
         ],
-        "subjectType" : 4
+        "subjectType" : 4,
+        "timeUnits" : [
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          8192
+        ],
+        "valueClass" : "NSDate"
       },
       "name" : {
         "bounded" : [
@@ -18355,7 +19564,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.VoiceMemos.ResetAnalyticsIdentifierEntity" : null,
@@ -18389,7 +19599,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.weather.LocationEntity" : {
@@ -18410,7 +19621,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.weather_LocationEntityLocationOfInterestType"
       },
       "name" : {
         "bounded" : [
@@ -18422,7 +19634,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "placemark" : {
         "bounded" : [
@@ -18453,7 +19666,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "CLPlacemark"
       },
       "secondaryName" : {
         "bounded" : [
@@ -18484,7 +19698,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "timeZoneIdentifier" : {
         "bounded" : [
@@ -18515,7 +19730,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.weather.LocationOfInterestEntity" : {
@@ -18548,7 +19764,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "placemark" : {
         "bounded" : [
@@ -18579,7 +19796,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "CLPlacemark"
       },
       "searchDisplayAddress" : {
         "bounded" : [
@@ -18610,7 +19828,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "shortAddress" : {
         "bounded" : [
@@ -18641,7 +19860,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "type" : {
         "bounded" : [
@@ -18660,7 +19880,8 @@
             "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
           }
         ],
-        "subjectType" : 0
+        "subjectType" : 0,
+        "valueClass" : "WFLinkEnumerationContentItem_com.apple.weather_LocationOfInterestTypeEnum"
       }
     },
     "com.apple.weather.LocationSearchEntity" : {
@@ -18674,7 +19895,8 @@
             "type" : "ContainsOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.weather.PreferredUnitsEntity" : {
@@ -18707,7 +19929,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "precipitationUnit" : {
         "bounded" : [
@@ -18738,7 +19961,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "pressureUnit" : {
         "bounded" : [
@@ -18769,7 +19993,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "temperatureUnit" : {
         "bounded" : [
@@ -18800,7 +20025,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       },
       "windUnit" : {
         "bounded" : [
@@ -18831,7 +20057,8 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     },
     "com.apple.weather.SyncedDataEntity" : {
@@ -18864,11 +20091,355 @@
             "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
           }
         ],
-        "subjectType" : 2
+        "subjectType" : 2,
+        "valueClass" : "NSString"
       }
     }
   },
   "linkdServed" : true,
+  "rowValues" : {
+    "byteCountUnits" : {
+      "1" : {
+        "decimalExponent" : 0,
+        "label" : "bytes"
+      },
+      "2" : {
+        "decimalExponent" : 3,
+        "label" : "KB"
+      },
+      "4" : {
+        "decimalExponent" : 6,
+        "label" : "MB"
+      },
+      "8" : {
+        "decimalExponent" : 9,
+        "label" : "GB"
+      },
+      "16" : {
+        "decimalExponent" : 12,
+        "label" : "TB"
+      },
+      "32" : {
+        "decimalExponent" : 15,
+        "label" : "PB"
+      },
+      "64" : {
+        "decimalExponent" : 18,
+        "label" : "EB"
+      }
+    },
+    "forms" : {
+      "DateIsTodayOperator" : [
+        {
+          "class" : "WFAppContentItem",
+          "note" : "is today: no values",
+          "operator" : 1002,
+          "operatorType" : "DateIsTodayOperator",
+          "predicate" : {
+            "predicateClass" : "WFContentCompoundPredicate"
+          },
+          "property" : "Launch Date",
+          "states" : {
+
+          },
+          "values" : {
+
+          },
+          "writtenBack" : {
+
+          }
+        }
+      ],
+      "RowTemplateCompoundNumberByteCountUnitValueType" : [
+        {
+          "class" : "WFGenericFileContentItem",
+          "note" : "a file size: Number and a ByteCountUnit code (byteCountUnits below; 4 = MB)",
+          "operator" : 2,
+          "operatorType" : "OrderedComparisonOperator<RowTemplateCompoundNumberByteCountUnitValueType>",
+          "predicate" : {
+            "byteCount" : 5000000,
+            "comparisonType" : 2,
+            "formatted" : "5 MB",
+            "predicateClass" : "WFContentComparisonPredicate",
+            "value" : "<WFFileSize: 0x794d68cc00>",
+            "valueClass" : "WFFileSize"
+          },
+          "property" : "File Size",
+          "states" : {
+            "ByteCountUnit" : "WFByteCountUnitSubstitutableState",
+            "Number" : "WFNumberStringSubstitutableState"
+          },
+          "values" : {
+            "ByteCountUnit" : 4,
+            "Number" : 5
+          },
+          "writtenBack" : {
+            "ByteCountUnit" : 4,
+            "Number" : 5
+          }
+        }
+      ],
+      "RowTemplateCompoundNumberCalendarUnitValueType" : [
+        {
+          "class" : "WFAppContentItem",
+          "note" : "is in the last\/next: Number and an NSCalendarUnit (16 = day)",
+          "operator" : 1001,
+          "operatorType" : "DateInTheLastOperator<RowTemplateCompoundNumberCalendarUnitValueType>",
+          "predicate" : {
+            "predicateClass" : "WFContentCompoundPredicate"
+          },
+          "property" : "Launch Date",
+          "states" : {
+            "Number" : "WFNumberStringSubstitutableState",
+            "Unit" : "WFCalendarUnitSubstitutableState"
+          },
+          "values" : {
+            "Number" : 7,
+            "Unit" : 16
+          },
+          "writtenBack" : {
+            "Number" : 7,
+            "Unit" : 16
+          }
+        },
+        {
+          "class" : "WFAVAssetContentItem",
+          "note" : "a duration: Number and an NSCalendarUnit (64 = minute, so 5 is 300 seconds)",
+          "operator" : 2,
+          "operatorType" : null,
+          "predicate" : {
+            "comparisonType" : 2,
+            "predicateClass" : "WFContentComparisonPredicate",
+            "timeInterval" : 300,
+            "value" : "<WFTimeInterval: 0x7951a32040>",
+            "valueClass" : "WFTimeInterval"
+          },
+          "property" : "Duration",
+          "states" : {
+            "Number" : "WFNumberStringSubstitutableState",
+            "Unit" : "WFCalendarUnitSubstitutableState"
+          },
+          "values" : {
+            "Number" : 5,
+            "Unit" : 64
+          },
+          "writtenBack" : {
+            "Number" : 5,
+            "Unit" : 64
+          }
+        }
+      ],
+      "RowTemplateDateValueType" : [
+        {
+          "class" : "WFAppContentItem",
+          "note" : "Date: a plist date",
+          "operator" : 2,
+          "operatorType" : "DateFilterOperator",
+          "predicate" : {
+            "comparisonType" : 2,
+            "predicateClass" : "WFContentComparisonPredicate",
+            "value" : "2026-01-01 00:01:00 +0000",
+            "valueClass" : "__NSTaggedDate"
+          },
+          "property" : "Launch Date",
+          "states" : {
+            "Date" : "WFDateSubstitutableState"
+          },
+          "values" : {
+            "Date" : {
+              "$date" : "2026-01-01T00:00:00Z"
+            }
+          },
+          "writtenBack" : {
+            "Date" : {
+              "$date" : "2026-01-01T00:00:00Z"
+            }
+          }
+        },
+        {
+          "class" : "WFAppContentItem",
+          "note" : "is between: Date and AnotherDate",
+          "operator" : 1003,
+          "operatorType" : "BetweenComparisonOperator<RowTemplateDateValueType>",
+          "predicate" : {
+            "predicateClass" : "WFContentCompoundPredicate"
+          },
+          "property" : "Launch Date",
+          "states" : {
+            "AnotherDate" : "WFDateSubstitutableState",
+            "Date" : "WFDateSubstitutableState"
+          },
+          "values" : {
+            "AnotherDate" : {
+              "$date" : "2026-01-02T00:00:00Z"
+            },
+            "Date" : {
+              "$date" : "2026-01-01T00:00:00Z"
+            }
+          },
+          "writtenBack" : {
+            "AnotherDate" : {
+              "$date" : "2026-01-02T00:00:00Z"
+            },
+            "Date" : {
+              "$date" : "2026-01-01T00:00:00Z"
+            }
+          }
+        }
+      ],
+      "RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>" : [
+        {
+          "class" : "WFReminderContentItem",
+          "note" : "Enumeration: a WFStringSubstitutableState holding one of the property's items (a bare string is dropped)",
+          "operator" : 4,
+          "operatorType" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>>",
+          "predicate" : {
+            "comparisonType" : 4,
+            "predicateClass" : "WFContentComparisonPredicate",
+            "value" : "High",
+            "valueClass" : "NSTaggedPointerString"
+          },
+          "property" : "Priority",
+          "states" : {
+            "Enumeration" : "WFStringSubstitutableState"
+          },
+          "values" : {
+            "Enumeration" : {
+              "Value" : "High",
+              "WFSerializationType" : "WFStringSubstitutableState"
+            }
+          },
+          "writtenBack" : {
+            "Enumeration" : {
+              "Value" : "High",
+              "WFSerializationType" : "WFStringSubstitutableState"
+            }
+          }
+        }
+      ],
+      "RowTemplateNumberValueType" : [
+        {
+          "class" : "WFAppContentItem",
+          "note" : "Number: a number (the editor also writes numeric strings)",
+          "operator" : 2,
+          "operatorType" : "OrderedComparisonOperator<RowTemplateNumberValueType>",
+          "predicate" : {
+            "comparisonType" : 2,
+            "predicateClass" : "WFContentComparisonPredicate",
+            "value" : "5",
+            "valueClass" : "__NSCFNumber"
+          },
+          "property" : "Process Identifier",
+          "states" : {
+            "Number" : "WFNumberStringSubstitutableState"
+          },
+          "values" : {
+            "Number" : 5
+          },
+          "writtenBack" : {
+            "Number" : 5
+          }
+        }
+      ],
+      "RowTemplateStringValueType" : [
+        {
+          "class" : "WFArticleContentItem",
+          "note" : "String: a token string (or a plain string); URL, location and plain-text properties alike",
+          "operator" : 4,
+          "operatorType" : "IsEqualOperator<RowTemplateStringValueType>",
+          "predicate" : {
+            "comparisonType" : 4,
+            "predicateClass" : "WFContentComparisonPredicate",
+            "value" : "https:\/\/example.com",
+            "valueClass" : "__NSCFString"
+          },
+          "property" : "URL",
+          "states" : {
+            "String" : "WFVariableStringParameterState"
+          },
+          "values" : {
+            "String" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "https:\/\/example.com"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          "writtenBack" : {
+            "String" : "https:\/\/example.com"
+          }
+        },
+        {
+          "class" : "WFContactContentItem",
+          "note" : "Email: the key for a property whose value class is WFEmailAddress; its string field is not read",
+          "operator" : 4,
+          "operatorType" : "IsEqualOperator<RowTemplateStringValueType>",
+          "predicate" : {
+            "comparisonType" : 4,
+            "predicateClass" : "WFContentComparisonPredicate",
+            "value" : "a@b.co",
+            "valueClass" : "NSTaggedPointerString"
+          },
+          "property" : "Email Addresses",
+          "states" : {
+            "Email" : "WFVariableStringParameterState"
+          },
+          "values" : {
+            "Email" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "a@b.co"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          "writtenBack" : {
+            "Email" : "a@b.co"
+          }
+        },
+        {
+          "class" : "WFContactContentItem",
+          "note" : "Phone: the key for a property whose value class is WFPhoneNumber",
+          "operator" : 4,
+          "operatorType" : "IsEqualOperator<RowTemplateStringValueType>",
+          "predicate" : {
+            "comparisonType" : 4,
+            "predicateClass" : "WFContentComparisonPredicate",
+            "value" : "5551234",
+            "valueClass" : "NSTaggedPointerString"
+          },
+          "property" : "Phone Numbers",
+          "states" : {
+            "Phone" : "WFVariableStringParameterState"
+          },
+          "values" : {
+            "Phone" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "5551234"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          "writtenBack" : {
+            "Phone" : "5551234"
+          }
+        }
+      ]
+    },
+    "stringKeyByValueClass" : {
+      "default" : "String",
+      "WFEmailAddress" : "Email",
+      "WFPhoneNumber" : "Phone"
+    }
+  },
   "subjectTypes" : {
     "WFAppContentItem" : 9,
     "WFAppearanceSettingContentItem" : 0,

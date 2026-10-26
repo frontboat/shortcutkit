@@ -7,7 +7,7 @@ import json
 import sys
 
 sys.path.insert(0, "python/src")
-from shortcutkit import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, ENTITY_PROPERTIES, Shortcut, actions, ref, text, variable, shortcut_input, clipboard, current_date, ask, device_details, current_app, repeat_item, property_, where, where_any  # noqa: E402
+from shortcutkit import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, Shortcut, actions, ref, text, variable, shortcut_input, clipboard, current_date, ask, device_details, current_app, repeat_item, property_, where, where_any  # noqa: E402
 
 encodings = json.load(open("data/parameter-encodings.json"))
 DEFAULTS = encodings["actionDefaults"]
@@ -79,11 +79,11 @@ for identifier in ACTIONS:
 
 filter_cases = []
 DATE = datetime.datetime(2026, 1, 1, tzinfo=datetime.timezone.utc)
-PLAIN = {"text": "hello", "contactHandle": "+15055550100", "number": 5, "bool": True, "date": DATE}
+PLAIN = {"text": "hello", "email": "a@b.co", "phone": "+15055550100", "contactHandle": "+15055550100", "number": 5, "bool": True, "date": DATE}
 OPERATOR_NAME = {c: n for n, c in FILTER_OPERATORS.items()}
 
 
-def row_forms(prop, op, kind, units):
+def row_forms(prop, op, kind, units, choices):
     if op == "is_today":
         return [("none", (prop, op))]
     if op in ("is_in_the_last", "is_in_the_next"):
@@ -91,20 +91,36 @@ def row_forms(prop, op, kind, units):
         return [("number+unit", (prop, op, 5, unit)), ("ref+ref", (prop, op, REF, REF))]
     if op == "is_between":
         return [("plain+plain", (prop, op, PLAIN[kind], PLAIN[kind])), ("ref+ref", (prop, op, REF, REF))]
-    return [("plain", (prop, op, PLAIN[kind])), ("ref", (prop, op, REF))] + ([("text+ref", (prop, op, text("Hi ", REF)))] if kind in ("text", "contactHandle") else [])
+    # Durations count calendar units, file sizes byte-count units; the unit may be a reference too.
+    if kind == "duration":
+        return [("number+unit", (prop, op, 5, next(u for u, c in CALENDAR_UNITS.items() if not units or c in units))), ("ref+ref", (prop, op, REF, REF))]
+    if kind == "fileSize":
+        return [("number+unit", (prop, op, 5, "MB")), ("ref+ref", (prop, op, REF, REF))]
+    # An enumeration takes one of its choices (any string when the engine lists none) or a reference.
+    if kind in ("enumeration", "enumCase"):
+        return [("plain", (prop, op, choices[0] if choices else "x")), ("ref", (prop, op, REF))]
+    return [("plain", (prop, op, PLAIN[kind])), ("ref", (prop, op, REF))] + ([("text+ref", (prop, op, text("Hi ", REF)))] if kind in ("text", "email", "phone", "contactHandle") else [])
+
+
+def with_bounded(identifier, rows):
+    """A Find action that needs a bounded date row (BOUNDED_FILTERS) gets one added to every case that lacks it."""
+    b = BOUNDED_FILTERS.get(identifier)
+    if not b or any(r[0] == b["property"] and FILTER_OPERATORS[r[1]] in b["operators"] for r in rows):
+        return rows
+    return [*rows, (b["property"], "is_in_the_next", 7, "days")]
 
 
 for identifier, props in FILTERS.items():
     first = []
     for prop, p in props.items():
         for code in p["operators"]:
-            forms = row_forms(prop, OPERATOR_NAME[code], p["values"], p.get("units", []))
+            forms = row_forms(prop, OPERATOR_NAME[code], p["values"], p.get("units", []), p.get("choices", []))
             if len(first) < list(props).index(prop) + 1:
                 first.append(forms[0][1])
             for form, row in forms:
-                a = Shortcut("Case").action(identifier, WFContentItemFilter=where(row))
+                a = Shortcut("Case").action(identifier, WFContentItemFilter=where(*with_bounded(identifier, [row])))
                 filter_cases.append({"identifier": identifier, "form": f"{prop} {OPERATOR_NAME[code]} {form}", "filter": a["WFWorkflowActionParameters"]["WFContentItemFilter"]})
-    a = Shortcut("Case").action(identifier, WFContentItemFilter=where_any(*first))
+    a = Shortcut("Case").action(identifier, WFContentItemFilter=where_any(*with_bounded(identifier, first)))
     filter_cases.append({"identifier": identifier, "form": "any of each property", "filter": a["WFWorkflowActionParameters"]["WFContentItemFilter"]})
 
 property_cases = []

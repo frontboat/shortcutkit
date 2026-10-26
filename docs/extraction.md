@@ -46,8 +46,14 @@ Load the engine into a process and ask the same object Shortcuts.app asks:
    objects keyed by identifier. `WFIntentActionProvider` adds Apple's SiriKit custom intents
    (Apple Watch settings, Accessibility toggles, a Notes folder intent): it has no definitions
    call, so `-createAllAvailableActions` is walked and each action's `definition` taken. It also
-   lists intents of installed App Store apps (Keynote, Pages); those are skipped, keeping only
-   intents whose app resolves under `/System` or to no app at all. 434 definitions in total.
+   lists intents of installed App Store apps; those are skipped, keeping only intents whose app
+   resolves under `/System` or to no app at all. 434 definitions in total. That rule is too
+   strict: Keynote, Numbers and Pages come preinstalled on every Mac but live in `/Applications`
+   with an App Store receipt, so their nine SiriKit intents (Open Presentation, Create Spreadsheet
+   from Template, ...) are visible in the editor and absent here, while the same apps' six App
+   Intents are in the catalogue through the registry route below, which accepts any Apple-signed
+   app. Accepting `com.apple.` bundle identifiers here too would add them (443 definitions); it is
+   listed as open under [coverage](#what-the-editor-shows-that-the-catalogue-does-not).
 3. Unwrap. `WFActionDefinition`, `WFParameterDefinition` and `WFActionDescriptionDefinition` are
    each a wrapper around one `NSDictionary` ivar. `WFParameterSummary` and
    `WFParameterSummaryValue` expose their format string, title, possible values, and the
@@ -142,13 +148,15 @@ readable form. `tools/dump-toolkit-registry.py` reads it:
   "Battery Level", Statistics says "Average").
 
 The committed `data/apple-app-intents.json` keeps the `WFLinkActionProvider` tools whose
-container is an Apple bundle; those ship with macOS. Two groups are left out (140 on macOS
+container is an Apple bundle; those ship with macOS. Two groups are left out (150 on macOS
 27): tools with `visibilityFlags` 0, which is what the editor on this Mac does not offer
 (among built-ins: iPad-only Stage Manager, the retired Watch Me Do; among App Intents:
 internal helpers such as "Fetch Contact Avatars" and a Photos "workaround" intent), and
 intents whose system protocols mark them as widget, control, Live Activity or Focus
 configurations (`SystemToolProtocols`; see Apple's "App intent types" page), which configure
-a widget rather than run in a shortcut. 473 of the remaining entries carry the
+a widget rather than run in a shortcut. What those two rules and the other probes' rules leave
+out of the editor's list, and which of the hidden tools still work, is in
+[the coverage section](#what-the-editor-shows-that-the-catalogue-does-not). 473 of the remaining entries carry the
 `synthesizedTool` protocol: "Get …" and "Update …" actions Shortcuts derives from an app's
 entities (most of the System Settings ones); they are offered in the editor and kept, and
 marked `synthesized` in the data. The full index, third-party apps
@@ -197,7 +205,75 @@ engine. The gallery confirms the on-disk form: values are plain, not wrapped
 Requirement: Shortcuts.app must have run once on the extracting Mac so the index exists. The
 `toolKit` field of `data/provenance.json` records which index version was read.
 
-### Apple's entity types: properties and Find filters
+### What the editor shows that the catalogue does not
+
+The editor's action list is that same index, so "is everything in the editor writable?" is a
+diff, not a scroll: `tools/audit-catalogue-coverage.py` lists every indexed tool the editor
+shows (`visibilityFlags` other than 0) that the catalogue lacks, with the rule that left it out,
+and fails on one no rule explains. On macOS 27 the editor shows 1,914 tools, the catalogue has
+1,883 entries, and the 68 missing fall under four rules:
+
+- **Third-party apps** (25 here: Ghostty, Tailscale): by design, since the catalogue covers
+  Apple's apps; `action()` takes them untyped.
+- **Configuration-only intents** (4: the Messages, Safari, Calendar and Mail Focus filters):
+  `dump-toolkit-registry.py` drops intents whose system protocols are widget, control, Live
+  Activity or Focus configurations. The index itself hides every widget, control and Live
+  Activity configuration (`visibilityFlags` 0), so the rule only ever removes these four, which
+  the index flags visible like any other action. Whether the editor lists them is unchecked;
+  Apple's documentation says nothing either way. Open.
+- **Legacy interchange actions** (30: Bear, Tweetbot, WhatsApp, Add PDF to Books): served by
+  `WFInterchangeActionProvider`, which no probe enumerates. The provider lists 56 and the
+  engine marks each unavailable until its app is installed; the one Apple entry, Add PDF to
+  Books, names the iOS bundle identifier `com.apple.iBooks` (the Mac app is `com.apple.iBooksX`),
+  so it is never available on a Mac. Checked for that one; the other 29 are not installed here.
+- **SiriKit intents of Apple apps outside /System** (9: Keynote's Open Presentation and Play
+  Presentation in Show Mode, Numbers' Create Spreadsheet from Template, Pages' Open Document,
+  ...): `extract-builtin-actions.js` keeps only intents whose app is under `/System`, on the
+  assumption that anything else is an App Store app. Keynote, Numbers and Pages come
+  preinstalled but live in `/Applications` with an App Store receipt and update through the
+  store, so the rule drops them while the registry route keeps the same apps' six App Intents.
+  The rule is wrong; accepting `com.apple.` bundle identifiers there would add the nine (443
+  definitions, 1,892 entries, a minor data refresh). A CI runner has no iWork, so its engine
+  would mark those nine missing, which the verifier already reports rather than fails. Open.
+
+The index's hidden tools (`visibilityFlags` 0) stay out except the 22 hidden built-ins, which
+the catalogue keeps so that old files still reproduce (iPad-only Stage Manager, the retired Watch
+Me Do, the pre-Apple-Intelligence Get What's On Screen). Every hidden built-in is served by the
+engine on this Mac, so the question was whether hidden means unusable or merely unlisted.
+
+**Hidden actions, tested.** Two shortcuts were built with the library, signed and imported.
+One used the hidden built-in `is.workflow.actions.getonscreencontent` (the old Get What's On
+Screen, disabled only on visionOS, `RequiredResources` photo access): it imported, and
+`shortcuts run` ran it and wrote its output. The other used Reminders'
+`GetDefaultListAppIntent`, hidden in the index, with the same `AppIntentDescriptor` the
+catalogue would write: the app refused it with "This shortcut can't be imported because it
+contains features not supported on this device". Nothing in the engine explains the refusal:
+`-[WFWorkflowFile initWithDictionary:name:performMigration:]` loads it,
+`-recordRepresentationWithError:` converts it with no error, `importQuestions` is empty, the
+action's `disabledOnPlatforms` is empty and it has no required resources; the host cannot
+build the Link action itself (above), but `action-metadata.js` shows linkd's availability
+annotations allow every platform. The one thing linkd says differently about it is its
+visibility metadata: `isDiscoverable` NO. A third shortcut tested that reading with a catalogue
+entry, Books' `OpenMostRecentBookIntent` (`books_open_most_recent_book`), which linkd marks
+not discoverable and `assistantOnly`: refused with the same message. So the rule the app
+applies at import is linkd's discoverability, not the index's visibility, and the check lives
+in the app's import step (`-[WFLinkActionProvider createActionsForRequests:allowsActionInDenyList:]`
+and `+[NSError(WFUnsupportedOnPlatform) wf_unsupportedActionErrorWithType:platformIdiom:]` are
+the WorkflowKit symbols on that path; the message is WorkflowKit's string).
+
+**What that means for the catalogue.** Of the 1,500 App Intents entries, 776 have linkd action
+metadata (`actions.json`, from `action-metadata.js` over the 79 Apple bundles), and 135 of those
+are `assistantOnly` and not discoverable: Siri-only intents such as Reminders' Open List, News'
+Start Cooking, Books' Play Most Recent Audiobook, Clock's and Photos' assistant twins. A file
+that uses any of them will not import on this build. Among the tools that have action metadata,
+`assistantOnly` is exactly `visibilityFlags == 2` in the index (135 of 135, none of the 641
+discoverable ones), but the same value is normal for the synthesized entity tools and the flow
+tools, which do import, so the index alone cannot name them: dropping or flagging those 135 needs
+`actions.json`, which only the loader shortcut can produce. The other 724 entries without action
+metadata are the synthesized Get/Update/Find tools (keyed by entity), the flow tools, the SiriKit
+intents the definition probe serves, and a few whose linkd bundle differs from the index's
+(System Settings deep links). Whether the 135 should leave the catalogue (a removal, hence a
+major data refresh) or stay marked is a decision not yet taken. Open.
 
 A Find action's rows ("Date is in the last 7 days", "Sender is …") and a reference to one
 property of an entity ("Message's Body") depend on the entity type, which the action catalogue
@@ -274,9 +350,16 @@ sandboxed but writes to the user's home, so long payloads stream progress to
 ActionKit or touching `WFActionRegistry` there deadlocks, so the payloads only read metadata and
 build entity classes.
 
-Two payloads exist. `archive-metadata.js` saves linkd's `LNEntityMetadata`, `LNEnumMetadata` and
+Three payloads exist. `archive-metadata.js` saves linkd's `LNEntityMetadata`, `LNEnumMetadata` and
 `LNQueryMetadata` for every Apple bundle as keyed archives (79 bundles, 7 s); everything below
-runs against those archives, outside the helper. `resolve-properties.js` is the cross-check
+runs against those archives, outside the helper. `action-metadata.js` saves what linkd says
+about each action (`LNActionMetadata`: availability annotations per platform, `isDiscoverable`,
+`assistantOnly`, deprecation) for every Apple bundle to `actions.json`, 1,193 actions in a few
+seconds; it is what established the import rule under
+[coverage](#what-the-editor-shows-that-the-catalogue-does-not). Payloads must call only getters
+they know: reading every property of linkd's metadata objects reflectively crashed the helper
+("Couldn't communicate with a helper application" from the loader shortcut), and after a crash
+`killall siriactionsd ShortcutsMacHelper` is needed before the next run. `resolve-properties.js` is the cross-check
 (`--check`): it builds each entity's class from the real metadata inside the helper, over XPC
 to linkd, and asks which content a property reference to each of its properties yields, in
 about ten minutes; `tools/compare-linkd-properties.py` requires its answers to match the
@@ -314,7 +397,19 @@ the 434 entities, against 147 the index route types, the 80 enum-typed ones amon
 `extract-entities.js` builds it) and for the 30 content item classes the built-in Find and
 Filter actions name in their definitions (`WFContentItemClass`): 294 filterable properties with
 their operators, which `data/apple-entities.json` has nothing on. Running the probe again from
-the committed tools reproduced the first results exactly.
+the committed tools reproduced the first results exactly. `generate-action-catalog.py` types
+`where()` from these lists (`engine_rows`): 14 built-in Find and Filter actions and 136 App
+Intents Find actions, 403 properties, against 75 actions and 147 properties from the index
+route. Each operator's Swift value type names the row's kind; a string row's key follows the
+property's value class. Two more facts came out of verifying the generated rows against the
+engine. A bare reference under `Enumeration` is read, but as a `WFINSpeakableStringSubstitutableState`,
+a different state class from the one the plain value takes; the library wraps a reference in the
+row's own state class (`WFStringSubstitutableState`, `WFLinkEnumerationSubstitutableState`), which
+round-trips. And Find Calendar Events replaces any filter lacking a bounded Start Date row (one of
+is, is today, is between, is in the next, is in the last, marked `Bounded`, with
+`WFContentPredicateBoundedDate` true) with its default row: the engine's default filter for the
+action, in `actionDefaults` of `data/parameter-encodings.json`, is where the requirement shows, and
+`BOUNDED_FILTERS` carries it to `action()`.
 
 **The app builds entities from linkd, not from the index, and the two differ.** The same probe
 in its `linkd` mode builds each entity the way the Shortcuts app does, from linkd's own
@@ -356,10 +451,33 @@ What the data says, beyond the lists themselves:
 - Where the engine's lists and the index's can be compared (the 145 properties `where()`
   types), 143 agree.
 
-Open, in order of how much they block: the shapes of the values under `Enumeration` (App
-Intents enums), `MeasurementUnit` and `ByteCountUnit`, and of a styled string, which no probe
-has read yet; the 34 Bool properties, for which `possibleOperators` returns nothing although
-the editor shows a switch, so another code path supplies the operator; the index listing
+**What each row key holds** was read two ways, both in the probe's `index` mode (`rowValues`
+in `data/engine-filters.json`, with the two App Intents forms in `data/linkd-properties.json`).
+A sample row per row value type is loaded as a filter through a Find action: every key must
+come back as a parameter state and the row must serialize back. Then the same row goes through
+the engine's own row model, the ObjC `WFRowTemplateValue` (string, email, phone, number, date,
+anotherDate, enumeration, calendarUnit, byteCountUnit, measurementUnit, contactHandles), and
+`WFContentPredicateForRowTemplateValue`, the C function the Find action evaluates with at run
+time, which the host exposes as `sk_row_predicate` (lldb hands over its address like the Swift
+ones). The comparison predicate's value shows what the engine compares with: a string property
+whose value class is `WFEmailAddress` reads the row's `email` and ignores `string`, so its key
+is `Email` (`Phone` for `WFPhoneNumber`, `String` for all else, URLs included); `ByteCountUnit`
+codes 1, 2, 4, 8, 16, 32, 64 turn 5 into 5 bytes, 5 KB, 5 MB, 5 GB, 5 TB, 5 PB and 5 EB
+(powers of ten); a duration's `Number` and calendar `Unit` 64 make 300 seconds. Built-in
+enumerations take `Enumeration` as a `WFStringSubstitutableState` (choices: the property's
+parameter `Items`, recorded as `items`; dynamic ones such as albums have none), App Intents
+enumerations as a `WFLinkEnumerationSubstitutableState` whose value is the case identifier
+(`cases` per property, from linkd's `LNEnumMetadata`, found by the value class name
+`WFLinkEnumerationContentItem_<bundle>_<enum>`; 82 of the 84 enumeration properties, the two
+left being System Settings' accent and highlight colors, whose enum linkd does not list for
+the bundle). `MeasurementUnit` serializes an `NSUnit` as a keyed archive, read from
+`WFMeasurementUnitSubstitutableState`; no filterable property uses it. `WFRowTemplateValue`'s
+properties are `NSNumber`s, not integers: the first attempt passed raw codes and crashed inside
+the engine.
+
+Open, in order of how much they block: the 34 Bool properties, for which `possibleOperators`
+returns nothing although the editor shows a switch, so another code path supplies the
+operator; the index listing
 properties and operators the engine does not (266 filterable against 256, and "does not
 contain" on different properties); Messages' Sender, an email-address value that the string
 row code rejects (`Unexpected property class WFEmailAddress`) while the editor offers "is";
@@ -369,10 +487,30 @@ behind a Find action whose type has several (Stocks' Symbol gets name and symbol
 reverse-engineered, not a disagreement to settle by rule.
 
 When a macOS update renames the Swift symbols, `addresses.py` stops at launch and names the
-missing one; `image lookup -r -s RowTemplateFindFilter` in lldb on a process that loaded
-WorkflowKit finds the new names. `tools/engine-host/calls.py` (the selectors, functions and
-strings a function references), `strs.py` (WorkflowKit's string tables) and `swiftcall.py`
-(call a Swift getter and decode its String) are the lldb commands that found the current ones.
+missing one; `syms RowTemplateFindFilter` (`tools/engine-host/syms.py`, which walks the module's
+symbol table; `image lookup` ends a batch session under Xcode 27's lldb) on a process that
+loaded WorkflowKit finds the new names. `calls.py` (the selectors, functions and strings a
+function references), `strs.py` (WorkflowKit's string tables) and `swiftcall.py` (call a Swift
+getter and decode its String) are the lldb commands that found the current ones. A one-off
+lldb session needs only a command file: import `addresses.py` and the helper, the two
+breakpoints `run.sh` sets, `process launch -- <probe.js>`, then the command;
+`tools/engine-host/syms.sh '<regex>'` does exactly that for `syms`, and `tools/jxa-probe.sh
+probe.js` runs a one-off `run(argv)` probe under osascript with the prelude prepended, which is
+enough for anything that does not need ActionKit's content item classes or linkd's archives.
+`syms` with a regex over the method names of interest is how the import rule's candidates
+(`-[WFLinkActionProvider createActionsForRequests:allowsActionInDenyList:]`,
+`+[NSError(WFUnsupportedOnPlatform) wf_unsupportedActionErrorWithType:platformIdiom:]`) were
+found. Other lldb habits that cost time under Xcode 27: `ReadCStringFromMemory` raises
+`SystemError` (use `ReadMemory`), every message in an expression needs an `(id)` or `(void)`
+cast, and after a crash in an expression the frame must be fetched again.
+
+What the host cannot do yet: its `LNMetadataProvider` replacement serves entities, enums and
+queries, not action metadata, so `-[WFActionRegistry createActionWithIdentifier:serializedParameters:]`
+in the host returns a `WFMissingAction` for every App Intents action ("Failed to load
+LNActionMetadata ... from metadata provider"); App Intents actions are checked against the
+state-class table instead, and anything about a Link action object (its `disabledOnPlatforms`,
+its required resources) has to come from `action-metadata.js` inside the helper. Serving
+`actionsForBundleIdentifier:error:` from an archive the same way would close that.
 
 ## Parameter value encoding
 
@@ -440,6 +578,14 @@ The round trip above checks value forms against state classes in isolation. `bun
    every row must come back with its property, operator and value keys and serialize back as
    written, and every property aggrandizement must parse and find its property.
 
+A case is one engine load of one value for one parameter key, not one action: the fixture
+writes every value form a key admits, and each form is a case. On the macOS 27 data that is
+1,410 actions, 4,404 action-and-key pairs and 40,173 cases, most of them the reference helpers
+(about 4,400 each, since nearly every key reads a reference), then the plain samples and the
+token strings. The `where()` and `property()` checks are counted apart in the same summary
+line: 5,182 filter cases (one per property, operator and value form on the 150 Find actions),
+889 property references, and the whole shortcuts.
+
 The verifier fails on any case the engine does not read. Three outcomes are reported rather than
 failed, each counted and named in the summary: keys on actions the engine itself loads as
 missing (`unavailableActions` in `data/parameter-encodings.json`, retired integrations such as
@@ -496,8 +642,28 @@ it. `Shortcut.action()` applies the same table at run time in both packages.
   helper does not yet build.
 - Specialised value dictionaries (contacts, locations, file bookmarks, colors) are documented
   from examples rather than exhaustively.
-- Filter rows are typed and checked only for Apple's App Intents Find actions, from the index
-  route. The engine's own rules for every class, built-in and App Intents, are extracted
-  (`data/engine-filters.json`) but not yet typed: rows on rich text, URLs, durations,
-  measurements, file sizes and App Intents enumerations need value shapes the probes have not
-  read (see the open list under the engine's filter rules).
+- Filter rows are typed from the engine's own rules for the built-in Find actions and for the
+  App Intents Find actions as the app builds them (`data/engine-filters.json`,
+  `data/linkd-properties.json`); Bool rows are the one form still unread, so Bool properties
+  are not offered (see the open list under the engine's filter rules). Under osascript the
+  verifier can only build the index's classes, which lack some of those properties; rows on
+  them are checked in the engine host (`bun run verify` runs it when it is built).
+- Coverage of the editor's list has two open rules, both in
+  [the coverage section](#what-the-editor-shows-that-the-catalogue-does-not): the SiriKit
+  probe's `/System` test, which drops the preinstalled iWork apps' nine intents, and the
+  configuration-protocol test, which drops four Focus-filter intents the index flags visible.
+
+### Run-time observations
+
+Nothing offline can check what an action does when it runs. These came from running real
+shortcuts and are recorded here because they are not in the data:
+
+- Find Messages goes through Spotlight, then hydrates every hit. Past about a thousand
+  entities on a cold Messages launch it hits a 30 s timeout (`LNConnectionErrorDomain` 1014,
+  shown as "unknown error"); a narrower filter or a limit avoids it.
+- The sort strings "Latest First" and "Oldest First" are accepted on Find actions; the editor
+  stores the limit as a real and an integer also works.
+- Run Shell Script's `Shell` takes a path (`/usr/bin/python3` works).
+- `shortcuts run` returns the last action's output and now and then never returns after the
+  shortcut has finished; `tools/linkd/run-payload.sh` watches its payload's progress file and
+  kills the run and `siriactionsd` when that happens.

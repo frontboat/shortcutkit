@@ -10,8 +10,11 @@ def read_ptr(proc, addr):
     return (p & 0x0000ffffffffffff) if err.Success() else None
 
 def read_str(proc, addr):
-    err = lldb.SBError(); s = proc.ReadCStringFromMemory(addr, 300, err)
-    return s if err.Success() and s and re.match(r"^[ -~]+$", s) else None
+    # ReadCStringFromMemory raises SystemError under Xcode 27's LLDB; read bytes and cut at NUL.
+    err = lldb.SBError(); raw = proc.ReadMemory(addr, 300, err)
+    if not err.Success() or not raw: return None
+    s = raw.split(b"\0", 1)[0].decode("ascii", "replace")
+    return s if s and re.match(r"^[ -~]+$", s) else None
 
 def sym_at(target, addr):
     a = target.ResolveLoadAddress(addr); s = a.GetSymbol()

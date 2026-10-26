@@ -17,7 +17,19 @@ python3 "$root/test/verify/parity.py" "$work/fixture-ts.json" "$work/fixture-py.
 echo "round-tripping value forms through the engine's state classes"
 jxa verify-encodings "$root/data/parameter-encodings.json" "$root/data/encoding-table.json" "$work/roundtrips.json"
 echo "loading every case and whole shortcut through the engine"
-if ! jxa verify-library-output "$work/fixture-ts.json" "$root/data/apple-app-intents.json" "$root/data/parameter-encodings.json" "$root/data/encoding-table.json" "$work/roundtrips.json" "$work/report.json" "$root/data/provenance.json" "$root/data/apple-entities.json"; then
+verify_args=("$work/fixture-ts.json" "$root/data/apple-app-intents.json" "$root/data/parameter-encodings.json" "$root/data/encoding-table.json" "$work/roundtrips.json" "$work/report.json" "$root/data/provenance.json" "$root/data/apple-entities.json" "$root/data/linkd-properties.json")
+# With the engine host built and linkd's archives saved (bun run extract-filters), the Find filters are also
+# loaded through the entity classes the app builds, from linkd's metadata; osascript can only build the index's.
+if [ -x "$root/tools/engine-host/build/skhost" ] && [ -d "$HOME/.shortcutkit-dev/linkd" ] && [ -z "${VERIFY_NO_HOST-}" ]; then
+  echo "loading Find filters through linkd-built entity classes (tools/engine-host)"
+  cat "$root/tools/jxa-prelude.js" "$root/tools/verify-library-output.js" > "$work/verify-host.js"
+  host_args=("${verify_args[@]}"); host_args[5]="$work/report-host.json"
+  if ! VERIFY_ONLY="${VERIFY_ONLY-}" SK_LINKD_DIR="$HOME/.shortcutkit-dev/linkd" "$root/tools/engine-host/run.sh" "$work/verify-host.js" "${host_args[@]}"; then
+    cp "$work/report-host.json" /tmp/shortcutkit-host-report.json 2>/dev/null && echo "engine host verification failed; report copied to /tmp/shortcutkit-host-report.json"
+    exit 1
+  fi
+fi
+if ! jxa verify-library-output "${verify_args[@]}"; then
   # The report lives in $work, which the trap removes; print the failures while it exists.
   [ -f "$work/report.json" ] && python3 - "$work/report.json" <<'PY'
 import collections, json, sys

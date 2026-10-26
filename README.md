@@ -34,8 +34,9 @@ are archived ([shortcuts-js](https://github.com/joshfarrant/shortcuts-js),
 - All 434 built-in actions, typed, with documentation on hover.
 - 1,449 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 73 more.
 - Third-party app actions, given their descriptor.
-- Typed conditions for 75 Find actions in Apple's apps, such as Find Messages and Find Notes,
-  and the properties of what they find.
+- Typed conditions for 150 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find
+  Contacts, ...) and 136 in Apple's apps (Find Messages, Find Notes, ...), from the engine's own
+  rules, and the properties of what they find.
 - If, Repeat, Repeat with Each, and Choose from Menu blocks.
 - A wrong key or value fails at compile time in TypeScript, and at `action()` in Python.
 
@@ -79,8 +80,9 @@ s.action(actions.notes_create_note, { name: "Shopping", content: text("Added ", 
 
 ### Finding things
 
-A Find action for Apple's apps takes conditions typed for what it finds: its properties, their
-operators, and the units of a date range. `property()` reads one property of the results.
+A Find action takes conditions typed for what it finds: its properties, their operators, the
+values each takes (an enumeration's choices, a file size's units), and the units of a date range.
+`property()` reads one property of the results.
 
 ```ts
 import { where, property } from "shortcutkit";
@@ -89,6 +91,16 @@ const found = s.action(actions.messages_find_message, {
   WFContentItemFilter: where(["author", "is", "+15055550100"], ["date", "is_in_the_last", 7, "days"]),
 });
 s.action(actions.showresult, { Text: text(property(found, "body")) });
+```
+
+The built-in Find and Filter actions take the same rows, with units where the editor shows them:
+
+```ts
+import { where } from "shortcutkit";
+
+s.action(actions.filter_files, {
+  WFContentItemFilter: where(["File Size", "greater_than", 5, "MB"], ["Last Modified Date", "is_in_the_last", 2, "weeks"]),
+});
 ```
 
 ### Other apps
@@ -140,7 +152,7 @@ Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut")
 | `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `deviceDetails()`, `currentApp()` | Special variables. |
 | `where(...rows)`, `whereAny(...rows)` | Conditions for a Find action's `WFContentItemFilter`. |
 | `property(source, name)` | One property of an action's output or a variable. |
-| `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS` | What each Find action can filter on, and each entity type's properties. |
+| `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `BYTE_COUNT_UNITS`, `BOUNDED_FILTERS` | What each Find action can filter on, and each entity type's properties. |
 | `actions`, `getAction(id)`, `getDefinition(id)` | Action identifiers and their catalog entries. |
 | `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | What each parameter accepts. |
 | `CONDITION`, `ICON_COLORS`, `provenance` | If conditions, icon colors, and the build the data came from. |

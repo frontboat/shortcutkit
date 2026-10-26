@@ -38,7 +38,23 @@ function main() {
     if (typeof raw !== "string") throw new Error("sk_describe returned " + typeof raw + " for " + className);
     const d = JSON.parse(raw);
     if (d === null) return null;
-    for (const p of Object.values(d)) for (const key of ["operators", "bounded"]) p[key] = p[key].map((o) => ({ code: o.code, type: shorten(o.type) }));
+    for (const [name, p] of Object.entries(d)) {
+      for (const key of ["operators", "bounded"]) p[key] = p[key].map((o) => ({ code: o.code, type: shorten(o.type) }));
+      // The property's value class decides a string row's key (WFEmailAddress reads Email, WFPhoneNumber
+      // Phone, everything else String; rowValues below) and a static enumeration's choices come from its
+      // parameter definition's Items (Reminders' Priority); properties without Items take any string.
+      const prop = klass(className).propertyForName(name);
+      if (!isNil(prop)) {
+        const pc = prop.propertyClasses;
+        if (!isNil(pc) && count(pc)) p.valueClass = str($.NSStringFromClass(pc.objectAtIndex(0)));
+        const def = prop.parameterDefinition;
+        const items = isNil(def) ? null : def.objectForKey("Items");
+        if (items && !isNil(items)) p.items = plain(items, 0);
+        // The calendar units a Number+Unit row may use (durations, is in the last/next), an NSCalendarUnit mask.
+        const mask = Number(prop.timeUnits);
+        if (mask && p.operators.some((o) => /CompoundNumberCalendarUnit/.test(o.type))) p.timeUnits = [...Array(20).keys()].map((b) => 2 ** b).filter((u) => mask & u);
+      }
+    }
     return d;
   }
 
@@ -87,12 +103,67 @@ function main() {
     const built = entityContentClass(e, props);
     entities[id] = built ? describe(built.name) : null;
   }
+  const rowValues = rowValueForms(builtin);
   const linkdCalls = JSON.parse($.sk_linkd_calls());
-  writeJSON(outPath, { subjectTypes, builtin, entities, linkdServed: Object.keys(linkdCalls).length > 0 });
+  writeJSON(outPath, { subjectTypes, builtin, entities, rowValues, linkdServed: Object.keys(linkdCalls).length > 0 });
   const sizeOf = (o) => Object.values(o).reduce((s, d) => s + (d ? Object.keys(d).length : 0), 0);
   return Object.keys(subjectTypes).length + " content item classes' subject types; " + Object.keys(builtin).length + " built-in Find/Filter classes with " + sizeOf(builtin) + " filterable properties; " +
     Object.keys(entities).length + " entity types (index-built) with " + sizeOf(entities) + " filterable properties" +
     (Object.keys(linkdCalls).length ? " (archive lookups served: " + JSON.stringify(linkdCalls) + ")" : " (no linkd archives: enum properties not built)") + " -> " + outPath;
+
+  // The Values a row carries, per row value type, read two ways. Loaded as a filter row through a Find
+  // action, every key must come back as a parameter state (the key is right) and the row must
+  // serialize back (the form is right). Then the same row goes through the engine's own row model,
+  // WFRowTemplateValue, and WFContentPredicateForRowTemplateValue, the C function the Find action
+  // evaluates with at run time (sk_row_predicate): the value it compares with shows which field the
+  // property reads (Contacts' Email Addresses reads email, not string) and what a unit code means
+  // (ByteCountUnit 4 makes 5 into 5000000 bytes, "5 MB").
+  function rowValueForms(builtin) {
+    ObjC.bindFunction("sk_row_predicate", ["string", ["void *"]]);
+    const token = (x) => ({ WFSerializationType: "WFTextTokenString", Value: { string: x, attachmentsByRange: {} } });
+    const date = (t) => $.NSDate.dateWithTimeIntervalSince1970(t);
+    const predicate = (className, pid, op, set) => {
+      const row = klass("WFRowTemplateValue").alloc.initWithContentItemClassContentPropertyNameComparisonOperatorRemovable(klass(className), pid, op, true);
+      set(row);
+      return JSON.parse($.sk_row_predicate(ObjC.castObjectToRef(row)));
+    };
+    const problems = [], forms = {};
+    // [value type, class, property, operator code, Values as the library writes them, the same row on WFRowTemplateValue, note]
+    const samples = [
+      ["RowTemplateStringValueType", "WFArticleContentItem", "URL", 4, { String: token("https://example.com") }, (r) => r.setString("https://example.com"), "String: a token string (or a plain string); URL, location and plain-text properties alike"],
+      ["RowTemplateStringValueType", "WFContactContentItem", "Email Addresses", 4, { Email: token("a@b.co") }, (r) => r.setEmail("a@b.co"), "Email: the key for a property whose value class is WFEmailAddress; its string field is not read"],
+      ["RowTemplateStringValueType", "WFContactContentItem", "Phone Numbers", 4, { Phone: token("5551234") }, (r) => r.setPhone("5551234"), "Phone: the key for a property whose value class is WFPhoneNumber"],
+      ["RowTemplateNumberValueType", "WFAppContentItem", "Process Identifier", 2, { Number: 5 }, (r) => r.setNumber($(5)), "Number: a number (the editor also writes numeric strings)"],
+      ["RowTemplateDateValueType", "WFAppContentItem", "Launch Date", 2, { Date: date(1767225600) }, (r) => r.setDate(date(1767225600)), "Date: a plist date"],
+      ["RowTemplateDateValueType", "WFAppContentItem", "Launch Date", 1003, { Date: date(1767225600), AnotherDate: date(1767312000) }, (r) => { r.setDate(date(1767225600)); r.setAnotherDate(date(1767312000)); }, "is between: Date and AnotherDate"],
+      ["DateIsTodayOperator", "WFAppContentItem", "Launch Date", 1002, {}, (r) => {}, "is today: no values"],
+      ["RowTemplateCompoundNumberCalendarUnitValueType", "WFAppContentItem", "Launch Date", 1001, { Number: 7, Unit: 16 }, (r) => { r.setNumber($(7)); r.setCalendarUnit($(16)); }, "is in the last/next: Number and an NSCalendarUnit (16 = day)"],
+      ["RowTemplateCompoundNumberCalendarUnitValueType", "WFAVAssetContentItem", "Duration", 2, { Number: 5, Unit: 64 }, (r) => { r.setNumber($(5)); r.setCalendarUnit($(64)); }, "a duration: Number and an NSCalendarUnit (64 = minute, so 5 is 300 seconds)"],
+      ["RowTemplateCompoundNumberByteCountUnitValueType", "WFGenericFileContentItem", "File Size", 2, { Number: 5, ByteCountUnit: 4 }, (r) => { r.setNumber($(5)); r.setByteCountUnit($(4)); }, "a file size: Number and a ByteCountUnit code (byteCountUnits below; 4 = MB)"],
+      ["RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>", "WFReminderContentItem", "Priority", 4, { Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "High" } }, (r) => r.setEnumeration("High"), "Enumeration: a WFStringSubstitutableState holding one of the property's items (a bare string is dropped)"],
+    ];
+    for (const [type, className, pid, op, values, set, note] of samples) {
+      const got = loadFilter(className, { WFSerializationType: "WFContentPredicateTableTemplate", Value: { WFActionParameterFilterPrefix: 1, WFContentPredicateBoundedDate: false, WFActionParameterFilterTemplates: [{ Property: pid, Operator: op, Removable: true, Values: values }] } });
+      const row = got.rows[0], back = got.serialized && got.serialized.Value.WFActionParameterFilterTemplates[0];
+      const missing = row ? Object.keys(values).filter((k) => !(k in row.values)) : Object.keys(values);
+      if (!row || row.property !== pid || missing.length) problems.push(type + " " + className + "." + pid + " op " + op + ": wrote " + JSON.stringify(Object.keys(values)) + ", engine read " + JSON.stringify(row));
+      const pred = predicate(className, pid, op, set);
+      // Date ranges (is between, is in the last) become a compound predicate with no single value.
+      if (Object.keys(values).length && pred.predicateClass === "WFContentComparisonPredicate" && (pred.value === null || pred.value === undefined)) problems.push(type + " " + className + "." + pid + ": the engine's predicate has no value for " + JSON.stringify(Object.keys(values)));
+      // The operator type the engine names for this property and code, to tie the sample to the lists above.
+      const engineType = ((builtin[className] || {})[pid] || { operators: [] }).operators.find((o) => o.code === op);
+      (forms[type] = forms[type] || []).push({ class: className, property: pid, operator: op, operatorType: engineType ? engineType.type : null, values: plain($(values), 0), states: row ? row.values : null, writtenBack: back ? back.Values : null, predicate: pred, note });
+    }
+    // Every ByteCountUnit code the picker could write: what 5 of each becomes in bytes.
+    const byteCountUnits = {};
+    for (const code of [1, 2, 4, 8, 16, 32, 64]) {
+      const pred = predicate("WFGenericFileContentItem", "File Size", 2, (r) => { r.setNumber($(5)); r.setByteCountUnit($(code)); });
+      // 5 EB is 5e18 bytes, past JSON's exact integers, so the unit is kept as a power of ten.
+      byteCountUnits[code] = { label: String(pred.formatted).replace(/^5 /, ""), decimalExponent: String(pred.byteCount).length - 1 };
+    }
+    if (problems.length) throw new Error(problems.length + " row value forms the engine did not read as written:\n  " + problems.join("\n  "));
+    return { forms, byteCountUnits, stringKeyByValueClass: { WFEmailAddress: "Email", WFPhoneNumber: "Phone", default: "String" } };
+  }
 
   // "linkd" mode: the entities built from linkd's own LNEntityMetadata and query, as the Shortcuts
   // app builds them (tools/linkd/resolve-properties.js does the same inside ShortcutsMacHelper over
@@ -105,6 +176,25 @@ function main() {
   // each type once: pass 0 builds the query the index's parameters embed (first by identifier when
   // the index names several or none) and writes the file; pass N rebuilds the types with an Nth
   // other query and adds it under byQuery. The file's alternatesRemaining says whether to run again.
+  function linkRowValueForms() {
+    const problems = [], forms = {};
+    const token = (x) => ({ WFSerializationType: "WFTextTokenString", Value: { string: x, attachmentsByRange: {} } });
+    const samples = [
+      ["RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>", "WFLinkEntityContentItem_com.apple.Photos_AssetEntity", "assetType", 4, { Enumeration: { WFSerializationType: "WFLinkEnumerationSubstitutableState", Value: "video" } }, "Enumeration: a WFLinkEnumerationSubstitutableState holding the case identifier (cases per property in filters)"],
+      ["RowTemplateContactHandleValueType", "WFLinkEntityContentItem_com.apple.MobileSMS_MessageEntity", "author", 4, { ContactHandle: { WFSerializationType: "WFTokenStringParameterState", Value: token("x") } }, "ContactHandle: a WFTokenStringParameterState around a token string (a plain string when it holds no reference)"],
+    ];
+    for (const [type, className, pid, op, values, note] of samples) {
+      if (!klass(className) || isNil(klass(className))) { problems.push(type + ": no class " + className); continue; }
+      const got = loadFilter(className, { WFSerializationType: "WFContentPredicateTableTemplate", Value: { WFActionParameterFilterPrefix: 1, WFContentPredicateBoundedDate: false, WFActionParameterFilterTemplates: [{ Property: pid, Operator: op, Removable: true, Values: values }] } });
+      const row = got.rows[0], back = got.serialized && got.serialized.Value.WFActionParameterFilterTemplates[0];
+      const missing = row ? Object.keys(values).filter((k) => !(k in row.values)) : Object.keys(values);
+      if (!row || row.property !== pid || missing.length) problems.push(type + " " + className + "." + pid + " op " + op + ": wrote " + JSON.stringify(Object.keys(values)) + ", engine read " + JSON.stringify(row));
+      (forms[type] = forms[type] || []).push({ class: className, property: pid, operator: op, values, states: row ? row.values : null, writtenBack: back ? back.Values : null, note });
+    }
+    if (problems.length) throw new Error(problems.length + " row value forms the engine did not read as written:\n  " + problems.join("\n  "));
+    return { forms };
+  }
+
   function fromLinkd() {
     if (!linkdServed) throw new Error("linkd mode needs SK_LINKD_DIR (tools/linkd/archive-metadata.js)");
     const provider = make("LNMetadataProvider", "init");
@@ -149,6 +239,20 @@ function main() {
       const yields = {};
       for (const pid of pids) yields[pid] = propertyContentClasses(className, { Type: "WFPropertyVariableAggrandizement", PropertyName: pid });
       const built = { filters: className === "nil" ? null : describe(className), yields };
+      // App Intents enumeration properties: the cases an Enumeration row may name (identifiers, as the
+      // WFLinkEnumerationSubstitutableState value), from linkd's LNEnumMetadata for the type.
+      // The value class names the enum, WFLinkEnumerationContentItem_<bundle>_<enum identifier> (System
+      // Settings' carry an extra _Z infix), so the enum is the one of the type's bundle whose identifier
+      // ends the class name. Its cases are the identifiers an Enumeration row may hold.
+      if (built.filters) for (const [pid, f] of Object.entries(built.filters)) {
+        if (!/^WFLinkEnumerationContentItem_/.test(f.valueClass || "")) continue;
+        const enums = provider.enumsForBundleIdentifierError(bundle, null);
+        let found = null;
+        for (let j = 0; !isNil(enums) && j < count(enums); j++) { const en = enums.objectAtIndex(j); if (f.valueClass.endsWith("_" + str(en.identifier))) found = en; }
+        f.enumeration = found ? bundle + "." + str(found.identifier) : null;
+        f.cases = [];
+        if (found) for (let k = 0; k < count(found.cases); k++) f.cases.push(str(found.cases.objectAtIndex(k).identifier));
+      }
       if (pass > 0) {
         result[id] = previous[id];
         result[id].byQuery[str(query.identifier)] = built;
@@ -157,7 +261,9 @@ function main() {
       result[id] = Object.assign({ linkd: true, query: query ? str(query.identifier) : null, queries: all.map((x) => str(x.identifier)).sort(), indexQueries: e.queries || [], linkdProperties }, built, { byQuery: query ? { [str(query.identifier)]: built } : {} });
     }
     const calls = JSON.parse($.sk_linkd_calls());
-    writeJSON(outPath, { entities: result, alternatesRemaining: remaining });
+    // Row value forms only an App Intents entity has: the enumeration case and the contact handle.
+    const rowValues = pass > 0 ? readJSON(outPath).rowValues : linkRowValueForms();
+    writeJSON(outPath, { entities: result, rowValues, alternatesRemaining: remaining });
     if (pass > 0) return "pass " + pass + ": " + Object.values(result).filter((d) => d.byQuery && Object.keys(d.byQuery).length > pass).length + " entity types rebuilt with another query; " + remaining + " more to build -> " + outPath;
     const known = Object.values(result).filter((d) => d.linkd).length;
     const resolved = Object.values(result).reduce((s, d) => s + (d.yields ? Object.values(d.yields).filter((y) => y.length).length : 0), 0);

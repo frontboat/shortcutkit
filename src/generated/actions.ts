@@ -19784,7 +19784,7 @@ export const PARAM_KINDS = {
   "is.workflow.actions.wordpress.post": { "WFAccount": "string", "Blog": "string", "Title": "text", "Type": "string", "Format": "string", "Status": "string", "Categories": "string", "Tags": "string", "Advanced": "plainNumber", "AllowComments": "bool", "Slug": "text", "Excerpt": "text", "Date": "text", "Template": "string", "ThumbnailImage": "picker", "ShowCustomFields": "plainNumber", "CustomFields": "dictionary", "WFInput": "picker" },
   "is.workflow.actions.workout.end": { "IntentAppDefinition": "any" },
   "is.workflow.actions.workout.start": { "IntentAppDefinition": "any", "isOpenEnded": "bool", "workoutName": "any", "WorkoutGoal": "any" },
-  "com.apple.AddressBook.ContactEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.AddressBook.ContactEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.AddressBook.CreateContactIntent": { "contactType": "string", "personName": "any", "organizationName": "text", "departmentName": "text", "jobTitle": "text", "phoneticOrganizationName": "text", "phoneNumbers": "any", "emailAddresses": "any", "postalAddresses": "any", "contactRelations": "any", "birthday": "text", "dates": "any", "OpenWhenRun": "bool" },
   "com.apple.AddressBook.DeleteContactIntent": { "entities": "any" },
   "com.apple.AddressBook.SearchInContactsIntent": { "criteria": "text" },
@@ -20037,12 +20037,12 @@ export const PARAM_KINDS = {
   "com.apple.Safari.TabGroupEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Safari.WindowEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.AccessibilitySettingsExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.AirDropEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.AirDropEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.AirDropEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.Settings.AirDropHandoffExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.AppleAccountSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.AutoDateTimeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.AutoHideMenuBarOptionEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.AutoHideMenuBarOptionEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.AutoHideMenuBarOptionEntity-UpdatableEntity": { "autoHideMenuBar": "string", "entity": "any" },
   "com.apple.Settings.AutoTimeZoneEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.BluetoothPowerEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20057,7 +20057,7 @@ export const PARAM_KINDS = {
   "com.apple.Settings.ControlCenterSettingsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.DateAndTimeExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.DateTimeEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.DesktopSettingsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.DesktopSettingsEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.DesktopSettingsEntity-UpdatableEntity": { "clickWallpaperToRevealDesktop": "string", "entity": "any", "showItemsInStageManager": "bool", "showItemsOnDesktop": "bool", "showRecentAppsInStageManager": "bool", "showWindowsFromAnApplication": "string", "stageManager": "bool" },
   "com.apple.Settings.DesktopSettingsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.DeviceManagementSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20082,9 +20082,9 @@ export const PARAM_KINDS = {
   "com.apple.Settings.MissionControlSettingsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.MissionControlSettingsEntity-UpdatableEntity": { "automaticallyRearrangeSpacesBasedOnMostRecentUse": "bool", "displaysHaveSeparateSpaces": "bool", "enterMissionControlByTopWindowDrag": "bool", "entity": "any", "groupWindowsByApplication": "bool", "whenSwitchingToAnApplicationSwitchToASpaceWithOpenWindowsForTheApplication": "bool" },
   "com.apple.Settings.MouseExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.MouseTrackingSpeedEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.MouseTrackingSpeedEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.MouseTrackingSpeedEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.Settings.NotificationCenterEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.NotificationCenterEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.NotificationCenterEntity-UpdatableEntity": { "allowWhenLocked": "bool", "allowWhenSharing": "bool", "allowWhenSleeping": "bool", "entity": "any", "showPreviews": "string", "summarizePreviews": "bool" },
   "com.apple.Settings.NotificationsSettingsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.OpenAccessibilitySettingsExtensionSettingsDeepLink": { "target": "any" },
@@ -20170,12 +20170,12 @@ export const PARAM_KINDS = {
   "com.apple.Settings.PlaceholderUsersGroupsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PrefPanesDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.PrefPanesOpenDeepLink": { "target": "any" },
-  "com.apple.Settings.RecentDocumentsOptionEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.RecentDocumentsOptionEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.RecentDocumentsOptionEntity-UpdatableEntity": { "entity": "any", "recentDocuments": "string" },
   "com.apple.Settings.ScreenTimeDeepLinks": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.ScrollDirectionEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.ScrollDirectionEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.Settings.SecondaryClickEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.SecondaryClickEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.SecondaryClickEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.Settings.SetFocusState": { "enable": "bool", "focus": "any", "ShowWhenRun": "bool" },
   "com.apple.Settings.SettingsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20204,22 +20204,22 @@ export const PARAM_KINDS = {
   "com.apple.Settings.SpotlightSettingsDeepLinks": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.StartupDiskSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.StorageSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.SwipeBetweenPagesEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.SwipeBetweenPagesEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.SwipeBetweenPagesEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.Settings.TimeMachineSettingsSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TimeZoneEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.TrackpadAppExposeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.TrackpadAppExposeEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadAppExposeEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.Settings.TrackpadClickPressureEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.TrackpadClickPressureEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadClickPressureEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.Settings.TrackpadExtensionSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadForceClickEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadForceClickEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.Settings.TrackpadLaunchpadEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadLaunchpadEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.Settings.TrackpadLookUpAndDataDetectorsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.TrackpadLookUpAndDataDetectorsEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadLookUpAndDataDetectorsEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.Settings.TrackpadMissionControlEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.TrackpadMissionControlEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadMissionControlEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.Settings.TrackpadNotificiationCenterEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadNotificiationCenterEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20227,19 +20227,19 @@ export const PARAM_KINDS = {
   "com.apple.Settings.TrackpadQuietClickEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.Settings.TrackpadRotateEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadRotateEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.Settings.TrackpadSecondaryClickEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.TrackpadSecondaryClickEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadSecondaryClickEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.Settings.TrackpadShowDesktopEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadShowDesktopEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.Settings.TrackpadSmartZoomEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadSmartZoomEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.Settings.TrackpadSwipeBetweenAppsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.TrackpadSwipeBetweenAppsEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadSwipeBetweenAppsEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.Settings.TrackpadSwipeBetweenPagesEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.TrackpadSwipeBetweenPagesEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadSwipeBetweenPagesEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.Settings.TrackpadTapToClickEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadTapToClickEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.Settings.TrackpadTrackingSpeedEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.TrackpadTrackingSpeedEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadTrackingSpeedEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.Settings.TrackpadZoomInOutEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.TrackpadZoomInOutEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20247,11 +20247,11 @@ export const PARAM_KINDS = {
   "com.apple.Settings.VpnSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.WallpaperSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.WiFiSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.Settings.WidgetSettingsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.WidgetSettingsEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.WidgetSettingsEntity-UpdatableEntity": { "entity": "any", "showWidgetsInStageManager": "bool", "showWidgetsOnDesktop": "bool", "widgetAppearance": "string" },
   "com.apple.Settings.WidgetsAndOnenessEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.WidgetsAndOnenessEntity-UpdatableEntity": { "entity": "any", "useiPhoneWidgets": "bool" },
-  "com.apple.Settings.WindowsSettingsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.Settings.WindowsSettingsEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.Settings.WindowsSettingsEntity-UpdatableEntity": { "askToKeepChangesWhenClosingDocuments": "bool", "closeWindowsWhenQuittingAnApplication": "bool", "entity": "any", "preferTabsWhenOpeningDocuments": "string" },
   "com.apple.ShortcutsActions.CellularPlanEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.ShortcutsActions.ChargeLimit": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20280,10 +20280,10 @@ export const PARAM_KINDS = {
   "com.apple.VisionAppIntents.FindSimilarImagesIntent": { "referenceImageFile": "any", "imageFiles": "any", "maxImages": "number", "threshold": "number" },
   "com.apple.VisionAppIntents.RecognizeDocumentIntent": { "imageFile": "any", "contentType": "string" },
   "com.apple.VisionAppIntents.RemoveBackgroundIntent": { "imageFiles": "any", "crop": "bool" },
-  "com.apple.VoiceMemos.AudioQualityEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.VoiceMemos.AudioQualityEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.VoiceMemos.AudioQualityEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.VoiceMemos.ChangeRecordingPlaybackSetting": { "changeOperation": "string", "setting": "string" },
-  "com.apple.VoiceMemos.ClearDeletedEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.VoiceMemos.ClearDeletedEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.VoiceMemos.ClearDeletedEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.VoiceMemos.CreateFolder": { "name": "text", "ShowWhenRun": "bool" },
   "com.apple.VoiceMemos.DeleteFolder": { "entities": "any" },
@@ -20372,12 +20372,12 @@ export const PARAM_KINDS = {
   "com.apple.findmy.CreateOutgoingGeofenceIntent": { "person": "any", "isRecurring": "bool", "trigger": "string", "location": "any", "OpenWhenRun": "bool" },
   "com.apple.findmy.FindItemIntent": { "item": "any", "OpenWhenRun": "bool" },
   "com.apple.findmy.FindPersonIntent": { "person": "any", "OpenWhenRun": "bool" },
-  "com.apple.findmy.GeofenceEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.findmy.GeofenceEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.findmy.ItemEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.findmy.OpenItemIntent": { "target": "any", "showDetails": "bool" },
   "com.apple.findmy.OpenModuleIntent": { "target": "string" },
   "com.apple.findmy.OpenPersonIntent": { "target": "any", "showDetails": "bool" },
-  "com.apple.findmy.PersonEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.findmy.PersonEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.findmy.SetShareLocationSettingIntent": { "isEnabled": "bool" },
   "com.apple.freeform.CRLAddItemToBoardIntent": { "target": "any", "itemType": "string", "text": "text", "mediaItems": "any", "url": "text", "OpenWhenRun": "bool" },
   "com.apple.freeform.CRLBoardEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20406,7 +20406,7 @@ export const PARAM_KINDS = {
   "com.apple.iBooksX.BookReaderChangeThemeIntent": { "changeOperation": "string", "setting": "string" },
   "com.apple.iBooksX.BookReaderNavigatePageInBookIntent": { "direction": "string", "target": "any" },
   "com.apple.iBooksX.BookReaderNavigatePagesIntent": { "direction": "string" },
-  "com.apple.iBooksX.BookSettingsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.iBooksX.BookSettingsEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.iBooksX.BookSettingsEntity-UpdatableEntity": { "entity": "any", "font": "string", "fontSize": "string", "isAllowMultipleColumns": "bool", "isTextJustified": "bool", "pageNavigationSetting": "string", "theme": "string" },
   "com.apple.iBooksX.ChangeFontSizeIntent": { "changeOperation": "string", "target": "any", "book": "any" },
   "com.apple.iBooksX.DeepLinkIntent": { "target": "string" },
@@ -20583,7 +20583,7 @@ export const PARAM_KINDS = {
   "com.apple.reminders.RemotePreferencesEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.reminders.SectionEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.reminders.SectionEntity-UpdatableEntity": { "entity": "any", "isCollapsed": "bool" },
-  "com.apple.reminders.SmartListEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.reminders.SmartListEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.reminders.TTRCreateListAppIntent": { "name": "text", "type": "string", "group": "any", "OpenWhenRun": "bool" },
   "com.apple.reminders.TTRCreateReminderAppIntent": { "title": "text", "note": "text", "isFlagged": "bool", "images": "any", "tags": "text", "urls": "text", "dueDate": "text", "recurrence": "any", "locationTrigger": "any", "list": "any", "section": "any", "isAllDay": "bool", "earlyAlert": "any", "isUrgent": "bool", "vehicleTrigger": "string", "priorityLevel": "string", "parentReminder": "any", "contactPerson": "any", "assignedPerson": "any", "subtasks": "text" },
   "com.apple.reminders.TTROpenListAppIntent": { "target": "any" },
@@ -20707,16 +20707,16 @@ export const PARAM_KINDS = {
   "com.apple.stocks.OpenWatchlistIntent": { "target": "any", "symbol": "any" },
   "com.apple.stocks.PlayArticleIntent": { "article": "any" },
   "com.apple.stocks.SaveArticleIntent": { "target": "any" },
-  "com.apple.stocks.SymbolEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.stocks.SymbolEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.stocks.SymbolWidgetEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.stocks.UnblockIntent": { "target": "any" },
   "com.apple.stocks.UnsaveArticleIntent": { "target": "any" },
   "com.apple.stocks.WatchlistEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.systempreferences.AccentColorEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AccentColorEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AccentColorEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AllowWallPaperTintingEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AllowWallPaperTintingEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AppearanceEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AppearanceEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AppearanceEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AppearanceSettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AutoBrightnessEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -20746,13 +20746,13 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxDimFlashingEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxDisplayFilterEnabledEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxDisplayFilterEnabledEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxDisplayFilterTypeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxDisplayFilterTypeEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxDisplayFilterTypeEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxDwellActionEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxDwellActionEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxDwellActionEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxDwellAutoRevertEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxDwellAutoRevertEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxDwellCursorColorEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxDwellCursorColorEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxDwellCursorColorEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxDwellInMenuExtraEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxDwellInMenuExtraEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20790,25 +20790,25 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxHeadMouseEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxHomePanelDwellActionsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHomePanelDwellActionsEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxHotCornerBottomLeftEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxHotCornerBottomLeftEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHotCornerBottomLeftEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxHotCornerBottomRightEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxHotCornerBottomRightEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHotCornerBottomRightEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxHotCornerMoveHomePanelEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHotCornerMoveHomePanelEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxHotCornerTopLeftEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxHotCornerTopLeftEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHotCornerTopLeftEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxHotCornerTopRightEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxHotCornerTopRightEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHotCornerTopRightEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxHoverTextActivationLockModeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHoverTextActivationLockModeEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxHoverTextEnableEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHoverTextEnableEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxHoverTextModifierEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxHoverTextModifierEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHoverTextModifierEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxHoverTypingEnableEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHoverTypingEnableEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxHoverTypingEntryLocationEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxHoverTypingEntryLocationEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxHoverTypingEntryLocationEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxIgnoreTrackpadEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxIgnoreTrackpadEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20818,7 +20818,7 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxInvertColorEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxInvertColorModeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxInvertColorModeEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxKbAppearanceTypeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxKbAppearanceTypeEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxKbAppearanceTypeEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxKbAutoCapitalizationEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxKbAutoCapitalizationEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20826,7 +20826,7 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxKbAutoSpacingEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxKbHideEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxKbHideEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxKbKeyAcceptedMouseEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxKbKeyAcceptedMouseEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxKbKeyAcceptedMouseEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxKbRightClickEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxKbRightClickEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20882,21 +20882,21 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxSpokenHotkeyEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxSpokenPointerElementEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenPointerElementEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxSpokenPointerElementModeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSpokenPointerElementModeEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenPointerElementModeEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxSpokenPointerElementVerbosityEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSpokenPointerElementVerbosityEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenPointerElementVerbosityEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxSpokenPronunciationsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenPronunciationsEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxSpokenSelectionHighlightContentEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSpokenSelectionHighlightContentEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenSelectionHighlightContentEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceColorEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceColorEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceColorEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceStyleEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceStyleEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceStyleEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxSpokenSelectionHighlightWordColorEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSpokenSelectionHighlightWordColorEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenSelectionHighlightWordColorEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxSpokenSelectionShowControllerEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSpokenSelectionShowControllerEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenSelectionShowControllerEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxSpokenTypingEchoCharsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSpokenTypingEchoCharsEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20914,7 +20914,7 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxStickyKeysBeepEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxStickyKeysDisplayEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxStickyKeysDisplayEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxStickyKeysDisplayLocationEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxStickyKeysDisplayLocationEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxStickyKeysDisplayLocationEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxStickyKeysEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxStickyKeysEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20926,9 +20926,9 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxSwitchAutoSpacingEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxSwitchAutoscanEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSwitchAutoscanEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxSwitchControlAppearanceTypeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSwitchControlAppearanceTypeEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSwitchControlAppearanceTypeEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxSwitchCursorSizeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSwitchCursorSizeEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSwitchCursorSizeEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxSwitchHideAfterDelayEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSwitchHideAfterDelayEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20936,13 +20936,13 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxSwitchHoverTextToolbarEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxSwitchMouseCursorEdgeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSwitchMouseCursorEdgeEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxSwitchMouseMoveStyleEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSwitchMouseMoveStyleEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSwitchMouseMoveStyleEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxSwitchNavFeedbackEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSwitchNavFeedbackEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSwitchNavFeedbackEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxSwitchResumeAutoScanningEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSwitchResumeAutoScanningEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxSwitchScanRestartEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxSwitchScanRestartEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSwitchScanRestartEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxSystemTranscriptionEnabledEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxSystemTranscriptionEnabledEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20958,7 +20958,7 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxVideoDescriptionEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxVirtualKeyboardEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxVirtualKeyboardEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxVoiceControlOverlayEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxVoiceControlOverlayEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxVoiceControlOverlayEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxVoiceControlOverlayFadingEnabledEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxVoiceControlOverlayFadingEnabledEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20974,11 +20974,11 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxZoomEnableHotkeysEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxZoomFlashEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomFlashEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxZoomFocusMovementEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxZoomFocusMovementEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomFocusMovementEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxZoomFollowFocusActivationEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxZoomFollowFocusActivationEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomFollowFocusActivationEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxZoomFollowFocusModeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxZoomFollowFocusModeEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomFollowFocusModeEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxZoomFreezePanningEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomFreezePanningEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -20990,9 +20990,9 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxZoomKeepStationaryEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxZoomMonitorSelectionEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomMonitorSelectionEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxZoomMonitorSelectionTrackpadEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxZoomMonitorSelectionTrackpadEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomMonitorSelectionTrackpadEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.AxZoomMoveEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxZoomMoveEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomMoveEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxZoomResizeShortcutsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomResizeShortcutsEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -21002,7 +21002,7 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.AxZoomScreenShareEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.AxZoomSmoothEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomSmoothEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
-  "com.apple.systempreferences.AxZoomStylePopupEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.AxZoomStylePopupEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomStylePopupEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.AxZoomTempDetachEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.AxZoomTempDetachEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
@@ -21016,7 +21016,7 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.BatteryOptionsPaneDynamicDeepLinks": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.BatterySettingsDeepLink": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.BatterySettingsPaneDynamicDeepLinks": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
-  "com.apple.systempreferences.ClickScrollBarToEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.ClickScrollBarToEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.ClickScrollBarToEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.ComputerNameEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.CurrentlyConnectedVPN": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
@@ -21035,7 +21035,7 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.FirewallStateEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.FirewallStealthModeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.GroupMembershipIntent": { "groupEntity": "any" },
-  "com.apple.systempreferences.HighlightColorEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.HighlightColorEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.HighlightColorEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.IdentifierIntent": { "accountEntity": "any" },
   "com.apple.systempreferences.ListOfAccountsIntent": { "type": "string" },
@@ -21095,9 +21095,9 @@ export const PARAM_KINDS = {
   "com.apple.systempreferences.ShareKeyboardEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.ShareKeyboardEntity-UpdatableEntity": { "entity": "any", "value": "bool" },
   "com.apple.systempreferences.SharingSettingsIntents.OpenSharingDeepLinks": { "target": "string" },
-  "com.apple.systempreferences.ShowScrollBarsEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.ShowScrollBarsEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.ShowScrollBarsEntity-UpdatableEntity": { "entity": "any", "value": "string" },
-  "com.apple.systempreferences.SidebarIconSizeEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
+  "com.apple.systempreferences.SidebarIconSizeEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.systempreferences.SidebarIconSizeEntity-UpdatableEntity": { "entity": "any", "value": "string" },
   "com.apple.systempreferences.ToggleHighPowerModeBatteryNoBatteryIntent": { "value": "bool" },
   "com.apple.systempreferences.ToggleHighPowerModeOnBatteryIntent": { "value": "bool" },
@@ -23199,8 +23199,8 @@ export type ParamTypes = {
     "SelectMultiple": BoolValue;
   };
   "is.workflow.actions.filter.apps": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.apps"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the apps by. */
     "WFContentItemSortProperty": Loose<"Bundle Identifier" | "Launch Date" | "Name" | "Process Identifier" | "Random">;
     /** Order: The order to sort the apps in. */
@@ -23214,8 +23214,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": EnumValue<"Library">;
   };
   "is.workflow.actions.filter.articles": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.articles"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the articles by. */
     "WFContentItemSortProperty": Loose<"Author" | "Name" | "Number of Words" | "Published Date" | "Random" | "Title">;
     /** Order: The order to sort the articles in. */
@@ -23229,8 +23229,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.filter.calendarevents": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.calendarevents"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the calendar events by. */
     "WFContentItemSortProperty": Loose<"Calendar" | "Creation Date" | "Duration" | "End Date" | "File Extension" | "File Path" | "Last Modified Date" | "My Status" | "Name" | "Number of Attendees" | "Random" | "Start Date" | "Title">;
     /** Order: The order to sort the calendar events in. */
@@ -23244,8 +23244,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": EnumValue<"Library">;
   };
   "is.workflow.actions.filter.contacts": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.contacts"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the contacts by. */
     "WFContentItemSortProperty": Loose<"Birthday" | "Company" | "Creation Date" | "Department" | "File Extension" | "File Path" | "First Name" | "Job Title" | "Last Modified Date" | "Last Name" | "Middle Name" | "Name" | "Nickname" | "Phonetic First Name" | "Phonetic Last Name" | "Phonetic Middle Name" | "Prefix" | "Random" | "Suffix">;
     /** Order: The order to sort the contacts in. */
@@ -23259,8 +23259,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": EnumValue<"Library">;
   };
   "is.workflow.actions.filter.displays": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.displays"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the displays by. */
     "WFContentItemSortProperty": Loose<"Name" | "Random" | "Scale">;
     /** Order: The order to sort the displays in. */
@@ -23274,8 +23274,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": EnumValue<"Library">;
   };
   "is.workflow.actions.filter.eventattendees": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.eventattendees"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the event attendees by. */
     "WFContentItemSortProperty": Loose<"Email Address" | "Name" | "Random" | "Role" | "Status" | "Type">;
     /** Order: The order to sort the event attendees in. */
@@ -23289,8 +23289,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.filter.files": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.files"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the files by. */
     "WFContentItemSortProperty": Loose<"Creation Date" | "File Extension" | "File Path" | "File Size" | "Last Modified Date" | "Name" | "Random">;
     /** Order: The order to sort the files in. */
@@ -23305,8 +23305,8 @@ export type ParamTypes = {
   };
   "is.workflow.actions.filter.health.quantity": {  };
   "is.workflow.actions.filter.images": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.images"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the images by. */
     "WFContentItemSortProperty": Loose<"Creation Date" | "Date Taken" | "Duration" | "File Extension" | "File Path" | "File Size" | "Frame Rate" | "Height" | "Last Modified Date" | "Name" | "Orientation" | "Random" | "Time Taken" | "Width">;
     /** Order: The order to sort the images in. */
@@ -23320,8 +23320,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.filter.locations": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.locations"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the locations by. */
     "WFContentItemSortProperty": Loose<"Altitude" | "City" | "Country" | "Label" | "Latitude" | "Longitude" | "Name" | "Phone Number" | "Random" | "State" | "Street" | "ZIP Code">;
     /** Order: The order to sort the locations in. */
@@ -23335,8 +23335,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": Attachment<"ActionOutput" | "ExtensionInput" | "Variable" | "Clipboard" | "DeviceDetails" | "CurrentApp">;
   };
   "is.workflow.actions.filter.music": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.music"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the music by. */
     "WFContentItemSortProperty": Loose<"Album" | "Album Artist" | "Album Track #" | "Artist" | "Composer" | "Date Added" | "Disc #" | "Duration" | "File Path" | "Genre" | "Last Played Date" | "Media Kind" | "Name" | "Play Count" | "Random" | "Rating" | "Release Date" | "Skip Count" | "Title">;
     /** Order: The order to sort the music in. */
@@ -23350,8 +23350,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": EnumValue<"Library">;
   };
   "is.workflow.actions.filter.photos": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.photos"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the photos by. */
     "WFContentItemSortProperty": Loose<"Creation Date" | "Date Taken" | "Duration" | "File Extension" | "File Path" | "Frame Rate" | "Height" | "Last Modified Date" | "Media Type" | "Name" | "Random" | "Time Taken" | "Width">;
     /** Order: The order to sort the photos in. */
@@ -23365,8 +23365,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": EnumValue<"Library">;
   };
   "is.workflow.actions.filter.reminders": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.reminders"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the reminders by. */
     "WFContentItemSortProperty": Loose<"Completion Date" | "Creation Date" | "Due Date" | "File Extension" | "File Path" | "Last Modified Date" | "List" | "Name" | "Priority" | "Random" | "Title">;
     /** Order: The order to sort the reminders in. */
@@ -23380,8 +23380,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": EnumValue<"Library">;
   };
   "is.workflow.actions.filter.vpns": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.vpns"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the VPNs by. */
     "WFContentItemSortProperty": Loose<"Name" | "Random" | "Server Address">;
     /** Order: The order to sort the VPNs in. */
@@ -23395,8 +23395,8 @@ export type ParamTypes = {
     "WFContentItemInputParameter": EnumValue<"Library">;
   };
   "is.workflow.actions.filter.windows": {
-    /** Filter conditions, a `WFContentPredicateTableTemplate` (see docs/shortcut-file-format.md). */
-    "WFContentItemFilter": FilterTemplateValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["is.workflow.actions.filter.windows"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the windows by. */
     "WFContentItemSortProperty": Loose<"App Name" | "Height" | "Name" | "Random" | "Width" | "Window Index" | "X Position" | "Y Position">;
     /** Order: The order to sort the windows in. */
@@ -25457,7 +25457,8 @@ export type ParamTypes = {
     "WorkoutGoal": AnyValue;
   };
   "com.apple.AddressBook.ContactEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.AddressBook.ContactEntity"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the contact by. */
     "WFContentItemSortProperty": EnumValue<"Random">;
     /** Order: The order to sort the contact in. */
@@ -27867,7 +27868,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.AirDropEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.AirDropEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -27951,7 +27953,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.AutoHideMenuBarOptionEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.AutoHideMenuBarOptionEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "autoHideMenuBar">;
     /** Order */
@@ -28162,7 +28165,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.DesktopSettingsEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.DesktopSettingsEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "clickWallpaperToRevealDesktop" | "showItemsInStageManager" | "showItemsOnDesktop" | "showRecentAppsInStageManager" | "showWindowsFromAnApplication" | "stageManager">;
     /** Order */
@@ -28553,7 +28557,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.MouseTrackingSpeedEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.MouseTrackingSpeedEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -28577,7 +28582,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.NotificationCenterEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.NotificationCenterEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "allowWhenLocked" | "allowWhenSharing" | "allowWhenSleeping" | "showPreviews" | "summarizePreviews">;
     /** Order */
@@ -29253,7 +29259,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.RecentDocumentsOptionEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.RecentDocumentsOptionEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "recentDocuments">;
     /** Order */
@@ -29321,7 +29328,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.SecondaryClickEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.SecondaryClickEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -29695,7 +29703,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.SwipeBetweenPagesEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.SwipeBetweenPagesEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -29752,7 +29761,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.TrackpadAppExposeEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.TrackpadAppExposeEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -29776,7 +29786,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.TrackpadClickPressureEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.TrackpadClickPressureEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -29864,7 +29875,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.TrackpadLookUpAndDataDetectorsEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.TrackpadLookUpAndDataDetectorsEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -29888,7 +29900,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.TrackpadMissionControlEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.TrackpadMissionControlEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -29984,7 +29997,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.TrackpadSecondaryClickEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.TrackpadSecondaryClickEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -30056,7 +30070,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.TrackpadSwipeBetweenAppsEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.TrackpadSwipeBetweenAppsEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -30080,7 +30095,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.TrackpadSwipeBetweenPagesEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.TrackpadSwipeBetweenPagesEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -30128,7 +30144,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.TrackpadTrackingSpeedEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.TrackpadTrackingSpeedEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -30232,7 +30249,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.WidgetSettingsEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.WidgetSettingsEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "showWidgetsInStageManager" | "showWidgetsOnDesktop" | "widgetAppearance">;
     /** Order */
@@ -30284,7 +30302,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.Settings.WindowsSettingsEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.Settings.WindowsSettingsEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "askToKeepChangesWhenClosingDocuments" | "closeWindowsWhenQuittingAnApplication" | "preferTabsWhenOpeningDocuments">;
     /** Order */
@@ -30592,7 +30611,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.VoiceMemos.AudioQualityEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.VoiceMemos.AudioQualityEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -30624,7 +30644,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.VoiceMemos.ClearDeletedEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.VoiceMemos.ClearDeletedEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -31452,7 +31473,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.findmy.GeofenceEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.findmy.GeofenceEntity"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the geofence by. */
     "WFContentItemSortProperty": EnumValue<"Random" | "isRecipientFacingNotification" | "isRecurring" | "location" | "person" | "trigger">;
     /** Order: The order to sort the geofence in. */
@@ -31507,7 +31529,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.findmy.PersonEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.findmy.PersonEntity"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the person by. */
     "WFContentItemSortProperty": EnumValue<"Random" | "capabilities" | "isFollowingMe" | "isSharingLocation" | "labeledLocations" | "person">;
     /** Order: The order to sort the person in. */
@@ -31823,7 +31846,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.iBooksX.BookSettingsEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.iBooksX.BookSettingsEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "font" | "fontSize" | "isAllowMultipleColumns" | "isTextJustified" | "pageNavigationSetting" | "theme">;
     /** Order */
@@ -33750,7 +33774,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.reminders.SmartListEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.reminders.SmartListEntity"]> | FilterTemplateValue;
     /** Sort by: Optionally, what to sort the smart list by. */
     "WFContentItemSortProperty": EnumValue<"Random" | "isHidden" | "type">;
     /** Order: The order to sort the smart list in. */
@@ -35048,8 +35073,7 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.stocks.SymbolEntity": {
-    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
-    "WFContentItemFilter": Where<FilterRows["com.apple.stocks.SymbolEntity"]> | FilterTemplateValue;
+    "WFContentItemFilter": AnyValue;
     /** Sort by: Optionally, what to sort the symbol by. */
     "WFContentItemSortProperty": EnumValue<"Random" | "exchange" | "name" | "symbol">;
     /** Order: The order to sort the symbol in. */
@@ -35111,7 +35135,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AccentColorEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AccentColorEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -35159,7 +35184,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AppearanceEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AppearanceEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -35532,7 +35558,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxDisplayFilterTypeEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxDisplayFilterTypeEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -35556,7 +35583,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxDwellActionEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxDwellActionEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -35604,7 +35632,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxDwellCursorColorEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxDwellCursorColorEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -36060,7 +36089,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxHotCornerBottomLeftEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxHotCornerBottomLeftEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -36084,7 +36114,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxHotCornerBottomRightEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxHotCornerBottomRightEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -36132,7 +36163,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxHotCornerTopLeftEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxHotCornerTopLeftEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -36156,7 +36188,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxHotCornerTopRightEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxHotCornerTopRightEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -36228,7 +36261,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxHoverTextModifierEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxHoverTextModifierEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -36276,7 +36310,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxHoverTypingEntryLocationEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxHoverTypingEntryLocationEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -36396,7 +36431,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxKbAppearanceTypeEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxKbAppearanceTypeEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -36492,7 +36528,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxKbKeyAcceptedMouseEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxKbKeyAcceptedMouseEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37164,7 +37201,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSpokenPointerElementModeEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSpokenPointerElementModeEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37188,7 +37226,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSpokenPointerElementVerbosityEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSpokenPointerElementVerbosityEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37236,7 +37275,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSpokenSelectionHighlightContentEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSpokenSelectionHighlightContentEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37260,7 +37300,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceColorEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSpokenSelectionHighlightSentenceColorEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37284,7 +37325,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSpokenSelectionHighlightSentenceStyleEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSpokenSelectionHighlightSentenceStyleEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37308,7 +37350,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSpokenSelectionHighlightWordColorEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSpokenSelectionHighlightWordColorEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37332,7 +37375,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSpokenSelectionShowControllerEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSpokenSelectionShowControllerEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37548,7 +37592,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxStickyKeysDisplayLocationEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxStickyKeysDisplayLocationEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37692,7 +37737,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSwitchControlAppearanceTypeEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSwitchControlAppearanceTypeEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37716,7 +37762,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSwitchCursorSizeEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSwitchCursorSizeEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37812,7 +37859,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSwitchMouseMoveStyleEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSwitchMouseMoveStyleEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37836,7 +37884,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSwitchNavFeedbackEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSwitchNavFeedbackEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -37884,7 +37933,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxSwitchScanRestartEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxSwitchScanRestartEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -38076,7 +38126,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxVoiceControlOverlayEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxVoiceControlOverlayEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -38268,7 +38319,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxZoomFocusMovementEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxZoomFocusMovementEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -38292,7 +38344,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxZoomFollowFocusActivationEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxZoomFollowFocusActivationEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -38316,7 +38369,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxZoomFollowFocusModeEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxZoomFollowFocusModeEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -38460,7 +38514,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxZoomMonitorSelectionTrackpadEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxZoomMonitorSelectionTrackpadEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -38484,7 +38539,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxZoomMoveEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxZoomMoveEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -38604,7 +38660,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.AxZoomStylePopupEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.AxZoomStylePopupEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -38792,7 +38849,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.ClickScrollBarToEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.ClickScrollBarToEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -39102,7 +39160,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.HighlightColorEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.HighlightColorEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -39554,7 +39613,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.ShowScrollBarsEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.ShowScrollBarsEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */
@@ -39578,7 +39638,8 @@ export type ParamTypes = {
     "AppIntentDescriptor"?: DictionaryValue;
   };
   "com.apple.systempreferences.SidebarIconSizeEntity": {
-    "WFContentItemFilter": AnyValue;
+    /** Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`. */
+    "WFContentItemFilter": Where<FilterRows["com.apple.systempreferences.SidebarIconSizeEntity"]> | FilterTemplateValue;
     /** Sort by */
     "WFContentItemSortProperty": EnumValue<"Random" | "value">;
     /** Order */

@@ -6,7 +6,7 @@ import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition, type ActionDefinition } from "./definitions.js";
 import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
-import { CALENDAR_UNITS, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type EntityId, type EntityProperty } from "./generated/entities.js";
+import { BOUNDED_FILTERS, BYTE_COUNT_UNITS, CALENDAR_UNITS, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type EntityId, type EntityProperty } from "./generated/entities.js";
 import type { AskAttachment, Attachment, ConditionSubject, FilterRow, FilterTemplateValue, TokenString, Value, VariableType, Where } from "./values.js";
 
 export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
@@ -15,7 +15,7 @@ export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
 export { provenance, type Provenance } from "./provenance.js";
 export type * from "./generated/params.js";
-export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, ENTITY_PROPERTIES, type FilterRows, type EntityId, type EntityProperty } from "./generated/entities.js";
+export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, type FilterRows, type EntityId, type EntityProperty } from "./generated/entities.js";
 
 /** Parameters accepted for an identifier: typed per key for built-in actions, open for anything else. */
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
@@ -135,29 +135,41 @@ export function property(source: Action | Attachment, name: string): Attachment 
 }
 
 /** Find conditions that must all hold. Each row is `[property, operator, ...values]`, typed per Find action (FilterRows):
- *  `where(["date", "is_in_the_last", 7, "days"], ["author", "is", ref(contact)])`. */
+ *  `where(["date", "is_in_the_last", 7, "days"], ["author", "is", ref(contact)])`; durations and file sizes take a
+ *  number and a unit, `where(["File Size", "greater_than", 5, "MB"])`. */
 export const where = <const R extends FilterRow>(...rows: R[]): Where<R> => ({ match: "all", rows });
 /** Find conditions of which any one must hold; rows as for `where()`. */
 export const whereAny = <const R extends FilterRow>(...rows: R[]): Where<R> => ({ match: "any", rows });
 const isWhere = (v: unknown): v is Where => typeof v === "object" && v !== null && Array.isArray((v as Where).rows) && ((v as Where).match === "all" || (v as Where).match === "any");
 
-type FilterProperty = { operators: readonly number[]; values: string; units?: readonly number[] };
+type FilterProperty = { operators: readonly number[]; values: string; units?: readonly number[]; choices?: readonly string[] };
 /** Encode where() rows for a Find action: each value goes under the row key its kind uses (see docs/shortcut-file-format.md). */
 function encodeFilter(identifier: string, w: Where): FilterTemplateValue {
   const table = (FILTERS as Record<string, Record<string, FilterProperty>>)[identifier];
-  if (!table) throw new Error(`${identifier}: where() rows need a Find action of Apple's App Intents (FILTERS); pass a WFContentPredicateTableTemplate here`);
+  if (!table) throw new Error(`${identifier}: where() rows need a Find action with typed filters (FILTERS); pass a WFContentPredicateTableTemplate here`);
   const codes = FILTER_OPERATORS as Record<string, number>;
-  const rows = w.rows.map(([prop, op, ...args]) => {
+  const rows: Array<{ Property: string; Operator: number; Removable: boolean; Bounded?: boolean; Values: Record<string, PlistValue> }> = w.rows.map(([prop, op, ...args]) => {
     const p = table[prop];
     if (!p) throw new Error(`${identifier}: no filterable property ${prop}; filterable: ${Object.keys(table).join(", ")}`);
     const at = `${identifier} ${prop} ${op}`;
     const offered = Object.keys(codes).filter((n) => p.operators.includes(codes[n]!));
     if (!offered.includes(op)) throw new Error(`${identifier} ${prop}: no operator ${op}; offered: ${offered.join(", ")}`);
-    const arity = op === "is_today" ? 0 : op === "is_between" || op === "is_in_the_last" || op === "is_in_the_next" ? 2 : 1;
+    const arity = op === "is_today" ? 0 : op === "is_between" || op === "is_in_the_last" || op === "is_in_the_next" || p.values === "duration" || p.values === "fileSize" ? 2 : 1;
     if (args.length !== arity) throw new Error(`${at}: takes ${arity} value(s), got ${args.length}`);
     return { Property: prop, Operator: codes[op]!, Removable: true, Values: rowValues(at, p, op, args) };
   });
-  return { WFSerializationType: "WFContentPredicateTableTemplate", Value: { WFActionParameterFilterPrefix: w.match === "all" ? 1 : 0, WFContentPredicateBoundedDate: false, WFActionParameterFilterTemplates: rows } };
+  // Some Find actions need a bounded date row (Find Calendar Events: Start Date in a range), or the engine
+  // replaces the whole filter with its default; the row is marked Bounded, and the filter says it has one.
+  const bounded = (BOUNDED_FILTERS as Record<string, { property: string; operators: readonly number[] }>)[identifier];
+  let hasBounded = false;
+  if (bounded) {
+    for (const r of rows) if (r.Property === bounded.property && bounded.operators.includes(r.Operator)) { r.Bounded = true; hasBounded = true; }
+    if (!hasBounded) {
+      const names = Object.keys(codes).filter((n) => bounded.operators.includes(codes[n]!));
+      throw new Error(`${identifier}: needs a ${bounded.property} row with one of ${names.join(", ")} (the engine replaces a filter without one with its default)`);
+    }
+  }
+  return { WFSerializationType: "WFContentPredicateTableTemplate", Value: { WFActionParameterFilterPrefix: w.match === "all" ? 1 : 0, WFContentPredicateBoundedDate: hasBounded, WFActionParameterFilterTemplates: rows } };
 }
 function rowValues(at: string, p: FilterProperty, op: string, args: unknown[]): Record<string, PlistValue> {
   const check = (ok: boolean, v: unknown, what: string) => { if (!ok) throw new Error(`${at}: expected ${what}, got ${JSON.stringify(v)}`); };
@@ -166,12 +178,18 @@ function rowValues(at: string, p: FilterProperty, op: string, args: unknown[]): 
       case "number": check(typeof v === "number" || isAttachment(v), v, "a number or a reference"); return ["Number", v as PlistValue];
       case "bool": check(typeof v === "boolean" || isAttachment(v), v, "a boolean or a reference"); return ["Bool", v as PlistValue];
       case "date": check(v instanceof Date || isAttachment(v), v, "a Date or a reference"); return ["Date", v as PlistValue];
-      case "text": case "contactHandle": {
+      // An enumeration's state class holds one of the property's choices or a reference (a bare reference is read as a different state class).
+      case "enumeration": check(typeof v === "string" || isAttachment(v), v, "a string or a reference"); return ["Enumeration", { WFSerializationType: "WFStringSubstitutableState", Value: v as PlistValue }];
+      case "enumCase": check(typeof v === "string" || isAttachment(v), v, "a case identifier or a reference"); return ["Enumeration", { WFSerializationType: "WFLinkEnumerationSubstitutableState", Value: v as PlistValue }];
+      case "text": case "email": case "phone": case "contactHandle": {
         const isToken = typeof v === "object" && v !== null && (v as TokenString).WFSerializationType === "WFTextTokenString";
         check(typeof v === "string" || isToken || isAttachment(v), v, "a string, text() or a reference");
         // The engine drops a bare reference in a text row; it reads the token string the editor writes.
         const t = isAttachment(v) ? text(v) : (v as string | TokenString);
+        // The key follows the property's value class: Email for email addresses, Phone for phone numbers, String for the rest.
         if (kind === "text") return ["String", t as PlistValue];
+        if (kind === "email") return ["Email", t as PlistValue];
+        if (kind === "phone") return ["Phone", t as PlistValue];
         // A handle is wrapped in its state class, holding the plain string when there is no reference in it (as the engine writes it).
         const plainHandle = typeof t === "string" ? t : Object.keys(t.Value.attachmentsByRange).length ? null : t.Value.string;
         return ["ContactHandle", { WFSerializationType: "WFTokenStringParameterState", Value: (plainHandle ?? t) as PlistValue }];
@@ -188,6 +206,15 @@ function rowValues(at: string, p: FilterProperty, op: string, args: unknown[]): 
     return { Number: n as PlistValue, Unit: isAttachment(unit) ? unit : CALENDAR_UNITS[unit as keyof typeof CALENDAR_UNITS] };
   }
   if (op === "is_between") return { Date: one(args[0], p.values)[1], AnotherDate: one(args[1], p.values)[1] };
+  // Durations compare a number of calendar units (Unit, an NSCalendarUnit); file sizes a number of byte-count units.
+  if (p.values === "duration" || p.values === "fileSize") {
+    const [n, unit] = args;
+    check(typeof n === "number" || isAttachment(n), n, "a number or a reference");
+    const table: Record<string, number> = p.values === "duration" ? CALENDAR_UNITS : BYTE_COUNT_UNITS;
+    const units = Object.keys(table).filter((u) => !p.units || p.units.includes(table[u]!));
+    check(isAttachment(unit) || units.includes(unit as string), unit, `a reference or one of ${units.join(", ")}`);
+    return { Number: n as PlistValue, [p.values === "duration" ? "Unit" : "ByteCountUnit"]: isAttachment(unit) ? unit : table[unit as string]! };
+  }
   const [k, v] = one(args[0], p.values);
   return { [k]: v };
 }

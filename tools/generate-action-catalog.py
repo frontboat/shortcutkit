@@ -16,7 +16,7 @@ non-standard identifiers keep their full form sanitized. App Intents use the sna
 Shortcuts app assigns them (e.g. reminders_create_reminder), falling back to the sanitized
 identifier when it is missing or shared. Run by extract-builtin-actions.sh.
 
-usage: generate-action-catalog.py [data/builtin-actions.json] [data/apple-app-intents.json] [data/apple-entities.json]
+usage: generate-action-catalog.py [data/builtin-actions.json] [data/apple-app-intents.json] [data/apple-entities.json] [data/engine-filters.json] [data/linkd-properties.json]
 """
 import json
 import pathlib
@@ -118,7 +118,7 @@ def key_for(identifier):
     return key
 
 
-def entries(defs):
+def entries(defs, filters=None):
     state_map, runtime_params = load_state_map()
     out = []
     for ident in sorted(defs):
@@ -147,6 +147,9 @@ def entries(defs):
         for k, (label, description) in docs.items():
             if k in kinds:
                 kinds[k]["doc"] = doc_text(label, description)
+        if filters and ident in filters and "WFContentItemFilter" in kinds:
+            kinds["WFContentItemFilter"].update(kind="filter", ts=f"Where<FilterRows[{js_str(ident)}]> | FilterTemplateValue",
+                                                doc="Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`.")
         desc = a.get("Description") if isinstance(a.get("Description"), dict) else {}
         outp = a.get("Output") if isinstance(a.get("Output"), dict) else {}
         out.append({
@@ -376,42 +379,145 @@ FILTER_OPERATOR_NAMES = {0: "less_than", 1: "less_or_equal", 2: "greater_than", 
                          1002: "is_today", 1003: "is_between"}
 # Calendar units "is in the last/next" counts in: NSCalendarUnit values, named as the editor's picker shows them.
 CALENDAR_UNITS = {"years": 4, "months": 8, "weeks": 8192, "days": 16, "hours": 32, "minutes": 64, "seconds": 128}
-# Row value kinds (extract-entities.js) -> the TypeScript type a row takes for each value.
-ROW_VALUE_TS = {"text": "TextValue", "number": "NumberValue", "bool": "BoolValue", "date": "DateValue", "contactHandle": "TextValue"}
+# Byte-count units a file-size row counts in: the engine's ByteCountUnit codes, named as it formats them
+# (decimal: 1 KB is 1000 bytes; rowValues.byteCountUnits in data/engine-filters.json).
+BYTE_COUNT_UNITS = {"bytes": 1, "KB": 2, "MB": 4, "GB": 8, "TB": 16, "PB": 32, "EB": 64}
+# Row value kinds -> the TypeScript type a row takes for each value. Enumerations and unit rows are built per property.
+ROW_VALUE_TS = {"text": "TextValue", "email": "TextValue", "phone": "TextValue", "number": "NumberValue", "bool": "BoolValue", "date": "DateValue", "contactHandle": "TextValue"}
+# The row value type the engine names in an operator's Swift type -> the row's value kind. A string row's kind
+# then follows the property's value class (Email, Phone, String); a Number+Unit row is a date's "is in the
+# last/next" or a duration's comparison. rowValues in data/engine-filters.json records each form.
+DATE_TYPES = {"DateFilterOperator", "DateIsTodayOperator", "RowTemplateDateValueType"}
+STRING_KINDS = {"WFEmailAddress": "email", "WFPhoneNumber": "phone"}
 
 
-def entity_tables(entities):
-    """FILTERS: per Find action, the properties a row can name, with the operators WorkflowKit offers
-    for each (the index's list, less those the query's comparators do not produce) and the value kind;
-    properties whose value the editor edits with a parameter the library does not write are left out.
-    ENTITY_PROPERTIES: per entity type, every property identifier the index lists."""
+def engine_rows(props, at):
+    """FILTERS rows for one content item class from the engine's own filter rules (extract-engine-filters.js):
+    per property the operator codes, the value kind, the units a Number+Unit row takes and an enumeration's
+    choices. Properties the engine offers no operator for (Bool ones, as of this data) are left out."""
+    rows = {}
+    for pid in sorted(props):
+        f = props[pid]
+        ops = [o["code"] for o in f["operators"]]
+        if not ops:
+            continue
+        types = {re.sub(r"^\w+<(.*)>$", r"\1", o["type"]) if "<" in o["type"] else o["type"] for o in f["operators"]}
+        units = [u for u in f.get("timeUnits", []) if u in CALENDAR_UNITS.values()]
+        row = {"operators": ops}
+        if types <= DATE_TYPES | {"RowTemplateCompoundNumberCalendarUnitValueType"} and types & DATE_TYPES:
+            row["values"] = "date"
+        elif types == {"RowTemplateCompoundNumberCalendarUnitValueType"}:
+            row["values"] = "duration"
+        elif types == {"RowTemplateCompoundNumberByteCountUnitValueType"}:
+            row["values"] = "fileSize"
+            units = []
+        elif types == {"RowTemplateStringValueType"}:
+            row["values"] = STRING_KINDS.get(f.get("valueClass"), "text")
+        elif types == {"RowTemplateNumberValueType"}:
+            row["values"] = "number"
+        elif types == {"RowTemplateContactHandleValueType"}:
+            row["values"] = "contactHandle"
+        elif types == {"RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>"}:
+            row["values"] = "enumeration"
+            row["choices"] = f.get("items", [])
+        elif types == {"RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>"}:
+            row["values"] = "enumCase"
+            row["choices"] = f.get("cases", [])
+        else:
+            raise SystemExit(f"{at}.{pid}: no row kind for the engine's value types {sorted(types)}")
+        unknown = [o for o in ops if o not in FILTER_OPERATOR_NAMES]
+        if unknown:
+            raise SystemExit(f"{at}.{pid}: no name for operator {unknown}")
+        if units and row["values"] in ("date", "duration"):
+            row["units"] = units
+        bounded = [o["code"] for o in f.get("bounded", [])]
+        if bounded != ops:
+            row["boundedOperators"] = bounded
+        rows[pid] = row
+    return rows
+
+
+def index_rows(e, eid):
+    """FILTERS rows from the index route (data/apple-entities.json), for an entity the engine host did not build."""
     unit_codes = set(CALENDAR_UNITS.values())
+    rows = {}
+    for pid in sorted(e["properties"]):
+        f = e["properties"][pid].get("filter")
+        if not f or not f.get("values"):
+            continue
+        ops = [o for o in f["operators"] if o not in f.get("notFromComparators", [])]
+        unknown = [o for o in ops if o not in FILTER_OPERATOR_NAMES] + [u for u in f.get("timeUnits", []) if u not in unit_codes]
+        if unknown:
+            raise SystemExit(f"{eid}.{pid}: no name for operator or unit {unknown}")
+        if ops:
+            rows[pid] = {"operators": ops, "values": f["values"], **({"units": f["timeUnits"]} if f.get("timeUnits") else {})}
+    return rows
+
+
+def bounded_filters(filters, engine):
+    """Find actions whose filter must hold a bounded date row (Find Calendar Events: a Start Date row with one
+    of the bounded operators, marked Bounded, and WFContentPredicateBoundedDate true), or the engine replaces
+    the whole filter with its default. The requirement shows in the action's default filter
+    (actionDefaults in data/parameter-encodings.json: a row with Bounded true); the operators that count come
+    from the engine's rules for the property (bounded in data/engine-filters.json)."""
+    path = ROOT / "data" / "parameter-encodings.json"
+    if not path.exists() or not engine:
+        return {}
+    out = {}
+    for ident, params in json.load(open(path)).get("actionDefaults", {}).items():
+        rows = (((params.get("WFContentItemFilter") or {}).get("Value") or {}).get("WFActionParameterFilterTemplates") or [])
+        for row in rows:
+            if isinstance(row, dict) and row.get("Bounded") and ident in filters and row["Property"] in filters[ident]:
+                prop = filters[ident][row["Property"]]
+                ops = [o for o in prop.get("boundedOperators", prop["operators"])]
+                out[ident] = {"property": row["Property"], "operators": ops}
+    return out
+
+
+def entity_tables(entities, defs, engine, linkd):
+    """FILTERS: per Find action, the properties a row can name, with the operators the engine offers for
+    each, the value kind and the choices or units the value takes. App Intents Find actions come from the
+    entity built from linkd's metadata as the app builds it (data/linkd-properties.json; the index route
+    stands in for an entity the host did not build), built-in Find and Filter actions from their content
+    item class (data/engine-filters.json). ENTITY_PROPERTIES: per entity type, every property identifier
+    the index lists."""
     filters, properties = {}, {}
     for eid in sorted(entities):
         e = entities[eid]
         properties[eid] = sorted(e["properties"])
         if not e.get("find"):
             continue
-        rows = {}
-        for pid in sorted(e["properties"]):
-            f = e["properties"][pid].get("filter")
-            if not f or not f.get("values"):
-                continue
-            ops = [o for o in f["operators"] if o not in f.get("notFromComparators", [])]
-            unknown = [o for o in ops if o not in FILTER_OPERATOR_NAMES] + [u for u in f.get("timeUnits", []) if u not in unit_codes]
-            if unknown:
-                raise SystemExit(f"{eid}.{pid}: no name for operator or unit {unknown}")
-            if ops:
-                rows[pid] = {"name": e["properties"][pid].get("name"), "operators": ops, "values": f["values"], **({"units": f["timeUnits"]} if f.get("timeUnits") else {})}
+        built = (linkd.get(eid) or {}).get("filters") if linkd else None
+        rows = engine_rows(built, eid) if built is not None else index_rows(e, eid)
+        for pid, row in rows.items():
+            row["name"] = e["properties"].get(pid, {}).get("name")
         if rows:
             filters[e["find"]] = rows
+    for ident in sorted(defs):
+        a = defs[ident]
+        if a.get("ActionClass") != "WFContentItemFilterAction" or not a.get("WFContentItemClass"):
+            continue
+        props = (engine or {}).get("builtin", {}).get(a["WFContentItemClass"])
+        if props:
+            rows = engine_rows(props, ident)
+            if rows:
+                filters[ident] = rows
     return filters, properties
 
 
 def row_types(pid, f):
     """The row tuples one property admits, grouped by the operands each operator takes."""
     unit_names = {v: k for k, v in CALENDAR_UNITS.items()}
-    v, out, plain = ROW_VALUE_TS[f["values"]], [], []
+    kind = f["values"]
+    if kind in ("enumeration", "enumCase"):
+        v = "EnumValue<" + " | ".join(js_str(c) for c in f["choices"]) + ">" if f.get("choices") else "StringValue"
+    elif kind in ("duration", "fileSize"):
+        table = CALENDAR_UNITS if kind == "duration" else BYTE_COUNT_UNITS
+        allowed = [n for n, c in table.items() if not f.get("units") or c in f["units"]]
+        v = "NumberValue, " + " | ".join(js_str(n) for n in allowed) + " | Attachment"
+    else:
+        v = ROW_VALUE_TS[kind]
+    out, plain = [], []
     for o in f["operators"]:
         name = FILTER_OPERATOR_NAMES[o]
         if name == "is_today":
@@ -428,21 +534,29 @@ def row_types(pid, f):
     return out
 
 
-def write_entities_ts(filters, properties, path):
+def write_entities_ts(filters, properties, bounded, path):
     unions = {fid: " | ".join(t for pid, f in rows.items() for t in row_types(pid, f)) for fid, rows in filters.items()}
-    used = sorted({n for u in unions.values() for n in re.findall(r"[A-Za-z]+", u) if n in ("Attachment", *ROW_VALUE_TS.values(), "NumberValue")})
-    lines = ["// Generated by tools/generate-action-catalog.py from data/apple-entities.json. Do not edit.",
+    used = sorted({n for u in unions.values() for n in re.findall(r"[A-Za-z]+", u) if n in ("Attachment", "EnumValue", "StringValue", *ROW_VALUE_TS.values(), "NumberValue")})
+    lines = ["// Generated by tools/generate-action-catalog.py from data/engine-filters.json, data/linkd-properties.json and data/apple-entities.json. Do not edit.",
              "import type { " + ", ".join(used) + ' } from "../values.js";', "",
              "/** Filter row operators by name (CONDITION's names, plus the date operators If does not take). */",
              "export const FILTER_OPERATORS = { " + ", ".join(f"{n}: {c}" for c, n in FILTER_OPERATOR_NAMES.items()) + " } as const;",
-             "/** Calendar units for `is_in_the_last` and `is_in_the_next`, as NSCalendarUnit values. */",
-             "export const CALENDAR_UNITS = { " + ", ".join(f"{n}: {c}" for n, c in CALENDAR_UNITS.items()) + " } as const;", "",
-             "/** The properties a Find action's filter rows can name, by action identifier: operator codes, the value",
-             " *  kind (which row key holds the value), and the calendar units `is_in_the_last`/`is_in_the_next` offer. */",
+             "/** Calendar units for `is_in_the_last`, `is_in_the_next` and duration rows, as NSCalendarUnit values. */",
+             "export const CALENDAR_UNITS = { " + ", ".join(f"{n}: {c}" for n, c in CALENDAR_UNITS.items()) + " } as const;",
+             "/** Units for file-size rows, as the engine's ByteCountUnit codes (decimal: 1 KB is 1000 bytes). */",
+             "export const BYTE_COUNT_UNITS = { " + ", ".join(f"{n}: {c}" for n, c in BYTE_COUNT_UNITS.items()) + " } as const;", "",
+             "/** The properties a Find action's filter rows can name, by action identifier: operator codes, the value kind",
+             " *  (which row key holds the value), the calendar units a Number+Unit row offers, and an enumeration's choices. */",
              "export const FILTERS = {"]
     for fid, rows in filters.items():
-        body = ", ".join(f"{js_str(pid)}: {{ operators: [{', '.join(map(str, f['operators']))}], values: {js_str(f['values'])}" + (f", units: [{', '.join(map(str, f['units']))}]" if f.get("units") else "") + " }" for pid, f in rows.items())
+        body = ", ".join(f"{js_str(pid)}: {{ operators: [{', '.join(map(str, f['operators']))}], values: {js_str(f['values'])}" + (f", units: [{', '.join(map(str, f['units']))}]" if f.get("units") else "") + (f", choices: [{', '.join(js_str(c) for c in f['choices'])}]" if f.get("choices") else "") + " }" for pid, f in rows.items())
         lines.append(f"  {js_str(fid)}: {{ {body} }},")
+    lines += ["} as const;", "",
+              "/** Find actions whose filter must include a bounded date row on this property, with one of these operators (Find Calendar",
+              " *  Events: a Start Date row); `action()` marks it `Bounded` and sets `WFContentPredicateBoundedDate`, as the editor does. */",
+              "export const BOUNDED_FILTERS = {"]
+    for fid, b in bounded.items():
+        lines.append(f"  {js_str(fid)}: {{ property: {js_str(b['property'])}, operators: [{', '.join(map(str, b['operators']))}] }},")
     lines += ["} as const;", "", "/** Every property identifier Apple's index lists for an entity type; `property()` takes these. */", "export const ENTITY_PROPERTIES = {"]
     for eid, props in properties.items():
         lines.append(f"  {js_str(eid)}: [{', '.join(js_str(p) for p in props)}],")
@@ -455,17 +569,21 @@ def write_entities_ts(filters, properties, path):
     path.write_text("\n".join(lines))
 
 
-def write_entities_py(filters, properties, path):
-    lines = ['"""Generated by tools/generate-action-catalog.py from data/apple-entities.json. Do not edit."""', "",
+def write_entities_py(filters, properties, bounded, path):
+    lines = ['"""Generated by tools/generate-action-catalog.py from data/engine-filters.json, data/linkd-properties.json and data/apple-entities.json. Do not edit."""', "",
              "# Filter row operators by name (CONDITION's names, plus the date operators If does not take).",
              f"FILTER_OPERATORS = {json.dumps({n: c for c, n in FILTER_OPERATOR_NAMES.items()})}",
-             "# Calendar units for is_in_the_last and is_in_the_next, as NSCalendarUnit values.",
-             f"CALENDAR_UNITS = {json.dumps(CALENDAR_UNITS)}", "",
-             "# The properties a Find action's filter rows can name, by action identifier: operator codes, value kind, calendar units.",
+             "# Calendar units for is_in_the_last, is_in_the_next and duration rows, as NSCalendarUnit values.",
+             f"CALENDAR_UNITS = {json.dumps(CALENDAR_UNITS)}",
+             "# Units for file-size rows, as the engine's ByteCountUnit codes (decimal: 1 KB is 1000 bytes).",
+             f"BYTE_COUNT_UNITS = {json.dumps(BYTE_COUNT_UNITS)}", "",
+             "# The properties a Find action's filter rows can name, by action identifier: operator codes, value kind, units, choices.",
              "FILTERS = {"]
     for fid, rows in filters.items():
-        lines.append(f"    {json.dumps(fid)}: {json.dumps({pid: {k: v for k, v in f.items() if k != 'name'} for pid, f in rows.items()})},")
-    lines += ["}", "", "# Every property identifier Apple's index lists for an entity type; property_() takes these.", "ENTITY_PROPERTIES = {"]
+        lines.append(f"    {json.dumps(fid)}: {json.dumps({pid: {k: v for k, v in f.items() if k not in ('name', 'boundedOperators')} for pid, f in rows.items()})},")
+    lines += ["}", "", "# Find actions whose filter must include a bounded date row on this property, with one of these operators; action() marks it Bounded.",
+              f"BOUNDED_FILTERS = {json.dumps(bounded)}", "",
+              "# Every property identifier Apple's index lists for an entity type; property_() takes these.", "ENTITY_PROPERTIES = {"]
     for eid, props in properties.items():
         lines.append(f"    {json.dumps(eid)}: {json.dumps(props)},")
     lines += ["}", ""]
@@ -476,9 +594,16 @@ def main(argv):
     src = pathlib.Path(argv[1]) if len(argv) > 1 else ROOT / "data" / "builtin-actions.json"
     apps = pathlib.Path(argv[2]) if len(argv) > 2 else ROOT / "data" / "apple-app-intents.json"
     ents = pathlib.Path(argv[3]) if len(argv) > 3 else ROOT / "data" / "apple-entities.json"
-    es = entries(json.load(open(src)))
+    engine_path = pathlib.Path(argv[4]) if len(argv) > 4 else ROOT / "data" / "engine-filters.json"
+    linkd_path = pathlib.Path(argv[5]) if len(argv) > 5 else ROOT / "data" / "linkd-properties.json"
+    defs = json.load(open(src))
+    engine = json.load(open(engine_path)) if engine_path.exists() else None
+    linkd = json.load(open(linkd_path))["entities"] if linkd_path.exists() else None
+    if engine is None or linkd is None:
+        print("warning: data/engine-filters.json or data/linkd-properties.json missing (bun run extract-filters); Find filters typed from the index route only")
+    filters, properties = entity_tables(json.load(open(ents))["entities"] if ents.exists() else {}, defs, engine, linkd)
+    es = entries(defs, filters)
     n_builtin = len(es)
-    filters, properties = entity_tables(json.load(open(ents))["entities"]) if ents.exists() else ({}, {})
     if apps.exists():
         es += app_intent_entries(json.load(open(apps)).get("actions", {}), filters)
     es = dedupe_keys(es)
@@ -488,8 +613,9 @@ def main(argv):
     write_ts(es, ROOT / "src/generated/actions.ts")
     write_params_ts(es, ROOT / "src/generated/params.ts")
     write_py(es, ROOT / "python/src/shortcutkit/actions.py")
-    write_entities_ts(filters, properties, ROOT / "src/generated/entities.ts")
-    write_entities_py(filters, properties, ROOT / "python/src/shortcutkit/entities.py")
+    bounded = bounded_filters(filters, engine)
+    write_entities_ts(filters, properties, bounded, ROOT / "src/generated/entities.ts")
+    write_entities_py(filters, properties, bounded, ROOT / "python/src/shortcutkit/entities.py")
     rows = sum(len(p) for p in filters.values())
     print(f"{n_builtin} built-in + {len(es) - n_builtin} App Intents actions -> src/generated/actions.ts, python/src/shortcutkit/actions.py; "
           f"{len(filters)} Find filters ({rows} properties), {len(properties)} entity types -> src/generated/entities.ts, python/src/shortcutkit/entities.py")

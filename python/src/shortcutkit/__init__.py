@@ -219,7 +219,7 @@ def _encode_filter(identifier, w):
     """Encode where() rows for a Find action: each value goes under the row key its kind uses (see docs/shortcut-file-format.md)."""
     table = FILTERS.get(identifier)
     if table is None:
-        raise ValueError(f"{identifier}: where() rows need a Find action of Apple's App Intents (FILTERS); pass a WFContentPredicateTableTemplate here")
+        raise ValueError(f"{identifier}: where() rows need a Find action with typed filters (FILTERS); pass a WFContentPredicateTableTemplate here")
     rows = []
     for row in w["rows"]:
         prop, op, *args = row
@@ -230,12 +230,24 @@ def _encode_filter(identifier, w):
         offered = [n for n, c in FILTER_OPERATORS.items() if c in p["operators"]]
         if op not in offered:
             raise ValueError(f"{identifier} {prop}: no operator {op}; offered: {', '.join(offered)}")
-        arity = 0 if op == "is_today" else 2 if op in ("is_between", "is_in_the_last", "is_in_the_next") else 1
+        arity = 0 if op == "is_today" else 2 if op in ("is_between", "is_in_the_last", "is_in_the_next") or p["values"] in ("duration", "fileSize") else 1
         if len(args) != arity:
             raise ValueError(f"{at}: takes {arity} value(s), got {len(args)}")
         rows.append({"Property": prop, "Operator": FILTER_OPERATORS[op], "Removable": True, "Values": _row_values(at, p, op, args)})
+    # Some Find actions need a bounded date row (Find Calendar Events: Start Date in a range), or the engine
+    # replaces the whole filter with its default; the row is marked Bounded, and the filter says it has one.
+    bounded = BOUNDED_FILTERS.get(identifier)
+    has_bounded = False
+    if bounded:
+        for r in rows:
+            if r["Property"] == bounded["property"] and r["Operator"] in bounded["operators"]:
+                r["Bounded"] = True
+                has_bounded = True
+        if not has_bounded:
+            names = [n for n, c in FILTER_OPERATORS.items() if c in bounded["operators"]]
+            raise ValueError(f"{identifier}: needs a {bounded['property']} row with one of {', '.join(names)} (the engine replaces a filter without one with its default)")
     return {"WFSerializationType": "WFContentPredicateTableTemplate",
-            "Value": {"WFActionParameterFilterPrefix": 1 if w["match"] == "all" else 0, "WFContentPredicateBoundedDate": False, "WFActionParameterFilterTemplates": rows}}
+            "Value": {"WFActionParameterFilterPrefix": 1 if w["match"] == "all" else 0, "WFContentPredicateBoundedDate": has_bounded, "WFActionParameterFilterTemplates": rows}}
 
 
 def _is_attachment(v):
@@ -257,13 +269,23 @@ def _row_values(at, p, op, args):
         if kind == "date":
             check(_is_attachment(v) or isinstance(v, datetime.datetime), v, "a datetime or a reference")
             return "Date", v if _is_attachment(v) else _utc(v)
-        if kind in ("text", "contactHandle"):
+        if kind in ("enumeration", "enumCase"):
+            # An enumeration's state class holds one of the property's choices or a reference (a bare reference is read as a different state class).
+            check(isinstance(v, str) or _is_attachment(v), v, "a string or a reference" if kind == "enumeration" else "a case identifier or a reference")
+            state = "WFStringSubstitutableState" if kind == "enumeration" else "WFLinkEnumerationSubstitutableState"
+            return "Enumeration", {"WFSerializationType": state, "Value": v}
+        if kind in ("text", "email", "phone", "contactHandle"):
             is_token = isinstance(v, dict) and v.get("WFSerializationType") == "WFTextTokenString"
             check(isinstance(v, str) or is_token or _is_attachment(v), v, "a string, text() or a reference")
             # The engine drops a bare reference in a text row; it reads the token string the editor writes.
             t = text(v) if _is_attachment(v) else v
+            # The key follows the property's value class: Email for email addresses, Phone for phone numbers, String for the rest.
             if kind == "text":
                 return "String", t
+            if kind == "email":
+                return "Email", t
+            if kind == "phone":
+                return "Phone", t
             # A handle is wrapped in its state class, holding the plain string when there is no reference in it (as the engine writes it).
             plain = t if isinstance(t, str) else None if t["Value"]["attachmentsByRange"] else t["Value"]["string"]
             return "ContactHandle", {"WFSerializationType": "WFTokenStringParameterState", "Value": t if plain is None else plain}
@@ -279,6 +301,14 @@ def _row_values(at, p, op, args):
         return {"Number": n, "Unit": unit if _is_attachment(unit) else CALENDAR_UNITS[unit]}
     if op == "is_between":
         return {"Date": one(args[0], p["values"])[1], "AnotherDate": one(args[1], p["values"])[1]}
+    # Durations compare a number of calendar units (Unit, an NSCalendarUnit); file sizes a number of byte-count units.
+    if p["values"] in ("duration", "fileSize"):
+        n, unit = args
+        check(_is_attachment(n) or (isinstance(n, (int, float)) and not isinstance(n, bool)), n, "a number or a reference")
+        table = CALENDAR_UNITS if p["values"] == "duration" else BYTE_COUNT_UNITS
+        units = [u for u, c in table.items() if not p.get("units") or c in p["units"]]
+        check(_is_attachment(unit) or unit in units, unit, f"a reference or one of {', '.join(units)}")
+        return {"Number": n, ("Unit" if p["values"] == "duration" else "ByteCountUnit"): unit if _is_attachment(unit) else table[unit]}
     k, v = one(args[0], p["values"])
     return {k: v}
 
@@ -521,12 +551,12 @@ def demo(out):
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
 from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES  # noqa: E402
-from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, ENTITY_PROPERTIES  # noqa: E402  (generated Find filters and entity properties)
+from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES  # noqa: E402  (generated Find filters and entity properties)
 
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
-           "property_", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "ENTITY_PROPERTIES",
+           "property_", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
 __version__ = "1.1.0"

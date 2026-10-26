@@ -2,7 +2,7 @@
 // the types allow, plus whole shortcuts built through the block helpers, and writes what the
 // library produced. tools/verify-library-output.js then loads all of it through the engine.
 //   bun test/verify/fixture.ts out.json
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, ENTITY_PROPERTIES, ref, text, variable, shortcutInput, clipboard, currentDate, ask, deviceDetails, currentApp, repeatItem, property, where, whereAny } from "../../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, ref, text, variable, shortcutInput, clipboard, currentDate, ask, deviceDetails, currentApp, repeatItem, property, where, whereAny } from "../../src/index";
 import encodings from "../../data/parameter-encodings.json";
 
 // expect: "read" (the library wrote it, the engine must read it) or "rejected" (the library refuses
@@ -73,30 +73,41 @@ for (const identifier of Object.keys(ACTIONS)) {
 type FilterCase = { identifier: string; form: string; filter: unknown };
 const filterCases: FilterCase[] = [];
 const DATE = new Date("2026-01-01T00:00:00Z");
-const PLAIN: Record<string, unknown> = { text: "hello", contactHandle: "+15055550100", number: 5, bool: true, date: DATE };
+const PLAIN: Record<string, unknown> = { text: "hello", email: "a@b.co", phone: "+15055550100", contactHandle: "+15055550100", number: 5, bool: true, date: DATE };
 const operatorName = (code: number) => Object.keys(FILTER_OPERATORS).find((n) => FILTER_OPERATORS[n as keyof typeof FILTER_OPERATORS] === code)!;
-function rowForms(prop: string, op: string, kind: string, units: readonly number[]): Array<[string, unknown[]]> {
+function rowForms(prop: string, op: string, kind: string, units: readonly number[], choices: readonly string[]): Array<[string, unknown[]]> {
   if (op === "is_today") return [["none", [prop, op]]];
   if (op === "is_in_the_last" || op === "is_in_the_next") {
     const unit = Object.keys(CALENDAR_UNITS).find((u) => units.includes(CALENDAR_UNITS[u as keyof typeof CALENDAR_UNITS]))!;
     return [["number+unit", [prop, op, 5, unit]], ["ref+ref", [prop, op, REF, REF]]];
   }
   if (op === "is_between") return [["plain+plain", [prop, op, PLAIN[kind], PLAIN[kind]]], ["ref+ref", [prop, op, REF, REF]]];
-  return [["plain", [prop, op, PLAIN[kind]]], ["ref", [prop, op, REF]], ...(kind === "text" || kind === "contactHandle" ? [["text+ref", [prop, op, text("Hi ", REF)]] as [string, unknown[]]] : [])];
+  // Durations count calendar units, file sizes byte-count units; the unit may be a reference too.
+  if (kind === "duration") return [["number+unit", [prop, op, 5, Object.keys(CALENDAR_UNITS).find((u) => !units.length || units.includes(CALENDAR_UNITS[u as keyof typeof CALENDAR_UNITS]))!]], ["ref+ref", [prop, op, REF, REF]]];
+  if (kind === "fileSize") return [["number+unit", [prop, op, 5, "MB"]], ["ref+ref", [prop, op, REF, REF]]];
+  // An enumeration takes one of its choices (any string when the engine lists none) or a reference.
+  if (kind === "enumeration" || kind === "enumCase") return [["plain", [prop, op, choices[0] ?? "x"]], ["ref", [prop, op, REF]]];
+  return [["plain", [prop, op, PLAIN[kind]]], ["ref", [prop, op, REF]], ...(["text", "email", "phone", "contactHandle"].includes(kind) ? [["text+ref", [prop, op, text("Hi ", REF)]] as [string, unknown[]]] : [])];
 }
-for (const [identifier, props] of Object.entries(FILTERS as Record<string, Record<string, { operators: readonly number[]; values: string; units?: readonly number[] }>>)) {
+// A Find action that needs a bounded date row (BOUNDED_FILTERS) gets one added to every case that lacks it.
+function withBounded(identifier: string, rows: unknown[][]): unknown[][] {
+  const b = (BOUNDED_FILTERS as Record<string, { property: string; operators: readonly number[] }>)[identifier];
+  if (!b || rows.some((r) => r[0] === b.property && b.operators.includes(FILTER_OPERATORS[r[1] as keyof typeof FILTER_OPERATORS]))) return rows;
+  return [...rows, [b.property, "is_in_the_next", 7, "days"]];
+}
+for (const [identifier, props] of Object.entries(FILTERS as Record<string, Record<string, { operators: readonly number[]; values: string; units?: readonly number[]; choices?: readonly string[] }>>)) {
   const first: unknown[][] = [];
   for (const [prop, p] of Object.entries(props)) {
     for (const code of p.operators) {
-      const forms = rowForms(prop, operatorName(code), p.values, p.units ?? []);
+      const forms = rowForms(prop, operatorName(code), p.values, p.units ?? [], p.choices ?? []);
       if (first.length < Object.keys(props).indexOf(prop) + 1) first.push(forms[0]![1]);
       for (const [form, row] of forms) {
-        const a = new Shortcut("Case").action(identifier, { WFContentItemFilter: where(row as never) } as never);
+        const a = new Shortcut("Case").action(identifier, { WFContentItemFilter: where(...(withBounded(identifier, [row]) as never[])) } as never);
         filterCases.push({ identifier, form: `${prop} ${operatorName(code)} ${form}`, filter: a.WFWorkflowActionParameters.WFContentItemFilter });
       }
     }
   }
-  const a = new Shortcut("Case").action(identifier, { WFContentItemFilter: whereAny(...(first as never[])) } as never);
+  const a = new Shortcut("Case").action(identifier, { WFContentItemFilter: whereAny(...(withBounded(identifier, first) as never[])) } as never);
   filterCases.push({ identifier, form: "any of each property", filter: a.WFWorkflowActionParameters.WFContentItemFilter });
 }
 // Properties: every property of every entity type, through property() on an action that outputs it.

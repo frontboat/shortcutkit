@@ -262,11 +262,41 @@ describe("App Intents actions", () => {
     // @ts-expect-error not a calendar unit
     expect(() => s.action(actions.messages_find_message, { WFContentItemFilter: where(["date", "is_in_the_last", 7, "fortnights"]) })).toThrow(/one of years/);
     // @ts-expect-error not a filterable property
-    expect(() => s.action(actions.messages_find_message, { WFContentItemFilter: where(["body", "contains", "x"]) })).toThrow(/no filterable property body/);
+    expect(() => s.action(actions.messages_find_message, { WFContentItemFilter: where(["attachments", "contains", "x"]) })).toThrow(/no filterable property attachments/);
     // @ts-expect-error where() rows only go in a Find filter
     expect(() => s.action(actions.showresult, { Text: where(["a", "is", "b"]) })).toThrow(/only in a Find action/);
-    expect(() => s.action(actions.filter_files, { WFContentItemFilter: where(["Name", "is", "x"]) as never })).toThrow(/need a Find action of Apple's App Intents/);
-    expect(Object.keys(FILTERS).length).toBe(75);
+    expect(Object.keys(FILTERS).length).toBe(150);
+  });
+  test("built-in Find actions take rows typed from the engine's own rules", () => {
+    const s = new Shortcut("Files");
+    const rows = (a: ReturnType<Shortcut["action"]>) => (a.WFWorkflowActionParameters.WFContentItemFilter as { Value: { WFActionParameterFilterTemplates: Array<{ Property: string; Operator: number; Values: Record<string, unknown> }> } }).Value.WFActionParameterFilterTemplates;
+    // File sizes: a number and a byte-count unit code; durations: a number and a calendar unit; Photos' Album is a free enumeration.
+    const files = s.action(actions.filter_files, { WFContentItemFilter: where(["File Size", "greater_than", 5, "MB"], ["Name", "contains", "report"], ["Creation Date", "is_in_the_last", 2, "weeks"]) });
+    expect(rows(files).map((r) => r.Values)).toEqual([{ Number: 5, ByteCountUnit: 4 }, { String: "report" }, { Number: 2, Unit: 8192 }]);
+    const photos = s.action(actions.filter_photos, { WFContentItemFilter: where(["Duration", "greater_than", 30, "seconds"], ["Album", "is", "Recents"], ["Frame Rate", "greater_than", 59]) });
+    expect(rows(photos).map((r) => r.Values)).toEqual([{ Number: 30, Unit: 128 }, { Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "Recents" } }, { Number: 59 }]);
+    // The row key follows the property's value class: email addresses and phone numbers have their own.
+    const contacts = s.action(actions.filter_contacts, { WFContentItemFilter: where(["Email Addresses", "contains", "@example.com"], ["Phone Numbers", "begins_with", "+1505"], ["Group", "is", "Family"]) });
+    expect(rows(contacts).map((r) => r.Values)).toEqual([{ Email: "@example.com" }, { Phone: "+1505" }, { Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "Family" } }]);
+    // Reminders' Priority lists its choices; an App Intents enumeration holds the case identifier in its own state class.
+    const reminders = s.action(actions.filter_reminders, { WFContentItemFilter: where(["Priority", "is", "High"]) });
+    expect(rows(reminders)[0]!.Values).toEqual({ Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "High" } });
+    const assets = s.action(actions.photos_find_photo, { WFContentItemFilter: where(["assetType", "is", "video"]) });
+    expect(rows(assets)[0]!.Values).toEqual({ Enumeration: { WFSerializationType: "WFLinkEnumerationSubstitutableState", Value: "video" } });
+    // @ts-expect-error a file size needs a unit
+    expect(() => s.action(actions.filter_files, { WFContentItemFilter: where(["File Size", "greater_than", 5]) })).toThrow(/takes 2 value/);
+    // @ts-expect-error not a byte-count unit
+    expect(() => s.action(actions.filter_files, { WFContentItemFilter: where(["File Size", "greater_than", 5, "MiB"]) })).toThrow(/one of bytes, KB, MB/);
+    // @ts-expect-error seconds are not a unit Date Taken offers
+    expect(() => s.action(actions.filter_photos, { WFContentItemFilter: where(["Date Taken", "is_in_the_last", 5, "seconds"]) })).toThrow(/one of years, months, weeks, days/);
+    expect(FILTERS["is.workflow.actions.filter.reminders"].Priority.choices).toEqual(["None", "Low", "Medium", "High"]);
+    // Find Calendar Events needs a bounded Start Date row, which is marked as such; without one the engine would discard the filter.
+    const events = s.action(actions.filter_calendarevents, { WFContentItemFilter: where(["Calendar", "is", "Work"], ["Start Date", "is_in_the_next", 7, "days"]) });
+    const ev = events.WFWorkflowActionParameters.WFContentItemFilter as { Value: { WFContentPredicateBoundedDate: boolean; WFActionParameterFilterTemplates: Array<{ Bounded?: boolean }> } };
+    expect(ev.Value.WFContentPredicateBoundedDate).toBe(true);
+    expect(ev.Value.WFActionParameterFilterTemplates.map((r) => r.Bounded)).toEqual([undefined, true]);
+    expect(() => s.action(actions.filter_calendarevents, { WFContentItemFilter: where(["Calendar", "is", "Work"]) })).toThrow(/needs a Start Date row with one of/);
+    expect(Object.keys(FILTERS).filter((k) => k.startsWith("is.workflow.")).length).toBe(14);
   });
   test("property() references one property of an output, checked against the entity", () => {
     const s = new Shortcut("Messages");
@@ -294,6 +324,13 @@ describe("App Intents actions", () => {
     expect(yields.filter((y) => y.length).length).toBe(866);
     // Every type with several queries carries the class built with each.
     for (const e of Object.values(linkd.entities as Record<string, { queries?: string[]; byQuery?: Record<string, unknown> }>)) if (e.queries) expect(Object.keys(e.byQuery ?? {}).sort()).toEqual([...e.queries].sort());
+    // Row value forms: one sample per row value type the engine names, each read back, plus the byte-count unit codes.
+    expect(Object.keys(engine.rowValues.forms).sort()).toEqual(["DateIsTodayOperator", "RowTemplateCompoundNumberByteCountUnitValueType", "RowTemplateCompoundNumberCalendarUnitValueType", "RowTemplateDateValueType", "RowTemplateEnumerationValueType<EnumerationStringValueKey, NSString, NSString>", "RowTemplateNumberValueType", "RowTemplateStringValueType"]);
+    expect(Object.keys(linkd.rowValues.forms).sort()).toEqual(["RowTemplateContactHandleValueType", "RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>"]);
+    expect(Object.entries(engine.rowValues.byteCountUnits as Record<string, { label: string; decimalExponent: number }>).map(([c, u]) => `${c}:${u.label}:${u.decimalExponent}`)).toEqual(["1:bytes:0", "2:KB:3", "4:MB:6", "8:GB:9", "16:TB:12", "32:PB:15", "64:EB:18"]);
+    const filters = Object.values(linkd.entities as Record<string, { filters?: Record<string, { cases?: string[] }> }>).flatMap((e) => Object.values(e.filters ?? {}));
+    expect(filters.filter((f) => f.cases).length).toBe(84);
+    expect(filters.filter((f) => f.cases && f.cases.length).length).toBe(82);
   });
   test("the README's examples are test/readme-examples.ts, and they run", async () => {
     const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
@@ -319,7 +356,8 @@ describe("App Intents actions", () => {
     readmeExamples.controlFlow(s, name);
     readmeExamples.applesApps(s);
     readmeExamples.findingThings(s);
+    readmeExamples.builtInFind(s);
     readmeExamples.otherApps(s, name);
-    expect(s.actions.length).toBe(1 + 5 + 2 + 2 + 1);
+    expect(s.actions.length).toBe(1 + 5 + 2 + 2 + 1 + 1);
   });
 });

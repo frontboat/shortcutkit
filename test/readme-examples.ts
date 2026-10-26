@@ -38,6 +38,12 @@ const found = s.action(actions.messages_find_message, {
 s.action(actions.showresult, { Text: text(property(found, "body")) });
 }
 
+export function builtInFind(s: Shortcut) {
+s.action(actions.filter_files, {
+  WFContentItemFilter: where(["File Size", "greater_than", 5, "MB"], ["Last Modified Date", "is_in_the_last", 2, "weeks"]),
+});
+}
+
 export function otherApps(s: Shortcut, name: Action) {
 s.action("com.example.app.CreateNoteIntent", {
   AppIntentDescriptor: {

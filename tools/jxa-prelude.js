@@ -183,7 +183,10 @@ function entityContentClass(entity, properties) {
 function loadFilter(className, filter) {
   const def = make("WFActionDefinition", "initWithDictionary:", $({ ActionClass: "WFContentItemFilterAction", WFContentItemClass: className, Name: "Find" }));
   const a = make("WFContentItemFilterAction", "initWithIdentifier:definition:serializedParameters:", "find", def, $({ WFContentItemFilter: filter }));
-  const state = a.parameterStateForKey("WFContentItemFilter");
+  return filterState(a.parameterStateForKey("WFContentItemFilter"));
+}
+// The rows a WFContentItemFilter parameter state holds (property, operator name, the state class under each value key) and its serialization.
+function filterState(state) {
   if (isNil(state)) return { rows: [], serialized: null };
   const d = str(state.debugDescription), rows = [];
   const re = /RowTemplateFindFilterParameterState\(contentItemClass: [^,]+, contentProperty: <WFContentProperty: [^,]+,(?: keyPath: [^,]+, block: [^,]+,)? name: ([^,]+),[\s\S]*?selectedOperator: ([^,]+?), parameterStates: \[([^\]]*)\]/g;

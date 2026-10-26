@@ -29,15 +29,17 @@ static void *(*conformsToProtocol)(void *, void *);
 static void *(*filterableProperties)(void *);
 static void *(*possibleOperators)(void *, id, bool);
 static long (*subjectType)(id);
+static id (*predicateForRow)(id); // WFContentPredicateForRowTemplateValue: the run-time comparison a row stands for
 static void *contentOperatorThunk, *comparisonOperatorProtocol, *operatorContentOperatorThunk, *operatorProtocol;
 
 // lldb fills this in (addresses.py) while the process is stopped in sk_addresses_ready(); the
 // order is the one addresses.py uses.
-void *sk_addresses[7];
+void *sk_addresses[8];
 static void takeAddresses(void) {
   filterableProperties = sk_addresses[0]; possibleOperators = sk_addresses[1]; subjectType = sk_addresses[2];
   contentOperatorThunk = sk_addresses[3]; comparisonOperatorProtocol = sk_addresses[4];
   operatorContentOperatorThunk = sk_addresses[5]; operatorProtocol = sk_addresses[6];
+  predicateForRow = sk_addresses[7];
 }
 // The breakpoint site: the frameworks are loaded, nothing has run yet.
 __attribute__((noinline)) void sk_addresses_ready(void) { __asm__ volatile(""); }
@@ -100,6 +102,30 @@ const char *sk_describe(const char *className) {
   }
 }
 
+// JSON { comparisonType, valueClass, value, byteCount?, timeInterval? }: what the engine compares with at
+// run time for a WFRowTemplateValue (the editor's row model), through the same C function the Find
+// action uses. Tells which of a row's fields a property reads (Email Addresses reads `email`, not
+// `string`) and what a byte-count unit code or calendar unit means.
+const char *sk_row_predicate(void *row) {
+  @autoreleasepool {
+    if (!predicateForRow) { fprintf(stderr, "skhost: addresses were not set; run through run.sh\n"); exit(6); }
+    id p = predicateForRow((__bridge id)row);
+    NSMutableDictionary *out = [NSMutableDictionary dictionary];
+    out[@"predicateClass"] = p ? NSStringFromClass([p class]) : [NSNull null];
+    if ([p respondsToSelector:@selector(comparisonType)]) out[@"comparisonType"] = @((long)[p performSelector:@selector(comparisonType)]);
+    if ([p respondsToSelector:@selector(value)]) {
+      id v = [p performSelector:@selector(value)];
+      out[@"valueClass"] = v ? NSStringFromClass([v class]) : [NSNull null];
+      out[@"value"] = v ? [v description] : [NSNull null];
+      if ([v respondsToSelector:@selector(byteCount)]) out[@"byteCount"] = @([[v valueForKey:@"byteCount"] longLongValue]);
+      if ([v respondsToSelector:@selector(formattedString)]) out[@"formatted"] = [v valueForKey:@"formattedString"];
+      if ([v respondsToSelector:@selector(timeInterval)]) out[@"timeInterval"] = [v valueForKey:@"timeInterval"];
+    }
+    NSData *d = [NSJSONSerialization dataWithJSONObject:out options:NSJSONWritingSortedKeys error:nil];
+    return strdup([[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding].UTF8String);
+  }
+}
+
 // linkd's metadata from archives: <dir>/<bundle>.archive holds { entities: [LNEntityMetadata],
 // enums: [LNEnumMetadata] } and <dir>/queries.archive holds linkd's queriesWithError: dictionary.
 static NSString *linkdDir;
@@ -135,7 +161,10 @@ static id sk_queries(id self, SEL _cmd, NSError **e) { counted(_cmd); return all
 static id sk_queriesOfType(id self, SEL _cmd, NSString *b, long type, NSError **e) { counted(_cmd); return @[]; } // linkd itself answers none for every type
 static id sk_queryNamed(id self, SEL _cmd, NSString *b, NSString *ident, NSError **e) {
   counted(_cmd);
-  for (id q in allQueries()[b]) { NSString *qi = [q valueForKey:@"identifier"]; if ([qi isEqual:ident] || [ident hasSuffix:[@"." stringByAppendingString:qi]]) return q; }
+  // queriesWithError: maps bundle -> (query identifier -> LNQueryMetadata); older archives held arrays.
+  id qs = allQueries()[b];
+  if ([qs isKindOfClass:[NSDictionary class]]) qs = [qs allValues];
+  for (id q in qs) { NSString *qi = [q valueForKey:@"identifier"]; if ([qi isEqual:ident] || [ident hasSuffix:[@"." stringByAppendingString:qi]]) return q; }
   return nil;
 }
 static void replace(Class c, SEL s, IMP imp) {

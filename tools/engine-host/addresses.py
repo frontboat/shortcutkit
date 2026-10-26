@@ -11,6 +11,7 @@ WANT = {
     "comparisonOperatorProtocol": r"^protocol descriptor for WorkflowKit\.RowTemplateComparisonOperator$",
     "operatorContentOperator": r"^dispatch thunk of WorkflowKit\.RowTemplateOperator\.contentOperator\.getter",
     "operatorProtocol": r"^protocol descriptor for WorkflowKit\.RowTemplateOperator$",
+    "predicateForRow": r"^_?WFContentPredicateForRowTemplateValue$",
 }
 
 

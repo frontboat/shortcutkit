@@ -8,6 +8,24 @@ the section for a fresh extraction from the diff against the committed data.
 
 ## Unreleased
 
+- `tools/audit-catalogue-coverage.py` diffs every action the Shortcuts editor shows on this Mac
+  (the app's own index) against the catalogue and names the rule behind each gap; on macOS 27
+  the editor shows 1914, the catalogue has 1883, and the 68 it lacks are third-party apps,
+  four Focus-filter intents, legacy interchange actions of apps that are not installed, and
+  nine iWork SiriKit intents the definition probe skips because the apps update through the
+  App Store, the one rule found wrong (docs/extraction.md, "What the editor shows that the
+  catalogue does not").
+- `tools/linkd/action-metadata.js`, a loader-shortcut payload, saves linkd's availability
+  annotations and visibility metadata for every Apple App Intents action. Verified against the
+  app: a built-in the editor hides still imports and runs, and an App Intents action linkd marks
+  not discoverable is refused at import ("features not supported on this device") even though
+  the engine loads it. 135 catalogue entries are such Siri-only intents (`assistantOnly` in
+  linkd); the audit names them, and whether they leave the catalogue is an open decision. The
+  docs record the import rule, what a verifier "case" is, the helper and lldb failure modes met
+  on the way, and the run-time observations (Messages' Spotlight timeout, sort strings, Run
+  Shell Script's shell path) that no offline check can make. `tools/jxa-probe.sh` and
+  `tools/engine-host/syms.sh` run one-off engine probes and symbol searches without
+  reassembling the command each time.
 - New optional extraction step, `bun run extract-filters` (about 25 s), reads WorkflowKit's own
   Find-filter rules (`data/engine-filters.json`: every content item class's subject type; for the
   30 built-in Find/Filter classes and all 434 Apple entity types, each filterable property's
@@ -20,8 +38,28 @@ the section for a fresh extraction from the diff against the committed data.
   shortcut; `tools/engine-host` loads ActionKit past its platform-binary check, serves linkd's
   archived metadata to WorkflowKit, and calls the private Swift filter functions;
   `tools/extract-engine-filters.js` runs in it. `dump-toolkit-registry.py --entities` now also
-  reads the App Intents query each entity-typed parameter was indexed with. The packages do not
-  type from the new data yet. Method and open questions in `docs/extraction.md`.
+  reads the App Intents query each entity-typed parameter was indexed with.
+- The form of every Find-filter row value, read back through the engine (`rowValues` in both
+  files): which key a string row uses by the property's value class (`Email`, `Phone`, `String`),
+  the `ByteCountUnit` codes and what they scale by, durations as `Number` plus a calendar
+  `Unit`, built-in enumerations as `WFStringSubstitutableState` with the property's `items`,
+  App Intents enumerations as `WFLinkEnumerationSubstitutableState` with the case identifier
+  (`cases` per property). Each property now carries its `valueClass`.
+- `where()` rows are typed from the engine's own rules: 150 Find actions instead of 75, the 14
+  built-in Find and Filter actions (Filter Files, Find Photos, Find Contacts, ...) and 136 in
+  Apple's apps, 403 properties. New row forms: file sizes take a number and a unit from
+  `BYTE_COUNT_UNITS` (`["File Size", "greater_than", 5, "MB"]`), durations a number and a
+  calendar unit, email and phone properties write `Email` and `Phone`, built-in enumerations
+  (Reminders' Priority, Photos' Album) and App Intents enumerations (Photos' assetType) take a
+  choice, listed in `FILTERS` as `choices` and typed in TypeScript. App Intents Find actions are
+  typed from the entity as the app builds it (linkd's metadata), so Find Messages gains `body`
+  contains and `subject`. Find Calendar Events needs a bounded Start Date row, which `action()`
+  now marks (`BOUNDED_FILTERS`) and refuses to leave out, since the engine would replace the
+  whole filter with its default. Bool properties stay untyped (the engine lists no operator for
+  them).
+  `bun run verify` loads the built-in rows through their engine actions and, when the engine host
+  is built, every App Intents row through the linkd-built class. Method and open questions in
+  `docs/extraction.md`.
 
 ## 1.1.0 (2026-10-23)
 
