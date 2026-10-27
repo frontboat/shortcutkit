@@ -171,6 +171,12 @@ function run(argv) {
     };
     for (const c of fixture.filterCases || []) {
       if (byId[c.identifier]) continue; // built-in: checked above
+      if (!(c.identifier in entities)) {
+        // A built-in Find action this engine does not define (an older runner): a version gap, as for a key it lacks.
+        if (olderEngine) versionGaps.push(c.identifier + ".WFContentItemFilter (no such action in this engine)");
+        else failures.push({ identifier: c.identifier, key: "WFContentItemFilter", form: c.form, verdict: "no such action in this engine", via: "engine action" });
+        continue;
+      }
       entityChecks.filters++;
       const cn = classFor(c.identifier);
       const fail = (verdict) => failures.push({ identifier: c.identifier, key: "WFContentItemFilter", form: c.form, verdict, via: "entity content item class" });
