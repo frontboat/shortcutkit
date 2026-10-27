@@ -98,6 +98,10 @@ the section for a fresh extraction from the diff against the committed data.
   operator when it loads a filter row (`filterOperators` in `data/encoding-table.json`);
   none rests on community documentation any more.
 
+- Releases are published from GitHub Actions (`.github/workflows/release.yml`, on a version tag)
+  through npm's and PyPI's trusted publishing, so both registries record provenance for 2.0.0 and
+  later. The Python package is tested on Python 3.9, the oldest version it declares.
+
 ### Data: macOS 27.2 (26B118), Shortcuts 10.0 build 5114.0.6.204, extracted 2026-10-26T07:45:57Z
 
 Recommended bump: **major**
