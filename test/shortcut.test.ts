@@ -45,7 +45,8 @@ describe("shortcutkit", () => {
     expect((p.WFWorkflowIcon as Record<string, number>).WFWorkflowIconStartColor).toBe(4282601983);
   });
 
-  test("xml plist round-trips through plutil", async () => {
+  // plutil is macOS only; the release workflow runs this suite on Ubuntu, where write() keeps the XML form.
+  test.skipIf(Bun.which("plutil") === null)("xml plist round-trips through plutil", async () => {
     const s = new Shortcut("Round Trip");
     s.action("is.workflow.actions.showresult", { Text: text("a & b <c>") });
     const path = `/tmp/shortcutkit-test-${Date.now()}.shortcut`;
