@@ -169,6 +169,13 @@ function run(argv) {
       }
       return classes[id];
     };
+    // A property or row value key the class this engine builds does not have: on an older engine a version
+    // gap, as for a parameter key it lacks (the data describes the extraction engine's classes); otherwise a failure.
+    const lacks = (verdict) => verdict.split("; ").every((v) => /^row \d+ lost /.test(v) || v.startsWith("the entity's content item class has no property "));
+    const entityFail = (identifier, key, form, verdict) => {
+      if (olderEngine && lacks(verdict)) versionGaps.push(identifier + "." + key + " (" + verdict + ")");
+      else failures.push({ identifier, key, form, verdict, via: "entity content item class" });
+    };
     for (const c of fixture.filterCases || []) {
       if (byId[c.identifier]) continue; // built-in: checked above
       if (!(c.identifier in entities)) {
@@ -179,7 +186,7 @@ function run(argv) {
       }
       entityChecks.filters++;
       const cn = classFor(c.identifier);
-      const fail = (verdict) => failures.push({ identifier: c.identifier, key: "WFContentItemFilter", form: c.form, verdict, via: "entity content item class" });
+      const fail = (verdict) => entityFail(c.identifier, "WFContentItemFilter", c.form, verdict);
       if (!cn) { fail("no content item class for the entity"); continue; }
       checkFilter(c, loadFilter(cn, revive(c.filter)), fail, !chosen);
     }
@@ -187,7 +194,7 @@ function run(argv) {
       const p = entities[c.entity].properties[c.property];
       if (!p.contentClasses) { entityChecks.unverifiableProperties++; continue; }
       entityChecks.properties++;
-      const fail = (verdict) => failures.push({ identifier: c.entity, key: c.property, form: "property()", verdict, via: "entity content item class" });
+      const fail = (verdict) => entityFail(c.entity, c.property, "property()", verdict);
       const st = make("WFVariableParameterState", "initWithSerializedRepresentation:variableProvider:parameter:", $(c.attachment), null, null);
       const vars = isNil(st) ? null : st.containedVariables;
       const ags = vars && count(vars) === 1 ? vars.objectAtIndex(0).aggrandizements : null;
