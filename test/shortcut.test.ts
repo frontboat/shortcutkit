@@ -2,7 +2,7 @@ import { describe, expect, spyOn, test } from "bun:test";
 import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, FILTERS, ENTITY_PROPERTIES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 import * as readmeExamples from "./readme-examples";
 
 describe("shortcutkit", () => {
@@ -371,8 +371,62 @@ describe("App Intents actions", () => {
     readmeExamples.applesApps(s);
     readmeExamples.findingThings(s);
     readmeExamples.builtInFind(s);
+    readmeExamples.dictionariesAndTypes(s, name);
     readmeExamples.otherApps(s, name);
-    expect(s.actions.length).toBe(1 + 5 + 2 + 2 + 1 + 1);
+    expect(s.actions.length).toBe(1 + 5 + 2 + 2 + 1 + 3 + 2);
+  });
+});
+
+describe("dictionaries, coercions and other apps' intents", () => {
+  test("dictionary() writes each item under its type code, as the engine serializes them back", () => {
+    const d = dictionary({ t: "hello", n: 5, b: true, r: variable("V"), d: { k: "v" }, a: ["x", 7, false, { k: "v" }, ["z"]] });
+    const items = d.Value.WFDictionaryFieldValueItems;
+    expect(items.map((i) => i.WFItemType)).toEqual([0, 3, 4, 0, 1, 2]);
+    expect(items[0]).toEqual({ WFKey: text("t"), WFItemType: 0, WFValue: text("hello") });
+    expect(items[1]!.WFValue).toEqual(text("5"));
+    expect(items[2]!.WFValue).toEqual({ WFSerializationType: "WFNumberSubstitutableState", Value: true });
+    expect(items[3]!.WFValue).toEqual(text(variable("V")));
+    // A nested dictionary is wrapped once more than the outer one; array items carry no key, and plain text is the bare string.
+    expect(items[4]!.WFValue).toEqual({ WFSerializationType: "WFDictionaryFieldValue", Value: dictionary({ k: "v" }) });
+    expect(items[5]!.WFValue).toEqual({ WFSerializationType: "WFArrayParameterState", Value: ["x", { WFItemType: 3, WFValue: text("7") }, { WFItemType: 4, WFValue: { WFSerializationType: "WFNumberSubstitutableState", Value: false } }, { WFItemType: 1, WFValue: { WFSerializationType: "WFDictionaryFieldValue", Value: dictionary({ k: "v" }) } }, { WFItemType: 2, WFValue: { WFSerializationType: "WFArrayParameterState", Value: ["z"] } }] });
+    // A plain object given for a dictionary key is encoded; an encoded value passes through; other kinds refuse an object.
+    const s = new Shortcut("D");
+    expect(s.action(actions.dictionary, { WFItems: { k: "v" } }).WFWorkflowActionParameters.WFItems).toEqual(dictionary({ k: "v" }));
+    const headers = dictionary({ apikey: variable("Key") });
+    expect(s.action(actions.downloadurl, { WFURL: "https://example.com", WFHTTPHeaders: headers }).WFWorkflowActionParameters.WFHTTPHeaders).toBe(headers);
+    // @ts-expect-error a Date is not a dictionary item
+    expect(() => dictionary({ when: new Date() })).toThrow(/dictionary\(\)/);
+  });
+  test("coerce() names one of the engine's content item classes", () => {
+    const s = new Shortcut("C");
+    const got = s.action(actions.getstoredcontent, {});
+    expect(coerce(got, "WFStringContentItem").Value).toEqual({ Type: "ActionOutput", OutputUUID: got.WFWorkflowActionParameters.UUID as string, OutputName: "Stored Content", Aggrandizements: [{ Type: "WFCoercionVariableAggrandizement", CoercionItemClass: "WFStringContentItem" }] });
+    expect(coerce(property(repeatItem(), "title"), "WFNumberContentItem").Value.Aggrandizements).toHaveLength(2);
+    expect(CONTENT_ITEM_CLASSES.WFDictionaryContentItem).toBe("Dictionary");
+    expect(Object.keys(CONTENT_ITEM_CLASSES).length).toBe(22);
+    // @ts-expect-error not a content item class
+    expect(() => coerce(got, "WFNoSuchContentItem")).toThrow(/no content item class/);
+    const gid = s.if(coerce(got, "WFStringContentItem"), "is", "x");
+    s.endIf(gid);
+    expect(s.actions[1]!.WFWorkflowActionParameters.WFInput).toEqual({ Type: "Variable", Variable: coerce(got, "WFStringContentItem") });
+  });
+  test("appIntent() names another app's action as the catalogue names Apple's", () => {
+    const app = { BundleIdentifier: "com.example.app", Name: "Example", TeamIdentifier: "ABCDE12345" };
+    const s = new Shortcut("Other");
+    const made = s.action(appIntent(app, "CreateNoteIntent", "Note"), { title: text("Hi"), pinned: false });
+    expect(made.WFWorkflowActionIdentifier).toBe("com.example.app.CreateNoteIntent");
+    expect(made.WFWorkflowActionParameters.AppIntentDescriptor).toEqual({ ...app, AppIntentIdentifier: "CreateNoteIntent", ActionRequiresAppInstallation: true });
+    expect(ref(made).Value.OutputName).toBe("Note");
+    expect(ref(s.action(appIntent(app, "OpenIntent"))).Value.OutputName).toBe("Output");
+    // An app's own intents are identified as appIntent() composes it, bundle identifier then intent name: 1,254 of the
+    // 1,318 catalogue entries. The other 64 are Siri flow tools (`…Tool|com.apple.Music`) and intents hosted in a
+    // framework or extension (Clock's MobileTimerIntents, Notes' SharingExtension), whose identifiers the catalogue carries.
+    const entries = Object.entries(ACTIONS).filter(([, e]) => "descriptor" in e) as Array<[string, { descriptor: { BundleIdentifier: string; AppIntentIdentifier: string } }]>;
+    const composed = entries.filter(([id, e]) => id === `${e.descriptor.BundleIdentifier}.${e.descriptor.AppIntentIdentifier}`);
+    expect([entries.length, composed.length]).toEqual([1318, 1254]);
+    // An Apple app's intent named this way gets the catalogue's checks.
+    const reminders = { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000" };
+    expect(() => s.action(appIntent(reminders, "TTRCreateReminderAppIntent"), { nope: 1 })).toThrow(/unknown parameter/);
   });
 });
 

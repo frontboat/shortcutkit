@@ -27,6 +27,9 @@ Value helpers return the exact structures WorkflowKit's state classes serialize:
   text("a ", ref(x)) WFTextTokenString      -> text with embedded references
   subject(att)       {"Type": "Variable", "Variable": att}  (the If condition's subject; pickers take the bare attachment)
   property_(x, "body")  a reference to one property of x (a WFPropertyVariableAggrandizement)
+  coerce(x, "WFStringContentItem")  x read as one content type (a WFCoercionVariableAggrandizement; CONTENT_ITEM_CLASSES)
+  dictionary({...})  WFDictionaryFieldValue  -> a dictionary parameter's items, typed as the editor types them
+  app_intent(app, "CreateNoteIntent")  another app's action, for action(): its identifier and descriptor
   where(row, ...)    Find conditions, encoded by action() for the Find action's entity
 Plain str / int / float / bool / list / datetime are written as-is.
 """
@@ -196,8 +199,81 @@ def property_(source, name):
         if entities and name not in known:
             raise ValueError(f"{' / '.join(entities)} has no property {name}; it has {', '.join(sorted(known))}")
         source = ref(source)
+    return _aggrandize(source, {"Type": "WFPropertyVariableAggrandizement", "PropertyName": name})
+
+
+def _aggrandize(source, aggrandizement):
+    """`source` with one more aggrandizement; an action stands for its output."""
+    if not _is_reference(source):
+        source = ref(source)
     prior = source["Value"].get("Aggrandizements")
-    return _attachment({**source["Value"], "Aggrandizements": [*(prior if isinstance(prior, list) else []), {"Type": "WFPropertyVariableAggrandizement", "PropertyName": name}]})
+    return _attachment({**source["Value"], "Aggrandizements": [*(prior if isinstance(prior, list) else []), aggrandizement]})
+
+
+def coerce(source, to):
+    """`source` read as one content type, as the editor's variable "Type" menu writes it (a
+    WFCoercionVariableAggrandizement): coerce(ref(json), "WFDictionaryContentItem"), coerce(repeat_item(), "WFStringContentItem").
+    The classes are the engine's own list (CONTENT_ITEM_CLASSES, each with the name the editor shows). An If whose
+    subject's type the engine cannot tell (a dictionary value, a repeat item) needs one: without it "is" has nothing
+    to compare against and the run fails (a downstream user's observation; docs/extraction.md, run-time observations)."""
+    if to not in CONTENT_ITEM_CLASSES:
+        raise ValueError(f"no content item class {to}; the engine coerces to {', '.join(CONTENT_ITEM_CLASSES)}")
+    return _aggrandize(source, {"Type": "WFCoercionVariableAggrandizement", "CoercionItemClass": to})
+
+
+def dictionary(items):
+    """A dictionary parameter: Dictionary's items, Get Contents of URL's headers, form and JSON bodies. Strings,
+    text() and references are text items; numbers, booleans, lists and nested dicts keep their type, as the editor's
+    item type menu sets it: dictionary({"apikey": variable("Key"), "count": 5, "nested": {"ok": True}, "tags": ["a", "b"]}).
+    action() encodes a plain dict given for a dictionary key itself, so the call is needed only where the key is untyped."""
+    return {"WFSerializationType": "WFDictionaryFieldValue",
+            "Value": {"WFDictionaryFieldValueItems": [{"WFKey": text(k), **_dictionary_item(v)} for k, v in items.items()]}}
+
+
+def _is_dictionary_items(v):
+    """A plain dict of items for a dictionary parameter (not an encoded value)."""
+    return isinstance(v, dict) and "WFSerializationType" not in v and not (v.get("Type") == "Variable" and "Variable" in v)
+
+
+def _dictionary_item(v):
+    """One item's type code and value, as the dictionary state class writes them back (docs/shortcut-file-format.md §3)."""
+    if isinstance(v, str):
+        return {"WFItemType": 0, "WFValue": text(v)}
+    if isinstance(v, dict) and v.get("WFSerializationType") == "WFTextTokenString":
+        return {"WFItemType": 0, "WFValue": v}
+    if isinstance(v, dict) and v.get("WFSerializationType") == "WFTextTokenAttachment":
+        return {"WFItemType": 0, "WFValue": text(v)}
+    if isinstance(v, bool):
+        return {"WFItemType": 4, "WFValue": {"WFSerializationType": "WFNumberSubstitutableState", "Value": v}}
+    if isinstance(v, (int, float)):
+        return {"WFItemType": 3, "WFValue": text(_number_text(v))}
+    # Array items carry no key; plain text is the bare string, as the engine writes it back.
+    if isinstance(v, (list, tuple)):
+        return {"WFItemType": 2, "WFValue": {"WFSerializationType": "WFArrayParameterState", "Value": [x if isinstance(x, str) else _dictionary_item(x) for x in v]}}
+    # A nested dictionary is wrapped once more than the outer one (the engine serializes it so, and reads the unwrapped form into that).
+    if isinstance(v, dict) and v.get("WFSerializationType") == "WFDictionaryFieldValue":
+        return {"WFItemType": 1, "WFValue": {"WFSerializationType": "WFDictionaryFieldValue", "Value": v}}
+    if _is_dictionary_items(v):
+        return {"WFItemType": 1, "WFValue": {"WFSerializationType": "WFDictionaryFieldValue", "Value": dictionary(v)}}
+    raise ValueError(f"dictionary(): a value must be a str, text(), a reference, a number, a bool, a list or a dict, got {v!r}")
+
+
+def _number_text(n):
+    """A number as JavaScript's String() writes it, so both packages write the same item (5, not 5.0)."""
+    if isinstance(n, float) and n.is_integer():
+        return str(int(n))
+    return repr(n) if isinstance(n, float) else str(n)
+
+
+def app_intent(app, intent, output=None):
+    """Name an App Intents action of an app the catalogue does not cover, for action():
+    s.action(app_intent(app, "CreateNoteIntent", "Note"), title=text("Hi")). `app` holds BundleIdentifier, Name and
+    TeamIdentifier (the bundle's Info.plist and `codesign -dv`); the identifier is the bundle identifier followed by the
+    intent's name, as the catalogue identifies an app's own intents, and the descriptor is written as the catalogue's are
+    (an intent hosted in a framework or extension has another identifier, which action() still takes by hand with an
+    AppIntentDescriptor). `output` names the result for ref() ("Output" when left out). The parameters are not checked: their keys are the intent's parameter names, as
+    Metadata.appintents/extract.actionsdata in the app bundle lists them."""
+    return {"identifier": f"{app['BundleIdentifier']}.{intent}", "descriptor": {**app, "AppIntentIdentifier": intent}, "output": output}
 
 
 def where(*rows):
@@ -322,7 +398,6 @@ def _utc(d):
 
 def picker(attachment):
     """Deprecated, misnamed: this is the If-subject form. Pass a bare reference to picker parameters."""
-    """Wrap an attachment for WFVariablePickerParameter keys (e.g. WFInput on Repeat with Each)."""
     return {"Type": "Variable", "Variable": attachment}
 
 
@@ -360,14 +435,17 @@ class Shortcut:
     def action(self, identifier, /, **params):
         """Append an action and return it; ref() it to use its output. Catalog identifiers are
         checked: unknown keys, wrong value kinds, and unreadable references raise ValueError. Other
-        identifiers pass through unchecked. `identifier` is positional-only, so a parameter can
-        have that name."""
+        identifiers pass through unchecked; app_intent() names another app's action with its descriptor.
+        `identifier` is positional-only, so a parameter can have that name."""
+        intent = identifier if isinstance(identifier, dict) else None
+        if intent:
+            identifier = intent["identifier"]
         definition = self.defs.get(identifier)
         catalog = ACTIONS.get(identifier) or {}
-        descriptor = catalog.get("descriptor")
+        descriptor = catalog.get("descriptor") or (intent or {}).get("descriptor")
         if self.defs and definition is None and not catalog and identifier.startswith("is.workflow."):
             raise ValueError(f"unknown built-in action {identifier}")
-        if definition or descriptor:
+        if definition or catalog.get("descriptor"):
             known = {p.get("Key") for p in (definition or {}).get("Parameters", []) if isinstance(p, dict)}
             known |= {"UUID", "GroupingIdentifier", "WFControlFlowMode", "CustomOutputName"}
             known |= LEGACY_KEYS.get(identifier, set())
@@ -383,7 +461,9 @@ class Shortcut:
         kinds = PARAM_KINDS.get(identifier, {})
         restricted = PARAM_VARIABLE_TYPES.get(identifier, {})
         for key, value in params.items():
-            if _is_where(value) and kinds.get(key) != "filter":
+            # where() rows belong to a Find action's filter key; an untyped action (another app's Find) is refused by
+            # _encode_filter(), which names the missing FILTERS entry.
+            if _is_where(value) and key in kinds and kinds[key] != "filter":
                 raise ValueError(f"{identifier}.{key}: where() rows go only in a Find action's WFContentItemFilter")
             problem = _check_kind(kinds.get(key, "any"), value)
             if problem:
@@ -397,6 +477,7 @@ class Shortcut:
         # token string with one placeholder. Wrap it so ref() works for text keys too.
         params = {k: (text(v) if kinds.get(k) == "text" and _is_reference(v) and v.get("WFSerializationType") == "WFTextTokenAttachment"
                       else subject(v) if kinds.get(k) == "subject" and _is_reference(v) and v.get("WFSerializationType") == "WFTextTokenAttachment"
+                      else dictionary(v) if kinds.get(k) == "dictionary" and _is_dictionary_items(v)
                       else _encode_filter(identifier, v) if _is_where(v) else v)
                   for k, v in params.items()}
         # App Intents actions carry a descriptor naming the app that provides them.
@@ -406,7 +487,7 @@ class Shortcut:
         entry = {"WFWorkflowActionIdentifier": identifier,
                  "WFWorkflowActionParameters": {**head, **params}}
         output = (definition or {}).get("Output", {})
-        entry["_outputName"] = (output.get("OutputName") if isinstance(output, dict) else None) or catalog.get("output")
+        entry["_outputName"] = (output.get("OutputName") if isinstance(output, dict) else None) or catalog.get("output") or (intent or {}).get("output")
         entry["_outputTypes"] = list(catalog.get("outputTypes") or (output.get("Types") if isinstance(output, dict) else []) or [])
         if isinstance(entry["_outputName"], dict):
             entry["_outputName"] = entry["_outputName"].get("format")
@@ -551,12 +632,12 @@ def demo(out):
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
 from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES  # noqa: E402
-from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES  # noqa: E402  (generated Find filters and entity properties)
+from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES  # noqa: E402  (generated Find filters, entity properties and content item classes)
 
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
-           "property_", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES",
+           "property_", "coerce", "dictionary", "app_intent", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES", "CONTENT_ITEM_CLASSES",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
 __version__ = "2.0.0"

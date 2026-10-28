@@ -34,7 +34,7 @@ are archived ([shortcuts-js](https://github.com/joshfarrant/shortcuts-js),
 - All 449 built-in actions, typed, with documentation on hover.
 - 1,318 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
   actions the Shortcuts editor offers: the Siri-only intents the app refuses to import are left out.
-- Third-party app actions, given their descriptor.
+- Third-party app actions, named by app and intent.
 - Typed conditions for 150 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find
   Contacts, ...) and 136 in Apple's apps (Find Messages, Find Notes, ...), from the engine's own
   rules, and the properties of what they find.
@@ -104,19 +104,33 @@ s.action(actions.filter_files, {
 });
 ```
 
-### Other apps
+### Dictionaries and types
 
-Pass the identifier and descriptor yourself; the parameters are untyped.
+A dictionary parameter takes a plain object: strings, `text()` and references are text items, and
+numbers, booleans, arrays and nested objects keep their type, as the editor's item type menu sets
+it. `coerce()` reads a value as one content type, as the variable "Type" menu does.
 
 ```ts
-s.action("com.example.app.CreateNoteIntent", {
-  AppIntentDescriptor: {
-    BundleIdentifier: "com.example.app", Name: "Example", TeamIdentifier: "ABCDE12345",
-    AppIntentIdentifier: "CreateNoteIntent", ActionRequiresAppInstallation: true,
-  },
-  title: text("Hello"),
-  body: ref(name),
-});
+import { coerce } from "shortcutkit";
+
+const d = s.action(actions.dictionary, { WFItems: { name: ref(name), greeted: true, tags: ["a", "b"] } });
+const gid = s.if(coerce(d, "WFStringContentItem"), "contains", "a");
+s.endIf(gid);
+```
+
+### Other apps
+
+Name the app and the intent: the identifier is the bundle identifier followed by the intent name, as
+the catalogue identifies an app's own intents, and the descriptor is written as the catalogue's are.
+The parameters are untyped: their keys are the intent's parameter names, from
+`Metadata.appintents/extract.actionsdata` in the app bundle.
+
+```ts
+import { appIntent } from "shortcutkit";
+
+const app = { BundleIdentifier: "com.example.app", Name: "Example", TeamIdentifier: "ABCDE12345" };
+const note = s.action(appIntent(app, "CreateNoteIntent", "Note"), { title: text("Hello"), body: ref(name) });
+s.action(actions.showresult, { Text: ref(note) });
 ```
 
 ### Python
@@ -153,7 +167,10 @@ Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut")
 | `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `deviceDetails()`, `currentApp()` | Special variables. |
 | `where(...rows)`, `whereAny(...rows)` | Conditions for a Find action's `WFContentItemFilter`. |
 | `property(source, name)` | One property of an action's output or a variable. |
-| `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `BYTE_COUNT_UNITS`, `BOUNDED_FILTERS` | What each Find action can filter on, and each entity type's properties. |
+| `coerce(source, class)` | A value read as one content type (`CONTENT_ITEM_CLASSES`). |
+| `dictionary(items)` | A dictionary parameter's items; `action()` encodes a plain object itself. |
+| `appIntent(app, intent, output?)` | Another app's action, for `s.action()`. |
+| `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `BYTE_COUNT_UNITS`, `BOUNDED_FILTERS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type's properties, and the content types a coercion can name. |
 | `actions`, `getAction(id)`, `getDefinition(id)` | Action identifiers and their catalog entries. |
 | `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | What each parameter accepts. |
 | `CONDITION`, `ICON_COLORS`, `provenance` | If conditions, icon colors, and the build the data came from. |

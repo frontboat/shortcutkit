@@ -154,7 +154,719 @@
       "subjectType" : "Variable"
     }
   },
+  "contentItemClasses" : {
+    "WFAppStoreAppContentItem" : {
+      "name" : "App Store App",
+      "plural" : "App Store Apps"
+    },
+    "WFArticleContentItem" : {
+      "name" : "Article",
+      "plural" : "Articles"
+    },
+    "WFBooleanContentItem" : {
+      "name" : "Boolean",
+      "plural" : "Booleans"
+    },
+    "WFContactContentItem" : {
+      "name" : "Contact",
+      "plural" : "Contacts"
+    },
+    "WFDateContentItem" : {
+      "name" : "Date",
+      "plural" : "Dates"
+    },
+    "WFDCMapsLinkContentItem" : {
+      "name" : "Maps Link",
+      "plural" : "Maps Links"
+    },
+    "WFDictionaryContentItem" : {
+      "name" : "Dictionary",
+      "plural" : "Dictionaries"
+    },
+    "WFEKParticipantContentItem" : {
+      "name" : "Event Attendee",
+      "plural" : "Event attendees"
+    },
+    "WFEmailAddressContentItem" : {
+      "name" : "Email Address",
+      "plural" : "Email Addresses"
+    },
+    "WFGenericFileContentItem" : {
+      "name" : "File",
+      "plural" : "Files"
+    },
+    "WFImageContentItem" : {
+      "name" : "Image",
+      "plural" : "Images"
+    },
+    "WFiTunesProductContentItem" : {
+      "name" : "iTunes Product",
+      "plural" : "iTunes Products"
+    },
+    "WFLocationContentItem" : {
+      "name" : "Location",
+      "plural" : "Locations"
+    },
+    "WFMKMapItemContentItem" : {
+      "name" : "Place",
+      "plural" : "Places"
+    },
+    "WFNumberContentItem" : {
+      "name" : "Number",
+      "plural" : "Numbers"
+    },
+    "WFPDFContentItem" : {
+      "name" : "PDF",
+      "plural" : "PDFs"
+    },
+    "WFPersonNameComponentsContentItem" : {
+      "name" : "Name Components",
+      "plural" : "Name Components"
+    },
+    "WFPhoneNumberContentItem" : {
+      "name" : "Phone Number",
+      "plural" : "Phone Numbers"
+    },
+    "WFRichTextContentItem" : {
+      "name" : "Rich Text",
+      "plural" : "Rich Text"
+    },
+    "WFStringContentItem" : {
+      "name" : "Text",
+      "plural" : "Text"
+    },
+    "WFURLContentItem" : {
+      "name" : "URL",
+      "plural" : "URLs"
+    },
+    "WFVCardContentItem" : {
+      "name" : "vCard",
+      "plural" : "vCards"
+    }
+  },
   "defaultGlyphCharacter" : 61440,
+  "dictionaryItems" : {
+    "itemType9" : "threw: exception raised by object: State for WFPropertyListParameterValue is not of the expected class",
+    "rewritten" : {
+      "bareNumber" : {
+        "Value" : {
+          "WFDictionaryFieldValueItems" : [
+            {
+              "WFItemType" : 3,
+              "WFKey" : {
+                "Value" : {
+                  "string" : "n"
+                },
+                "WFSerializationType" : "WFTextTokenString"
+              },
+              "WFValue" : {
+                "Value" : {
+                  "string" : "0"
+                },
+                "WFSerializationType" : "WFTextTokenString"
+              }
+            }
+          ]
+        },
+        "WFSerializationType" : "WFDictionaryFieldValue"
+      },
+      "bareStrings" : {
+        "Value" : {
+          "WFDictionaryFieldValueItems" : [
+            {
+              "WFItemType" : 0,
+              "WFKey" : {
+                "Value" : {
+                  "string" : "t"
+                },
+                "WFSerializationType" : "WFTextTokenString"
+              },
+              "WFValue" : {
+                "Value" : {
+                  "string" : "hello"
+                },
+                "WFSerializationType" : "WFTextTokenString"
+              }
+            }
+          ]
+        },
+        "WFSerializationType" : "WFDictionaryFieldValue"
+      },
+      "booleanState" : {
+        "Value" : {
+          "WFDictionaryFieldValueItems" : [
+            {
+              "WFItemType" : 4,
+              "WFKey" : {
+                "Value" : {
+                  "string" : "b"
+                },
+                "WFSerializationType" : "WFTextTokenString"
+              },
+              "WFValue" : {
+                "Value" : true,
+                "WFSerializationType" : "WFNumberSubstitutableState"
+              }
+            }
+          ]
+        },
+        "WFSerializationType" : "WFDictionaryFieldValue"
+      },
+      "nestedWithoutWrapper" : {
+        "Value" : {
+          "WFDictionaryFieldValueItems" : [
+            {
+              "WFItemType" : 1,
+              "WFKey" : {
+                "Value" : {
+                  "string" : "d"
+                },
+                "WFSerializationType" : "WFTextTokenString"
+              },
+              "WFValue" : {
+                "Value" : {
+                  "Value" : {
+                    "WFDictionaryFieldValueItems" : [
+                      {
+                        "WFItemType" : 0,
+                        "WFKey" : {
+                          "Value" : {
+                            "string" : "k"
+                          },
+                          "WFSerializationType" : "WFTextTokenString"
+                        },
+                        "WFValue" : {
+                          "Value" : {
+                            "string" : "v"
+                          },
+                          "WFSerializationType" : "WFTextTokenString"
+                        }
+                      }
+                    ]
+                  },
+                  "WFSerializationType" : "WFDictionaryFieldValue"
+                },
+                "WFSerializationType" : "WFDictionaryFieldValue"
+              }
+            }
+          ]
+        },
+        "WFSerializationType" : "WFDictionaryFieldValue"
+      }
+    },
+    "sample" : {
+      "Value" : {
+        "WFDictionaryFieldValueItems" : [
+          {
+            "WFItemType" : 0,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "text"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "hello"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 0,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "textWithReference"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "attachmentsByRange" : {
+                  "{3, 1}" : {
+                    "Type" : "Variable",
+                    "VariableName" : "MyVar"
+                  }
+                },
+                "string" : "Hi ￼"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 0,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+                  "{0, 1}" : {
+                    "Type" : "Variable",
+                    "VariableName" : "MyVar"
+                  }
+                },
+                "string" : "￼"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "key from a reference"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 1,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "dictionary"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "Value" : {
+                  "WFDictionaryFieldValueItems" : [
+                    {
+                      "WFItemType" : 0,
+                      "WFKey" : {
+                        "Value" : {
+                          "attachmentsByRange" : {
+
+                          },
+                          "string" : "k"
+                        },
+                        "WFSerializationType" : "WFTextTokenString"
+                      },
+                      "WFValue" : {
+                        "Value" : {
+                          "attachmentsByRange" : {
+
+                          },
+                          "string" : "v"
+                        },
+                        "WFSerializationType" : "WFTextTokenString"
+                      }
+                    }
+                  ]
+                },
+                "WFSerializationType" : "WFDictionaryFieldValue"
+              },
+              "WFSerializationType" : "WFDictionaryFieldValue"
+            }
+          },
+          {
+            "WFItemType" : 2,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "array"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : [
+                "plain text",
+                {
+                  "WFItemType" : 0,
+                  "WFValue" : {
+                    "Value" : {
+                      "attachmentsByRange" : {
+                        "{5, 1}" : {
+                          "Type" : "Variable",
+                          "VariableName" : "MyVar"
+                        }
+                      },
+                      "string" : "with ￼"
+                    },
+                    "WFSerializationType" : "WFTextTokenString"
+                  }
+                },
+                {
+                  "WFItemType" : 3,
+                  "WFValue" : {
+                    "Value" : {
+                      "attachmentsByRange" : {
+
+                      },
+                      "string" : "7"
+                    },
+                    "WFSerializationType" : "WFTextTokenString"
+                  }
+                },
+                {
+                  "WFItemType" : 4,
+                  "WFValue" : {
+                    "Value" : false,
+                    "WFSerializationType" : "WFNumberSubstitutableState"
+                  }
+                },
+                {
+                  "WFItemType" : 1,
+                  "WFValue" : {
+                    "Value" : {
+                      "Value" : {
+                        "WFDictionaryFieldValueItems" : [
+
+                        ]
+                      },
+                      "WFSerializationType" : "WFDictionaryFieldValue"
+                    },
+                    "WFSerializationType" : "WFDictionaryFieldValue"
+                  }
+                },
+                {
+                  "WFItemType" : 2,
+                  "WFValue" : {
+                    "Value" : [
+                      "z"
+                    ],
+                    "WFSerializationType" : "WFArrayParameterState"
+                  }
+                }
+              ],
+              "WFSerializationType" : "WFArrayParameterState"
+            }
+          },
+          {
+            "WFItemType" : 3,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "number"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "5"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 3,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "numberFromReference"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "attachmentsByRange" : {
+                  "{0, 1}" : {
+                    "Type" : "Variable",
+                    "VariableName" : "MyVar"
+                  }
+                },
+                "string" : "￼"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 4,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "boolean"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : true,
+              "WFSerializationType" : "WFNumberSubstitutableState"
+            }
+          },
+          {
+            "WFItemType" : 4,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+
+                },
+                "string" : "booleanFromReference"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "Value" : {
+                  "Type" : "Variable",
+                  "VariableName" : "MyVar"
+                },
+                "WFSerializationType" : "WFTextTokenAttachment"
+              },
+              "WFSerializationType" : "WFNumberSubstitutableState"
+            }
+          }
+        ]
+      },
+      "WFSerializationType" : "WFDictionaryFieldValue"
+    },
+    "serialized" : {
+      "Value" : {
+        "WFDictionaryFieldValueItems" : [
+          {
+            "WFItemType" : 0,
+            "WFKey" : {
+              "Value" : {
+                "string" : "text"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "string" : "hello"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 0,
+            "WFKey" : {
+              "Value" : {
+                "string" : "textWithReference"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "attachmentsByRange" : {
+                  "{3, 1}" : {
+                    "Type" : "Variable",
+                    "VariableName" : "MyVar"
+                  }
+                },
+                "string" : "Hi ￼"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 0,
+            "WFKey" : {
+              "Value" : {
+                "attachmentsByRange" : {
+                  "{0, 1}" : {
+                    "Type" : "Variable",
+                    "VariableName" : "MyVar"
+                  }
+                },
+                "string" : "￼"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "string" : "key from a reference"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 1,
+            "WFKey" : {
+              "Value" : {
+                "string" : "dictionary"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "Value" : {
+                  "WFDictionaryFieldValueItems" : [
+                    {
+                      "WFItemType" : 0,
+                      "WFKey" : {
+                        "Value" : {
+                          "string" : "k"
+                        },
+                        "WFSerializationType" : "WFTextTokenString"
+                      },
+                      "WFValue" : {
+                        "Value" : {
+                          "string" : "v"
+                        },
+                        "WFSerializationType" : "WFTextTokenString"
+                      }
+                    }
+                  ]
+                },
+                "WFSerializationType" : "WFDictionaryFieldValue"
+              },
+              "WFSerializationType" : "WFDictionaryFieldValue"
+            }
+          },
+          {
+            "WFItemType" : 2,
+            "WFKey" : {
+              "Value" : {
+                "string" : "array"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : [
+                "plain text",
+                {
+                  "WFItemType" : 0,
+                  "WFValue" : {
+                    "Value" : {
+                      "attachmentsByRange" : {
+                        "{5, 1}" : {
+                          "Type" : "Variable",
+                          "VariableName" : "MyVar"
+                        }
+                      },
+                      "string" : "with ￼"
+                    },
+                    "WFSerializationType" : "WFTextTokenString"
+                  }
+                },
+                {
+                  "WFItemType" : 3,
+                  "WFValue" : {
+                    "Value" : {
+                      "string" : "7"
+                    },
+                    "WFSerializationType" : "WFTextTokenString"
+                  }
+                },
+                {
+                  "WFItemType" : 4,
+                  "WFValue" : {
+                    "Value" : false,
+                    "WFSerializationType" : "WFNumberSubstitutableState"
+                  }
+                },
+                {
+                  "WFItemType" : 1,
+                  "WFValue" : {
+                    "Value" : {
+                      "Value" : {
+                        "WFDictionaryFieldValueItems" : [
+
+                        ]
+                      },
+                      "WFSerializationType" : "WFDictionaryFieldValue"
+                    },
+                    "WFSerializationType" : "WFDictionaryFieldValue"
+                  }
+                },
+                {
+                  "WFItemType" : 2,
+                  "WFValue" : {
+                    "Value" : [
+                      "z"
+                    ],
+                    "WFSerializationType" : "WFArrayParameterState"
+                  }
+                }
+              ],
+              "WFSerializationType" : "WFArrayParameterState"
+            }
+          },
+          {
+            "WFItemType" : 3,
+            "WFKey" : {
+              "Value" : {
+                "string" : "number"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "string" : "5"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 3,
+            "WFKey" : {
+              "Value" : {
+                "string" : "numberFromReference"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "attachmentsByRange" : {
+                  "{0, 1}" : {
+                    "Type" : "Variable",
+                    "VariableName" : "MyVar"
+                  }
+                },
+                "string" : "￼"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            }
+          },
+          {
+            "WFItemType" : 4,
+            "WFKey" : {
+              "Value" : {
+                "string" : "boolean"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : true,
+              "WFSerializationType" : "WFNumberSubstitutableState"
+            }
+          },
+          {
+            "WFItemType" : 4,
+            "WFKey" : {
+              "Value" : {
+                "string" : "booleanFromReference"
+              },
+              "WFSerializationType" : "WFTextTokenString"
+            },
+            "WFValue" : {
+              "Value" : {
+                "Value" : {
+                  "Type" : "Variable",
+                  "VariableName" : "MyVar"
+                },
+                "WFSerializationType" : "WFTextTokenAttachment"
+              },
+              "WFSerializationType" : "WFNumberSubstitutableState"
+            }
+          }
+        ]
+      },
+      "WFSerializationType" : "WFDictionaryFieldValue"
+    }
+  },
   "filterOperators" : {
     "0" : "is less than",
     "1" : "is less than or equal to",

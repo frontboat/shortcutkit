@@ -6,6 +6,30 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## Unreleased
+
+- `dictionary()` builds a dictionary parameter (Dictionary's items, Get Contents of URL's headers, form
+  and JSON bodies) from a plain object, and `action()` encodes a plain object given for such a key:
+  strings, `text()` and references are text items; numbers, booleans, arrays and nested objects keep
+  their type, as the editor's item type menu sets it. The forms are the ones the engine's dictionary
+  state class writes back (`dictionaryItems` in `data/encoding-table.json`; `bun run verify`
+  round-trips every one through the actions that take them): a nested dictionary is wrapped once more
+  than the outer one, array items carry no key and plain text in them is the bare string, numbers are
+  token strings, booleans a number-substitutable state. The engine's parser raises on any other item
+  type code.
+- `coerce(source, class)` reads a value as one content type (a `WFCoercionVariableAggrandizement`), as
+  the editor's variable "Type" menu does. The classes are the engine's own list, `CONTENT_ITEM_CLASSES`
+  (`+[WFContentItem allSupportedItemClasses]`: 22 on macOS 27, each with the name the editor shows),
+  extracted with the encoding table and checked by the verifier, since the engine's parser takes any
+  class name.
+- `appIntent(app, intent, output?)` names another app's App Intents action for `action()`: the
+  identifier is the bundle identifier followed by the intent name, as the catalogue identifies an
+  app's own intents (1,254 of its 1,318 entries; the rest are Siri flow tools and intents hosted in a
+  framework or extension, which carry the registry's identifier), and the descriptor is written as
+  the catalogue's are. Passing an identifier and `AppIntentDescriptor` by hand still works; that
+  parameter is now typed as `AppIntentDescriptor` rather than as a dictionary value.
+- Python: `dictionary()`, `coerce()`, `app_intent()` and `CONTENT_ITEM_CLASSES`, writing the same bytes.
+
 ## 2.0.0 (2026-10-26)
 
 - **Breaking: 135 Siri-only App Intents leave the catalogue.** linkd marks them not discoverable

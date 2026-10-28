@@ -7,7 +7,7 @@ import json
 import sys
 
 sys.path.insert(0, "python/src")
-from shortcutkit import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, Shortcut, actions, ref, text, variable, shortcut_input, clipboard, current_date, ask, device_details, current_app, repeat_item, property_, where, where_any  # noqa: E402
+from shortcutkit import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, Shortcut, actions, ref, text, variable, shortcut_input, clipboard, current_date, ask, device_details, current_app, repeat_item, property_, where, where_any, coerce, app_intent  # noqa: E402
 
 encodings = json.load(open("data/parameter-encodings.json"))
 DEFAULTS = encodings["actionDefaults"]
@@ -25,6 +25,8 @@ seed = Shortcut("Seed")
 source = seed.action(actions.GETSTOREDCONTENT, WFStoredContentKey="seed")
 REF = ref(source)
 REFERENCES = [("ref", REF), ("shortcutInput", shortcut_input()), ("variable", variable("MyVar")), ("clipboard", clipboard()), ("currentDate", current_date()), ("ask", ask("Which?")), ("deviceDetails", device_details()), ("currentApp", current_app())]
+# Every item form dictionary() writes, in fixture.ts's order (the two packages must write the same items).
+DICTIONARY = {"text": "hello", "withReference": text("Hi ", REF), "reference": REF, "nested": {"k": "v", "n": 2}, "list": ["x", 7, False, text("hi ", REF), {"k": "v"}, ["z"]], "number": 5, "boolean": True, "empty": {}, "none": []}
 
 
 def samples(identifier, key, kind):
@@ -50,6 +52,7 @@ def samples(identifier, key, kind):
         "subject": [("ref", REF)],
         "plainString": [("string", "hello")],
         "plainNumber": [("number", 5)],
+        "dictionary": [("dictionary", DICTIONARY)],
     }.get(kind, [])
 
 
@@ -133,6 +136,8 @@ for entity, props in ENTITY_PROPERTIES.items():
     for name in props:
         property_cases.append({"entity": entity, "property": name, "attachment": property_(a, name)})
 
+coercion_cases = [{"class": cls, "attachment": coerce(REF, cls)} for cls in CONTENT_ITEM_CLASSES]
+
 s = Shortcut("Blocks", color="Teal", types=["ActionExtension"], input_classes=["WFSafariWebPageContentItem", "WFURLContentItem"])
 got = s.action(actions.GETSTOREDCONTENT, WFStoredContentKey="k")
 c = s.if_(ref(got), "has_any_value")
@@ -157,6 +162,11 @@ found = s.action("com.apple.MobileSMS.MessageEntity", WFContentItemFilter=where(
 each = s.repeat_each(ref(found))
 s.action(actions.SHOWRESULT, Text=text(property_(repeat_item(), "body"), " ", property_(found, "date")))
 s.end_repeat_each(each)
+dict_ = s.action(actions.DICTIONARY, WFItems={"greeting": text("Hi ", ref(got)), "count": 1, "tags": ["a", "b"]})
+s.action(actions.DOWNLOADURL, WFURL="https://example.com/api", WFHTTPMethod="POST", WFHTTPHeaders={"Accept": "application/json"}, WFJSONValues={"body": ref(dict_), "ok": True})
+c5 = s.if_(coerce(ref(dict_), "WFStringContentItem"), "contains", "a"); s.end_if(c5)
+other = s.action(app_intent({"BundleIdentifier": "com.example.app", "Name": "Example", "TeamIdentifier": "ABCDE12345"}, "CreateNoteIntent", "Note"), title=text("Hello ", ref(got)))
+s.action(actions.SHOWRESULT, Text=coerce(other, "WFStringContentItem"))
 shortcuts = [{"name": "Blocks", "plist": s.to_plist(), "actionCount": len(s.actions)}]
 
 def dates(o):
@@ -166,6 +176,6 @@ def dates(o):
     raise TypeError(type(o).__name__)
 
 
-json.dump({"cases": cases, "filterCases": filter_cases, "propertyCases": property_cases, "shortcuts": shortcuts}, open(sys.argv[1], "w"), indent=1, ensure_ascii=False, default=dates)
+json.dump({"cases": cases, "filterCases": filter_cases, "propertyCases": property_cases, "coercionCases": coercion_cases, "shortcuts": shortcuts}, open(sys.argv[1], "w"), indent=1, ensure_ascii=False, default=dates)
 print(len(cases), "parameter cases across", len({c["identifier"] for c in cases}), "actions;", len(filter_cases), "filters across", len(FILTERS), "Find actions;",
-      len(property_cases), "properties;", len(shortcuts), "whole shortcuts ->", sys.argv[1])
+      len(property_cases), "properties;", len(coercion_cases), "coercions;", len(shortcuts), "whole shortcuts ->", sys.argv[1])

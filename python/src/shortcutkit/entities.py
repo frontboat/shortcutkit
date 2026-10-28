@@ -580,3 +580,6 @@ ENTITY_PROPERTIES = {
     "com.apple.weather.PreferredUnitsEntity": ["distanceUnit", "precipitationUnit", "pressureUnit", "temperatureUnit", "windUnit"],
     "com.apple.weather.SyncedDataEntity": ["encodedSyncedData"],
 }
+
+# Content item classes a coercion can name (coerce()): the engine's own list, the editor's variable "Type" menu, with the name it shows.
+CONTENT_ITEM_CLASSES = {"WFAppStoreAppContentItem": "App Store App", "WFArticleContentItem": "Article", "WFBooleanContentItem": "Boolean", "WFContactContentItem": "Contact", "WFDateContentItem": "Date", "WFDCMapsLinkContentItem": "Maps Link", "WFDictionaryContentItem": "Dictionary", "WFEKParticipantContentItem": "Event Attendee", "WFEmailAddressContentItem": "Email Address", "WFGenericFileContentItem": "File", "WFImageContentItem": "Image", "WFiTunesProductContentItem": "iTunes Product", "WFLocationContentItem": "Location", "WFMKMapItemContentItem": "Place", "WFNumberContentItem": "Number", "WFPDFContentItem": "PDF", "WFPersonNameComponentsContentItem": "Name Components", "WFPhoneNumberContentItem": "Phone Number", "WFRichTextContentItem": "Rich Text", "WFStringContentItem": "Text", "WFURLContentItem": "URL", "WFVCardContentItem": "vCard"}

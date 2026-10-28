@@ -104,8 +104,11 @@ V = { "Type": "ActionOutput", "OutputUUID": "<UUID of the action>", "OutputName"
   | { "Type": "Clipboard" } | { "Type": "CurrentDate" } | { "Type": "DeviceDetails" } | { "Type": "CurrentApp" }
 ```
 `V` may also carry `"Aggrandizements": [{"Type": "WFCoercionVariableAggrandizement", "CoercionItemClass": "WFStringContentItem"}]`
-to coerce the value, or a property aggrandizement to read a field of it:
-`{"Type": "WFPropertyVariableAggrandizement", "PropertyName": "body"}`. For an App Intents
+to coerce the value (the editor's variable "Type" menu; `coerce()` in the packages), or a property
+aggrandizement to read a field of it: `{"Type": "WFPropertyVariableAggrandizement", "PropertyName": "body"}`.
+The classes a coercion can name are `+[WFContentItem allSupportedItemClasses]`, 22 on macOS 27
+(`contentItemClasses` in `data/encoding-table.json`, with the name the editor shows for each;
+`CONTENT_ITEM_CLASSES` in the packages); the parser itself takes any class name. For an App Intents
 entity, `PropertyName` is the property's identifier (`ENTITY_PROPERTIES` in the packages lists
 them, from `data/apple-entities.json`).
 
@@ -137,8 +140,23 @@ variable pickers read every kind except Ask, and some enumerations read only out
 variable, and Ask references. `reads` in `data/parameter-encodings.json` lists the kinds for
 each key.
 
-**Specialised.** Dictionary: `{"WFSerializationType": "WFDictionaryFieldValue", "Value": {"WFDictionaryFieldValueItems": [ {"WFItemType": 0, "WFKey": <token string>, "WFValue": <token string>} … ]}}`.
-Quantity: `{"WFSerializationType": "WFQuantityFieldValue", "Value": {"Unit": "min", "Magnitude": …}}`.
+**Dictionaries** (`WFDictionaryFieldValue`: Dictionary's `WFItems`, Get Contents of URL's `WFHTTPHeaders`,
+`WFFormValues` and `WFJSONValues`): `{"WFSerializationType": "WFDictionaryFieldValue", "Value": {"WFDictionaryFieldValueItems": [ item … ]}}`,
+each item `{"WFKey": <token string>, "WFItemType": n, "WFValue": …}` with the value's form set by the
+type code, as `WFDictionaryParameterState` writes them back (`dictionaryItems` in `data/encoding-table.json`):
+
+| `WFItemType` | editor's type | `WFValue` |
+|---|---|---|
+| 0 | Text | a token string (plain text, or text with references) |
+| 1 | Dictionary | `{"WFSerializationType": "WFDictionaryFieldValue", "Value": <a whole dictionary, with its own WFSerializationType>}`: wrapped once more than the outer one |
+| 2 | Array | `{"WFSerializationType": "WFArrayParameterState", "Value": [ … ]}`: plain text items are bare strings, every other item `{"WFItemType": n, "WFValue": …}` with no key |
+| 3 | Number | a token string holding the digits or a reference, never a bare number (a bare 5 reads back as "0") |
+| 4 | Boolean | `{"WFSerializationType": "WFNumberSubstitutableState", "Value": true}` or an attachment in place of the boolean (a `WFBooleanSubstitutableState` is read and rewritten so) |
+
+A key may hold a reference. The parser raises on any other type code. The engine omits an empty
+`attachmentsByRange` from a token string it writes; the one the packages write (`{}`) is read the same.
+
+**Specialised.** Quantity: `{"WFSerializationType": "WFQuantityFieldValue", "Value": {"Unit": "min", "Magnitude": …}}`.
 Contacts, colors (`WFColorRepresentationType` + components), locations (`{"isCurrentLocation": true}`),
 and file bookmarks (`{"bookmarkData", "displayName", "filename"}`) each have their own
 dictionary; `data/encoding-table.json` has examples.

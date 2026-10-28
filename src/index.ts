@@ -6,8 +6,8 @@ import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition, type ActionDefinition } from "./definitions.js";
 import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
-import { BOUNDED_FILTERS, BYTE_COUNT_UNITS, CALENDAR_UNITS, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type EntityId, type EntityProperty } from "./generated/entities.js";
-import type { AskAttachment, Attachment, ConditionSubject, FilterRow, FilterTemplateValue, TokenString, Value, VariableType, Where } from "./values.js";
+import { BOUNDED_FILTERS, BYTE_COUNT_UNITS, CALENDAR_UNITS, CONTENT_ITEM_CLASSES, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type ContentItemClass, type EntityId, type EntityProperty } from "./generated/entities.js";
+import type { AppIntentDescriptor, AskAttachment, Attachment, ConditionSubject, DictionaryFieldValue, DictionaryItem, DictionaryItems, DictionaryItemType, DictionaryValue, FilterRow, FilterTemplateValue, TokenString, Value, VariableType, Where } from "./values.js";
 
 export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
 export type { PlistValue } from "./plist.js";
@@ -15,7 +15,7 @@ export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
 export { provenance, type Provenance } from "./provenance.js";
 export type * from "./generated/params.js";
-export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, type FilterRows, type EntityId, type EntityProperty } from "./generated/entities.js";
+export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, type FilterRows, type EntityId, type EntityProperty, type ContentItemClass } from "./generated/entities.js";
 
 /** Parameters accepted for an identifier: typed per key for built-in actions, open for anything else. */
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
@@ -55,8 +55,20 @@ export function getAction(identifier: string): CatalogEntry | undefined {
   return { identifier, name: entry.name, params: entry.params, kinds, output: entry.output, outputTypes: entry.outputTypes, ...(entry.descriptor ? { descriptor: entry.descriptor } : {}), ...(definition ? { definition } : {}) };
 }
 
-/** Names the app that provides an App Intents action; written as the AppIntentDescriptor parameter. */
-export type AppIntentDescriptor = { BundleIdentifier: string; Name: string; TeamIdentifier: string; AppIntentIdentifier: string };
+/** A third-party app, for `appIntent()`: its bundle identifier, display name and team identifier (the bundle's Info.plist and `codesign -dv`). */
+export type AppDescriptor = { BundleIdentifier: string; Name: string; TeamIdentifier: string };
+/** An App Intents action of an app the catalogue does not cover, from `appIntent()`; `action()` takes it in place of an identifier. */
+export type AppIntentRef = { readonly identifier: string; readonly descriptor: AppIntentDescriptor; readonly output?: string };
+/**
+ * Name an App Intents action of an app the catalogue does not cover: `s.action(appIntent(app, "CreateNoteIntent", "Note"), { title: text("Hi") })`.
+ * The identifier is the bundle identifier followed by the intent's name, as the catalogue identifies an app's own intents, and
+ * the descriptor is written as the catalogue's are; an intent hosted in a framework or extension has another identifier, which
+ * `action()` still takes by hand with an `AppIntentDescriptor`. `output` names the result for `ref()` (the intent's output title;
+ * "Output" when left out). The parameters are untyped: their keys are the intent's parameter names, as
+ * `Metadata.appintents/extract.actionsdata` in the app bundle lists them.
+ */
+export const appIntent = (app: AppDescriptor, intent: string, output?: string): AppIntentRef =>
+  ({ identifier: `${app.BundleIdentifier}.${intent}`, descriptor: { ...app, AppIntentIdentifier: intent }, ...(output ? { output } : {}) });
 
 
 /** The icon palette, in picker order, as the file stores each color. */
@@ -129,9 +141,56 @@ export function property(source: Action | Attachment, name: string): Attachment 
     const known = new Set<string>(entities.flatMap((e) => ENTITY_PROPERTIES[e]));
     if (entities.length && !known.has(name)) throw new Error(`${entities.join(" / ")} has no property ${name}; it has ${[...known].sort().join(", ")}`);
   }
+  return aggrandize(source, { Type: "WFPropertyVariableAggrandizement", PropertyName: name });
+}
+/** `source` with one more aggrandizement; an action stands for its output. */
+function aggrandize(source: Action | Attachment, aggrandizement: Record<string, PlistValue>): Attachment {
   const a = isAttachment(source) ? source : ref(source);
   const prior = Array.isArray(a.Value.Aggrandizements) ? a.Value.Aggrandizements : [];
-  return attachment({ ...a.Value, Aggrandizements: [...prior, { Type: "WFPropertyVariableAggrandizement", PropertyName: name }] });
+  return attachment({ ...a.Value, Aggrandizements: [...prior, aggrandizement] });
+}
+
+/**
+ * `source` read as one content type, as the editor's variable "Type" menu writes it (a `WFCoercionVariableAggrandizement`):
+ * `coerce(ref(json), "WFDictionaryContentItem")`, `coerce(repeatItem(), "WFStringContentItem")`. The classes are the engine's own
+ * list (CONTENT_ITEM_CLASSES, each with the name the editor shows). An If whose subject's type the engine cannot tell (a
+ * dictionary value, a repeat item) needs one: without it "is" has nothing to compare against and the run fails (a downstream
+ * user's observation; docs/extraction.md, run-time observations).
+ */
+export function coerce<I extends string>(source: Action<I>, to: ContentItemClass): Attachment<"ActionOutput">;
+export function coerce<T extends VariableType>(source: Attachment<T>, to: ContentItemClass): Attachment<T>;
+export function coerce(source: Action | Attachment, to: ContentItemClass): Attachment {
+  if (!(to in CONTENT_ITEM_CLASSES)) throw new Error(`no content item class ${to}; the engine coerces to ${Object.keys(CONTENT_ITEM_CLASSES).join(", ")}`);
+  return aggrandize(source, { Type: "WFCoercionVariableAggrandizement", CoercionItemClass: to });
+}
+
+/**
+ * A dictionary parameter: Dictionary's items, Get Contents of URL's headers, form and JSON bodies. Strings, `text()` and
+ * references are text items; numbers, booleans, arrays and nested objects keep their type, as the editor's item type menu
+ * sets it: `dictionary({ apikey: variable("Key"), count: 5, nested: { ok: true }, tags: ["a", "b"] })`. `action()` encodes a
+ * plain object given for a dictionary key itself, so the call is needed only where the key is untyped.
+ */
+export function dictionary(items: DictionaryItems): DictionaryValue {
+  return { WFSerializationType: "WFDictionaryFieldValue", Value: { WFDictionaryFieldValueItems: Object.entries(items).map(([k, v]) => ({ WFKey: text(k), ...dictionaryItem(v) })) } };
+}
+const isTokenString = (v: unknown): v is TokenString => typeof v === "object" && v !== null && (v as TokenString).WFSerializationType === "WFTextTokenString";
+const isEncodedDictionary = (v: unknown): v is DictionaryValue => typeof v === "object" && v !== null && (v as DictionaryValue).WFSerializationType === "WFDictionaryFieldValue";
+/** A plain object of items for a dictionary parameter: not an encoded value, an If subject, an array, or a class instance such as a Date. */
+const isDictionaryItems = (v: unknown): v is DictionaryItems =>
+  typeof v === "object" && v !== null && (Object.getPrototypeOf(v) === Object.prototype || Object.getPrototypeOf(v) === null) && !("WFSerializationType" in v) && !((v as ConditionSubject).Type === "Variable" && "Variable" in v);
+/** One item's type code and value, as the dictionary state class writes them back (docs/shortcut-file-format.md §3). */
+function dictionaryItem(v: DictionaryItem): { WFItemType: DictionaryItemType; WFValue: DictionaryFieldValue } {
+  if (typeof v === "string") return { WFItemType: 0, WFValue: text(v) };
+  if (isTokenString(v)) return { WFItemType: 0, WFValue: v };
+  if (isAttachment(v)) return { WFItemType: 0, WFValue: text(v) };
+  if (typeof v === "number") return { WFItemType: 3, WFValue: text(String(v)) };
+  if (typeof v === "boolean") return { WFItemType: 4, WFValue: { WFSerializationType: "WFNumberSubstitutableState", Value: v } };
+  // Array items carry no key; plain text is the bare string, as the engine writes it back.
+  if (Array.isArray(v)) return { WFItemType: 2, WFValue: { WFSerializationType: "WFArrayParameterState", Value: v.map((x) => (typeof x === "string" ? x : dictionaryItem(x))) } };
+  // A nested dictionary is wrapped once more than the outer one (the engine serializes it so, and reads the unwrapped form into that).
+  if (isEncodedDictionary(v)) return { WFItemType: 1, WFValue: { WFSerializationType: "WFDictionaryFieldValue", Value: v } };
+  if (isDictionaryItems(v)) return { WFItemType: 1, WFValue: { WFSerializationType: "WFDictionaryFieldValue", Value: dictionary(v) } };
+  throw new Error(`dictionary(): a value must be a string, text(), a reference, a number, a boolean, an array or an object, got ${JSON.stringify(v)}`);
 }
 
 /** Find conditions that must all hold. Each row is `[property, operator, ...values]`, typed per Find action (FilterRows):
@@ -280,9 +339,13 @@ export class Shortcut {
   /**
    * Append an action and return it; `ref()` it to use its output. Catalog identifiers are checked:
    * wrong keys and values don't compile, and unknown keys or unreadable references throw. Other
-   * identifiers pass through unchecked.
+   * identifiers pass through unchecked; `appIntent()` names another app's action with its descriptor.
    */
-  action<I extends string>(identifier: I, params: ParamsFor<I> = {} as ParamsFor<I>): Action<I> {
+  action<I extends string>(identifier: I, params?: ParamsFor<I>): Action<I>;
+  action(intent: AppIntentRef, params?: Record<string, Value>): Action<string>;
+  action(target: string | AppIntentRef, params: Record<string, Value> = {}): Action<string> {
+    const intent = typeof target === "string" ? undefined : target;
+    const identifier = intent ? intent.identifier : (target as string);
     const definition = getDefinition(identifier);
     const catalog = (ACTIONS as Record<string, { params: readonly string[]; output: string | null; outputTypes?: readonly string[]; descriptor?: AppIntentDescriptor }>)[identifier];
     if (!definition && !catalog && identifier.startsWith("is.workflow.")) throw new Error(`unknown built-in action ${identifier}`);
@@ -311,15 +374,18 @@ export class Shortcut {
         const bad = referenceTypes(v).filter((t) => !allowed.includes(t));
         if (bad.length > 0) throw new Error(`${identifier}.${k}: the engine does not read a ${bad.join("/")} reference here (it reads ${allowed.length ? allowed.join(", ") : "only a plain value"})`);
       }
-      if (isWhere(v) && kinds[k] !== "filter") throw new Error(`${identifier}.${k}: where() rows go only in a Find action's WFContentItemFilter`);
-      normalized[k] = kinds[k] === "text" && isAttachment(v) ? text(v) : kinds[k] === "subject" && isAttachment(v) ? subject(v) : isWhere(v) ? encodeFilter(identifier, v) : v;
+      // where() rows belong to a Find action's filter key; an action the catalogue types otherwise refuses them here, and
+      // an untyped one (another app's Find action) is refused by encodeFilter(), which names the missing FILTERS entry.
+      if (isWhere(v) && k in kinds && kinds[k] !== "filter") throw new Error(`${identifier}.${k}: where() rows go only in a Find action's WFContentItemFilter`);
+      normalized[k] = kinds[k] === "text" && isAttachment(v) ? text(v) : kinds[k] === "subject" && isAttachment(v) ? subject(v) : kinds[k] === "dictionary" && isDictionaryItems(v) ? dictionary(v) : isWhere(v) ? encodeFilter(identifier, v) : v;
     }
     // App Intents actions carry a descriptor naming the app that provides them (see docs/shortcut-file-format.md §2).
-    const descriptor: Record<string, Value> = catalog?.descriptor ? { AppIntentDescriptor: { ...catalog.descriptor, ActionRequiresAppInstallation: true } } : {};
-    const entry: Action<I> = {
+    const app = catalog?.descriptor ?? intent?.descriptor;
+    const descriptor: Record<string, Value> = app ? { AppIntentDescriptor: { ...app, ActionRequiresAppInstallation: true } } : {};
+    const entry: Action<string> = {
       WFWorkflowActionIdentifier: identifier,
       WFWorkflowActionParameters: { UUID: uuid(), ...descriptor, ...normalized },
-      outputName: definition?.Output?.OutputName ?? catalog?.output ?? undefined,
+      outputName: definition?.Output?.OutputName ?? catalog?.output ?? intent?.output ?? undefined,
       outputTypes: catalog?.outputTypes ?? definition?.Output?.Types,
     };
     this.actions.push(entry);

@@ -15,14 +15,29 @@ export type TokenString = { WFSerializationType: "WFTextTokenString"; Value: { s
 export type ConditionSubject = { Type: "Variable"; Variable: Attachment };
 /** @deprecated Misnamed: this is the If-subject form. Variable-picker parameters take a bare `Attachment`. */
 export type Picker = ConditionSubject;
-export type DictionaryValue = { WFSerializationType: "WFDictionaryFieldValue"; Value: { WFDictionaryFieldValueItems: Array<{ WFItemType: number; WFKey: TokenString; WFValue: TokenString | DictionaryValue }> } };
+/** Names the app that provides an App Intents action; written as the AppIntentDescriptor parameter (`action()` adds `ActionRequiresAppInstallation`). */
+export type AppIntentDescriptor = { BundleIdentifier: string; Name: string; TeamIdentifier: string; AppIntentIdentifier: string; ActionRequiresAppInstallation?: boolean };
+/** One value of a `dictionary()`: text (a string, `text()` or a reference), a number, a boolean, a list, or a nested dictionary. */
+export type DictionaryItem = string | number | boolean | TokenString | Attachment | readonly DictionaryItem[] | DictionaryItems;
+/** A dictionary's keys and values before encoding; `dictionary()` and `action()` encode them. */
+export type DictionaryItems = { readonly [key: string]: DictionaryItem };
+/** Item type codes the dictionary state class reads: text, dictionary, array, number, boolean (docs/shortcut-file-format.md). */
+export type DictionaryItemType = 0 | 1 | 2 | 3 | 4;
+/** An item's value, by type: a token string for text and numbers, a number-substitutable state for booleans, a wrapped dictionary, or an array. */
+export type DictionaryFieldValue = TokenString | { WFSerializationType: "WFNumberSubstitutableState"; Value: boolean | Attachment } | { WFSerializationType: "WFDictionaryFieldValue"; Value: DictionaryValue } | ArrayValue;
+/** An array item: plain text as the bare string, anything else typed, without a key. */
+export type ArrayValue = { WFSerializationType: "WFArrayParameterState"; Value: Array<string | { WFItemType: DictionaryItemType; WFValue: DictionaryFieldValue }> };
+/** An encoded dictionary (`WFDictionaryFieldValue`), as `dictionary()` writes it and the engine serializes it back. */
+export type DictionaryValue = { WFSerializationType: "WFDictionaryFieldValue"; Value: { WFDictionaryFieldValueItems: Array<{ WFKey: TokenString; WFItemType: DictionaryItemType; WFValue: DictionaryFieldValue }> } };
+/** What a dictionary parameter takes: an encoded dictionary, or the items for `action()` to encode. */
+export type DictionaryParam = DictionaryValue | DictionaryItems;
 export type QuantityValue = { WFSerializationType: "WFQuantityFieldValue"; Value: { Unit: string; Magnitude?: number | TokenString } };
 export type FilterTemplateValue = { WFSerializationType: "WFContentPredicateTableTemplate"; Value: { WFActionParameterFilterPrefix: 0 | 1; WFContentPredicateBoundedDate?: boolean; WFActionParameterFilterTemplates: Array<{ Property: string; Operator: number; Removable?: boolean; Bounded?: boolean; Values: Record<string, PlistValue | TokenString> }> } };
 /** One condition of a Find filter: `[property, operator, ...values]`. FilterRows (generated) lists the rows each Find action takes. */
 export type FilterRow = readonly [string, string, ...unknown[]];
 /** Find conditions from `where()` or `whereAny()`; `action()` encodes them for the Find action's entity. */
 export type Where<R extends FilterRow = FilterRow> = { readonly match: "all" | "any"; readonly rows: readonly R[] };
-export type Value = PlistValue | Attachment | TokenString | ConditionSubject | DictionaryValue | QuantityValue | FilterTemplateValue | Where;
+export type Value = PlistValue | Attachment | TokenString | ConditionSubject | DictionaryValue | DictionaryItems | QuantityValue | FilterTemplateValue | Where;
 
 /** Keeps literal suggestions in editors while still accepting any string. */
 export type Loose<T extends string> = T | (string & {});

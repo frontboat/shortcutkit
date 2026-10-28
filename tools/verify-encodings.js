@@ -12,7 +12,8 @@
 //   cat tools/jxa-prelude.js tools/verify-encodings.js > /tmp/x.js
 //   osascript -l JavaScript /tmp/x.js data/parameter-encodings.json data/encoding-table.json data/encoding-roundtrips.json
 function attempt(fn) { try { return fn(); } catch (e) { return "threw: " + e.message.slice(0, 80); } }
-function canonical(v) { return JSON.stringify(v, (k, x) => (x && typeof x === "object" && !Array.isArray(x)) ? Object.keys(x).sort().reduce((o, key) => (o[key] = x[key], o), {}) : x); }
+// Keys sorted; an empty attachmentsByRange dropped, since the engine omits it from a token string without references.
+function canonical(v) { return JSON.stringify(v, (k, x) => (x && typeof x === "object" && !Array.isArray(x)) ? Object.keys(x).sort().filter((key) => !(key === "attachmentsByRange" && x[key] && typeof x[key] === "object" && !Object.keys(x[key]).length)).reduce((o, key) => (o[key] = x[key], o), {}) : x); }
 // What Shortcut.action() writes for each value kind (after its own wrapping), and which forms the
 // state class behind the kind must therefore accept.
 const EXPECT = {
@@ -24,6 +25,7 @@ const EXPECT = {
   number:      { states: ["WFNumberSubstitutableState", "WFNumberStringSubstitutableState"], forms: ["number", "attachment(variable)"] },
   plainString: { states: ["WFStringParameterState"], forms: ["string"] },
   plainNumber: { states: ["WFNumberParameterState"], forms: ["number"] },
+  dictionary:  { states: ["WFDictionaryParameterState"], forms: ["dictionary"] },
 };
 function run(argv) {
   if (argv.length < 3) throw new Error("usage: verify-encodings.js parameter-encodings.json encoding-table.json out.json");
@@ -38,6 +40,8 @@ function run(argv) {
     string: "hello", number: 5, bool: true, "attachment(variable)": attachmentV, "attachment(output)": attachmentO,
     tokenString: { WFSerializationType: "WFTextTokenString", Value: { string: "Hello ￼", attachmentsByRange: { "{6, 1}": { Type: "Variable", VariableName: "MyVar" } } } },
     wrappedSubject: { Type: "Variable", Variable: attachmentV },
+    // Every item form dictionary() writes (the probe's sample in encoding-table.json), which must come back as written.
+    dictionary: table.dictionaryItems.sample,
   };
   const results = {};
   for (const cn of [...names].sort()) {
@@ -47,7 +51,7 @@ function run(argv) {
       row[label] = attempt(() => {
         const st = make(cn, "initWithSerializedRepresentation:variableProvider:parameter:", $(value), null, null);
         if (isNil(st)) return "rejected";
-        const back = plain(st.serializedRepresentation, 0);
+        const back = plain(st.serializedRepresentation, -40);
         return canonical(back) === canonical(value) ? "roundtrip" : "accepted, reserialized as " + JSON.stringify(back).slice(0, 80);
       });
     }

@@ -743,3 +743,8 @@ export type FilterRows = {
 export type EntityId = keyof typeof ENTITY_PROPERTIES;
 /** Property identifiers of an entity type. */
 export type EntityProperty<E extends EntityId> = (typeof ENTITY_PROPERTIES)[E][number];
+
+/** Content item classes a coercion can name (`coerce()`): the engine's own list, which is the editor's variable "Type" menu
+ *  (`+[WFContentItem allSupportedItemClasses]`), each with the type name the editor shows. */
+export const CONTENT_ITEM_CLASSES = { WFAppStoreAppContentItem: "App Store App", WFArticleContentItem: "Article", WFBooleanContentItem: "Boolean", WFContactContentItem: "Contact", WFDateContentItem: "Date", WFDCMapsLinkContentItem: "Maps Link", WFDictionaryContentItem: "Dictionary", WFEKParticipantContentItem: "Event Attendee", WFEmailAddressContentItem: "Email Address", WFGenericFileContentItem: "File", WFImageContentItem: "Image", WFiTunesProductContentItem: "iTunes Product", WFLocationContentItem: "Location", WFMKMapItemContentItem: "Place", WFNumberContentItem: "Number", WFPDFContentItem: "PDF", WFPersonNameComponentsContentItem: "Name Components", WFPhoneNumberContentItem: "Phone Number", WFRichTextContentItem: "Rich Text", WFStringContentItem: "Text", WFURLContentItem: "URL", WFVCardContentItem: "vCard" } as const;
+export type ContentItemClass = keyof typeof CONTENT_ITEM_CLASSES;

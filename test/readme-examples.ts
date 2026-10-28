@@ -1,7 +1,7 @@
 // README.md's TypeScript examples, verbatim apart from imports. tsc checks that they compile;
 // test/shortcut.test.ts checks that they match the README and runs them. Later examples continue
 // the first one, so they take its `s` and `name`.
-import { Shortcut, actions, ref, text, shortcutInput, where, property, type Action } from "../src/index";
+import { Shortcut, actions, ref, text, shortcutInput, where, property, coerce, appIntent, type Action } from "../src/index";
 
 export async function greeting() {
 const s = new Shortcut("Greeting");
@@ -44,13 +44,14 @@ s.action(actions.filter_files, {
 });
 }
 
+export function dictionariesAndTypes(s: Shortcut, name: Action) {
+const d = s.action(actions.dictionary, { WFItems: { name: ref(name), greeted: true, tags: ["a", "b"] } });
+const gid = s.if(coerce(d, "WFStringContentItem"), "contains", "a");
+s.endIf(gid);
+}
+
 export function otherApps(s: Shortcut, name: Action) {
-s.action("com.example.app.CreateNoteIntent", {
-  AppIntentDescriptor: {
-    BundleIdentifier: "com.example.app", Name: "Example", TeamIdentifier: "ABCDE12345",
-    AppIntentIdentifier: "CreateNoteIntent", ActionRequiresAppInstallation: true,
-  },
-  title: text("Hello"),
-  body: ref(name),
-});
+const app = { BundleIdentifier: "com.example.app", Name: "Example", TeamIdentifier: "ABCDE12345" };
+const note = s.action(appIntent(app, "CreateNoteIntent", "Note"), { title: text("Hello"), body: ref(name) });
+s.action(actions.showresult, { Text: ref(note) });
 }

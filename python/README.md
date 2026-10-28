@@ -32,7 +32,7 @@ are archived ([python-shortcuts](https://github.com/alexander-akhmetov/python-sh
 - All 449 built-in actions as constants, so a typo is an `AttributeError`.
 - 1,318 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
   actions the Shortcuts editor offers: the Siri-only intents the app refuses to import are left out.
-- Third-party app actions, given their descriptor.
+- Third-party app actions, named by app and intent.
 - Checked conditions for 150 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find
   Contacts, ...) and 136 in Apple's apps (Find Messages, Find Notes, ...), from the engine's own
   rules, and the properties of what they find.
@@ -93,20 +93,33 @@ found = s.action(actions.MESSAGES_FIND_MESSAGE,
 s.action(actions.SHOWRESULT, Text=text(property_(found, "body")))
 ```
 
-### Other apps
+### Dictionaries and types
 
-Pass the identifier and descriptor yourself; the parameters are not checked.
+A dictionary parameter takes a plain dict: strings, `text()` and references are text items, and
+numbers, booleans, lists and nested dicts keep their type, as the editor's item type menu sets it.
+`coerce()` reads a value as one content type, as the variable "Type" menu does.
 
 ```python
-s.action(
-    "com.example.app.CreateNoteIntent",
-    AppIntentDescriptor={
-        "BundleIdentifier": "com.example.app", "Name": "Example", "TeamIdentifier": "ABCDE12345",
-        "AppIntentIdentifier": "CreateNoteIntent", "ActionRequiresAppInstallation": True,
-    },
-    title=text("Hello"),
-    body=ref(name),
-)
+from shortcutkit import coerce
+
+d = s.action(actions.DICTIONARY, WFItems={"name": ref(name), "greeted": True, "tags": ["a", "b"]})
+gid = s.if_(coerce(d, "WFStringContentItem"), "contains", "a")
+s.end_if(gid)
+```
+
+### Other apps
+
+Name the app and the intent: the identifier is the bundle identifier followed by the intent name, as
+the catalogue identifies an app's own intents, and the descriptor is written as the catalogue's are.
+The parameters are not checked: their keys are the intent's parameter names, from
+`Metadata.appintents/extract.actionsdata` in the app bundle.
+
+```python
+from shortcutkit import app_intent
+
+app = {"BundleIdentifier": "com.example.app", "Name": "Example", "TeamIdentifier": "ABCDE12345"}
+note = s.action(app_intent(app, "CreateNoteIntent", "Note"), title=text("Hello"), body=ref(name))
+s.action(actions.SHOWRESULT, Text=ref(note))
 ```
 
 ## API
@@ -128,7 +141,10 @@ s.action(
 | `shortcut_input()`, `clipboard()`, `current_date()`, `ask()`, `device_details()`, `current_app()` | Special variables. |
 | `where(*rows)`, `where_any(*rows)` | Conditions for a Find action's `WFContentItemFilter`. |
 | `property_(source, name)` | One property of an action's output or a variable. |
-| `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS` | What each Find action can filter on, and each entity type's properties. |
+| `coerce(source, class)` | A value read as one content type (`CONTENT_ITEM_CLASSES`). |
+| `dictionary(items)` | A dictionary parameter's items; `action()` encodes a plain dict itself. |
+| `app_intent(app, intent, output=None)` | Another app's action, for `s.action()`. |
+| `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type's properties, and the content types a coercion can name. |
 | `actions`, `ACTIONS`, `get_action(id)` | Action identifiers and their catalog entries. |
 | `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | What each parameter accepts. |
 | `CONDITION`, `ICON_COLORS`, `PROVENANCE` | If conditions, icon colors, and the build the data came from. |

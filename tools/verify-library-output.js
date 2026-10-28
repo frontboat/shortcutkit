@@ -50,6 +50,10 @@ function run(argv) {
   if (!argv || !argv.length) { const a = $.NSProcessInfo.processInfo.environment.objectForKey("SK_ARGS"); argv = isNil(a) ? [] : JSON.parse(ObjC.unwrap(a)); }
   if (argv.length < 6) throw new Error("usage: verify-library-output.js fixture.json apple-app-intents.json parameter-encodings.json encoding-table.json encoding-roundtrips.json report.json [provenance.json] [apple-entities.json] [linkd-properties.json]");
   loadEngine(); console.log("engine loaded");
+  // Serializations compared with keys sorted and an empty attachmentsByRange dropped: the engine omits it from a token
+  // string without references, where the library writes {}.
+  const normValue = (v) => { if (Array.isArray(v)) return v.map(normValue); if (v && typeof v === "object") { const o = {}; for (const k of Object.keys(v).sort()) { if (k === "attachmentsByRange" && v[k] && typeof v[k] === "object" && !Object.keys(v[k]).length) continue; o[k] = normValue(v[k]); } return o; } return v; };
+  const sameValue = (a, b) => JSON.stringify(normValue(a)) === JSON.stringify(normValue(b));
   // An engine older than the one the data was extracted from (a CI runner a macOS behind) lacks keys
   // added since and hides some it later reads. There, a key this engine does not define or hides is
   // reported as a version gap, not failed; on the extraction engine or newer, every miss fails.
@@ -93,7 +97,14 @@ function run(argv) {
         const a = tpl.copyWithSerializedParameters($(params));
         if (isNil(a) || a.isMissing) verdict = "action missing";
         else if ((LEGACY_KEYS[c.identifier] || []).includes(c.key)) { const sp = plain(a.serializedParameters, 0) || {}; verdict = c.key in sp ? "ok" : "legacy key discarded by the engine"; }
-        else { if (calls) console.log("  parameterStateForKey: " + c.key); const st = a.parameterStateForKey(c.key); if (isNil(st)) { why = whyNotRead(a, c.key); verdict = "not read (parameter state is nil; " + why + ")"; } else verdict = "ok"; }
+        else {
+          if (calls) console.log("  parameterStateForKey: " + c.key);
+          const st = a.parameterStateForKey(c.key);
+          if (isNil(st)) { why = whyNotRead(a, c.key); verdict = "not read (parameter state is nil; " + why + ")"; }
+          // A dictionary must come back item for item as written (type codes, nesting, array forms); other kinds are checked by their state classes below.
+          else if (c.kind === "dictionary" && !sameValue(plain(st.serializedRepresentation, -40), c.params[c.key])) verdict = "serialized back differently: " + JSON.stringify(plain(st.serializedRepresentation, -40)).slice(0, 300);
+          else verdict = "ok";
+        }
         if (calls) console.log("  -> " + verdict);
       } catch (e) { verdict = "threw: " + e.message.slice(0, 80); }
       if (c.expect === "deviceValidated") {
@@ -115,6 +126,24 @@ function run(argv) {
       else failures.push({ identifier: c.identifier, key: c.key, kind: c.kind, form: c.form, verdict: "state class " + st + " says " + r, via: "state class" });
     }
   }
+  // Coercions: each class coerce() offers must be one the engine lists (+[WFContentItem allSupportedItemClasses], the
+  // editor's "Type" menu) and must parse as a coercion aggrandizement to that class; a class the engine lists that the
+  // library lacks means the data is stale. On an older engine a class it lacks is a version gap.
+  const engineClasses = new Set(); { const list = items(klass("WFContentItem").allSupportedItemClasses); for (let i = 0; i < count(list); i++) engineClasses.add($.class_getName(ObjC.castObjectToRef(list.objectAtIndex(i)))); }
+  let coercions = 0;
+  for (const c of fixture.coercionCases || []) {
+    coercions++;
+    const fail = (verdict) => failures.push({ identifier: c.class, key: "coerce()", form: "coercion", verdict, via: "variable state" });
+    if (!engineClasses.has(c.class)) { if (olderEngine) versionGaps.push(c.class + " (coerce(): no such content item class in this engine)"); else fail("the engine does not list this content item class"); continue; }
+    const st = make("WFVariableParameterState", "initWithSerializedRepresentation:variableProvider:parameter:", $(c.attachment), null, null);
+    const vars = isNil(st) ? null : st.containedVariables;
+    const ags = vars && count(vars) === 1 ? vars.objectAtIndex(0).aggrandizements : null;
+    const ag = ags && count(ags) ? ags.objectAtIndex(count(ags) - 1) : null;
+    if (!ag || cls(ag) !== "WFCoercionVariableAggrandizement" || $.class_getName(ObjC.castObjectToRef(ag.coercionItemClass)) !== c.class) { fail("the engine did not parse the coercion aggrandizement"); continue; }
+    if (!sameValue(plain(st.serializedRepresentation, -40), c.attachment)) { fail("serialized back differently"); continue; }
+    passed++;
+  }
+  if (fixture.coercionCases) for (const name of engineClasses) if (!fixture.coercionCases.some((c) => c.class === name)) failures.push({ identifier: name, key: "coerce()", form: "coercion", verdict: "the engine lists a content item class CONTENT_ITEM_CLASSES lacks; refresh the data", via: "variable state" });
   // Find filters: built-in Find actions through their engine action, Apple's entity types through each
   // entity's content item class (linkd-built in the engine host, index-built under osascript).
   const entityChecks = { filters: 0, properties: 0, unverifiableProperties: 0, indexOnlyRows: 0 };
@@ -236,13 +265,13 @@ function run(argv) {
     } else failures.push({ shortcut: s.name, verdict: "file did not load" });
     shortcuts.push(entry);
   }
-  const summary = { cases: fixture.cases.length, entityChecks, engineChecked, tableChecked, unverifiable, missingTemplates, missingActions: [...missingIds].sort(), rejectedConfirmed, deviceValidated, engineBuild, dataBuild, versionGaps, passed, failures: failures.length, shortcuts };
+  const summary = { cases: fixture.cases.length, entityChecks, coercions, engineChecked, tableChecked, unverifiable, missingTemplates, missingActions: [...missingIds].sort(), rejectedConfirmed, deviceValidated, engineBuild, dataBuild, versionGaps, passed, failures: failures.length, shortcuts };
   if (versionGaps.length) {
     const byKey = {}; for (const g of versionGaps) byKey[g] = (byKey[g] || 0) + 1;
     console.log("version gaps (this engine is older than the data's; not failures):"); for (const [g, k] of Object.entries(byKey)) console.log("  " + k + " x " + g);
   }
   writeJSON(argv[5], { summary, failures: failures.slice(0, 500) });
-  const line = `${fixture.cases.length} cases: ${engineChecked} loaded by engine actions, ${tableChecked} checked against state classes, ${unverifiable} unverifiable, ${missingTemplates} on actions the engine marks missing (${missingIds.size} such actions); ${passed} passed (${rejectedConfirmed} of them forms the library refuses that the engine refuses too), ${deviceValidated.length} plain values the engine checks against this device (${deviceValidated.join(", ") || "none"}), ${versionGaps.length} version gaps on this older engine, ${failures.length} failed; shortcuts: ${JSON.stringify(shortcuts)}`;
+  const line = `${fixture.cases.length} cases: ${engineChecked} loaded by engine actions, ${tableChecked} checked against state classes, ${unverifiable} unverifiable, ${missingTemplates} on actions the engine marks missing (${missingIds.size} such actions); ${coercions} coercions; ${passed} passed (${rejectedConfirmed} of them forms the library refuses that the engine refuses too), ${deviceValidated.length} plain values the engine checks against this device (${deviceValidated.join(", ") || "none"}), ${versionGaps.length} version gaps on this older engine, ${failures.length} failed; shortcuts: ${JSON.stringify(shortcuts)}`;
   console.log(line);
   if (failures.length) throw new Error(failures.length + " case(s) the engine does not read; see " + argv[5]);
   return line; // tools/engine-host prints the script's return value

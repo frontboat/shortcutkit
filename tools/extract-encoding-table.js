@@ -147,6 +147,53 @@ function run(argv) {
   }
   out.appIntentValueTypes = appIntentValueTypes;
 
+  // Content item classes a coercion aggrandizement can name: the engine's own list, which is the editor's
+  // variable "Type" menu (+[WFContentItem allSupportedItemClasses]), each with the type name the editor
+  // shows. The aggrandizement's parser takes any class name, so the library checks against this list.
+  const contentItemClasses = {};
+  const supported = items(klass("WFContentItem").allSupportedItemClasses);
+  for (let i = 0; i < count(supported); i++) {
+    const c = supported.objectAtIndex(i);
+    contentItemClasses[$.class_getName(ObjC.castObjectToRef(c))] = { name: str(c.localizedTypeDescription), plural: str(c.localizedPluralTypeDescription) };
+  }
+  out.contentItemClasses = contentItemClasses;
+
+  // Dictionary items: what WFDictionaryParameterState writes back for a dictionary holding every form the
+  // library writes (text, nested dictionary, array, number, boolean; a key and values holding a reference).
+  // The engine names only the codes (WFItemType); text/dictionary/array/number/boolean are the editor's
+  // names for them. A code outside 0-4 raises in the parser; the value forms it accepts but rewrites are
+  // recorded as `rewritten` (a nested dictionary given without the outer wrapper, a number given bare).
+  const token = (s, att) => ({ WFSerializationType: "WFTextTokenString", Value: att ? { string: s + "\uFFFC", attachmentsByRange: { ["{" + s.length + ", 1}"]: att } } : { string: s, attachmentsByRange: {} } });
+  const myVar = { Type: "Variable", VariableName: "MyVar" };
+  const dict = (items) => ({ WFSerializationType: "WFDictionaryFieldValue", Value: { WFDictionaryFieldValueItems: items } });
+  const nested = (items) => ({ WFSerializationType: "WFDictionaryFieldValue", Value: dict(items) });
+  const array = (items) => ({ WFSerializationType: "WFArrayParameterState", Value: items });
+  const bool = (v) => ({ WFSerializationType: "WFNumberSubstitutableState", Value: v });
+  const dictionarySample = dict([
+    { WFKey: token("text"), WFItemType: 0, WFValue: token("hello") },
+    { WFKey: token("textWithReference"), WFItemType: 0, WFValue: token("Hi ", myVar) },
+    { WFKey: token("", myVar), WFItemType: 0, WFValue: token("key from a reference") },
+    { WFKey: token("dictionary"), WFItemType: 1, WFValue: nested([{ WFKey: token("k"), WFItemType: 0, WFValue: token("v") }]) },
+    { WFKey: token("array"), WFItemType: 2, WFValue: array(["plain text", { WFItemType: 0, WFValue: token("with ", myVar) }, { WFItemType: 3, WFValue: token("7") }, { WFItemType: 4, WFValue: bool(false) }, { WFItemType: 1, WFValue: nested([]) }, { WFItemType: 2, WFValue: array(["z"]) }]) },
+    { WFKey: token("number"), WFItemType: 3, WFValue: token("5") },
+    { WFKey: token("numberFromReference"), WFItemType: 3, WFValue: token("", myVar) },
+    { WFKey: token("boolean"), WFItemType: 4, WFValue: bool(true) },
+    { WFKey: token("booleanFromReference"), WFItemType: 4, WFValue: bool({ WFSerializationType: "WFTextTokenAttachment", Value: myVar }) },
+  ]);
+  const dictionaryState = (d) => make("WFDictionaryParameterState", "initWithSerializedRepresentation:variableProvider:parameter:", $(d), null, null);
+  const reserialized = (d) => attempt(() => { const st = dictionaryState(d); return isNil(st) ? "rejected" : plain(st.serializedRepresentation, -40); });
+  out.dictionaryItems = {
+    sample: dictionarySample,
+    serialized: reserialized(dictionarySample),
+    rewritten: {
+      nestedWithoutWrapper: reserialized(dict([{ WFKey: token("d"), WFItemType: 1, WFValue: dict([{ WFKey: token("k"), WFItemType: 0, WFValue: token("v") }]) }])),
+      bareNumber: reserialized(dict([{ WFKey: token("n"), WFItemType: 3, WFValue: 5 }])),
+      bareStrings: reserialized(dict([{ WFKey: "t", WFItemType: 0, WFValue: "hello" }])),
+      booleanState: reserialized(dict([{ WFKey: token("b"), WFItemType: 4, WFValue: { WFSerializationType: "WFBooleanSubstitutableState", Value: true } }])),
+    },
+    itemType9: reserialized(dict([{ WFKey: token("x"), WFItemType: 9, WFValue: token("y") }])),
+  };
+
   writeJSON(argv[0], out);
-  console.log(Object.keys(states).length + " state classes, " + Object.keys(vars).length + " variables, " + Object.keys(appIntentValueTypes).length + " App Intents value types -> " + argv[0]);
+  console.log(Object.keys(states).length + " state classes, " + Object.keys(vars).length + " variables, " + Object.keys(appIntentValueTypes).length + " App Intents value types, " + Object.keys(contentItemClasses).length + " content item classes -> " + argv[0]);
 }

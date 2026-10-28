@@ -657,6 +657,25 @@ it. `Shortcut.action()` applies the same table at run time in both packages.
 - **Icon palette.** `WFWorkflowIcon` constructed with palette colors 0–14 and asked for
   `backgroundColorValue`; the default glyph, 61440, is `+[WFWorkflowIcon defaultGlyphCharacter]`.
 
+**Dictionary items and coercions** (2026-10-27). `WFDictionaryParameterState` was fed a dictionary holding
+every item form (text, text with a reference, a key from a reference, a nested dictionary, an array of
+each, a number, a boolean, both from references, and empty ones) through
+`-initWithSerializedRepresentation:variableProvider:parameter:` and asked to serialize it back;
+`extract-encoding-table.js` records the sample and the result as `dictionaryItems`, `verify-encodings.js`
+requires the round trip, and the verifier compares every dictionary the fixtures write against what the
+engine's actions write back. What the engine rewrote fixed the forms: a nested dictionary given without
+the outer wrapper comes back wrapped once more, a bare number under type 3 comes back as "0", a
+`WFBooleanSubstitutableState` comes back as `WFNumberSubstitutableState`, plain array items come back as
+bare strings, and type code 9 raises (`State for WFPropertyListParameterValue is not of the expected
+class`). The engine names only the codes; text, dictionary, array, number and boolean are the editor's
+names for them. Reading an array item, the engine first tries the value as a bare list and logs a
+`WFEnforceClass` warning ("is of type __NSDictionaryM, not NSArray! Falling back to nil") before
+reading the wrapped form; the serialization still comes back as written. Coercion classes: the aggrandizement's parser (`WFCoercionVariableAggrandizement`,
+through `WFVariableParameterState`) accepts any class name, including one that does not exist, so the
+list the packages check against is `+[WFContentItem allSupportedItemClasses]` with each class's
+`localizedTypeDescription`, which is the editor's variable "Type" menu (22 classes on macOS 27); the
+verifier fails if this engine lists a class the data lacks.
+
 ### What is still approximate
 
 - The generator emits the legacy single-condition If. Shortcuts migrates it on load. Multi-
@@ -670,6 +689,9 @@ it. `Shortcut.action()` applies the same table at run time in both packages.
   are not offered (see the open list under the engine's filter rules). Under osascript the
   verifier can only build the index's classes, which lack some of those properties; rows on
   them are checked in the engine host (`bun run verify` runs it when it is built).
+- Dictionary item type names (text, dictionary, array, number, boolean) are the editor's; the engine
+  exposes only the codes 0-4, and `exportWithError:` yields a program node rather than values, so what
+  each code becomes at run time was not read from the engine.
 - Coverage of the editor's list has no open rule
   ([the coverage section](#what-the-editor-shows-that-the-catalogue-does-not)). The rules were
   checked on one Mac and one editor build; a rule the index or linkd changes on a later macOS
@@ -686,6 +708,9 @@ shortcuts and are recorded here because they are not in the data:
 - The sort strings "Latest First" and "Oldest First" are accepted on Find actions; the editor
   stores the limit as a real and an integer also works.
 - Run Shell Script's `Shell` takes a path (`/usr/bin/python3` works).
+- Reported by a downstream user (zacharytamas/swiss-mcp, macOS 27.0), not reproduced here: an If whose
+  subject is a dictionary value fails at run time with "Please choose a value for each parameter" until
+  the subject carries a text coercion; `coerce(value, "WFStringContentItem")` writes that.
 - `shortcuts run` returns the last action's output and now and then never returns after the
   shortcut has finished; `tools/linkd/run-payload.sh` watches its payload's progress file and
   kills the run and `siriactionsd` when that happens.

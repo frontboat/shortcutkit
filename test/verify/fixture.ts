@@ -2,7 +2,7 @@
 // the types allow, plus whole shortcuts built through the block helpers, and writes what the
 // library produced. tools/verify-library-output.js then loads all of it through the engine.
 //   bun test/verify/fixture.ts out.json
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, ref, text, variable, shortcutInput, clipboard, currentDate, ask, deviceDetails, currentApp, repeatItem, property, where, whereAny } from "../../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, ref, text, variable, shortcutInput, clipboard, currentDate, ask, deviceDetails, currentApp, repeatItem, property, where, whereAny, coerce, appIntent } from "../../src/index";
 import encodings from "../../data/parameter-encodings.json";
 
 // expect: "read" (the library wrote it, the engine must read it) or "rejected" (the library refuses
@@ -20,6 +20,9 @@ const REF = ref(source);
 // Every reference the library can write, by the variable type the engine names it.
 const REFERENCES: Array<[string, unknown]> = [["ref", REF], ["shortcutInput", shortcutInput()], ["variable", variable("MyVar")], ["clipboard", clipboard()], ["currentDate", currentDate()], ["ask", ask("Which?")], ["deviceDetails", deviceDetails()], ["currentApp", currentApp()]];
 const typeOf = (v: unknown): string => String((v as { Value: { Type: string } }).Value.Type);
+// Every item form dictionary() writes: text, text with a reference, a bare reference, a nested dictionary, an array of
+// each, a number, a boolean, and empty ones. action() encodes it for a dictionary key; the engine must write it back as is.
+const DICTIONARY = { text: "hello", withReference: text("Hi ", REF), reference: REF, nested: { k: "v", n: 2 }, list: ["x", 7, false, text("hi ", REF), { k: "v" }, ["z"]], number: 5, boolean: true, empty: {}, none: [] };
 
 function samples(identifier: string, key: string, kind: string): Array<[string, unknown]> {
   const choices = (PARAM_CHOICES as Record<string, Record<string, readonly string[]>>)[identifier]?.[key] ?? [];
@@ -36,7 +39,8 @@ function samples(identifier: string, key: string, kind: string): Array<[string, 
     case "subject": return [["ref", REF]];
     case "plainString": return [["string", "hello"]];
     case "plainNumber": return [["number", 5]];
-    default: return []; // dictionary, quantity, filter, any: no single form is promised by the type
+    case "dictionary": return [["dictionary", DICTIONARY]];
+    default: return []; // quantity, filter, any: no single form is promised by the type
   }
 }
 
@@ -121,6 +125,10 @@ for (const [entity, props] of Object.entries(ENTITY_PROPERTIES as Record<string,
   for (const name of props) propertyCases.push({ entity, property: name, attachment: property(a as never, name) });
 }
 
+// Coercions: every content item class the engine lists, through coerce().
+type CoercionCase = { class: string; attachment: unknown };
+const coercionCases: CoercionCase[] = Object.keys(CONTENT_ITEM_CLASSES).map((cls) => ({ class: cls, attachment: coerce(REF, cls as keyof typeof CONTENT_ITEM_CLASSES) }));
+
 // Whole shortcuts through the helpers: control flow, loop variables, share sheet, text wrapping.
 const s = new Shortcut("Blocks", { color: "Teal", types: ["ActionExtension"], inputClasses: ["WFSafariWebPageContentItem", "WFURLContentItem"] });
 const got = s.action(actions.getstoredcontent, { WFStoredContentKey: "k" });
@@ -147,6 +155,12 @@ const found = s.action("com.apple.MobileSMS.MessageEntity", { WFContentItemFilte
 const each = s.repeatEach(ref(found));
 s.action(actions.showresult, { Text: text(property(repeatItem(), "body"), " ", property(found, "date")) });
 s.endRepeatEach(each);
+// A dictionary given plain, a coerced If subject, and another app's action with its descriptor.
+const dict = s.action(actions.dictionary, { WFItems: { greeting: text("Hi ", ref(got)), count: 1, tags: ["a", "b"] } });
+s.action(actions.downloadurl, { WFURL: "https://example.com/api", WFHTTPMethod: "POST", WFHTTPHeaders: { Accept: "application/json" }, WFJSONValues: { body: ref(dict), ok: true } });
+const c5 = s.if(coerce(ref(dict), "WFStringContentItem"), "contains", "a"); s.endIf(c5);
+const other = s.action(appIntent({ BundleIdentifier: "com.example.app", Name: "Example", TeamIdentifier: "ABCDE12345" }, "CreateNoteIntent", "Note"), { title: text("Hello ", ref(got)) });
+s.action(actions.showresult, { Text: coerce(other, "WFStringContentItem") });
 const shortcuts = [{ name: "Blocks", plist: s.toPlist(), actionCount: s.actions.length }];
 
 const out = process.argv[2];
@@ -156,5 +170,5 @@ function dates(this: unknown, key: string, value: unknown) {
   const raw = (this as Record<string, unknown>)[key];
   return raw instanceof Date ? { $date: raw.toISOString().replace(/\.\d{3}Z$/, "Z") } : value;
 }
-await Bun.write(out, JSON.stringify({ cases, filterCases, propertyCases, shortcuts }, dates, 1));
-console.log(cases.length, "parameter cases across", new Set(cases.map((x) => x.identifier)).size, "actions;", filterCases.length, "filters across", Object.keys(FILTERS).length, "Find actions;", propertyCases.length, "properties;", shortcuts.length, "whole shortcuts ->", out);
+await Bun.write(out, JSON.stringify({ cases, filterCases, propertyCases, coercionCases, shortcuts }, dates, 1));
+console.log(cases.length, "parameter cases across", new Set(cases.map((x) => x.identifier)).size, "actions;", filterCases.length, "filters across", Object.keys(FILTERS).length, "Find actions;", propertyCases.length, "properties;", coercionCases.length, "coercions;", shortcuts.length, "whole shortcuts ->", out);
