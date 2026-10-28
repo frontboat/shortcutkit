@@ -2126,12 +2126,6 @@ export type ComAppleIWorkNumbersCreateNewSpreadsheetParams = Partial<ParamTypes[
 export type ComAppleIWorkPagesExportDocumentInBackgroundParams = Partial<ParamTypes["com.apple.iWork.Pages.TPDocumentBackgroundExportIntent"]>;
 /** Parameters of Create New Document (`com.apple.iWork.Pages.TPNewDocumentIntent`). */
 export type ComAppleIWorkPagesCreateNewDocumentParams = Partial<ParamTypes["com.apple.iWork.Pages.TPNewDocumentIntent"]>;
-/** Parameters of Start Navigation (`com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps`). */
-export type ComAppleIntelligenceflowGeoFlowToolsGeoFlowToolsStartNavigationFlowToolComAppleMapsParams = Partial<ParamTypes["com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps"]>;
-/** Parameters of Update Navigation Waypoints (`com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps`). */
-export type ComAppleIntelligenceflowGeoFlowToolsGeoFlowToolsUpdateWayPointsFlowToolComAppleMapsParams = Partial<ParamTypes["com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps"]>;
-/** Parameters of GetCurrentLocationTool (`com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin.GetCurrentLocationFlowToolPlugin.GetCurrentLocationTool`). */
-export type ComAppleIntelligenceflowGetCurrentLocationFlowToolPluginGetCurrentLocationFlowToolPluginGetCurrentLocationToolParams = Partial<ParamTypes["com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin.GetCurrentLocationFlowToolPlugin.GetCurrentLocationTool"]>;
 /** Parameters of Open Application (`com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenApplication`). */
 export type ComAppleIntelligenceflowIntelligenceFlowAppIntentsExtensionOpenApplicationParams = Partial<ParamTypes["com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenApplication"]>;
 /** Parameters of Open File (`com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenFile`). */
@@ -2466,24 +2460,6 @@ export type ComAppleSiriAudioAppIntentsExtensionAddAudioItemToPlaylistParams = P
 export type ComAppleSiriAudioAppIntentsExtensionLikeAudioItemParams = Partial<ParamTypes["com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent"]>;
 /** Parameters of Whole House Audio Placeholder Intent (`com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent`). */
 export type ComAppleSiriAudioAppIntentsExtensionWholeHouseAudioPlaceholderIntentParams = Partial<ParamTypes["com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent"]>;
-/** Parameters of EditPhotoWarmth (`com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos`). */
-export type ComAppleSiriPhotosFlowToolsSiriPhotosFlowToolsEditPhotoWarmthComApplePhotosParams = Partial<ParamTypes["com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos"]>;
-/** Parameters of AddAudioToLibrary (`com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music`). */
-export type ComAppleSiriSiriAudioToolsSiriAudioToolsAddAudioToLibraryToolComAppleMusicParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music"]>;
-/** Parameters of AddAudioToLibrary (`com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts`). */
-export type ComAppleSiriSiriAudioToolsSiriAudioToolsAddAudioToLibraryToolComApplePodcastsParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts"]>;
-/** Parameters of AddAudioToPlaylist (`com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music`). */
-export type ComAppleSiriSiriAudioToolsSiriAudioToolsAddAudioToPlaylistToolComAppleMusicParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music"]>;
-/** Parameters of PlayAudio (`com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music`). */
-export type ComAppleSiriSiriAudioToolsSiriAudioToolsPlayAudioToolComAppleMusicParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music"]>;
-/** Parameters of PlayAudio (`com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX`). */
-export type ComAppleSiriSiriAudioToolsSiriAudioToolsPlayAudioToolComAppleIBooksXParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX"]>;
-/** Parameters of PlayAudio (`com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts`). */
-export type ComAppleSiriSiriAudioToolsSiriAudioToolsPlayAudioToolComApplePodcastsParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts"]>;
-/** Parameters of UpdateAudioAffinity (`com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music`). */
-export type ComAppleSiriSiriAudioToolsSiriAudioToolsUpdateAudioAffinityToolComAppleMusicParams = Partial<ParamTypes["com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music"]>;
-/** Parameters of Get Crisis Resources (`com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool`). */
-export type ComAppleSiriSiriCrisisFlowToolsSiriCrisisFlowToolsGetCrisisResourcesFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool"]>;
 /** Parameters of Get Current Location (`com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity`). */
 export type ComAppleSiriSiriGeoSiriGeoAppIntentExtensionGetCurrentLocationParams = Partial<ParamTypes["com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity"]>;
 /** Parameters of Get Current Route (`com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity`). */
@@ -2492,60 +2468,16 @@ export type ComAppleSiriSiriGeoSiriGeoAppIntentExtensionGetCurrentRouteParams = 
 export type ComAppleSiriSiriGeoSiriGeoAppIntentExtensionSiriGeoAppIntentParams = Partial<ParamTypes["com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.SiriGeoAppIntent"]>;
 /** Parameters of Start Navigation for Third Party Apps (`com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent`). */
 export type ComAppleSiriSiriGeoSiriGeoAppIntentExtensionStartNavigationForThirdPartyAppsParams = Partial<ParamTypes["com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent"]>;
-/** Parameters of WhoAmITool (`com.apple.siri.SiriIdentityInternal.SiriIdentityInternal.WhoAmITool`). */
-export type ComAppleSiriSiriIdentityInternalSiriIdentityInternalWhoAmIToolParams = Partial<ParamTypes["com.apple.siri.SiriIdentityInternal.SiriIdentityInternal.WhoAmITool"]>;
-/** Parameters of CreateDraftMailTool (`com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail`). */
-export type ComAppleSiriSiriMailFlowToolsSiriMailFlowToolsCreateDraftMailToolComAppleMailParams = Partial<ParamTypes["com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail"]>;
-/** Parameters of ForwardDraftMailTool (`com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail`). */
-export type ComAppleSiriSiriMailFlowToolsSiriMailFlowToolsForwardDraftMailToolComAppleMailParams = Partial<ParamTypes["com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail"]>;
-/** Parameters of ReplyDraftMailTool (`com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail`). */
-export type ComAppleSiriSiriMailFlowToolsSiriMailFlowToolsReplyDraftMailToolComAppleMailParams = Partial<ParamTypes["com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail"]>;
-/** Parameters of SendDraftMailTool (`com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail`). */
-export type ComAppleSiriSiriMailFlowToolsSiriMailFlowToolsSendDraftMailToolComAppleMailParams = Partial<ParamTypes["com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail"]>;
-/** Parameters of UpdateDraftMailTool (`com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail`). */
-export type ComAppleSiriSiriMailFlowToolsSiriMailFlowToolsUpdateDraftMailToolComAppleMailParams = Partial<ParamTypes["com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail"]>;
 /** Parameters of Prepare notifications (`com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent`). */
 export type ComAppleSiriSiriNotificationsAppIntentsExtensionPrepareNotificationsParams = Partial<ParamTypes["com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent"]>;
 /** Parameters of SiriNotificationsAppIntentsExtension (`com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension`). */
 export type ComAppleSiriSiriNotificationsAppIntentsExtensionSiriNotificationsAppIntentsExtensionParams = Partial<ParamTypes["com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension"]>;
-/** Parameters of Prepare Notifications (`com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool`). */
-export type ComAppleSiriSiriNotificationsFlowToolsSiriNotificationsFlowToolsPrepareNotificationsToolParams = Partial<ParamTypes["com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool"]>;
 /** Parameters of SiriPhonePunchoutIntent (`com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent`). */
 export type PhoneSiriphonePunchoutIntentParams = Partial<ParamTypes["com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent"]>;
-/** Parameters of Answer an incoming call (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsAnswerCallFlowToolComAppleCallsPhoneAppIntentsExtensionParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension"]>;
-/** Parameters of Call Emergency Contact Flow Tool (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsCallEmergencyContactFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool"]>;
-/** Parameters of Callback Flow Tool (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsCallbackFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool"]>;
-/** Parameters of Prepare Call Messages Flow Tool (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsPrepareCallMessagesFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool"]>;
-/** Parameters of Prepare Read Call Records (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsPrepareReadCallRecordsFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool"]>;
-/** Parameters of Read Call Message Flow Tool (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsReadCallMessageFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool"]>;
-/** Parameters of Redial Flow Tool (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.RedialFlowTool`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsRedialFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.RedialFlowTool"]>;
-/** Parameters of Start a call (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsStartCallFlowToolComAppleFaceTimeParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime"]>;
-/** Parameters of Start a call (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsStartCallFlowToolComAppleMobilephoneParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone"]>;
-/** Parameters of Start Crisis Helpline Call Flow Tool (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsStartCrisisHelplineCallFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool"]>;
-/** Parameters of Start Emergency Call (`com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension`). */
-export type ComAppleSiriSiriPhoneFlowToolsSiriPhoneFlowToolsStartEmergencyCallFlowToolComAppleCallsPhoneAppIntentsExtensionParams = Partial<ParamTypes["com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension"]>;
 /** Parameters of SiriPhotosAppIntentsExtension (`com.apple.siri.SiriPhotosAppIntentsExtension.SiriPhotosAppIntentsExtension`). */
 export type ComAppleSiriSiriPhotosAppIntentsExtensionSiriPhotosAppIntentsExtensionParams = Partial<ParamTypes["com.apple.siri.SiriPhotosAppIntentsExtension.SiriPhotosAppIntentsExtension"]>;
 /** Parameters of Update Photo Warmth (`com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool`). */
 export type ComAppleSiriSiriPhotosAppIntentsExtensionUpdatePhotoWarmthParams = Partial<ParamTypes["com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool"]>;
-/** Parameters of CancelTimer (`com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock`). */
-export type ComAppleSiriSiriTimeFlowToolsSiriTimeFlowToolsCancelTimerFlowToolComAppleClockParams = Partial<ParamTypes["com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock"]>;
-/** Parameters of DismissAlarm (`com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock`). */
-export type ComAppleSiriSiriTimeFlowToolsSiriTimeFlowToolsDismissAlarmFlowToolComAppleClockParams = Partial<ParamTypes["com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock"]>;
-/** Parameters of SnoozeAlarm (`com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock`). */
-export type ComAppleSiriSiriTimeFlowToolsSiriTimeFlowToolsSnoozeAlarmFlowToolComAppleClockParams = Partial<ParamTypes["com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock"]>;
-/** Parameters of Translate Text (`com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool`). */
-export type ComAppleSiriSiriTranslationFlowToolsSiriTranslationFlowToolsTranslateTextFlowToolParams = Partial<ParamTypes["com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool"]>;
 /** Parameters of Cross Device Placeholder Intent (`com.apple.siri.SiriVideoAppIntents.CrossDevicePlaceholderIntent`). */
 export type ComAppleSiriSiriVideoAppIntentsCrossDevicePlaceholderIntentParams = Partial<ParamTypes["com.apple.siri.SiriVideoAppIntents.CrossDevicePlaceholderIntent"]>;
 /** Parameters of Finds a freeform video (`com.apple.siri.SiriVideoAppIntents.InternalFindFreeformVideoIntent`). */
@@ -2554,50 +2486,12 @@ export type ComAppleSiriSiriVideoAppIntentsFindsAFreeformVideoParams = Partial<P
 export type ComAppleSiriSiriVideoAppIntentsFindsAVideoParams = Partial<ParamTypes["com.apple.siri.SiriVideoAppIntents.InternalFindVideoIntent"]>;
 /** Parameters of Plays a video (`com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent`). */
 export type ComAppleSiriSiriVideoAppIntentsPlaysAVideoParams = Partial<ParamTypes["com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent"]>;
-/** Parameters of Find Video content (`com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool`). */
-export type ComAppleSiriSiriVideoFlowToolsSiriVideoFlowToolsFindVideoContentToolParams = Partial<ParamTypes["com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool"]>;
-/** Parameters of Create Incoming Geofence (`com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy`). */
-export type ComAppleSiriFindmySiriFindMyFlowToolsSiriFindMyFlowToolsCreateIncomingGeofenceToolComAppleFindmyParams = Partial<ParamTypes["com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy"]>;
-/** Parameters of Create Outgoing Geofence (`com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy`). */
-export type ComAppleSiriFindmySiriFindMyFlowToolsSiriFindMyFlowToolsCreateOutgoingGeofenceToolComAppleFindmyParams = Partial<ParamTypes["com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy"]>;
-/** Parameters of Find Item Location (`com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy`). */
-export type ComAppleSiriFindmySiriFindMyFlowToolsSiriFindMyFlowToolsFindItemLocationToolComAppleFindmyParams = Partial<ParamTypes["com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy"]>;
-/** Parameters of Play Item Sound (`com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy`). */
-export type ComAppleSiriFindmySiriFindMyFlowToolsSiriFindMyFlowToolsPlayItemSoundToolComAppleFindmyParams = Partial<ParamTypes["com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy"]>;
 /** Parameters of Messages Post Reading Action Tool (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent`). */
 export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionMessagesPostReadingActionToolParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent"]>;
 /** Parameters of Prepare To Read Conversation Tool (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent`). */
 export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionPrepareToReadConversationToolParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent"]>;
 /** Parameters of Update a Draft (`com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool`). */
 export type ComAppleSiriMessagesSiriMessagesAppIntentsExtensionUpdateADraftParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool"]>;
-/** Parameters of Create Draft (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsCreateDraftMessageToolComAppleMobileSMSParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS"]>;
-/** Parameters of Edit Last Message Sent With Siri (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsEditLastMessageSentWithSiriToolParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool"]>;
-/** Parameters of PerformMessagesPostReadActionFlowTool (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsPerformMessagesPostReadActionFlowToolParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool"]>;
-/** Parameters of Prepare Conversation (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsPrepareToReadConversationToolComAppleMobileSMSParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS"]>;
-/** Parameters of Prepare Conversation (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsPrepareToReadConversationToolComAppleSiriMessagesSiriMessagesAppIntentsExtensionParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension"]>;
-/** Parameters of Prepare Messages (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsPrepareToReadMessagesToolComAppleMobileSMSParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS"]>;
-/** Parameters of Send Draft Message (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsSendDraftMessageToolComAppleMobileSMSParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS"]>;
-/** Parameters of Send Message Reaction (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsSendMessageReactionToolComAppleMobileSMSParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS"]>;
-/** Parameters of Unsend Last Message Sent With Siri (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UnsendLastMessageSentWithSiriTool`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsUnsendLastMessageSentWithSiriToolParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UnsendLastMessageSentWithSiriTool"]>;
-/** Parameters of Update Draft (`com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS`). */
-export type ComAppleSiriMessagesSiriMessagesFlowToolsSiriMessagesFlowToolsUpdateDraftMessageToolComAppleMobileSMSParams = Partial<ParamTypes["com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS"]>;
-/** Parameters of Create List and Reminder (`com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders`). */
-export type ComAppleSiriNotebookSiriNotebookFlowToolsSiriNotebookFlowToolsCreateListAddReminderFlowToolComAppleRemindersParams = Partial<ParamTypes["com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders"]>;
-/** Parameters of Create Reminder (`com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders`). */
-export type ComAppleSiriNotebookSiriNotebookFlowToolsSiriNotebookFlowToolsCreateReminderFlowToolComAppleRemindersParams = Partial<ParamTypes["com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders"]>;
-/** Parameters of Prepare Read Reminders (`com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders`). */
-export type ComAppleSiriNotebookSiriNotebookFlowToolsSiriNotebookFlowToolsPrepareReadRemindersFlowToolComAppleRemindersParams = Partial<ParamTypes["com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders"]>;
-/** Parameters of Update Reminder (`com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders`). */
-export type ComAppleSiriNotebookSiriNotebookFlowToolsSiriNotebookFlowToolsUpdateReminderFlowToolComAppleRemindersParams = Partial<ParamTypes["com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders"]>;
 /** Parameters of Share and Collaborate (`com.apple.sociallayerd.CollaborationIntent`). */
 export type ComAppleSociallayerdShareAndCollaborateParams = Partial<ParamTypes["com.apple.sociallayerd.CollaborationIntent"]>;
 /** Parameters of Add Symbol to Watchlist (`com.apple.stocks.AddSymbolToWatchlistIntent`). */

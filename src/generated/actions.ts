@@ -9967,28 +9967,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_i_work_pages_create_new_document: "com.apple.iWork.Pages.TPNewDocumentIntent",
   /**
-   * **Start Navigation**
-   *
-   * Start navigation from origin to destinations (Maps)
-   *
-   * Parameters: `origin`, `destinations`, `transportationType`, `preferences`
-   */
-  com_apple_intelligenceflow_GeoFlowTools_GeoFlowTools_StartNavigationFlowTool_com_apple_Maps: "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps",
-  /**
-   * **Update Navigation Waypoints**
-   *
-   * Replace the active navigation session's waypoints with the provided list. (Maps)
-   *
-   * Parameters: `waypoints`, `navigation`
-   */
-  com_apple_intelligenceflow_GeoFlowTools_GeoFlowTools_UpdateWayPointsFlowTool_com_apple_Maps: "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps",
-  /**
-   * **GetCurrentLocationTool**
-   *
-   * A standalone tool to get the user's location. (GetCurrentLocationFlowToolPlugin)
-   */
-  com_apple_intelligenceflow_GetCurrentLocationFlowToolPlugin_GetCurrentLocationFlowToolPlugin_GetCurrentLocationTool: "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin.GetCurrentLocationFlowToolPlugin.GetCurrentLocationTool",
-  /**
    * **Open Application**
    *
    * Open Application (IntelligenceFlowAppIntentsExtension)
@@ -11516,78 +11494,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_siri_audio_app_intents_extension_whole_house_audio_placeholder_intent: "com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent",
   /**
-   * **EditPhotoWarmth**
-   *
-   * Adjust the warmth/temperature of a photo to make it warmer or cooler. (Photos)
-   *
-   * Parameters: `target`, `adjustmentType`, `value`, `isPercentage`
-   */
-  com_apple_siri_PhotosFlowTools_SiriPhotosFlowTools_EditPhotoWarmth_com_apple_Photos: "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos",
-  /**
-   * **AddAudioToLibrary**
-   *
-   *  (Music)
-   *
-   * Parameters: `audioEntity`
-   */
-  com_apple_siri_SiriAudioTools_SiriAudioTools_AddAudioToLibraryTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music",
-  /**
-   * **AddAudioToLibrary**
-   *
-   *  (Podcasts)
-   *
-   * Parameters: `audioEntity`
-   */
-  com_apple_siri_SiriAudioTools_SiriAudioTools_AddAudioToLibraryTool_com_apple_podcasts: "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts",
-  /**
-   * **AddAudioToPlaylist**
-   *
-   *  (Music)
-   *
-   * Parameters: `audioEntity`, `playlist`
-   */
-  com_apple_siri_SiriAudioTools_SiriAudioTools_AddAudioToPlaylistTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music",
-  /**
-   * **PlayAudio**
-   *
-   *  (Music)
-   *
-   * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `destinations`
-   */
-  com_apple_siri_SiriAudioTools_SiriAudioTools_PlayAudioTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music",
-  /**
-   * **PlayAudio**
-   *
-   *  (Books)
-   *
-   * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `destinations`
-   */
-  com_apple_siri_SiriAudioTools_SiriAudioTools_PlayAudioTool_com_apple_iBooksX: "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX",
-  /**
-   * **PlayAudio**
-   *
-   *  (Podcasts)
-   *
-   * Parameters: `audioEntity`, `playbackAttributes`, `queueLocation`, `destinations`
-   */
-  com_apple_siri_SiriAudioTools_SiriAudioTools_PlayAudioTool_com_apple_podcasts: "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts",
-  /**
-   * **UpdateAudioAffinity**
-   *
-   *  (Music)
-   *
-   * Parameters: `target`, `affinityState`
-   */
-  com_apple_siri_SiriAudioTools_SiriAudioTools_UpdateAudioAffinityTool_com_apple_Music: "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music",
-  /**
-   * **Get Crisis Resources**
-   *
-   * Offline lookup of verified crisis-support resources (SiriCrisisFlowTools)
-   *
-   * Parameters: `resourceCategories`
-   */
-  com_apple_siri_SiriCrisisFlowTools_SiriCrisisFlowTools_GetCrisisResourcesFlowTool: "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool",
-  /**
    * **Get Current Location**
    *
    *  (SiriGeoAppIntentsExtension)
@@ -11624,52 +11530,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_siri_siri_geo_siri_geo_app_intent_extension_start_navigation_for_third_party_apps: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent",
   /**
-   * **WhoAmITool**
-   *
-   * Who am I Flow Tool (SiriIdentityInternal)
-   */
-  com_apple_siri_SiriIdentityInternal_SiriIdentityInternal_WhoAmITool: "com.apple.siri.SiriIdentityInternal.SiriIdentityInternal.WhoAmITool",
-  /**
-   * **CreateDraftMailTool**
-   *
-   * Create a new email draft. (Mail)
-   *
-   * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`
-   */
-  com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_CreateDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail",
-  /**
-   * **ForwardDraftMailTool**
-   *
-   * Create a forwarding email draft. (Mail)
-   *
-   * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
-   */
-  com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_ForwardDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail",
-  /**
-   * **ReplyDraftMailTool**
-   *
-   * Create a replying or replying all email draft. (Mail)
-   *
-   * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`, `isReplyAll`
-   */
-  com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_ReplyDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail",
-  /**
-   * **SendDraftMailTool**
-   *
-   * Send an email draft now or at a specified later time. (Mail)
-   *
-   * Parameters: `sendLaterDate`, `target`
-   */
-  com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_SendDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail",
-  /**
-   * **UpdateDraftMailTool**
-   *
-   * Update an email draft. (Mail)
-   *
-   * Parameters: `to`, `cc`, `bcc`, `subject`, `body`, `account`, `attachments`, `target`
-   */
-  com_apple_siri_SiriMailFlowTools_SiriMailFlowTools_UpdateDraftMailTool_com_apple_mail: "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail",
-  /**
    * **Prepare notifications**
    *
    * Prepare notifications (SiriNotificationsAppIntentsExtension)
@@ -11684,14 +11544,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_siri_siri_notifications_app_intents_extension_siri_notifications_app_intents_extension: "com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension",
   /**
-   * **Prepare Notifications**
-   *
-   * Prepare notifications for reading (SiriNotificationsFlowTools)
-   *
-   * Parameters: `notifications`, `isReadLatest`, `isCatchMeUp`
-   */
-  com_apple_siri_SiriNotificationsFlowTools_SiriNotificationsFlowTools_PrepareNotificationsTool: "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool",
-  /**
    * **SiriPhonePunchoutIntent**
    *
    *  (SiriPhoneAppIntentsExtension)
@@ -11699,90 +11551,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `url`, `uniqueID`, `OpenWhenRun`
    */
   phone_siriphone_punchout_intent: "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent",
-  /**
-   * **Answer an incoming call**
-   *
-   * Answer an incoming call looked up in the context and routes the audio to the audio route if it was specified (PhoneAppIntentsExtension)
-   *
-   * Parameters: `call`, `audioRoute`
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_AnswerCallFlowTool_com_apple_calls_PhoneAppIntentsExtension: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension",
-  /**
-   * **Call Emergency Contact Flow Tool**
-   *
-   * Call the emergency contact. (SiriPhoneFlowTools)
-   *
-   * Parameters: `audioRoute`
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_CallEmergencyContactFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool",
-  /**
-   * **Callback Flow Tool**
-   *
-   * Callback the previous caller. (SiriPhoneFlowTools)
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_CallbackFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool",
-  /**
-   * **Prepare Call Messages Flow Tool**
-   *
-   * Prepare call messages (voicemails). (SiriPhoneFlowTools)
-   *
-   * Parameters: `messages`
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_PrepareCallMessagesFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool",
-  /**
-   * **Prepare Read Call Records**
-   *
-   * Prepare Read call records. (SiriPhoneFlowTools)
-   *
-   * Parameters: `records`
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_PrepareReadCallRecordsFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool",
-  /**
-   * **Read Call Message Flow Tool**
-   *
-   * Read call message. (SiriPhoneFlowTools)
-   *
-   * Parameters: `message`
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_ReadCallMessageFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool",
-  /**
-   * **Redial Flow Tool**
-   *
-   * Redial last caller. (SiriPhoneFlowTools)
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_RedialFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.RedialFlowTool",
-  /**
-   * **Start a call**
-   *
-   * Starts an audio or video call to a person, list of people, or group chat, using the default phone app, FaceTime, or a custom app (PhoneAppIntentsExtension)
-   *
-   * Parameters: `destination`, `audioVisualMode`, `audioRoute`
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartCallFlowTool_com_apple_FaceTime: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime",
-  /**
-   * **Start a call**
-   *
-   * Starts an audio or video call to a person, list of people, or group chat, using the default phone app, FaceTime, or a custom app (PhoneAppIntentsExtension)
-   *
-   * Parameters: `destination`, `audioVisualMode`, `audioRoute`
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartCallFlowTool_com_apple_mobilephone: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone",
-  /**
-   * **Start Crisis Helpline Call Flow Tool**
-   *
-   * Start a crisis helpline call. (SiriPhoneFlowTools)
-   *
-   * Parameters: `crisisResourceType`, `audioRoute`
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartCrisisHelplineCallFlowTool: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool",
-  /**
-   * **Start Emergency Call**
-   *
-   * Start an emergency call (PhoneAppIntentsExtension)
-   *
-   * Parameters: `destination`, `audioRoute`
-   */
-  com_apple_siri_SiriPhoneFlowTools_SiriPhoneFlowTools_StartEmergencyCallFlowTool_com_apple_calls_PhoneAppIntentsExtension: "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension",
   /**
    * **SiriPhotosAppIntentsExtension**
    *
@@ -11797,38 +11565,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `target`, `adjustmentType`, `value`, `isPercentage`
    */
   com_apple_siri_siri_photos_app_intents_extension_update_photo_warmth: "com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool",
-  /**
-   * **CancelTimer**
-   *
-   * Cancel the timer (Clock)
-   *
-   * Parameters: `entities`
-   */
-  com_apple_siri_SiriTimeFlowTools_SiriTimeFlowTools_CancelTimerFlowTool_com_apple_clock: "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock",
-  /**
-   * **DismissAlarm**
-   *
-   * Dismiss an alarm (Clock)
-   *
-   * Parameters: `alarm`
-   */
-  com_apple_siri_SiriTimeFlowTools_SiriTimeFlowTools_DismissAlarmFlowTool_com_apple_clock: "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock",
-  /**
-   * **SnoozeAlarm**
-   *
-   * Snooze a firing alarm (Clock)
-   *
-   * Parameters: `alarm`, `duration`
-   */
-  com_apple_siri_SiriTimeFlowTools_SiriTimeFlowTools_SnoozeAlarmFlowTool_com_apple_clock: "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock",
-  /**
-   * **Translate Text**
-   *
-   * Translate text from one language to another (SiriTranslationFlowTools)
-   *
-   * Parameters: `phrase`, `targetLanguage`, `sourceLanguage`
-   */
-  com_apple_siri_SiriTranslationFlowTools_SiriTranslationFlowTools_TranslateTextFlowTool: "com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool",
   /**
    * **Cross Device Placeholder Intent**
    *
@@ -11862,46 +11598,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    */
   com_apple_siri_siri_video_app_intents_plays_a_video: "com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent",
   /**
-   * **Find Video content**
-   *
-   * Find Video content (SiriVideoFlowTools)
-   *
-   * Parameters: `content`
-   */
-  com_apple_siri_SiriVideoFlowTools_SiriVideoFlowTools_FindVideoContentTool: "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool",
-  /**
-   * **Create Incoming Geofence**
-   *
-   * Create an incoming geofence notification for a person at a location. (Find My)
-   *
-   * Parameters: `person`, `location`, `trigger`, `isRecurring`
-   */
-  com_apple_siri_findmy_SiriFindMyFlowTools_SiriFindMyFlowTools_CreateIncomingGeofenceTool_com_apple_findmy: "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy",
-  /**
-   * **Create Outgoing Geofence**
-   *
-   * Create an outgoing geofence notification for a person at a location. (Find My)
-   *
-   * Parameters: `person`, `location`, `trigger`, `isRecurring`
-   */
-  com_apple_siri_findmy_SiriFindMyFlowTools_SiriFindMyFlowTools_CreateOutgoingGeofenceTool_com_apple_findmy: "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy",
-  /**
-   * **Find Item Location**
-   *
-   * Find the location of a Find My item. (Find My)
-   *
-   * Parameters: `item`
-   */
-  com_apple_siri_findmy_SiriFindMyFlowTools_SiriFindMyFlowTools_FindItemLocationTool_com_apple_findmy: "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy",
-  /**
-   * **Play Item Sound**
-   *
-   * Play a sound on a Find My item. (Find My)
-   *
-   * Parameters: `item`
-   */
-  com_apple_siri_findmy_SiriFindMyFlowTools_SiriFindMyFlowTools_PlayItemSoundTool_com_apple_findmy: "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy",
-  /**
    * **Messages Post Reading Action Tool**
    *
    *  (SiriMessagesAppIntentsExtension)
@@ -11925,116 +11621,6 @@ A result of “Unknown” indicates that the device is not supported. (Shortcuts
    * Parameters: `draft`, `recipients`, `subject`, `content`, `isAudioMessage`
    */
   com_apple_siri_messages_siri_messages_app_intents_extension_update_a_draft: "com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool",
-  /**
-   * **Create Draft**
-   *
-   *  (Messages)
-   *
-   * Parameters: `destination`, `subject`, `content`, `attachments`, `locations`, `links`, `audioMessage`, `isAudioMessage`, `scheduledDate`
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_CreateDraftMessageTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS",
-  /**
-   * **Edit Last Message Sent With Siri**
-   *
-   * Edit the content of the last message that was sent with Siri. (SiriMessagesFlowTools)
-   *
-   * Parameters: `content`
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_EditLastMessageSentWithSiriTool: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool",
-  /**
-   * **PerformMessagesPostReadActionFlowTool**
-   *
-   * Post-read action messages Flow Tool (SiriMessagesFlowTools)
-   *
-   * Parameters: `readableMessages`
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PerformMessagesPostReadActionFlowTool: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool",
-  /**
-   * **Prepare Conversation**
-   *
-   * Takes a ConversationEntity and prepares it for reading. (Messages)
-   *
-   * Parameters: `conversation`
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PrepareToReadConversationTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS",
-  /**
-   * **Prepare Conversation**
-   *
-   * Takes a ConversationEntity and prepares it for reading. (SiriMessagesAppIntentsExtension)
-   *
-   * Parameters: `conversation`
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PrepareToReadConversationTool_com_apple_siri_messages_SiriMessagesAppIntentsExtension: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension",
-  /**
-   * **Prepare Messages**
-   *
-   * Takes a list of MessageEntity objects and prepares them for reading. (Messages)
-   *
-   * Parameters: `message`
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_PrepareToReadMessagesTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS",
-  /**
-   * **Send Draft Message**
-   *
-   * Send a message or text message that has already been drafted using a designated app. Requires an existing draft message id and the messaging app. (Messages)
-   *
-   * Parameters: `draft`
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_SendDraftMessageTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS",
-  /**
-   * **Send Message Reaction**
-   *
-   * Send a reaction to a message. (Messages)
-   *
-   * Parameters: `message`, `reaction`
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_SendMessageReactionTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS",
-  /**
-   * **Unsend Last Message Sent With Siri**
-   *
-   * Unsend the last message that was sent with Siri. (SiriMessagesFlowTools)
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_UnsendLastMessageSentWithSiriTool: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UnsendLastMessageSentWithSiriTool",
-  /**
-   * **Update Draft**
-   *
-   *  (Messages)
-   *
-   * Parameters: `draft`, `destination`, `subject`, `content`, `attachments`, `locations`, `links`, `audioMessage`, `isAudioMessage`, `scheduledDate`
-   */
-  com_apple_siri_messages_SiriMessagesFlowTools_SiriMessagesFlowTools_UpdateDraftMessageTool_com_apple_MobileSMS: "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS",
-  /**
-   * **Create List and Reminder**
-   *
-   * Create a new list and add a new reminder to it (Reminders)
-   *
-   * Parameters: `title`, `note`, `tags`, `urls`, `dueDate`, `recurrence`, `list`, `isFlagged`, `locationTrigger`, `name`, `type`
-   */
-  com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_CreateListAddReminderFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders",
-  /**
-   * **Create Reminder**
-   *
-   * Create a new reminder (Reminders)
-   *
-   * Parameters: `title`, `note`, `tags`, `urls`, `dueDate`, `recurrence`, `list`, `isFlagged`, `locationTrigger`
-   */
-  com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_CreateReminderFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders",
-  /**
-   * **Prepare Read Reminders**
-   *
-   * Takes a list of reminders and prepares them for reading. (Reminders)
-   *
-   * Parameters: `target`, `list`
-   */
-  com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_PrepareReadRemindersFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders",
-  /**
-   * **Update Reminder**
-   *
-   * Update reminder (Reminders)
-   *
-   * Parameters: `target`, `isCompleted`, `title`, `note`, `tags`, `urls`, `dueDate`, `recurrence`, `list`, `isFlagged`, `locationTrigger`
-   */
-  com_apple_siri_notebook_SiriNotebookFlowTools_SiriNotebookFlowTools_UpdateReminderFlowTool_com_apple_reminders: "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders",
   /**
    * **Share and Collaborate**
    *
@@ -17572,9 +17158,6 @@ export const ACTIONS = {
   "com.apple.iWork.Numbers.TNNewDocumentIntent": { name: "Create New Spreadsheet", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iWork.Numbers", Name: "Numbers", TeamIdentifier: "0000000000", AppIntentIdentifier: "TNNewDocumentIntent" } },
   "com.apple.iWork.Pages.TPDocumentBackgroundExportIntent": { name: "Export Document in Background", params: ["document", "format", "sourcePassword", "password"], output: null, outputTypes: ["file"], descriptor: { BundleIdentifier: "com.apple.iWork.Pages", Name: "Pages", TeamIdentifier: "0000000000", AppIntentIdentifier: "TPDocumentBackgroundExportIntent" } },
   "com.apple.iWork.Pages.TPNewDocumentIntent": { name: "Create New Document", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iWork.Pages", Name: "Pages", TeamIdentifier: "0000000000", AppIntentIdentifier: "TPNewDocumentIntent" } },
-  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps": { name: "Start Navigation", params: ["origin", "destinations", "transportationType", "preferences"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "Maps" } },
-  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps": { name: "Update Navigation Waypoints", params: ["waypoints", "navigation"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Maps", Name: "Maps", TeamIdentifier: "0000000000", AppIntentIdentifier: "Maps" } },
-  "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin.GetCurrentLocationFlowToolPlugin.GetCurrentLocationTool": { name: "GetCurrentLocationTool", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin", Name: "GetCurrentLocationFlowToolPlugin", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetCurrentLocationTool" } },
   "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenApplication": { name: "Open Application", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension", Name: "IntelligenceFlowAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenApplication" } },
   "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenFile": { name: "Open File", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension", Name: "IntelligenceFlowAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenFile" } },
   "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenURL": { name: "Open URL", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension", Name: "IntelligenceFlowAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "OpenURL" } },
@@ -17742,72 +17325,22 @@ export const ACTIONS = {
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent": { name: "Add Audio Item to Playlist", params: ["audioEntity", "playlist"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitAddAudioToPlaylistIntent" } },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent": { name: "Like Audio Item", params: ["target", "affinityState"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriKitUpdateAudioAffinityIntent" } },
   "com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent": { name: "Whole House Audio Placeholder Intent", params: ["destinations"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.AudioAppIntentsExtension", Name: "AudioAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "WholeHouseAudioPlaceholderIntent" } },
-  "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos": { name: "EditPhotoWarmth", params: ["target", "adjustmentType", "value", "isPercentage"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Photos", Name: "Photos", TeamIdentifier: "0000000000", AppIntentIdentifier: "Photos" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music": { name: "AddAudioToLibrary", params: ["audioEntity"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts": { name: "AddAudioToLibrary", params: ["audioEntity"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "podcasts" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music": { name: "AddAudioToPlaylist", params: ["audioEntity", "playlist"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.iBooksX", Name: "Books", TeamIdentifier: "0000000000", AppIntentIdentifier: "iBooksX" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { name: "PlayAudio", params: ["audioEntity", "playbackAttributes", "queueLocation", "destinations"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.podcasts", Name: "Podcasts", TeamIdentifier: "0000000000", AppIntentIdentifier: "podcasts" } },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { name: "UpdateAudioAffinity", params: ["target", "affinityState"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.Music", Name: "Music", TeamIdentifier: "0000000000", AppIntentIdentifier: "Music" } },
-  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool": { name: "Get Crisis Resources", params: ["resourceCategories"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriCrisisFlowTools", Name: "SiriCrisisFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "GetCrisisResourcesFlowTool" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": { name: "Get Current Location", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Location", outputTypes: ["com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity"], descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "CurrentLocationEntity" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity": { name: "Get Current Route", params: ["WFContentItemFilter", "WFContentItemSortProperty", "WFContentItemSortOrder", "WFContentItemLimitEnabled", "WFContentItemLimitNumber", "WFCompoundType", "WFContentItemInputParameter"], output: "Current Route", outputTypes: ["com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity"], descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "NavigationSessionEntity" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.SiriGeoAppIntent": { name: "SiriGeoAppIntent", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriGeoAppIntent" } },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent": { name: "Start Navigation for Third Party Apps", params: ["origin", "destinations", "transportationType", "preferences", "ShowWhenRun"], output: "Current Route", outputTypes: ["com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity"], descriptor: { BundleIdentifier: "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension", Name: "SiriGeoAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "ThirdPartyStartNavigationIntent" } },
-  "com.apple.siri.SiriIdentityInternal.SiriIdentityInternal.WhoAmITool": { name: "WhoAmITool", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriIdentityInternal", Name: "SiriIdentityInternal", TeamIdentifier: "0000000000", AppIntentIdentifier: "WhoAmITool" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail": { name: "CreateDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail": { name: "ForwardDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail": { name: "ReplyDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target", "isReplyAll"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail": { name: "SendDraftMailTool", params: ["sendLaterDate", "target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail": { name: "UpdateDraftMailTool", params: ["to", "cc", "bcc", "subject", "body", "account", "attachments", "target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.mail", Name: "Mail", TeamIdentifier: "0000000000", AppIntentIdentifier: "mail" } },
   "com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent": { name: "Prepare notifications", params: ["notifications", "isReadLatest", "isCatchMeUp", "app"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsAppIntentsExtension", Name: "SiriNotificationsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareNotificationsIntent" } },
   "com.apple.siri.SiriNotificationsAppIntentsExtension.SiriNotificationsAppIntentsExtension": { name: "SiriNotificationsAppIntentsExtension", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsAppIntentsExtension", Name: "SiriNotificationsAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriNotificationsAppIntentsExtension" } },
-  "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool": { name: "Prepare Notifications", params: ["notifications", "isReadLatest", "isCatchMeUp"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriNotificationsFlowTools", Name: "SiriNotificationsFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareNotificationsTool" } },
   "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent": { name: "SiriPhonePunchoutIntent", params: ["url", "uniqueID", "OpenWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneAppIntentsExtension", Name: "SiriPhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriPhonePunchoutIntent" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { name: "Answer an incoming call", params: ["call", "audioRoute"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhoneAppIntentsExtension" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool": { name: "Call Emergency Contact Flow Tool", params: ["audioRoute"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallEmergencyContactFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool": { name: "Callback Flow Tool", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "CallbackFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool": { name: "Prepare Call Messages Flow Tool", params: ["messages"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareCallMessagesFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool": { name: "Prepare Read Call Records", params: ["records"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareReadCallRecordsFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool": { name: "Read Call Message Flow Tool", params: ["message"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "ReadCallMessageFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.RedialFlowTool": { name: "Redial Flow Tool", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "RedialFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime": { name: "Start a call", params: ["destination", "audioVisualMode", "audioRoute"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "FaceTime" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone": { name: "Start a call", params: ["destination", "audioVisualMode", "audioRoute"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "mobilephone" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool": { name: "Start Crisis Helpline Call Flow Tool", params: ["crisisResourceType", "audioRoute"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhoneFlowTools", Name: "SiriPhoneFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "StartCrisisHelplineCallFlowTool" } },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { name: "Start Emergency Call", params: ["destination", "audioRoute"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.calls.PhoneAppIntentsExtension", Name: "PhoneAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PhoneAppIntentsExtension" } },
   "com.apple.siri.SiriPhotosAppIntentsExtension.SiriPhotosAppIntentsExtension": { name: "SiriPhotosAppIntentsExtension", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhotosAppIntentsExtension", Name: "SiriPhotosAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriPhotosAppIntentsExtension" } },
   "com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool": { name: "Update Photo Warmth", params: ["target", "adjustmentType", "value", "isPercentage"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriPhotosAppIntentsExtension", Name: "SiriPhotosAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdatePhotoWarmthTool" } },
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock": { name: "CancelTimer", params: ["entities"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "clock" } },
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock": { name: "DismissAlarm", params: ["alarm"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "clock" } },
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock": { name: "SnoozeAlarm", params: ["alarm", "duration"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.clock", Name: "Clock", TeamIdentifier: "0000000000", AppIntentIdentifier: "clock" } },
-  "com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool": { name: "Translate Text", params: ["phrase", "targetLanguage", "sourceLanguage"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriTranslationFlowTools", Name: "SiriTranslationFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "TranslateTextFlowTool" } },
   "com.apple.siri.SiriVideoAppIntents.CrossDevicePlaceholderIntent": { name: "Cross Device Placeholder Intent", params: ["route"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "CrossDevicePlaceholderIntent" } },
   "com.apple.siri.SiriVideoAppIntents.InternalFindFreeformVideoIntent": { name: "Finds a freeform video", params: ["entity"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalFindFreeformVideoIntent" } },
   "com.apple.siri.SiriVideoAppIntents.InternalFindVideoIntent": { name: "Finds a video", params: ["content"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalFindVideoIntent" } },
   "com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent": { name: "Plays a video", params: ["content"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoAppIntents", Name: "SiriVideoAppIntents", TeamIdentifier: "0000000000", AppIntentIdentifier: "InternalPlayContentIntent" } },
-  "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool": { name: "Find Video content", params: ["content"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.SiriVideoFlowTools", Name: "SiriVideoFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "FindVideoContentTool" } },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy": { name: "Create Incoming Geofence", params: ["person", "location", "trigger", "isRecurring"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "findmy" } },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy": { name: "Create Outgoing Geofence", params: ["person", "location", "trigger", "isRecurring"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "findmy" } },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy": { name: "Find Item Location", params: ["item"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "findmy" } },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy": { name: "Play Item Sound", params: ["item"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.findmy", Name: "Find My", TeamIdentifier: "0000000000", AppIntentIdentifier: "findmy" } },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent": { name: "Messages Post Reading Action Tool", params: ["readableMessages"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "MessagesPostReadActionAppIntent" } },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent": { name: "Prepare To Read Conversation Tool", params: ["conversation"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "PrepareToReadConversationAppIntent" } },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool": { name: "Update a Draft", params: ["draft", "recipients", "subject", "content", "isAudioMessage"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "UpdateDraftTool" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS": { name: "Create Draft", params: ["destination", "subject", "content", "attachments", "locations", "links", "audioMessage", "isAudioMessage", "scheduledDate"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool": { name: "Edit Last Message Sent With Siri", params: ["content"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "EditLastMessageSentWithSiriTool" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool": { name: "PerformMessagesPostReadActionFlowTool", params: ["readableMessages"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "PerformMessagesPostReadActionFlowTool" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS": { name: "Prepare Conversation", params: ["conversation"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension": { name: "Prepare Conversation", params: ["conversation"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesAppIntentsExtension", Name: "SiriMessagesAppIntentsExtension", TeamIdentifier: "0000000000", AppIntentIdentifier: "SiriMessagesAppIntentsExtension" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS": { name: "Prepare Messages", params: ["message"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS": { name: "Send Draft Message", params: ["draft"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS": { name: "Send Message Reaction", params: ["message", "reaction"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UnsendLastMessageSentWithSiriTool": { name: "Unsend Last Message Sent With Siri", params: [], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.siri.messages.SiriMessagesFlowTools", Name: "SiriMessagesFlowTools", TeamIdentifier: "0000000000", AppIntentIdentifier: "UnsendLastMessageSentWithSiriTool" } },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS": { name: "Update Draft", params: ["draft", "destination", "subject", "content", "attachments", "locations", "links", "audioMessage", "isAudioMessage", "scheduledDate"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.MobileSMS", Name: "Messages", TeamIdentifier: "0000000000", AppIntentIdentifier: "MobileSMS" } },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders": { name: "Create List and Reminder", params: ["title", "note", "tags", "urls", "dueDate", "recurrence", "list", "isFlagged", "locationTrigger", "name", "type"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders": { name: "Create Reminder", params: ["title", "note", "tags", "urls", "dueDate", "recurrence", "list", "isFlagged", "locationTrigger"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders": { name: "Prepare Read Reminders", params: ["target", "list"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders": { name: "Update Reminder", params: ["target", "isCompleted", "title", "note", "tags", "urls", "dueDate", "recurrence", "list", "isFlagged", "locationTrigger"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000", AppIntentIdentifier: "reminders" } },
   "com.apple.sociallayerd.CollaborationIntent": { name: "Share and Collaborate", params: ["recipients"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.sociallayerd", Name: "sociallayerd", TeamIdentifier: "0000000000", AppIntentIdentifier: "CollaborationIntent" } },
   "com.apple.stocks.AddSymbolToWatchlistIntent": { name: "Add Symbol to Watchlist", params: ["symbol", "watchlist", "OpenWhenRun"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "AddSymbolToWatchlistIntent" } },
   "com.apple.stocks.BlockIntent": { name: "Block Channel or Topic", params: ["target"], output: null, outputTypes: ["none"], descriptor: { BundleIdentifier: "com.apple.stocks", Name: "Stocks", TeamIdentifier: "0000000000", AppIntentIdentifier: "BlockIntent" } },
@@ -19272,8 +18805,6 @@ export const PARAM_KINDS = {
   "com.apple.iWork.Keynote.KNDocumentBackgroundExportIntent": { "document": "any", "format": "string", "sourcePassword": "text", "password": "text" },
   "com.apple.iWork.Numbers.TNDocumentBackgroundExportIntent": { "document": "any", "format": "string", "sourcePassword": "text", "password": "text" },
   "com.apple.iWork.Pages.TPDocumentBackgroundExportIntent": { "document": "any", "format": "string", "sourcePassword": "text", "password": "text" },
-  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps": { "origin": "any", "destinations": "any", "transportationType": "string", "preferences": "string" },
-  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps": { "waypoints": "any", "navigation": "any" },
   "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenApplication": { "target": "any" },
   "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenFile": { "target": "any" },
   "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenURL": { "target": "text" },
@@ -19430,65 +18961,19 @@ export const PARAM_KINDS = {
   "com.apple.siri.AudioAppIntentsExtension.SiriKitAddAudioToPlaylistIntent": { "audioEntity": "any", "playlist": "any" },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent": { "target": "any", "affinityState": "string" },
   "com.apple.siri.AudioAppIntentsExtension.WholeHouseAudioPlaceholderIntent": { "destinations": "any" },
-  "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos": { "target": "any", "adjustmentType": "string", "value": "number", "isPercentage": "bool" },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music": { "audioEntity": "any" },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts": { "audioEntity": "any" },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music": { "audioEntity": "any", "playlist": "any" },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music": { "audioEntity": "any", "playbackAttributes": "string", "queueLocation": "string", "destinations": "any" },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { "audioEntity": "any", "playbackAttributes": "string", "queueLocation": "string", "destinations": "any" },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { "audioEntity": "any", "playbackAttributes": "string", "queueLocation": "string", "destinations": "any" },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { "target": "any", "affinityState": "string" },
-  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool": { "resourceCategories": "string" },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": { "WFContentItemFilter": "any", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity": { "WFContentItemFilter": "filter", "WFContentItemSortProperty": "string", "WFContentItemSortOrder": "text", "WFContentItemLimitEnabled": "bool", "WFContentItemLimitNumber": "number", "WFCompoundType": "string", "WFContentItemInputParameter": "string" },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent": { "origin": "any", "destinations": "any", "transportationType": "string", "preferences": "string", "ShowWhenRun": "bool" },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail": { "to": "any", "cc": "any", "bcc": "any", "subject": "text", "body": "text", "account": "any", "attachments": "any" },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail": { "to": "any", "cc": "any", "bcc": "any", "subject": "text", "body": "text", "account": "any", "attachments": "any", "target": "any" },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail": { "to": "any", "cc": "any", "bcc": "any", "subject": "text", "body": "text", "account": "any", "attachments": "any", "target": "any", "isReplyAll": "bool" },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail": { "sendLaterDate": "text", "target": "any" },
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail": { "to": "any", "cc": "any", "bcc": "any", "subject": "text", "body": "text", "account": "any", "attachments": "any", "target": "any" },
   "com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent": { "notifications": "any", "isReadLatest": "bool", "isCatchMeUp": "bool", "app": "any" },
-  "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool": { "notifications": "any", "isReadLatest": "bool", "isCatchMeUp": "bool" },
   "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent": { "url": "text", "uniqueID": "text", "OpenWhenRun": "bool" },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { "call": "any", "audioRoute": "any" },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool": { "audioRoute": "any" },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool": { "messages": "any" },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool": { "records": "any" },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool": { "message": "any" },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime": { "destination": "any", "audioVisualMode": "string", "audioRoute": "any" },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone": { "destination": "any", "audioVisualMode": "string", "audioRoute": "any" },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool": { "crisisResourceType": "string", "audioRoute": "any" },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": { "destination": "any", "audioRoute": "any" },
   "com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool": { "target": "text", "adjustmentType": "string", "value": "number", "isPercentage": "bool" },
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock": { "entities": "any" },
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock": { "alarm": "any" },
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock": { "alarm": "any", "duration": "any" },
-  "com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool": { "phrase": "text", "targetLanguage": "text", "sourceLanguage": "text" },
   "com.apple.siri.SiriVideoAppIntents.CrossDevicePlaceholderIntent": { "route": "any" },
   "com.apple.siri.SiriVideoAppIntents.InternalFindFreeformVideoIntent": { "entity": "any" },
   "com.apple.siri.SiriVideoAppIntents.InternalFindVideoIntent": { "content": "any" },
   "com.apple.siri.SiriVideoAppIntents.InternalPlayContentIntent": { "content": "any" },
-  "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool": { "content": "any" },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy": { "person": "any", "location": "any", "trigger": "string", "isRecurring": "bool" },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy": { "person": "any", "location": "any", "trigger": "string", "isRecurring": "bool" },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy": { "item": "any" },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy": { "item": "any" },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent": { "readableMessages": "any" },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.PrepareToReadConversationAppIntent": { "conversation": "any" },
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.UpdateDraftTool": { "draft": "any", "recipients": "any", "subject": "text", "content": "text", "isAudioMessage": "bool" },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS": { "destination": "any", "subject": "text", "content": "text", "attachments": "any", "locations": "any", "links": "text", "audioMessage": "any", "isAudioMessage": "bool", "scheduledDate": "text" },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool": { "content": "text" },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool": { "readableMessages": "any" },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS": { "conversation": "any" },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension": { "conversation": "any" },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS": { "message": "any" },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS": { "draft": "any" },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS": { "message": "any", "reaction": "any" },
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS": { "draft": "any", "destination": "any", "subject": "text", "content": "text", "attachments": "any", "locations": "any", "links": "text", "audioMessage": "any", "isAudioMessage": "bool", "scheduledDate": "text" },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders": { "title": "text", "note": "text", "tags": "text", "urls": "text", "dueDate": "text", "recurrence": "any", "list": "any", "isFlagged": "bool", "locationTrigger": "any", "name": "text", "type": "string" },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders": { "title": "text", "note": "text", "tags": "text", "urls": "text", "dueDate": "text", "recurrence": "any", "list": "any", "isFlagged": "bool", "locationTrigger": "any" },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders": { "target": "any", "list": "any" },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders": { "target": "any", "isCompleted": "bool", "title": "text", "note": "text", "tags": "text", "urls": "text", "dueDate": "text", "recurrence": "any", "list": "any", "isFlagged": "bool", "locationTrigger": "any" },
   "com.apple.sociallayerd.CollaborationIntent": { "recipients": "any" },
   "com.apple.stocks.AddSymbolToWatchlistIntent": { "symbol": "any", "watchlist": "any", "OpenWhenRun": "bool" },
   "com.apple.stocks.BlockIntent": { "target": "any" },
@@ -20395,7 +19880,6 @@ export const PARAM_CHOICES = {
   "com.apple.iWork.Keynote.KNDocumentBackgroundExportIntent": { "format": ["pdf", "powerpoint"] },
   "com.apple.iWork.Numbers.TNDocumentBackgroundExportIntent": { "format": ["excel", "pdf"] },
   "com.apple.iWork.Pages.TPDocumentBackgroundExportIntent": { "format": ["pdf", "word"] },
-  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps": { "transportationType": ["any", "cycling", "driving", "transit", "walking"], "preferences": ["avoidBusyRoads", "avoidHighways", "avoidHills", "avoidStairs", "avoidTolls", "disableBus", "disableFerry", "disableSubway", "disableTrain"] },
   "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.CalculateAppUsageIntent": { "during": ["inBetween", "lastWeek", "specifiedDay", "thisMonth", "thisWeek", "today", "yesterday"], "activityType": ["all", "app", "website"] },
   "com.apple.journal.AddCurrentLocationEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.journal.AlwaysUseMomentDateEntity": { "WFContentItemSortProperty": ["Random", "value"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -20452,22 +19936,10 @@ export const PARAM_CHOICES = {
   "com.apple.shortcuts.OpenShortcutsStaticDeepLinks": { "target": ["advanced", "legalNotices", "root"] },
   "com.apple.shortcuts.SetShortcutAttributesAction": { "operation": ["toggle", "turn"], "attribute": ["allowWhenLocked", "onScreenContent", "pinInMenuBar", "quickActions", "receivesInputFromSearch", "showInShareSheet", "showOnWatch"] },
   "com.apple.siri.AudioAppIntentsExtension.SiriKitUpdateAudioAffinityIntent": { "affinityState": ["dislike", "like", "unset"] },
-  "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos": { "adjustmentType": ["warmth"] },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music": { "playbackAttributes": ["repeat", "shuffle"], "queueLocation": ["next", "tail"] },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": { "playbackAttributes": ["repeat", "shuffle"], "queueLocation": ["later", "next", "tail"] },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": { "playbackAttributes": ["repeat", "shuffle"], "queueLocation": ["next", "tail"] },
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": { "affinityState": ["dislike", "like", "unset"] },
-  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool": { "resourceCategories": ["addiction", "bullying", "childSafety", "disorderedEating", "domesticViolence", "financialScams", "lgbtqSupport", "mentalHealth", "moreResources", "personalSafety", "poisoning", "raceEthnicity", "sexualViolence", "suicideSelfHarm"] },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity": { "WFContentItemSortProperty": ["Random", "estimatedArrivalDate", "preferences", "transportationType", "waypoints"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.ThirdPartyStartNavigationIntent": { "transportationType": ["cycling", "driving", "transit", "walking"], "preferences": ["avoidBusyRoads", "avoidHighways", "avoidHills", "avoidStairs", "avoidTolls"] },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime": { "audioVisualMode": ["audio", "video"] },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone": { "audioVisualMode": ["audio", "video"] },
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool": { "crisisResourceType": ["domesticViolence", "poisonControl", "sexualAssault", "suicidePrevention"] },
   "com.apple.siri.SiriPhotosAppIntentsExtension.UpdatePhotoWarmthTool": { "adjustmentType": ["warmth"] },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy": { "trigger": ["onEntry", "onExit"] },
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy": { "trigger": ["onEntry", "onExit"] },
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders": { "type": ["groceries", "standard"] },
   "com.apple.stocks.NewsTabDeepLink": { "WFContentItemSortProperty": ["Random"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.stocks.SymbolEntity": { "WFContentItemSortProperty": ["Random", "exchange", "name", "symbol"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
   "com.apple.stocks.SymbolWidgetEntity": { "WFContentItemSortProperty": ["Random", "exchange", "name", "symbol"], "WFCompoundType": ["0", "1"], "WFContentItemInputParameter": ["Library"] },
@@ -30361,30 +29833,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: AppIntentDescriptor;
   };
-  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.StartNavigationFlowTool|com.apple.Maps": {
-    /** Origin: The place to start navigation from. */
-    "origin": AnyValue;
-    /** Destinations: The places to navigate to. */
-    "destinations": AnyValue;
-    /** Transport Type: The mode of transport to navigate with. */
-    "transportationType": EnumValue<"any" | "cycling" | "driving" | "transit" | "walking">;
-    /** Navigation Preferences: Preferences to apply to the navigation. */
-    "preferences": EnumValue<"avoidBusyRoads" | "avoidHighways" | "avoidHills" | "avoidStairs" | "avoidTolls" | "disableBus" | "disableFerry" | "disableSubway" | "disableTrain">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.intelligenceflow.GeoFlowTools.GeoFlowTools.UpdateWayPointsFlowTool|com.apple.Maps": {
-    /** Waypoints: The desired waypoints for the navigation session. */
-    "waypoints": AnyValue;
-    /** Navigation Session: The navigation session to update. */
-    "navigation": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin.GetCurrentLocationFlowToolPlugin.GetCurrentLocationTool": {
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
   "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension.OpenApplication": {
     /** Application */
     "target": AnyValue;
@@ -32090,88 +31538,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: AppIntentDescriptor;
   };
-  "com.apple.siri.PhotosFlowTools.SiriPhotosFlowTools.EditPhotoWarmth|com.apple.Photos": {
-    /** Photo: Photo to apply warmth to. */
-    "target": AnyValue;
-    /** Adjustment Type: The type of adjustment to make */
-    "adjustmentType": EnumValue<"warmth">;
-    /** Value: The adjustment value */
-    "value": NumberValue;
-    /** Is Percentage: Whether the value is a percentage */
-    "isPercentage": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.Music": {
-    /** Audio Item: The item to add to the library, such as a song, album, playlist, or audiobook. */
-    "audioEntity": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToLibraryTool|com.apple.podcasts": {
-    /** Audio Item: The item to add to the library (e.g., song, album, playlist, audiobook) */
-    "audioEntity": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.AddAudioToPlaylistTool|com.apple.Music": {
-    /** Audio Item: The item to add to the playlist, such as a song or album. */
-    "audioEntity": AnyValue;
-    /** Playlist: The target playlist. */
-    "playlist": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.Music": {
-    /** Audio Item: The item to play, such as a song, album, playlist, or podcast episode. */
-    "audioEntity": AnyValue;
-    /** Playback Attributes: Attributes that define how the item plays, such as shuffle or repeat mode. */
-    "playbackAttributes": EnumValue<"repeat" | "shuffle">;
-    /** Queue Location: The position in the playback queue to play the item, such as play next or add to the end of the queue. */
-    "queueLocation": EnumValue<"next" | "tail">;
-    /** Destinations */
-    "destinations": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.iBooksX": {
-    /** Audio Item: The audio item to play, such as a song, album, playlist, or podcast episode */
-    "audioEntity": AnyValue;
-    /** Playback Attributes: Attributes that define how the item should be played (e.g., shuffle, repeat mode) */
-    "playbackAttributes": EnumValue<"repeat" | "shuffle">;
-    /** Queue Location: The position in the playback queue to play the item (e.g., play next, or add to the end of the queue) */
-    "queueLocation": EnumValue<"later" | "next" | "tail">;
-    /** Destinations */
-    "destinations": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.PlayAudioTool|com.apple.podcasts": {
-    /** Audio Item: The audio item to play, such as a song, album, playlist, or podcast episode */
-    "audioEntity": AnyValue;
-    /** Playback Attributes: Attributes that define how the audio should be played (e.g., shuffle, repeat mode) */
-    "playbackAttributes": EnumValue<"repeat" | "shuffle">;
-    /** Queue Location: The position in the playback queue to play the audio (e.g., start immediately, play next, or add to the end of the queue) */
-    "queueLocation": EnumValue<"next" | "tail">;
-    /** Destinations */
-    "destinations": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriAudioTools.SiriAudioTools.UpdateAudioAffinityTool|com.apple.Music": {
-    /** Target: The audio item whose affinity state will be updated. */
-    "target": AnyValue;
-    /** Affinity State: The affinity state to set. */
-    "affinityState": EnumValue<"dislike" | "like" | "unset">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriCrisisFlowTools.SiriCrisisFlowTools.GetCrisisResourcesFlowTool": {
-    /** Resource Categories: Crisis-support categories to look up */
-    "resourceCategories": EnumValue<"addiction" | "bullying" | "childSafety" | "disorderedEating" | "domesticViolence" | "financialScams" | "lgbtqSupport" | "mentalHealth" | "moreResources" | "personalSafety" | "poisoning" | "raceEthnicity" | "sexualViolence" | "suicideSelfHarm">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
   "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity": {
     "WFContentItemFilter": AnyValue;
     /** Sort by */
@@ -32223,98 +31589,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: AppIntentDescriptor;
   };
-  "com.apple.siri.SiriIdentityInternal.SiriIdentityInternal.WhoAmITool": {
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.CreateDraftMailTool|com.apple.mail": {
-    /** Recipient: Recipients of the email message. */
-    "to": AnyValue;
-    /** Cc: Cc recipients of the email message. */
-    "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message. */
-    "bcc": AnyValue;
-    /** Subject: Subject of the email message. */
-    "subject": TextValue;
-    /** Body: Body text of the email message. */
-    "body": TextValue;
-    /** From: Account to send the email message with. */
-    "account": AnyValue;
-    /** Attachments: Attachments of the email message. */
-    "attachments": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ForwardDraftMailTool|com.apple.mail": {
-    /** Recipient: Recipients of the email message. */
-    "to": AnyValue;
-    /** Cc: Cc recipients of the email message. */
-    "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message. */
-    "bcc": AnyValue;
-    /** Subject: Subject of the email message. */
-    "subject": TextValue;
-    /** Body: Body text of the email message. */
-    "body": TextValue;
-    /** From: Account to send the email message with. */
-    "account": AnyValue;
-    /** Attachments: Attachments of the email message. */
-    "attachments": AnyValue;
-    /** Message: Mail thread to forward. */
-    "target": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.ReplyDraftMailTool|com.apple.mail": {
-    /** Recipient: Recipients of the email message. */
-    "to": AnyValue;
-    /** Cc: Cc recipients of the email message. */
-    "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message. */
-    "bcc": AnyValue;
-    /** Subject: Subject of the email message. */
-    "subject": TextValue;
-    /** Body: Body text of the email message. */
-    "body": TextValue;
-    /** From: Account to send the email message with. */
-    "account": AnyValue;
-    /** Attachments: Attachments of the email message. */
-    "attachments": AnyValue;
-    /** Message: Mail thread to reply to. */
-    "target": AnyValue;
-    /** Reply All: Reply to all recipients. */
-    "isReplyAll": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.SendDraftMailTool|com.apple.mail": {
-    /** Schedule for Date: Date to send the email message. */
-    "sendLaterDate": TextValue;
-    /** Draft: Email draft to send. */
-    "target": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriMailFlowTools.SiriMailFlowTools.UpdateDraftMailTool|com.apple.mail": {
-    /** Recipient: Recipients of the email message. */
-    "to": AnyValue;
-    /** Cc: Cc recipients of the email message. */
-    "cc": AnyValue;
-    /** Bcc: Bcc recipients of the email message. */
-    "bcc": AnyValue;
-    /** Subject: Subject of the email message. */
-    "subject": TextValue;
-    /** Body: Body text of the email message. */
-    "body": TextValue;
-    /** From: Account to send the email message with. */
-    "account": AnyValue;
-    /** Attachments: Attachments of the email message. */
-    "attachments": AnyValue;
-    /** Draft: Email draft to update. */
-    "target": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
   "com.apple.siri.SiriNotificationsAppIntentsExtension.PrepareNotificationsIntent": {
     /** Notifications */
     "notifications": AnyValue;
@@ -32331,16 +31605,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: AppIntentDescriptor;
   };
-  "com.apple.siri.SiriNotificationsFlowTools.SiriNotificationsFlowTools.PrepareNotificationsTool": {
-    /** Notifications */
-    "notifications": AnyValue;
-    /** Is Read Latest */
-    "isReadLatest": BoolValue;
-    /** Is Catch Me Up */
-    "isCatchMeUp": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
   "com.apple.siri.SiriPhoneAppIntentsExtension.SiriPhonePunchoutIntent": {
     /** Url */
     "url": TextValue;
@@ -32348,82 +31612,6 @@ export type ParamTypes = {
     "uniqueID": TextValue;
     /** Open When Run */
     "OpenWhenRun": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.AnswerCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": {
-    /** Call: The incoming call to answer. */
-    "call": AnyValue;
-    /** Audio Route: The audio route to set for the call. */
-    "audioRoute": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallEmergencyContactFlowTool": {
-    /** Audio Route: The audio route to set for the call. */
-    "audioRoute": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.CallbackFlowTool": {
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareCallMessagesFlowTool": {
-    /** Messages */
-    "messages": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.PrepareReadCallRecordsFlowTool": {
-    /** Records */
-    "records": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.ReadCallMessageFlowTool": {
-    /** Message */
-    "message": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.RedialFlowTool": {
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.FaceTime": {
-    /** Destination: Target destination for the outgoing call. */
-    "destination": AnyValue;
-    /** Audio Visual Mode: Call mode, either audio or video. */
-    "audioVisualMode": EnumValue<"audio" | "video">;
-    /** Audio Route: The audio route to set for the call. */
-    "audioRoute": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCallFlowTool|com.apple.mobilephone": {
-    /** Destination: Target destination for the outgoing call. */
-    "destination": AnyValue;
-    /** Audio Visual Mode: Call mode, either audio or video. */
-    "audioVisualMode": EnumValue<"audio" | "video">;
-    /** Audio Route: The audio route to set for the call. */
-    "audioRoute": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartCrisisHelplineCallFlowTool": {
-    /** Crisis Resource Type */
-    "crisisResourceType": EnumValue<"domesticViolence" | "poisonControl" | "sexualAssault" | "suicidePrevention">;
-    /** Audio Route: The audio route to set for the call. */
-    "audioRoute": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriPhoneFlowTools.SiriPhoneFlowTools.StartEmergencyCallFlowTool|com.apple.calls.PhoneAppIntentsExtension": {
-    /** Destination: Target destination for the outgoing emergency call. */
-    "destination": AnyValue;
-    /** Audio Route: The audio route to set for the call. */
-    "audioRoute": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: AppIntentDescriptor;
   };
@@ -32440,36 +31628,6 @@ export type ParamTypes = {
     "value": NumberValue;
     /** Is Percentage: Whether the value is a percentage */
     "isPercentage": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.CancelTimerFlowTool|com.apple.clock": {
-    /** Timers: Timers to cancel. */
-    "entities": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.DismissAlarmFlowTool|com.apple.clock": {
-    /** Alarm: Alarm to dismiss. */
-    "alarm": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriTimeFlowTools.SiriTimeFlowTools.SnoozeAlarmFlowTool|com.apple.clock": {
-    /** Alarm: Alarm to snooze. */
-    "alarm": AnyValue;
-    /** Duration: Snooze duration. */
-    "duration": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.SiriTranslationFlowTools.SiriTranslationFlowTools.TranslateTextFlowTool": {
-    /** Phrase: Text to translate */
-    "phrase": TextValue;
-    /** Target Language: Language to translate into */
-    "targetLanguage": TextValue;
-    /** Source Language: Source language of the text */
-    "sourceLanguage": TextValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: AppIntentDescriptor;
   };
@@ -32497,48 +31655,6 @@ export type ParamTypes = {
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: AppIntentDescriptor;
   };
-  "com.apple.siri.SiriVideoFlowTools.SiriVideoFlowTools.FindVideoContentTool": {
-    /** Content: Video to find */
-    "content": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateIncomingGeofenceTool|com.apple.findmy": {
-    /** Person: The person whose location and fulfillment of the geofence trigger condition will notify the originator. */
-    "person": AnyValue;
-    /** Location: The location linked to the geofence notification. */
-    "location": AnyValue;
-    /** Trigger: The event that triggers the geofence notification. */
-    "trigger": EnumValue<"onEntry" | "onExit">;
-    /** Is Recurring: Specifies whether the notification should be sent every time the trigger condition is met or only once. */
-    "isRecurring": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.CreateOutgoingGeofenceTool|com.apple.findmy": {
-    /** Person: The recipient of the geofence notification. */
-    "person": AnyValue;
-    /** Location: The location linked to the geofence notification. */
-    "location": AnyValue;
-    /** Trigger: The event that triggers the geofence notification. */
-    "trigger": EnumValue<"onEntry" | "onExit">;
-    /** Is Recurring: Specifies whether the notification should be sent every time the trigger condition is met or only once. */
-    "isRecurring": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.FindItemLocationTool|com.apple.findmy": {
-    /** Item: The item for which the user is requesting location information. */
-    "item": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.findmy.SiriFindMyFlowTools.SiriFindMyFlowTools.PlayItemSoundTool|com.apple.findmy": {
-    /** Item: The item on which to play the sound. */
-    "item": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
   "com.apple.siri.messages.SiriMessagesAppIntentsExtension.MessagesPostReadActionAppIntent": {
     /** Readable Messages: The list of readable message entities that need to be processed after they are read. */
     "readableMessages": AnyValue;
@@ -32562,182 +31678,6 @@ export type ParamTypes = {
     "content": TextValue;
     /** Is audio message: is this an audio message */
     "isAudioMessage": BoolValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.CreateDraftMessageTool|com.apple.MobileSMS": {
-    /** To: The recipient or group to send the message to. */
-    "destination": AnyValue;
-    /** Subject: The subject of the message. */
-    "subject": TextValue;
-    /** Content: The content of the message. */
-    "content": TextValue;
-    /** Attachments: The attachments to send with the message. */
-    "attachments": AnyValue;
-    /** Locations: The locations to send with the message. */
-    "locations": AnyValue;
-    /** Links: The links to send with the message. */
-    "links": TextValue;
-    /** Audio Message: The audio message to send with the message. */
-    "audioMessage": AnyValue;
-    /** Is audio message: is this an audio message */
-    "isAudioMessage": BoolValue;
-    /** Date: The scheduled date for sending the message. */
-    "scheduledDate": TextValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.EditLastMessageSentWithSiriTool": {
-    /** content: new message content */
-    "content": TextValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PerformMessagesPostReadActionFlowTool": {
-    /** Readable Messages: The list of readable message entities that need to be processed after they are read. */
-    "readableMessages": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.MobileSMS": {
-    /** conversation: The ConversationEntity to prepare for reading. */
-    "conversation": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadConversationTool|com.apple.siri.messages.SiriMessagesAppIntentsExtension": {
-    /** conversation: The ConversationEntity to prepare for reading. */
-    "conversation": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.PrepareToReadMessagesTool|com.apple.MobileSMS": {
-    /** messages: The messages to read */
-    "message": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendDraftMessageTool|com.apple.MobileSMS": {
-    /** draft message: the draft message we are updating with the given parameter values */
-    "draft": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.SendMessageReactionTool|com.apple.MobileSMS": {
-    /** Message: The message to send the Tapback to. */
-    "message": AnyValue;
-    /** Tapback: The Tapback to send. */
-    "reaction": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UnsendLastMessageSentWithSiriTool": {
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.messages.SiriMessagesFlowTools.SiriMessagesFlowTools.UpdateDraftMessageTool|com.apple.MobileSMS": {
-    /** draft message: the draft message we are updating with the given parameter values */
-    "draft": AnyValue;
-    /** To: The recipient or group to send the message to. */
-    "destination": AnyValue;
-    /** Subject: The subject of the message. */
-    "subject": TextValue;
-    /** Content: The content of the message. */
-    "content": TextValue;
-    /** Attachments: The attachments to send with the message. */
-    "attachments": AnyValue;
-    /** Locations: The locations to send with the message. */
-    "locations": AnyValue;
-    /** Links: The links to send with the message. */
-    "links": TextValue;
-    /** Audio Message: The audio message to send with the message. */
-    "audioMessage": AnyValue;
-    /** Is audio message: is this an audio message */
-    "isAudioMessage": BoolValue;
-    /** Date: The scheduled date for sending the message. */
-    "scheduledDate": TextValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateListAddReminderFlowTool|com.apple.reminders": {
-    /** Title: The title of the reminder. */
-    "title": TextValue;
-    /** Note: The note of the reminder. */
-    "note": TextValue;
-    /** Tags: The tags of the reminder. */
-    "tags": TextValue;
-    /** URLs: URLs to add to the reminder */
-    "urls": TextValue;
-    /** Due Date: The due date of the reminder. */
-    "dueDate": TextValue;
-    /** Recurrence: The recurrence of the reminder. */
-    "recurrence": AnyValue;
-    /** Target List: Parent list to add the reminder to */
-    "list": AnyValue;
-    /** Flag: A boolean value indicating whether the reminder is flagged. */
-    "isFlagged": BoolValue;
-    /** Location: The location of the reminder. */
-    "locationTrigger": AnyValue;
-    /** List Name: Name of list to create */
-    "name": TextValue;
-    /** Type: The type of list to create. */
-    "type": EnumValue<"groceries" | "standard">;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.CreateReminderFlowTool|com.apple.reminders": {
-    /** Title: The title of the reminder. */
-    "title": TextValue;
-    /** Note: The note of the reminder. */
-    "note": TextValue;
-    /** Tags: The tags of the reminder. */
-    "tags": TextValue;
-    /** URLs: URLs to add to the reminder */
-    "urls": TextValue;
-    /** Due Date: The due date of the reminder. */
-    "dueDate": TextValue;
-    /** Recurrence: The recurrence of the reminder. */
-    "recurrence": AnyValue;
-    /** Target List: Parent list to add the reminder to */
-    "list": AnyValue;
-    /** Flag: A boolean value indicating whether the reminder is flagged. */
-    "isFlagged": BoolValue;
-    /** Location: The location of the reminder. */
-    "locationTrigger": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.PrepareReadRemindersFlowTool|com.apple.reminders": {
-    /** entities: The reminder to update */
-    "target": AnyValue;
-    /** Target List: Parent list to add the reminder to */
-    "list": AnyValue;
-    /** The app that provides this action. `action()` adds it; pass it only to override. */
-    "AppIntentDescriptor"?: AppIntentDescriptor;
-  };
-  "com.apple.siri.notebook.SiriNotebookFlowTools.SiriNotebookFlowTools.UpdateReminderFlowTool|com.apple.reminders": {
-    /** Reminder: The reminder to update */
-    "target": AnyValue;
-    /** Is Completed: The new is completed for the reminder */
-    "isCompleted": BoolValue;
-    /** Title: The new title for the reminder */
-    "title": TextValue;
-    /** Note: The new note for the reminder */
-    "note": TextValue;
-    /** Tags: The new tags for the reminder */
-    "tags": TextValue;
-    /** URLs: The new urls for the reminder */
-    "urls": TextValue;
-    /** Due Date: The new due date for the reminder */
-    "dueDate": TextValue;
-    /** Recurrence: The new recurrence for the reminder */
-    "recurrence": AnyValue;
-    /** List: The new list for the reminder */
-    "list": AnyValue;
-    /** Is Flagged: The new is flagged for the reminder */
-    "isFlagged": BoolValue;
-    /** Location: The new location for the reminder */
-    "locationTrigger": AnyValue;
     /** The app that provides this action. `action()` adds it; pass it only to override. */
     "AppIntentDescriptor"?: AppIntentDescriptor;
   };

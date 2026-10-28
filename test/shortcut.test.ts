@@ -60,7 +60,7 @@ describe("shortcutkit", () => {
 
 describe("typed catalogue", () => {
   test("every built-in action has a key and parameter keys are typed", () => {
-    expect(Object.keys(ACTIONS).length).toBe(1767);
+    expect(Object.keys(ACTIONS).length).toBe(1714);
     expect(actions.setstoredcontent).toBe("is.workflow.actions.setstoredcontent");
     const s = new Shortcut("T");
     s.action(actions.setstoredcontent, { WFInput: "x", WFStoredContentKey: "k", WFStoredContentGlobalValue: true });
@@ -236,7 +236,7 @@ describe("App Intents actions", () => {
   });
   test("every App Intent has a descriptor and a unique key", () => {
     const withDescriptor = Object.values(ACTIONS).filter((a) => "descriptor" in a).length;
-    expect(withDescriptor).toBe(1318);
+    expect(withDescriptor).toBe(1265);
     expect(new Set(Object.keys(actions)).size).toBe(Object.keys(ACTIONS).length);
   });
   test("the catalogue holds what the editor offers: no Siri-only intent, and the preinstalled apps' SiriKit intents", () => {
@@ -419,11 +419,11 @@ describe("dictionaries, coercions and other apps' intents", () => {
     expect(ref(made).Value.OutputName).toBe("Note");
     expect(ref(s.action(appIntent(app, "OpenIntent"))).Value.OutputName).toBe("Output");
     // An app's own intents are identified as appIntent() composes it, bundle identifier then intent name: 1,254 of the
-    // 1,318 catalogue entries. The other 64 are Siri flow tools (`…Tool|com.apple.Music`) and intents hosted in a
-    // framework or extension (Clock's MobileTimerIntents, Notes' SharingExtension), whose identifiers the catalogue carries.
+    // 1,265 catalogue entries. The other 11 are intents hosted in a framework or extension (Clock's MobileTimerIntents,
+    // Notes' SharingExtension), whose identifiers the catalogue carries.
     const entries = Object.entries(ACTIONS).filter(([, e]) => "descriptor" in e) as Array<[string, { descriptor: { BundleIdentifier: string; AppIntentIdentifier: string } }]>;
     const composed = entries.filter(([id, e]) => id === `${e.descriptor.BundleIdentifier}.${e.descriptor.AppIntentIdentifier}`);
-    expect([entries.length, composed.length]).toEqual([1318, 1254]);
+    expect([entries.length, composed.length]).toEqual([1265, 1254]);
     // An Apple app's intent named this way gets the catalogue's checks.
     const reminders = { BundleIdentifier: "com.apple.reminders", Name: "Reminders", TeamIdentifier: "0000000000" };
     expect(() => s.action(appIntent(reminders, "TTRCreateReminderAppIntent"), { nope: 1 })).toThrow(/unknown parameter/);

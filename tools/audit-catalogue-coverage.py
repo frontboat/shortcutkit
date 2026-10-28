@@ -12,9 +12,11 @@ does not"):
   third-party     the catalogue covers Apple's apps; `action()` takes these untyped
   siri-only       intents linkd marks not discoverable (`data/linkd-actions.json`); the index
                   shows them but the app's import sheet refuses any file that uses one
-  interchange     legacy actions of third-party apps served by WFInterchangeActionProvider,
-                  which no probe enumerates; shown only when the app is installed (Add PDF to
-                  Books names the iOS bundle id, so never on a Mac)
+  flow-tool       Siri flow tools (toolType flowTool): indexed visible, never listed by the editor,
+                  and a file that uses one imports as "Unknown Action" and does not run
+  interchange     legacy actions served by WFInterchangeActionProvider, which no probe enumerates;
+                  shown only when the app is installed. One is Apple's, Add PDF to Books
+                  (com.apple.iBooksX.openin), which the editor offers on a Mac: an open gap
   sirikit         SiriKit intents of Apple apps the definition probe did not serve; empty since
                   the probe accepts Apple bundle identifiers (Keynote, Numbers and Pages come
                   preinstalled but live outside /System), so a hit here means the probe ran on a
@@ -47,6 +49,8 @@ def rule(t):
         return "third-party"
     if t["identifier"] in siri_only:
         return "siri-only"
+    if t["toolType"] == "flowTool":
+        return "flow-tool"
     if t["provider"] == "WFInterchangeActionProvider":
         return "interchange"
     if t["provider"] == "WFIntentActionProvider":
@@ -64,7 +68,7 @@ hidden_out = collections.Counter(t["provider"] for t in tools if t["hidden"] and
 
 print(f"index {registry['provenance']['osVersion']}: {len(tools)} tools, {len(shown)} shown in the editor; catalogue {len(catalogue)} entries")
 print(f"shown and not in the catalogue: {len(missing)}")
-for name in ("third-party", "siri-only", "interchange", "sirikit", "unexplained"):
+for name in ("third-party", "siri-only", "flow-tool", "interchange", "sirikit", "unexplained"):
     group = by_rule.get(name, [])
     if not group:
         continue

@@ -330,8 +330,12 @@ def main(argv):
     else:
         print(f"warning: no {linkd_actions}; intents the app refuses to import (not discoverable in linkd) stay in the catalogue", file=sys.stderr)
     is_apple_link = lambda t: t["provider"] == "WFLinkActionProvider" and str(t["app"].get("bundleIdentifier", "")).startswith("com.apple.")
+    # Siri flow tools (toolType "flowTool"; 37 carry a "|<app>" suffix) are indexed visible but the editor
+    # never lists them, and a file that uses one imports as "Unknown Action" and does not run (checked
+    # 2026-10-27 with three forms; docs/extraction.md, "What the editor shows that the catalogue does not").
     apple = [t for t in tools if is_apple_link(t) and t["app"].get("teamId") in (None, "0000000000")
-             and not t["hidden"] and t["identifier"] not in undiscoverable]
+             and not t["hidden"] and t["toolType"] != "flowTool" and t["identifier"] not in undiscoverable]
+    flow = sum(1 for t in tools if is_apple_link(t) and not t["hidden"] and t["toolType"] == "flowTool")
     excluded = sum(1 for t in tools if is_apple_link(t) and t["hidden"])
     not_discoverable = sum(1 for t in tools if is_apple_link(t) and not t["hidden"] and t["identifier"] in undiscoverable)
     data.mkdir(parents=True, exist_ok=True)
@@ -352,7 +356,7 @@ def main(argv):
     for t in tools:
         by_provider[t["provider"]] = by_provider.get(t["provider"], 0) + 1
     print(f"{len(tools)} tools in the index ({', '.join(f'{k} {v}' for k, v in sorted(by_provider.items()))}); "
-          f"{len(apple)} Apple App Intents -> {data / 'apple-app-intents.json'} ({excluded} hidden and {not_discoverable} not discoverable in linkd left out); {len(names)} names -> {data / 'toolkit-names.json'}")
+          f"{len(apple)} Apple App Intents -> {data / 'apple-app-intents.json'} ({excluded} hidden, {flow} flow tools and {not_discoverable} not discoverable in linkd left out); {len(names)} names -> {data / 'toolkit-names.json'}")
 
 
 if __name__ == "__main__":

@@ -30,7 +30,7 @@ are archived ([python-shortcuts](https://github.com/alexander-akhmetov/python-sh
 [Cherri](https://github.com/electrikmilk/cherri) is a separate language with its own compiler.
 
 - All 449 built-in actions as constants, so a typo is an `AttributeError`.
-- 1,318 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
+- 1,265 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
   actions the Shortcuts editor offers: the Siri-only intents the app refuses to import are left out.
 - Third-party app actions, named by app and intent.
 - Checked conditions for 150 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find

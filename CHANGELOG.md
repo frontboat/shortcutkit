@@ -8,6 +8,15 @@ the section for a fresh extraction from the diff against the committed data.
 
 ## Unreleased
 
+### Breaking
+
+- The 53 Siri flow tools (`…Tool|com.apple.Music`, `com.apple.Maps.WhoAmITool`, ...) leave the
+  catalogue. The index lists them visible and a file that uses one imports, but the editor never
+  offers them and the imported action shows as "Unknown Action" and does not run (checked on macOS 27
+  with the catalogue's descriptor, the corrected intent name and the bare identifier). The catalogue
+  holds 1,714 entries, 1,265 of them App Intents.
+
+
 - `dictionary()` builds a dictionary parameter (Dictionary's items, Get Contents of URL's headers, form
   and JSON bodies) from a plain object, and `action()` encodes a plain object given for such a key:
   strings, `text()` and references are text items; numbers, booleans, arrays and nested objects keep
@@ -24,8 +33,8 @@ the section for a fresh extraction from the diff against the committed data.
   class name.
 - `appIntent(app, intent, output?)` names another app's App Intents action for `action()`: the
   identifier is the bundle identifier followed by the intent name, as the catalogue identifies an
-  app's own intents (1,254 of its 1,318 entries; the rest are Siri flow tools and intents hosted in a
-  framework or extension, which carry the registry's identifier), and the descriptor is written as
+  app's own intents (1,254 of its 1,265 entries; the other 11 are hosted in a framework or extension
+  and carry the registry's identifier), and the descriptor is written as
   the catalogue's are. Passing an identifier and `AppIntentDescriptor` by hand still works; that
   parameter is now typed as `AppIntentDescriptor` rather than as a dictionary value.
 - Python: `dictionary()`, `coerce()`, `app_intent()` and `CONTENT_ITEM_CLASSES`, writing the same bytes.

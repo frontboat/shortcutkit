@@ -224,9 +224,9 @@ against a catalogue of 1,883 entries, found 68 missing under four rules, two of 
   no longer filters on them, and the four are in the catalogue.
 - **Legacy interchange actions** (30: Bear, Tweetbot, WhatsApp, Add PDF to Books): served by
   `WFInterchangeActionProvider`, which no probe enumerates. The provider lists 56 and the
-  engine marks each unavailable until its app is installed; the one Apple entry, Add PDF to
-  Books, names the iOS bundle identifier `com.apple.iBooks` (the Mac app is `com.apple.iBooksX`),
-  so it is never available on a Mac. Checked for that one; the other 29 are not installed here.
+  engine marks each unavailable until its app is installed. The one Apple entry, Add PDF to
+  Books (`com.apple.iBooksX.openin`), is offered by the editor on a Mac and is the one visible
+  Apple action the catalogue lacks; the other 29 are not installed here.
 - **SiriKit intents of Apple apps outside /System** (9: Keynote's Open Presentation and Play
   Presentation in Show Mode, Numbers' Create Spreadsheet from Template, Pages' Open Document,
   ...): the definition probe kept only intents whose app is under `/System`, on the assumption
@@ -237,6 +237,13 @@ against a catalogue of 1,883 entries, found 68 missing under four rules, two of 
   Theme and one on the index-hidden `KNiOSOpenAnyDocumentIntent` were accepted by the import
   sheet, as every hidden built-in is. A CI runner has no iWork, so its engine marks them
   missing, which the verifier reports rather than fails.
+- **Siri flow tools** (53, found later: `toolType` `flowTool`; 37 named `…Tool|<bundle id>`,
+  such as Music's `PlayMusicTool|com.apple.Music`, and 16 without the suffix, such as Maps'
+  `WhoAmITool`): the index lists them visible and linkd has no action metadata for them, so
+  the first catalogue kept them. The editor's Music category does not list them, and a file
+  that uses one imports but the action shows as "Unknown Action" and does not run, tried with
+  the catalogue's descriptor, the corrected intent name and the bare identifier (macOS 27,
+  2026-10-27). `dump-toolkit-registry.py` now leaves out every `flowTool`.
 
 With the two rules fixed, every app group the editor lists on this Mac (App Store, Apple
 Intelligence, Books, ... Weather: 41 groups) maps to catalogue entries, apart from the two
@@ -343,8 +350,7 @@ what the library wrote, so a form the engine normalizes would fail it.
 Built-in Find actions use the same rows, but their operator lists are computed in Swift with
 no Objective-C entry point, and built-in properties report no `allowedOperators`. The next
 section is how those lists, and the enum properties the index route cannot build, were read
-anyway. The packages do not use that data yet; `where()` still types only what this section
-describes.
+anyway; the generator types `where()` from it (`engine_rows`).
 
 ### The engine's own filter rules: an engine host, lldb, and a loader shortcut
 
@@ -602,11 +608,11 @@ The round trip above checks value forms against state classes in isolation. `bun
 
 A case is one engine load of one value for one parameter key, not one action: the fixture
 writes every value form a key admits, and each form is a case. On the macOS 27 data that is
-1,410 actions, 4,404 action-and-key pairs and 40,173 cases, most of them the reference helpers
-(about 4,400 each, since nearly every key reads a reference), then the plain samples and the
-token strings. The `where()` and `property()` checks are counted apart in the same summary
-line: 5,182 filter cases (one per property, operator and value form on the 150 Find actions),
-889 property references, and the whole shortcuts.
+1,332 actions, 4,219 action-and-key pairs and 38,378 cases, most of them the reference helpers
+(about 4,200 each, since nearly every key reads a reference), then the plain samples and the
+token strings. The `where()`, `property()` and `coerce()` checks are counted apart in the same
+summary line: 5,182 filter cases (one per property, operator and value form on the 150 Find
+actions), 752 property references, 22 coercions, and the whole shortcuts.
 
 The verifier fails on any case the engine does not read. Three outcomes are reported rather than
 failed, each counted and named in the summary: keys on actions the engine itself loads as

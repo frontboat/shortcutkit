@@ -42,7 +42,7 @@ jobs:
           cd python
           python3 -m venv .venv && .venv/bin/pip install -q -e .
           # The same exact counts test/shortcut.test.ts asserts for the TypeScript package; a data refresh changes both.
-          .venv/bin/python -c "from shortcutkit import ACTIONS; n = len(ACTIONS); d = sum(1 for a in ACTIONS.values() if 'descriptor' in a); assert (n, d) == (1767, 1318), (n, d)"
+          .venv/bin/python -c "from shortcutkit import ACTIONS; n = len(ACTIONS); d = sum(1 for a in ACTIONS.values() if 'descriptor' in a); assert (n, d) == (1714, 1265), (n, d)"
           .venv/bin/python ../test/readme_examples.py
       # Filter Contacts builds its sort-property state through the Contacts framework, which waits
       # forever for a privacy answer on a runner that was never asked. Record "denied" (as on the

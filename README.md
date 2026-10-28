@@ -32,7 +32,7 @@ are archived ([shortcuts-js](https://github.com/joshfarrant/shortcuts-js),
 [Cherri](https://github.com/electrikmilk/cherri) is a separate language with its own compiler.
 
 - All 449 built-in actions, typed, with documentation on hover.
-- 1,318 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
+- 1,265 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
   actions the Shortcuts editor offers: the Siri-only intents the app refuses to import are left out.
 - Third-party app actions, named by app and intent.
 - Typed conditions for 150 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find

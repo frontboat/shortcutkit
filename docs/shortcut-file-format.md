@@ -55,8 +55,9 @@ Each element of `WFWorkflowActions`:
 `data/builtin-actions.json`.
 
 **App Intents actions.** The identifier is `<app bundle identifier>.<intent type name>`, e.g.
-`com.apple.reminders.TTRCreateReminderAppIntent`, using the app's bundle identifier even when
-a framework implements the intent. Parameters are keyed by the intent's Swift parameter names
+`com.apple.reminders.TTRCreateReminderAppIntent`. An intent hosted in a framework or extension
+(Clock's `MobileTimerIntents`, Notes' `SharingExtension`; 11 in the catalogue) keeps the host's
+identifier instead, as `data/apple-app-intents.json` records it. Parameters are keyed by the intent's Swift parameter names
 (`title`, `isFlagged`), and each value type is encoded as a built-in parameter class
 (`appIntentValueTypes` in `data/encoding-table.json`):
 
@@ -79,7 +80,8 @@ Each also carries a descriptor:
                          "ActionRequiresAppInstallation": true }
 ```
 
-`TeamIdentifier` is ten zeros for Apple's apps. `data/apple-app-intents.json` has these fields
+`TeamIdentifier` is ten zeros for Apple's apps. The editor writes `ActionRequiresAppInstallation`
+only on entity Find actions; the engine reads the descriptor with or without it. `data/apple-app-intents.json` has these fields
 for every Apple App Intents action; `tools/dump-appintents-actions.py` lists the installed
 third-party ones. Older SiriKit intents use `IntentAppDefinition` instead, and x-callback
 actions use the app's own identifier scheme.
@@ -158,8 +160,9 @@ A key may hold a reference. The parser raises on any other type code. The engine
 
 **Specialised.** Quantity: `{"WFSerializationType": "WFQuantityFieldValue", "Value": {"Unit": "min", "Magnitude": …}}`.
 Contacts, colors (`WFColorRepresentationType` + components), locations (`{"isCurrentLocation": true}`),
-and file bookmarks (`{"bookmarkData", "displayName", "filename"}`) each have their own
-dictionary; `data/encoding-table.json` has examples.
+file bookmarks (`{"bookmarkData", "displayName", "filename"}`) and media items (`WFMediaItems` on
+Play Music: `{"type": "Song", "itemName", "persistentIdentifier"}`, the identifier a local library id)
+each have their own dictionary; `data/encoding-table.json` has examples.
 
 ## 4. Control flow
 
