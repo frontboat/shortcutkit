@@ -56,3 +56,17 @@ Releases are published by `.github/workflows/release.yml` when a `v<major>.<mino
 - Other tools: `tools/dump-gallery.py`, `tools/dump-appintents-actions.py`, `tools/dump-library-encodings.py` (read-only inspection of Apple's gallery, installed apps' App Intents, and the local Shortcuts library), `tools/fetch-apple-docs.py` (Apple docs as markdown), `tools/diff-data.py` (semver recommendation for a data refresh), `tools/audit-catalogue-coverage.py` (every action the editor shows on this Mac that the catalogue lacks, with the rule that left it out; fails on one no rule explains; with linkd's action metadata saved it also lists the catalogue entries the app refuses to import), `tools/linkd/action-metadata.js` (a `run-payload.sh` payload: linkd's per-platform availability and visibility of each Apple App Intents action, to `~/.shortcutkit-dev/linkd/actions.json`). One-off probes: `tools/jxa-probe.sh probe.js` runs a `run(argv)` script against the engine under osascript with the prelude prepended; `tools/engine-host/syms.sh '<regex>'` lists WorkflowKit's matching symbols from a one-off lldb session on the host.
 - Hidden actions: a built-in the editor hides still imports and runs; an App Intents action linkd marks not discoverable (`assistantOnly`) is refused by the app's import sheet ("features not supported on this device"), although the engine loads it. The 135 such Siri-only intents on macOS 27 (Reminders' Open List, Books' Play Most Recent Audiobook, ...) are out of the catalogue since 2.0.0, by linkd's flag: the index's `visibilityFlags` 2 matches them only among tools that have linkd action metadata, while synthesized entity tools and flow tools share the value and do import. The four Focus-filter intents carry a configuration protocol but the editor lists them, so they are in. Details are in `docs/extraction.md` under "What the editor shows that the catalogue does not".
 - The JXA probes call private API by selector name; if extraction breaks after a macOS update, re-dump the method lists of `WFBundledActionProvider`, `WFActionDefinition` and `WFParameterSummary` (the prelude's `methodNames()` does this from JXA) and adjust (see `docs/extraction.md`).
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues on frontboat/shortcutkit, driven with the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five default labels, each named for its role: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `GLOSSARY.md` and `docs/adr/` at the repo root, created lazily by `/domain-modeling`. See `docs/agents/domain.md`.
