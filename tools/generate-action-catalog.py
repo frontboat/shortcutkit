@@ -664,16 +664,46 @@ def write_entities_ts(filters, properties, bounded, classes, path):
               "export type EntityProperty<E extends EntityId> = (typeof ENTITY_PROPERTIES)[E][number];", "",
               "/** Content item classes a coercion can name (`coerce()`): the engine's own list, which is the editor's variable \"Type\" menu",
               " *  (`+[WFContentItem allSupportedItemClasses]`), each with the type name the editor shows. */",
-              "export const CONTENT_ITEM_CLASSES = { " + ", ".join(f"{c}: {js_str(v['name'])}" for c, v in classes.items()) + " } as const;",
+              "export const CONTENT_ITEM_CLASSES = { " + ", ".join(f"{c}: {js_str(v['name'])}" for c, v in classes.items() if v["coercible"]) + " } as const;",
               "export type ContentItemClass = keyof typeof CONTENT_ITEM_CLASSES;", "",
-              "/** The properties of each content item class (`+allProperties`): the editor's \"Get\" list for a value of that type, and the",
-              " *  names `property()` takes on a `coerce()`d value or on an output of that class. */",
+              "/** The properties of every content item class the engine defines (`+allProperties`, 94 classes on macOS 27, the 22 coercible ones",
+              " *  among them): the editor's \"Get\" list for a value of that type, and the names `property()` takes on a `coerce()`d value or",
+              " *  on an output of that class. */",
               "export const CONTENT_ITEM_PROPERTIES = {"]
     for c, v in classes.items():
-        lines.append(f"  {c}: [{', '.join(js_str(p['name']) for p in v['properties'])}],")
-    lines += ["} as const;", "/** Property names of a content item class. */",
-              "export type ContentItemProperty<C extends ContentItemClass> = (typeof CONTENT_ITEM_PROPERTIES)[C][number];", ""]
+        if v["properties"]:
+            lines.append(f"  {js_str(c)}: [{', '.join(js_str(p['name']) for p in v['properties'])}],")
+    lines += ["} as const;", "/** A content item class with a property list: the coercible classes and the output-only ones (Calendar Event, Reminder, ...). */",
+              "export type ContentItemType = keyof typeof CONTENT_ITEM_PROPERTIES;",
+              "/** Property names of a content item class. */",
+              "export type ContentItemProperty<C extends ContentItemType> = (typeof CONTENT_ITEM_PROPERTIES)[C][number];", "",
+              "/** The content item class that wraps each object class or file type (`+ownedTypes`): what a definition's output type such as",
+              " *  `NSDecimalNumber` or `public.folder` is in content item terms. A type several classes own maps to their common ancestor. */",
+              "export const CONTENT_ITEM_TYPES = {"]
+    for t, c in owned_types(classes).items():
+        lines.append(f"  {js_str(t)}: {js_str(c)},")
+    lines += ["} as const;", ""]
     path.write_text("\n".join(lines))
+
+
+def owned_types(classes):
+    """Object class or file type -> the content item class that owns it; a type several classes own resolves to the
+    one that is an ancestor of all the others (the location family, the item-provider pair), else to nothing."""
+    claims = {}
+    for c, v in classes.items():
+        for t in v.get("ownedTypes", []):
+            claims.setdefault(t["name"], []).append(c)
+    def ancestors(c):
+        out = []
+        while c in classes:
+            c = classes[c].get("superclass"); out.append(c)
+        return out
+    out = {}
+    for t, cs in claims.items():
+        anc = [c for c in cs if all(c == o or c in ancestors(o) for o in cs)]
+        if len(anc) == 1:
+            out[t] = anc[0]
+    return dict(sorted(out.items()))
 
 
 def write_entities_py(filters, properties, bounded, classes, path):
@@ -694,12 +724,15 @@ def write_entities_py(filters, properties, bounded, classes, path):
     for eid, props in properties.items():
         lines.append(f"    {json.dumps(eid)}: {json.dumps(props)},")
     lines += ["}", "", "# Content item classes a coercion can name (coerce()): the engine's own list, the editor's variable \"Type\" menu, with the name it shows.",
-              f"CONTENT_ITEM_CLASSES = {json.dumps({c: v['name'] for c, v in classes.items()})}", "",
-              "# The properties of each content item class (+allProperties): the editor's \"Get\" list for a value of that type, and the names",
-              "# property_() takes on a coerce()d value or on an output of that class.", "CONTENT_ITEM_PROPERTIES = {"]
+              f"CONTENT_ITEM_CLASSES = {json.dumps({c: v['name'] for c, v in classes.items() if v['coercible']})}", "",
+              "# The properties of every content item class the engine defines (+allProperties; the coercible ones among them): the editor's",
+              "# \"Get\" list for a value of that type, and the names property_() takes on a coerce()d value or on an output of that class.", "CONTENT_ITEM_PROPERTIES = {"]
     for c, v in classes.items():
-        lines.append(f"    {json.dumps(c)}: {json.dumps([p['name'] for p in v['properties']])},")
-    lines += ["}", ""]
+        if v["properties"]:
+            lines.append(f"    {json.dumps(c)}: {json.dumps([p['name'] for p in v['properties']])},")
+    lines += ["}", "", "# The content item class that wraps each object class or file type (+ownedTypes): what a definition's output type such as",
+              "# NSDecimalNumber or public.folder is in content item terms. A type several classes own maps to their common ancestor.",
+              f"CONTENT_ITEM_TYPES = {json.dumps(owned_types(classes))}", ""]
     path.write_text("\n".join(lines))
 
 

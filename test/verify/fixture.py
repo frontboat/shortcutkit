@@ -137,7 +137,7 @@ for entity, props in ENTITY_PROPERTIES.items():
         property_cases.append({"entity": entity, "property": name, "attachment": property_(a, name)})
 
 coercion_cases = [{"class": cls, "attachment": coerce(REF, cls)} for cls in CONTENT_ITEM_CLASSES]
-class_property_cases = [{"class": cls, "property": name, "attachment": property_(coerce(REF, cls), name)} for cls, names in CONTENT_ITEM_PROPERTIES.items() for name in names]
+class_property_cases = [{"class": cls, "property": name, "attachment": property_(coerce(REF, cls), name) if cls in CONTENT_ITEM_CLASSES else property_(REF, name)} for cls, names in CONTENT_ITEM_PROPERTIES.items() for name in names]
 
 s = Shortcut("Blocks", color="Teal", types=["ActionExtension"], input_classes=["WFSafariWebPageContentItem", "WFURLContentItem"])
 got = s.action(actions.GETSTOREDCONTENT, WFStoredContentKey="k")

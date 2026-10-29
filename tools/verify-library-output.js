@@ -147,23 +147,27 @@ function run(argv) {
   // Class properties: each name property() offers on a coerce()d reference must parse as a property aggrandizement
   // and resolve on that class (-processedContentClasses: names the class it yields; an unknown name yields nothing);
   // a property the engine lists (+allProperties) that CONTENT_ITEM_PROPERTIES lacks means the data is stale.
+  // Every class is checked, the coercible ones (through coerce()) and the output-only ones (a bare property reference).
+  const allItemClasses = contentItemSubclasses();
   let classProperties = 0;
   for (const c of fixture.classPropertyCases || []) {
     classProperties++;
     const fail = (verdict) => failures.push({ identifier: c.class, key: "property()", form: c.property, verdict, via: "variable state" });
-    if (!engineClasses.has(c.class)) { if (olderEngine) versionGaps.push(c.class + "." + c.property + " (property(): no such content item class in this engine)"); else fail("the engine does not list this content item class"); continue; }
+    if (!(c.class in allItemClasses)) { if (olderEngine) versionGaps.push(c.class + "." + c.property + " (property(): no such content item class in this engine)"); else fail("the engine does not define this content item class"); continue; }
     const st = make("WFVariableParameterState", "initWithSerializedRepresentation:variableProvider:parameter:", $(c.attachment), null, null);
     const vars = isNil(st) ? null : st.containedVariables;
     const ags = vars && count(vars) === 1 ? vars.objectAtIndex(0).aggrandizements : null;
     const ag = ags && count(ags) ? ags.objectAtIndex(count(ags) - 1) : null;
     if (!ag || cls(ag) !== "WFPropertyVariableAggrandizement" || str(ag.propertyName) !== c.property) { fail("the engine did not parse the property aggrandizement"); continue; }
+    if (engineClasses.has(c.class) && !(ags && count(ags) === 2 && cls(ags.objectAtIndex(0)) === "WFCoercionVariableAggrandizement")) { fail("a coercible class's case must carry the coercion first"); continue; }
     const yields = propertyContentClasses(c.class, { Type: "WFPropertyVariableAggrandizement", PropertyName: c.property });
     if (!yields.length) { if (olderEngine && isNil(klass(c.class).propertyForName(c.property))) versionGaps.push(c.class + "." + c.property + " (property(): this engine's class has no such property)"); else fail("the class does not resolve this property"); continue; }
     if (!sameValue(plain(st.serializedRepresentation, -40), c.attachment)) { fail("serialized back differently"); continue; }
     passed++;
   }
-  if (fixture.classPropertyCases) for (const name of engineClasses) {
-    const all = items(klass(name).allProperties);
+  if (fixture.classPropertyCases) for (const name of Object.keys(allItemClasses)) {
+    let all; try { all = items(klass(name).allProperties); } catch (e) { continue; }
+    if (isNil(all)) continue;
     for (let i = 0; i < count(all); i++) { const pn = str(all.objectAtIndex(i).name); if (!fixture.classPropertyCases.some((c) => c.class === name && c.property === pn)) failures.push({ identifier: name, key: "property()", form: pn, verdict: "the engine lists a property CONTENT_ITEM_PROPERTIES lacks; refresh the data", via: "variable state" }); }
   }
   // Find filters: built-in Find actions through their engine action, Apple's entity types through each

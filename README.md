@@ -110,7 +110,9 @@ A dictionary parameter takes a plain object: strings, `text()` and references ar
 numbers, booleans, arrays and nested objects keep their type, as the editor's item type menu sets
 it. `coerce()` reads a value as one content type, as the variable "Type" menu does, and `property()`
 on the result takes that class's properties, the menu's "Get" list (`CONTENT_ITEM_PROPERTIES`):
-`property(coerce(file, "WFGenericFileContentItem"), "File Size")`, checked at compile time and run time.
+`property(coerce(file, "WFGenericFileContentItem"), "File Size")`, checked at compile time and run time. An output the catalogue
+types, by class or by the object class it wraps (`CONTENT_ITEM_TYPES`), is checked the same way without a
+coercion: `property(askedNumber, "Name")`.
 
 ```ts
 import { coerce } from "shortcutkit";

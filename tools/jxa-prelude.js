@@ -198,6 +198,19 @@ function filterState(state) {
   return { rows, serialized: plain(state.serializedRepresentation, -8) }; // filters nest deeper than plain()'s usual limit
 }
 // The content item classes a property aggrandizement yields on a class; empty when the engine finds no such property.
+ObjC.bindFunction("objc_copyClassList", ["void **", ["unsigned int *"]]);
+// Every WFContentItem subclass the loaded engine defines (ContentKit, ActionKit, WorkflowKit), by name, with its
+// superclass: the runtime's class list walked by superclass. The coercible 22 (+allSupportedItemClasses) are among them.
+function contentItemSubclasses() {
+  const out = {}; const n = Ref("unsigned int"); const all = $.objc_copyClassList(n);
+  for (let i = 0; i < n[0]; i++) {
+    const c = all[i]; let chain = []; let isSub = false;
+    for (let s = $.class_getSuperclass(c); ; s = $.class_getSuperclass(s)) { const sn = $.class_getName(s); if (sn === "nil" || sn === "NSObject") break; chain.push(sn); if (sn === "WFContentItem") { isSub = true; break; } }
+    if (isSub) out[$.class_getName(c)] = chain[0];
+  }
+  $.free(all);
+  return out;
+}
 function propertyContentClasses(className, aggrandizement) {
   const ag = make("WFPropertyVariableAggrandizement", "initWithDictionary:", $(aggrandizement));
   const pc = ag.processedContentClasses($.NSOrderedSet.orderedSetWithObject(klass(className)));

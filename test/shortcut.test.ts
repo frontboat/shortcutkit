@@ -2,7 +2,7 @@ import { describe, expect, spyOn, test } from "bun:test";
 import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, acceptedBy, producedBy, PARAM_ENTITY_TYPES, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, acceptedBy, producedBy, PARAM_ENTITY_TYPES, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 import * as readmeExamples from "./readme-examples";
 
 describe("shortcutkit", () => {
@@ -458,8 +458,23 @@ describe("dictionaries, coercions and other apps' intents", () => {
     // @ts-expect-error not a property of an image
     expect(() => property(img, "Album Art")).toThrow(/WFImageContentItem has no property Album Art/);
     expect(CONTENT_ITEM_PROPERTIES.WFNumberContentItem).toEqual(["Name"]);
-    expect(Object.keys(CONTENT_ITEM_PROPERTIES)).toEqual(Object.keys(CONTENT_ITEM_CLASSES));
-    expect(Object.values(CONTENT_ITEM_PROPERTIES).flat().length).toBe(182);
+    for (const c of Object.keys(CONTENT_ITEM_CLASSES)) expect(Object.keys(CONTENT_ITEM_PROPERTIES)).toContain(c);
+    expect(Object.keys(CONTENT_ITEM_PROPERTIES).length).toBe(93);
+    expect(Object.values(CONTENT_ITEM_PROPERTIES).flat().length).toBe(618);
+    // An output named by the object class it wraps resolves through CONTENT_ITEM_TYPES: Ask for Input's NSDecimalNumber is a Number.
+    expect(CONTENT_ITEM_TYPES.NSDecimalNumber).toBe("WFNumberContentItem");
+    expect(CONTENT_ITEM_TYPES["public.folder"]).toBe("WFFolderContentItem");
+    expect(CONTENT_ITEM_TYPES.CLLocation).toBe("WFLocationContentItem");
+    const asked = s.action(actions.ask, { WFInputType: "Number" });
+    expect(property(asked, "Name").Value.Aggrandizements).toEqual([{ Type: "WFPropertyVariableAggrandizement", PropertyName: "Name" }]);
+    // @ts-expect-error Text, Number, URL and Date have no Width
+    expect(() => property(asked, "Width")).toThrow(/WFStringContentItem \/ WFNumberContentItem \/ WFURLContentItem \/ WFDateContentItem has no property Width/);
+    const events = s.action(actions.getupcomingevents, {});
+    expect(ACTIONS[actions.getupcomingevents].outputTypes).toContain("EKEvent");
+    expect(property(events, "Start Date").Value.Aggrandizements).toEqual([{ Type: "WFPropertyVariableAggrandizement", PropertyName: "Start Date" }]);
+    // @ts-expect-error not a property of a calendar event
+    expect(() => property(events, "Width")).toThrow(/WFCalendarEventContentItem has no property Width/);
+    expect(Object.keys(CONTENT_ITEM_TYPES).length).toBe(133);
   });
   test("appIntent() names another app's action as the catalogue names Apple's", () => {
     const app = { BundleIdentifier: "com.example.app", Name: "Example", TeamIdentifier: "ABCDE12345" };

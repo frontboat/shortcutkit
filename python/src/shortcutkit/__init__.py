@@ -193,16 +193,23 @@ def property_(source, name):
     under a variable's "Type") writes it (a WFPropertyVariableAggrandizement): property_(found, "body"),
     property_(repeat_item(), "date"), property_(coerce(file, "WFGenericFileContentItem"), "File Size").
     When the output's type is known, one of Apple's entity types (ENTITY_PROPERTIES) or a content item class
-    (CONTENT_ITEM_PROPERTIES, also what a coerce()d reference has), the name must be one of its properties."""
+    (CONTENT_ITEM_PROPERTIES: named directly, or as the object class the definition names, NSDecimalNumber being a
+    Number, through CONTENT_ITEM_TYPES; also what a coerce()d reference has), the name must be one of its properties."""
     if _is_reference(source):
         cls = _coerced_class(source)
         types = [cls] if cls else []
     else:
-        types = [t for t in source.get("_outputTypes", []) if t in ENTITY_PROPERTIES or t in CONTENT_ITEM_PROPERTIES]
+        types = list(dict.fromkeys(t if t in ENTITY_PROPERTIES else _item_class_of(t) for t in source.get("_outputTypes", [])))
+        types = [t for t in types if t]
     known = {p for t in types for p in (ENTITY_PROPERTIES.get(t) or CONTENT_ITEM_PROPERTIES.get(t) or [])}
     if types and name not in known:
         raise ValueError(f"{' / '.join(types)} has no property {name}; it has {', '.join(sorted(known))}")
     return _aggrandize(source, {"Type": "WFPropertyVariableAggrandizement", "PropertyName": name})
+
+
+def _item_class_of(type_name):
+    """An output type name as a content item class: itself when it is one, else the class that owns it (CONTENT_ITEM_TYPES)."""
+    return type_name if type_name in CONTENT_ITEM_PROPERTIES else CONTENT_ITEM_TYPES.get(type_name)
 
 
 def _coerced_class(attachment):
@@ -661,12 +668,12 @@ def demo(out):
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
 from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES  # noqa: E402
-from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES  # noqa: E402  (generated Find filters, entity properties, content item classes and their properties)
+from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES  # noqa: E402  (generated Find filters, entity properties, content item classes, their properties and owned types)
 
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "accepted_by", "produced_by", "PARAM_ENTITY_TYPES", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
-           "property_", "coerce", "dictionary", "app_intent", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES", "CONTENT_ITEM_CLASSES", "CONTENT_ITEM_PROPERTIES",
+           "property_", "coerce", "dictionary", "app_intent", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES", "CONTENT_ITEM_CLASSES", "CONTENT_ITEM_PROPERTIES", "CONTENT_ITEM_TYPES",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
 __version__ = "3.0.0"

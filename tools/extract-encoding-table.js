@@ -147,28 +147,34 @@ function run(argv) {
   }
   out.appIntentValueTypes = appIntentValueTypes;
 
-  // Content item classes a coercion aggrandizement can name: the engine's own list, which is the editor's
-  // variable "Type" menu (+[WFContentItem allSupportedItemClasses]), each with the type name the editor
-  // shows. The aggrandizement's parser takes any class name, so the library checks against this list.
+  // Content item classes: every WFContentItem subclass the engine defines (94 on macOS 27), with the type name the
+  // editor shows. `coercible` marks the ones a coercion aggrandizement can name, +[WFContentItem allSupportedItemClasses],
+  // the editor's variable "Type" menu (22); the aggrandizement's parser takes any class name, so the library checks
+  // against that list. `ownedTypes` (+ownedTypes) are the object classes and file types the class wraps: what a
+  // definition's output type such as NSDecimalNumber or public.folder means in content item terms (a type several
+  // classes own resolves to their common ancestor, else to none). The class's properties (+allProperties,
+  // WFContentProperty objects) are the editor's "Get" list under its "Type" menu, and the names a property
+  // aggrandizement resolves (PropertyName is the property's `name`, case-sensitive; `userInfo` is what the editor adds
+  // as PropertyUserInfo, which the parser does not need). `yields` is the class the aggrandizement reads through
+  // (-processedContentClasses:); an unknown name yields nothing, so it is the check. `coercesTo` is
+  // +supportedItemClasses: the classes this one coerces to.
   const contentItemClasses = {};
-  const supported = items(klass("WFContentItem").allSupportedItemClasses);
-  for (let i = 0; i < count(supported); i++) {
-    const c = supported.objectAtIndex(i);
-    const className = $.class_getName(ObjC.castObjectToRef(c));
-    // The class's properties (+allProperties, WFContentProperty objects): the editor's "Get" list under its
-    // "Type" menu, and the names a property aggrandizement resolves (PropertyName is the property's `name`,
-    // case-sensitive; `userInfo` is what the editor adds as PropertyUserInfo, which the parser does not need).
-    // `yields` is the class the aggrandizement reads through (-processedContentClasses:); an unknown name
-    // yields nothing, so it is the check. `coercesTo` is +supportedItemClasses: the classes this one coerces to.
-    const properties = []; const all = items(c.allProperties);
-    for (let j = 0; j < count(all); j++) {
+  const coercible = new Set(); { const l = items(klass("WFContentItem").allSupportedItemClasses); for (let i = 0; i < count(l); i++) coercible.add($.class_getName(ObjC.castObjectToRef(l.objectAtIndex(i)))); }
+  const typeList = (list) => { const r = []; if (isNil(list)) return r; const a = items(list); for (let i = 0; i < count(a); i++) { const t = a.objectAtIndex(i); const m = /^<(WF\w+): 0x[0-9a-f]+>: (.*)$/.exec(str(t.description)); r.push(m ? { kind: m[1] === "WFFileType" ? "file" : "class", name: m[2] } : { kind: cls(t), name: str(t.description) }); } return r; };
+  const subclasses = contentItemSubclasses();
+  for (const className of Object.keys(subclasses).sort()) {
+    const c = klass(className);
+    const tryOr = (fn, fallback) => { try { const v = fn(); return isNil(v) ? fallback : v; } catch (e) { return fallback; } }; // a few classes raise on class methods (WFLinkCodableValueContentItem)
+    const rec = { name: tryOr(() => str(c.localizedTypeDescription), null), plural: tryOr(() => str(c.localizedPluralTypeDescription), null), superclass: subclasses[className], coercible: coercible.has(className), ownedTypes: tryOr(() => typeList(c.ownedTypes), []), properties: [], coercesTo: [] };
+    const all = tryOr(() => items(c.allProperties), null);
+    if (all) for (let j = 0; j < count(all); j++) {
       const p = all.objectAtIndex(j);
       const yields = propertyContentClasses(className, { Type: "WFPropertyVariableAggrandizement", PropertyName: str(p.name) });
-      properties.push({ name: str(p.name), userInfo: plain(p.userInfo, 0), valueClass: isNil(p.valueItemClass) ? null : str($.NSStringFromClass(p.valueItemClass)), yields, multiple: !!p.multipleValues, filterable: !!p.isFilterable, sortable: !!p.isSortable, gettable: !!p.isGettable });
+      rec.properties.push({ name: str(p.name), userInfo: plain(p.userInfo, 0), valueClass: isNil(p.valueItemClass) ? null : str($.NSStringFromClass(p.valueItemClass)), yields, multiple: !!p.multipleValues, filterable: !!p.isFilterable, sortable: !!p.isSortable, gettable: !!p.isGettable });
     }
-    const coercesTo = []; const targets = c.supportedItemClasses;
-    if (!isNil(targets)) { const a = items(targets); for (let j = 0; j < count(a); j++) coercesTo.push(str($.NSStringFromClass(a.objectAtIndex(j)))); }
-    contentItemClasses[className] = { name: str(c.localizedTypeDescription), plural: str(c.localizedPluralTypeDescription), properties, coercesTo };
+    const targets = tryOr(() => c.supportedItemClasses, null);
+    if (targets) { const a = items(targets); for (let j = 0; j < count(a); j++) rec.coercesTo.push(str($.NSStringFromClass(a.objectAtIndex(j)))); }
+    contentItemClasses[className] = rec;
   }
   out.contentItemClasses = contentItemClasses;
 
@@ -209,5 +215,5 @@ function run(argv) {
   };
 
   writeJSON(argv[0], out);
-  console.log(Object.keys(states).length + " state classes, " + Object.keys(vars).length + " variables, " + Object.keys(appIntentValueTypes).length + " App Intents value types, " + Object.keys(contentItemClasses).length + " content item classes -> " + argv[0]);
+  console.log(Object.keys(states).length + " state classes, " + Object.keys(vars).length + " variables, " + Object.keys(appIntentValueTypes).length + " App Intents value types, " + Object.keys(contentItemClasses).length + " content item classes (" + Object.values(contentItemClasses).filter((c) => c.coercible).length + " coercible) -> " + argv[0]);
 }

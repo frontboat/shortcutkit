@@ -6,7 +6,7 @@ import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition, type ActionDefinition } from "./definitions.js";
 import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
-import { BOUNDED_FILTERS, BYTE_COUNT_UNITS, CALENDAR_UNITS, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type ContentItemClass, type ContentItemProperty, type EntityId, type EntityProperty } from "./generated/entities.js";
+import { BOUNDED_FILTERS, BYTE_COUNT_UNITS, CALENDAR_UNITS, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type ContentItemClass, type ContentItemProperty, type ContentItemType, type EntityId, type EntityProperty } from "./generated/entities.js";
 import type { AppIntentDescriptor, AskAttachment, Attachment, Coerced, ConditionSubject, DictionaryFieldValue, DictionaryItem, DictionaryItems, DictionaryItemType, DictionaryValue, FilterRow, FilterTemplateValue, TokenString, Uncoerced, Value, VariableType, Where } from "./values.js";
 
 export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
@@ -15,7 +15,7 @@ export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
 export { provenance, type Provenance } from "./provenance.js";
 export type * from "./generated/params.js";
-export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, type FilterRows, type EntityId, type EntityProperty, type ContentItemClass, type ContentItemProperty } from "./generated/entities.js";
+export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, type FilterRows, type EntityId, type EntityProperty, type ContentItemClass, type ContentItemProperty, type ContentItemType } from "./generated/entities.js";
 
 /** Parameters accepted for an identifier: typed per key for built-in actions, open for anything else. */
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
@@ -162,34 +162,40 @@ export const repeatIndex = (): Attachment<"Variable"> => attachment({ Type: "Var
 
 /** The entity type an action outputs, when it is one of Apple's (ENTITY_PROPERTIES). */
 type OutputEntity<I extends string> = I extends ActionId ? Extract<OutputTypes<I>[number], EntityId> : never;
-/** The content item class an action outputs, when it is one the engine lists (CONTENT_ITEM_PROPERTIES). */
-type OutputClass<I extends string> = I extends ActionId ? Extract<OutputTypes<I>[number], ContentItemClass> : never;
+/** The content item class an action outputs: named directly (CONTENT_ITEM_PROPERTIES) or as the object class or file type it wraps (CONTENT_ITEM_TYPES). */
+type OutputClass<I extends string> = I extends ActionId ? Extract<OutputTypes<I>[number] | (typeof CONTENT_ITEM_TYPES)[Extract<OutputTypes<I>[number], keyof typeof CONTENT_ITEM_TYPES>], ContentItemType> : never;
 type KnownProperty<I extends string> = EntityProperty<OutputEntity<I>> | ContentItemProperty<OutputClass<I>>;
 /** What `property()` takes for an action's output: the property names of its entity type or content item class when the catalog knows them, else any name. */
 export type PropertyName<I extends string> = [KnownProperty<I>] extends [never] ? string : KnownProperty<I>;
 
 /** The content item class a reference was last coerced to, when it is one the engine lists; null for any other reference. */
-function coercedClass(a: Attachment): ContentItemClass | null {
+function coercedClass(a: Attachment): ContentItemType | null {
   const ags = a.Value.Aggrandizements;
   const last = Array.isArray(ags) ? ags[ags.length - 1] : undefined;
   const cls = last && typeof last === "object" && !Array.isArray(last) && (last as Record<string, unknown>).Type === "WFCoercionVariableAggrandizement" ? (last as Record<string, unknown>).CoercionItemClass : null;
-  return typeof cls === "string" && cls in CONTENT_ITEM_PROPERTIES ? (cls as ContentItemClass) : null;
+  return typeof cls === "string" && cls in CONTENT_ITEM_PROPERTIES ? (cls as ContentItemType) : null;
 }
+/** An output type name as a content item class: itself when it is one, else the class that owns it (CONTENT_ITEM_TYPES), else null. */
+const itemClassOf = (t: string): ContentItemType | null => {
+  const c = t in CONTENT_ITEM_TYPES ? (CONTENT_ITEM_TYPES as Record<string, string>)[t]! : t;
+  return c in CONTENT_ITEM_PROPERTIES ? (c as ContentItemType) : null; // a class without properties (LNEntity's) checks nothing
+};
 
 /**
  * One property of an action's output or of any reference, as the editor's property picker (the "Get" list
  * under a variable's "Type") writes it (a `WFPropertyVariableAggrandizement`): `property(found, "body")`,
  * `property(repeatItem(), "date")`, `property(coerce(file, "WFGenericFileContentItem"), "File Size")`.
  * When the output's type is known, one of Apple's entity types (ENTITY_PROPERTIES) or a content item class
- * (CONTENT_ITEM_PROPERTIES, also what a `coerce()`d reference has), the name must be one of its properties,
- * which the compiler also checks.
+ * (CONTENT_ITEM_PROPERTIES: named directly, or as the object class the definition names, `NSDecimalNumber` being
+ * a Number, through CONTENT_ITEM_TYPES; also what a `coerce()`d reference has), the name must be one of its
+ * properties, which the compiler also checks.
  */
 export function property<I extends string>(source: Action<I>, name: PropertyName<I>): Attachment<"ActionOutput">;
 export function property<C extends ContentItemClass, T extends VariableType>(source: Coerced<C, T>, name: ContentItemProperty<C>): Attachment<T>;
 export function property<T extends VariableType>(source: Uncoerced<T>, name: string): Attachment<T>;
 export function property(source: Action | Attachment, name: string): Attachment {
-  const types: string[] = isAttachment(source) ? [coercedClass(source)].filter((c): c is ContentItemClass => c !== null) : (source.outputTypes ?? []).filter((t) => t in ENTITY_PROPERTIES || t in CONTENT_ITEM_PROPERTIES);
-  const known = new Set<string>(types.flatMap((t) => (t in ENTITY_PROPERTIES ? ENTITY_PROPERTIES[t as EntityId] : CONTENT_ITEM_PROPERTIES[t as ContentItemClass]) as readonly string[]));
+  const types: string[] = isAttachment(source) ? [coercedClass(source)].filter((c): c is ContentItemType => c !== null) : [...new Set((source.outputTypes ?? []).map((t) => (t in ENTITY_PROPERTIES ? t : itemClassOf(t))).filter((t): t is string => t !== null))];
+  const known = new Set<string>(types.flatMap((t) => (t in ENTITY_PROPERTIES ? ENTITY_PROPERTIES[t as EntityId] : CONTENT_ITEM_PROPERTIES[t as ContentItemType]) as readonly string[]));
   if (types.length && !known.has(name)) throw new Error(`${types.join(" / ")} has no property ${name}; it has ${[...known].sort().join(", ")}`);
   return aggrandize(source, { Type: "WFPropertyVariableAggrandizement", PropertyName: name });
 }

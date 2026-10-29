@@ -8,16 +8,20 @@ the section for a fresh extraction from the diff against the committed data.
 
 ## Unreleased
 
-- `property()` knows the properties of the 22 built-in content item classes, the editor's "Get" list
+- `property()` knows the properties of the engine's content item classes, the editor's "Get" list
   under a variable's Type menu: `property(coerce(file, "WFGenericFileContentItem"), "File Size")`
-  is typed and checked, as is `property()` on an action whose output is one of those classes (Get
-  Images from Input, Base64 Encode, ...). The names are each class's `+allProperties` (182 on macOS
-  27: `CONTENT_ITEM_PROPERTIES` in both packages; `properties` per class in
-  `data/encoding-table.json`, with the user-info key, value class, and the filterable, sortable,
-  gettable flags, plus `coercesTo`, the classes each one coerces to), and `bun run verify` loads
-  every one through the engine on a coerced reference. A `coerce()`d reference carries its class in
-  the TypeScript type (`Coerced<C>`), so the wrong name fails to compile; a property of a property
-  takes any name, as before.
+  is typed and checked, as is `property()` on an action whose output is a known class, named
+  directly (Get Images from Input) or by the object class the item wraps (Ask for Input's
+  `NSDecimalNumber` is a Number, Get Upcoming Events' `EKEvent` a Calendar Event). The names are
+  each class's `+allProperties`: 618 across the 94 classes the engine defines on macOS 27, the 22
+  coercible ones and the output-only ones (`CONTENT_ITEM_PROPERTIES` in both packages); the owner of
+  each object class and file type is `+ownedTypes` (`CONTENT_ITEM_TYPES`, 133; a type several
+  classes own resolves to their common ancestor). `properties`, `ownedTypes`, `superclass`,
+  `coercible` and `coercesTo` per class are in `data/encoding-table.json`, with each property's
+  user-info key, value class, and filterable, sortable, gettable flags, and `bun run verify` loads
+  every property through the engine. A `coerce()`d reference carries its class in the TypeScript
+  type (`Coerced<C>`), so the wrong name fails to compile; a property of a property takes any name,
+  as before.
 - The catalogue entries carry the rest of each action's card, from data the definitions and the
   registry already held: `inputTypes` (with `inputKey` and `inputRequired`), `keywords`,
   `description` with `descriptionNote` and `descriptionResult`, the `discontinued`, `unavailable`,

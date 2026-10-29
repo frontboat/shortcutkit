@@ -99,7 +99,9 @@ A dictionary parameter takes a plain dict: strings, `text()` and references are 
 numbers, booleans, lists and nested dicts keep their type, as the editor's item type menu sets it.
 `coerce()` reads a value as one content type, as the variable "Type" menu does, and `property_()` on the
 result takes that class's properties, the menu's "Get" list (`CONTENT_ITEM_PROPERTIES`):
-`property_(coerce(file, "WFGenericFileContentItem"), "File Size")`, checked at run time.
+`property_(coerce(file, "WFGenericFileContentItem"), "File Size")`, checked at run time. An output the catalogue types, by
+class or by the object class it wraps (`CONTENT_ITEM_TYPES`), is checked the same way without a coercion:
+`property_(asked_number, "Name")`.
 
 ```python
 from shortcutkit import coerce

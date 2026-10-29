@@ -131,7 +131,8 @@ const coercionCases: CoercionCase[] = Object.keys(CONTENT_ITEM_CLASSES).map((cls
 // Class properties: every property of every content item class, through property() on a coerce()d reference.
 type ClassPropertyCase = { class: string; property: string; attachment: unknown };
 const classPropertyCases: ClassPropertyCase[] = [];
-for (const [cls, names] of Object.entries(CONTENT_ITEM_PROPERTIES as Record<string, readonly string[]>)) for (const name of names) classPropertyCases.push({ class: cls, property: name, attachment: property(coerce(REF, cls as never) as never, name as never) });
+// A coercible class through coerce(); an output-only class (Calendar Event, Reminder, ...) as a bare property reference, resolved on the class by the verifier.
+for (const [cls, names] of Object.entries(CONTENT_ITEM_PROPERTIES as Record<string, readonly string[]>)) for (const name of names) classPropertyCases.push({ class: cls, property: name, attachment: cls in CONTENT_ITEM_CLASSES ? property(coerce(REF, cls as never) as never, name as never) : property(REF, name) });
 
 // Whole shortcuts through the helpers: control flow, loop variables, share sheet, text wrapping.
 const s = new Shortcut("Blocks", { color: "Teal", types: ["ActionExtension"], inputClasses: ["WFSafariWebPageContentItem", "WFURLContentItem"] });
