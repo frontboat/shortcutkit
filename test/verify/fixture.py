@@ -7,7 +7,7 @@ import json
 import sys
 
 sys.path.insert(0, "python/src")
-from shortcutkit import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, Shortcut, actions, ref, text, variable, shortcut_input, clipboard, current_date, ask, device_details, current_app, repeat_item, property_, where, where_any, coerce, app_intent  # noqa: E402
+from shortcutkit import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, Shortcut, actions, ref, text, variable, shortcut_input, clipboard, current_date, ask, device_details, current_app, repeat_item, property_, where, where_any, coerce, app_intent  # noqa: E402
 
 encodings = json.load(open("data/parameter-encodings.json"))
 DEFAULTS = encodings["actionDefaults"]
@@ -137,6 +137,7 @@ for entity, props in ENTITY_PROPERTIES.items():
         property_cases.append({"entity": entity, "property": name, "attachment": property_(a, name)})
 
 coercion_cases = [{"class": cls, "attachment": coerce(REF, cls)} for cls in CONTENT_ITEM_CLASSES]
+class_property_cases = [{"class": cls, "property": name, "attachment": property_(coerce(REF, cls), name)} for cls, names in CONTENT_ITEM_PROPERTIES.items() for name in names]
 
 s = Shortcut("Blocks", color="Teal", types=["ActionExtension"], input_classes=["WFSafariWebPageContentItem", "WFURLContentItem"])
 got = s.action(actions.GETSTOREDCONTENT, WFStoredContentKey="k")
@@ -176,6 +177,6 @@ def dates(o):
     raise TypeError(type(o).__name__)
 
 
-json.dump({"cases": cases, "filterCases": filter_cases, "propertyCases": property_cases, "coercionCases": coercion_cases, "shortcuts": shortcuts}, open(sys.argv[1], "w"), indent=1, ensure_ascii=False, default=dates)
+json.dump({"cases": cases, "filterCases": filter_cases, "propertyCases": property_cases, "coercionCases": coercion_cases, "classPropertyCases": class_property_cases, "shortcuts": shortcuts}, open(sys.argv[1], "w"), indent=1, ensure_ascii=False, default=dates)
 print(len(cases), "parameter cases across", len({c["identifier"] for c in cases}), "actions;", len(filter_cases), "filters across", len(FILTERS), "Find actions;",
-      len(property_cases), "properties;", len(coercion_cases), "coercions;", len(shortcuts), "whole shortcuts ->", sys.argv[1])
+      len(property_cases), "properties;", len(coercion_cases), "coercions;", len(class_property_cases), "class properties;", len(shortcuts), "whole shortcuts ->", sys.argv[1])

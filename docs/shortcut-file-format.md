@@ -112,7 +112,14 @@ The classes a coercion can name are `+[WFContentItem allSupportedItemClasses]`, 
 (`contentItemClasses` in `data/encoding-table.json`, with the name the editor shows for each;
 `CONTENT_ITEM_CLASSES` in the packages); the parser itself takes any class name. For an App Intents
 entity, `PropertyName` is the property's identifier (`ENTITY_PROPERTIES` in the packages lists
-them, from `data/apple-entities.json`).
+them, from `data/apple-entities.json`). For one of the 22 content item classes it is the property's
+name as the class declares it (`+allProperties`; "File Size", "Name", "Width"; case-sensitive): the
+editor's "Get" list under the Type menu, 182 names on macOS 27, `properties` per class in the
+encoding table and `CONTENT_ITEM_PROPERTIES` in the packages. The editor also writes the property's
+`PropertyUserInfo` (`WFFileSizeProperty`, `{"WFLinkEntityContentPropertyUserInfoPropertyIdentifier":
+"body"}` for an entity); the engine resolves by `PropertyName` alone and the packages write only that.
+A property aggrandizement after a coercion reads the property of the coerced class
+(`property(coerce(x, "WFGenericFileContentItem"), "File Size")`).
 
 **Text with references** (`WFTextTokenString`), used by text, URL, and date inputs:
 

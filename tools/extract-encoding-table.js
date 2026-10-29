@@ -154,7 +154,21 @@ function run(argv) {
   const supported = items(klass("WFContentItem").allSupportedItemClasses);
   for (let i = 0; i < count(supported); i++) {
     const c = supported.objectAtIndex(i);
-    contentItemClasses[$.class_getName(ObjC.castObjectToRef(c))] = { name: str(c.localizedTypeDescription), plural: str(c.localizedPluralTypeDescription) };
+    const className = $.class_getName(ObjC.castObjectToRef(c));
+    // The class's properties (+allProperties, WFContentProperty objects): the editor's "Get" list under its
+    // "Type" menu, and the names a property aggrandizement resolves (PropertyName is the property's `name`,
+    // case-sensitive; `userInfo` is what the editor adds as PropertyUserInfo, which the parser does not need).
+    // `yields` is the class the aggrandizement reads through (-processedContentClasses:); an unknown name
+    // yields nothing, so it is the check. `coercesTo` is +supportedItemClasses: the classes this one coerces to.
+    const properties = []; const all = items(c.allProperties);
+    for (let j = 0; j < count(all); j++) {
+      const p = all.objectAtIndex(j);
+      const yields = propertyContentClasses(className, { Type: "WFPropertyVariableAggrandizement", PropertyName: str(p.name) });
+      properties.push({ name: str(p.name), userInfo: plain(p.userInfo, 0), valueClass: isNil(p.valueItemClass) ? null : str($.NSStringFromClass(p.valueItemClass)), yields, multiple: !!p.multipleValues, filterable: !!p.isFilterable, sortable: !!p.isSortable, gettable: !!p.isGettable });
+    }
+    const coercesTo = []; const targets = c.supportedItemClasses;
+    if (!isNil(targets)) { const a = items(targets); for (let j = 0; j < count(a); j++) coercesTo.push(str($.NSStringFromClass(a.objectAtIndex(j)))); }
+    contentItemClasses[className] = { name: str(c.localizedTypeDescription), plural: str(c.localizedPluralTypeDescription), properties, coercesTo };
   }
   out.contentItemClasses = contentItemClasses;
 

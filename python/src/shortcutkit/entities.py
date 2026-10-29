@@ -583,3 +583,30 @@ ENTITY_PROPERTIES = {
 
 # Content item classes a coercion can name (coerce()): the engine's own list, the editor's variable "Type" menu, with the name it shows.
 CONTENT_ITEM_CLASSES = {"WFAppStoreAppContentItem": "App Store App", "WFArticleContentItem": "Article", "WFBooleanContentItem": "Boolean", "WFContactContentItem": "Contact", "WFDateContentItem": "Date", "WFDCMapsLinkContentItem": "Maps Link", "WFDictionaryContentItem": "Dictionary", "WFEKParticipantContentItem": "Event Attendee", "WFEmailAddressContentItem": "Email Address", "WFGenericFileContentItem": "File", "WFImageContentItem": "Image", "WFiTunesProductContentItem": "iTunes Product", "WFLocationContentItem": "Location", "WFMKMapItemContentItem": "Place", "WFNumberContentItem": "Number", "WFPDFContentItem": "PDF", "WFPersonNameComponentsContentItem": "Name Components", "WFPhoneNumberContentItem": "Phone Number", "WFRichTextContentItem": "Rich Text", "WFStringContentItem": "Text", "WFURLContentItem": "URL", "WFVCardContentItem": "vCard"}
+
+# The properties of each content item class (+allProperties): the editor's "Get" list for a value of that type, and the names
+# property_() takes on a coerce()d value or on an output of that class.
+CONTENT_ITEM_PROPERTIES = {
+    "WFAppStoreAppContentItem": ["Artist", "Price", "Currency Code", "Formatted Price", "Release Date", "Category", "Description", "Rating", "# of Ratings", "Rating (This Version)", "# of Ratings (This Version)", "Version", "Last Updated", "Release Notes", "Content Rating", "Minimum OS Version", "Is Universal", "Supports Game Center", "Supported Devices", "Supported Languages", "Screenshot URLs", "iPad Screenshot URLs", "Download Size", "Bundle Identifier", "Store ID", "Store URL", "Artwork", "Artwork URL", "Name"],
+    "WFArticleContentItem": ["Title", "Author", "Published Date", "Body", "Excerpt", "Number of Words", "Main Image URL", "URL", "Name"],
+    "WFBooleanContentItem": ["Name"],
+    "WFContactContentItem": ["Group", "First Name", "Middle Name", "Last Name", "Phone Numbers", "Email Addresses", "Street Addresses", "URLs", "Birthday", "Relationship to Me", "Contact Photo", "Has Photo", "Prefix", "Suffix", "Nickname", "Phonetic First Name", "Phonetic Last Name", "Phonetic Middle Name", "Company", "Job Title", "Department", "Notes", "File Size", "File Extension", "File Path", "Creation Date", "Last Modified Date", "Name"],
+    "WFDateContentItem": ["Time", "Name"],
+    "WFDCMapsLinkContentItem": ["Name"],
+    "WFDictionaryContentItem": ["Keys", "Values", "File Size", "File Extension", "File Path", "Creation Date", "Last Modified Date", "Name"],
+    "WFEKParticipantContentItem": ["Status", "Role", "Type", "Is Me", "Email Address", "Name"],
+    "WFEmailAddressContentItem": ["Label", "Name"],
+    "WFGenericFileContentItem": ["File Size", "File Extension", "File Path", "Creation Date", "Last Modified Date", "Name"],
+    "WFImageContentItem": ["Album", "Width", "Height", "Date Taken", "Time Taken", "Media Type", "Photo Type", "Is a Screenshot", "Is a Screen Recording", "Location", "Duration", "Frame Rate", "Orientation", "Camera Make", "Camera Model", "Metadata Dictionary", "Is Favorite", "File Size", "File Extension", "File Path", "Creation Date", "Last Modified Date", "Name"],
+    "WFiTunesProductContentItem": ["Artist", "Price", "Currency Code", "Formatted Price", "Release Date", "Genre", "Duration", "Streamable", "Is Explicit", "Description", "Store ID", "Store URL", "Artwork", "Artwork URL", "Name"],
+    "WFLocationContentItem": ["Latitude", "Longitude", "Altitude", "Street", "City", "State", "ZIP Code", "Country", "Phone Number", "Label", "URL", "Name"],
+    "WFMKMapItemContentItem": ["Name"],
+    "WFNumberContentItem": ["Name"],
+    "WFPDFContentItem": ["File Size", "File Extension", "File Path", "Creation Date", "Last Modified Date", "Name"],
+    "WFPersonNameComponentsContentItem": ["Full Name", "Prefix", "First Name", "Middle Name", "Last Name", "Suffix", "Nickname", "Phonetic First Name", "Phonetic Middle Name", "Phonetic Last Name", "Name"],
+    "WFPhoneNumberContentItem": ["Label", "Name"],
+    "WFRichTextContentItem": ["File Size", "File Extension", "File Path", "Creation Date", "Last Modified Date", "Name"],
+    "WFStringContentItem": ["File Size", "File Extension", "File Path", "Creation Date", "Last Modified Date", "Name"],
+    "WFURLContentItem": ["Name"],
+    "WFVCardContentItem": ["File Size", "File Extension", "File Path", "Creation Date", "Last Modified Date", "Name"],
+}

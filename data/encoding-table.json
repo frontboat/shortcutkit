@@ -156,92 +156,2448 @@
   },
   "contentItemClasses" : {
     "WFAppStoreAppContentItem" : {
+      "coercesTo" : [
+        "WFURLContentItem",
+        "WFImageContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "App Store App",
-      "plural" : "App Store Apps"
+      "plural" : "App Store Apps",
+      "properties" : [
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Artist",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFiTunesArtistContentItem",
+          "yields" : [
+            "WFiTunesArtistContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Price",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Currency Code",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Formatted Price",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Release Date",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Category",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Description",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Rating",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "# of Ratings",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Rating (This Version)",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "# of Ratings (This Version)",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Version",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Updated",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Release Notes",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Content Rating",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Minimum OS Version",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Is Universal",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFBooleanContentItem",
+          "yields" : [
+            "WFBooleanContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Supports Game Center",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFBooleanContentItem",
+          "yields" : [
+            "WFBooleanContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Supported Devices",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Supported Languages",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Screenshot URLs",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "iPad Screenshot URLs",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Download Size",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFFileSizeContentItem",
+          "yields" : [
+            "WFFileSizeContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Bundle Identifier",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Store ID",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Store URL",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Artwork",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFImageContentItem",
+          "yields" : [
+            "WFImageContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Artwork URL",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFArticleContentItem" : {
+      "coercesTo" : [
+        "WFRichTextContentItem",
+        "WFStringContentItem",
+        "WFDateContentItem",
+        "WFURLContentItem",
+        "WFImageContentItem"
+      ],
       "name" : "Article",
-      "plural" : "Articles"
+      "plural" : "Articles",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Title",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Author",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Published Date",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Body",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFGenericFileContentItem",
+          "yields" : [
+            "WFGenericFileContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Excerpt",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFGenericFileContentItem",
+          "yields" : [
+            "WFGenericFileContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Number of Words",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Main Image URL",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "URL",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFBooleanContentItem" : {
+      "coercesTo" : [
+        "WFNumberContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "Boolean",
-      "plural" : "Booleans"
+      "plural" : "Booleans",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFContactContentItem" : {
+      "coercesTo" : [
+        "WFURLContentItem",
+        "WFDateContentItem",
+        "WFImageContentItem",
+        "WFLocationContentItem",
+        "WFPhoneNumberContentItem",
+        "WFEmailAddressContentItem",
+        "WFPersonNameComponentsContentItem",
+        "WFVCardContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "Contact",
-      "plural" : "Contacts"
+      "plural" : "Contacts",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : false,
+          "multiple" : true,
+          "name" : "Group",
+          "sortable" : false,
+          "userInfo" : "WFContactItemGroupProperty",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "First Name",
+          "sortable" : true,
+          "userInfo" : 0,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Middle Name",
+          "sortable" : true,
+          "userInfo" : 6,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Name",
+          "sortable" : true,
+          "userInfo" : 1,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Phone Numbers",
+          "sortable" : false,
+          "userInfo" : 3,
+          "valueClass" : "WFPhoneNumberContentItem",
+          "yields" : [
+            "WFPhoneNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Email Addresses",
+          "sortable" : false,
+          "userInfo" : 4,
+          "valueClass" : "WFEmailAddressContentItem",
+          "yields" : [
+            "WFEmailAddressContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Street Addresses",
+          "sortable" : false,
+          "userInfo" : 5,
+          "valueClass" : "WFLocationContentItem",
+          "yields" : [
+            "WFLocationContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "URLs",
+          "sortable" : false,
+          "userInfo" : 22,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Birthday",
+          "sortable" : true,
+          "userInfo" : 17,
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Relationship to Me",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Contact Photo",
+          "sortable" : false,
+          "userInfo" : -1000,
+          "valueClass" : "WFImageContentItem",
+          "yields" : [
+            "WFImageContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : false,
+          "multiple" : false,
+          "name" : "Has Photo",
+          "sortable" : false,
+          "userInfo" : -1001,
+          "valueClass" : "WFBooleanContentItem",
+          "yields" : [
+            "WFBooleanContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Prefix",
+          "sortable" : true,
+          "userInfo" : 20,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Suffix",
+          "sortable" : true,
+          "userInfo" : 21,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Nickname",
+          "sortable" : true,
+          "userInfo" : 19,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Phonetic First Name",
+          "sortable" : true,
+          "userInfo" : 7,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Phonetic Last Name",
+          "sortable" : true,
+          "userInfo" : 9,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Phonetic Middle Name",
+          "sortable" : true,
+          "userInfo" : 8,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Company",
+          "sortable" : true,
+          "userInfo" : 10,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Job Title",
+          "sortable" : true,
+          "userInfo" : 18,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Department",
+          "sortable" : true,
+          "userInfo" : 11,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Notes",
+          "sortable" : false,
+          "userInfo" : 14,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Size",
+          "sortable" : false,
+          "userInfo" : "WFFileSizeProperty",
+          "valueClass" : "WFFileSizeContentItem",
+          "yields" : [
+            "WFFileSizeContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Extension",
+          "sortable" : true,
+          "userInfo" : "WFFileExtensionProperty",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Path",
+          "sortable" : true,
+          "userInfo" : "WFFilePath",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Creation Date",
+          "sortable" : true,
+          "userInfo" : "WFFileCreationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Modified Date",
+          "sortable" : true,
+          "userInfo" : "WFFileModificationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFDateContentItem" : {
+      "coercesTo" : [
+        "WFStringContentItem",
+        "WFNumberContentItem"
+      ],
       "name" : "Date",
-      "plural" : "Dates"
+      "plural" : "Dates",
+      "properties" : [
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Time",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFDCMapsLinkContentItem" : {
+      "coercesTo" : [
+        "WFURLContentItem",
+        "WFMKMapItemContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "Maps Link",
-      "plural" : "Maps Links"
+      "plural" : "Maps Links",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFDictionaryContentItem" : {
+      "coercesTo" : [
+        "WFStringContentItem"
+      ],
       "name" : "Dictionary",
-      "plural" : "Dictionaries"
+      "plural" : "Dictionaries",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Keys",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Values",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Size",
+          "sortable" : true,
+          "userInfo" : "WFFileSizeProperty",
+          "valueClass" : "WFFileSizeContentItem",
+          "yields" : [
+            "WFFileSizeContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Extension",
+          "sortable" : true,
+          "userInfo" : "WFFileExtensionProperty",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Path",
+          "sortable" : true,
+          "userInfo" : "WFFilePath",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Creation Date",
+          "sortable" : true,
+          "userInfo" : "WFFileCreationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Modified Date",
+          "sortable" : true,
+          "userInfo" : "WFFileModificationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFEKParticipantContentItem" : {
+      "coercesTo" : [
+        "WFContactContentItem",
+        "WFEmailAddressContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "Event Attendee",
-      "plural" : "Event attendees"
+      "plural" : "Event attendees",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Status",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Role",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Type",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Is Me",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFBooleanContentItem",
+          "yields" : [
+            "WFBooleanContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Email Address",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFEmailAddressContentItem",
+          "yields" : [
+            "WFEmailAddressContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFEmailAddressContentItem" : {
+      "coercesTo" : [
+        "WFStringContentItem",
+        "WFURLContentItem",
+        "WFContactContentItem",
+        "WFEKParticipantContentItem"
+      ],
       "name" : "Email Address",
-      "plural" : "Email Addresses"
+      "plural" : "Email Addresses",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Label",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFGenericFileContentItem" : {
+      "coercesTo" : [
+        "WFRichTextContentItem",
+        "WFPDFContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "File",
-      "plural" : "Files"
+      "plural" : "Files",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Size",
+          "sortable" : true,
+          "userInfo" : "WFFileSizeProperty",
+          "valueClass" : "WFFileSizeContentItem",
+          "yields" : [
+            "WFFileSizeContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Extension",
+          "sortable" : true,
+          "userInfo" : "WFFileExtensionProperty",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Path",
+          "sortable" : true,
+          "userInfo" : "WFFilePath",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Creation Date",
+          "sortable" : true,
+          "userInfo" : "WFFileCreationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Modified Date",
+          "sortable" : true,
+          "userInfo" : "WFFileModificationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFImageContentItem" : {
+      "coercesTo" : [
+        "WFPDFContentItem",
+        "WFRichTextContentItem",
+        "WFDictionaryContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "Image",
-      "plural" : "Images"
+      "plural" : "Images",
+      "properties" : [
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Album",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Width",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Height",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Date Taken",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : false,
+          "multiple" : false,
+          "name" : "Time Taken",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Media Type",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : true,
+          "name" : "Photo Type",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Is a Screenshot",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFBooleanContentItem",
+          "yields" : [
+            "WFBooleanContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Is a Screen Recording",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFBooleanContentItem",
+          "yields" : [
+            "WFBooleanContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Location",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFLocationContentItem",
+          "yields" : [
+            "WFLocationContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Duration",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFTimeIntervalContentItem",
+          "yields" : [
+            "WFTimeIntervalContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Frame Rate",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Orientation",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Camera Make",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Camera Model",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Metadata Dictionary",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFDictionaryContentItem",
+          "yields" : [
+            "WFDictionaryContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Is Favorite",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFBooleanContentItem",
+          "yields" : [
+            "WFBooleanContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Size",
+          "sortable" : true,
+          "userInfo" : "WFFileSizeProperty",
+          "valueClass" : "WFFileSizeContentItem",
+          "yields" : [
+            "WFFileSizeContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Extension",
+          "sortable" : true,
+          "userInfo" : "WFFileExtensionProperty",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Path",
+          "sortable" : true,
+          "userInfo" : "WFFilePath",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Creation Date",
+          "sortable" : true,
+          "userInfo" : "WFFileCreationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Modified Date",
+          "sortable" : true,
+          "userInfo" : "WFFileModificationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFiTunesProductContentItem" : {
+      "coercesTo" : [
+        "WFURLContentItem",
+        "WFImageContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "iTunes Product",
-      "plural" : "iTunes Products"
+      "plural" : "iTunes Products",
+      "properties" : [
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Artist",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFiTunesArtistContentItem",
+          "yields" : [
+            "WFiTunesArtistContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Price",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Currency Code",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Formatted Price",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Release Date",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Genre",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Duration",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFTimeIntervalContentItem",
+          "yields" : [
+            "WFTimeIntervalContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Streamable",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFBooleanContentItem",
+          "yields" : [
+            "WFBooleanContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Is Explicit",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFBooleanContentItem",
+          "yields" : [
+            "WFBooleanContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Description",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Store ID",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Store URL",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : false,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Artwork",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFImageContentItem",
+          "yields" : [
+            "WFImageContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Artwork URL",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFLocationContentItem" : {
+      "coercesTo" : [
+        "WFStringContentItem",
+        "WFMKMapItemContentItem",
+        "WFDCMapsLinkContentItem",
+        "WFImageContentItem",
+        "WFContactContentItem"
+      ],
       "name" : "Location",
-      "plural" : "Locations"
+      "plural" : "Locations",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Latitude",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Longitude",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Altitude",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFNumberContentItem",
+          "yields" : [
+            "WFNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Street",
+          "sortable" : true,
+          "userInfo" : "street",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "City",
+          "sortable" : true,
+          "userInfo" : "city",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "State",
+          "sortable" : true,
+          "userInfo" : "state",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "ZIP Code",
+          "sortable" : true,
+          "userInfo" : "postalCode",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Country",
+          "sortable" : true,
+          "userInfo" : "country",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Phone Number",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFPhoneNumberContentItem",
+          "yields" : [
+            "WFPhoneNumberContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Label",
+          "sortable" : true,
+          "userInfo" : "localizedLabel",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "URL",
+          "sortable" : false,
+          "userInfo" : null,
+          "valueClass" : "WFURLContentItem",
+          "yields" : [
+            "WFURLContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFMKMapItemContentItem" : {
+      "coercesTo" : [
+        "WFDCMapsLinkContentItem",
+        "WFURLContentItem",
+        "WFLocationContentItem",
+        "WFPhoneNumberContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "Place",
-      "plural" : "Places"
+      "plural" : "Places",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFNumberContentItem" : {
+      "coercesTo" : [
+        "WFStringContentItem"
+      ],
       "name" : "Number",
-      "plural" : "Numbers"
+      "plural" : "Numbers",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFPDFContentItem" : {
+      "coercesTo" : [
+        "WFStringContentItem",
+        "WFRichTextContentItem",
+        "WFImageContentItem"
+      ],
       "name" : "PDF",
-      "plural" : "PDFs"
+      "plural" : "PDFs",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Size",
+          "sortable" : true,
+          "userInfo" : "WFFileSizeProperty",
+          "valueClass" : "WFFileSizeContentItem",
+          "yields" : [
+            "WFFileSizeContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Extension",
+          "sortable" : true,
+          "userInfo" : "WFFileExtensionProperty",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Path",
+          "sortable" : true,
+          "userInfo" : "WFFilePath",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Creation Date",
+          "sortable" : true,
+          "userInfo" : "WFFileCreationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Modified Date",
+          "sortable" : true,
+          "userInfo" : "WFFileModificationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFPersonNameComponentsContentItem" : {
+      "coercesTo" : [
+        "WFStringContentItem"
+      ],
       "name" : "Name Components",
-      "plural" : "Name Components"
+      "plural" : "Name Components",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Full Name",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Prefix",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "First Name",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Middle Name",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Name",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Suffix",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Nickname",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Phonetic First Name",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Phonetic Middle Name",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Phonetic Last Name",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFPhoneNumberContentItem" : {
+      "coercesTo" : [
+        "WFStringContentItem",
+        "WFURLContentItem",
+        "WFContactContentItem"
+      ],
       "name" : "Phone Number",
-      "plural" : "Phone Numbers"
+      "plural" : "Phone Numbers",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Label",
+          "sortable" : true,
+          "userInfo" : null,
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFRichTextContentItem" : {
+      "coercesTo" : [
+        "WFURLContentItem",
+        "WFStringContentItem",
+        "WFImageContentItem",
+        "WFPDFContentItem"
+      ],
       "name" : "Rich Text",
-      "plural" : "Rich Text"
+      "plural" : "Rich Text",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Size",
+          "sortable" : true,
+          "userInfo" : "WFFileSizeProperty",
+          "valueClass" : "WFFileSizeContentItem",
+          "yields" : [
+            "WFFileSizeContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Extension",
+          "sortable" : true,
+          "userInfo" : "WFFileExtensionProperty",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Path",
+          "sortable" : true,
+          "userInfo" : "WFFilePath",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Creation Date",
+          "sortable" : true,
+          "userInfo" : "WFFileCreationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Modified Date",
+          "sortable" : true,
+          "userInfo" : "WFFileModificationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFStringContentItem" : {
+      "coercesTo" : [
+        "WFURLContentItem",
+        "WFDateContentItem",
+        "WFLocationContentItem",
+        "WFPhoneNumberContentItem",
+        "WFPersonNameComponentsContentItem",
+        "WFDictionaryContentItem",
+        "WFNumberContentItem",
+        "WFBooleanContentItem",
+        "WFPDFContentItem"
+      ],
       "name" : "Text",
-      "plural" : "Text"
+      "plural" : "Text",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Size",
+          "sortable" : true,
+          "userInfo" : "WFFileSizeProperty",
+          "valueClass" : "WFFileSizeContentItem",
+          "yields" : [
+            "WFFileSizeContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Extension",
+          "sortable" : true,
+          "userInfo" : "WFFileExtensionProperty",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Path",
+          "sortable" : true,
+          "userInfo" : "WFFilePath",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Creation Date",
+          "sortable" : true,
+          "userInfo" : "WFFileCreationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Modified Date",
+          "sortable" : true,
+          "userInfo" : "WFFileModificationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFURLContentItem" : {
+      "coercesTo" : [
+        "WFStringContentItem",
+        "WFGenericFileContentItem",
+        "WFRichTextContentItem",
+        "WFPDFContentItem",
+        "WFEmailAddressContentItem",
+        "WFDCMapsLinkContentItem",
+        "WFArticleContentItem",
+        "WFiTunesProductContentItem",
+        "WFAppStoreAppContentItem"
+      ],
       "name" : "URL",
-      "plural" : "URLs"
+      "plural" : "URLs",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     },
     "WFVCardContentItem" : {
+      "coercesTo" : [
+        "WFContactContentItem",
+        "WFStringContentItem"
+      ],
       "name" : "vCard",
-      "plural" : "vCards"
+      "plural" : "vCards",
+      "properties" : [
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Size",
+          "sortable" : true,
+          "userInfo" : "WFFileSizeProperty",
+          "valueClass" : "WFFileSizeContentItem",
+          "yields" : [
+            "WFFileSizeContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Extension",
+          "sortable" : true,
+          "userInfo" : "WFFileExtensionProperty",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "File Path",
+          "sortable" : true,
+          "userInfo" : "WFFilePath",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Creation Date",
+          "sortable" : true,
+          "userInfo" : "WFFileCreationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Last Modified Date",
+          "sortable" : true,
+          "userInfo" : "WFFileModificationDate",
+          "valueClass" : "WFDateContentItem",
+          "yields" : [
+            "WFDateContentItem"
+          ]
+        },
+        {
+          "filterable" : true,
+          "gettable" : true,
+          "multiple" : false,
+          "name" : "Name",
+          "sortable" : true,
+          "userInfo" : "WFItemName",
+          "valueClass" : "WFStringContentItem",
+          "yields" : [
+            "WFStringContentItem"
+          ]
+        }
+      ]
     }
   },
   "defaultGlyphCharacter" : 61440,

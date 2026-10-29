@@ -2,7 +2,7 @@
 // the types allow, plus whole shortcuts built through the block helpers, and writes what the
 // library produced. tools/verify-library-output.js then loads all of it through the engine.
 //   bun test/verify/fixture.ts out.json
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, ref, text, variable, shortcutInput, clipboard, currentDate, ask, deviceDetails, currentApp, repeatItem, property, where, whereAny, coerce, appIntent } from "../../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, ref, text, variable, shortcutInput, clipboard, currentDate, ask, deviceDetails, currentApp, repeatItem, property, where, whereAny, coerce, appIntent } from "../../src/index";
 import encodings from "../../data/parameter-encodings.json";
 
 // expect: "read" (the library wrote it, the engine must read it) or "rejected" (the library refuses
@@ -128,6 +128,10 @@ for (const [entity, props] of Object.entries(ENTITY_PROPERTIES as Record<string,
 // Coercions: every content item class the engine lists, through coerce().
 type CoercionCase = { class: string; attachment: unknown };
 const coercionCases: CoercionCase[] = Object.keys(CONTENT_ITEM_CLASSES).map((cls) => ({ class: cls, attachment: coerce(REF, cls as keyof typeof CONTENT_ITEM_CLASSES) }));
+// Class properties: every property of every content item class, through property() on a coerce()d reference.
+type ClassPropertyCase = { class: string; property: string; attachment: unknown };
+const classPropertyCases: ClassPropertyCase[] = [];
+for (const [cls, names] of Object.entries(CONTENT_ITEM_PROPERTIES as Record<string, readonly string[]>)) for (const name of names) classPropertyCases.push({ class: cls, property: name, attachment: property(coerce(REF, cls as never) as never, name as never) });
 
 // Whole shortcuts through the helpers: control flow, loop variables, share sheet, text wrapping.
 const s = new Shortcut("Blocks", { color: "Teal", types: ["ActionExtension"], inputClasses: ["WFSafariWebPageContentItem", "WFURLContentItem"] });
@@ -170,5 +174,5 @@ function dates(this: unknown, key: string, value: unknown) {
   const raw = (this as Record<string, unknown>)[key];
   return raw instanceof Date ? { $date: raw.toISOString().replace(/\.\d{3}Z$/, "Z") } : value;
 }
-await Bun.write(out, JSON.stringify({ cases, filterCases, propertyCases, coercionCases, shortcuts }, dates, 1));
-console.log(cases.length, "parameter cases across", new Set(cases.map((x) => x.identifier)).size, "actions;", filterCases.length, "filters across", Object.keys(FILTERS).length, "Find actions;", propertyCases.length, "properties;", coercionCases.length, "coercions;", shortcuts.length, "whole shortcuts ->", out);
+await Bun.write(out, JSON.stringify({ cases, filterCases, propertyCases, coercionCases, classPropertyCases, shortcuts }, dates, 1));
+console.log(cases.length, "parameter cases across", new Set(cases.map((x) => x.identifier)).size, "actions;", filterCases.length, "filters across", Object.keys(FILTERS).length, "Find actions;", propertyCases.length, "properties;", coercionCases.length, "coercions;", classPropertyCases.length, "class properties;", shortcuts.length, "whole shortcuts ->", out);

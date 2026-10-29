@@ -97,7 +97,9 @@ s.action(actions.SHOWRESULT, Text=text(property_(found, "body")))
 
 A dictionary parameter takes a plain dict: strings, `text()` and references are text items, and
 numbers, booleans, lists and nested dicts keep their type, as the editor's item type menu sets it.
-`coerce()` reads a value as one content type, as the variable "Type" menu does.
+`coerce()` reads a value as one content type, as the variable "Type" menu does, and `property_()` on the
+result takes that class's properties, the menu's "Get" list (`CONTENT_ITEM_PROPERTIES`):
+`property_(coerce(file, "WFGenericFileContentItem"), "File Size")`, checked at run time.
 
 ```python
 from shortcutkit import coerce
@@ -141,7 +143,7 @@ s.action(actions.SHOWRESULT, Text=ref(note))
 | `shortcut_input()`, `clipboard()`, `current_date()`, `ask()`, `device_details()`, `current_app()` | Special variables. |
 | `where(*rows)`, `where_any(*rows)` | Conditions for a Find action's `WFContentItemFilter`. |
 | `property_(source, name)` | One property of an action's output or a variable. |
-| `coerce(source, class)` | A value read as one content type (`CONTENT_ITEM_CLASSES`). |
+| `coerce(source, class)` | A value read as one content type, the editor's "Type" menu (`CONTENT_ITEM_CLASSES`). |
 | `dictionary(items)` | A dictionary parameter's items; `action()` encodes a plain dict itself. |
 | `app_intent(app, intent, output=None)` | Another app's action, for `s.action()`. |
 | `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type's properties, and the content types a coercion can name. |

@@ -26,8 +26,8 @@ Value helpers return the exact structures WorkflowKit's state classes serialize:
   ask("Prompt")      WFTextTokenAttachment  -> ask each time
   text("a ", ref(x)) WFTextTokenString      -> text with embedded references
   subject(att)       {"Type": "Variable", "Variable": att}  (the If condition's subject; pickers take the bare attachment)
-  property_(x, "body")  a reference to one property of x (a WFPropertyVariableAggrandizement)
   coerce(x, "WFStringContentItem")  x read as one content type (a WFCoercionVariableAggrandizement; CONTENT_ITEM_CLASSES)
+  property_(x, "body")  one property of x (a WFPropertyVariableAggrandizement; ENTITY_PROPERTIES, CONTENT_ITEM_PROPERTIES)
   dictionary({...})  WFDictionaryFieldValue  -> a dictionary parameter's items, typed as the editor types them
   app_intent(app, "CreateNoteIntent")  another app's action, for action(): its identifier and descriptor
   where(row, ...)    Find conditions, encoded by action() for the Find action's entity
@@ -189,17 +189,28 @@ def subject(attachment):
 
 
 def property_(source, name):
-    """One property of an action's output or of any reference, as the editor's property picker writes
-    it (a WFPropertyVariableAggrandizement): property_(found, "body"), property_(repeat_item(), "date").
-    Given an action whose output is one of Apple's entity types, the name must be one of its
-    properties (ENTITY_PROPERTIES)."""
-    if not _is_reference(source):
-        entities = [t for t in source.get("_outputTypes", []) if t in ENTITY_PROPERTIES]
-        known = {p for e in entities for p in ENTITY_PROPERTIES[e]}
-        if entities and name not in known:
-            raise ValueError(f"{' / '.join(entities)} has no property {name}; it has {', '.join(sorted(known))}")
-        source = ref(source)
+    """One property of an action's output or of any reference, as the editor's property picker (the "Get" list
+    under a variable's "Type") writes it (a WFPropertyVariableAggrandizement): property_(found, "body"),
+    property_(repeat_item(), "date"), property_(coerce(file, "WFGenericFileContentItem"), "File Size").
+    When the output's type is known, one of Apple's entity types (ENTITY_PROPERTIES) or a content item class
+    (CONTENT_ITEM_PROPERTIES, also what a coerce()d reference has), the name must be one of its properties."""
+    if _is_reference(source):
+        cls = _coerced_class(source)
+        types = [cls] if cls else []
+    else:
+        types = [t for t in source.get("_outputTypes", []) if t in ENTITY_PROPERTIES or t in CONTENT_ITEM_PROPERTIES]
+    known = {p for t in types for p in (ENTITY_PROPERTIES.get(t) or CONTENT_ITEM_PROPERTIES.get(t) or [])}
+    if types and name not in known:
+        raise ValueError(f"{' / '.join(types)} has no property {name}; it has {', '.join(sorted(known))}")
     return _aggrandize(source, {"Type": "WFPropertyVariableAggrandizement", "PropertyName": name})
+
+
+def _coerced_class(attachment):
+    """The content item class a reference was last coerced to, when it is one the engine lists; else None."""
+    ags = attachment["Value"].get("Aggrandizements")
+    last = ags[-1] if isinstance(ags, list) and ags else None
+    cls = last.get("CoercionItemClass") if isinstance(last, dict) and last.get("Type") == "WFCoercionVariableAggrandizement" else None
+    return cls if cls in CONTENT_ITEM_PROPERTIES else None
 
 
 def _aggrandize(source, aggrandizement):
@@ -632,12 +643,12 @@ def demo(out):
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
 from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES  # noqa: E402
-from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES  # noqa: E402  (generated Find filters, entity properties and content item classes)
+from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES  # noqa: E402  (generated Find filters, entity properties, content item classes and their properties)
 
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
 __all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
-           "property_", "coerce", "dictionary", "app_intent", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES", "CONTENT_ITEM_CLASSES",
+           "property_", "coerce", "dictionary", "app_intent", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES", "CONTENT_ITEM_CLASSES", "CONTENT_ITEM_PROPERTIES",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
 __version__ = "3.0.0"

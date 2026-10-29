@@ -2,7 +2,7 @@ import { describe, expect, spyOn, test } from "bun:test";
 import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 import * as readmeExamples from "./readme-examples";
 
 describe("shortcutkit", () => {
@@ -409,6 +409,25 @@ describe("dictionaries, coercions and other apps' intents", () => {
     const gid = s.if(coerce(got, "WFStringContentItem"), "is", "x");
     s.endIf(gid);
     expect(s.actions[1]!.WFWorkflowActionParameters.WFInput).toEqual({ Type: "Variable", Variable: coerce(got, "WFStringContentItem") });
+  });
+  test("property() on a coerce()d value takes the class's own properties, the editor's Get list", () => {
+    const s = new Shortcut("Props");
+    const got = s.action(actions.getstoredcontent, { WFStoredContentKey: "k" });
+    const size = property(coerce(got, "WFGenericFileContentItem"), "File Size");
+    expect(size.Value.Aggrandizements).toEqual([{ Type: "WFCoercionVariableAggrandizement", CoercionItemClass: "WFGenericFileContentItem" }, { Type: "WFPropertyVariableAggrandizement", PropertyName: "File Size" }]);
+    expect(property(coerce(repeatItem(), "WFNumberContentItem"), "Name").Value.Type).toBe("Variable");
+    // @ts-expect-error a Number has only Name
+    expect(() => property(coerce(got, "WFNumberContentItem"), "Width")).toThrow(/WFNumberContentItem has no property Width; it has Name/);
+    // A property of a property: the class is no longer known, so any name goes.
+    expect(property(size, "anything").Value.Aggrandizements).toHaveLength(3);
+    // An action whose output is a content item class is checked the same way.
+    const img = s.action(actions.detect_images, {});
+    expect(property(img, "Width").Value.Aggrandizements).toEqual([{ Type: "WFPropertyVariableAggrandizement", PropertyName: "Width" }]);
+    // @ts-expect-error not a property of an image
+    expect(() => property(img, "Album Art")).toThrow(/WFImageContentItem has no property Album Art/);
+    expect(CONTENT_ITEM_PROPERTIES.WFNumberContentItem).toEqual(["Name"]);
+    expect(Object.keys(CONTENT_ITEM_PROPERTIES)).toEqual(Object.keys(CONTENT_ITEM_CLASSES));
+    expect(Object.values(CONTENT_ITEM_PROPERTIES).flat().length).toBe(182);
   });
   test("appIntent() names another app's action as the catalogue names Apple's", () => {
     const app = { BundleIdentifier: "com.example.app", Name: "Example", TeamIdentifier: "ABCDE12345" };

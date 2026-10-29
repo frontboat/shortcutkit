@@ -21,7 +21,7 @@ tc = {(c["identifier"], c["key"], c["form"]): strip(c["params"]) for c in ts["ca
 pc = {(c["identifier"], c["key"], c["form"]): strip(c["params"]) for c in py["cases"]}
 problems = [f"only in TypeScript: {k}" for k in sorted(set(tc) - set(pc))] + [f"only in Python: {k}" for k in sorted(set(pc) - set(tc))]
 problems += [f"differs: {k}\n    ts {json.dumps(tc[k])[:200]}\n    py {json.dumps(pc[k])[:200]}" for k in sorted(set(tc) & set(pc)) if tc[k] != pc[k]]
-for name, key in (("filterCases", lambda c: (c["identifier"], c["form"])), ("propertyCases", lambda c: (c["entity"], c["property"])), ("coercionCases", lambda c: c["class"])):
+for name, key in (("filterCases", lambda c: (c["identifier"], c["form"])), ("propertyCases", lambda c: (c["entity"], c["property"])), ("coercionCases", lambda c: c["class"]), ("classPropertyCases", lambda c: (c["class"], c["property"]))):
     tf = {key(c): strip(c) for c in ts.get(name, [])}
     pf = {key(c): strip(c) for c in py.get(name, [])}
     problems += [f"{name} only in TypeScript: {k}" for k in sorted(set(tf) - set(pf))] + [f"{name} only in Python: {k}" for k in sorted(set(pf) - set(tf))]
@@ -29,7 +29,7 @@ for name, key in (("filterCases", lambda c: (c["identifier"], c["form"])), ("pro
 for a, b in zip(ts["shortcuts"], py["shortcuts"]):
     if strip(a["plist"]) != strip(b["plist"]):
         problems.append(f"whole shortcut {a['name']} differs between packages")
-print(f"parity: {len(tc)} TypeScript cases, {len(pc)} Python cases, {len(ts.get('filterCases', []))} filters, {len(ts.get('propertyCases', []))} properties, {len(ts.get('coercionCases', []))} coercions, {len(ts['shortcuts'])} shortcuts; {len(problems)} problem(s)")
+print(f"parity: {len(tc)} TypeScript cases, {len(pc)} Python cases, {len(ts.get('filterCases', []))} filters, {len(ts.get('propertyCases', []))} properties, {len(ts.get('coercionCases', []))} coercions, {len(ts.get('classPropertyCases', []))} class properties, {len(ts['shortcuts'])} shortcuts; {len(problems)} problem(s)")
 for p in problems[:20]:
     print("  " + p)
 sys.exit(1 if problems else 0)

@@ -108,7 +108,9 @@ s.action(actions.filter_files, {
 
 A dictionary parameter takes a plain object: strings, `text()` and references are text items, and
 numbers, booleans, arrays and nested objects keep their type, as the editor's item type menu sets
-it. `coerce()` reads a value as one content type, as the variable "Type" menu does.
+it. `coerce()` reads a value as one content type, as the variable "Type" menu does, and `property()`
+on the result takes that class's properties, the menu's "Get" list (`CONTENT_ITEM_PROPERTIES`):
+`property(coerce(file, "WFGenericFileContentItem"), "File Size")`, checked at compile time and run time.
 
 ```ts
 import { coerce } from "shortcutkit";
@@ -166,8 +168,8 @@ Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut")
 | `variable(name)`, `repeatItem()`, `repeatIndex()` | Named and repeat variables. |
 | `shortcutInput()`, `clipboard()`, `currentDate()`, `ask()`, `deviceDetails()`, `currentApp()` | Special variables. |
 | `where(...rows)`, `whereAny(...rows)` | Conditions for a Find action's `WFContentItemFilter`. |
-| `property(source, name)` | One property of an action's output or a variable. |
-| `coerce(source, class)` | A value read as one content type (`CONTENT_ITEM_CLASSES`). |
+| `property(source, name)` | One property of an action's output or a variable: the editor's "Get" list (`ENTITY_PROPERTIES`, `CONTENT_ITEM_PROPERTIES`). |
+| `coerce(source, class)` | A value read as one content type, the editor's "Type" menu (`CONTENT_ITEM_CLASSES`). |
 | `dictionary(items)` | A dictionary parameter's items; `action()` encodes a plain object itself. |
 | `appIntent(app, intent, output?)` | Another app's action, for `s.action()`. |
 | `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `BYTE_COUNT_UNITS`, `BOUNDED_FILTERS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type's properties, and the content types a coercion can name. |

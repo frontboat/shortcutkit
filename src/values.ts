@@ -10,6 +10,11 @@ export type VariableType = "ActionOutput" | "ExtensionInput" | "Variable" | "Cli
  *  engine reads only some references for (PARAM_VARIABLE_TYPES) can say which at compile time. */
 export type Attachment<T extends VariableType = VariableType> = { WFSerializationType: "WFTextTokenAttachment"; Value: { Type: T } & Record<string, PlistValue> };
 export type AskAttachment = Attachment<"Ask">;
+declare const COERCED: unique symbol;
+/** A reference `coerce()` read as one content item class; `property()` then takes that class's property names. The symbol is a compile-time mark only. */
+export type Coerced<C extends string, T extends VariableType = VariableType> = Attachment<T> & { readonly [COERCED]: C };
+/** A reference that is not `Coerced`, so `property()` on it takes any name rather than falling through from the typed overload. */
+export type Uncoerced<T extends VariableType = VariableType> = Attachment<T> & { readonly [COERCED]?: never };
 export type TokenString = { WFSerializationType: "WFTextTokenString"; Value: { string: string; attachmentsByRange: Record<string, Record<string, PlistValue>> } };
 /** The subject of an If condition (`WFInput` on `is.workflow.actions.conditional`): an attachment wrapped as the app writes it. Not the variable-picker form, which is the bare attachment. */
 export type ConditionSubject = { Type: "Variable"; Variable: Attachment };

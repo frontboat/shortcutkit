@@ -569,7 +569,14 @@ def write_entities_ts(filters, properties, bounded, classes, path):
               "/** Content item classes a coercion can name (`coerce()`): the engine's own list, which is the editor's variable \"Type\" menu",
               " *  (`+[WFContentItem allSupportedItemClasses]`), each with the type name the editor shows. */",
               "export const CONTENT_ITEM_CLASSES = { " + ", ".join(f"{c}: {js_str(v['name'])}" for c, v in classes.items()) + " } as const;",
-              "export type ContentItemClass = keyof typeof CONTENT_ITEM_CLASSES;", ""]
+              "export type ContentItemClass = keyof typeof CONTENT_ITEM_CLASSES;", "",
+              "/** The properties of each content item class (`+allProperties`): the editor's \"Get\" list for a value of that type, and the",
+              " *  names `property()` takes on a `coerce()`d value or on an output of that class. */",
+              "export const CONTENT_ITEM_PROPERTIES = {"]
+    for c, v in classes.items():
+        lines.append(f"  {c}: [{', '.join(js_str(p['name']) for p in v['properties'])}],")
+    lines += ["} as const;", "/** Property names of a content item class. */",
+              "export type ContentItemProperty<C extends ContentItemClass> = (typeof CONTENT_ITEM_PROPERTIES)[C][number];", ""]
     path.write_text("\n".join(lines))
 
 
@@ -591,7 +598,12 @@ def write_entities_py(filters, properties, bounded, classes, path):
     for eid, props in properties.items():
         lines.append(f"    {json.dumps(eid)}: {json.dumps(props)},")
     lines += ["}", "", "# Content item classes a coercion can name (coerce()): the engine's own list, the editor's variable \"Type\" menu, with the name it shows.",
-              f"CONTENT_ITEM_CLASSES = {json.dumps({c: v['name'] for c, v in classes.items()})}", ""]
+              f"CONTENT_ITEM_CLASSES = {json.dumps({c: v['name'] for c, v in classes.items()})}", "",
+              "# The properties of each content item class (+allProperties): the editor's \"Get\" list for a value of that type, and the names",
+              "# property_() takes on a coerce()d value or on an output of that class.", "CONTENT_ITEM_PROPERTIES = {"]
+    for c, v in classes.items():
+        lines.append(f"    {json.dumps(c)}: {json.dumps([p['name'] for p in v['properties']])},")
+    lines += ["}", ""]
     path.write_text("\n".join(lines))
 
 

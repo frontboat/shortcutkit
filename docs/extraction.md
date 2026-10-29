@@ -682,6 +682,23 @@ list the packages check against is `+[WFContentItem allSupportedItemClasses]` wi
 `localizedTypeDescription`, which is the editor's variable "Type" menu (22 classes on macOS 27); the
 verifier fails if this engine lists a class the data lacks.
 
+**Content item class properties** (2026-10-29). The editor's "Get" list under a variable's Type menu
+is the class's `+allProperties` (its own and inherited `WFContentProperty` objects; `+properties` is
+the class's own and is nil on classes that add none). `extract-encoding-table.js` records per class
+each property's `name` (what `PropertyName` holds; "name" and the user-info key do not resolve),
+`userInfo` (what the editor adds as `PropertyUserInfo`: a string such as `WFItemName`, a Contacts
+property code, or nothing), `valueClass` (`valueItemClass`), `yields` (what
+`-[WFPropertyVariableAggrandizement processedContentClasses:]` returns on the class, the check that
+the name resolves: an unknown name yields nothing), and the `multipleValues`, `filterable`,
+`sortable`, `gettable` flags, plus `coercesTo` (`+supportedItemClasses`, the classes it coerces to).
+182 properties on macOS 27; every one yields its value class. The verifier loads every name through
+`WFVariableParameterState` on a coerced reference, requires it to resolve on that class and to
+serialize back as written, and fails if the engine lists a property the data lacks. Not recorded:
+what a property yields at run time for a value whose class the file does not state (the editor
+offers the Get list only once a Type is chosen or inferred), and the Foundation classes the
+definitions name as output types (`NSString`, `NSDate`, `NSDecimalNumber`, `WFImage`), which the
+packages do not map onto content item classes, so `property()` on such an output takes any name.
+
 ### What is still approximate
 
 - The generator emits the legacy single-condition If. Shortcuts migrates it on load. Multi-
