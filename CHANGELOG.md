@@ -6,17 +6,13 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
-## Unreleased
+## 3.0.0 (2026-10-29)
 
-### Breaking
-
-- The 53 Siri flow tools (`…Tool|com.apple.Music`, `com.apple.Maps.WhoAmITool`, ...) leave the
-  catalogue. The index lists them visible and a file that uses one imports, but the editor never
+- **Breaking: the 53 Siri flow tools (`…Tool|com.apple.Music`, `com.apple.Maps.WhoAmITool`, ...) leave the
+  catalogue.** The index lists them visible and a file that uses one imports, but the editor never
   offers them and the imported action shows as "Unknown Action" and does not run (checked on macOS 27
   with the catalogue's descriptor, the corrected intent name and the bare identifier). The catalogue
   holds 1,714 entries, 1,265 of them App Intents.
-
-
 - `dictionary()` builds a dictionary parameter (Dictionary's items, Get Contents of URL's headers, form
   and JSON bodies) from a plain object, and `action()` encodes a plain object given for such a key:
   strings, `text()` and references are text items; numbers, booleans, arrays and nested objects keep

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shortcutkit"
-version = "2.0.0"
+version = "3.0.0"
 description = "Build, validate, and sign Apple Shortcuts files from Python. All 449 built-in actions and 1,265 Apple app actions, extracted from the Shortcuts engine."
 requires-python = ">=3.9"
 readme = "README.md"
