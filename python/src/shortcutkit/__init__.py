@@ -615,13 +615,31 @@ def get_action(identifier, definitions=DEFINITIONS):
     if entry is None:
         return None
     out = {"identifier": identifier, "name": entry["name"], "params": list(entry["params"]),
-           "kinds": dict(PARAM_KINDS.get(identifier, {})), "output": entry.get("output"), "outputTypes": list(entry.get("outputTypes", []))}
+           "kinds": dict(PARAM_KINDS.get(identifier, {})), "output": entry.get("output"), "outputTypes": list(entry.get("outputTypes", [])),
+           "inputTypes": list(entry.get("inputTypes", [])), "keywords": list(entry.get("keywords", []))}
+    for k in ("inputKey", "inputRequired", "description", "descriptionNote", "descriptionResult", "discontinued", "unavailable", "requiresUnlock", "disabledOn", "requires"):
+        if entry.get(k):
+            out[k] = copy.deepcopy(entry[k])
     if entry.get("descriptor"):
         out["descriptor"] = entry["descriptor"]
     defs = _load_definitions(definitions) if definitions else {}
     if identifier in defs:
         out["definition"] = copy.deepcopy(defs[identifier])
     return out
+
+
+def accepted_by(type_name):
+    """Where a value of one content type can go: every built-in whose input takes it (with the key the input
+    lands in) and every App Intents parameter typed as that entity, as (identifier, key) pairs. Declared types
+    only; Shortcuts converts between many types at run time, so this is what the editor would list."""
+    out = [(i, e.get("inputKey") or "WFInput") for i, e in ACTIONS.items() if type_name in e.get("inputTypes", [])]
+    out += [(i, k) for i, keys in PARAM_ENTITY_TYPES.items() for k, t in keys.items() if t == type_name]
+    return out
+
+
+def produced_by(type_name):
+    """Every action whose output is declared as this content type (ACTIONS[id]["outputTypes"])."""
+    return [i for i, e in ACTIONS.items() if type_name in e.get("outputTypes", [])]
 
 
 def demo(out):
@@ -642,13 +660,13 @@ def demo(out):
 
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
-from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES  # noqa: E402
+from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES  # noqa: E402
 from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES  # noqa: E402  (generated Find filters, entity properties, content item classes and their properties)
 
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
-__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
+__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "accepted_by", "produced_by", "PARAM_ENTITY_TYPES", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
            "property_", "coerce", "dictionary", "app_intent", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES", "CONTENT_ITEM_CLASSES", "CONTENT_ITEM_PROPERTIES",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
 __version__ = "3.0.0"

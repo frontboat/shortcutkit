@@ -173,7 +173,8 @@ Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut")
 | `dictionary(items)` | A dictionary parameter's items; `action()` encodes a plain object itself. |
 | `appIntent(app, intent, output?)` | Another app's action, for `s.action()`. |
 | `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `BYTE_COUNT_UNITS`, `BOUNDED_FILTERS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type's properties, and the content types a coercion can name. |
-| `actions`, `getAction(id)`, `getDefinition(id)` | Action identifiers and their catalog entries. |
+| `actions`, `getAction(id)`, `getDefinition(id)` | Action identifiers and their catalog entries: parameters and kinds, output and input types, keywords, description, flags, and the rules under which the editor shows each parameter. |
+| `acceptedBy(type)`, `producedBy(type)` | Which actions take a content type as input or as an entity parameter, and which output it. |
 | `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | What each parameter accepts. |
 | `CONDITION`, `ICON_COLORS`, `provenance` | If conditions, icon colors, and the build the data came from. |
 

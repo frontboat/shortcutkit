@@ -147,7 +147,8 @@ s.action(actions.SHOWRESULT, Text=ref(note))
 | `dictionary(items)` | A dictionary parameter's items; `action()` encodes a plain dict itself. |
 | `app_intent(app, intent, output=None)` | Another app's action, for `s.action()`. |
 | `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type's properties, and the content types a coercion can name. |
-| `actions`, `ACTIONS`, `get_action(id)` | Action identifiers and their catalog entries. |
+| `actions`, `ACTIONS`, `get_action(id)` | Action identifiers and their catalog entries: parameters and kinds, output and input types, keywords, description, flags, and the rules under which the editor shows each parameter. |
+| `accepted_by(type)`, `produced_by(type)` | Which actions take a content type as input or as an entity parameter, and which output it. |
 | `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | What each parameter accepts. |
 | `CONDITION`, `ICON_COLORS`, `PROVENANCE` | If conditions, icon colors, and the build the data came from. |
 

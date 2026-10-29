@@ -2,7 +2,7 @@ import { describe, expect, spyOn, test } from "bun:test";
 import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, acceptedBy, producedBy, PARAM_ENTITY_TYPES, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 import * as readmeExamples from "./readme-examples";
 
 describe("shortcutkit", () => {
@@ -182,6 +182,38 @@ describe("getAction", () => {
     expect(a.descriptor?.BundleIdentifier).toBe("com.apple.Safari");
     expect(a.definition).toBeUndefined();
     expect(getAction("nope")).toBeUndefined();
+  });
+  test("carries the rest of the definition's card: input, keywords, description, flags, parameter rules", () => {
+    const url = getAction(actions.downloadurl)!;
+    expect(url.inputTypes).toEqual(["WFURLContentItem"]);
+    expect(url.inputKey).toBe("WFURL");
+    expect(url.inputRequired).toBe(true);
+    expect(url.keywords).toContain("curl");
+    expect(url.description).toMatch(/^Gets the contents of URLs/);
+    expect(url.descriptionResult).toBe("The fetched data");
+    expect(url.requires!.WFHTTPBodyType).toEqual([{ key: "WFHTTPMethod", relation: "!=", values: ["GET"] }]);
+    expect(url.requires!.WFFormValues).toEqual([{ key: "WFHTTPBodyType", relation: "=", values: ["Form"] }, { key: "WFHTTPMethod", relation: "!=", values: ["GET"] }]);
+    expect(url.requires!.WFHTTPHeaders).toEqual([{ key: "ShowHeaders", relation: "=", values: [true] }]);
+    expect(ACTIONS[actions.downloadurl].inputTypes).toEqual(["WFURLContentItem"]);
+    const install = getAction(actions.app_store_install_application)!;
+    expect(install.inputTypes).toEqual([]);
+    expect(install.keywords).toEqual([]);
+    expect(install.description).toMatch(/^Initiates the install/);
+    expect(install.requires).toBeUndefined();
+    expect(getAction(actions.showresult)!.keywords.length).toBeGreaterThan(0);
+    const flagged = Object.entries(ACTIONS).filter(([, e]) => "discontinued" in e).map(([id]) => id);
+    expect(flagged.length).toBe(9);
+    expect(Object.values(ACTIONS).filter((e) => "disabledOn" in e).length).toBe(61);
+    expect(Object.values(ACTIONS).filter((e) => e.inputTypes.length).length).toBe(200);
+    expect(Object.values(ACTIONS).filter((e) => "requires" in e).length).toBe(69);
+  });
+  test("acceptedBy() and producedBy() follow the declared types across both catalogues", () => {
+    expect(acceptedBy("WFURLContentItem")).toContainEqual({ identifier: actions.downloadurl, key: "WFURL" });
+    expect(acceptedBy("com.apple.AppStore.MarketplaceApplication")).toEqual([{ identifier: actions.app_store_install_application, key: "application" }]);
+    expect(producedBy("com.apple.AppStore.MarketplaceApplication")).toEqual([actions.app_store_find_marketplace_application]);
+    expect(producedBy("WFImageContentItem")).toContain(actions.detect_images);
+    expect(acceptedBy("no.such.type")).toEqual([]);
+    expect(Object.values(PARAM_ENTITY_TYPES).reduce((n, keys) => n + Object.keys(keys).length, 0)).toBe(609);
   });
 });
 

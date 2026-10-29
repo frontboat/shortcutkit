@@ -4,12 +4,12 @@ import { spawnSync } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition, type ActionDefinition } from "./definitions.js";
-import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES } from "./generated/actions.js";
+import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
 import { BOUNDED_FILTERS, BYTE_COUNT_UNITS, CALENDAR_UNITS, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type ContentItemClass, type ContentItemProperty, type EntityId, type EntityProperty } from "./generated/entities.js";
 import type { AppIntentDescriptor, AskAttachment, Attachment, Coerced, ConditionSubject, DictionaryFieldValue, DictionaryItem, DictionaryItems, DictionaryItemType, DictionaryValue, FilterRow, FilterTemplateValue, TokenString, Uncoerced, Value, VariableType, Where } from "./values.js";
 
-export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
+export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
 export type { PlistValue } from "./plist.js";
 export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
@@ -37,22 +37,60 @@ export type CatalogEntry = {
   output: string | null;
   /** Content types the output can be; empty when the action produces nothing. */
   outputTypes: readonly string[];
+  /** Content types the action takes as input (the definition's `Input.Types`); empty when it takes none or is an App Intent. */
+  inputTypes: readonly string[];
+  /** The parameter key the input lands in, for a built-in that takes one. */
+  inputKey?: string;
+  /** Whether the input is required. */
+  inputRequired?: boolean;
+  /** Search terms the editor matches (`ActionKeywords`, the registry's keywords). */
+  keywords: readonly string[];
+  /** The editor's description of the action, with its note and what it returns, where the definition has them. */
+  description?: string;
+  descriptionNote?: string;
+  descriptionResult?: string;
+  /** Flags from the definition: discontinued, loaded as missing, needs the device unlocked, hidden on these platforms. */
+  discontinued?: boolean;
+  unavailable?: boolean;
+  requiresUnlock?: boolean;
+  disabledOn?: readonly string[];
+  /** Parameters the editor shows only for a value of another: per key, the rules (`WFParameterRelationResource`; relation `=`, `!=`, `??` or `nil`). */
+  requires?: Readonly<Record<string, readonly ParameterRule[]>>;
   /** Present for App Intents actions; written as the AppIntentDescriptor parameter. */
   descriptor?: AppIntentDescriptor;
   /** The engine's definition, for built-ins only. */
   definition?: ActionDefinition;
 };
+/** One rule under which the editor shows a parameter: the other key's value must (`=`), must not (`!=`), ... be one of `values`. */
+export type ParameterRule = { key: string; relation: string; values: readonly PlistValue[] };
+type CardFields = Pick<CatalogEntry, "inputTypes" | "inputKey" | "inputRequired" | "keywords" | "description" | "descriptionNote" | "descriptionResult" | "discontinued" | "unavailable" | "requiresUnlock" | "disabledOn" | "requires">;
 
 /**
  * Look up any catalog identifier, built-in or App Intent. Unlike getDefinition(), which knows
  * only built-ins, this covers both in one shape.
  */
 export function getAction(identifier: string): CatalogEntry | undefined {
-  const entry = (ACTIONS as Record<string, { name: string; params: readonly string[]; output: string | null; outputTypes: readonly string[]; descriptor?: AppIntentDescriptor }>)[identifier];
+  const entry = (ACTIONS as Record<string, { name: string; params: readonly string[]; output: string | null; outputTypes: readonly string[]; descriptor?: AppIntentDescriptor } & Partial<CardFields>>)[identifier];
   if (!entry) return undefined;
   const kinds = { ...((PARAM_KINDS as Record<string, Record<string, string>>)[identifier] ?? {}) };
   const definition = getDefinition(identifier);
-  return { identifier, name: entry.name, params: entry.params, kinds, output: entry.output, outputTypes: entry.outputTypes, ...(entry.descriptor ? { descriptor: entry.descriptor } : {}), ...(definition ? { definition } : {}) };
+  const { name, params, output, outputTypes, descriptor, inputTypes, keywords, ...card } = entry;
+  return { identifier, name, params, kinds, output, outputTypes, inputTypes: inputTypes ?? [], keywords: keywords ?? [], ...card, ...(descriptor ? { descriptor } : {}), ...(definition ? { definition } : {}) };
+}
+
+/** Where a value of one content type can go: every built-in whose input takes it (with the key the input lands in) and every App
+ *  Intents parameter typed as that entity. Declared types only; Shortcuts converts between many types at run time, so this is
+ *  what the editor would list, not everything that works. */
+export function acceptedBy(type: string): { identifier: string; key: string }[] {
+  const out: { identifier: string; key: string }[] = [];
+  for (const [identifier, e] of Object.entries(ACTIONS as Record<string, { inputTypes?: readonly string[]; inputKey?: string }>)) if (e.inputTypes?.includes(type)) out.push({ identifier, key: e.inputKey ?? "WFInput" });
+  for (const [identifier, keys] of Object.entries(PARAM_ENTITY_TYPES as Record<string, Record<string, string>>)) for (const [key, t] of Object.entries(keys)) if (t === type) out.push({ identifier, key });
+  return out;
+}
+
+/** Every action whose output is declared as this content type (`ACTIONS[id].outputTypes`). */
+export function producedBy(type: string): string[] {
+  return Object.entries(ACTIONS as Record<string, { outputTypes: readonly string[] }>).filter(([, e]) => e.outputTypes.includes(type)).map(([id]) => id);
 }
 
 /** A third-party app, for `appIntent()`: its bundle identifier, display name and team identifier (the bundle's Info.plist and `codesign -dv`). */

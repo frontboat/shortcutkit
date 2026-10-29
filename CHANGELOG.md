@@ -18,6 +18,15 @@ the section for a fresh extraction from the diff against the committed data.
   every one through the engine on a coerced reference. A `coerce()`d reference carries its class in
   the TypeScript type (`Coerced<C>`), so the wrong name fails to compile; a property of a property
   takes any name, as before.
+- The catalogue entries carry the rest of each action's card, from data the definitions and the
+  registry already held: `inputTypes` (with `inputKey` and `inputRequired`), `keywords`,
+  `description` with `descriptionNote` and `descriptionResult`, the `discontinued`, `unavailable`,
+  `requiresUnlock` and `disabledOn` flags, and `requires`: per parameter, the rules under which the
+  editor shows it (Get Contents of URL's form values only when the body type is Form and the method
+  is not GET), as the definition's `WFParameterRelationResource` states them. `PARAM_ENTITY_TYPES`
+  names the entity type of each entity-typed App Intents parameter (609), and `acceptedBy(type)` /
+  `producedBy(type)` (`accepted_by`, `produced_by`) answer where a value of one type can go and what
+  makes one, across both catalogues. `getAction()` / `get_action()` return it all in one shape.
 
 ## 3.0.0 (2026-10-29)
 

@@ -157,6 +157,16 @@ def entries(defs, filters=None):
             "description": text(desc.get("DescriptionSummary")) or "", "params": params,
             "output": text(outp.get("OutputName")), "outputTypes": [t for t in (outp.get("Types") or []) if isinstance(t, str)],
             "summary": text(a.get("ParameterSummary")), "kinds": kinds, "unavailable": bool(a.get("Unavailable")),
+            # The rest of the definition's card: what the action takes, how the editor finds it, when it is not offered,
+            # and which parameters show only for a value of another (WFParameterRelationResource).
+            "inputTypes": [t for t in (inp.get("Types") or []) if isinstance(t, str)] if isinstance(inp, dict) else [],
+            "inputKey": inp.get("ParameterKey") if isinstance(inp, dict) else None,
+            "inputRequired": bool(inp.get("Required")) if isinstance(inp, dict) else False,
+            "keywords": [k for k in (a.get("ActionKeywords") or "").split("|") if k] if isinstance(a.get("ActionKeywords"), str) else [],
+            "descriptionNote": text(desc.get("DescriptionNote")) or "", "descriptionResult": text(desc.get("DescriptionResult")) or "",
+            "discontinued": bool(a.get("Discontinued")), "requiresUnlock": bool(a.get("RequiresUnlock")),
+            "disabledOn": [x for x in (a.get("DisabledOnPlatforms") or []) if isinstance(x, str)],
+            "requires": parameter_relations(pdefs),
         })
     seen = {}
     for e in out:  # keys are unique by construction; guard anyway
@@ -166,13 +176,43 @@ def entries(defs, filters=None):
     return out
 
 
+def parameter_relations(pdefs):
+    """Per key, the WFParameterRelationResource rules under which the editor shows it: the other key, the
+    engine's relation (`=` when the definition leaves it out, `!=`, `??`, `nil`) and the values. Resources
+    come as a list of dictionaries, now and then nested one level or as a bare class name; only the
+    relation ones are read."""
+    out = {}
+    for p in pdefs:
+        rules = []
+        stack = list(p.get("RequiredResources") or [])
+        while stack:
+            r = stack.pop(0)
+            if isinstance(r, list):
+                stack = r + stack
+                continue
+            if not isinstance(r, dict) or r.get("WFResourceClass") != "WFParameterRelationResource" or not r.get("WFParameterKey"):
+                continue
+            values = r.get("WFParameterValues") if isinstance(r.get("WFParameterValues"), list) else ([r["WFParameterValue"]] if "WFParameterValue" in r else [])
+            rules.append({"key": r["WFParameterKey"], "relation": r.get("WFParameterRelation") or "=", "values": values})
+        if rules:
+            out[p["Key"]] = rules
+    return out
+
+
 APP_INTENT_KIND_TS = {"text": "TextValue", "bool": "BoolValue", "number": "NumberValue", "string": "StringValue", "any": "AnyValue"}
 APPLE_TEAM = "0000000000"  # what Apple's own gallery shortcuts write for system apps
 
 
-def app_intent_entries(catalog, filters):
-    """Entries for Apple's App Intents, from the Shortcuts app's registry (dump-toolkit-registry.py)."""
+def app_intent_entries(catalog, filters, entities=None):
+    """Entries for Apple's App Intents, from the Shortcuts app's registry (dump-toolkit-registry.py).
+    `entities` (apple-entities.json) resolves entity-typed parameters to the catalogue's entity type
+    identifiers; a parameter whose entity is not in the catalogue is left untyped."""
     state_map, _ = load_state_map()
+    entity_ids = {}
+    for eid, e in (entities or {}).items():
+        k = (e.get("bundleIdentifier"), (e.get("typeName") or eid).split(".")[-1])
+        entity_ids[k] = None if k in entity_ids else eid  # an ambiguous name resolves to nothing
+    entity_ids = {k: v for k, v in entity_ids.items() if v}
     out = []
     for ident in sorted(catalog):
         t = catalog[ident]
@@ -199,6 +239,12 @@ def app_intent_entries(catalog, filters):
             "params": params, "output": t.get("outputName"), "outputTypes": [x for x in (t.get("outputTypes") or []) if isinstance(x, str)], "summary": None, "kinds": kinds,
             "descriptor": {"BundleIdentifier": app.get("bundleIdentifier"), "Name": app.get("name"), "TeamIdentifier": app.get("teamId") or APPLE_TEAM,
                            "AppIntentIdentifier": t.get("appIntentIdentifier") or ident.rsplit(".", 1)[-1]},
+            "inputTypes": [], "inputKey": None, "inputRequired": False,
+            "keywords": [k for k in (t.get("keywords") or []) if isinstance(k, str)],
+            "descriptionText": t.get("description") or "", "descriptionNote": t.get("descriptionNote") or "", "descriptionResult": t.get("descriptionResult") or "",
+            "discontinued": False, "requiresUnlock": False, "disabledOn": [], "requires": {},
+            "paramEntities": {p["key"]: entity_ids[(p["type"]["bundleIdentifier"], p["type"]["name"])] for p in t.get("parameters", [])
+                              if isinstance(p.get("type"), dict) and p["type"].get("kind") == "entity" and (p["type"].get("bundleIdentifier"), p["type"].get("name")) in entity_ids},
         })
     return out
 
@@ -252,6 +298,46 @@ def jsdoc(e):
     return f"  /**\n{body}\n   */\n"
 
 
+def card(e):
+    """The rest of an action's catalogue entry, as data: present only where the definition says something."""
+    c = {"inputTypes": e.get("inputTypes", [])}
+    if e.get("inputKey"):
+        c["inputKey"] = e["inputKey"]
+    if e.get("inputRequired"):
+        c["inputRequired"] = True
+    if e.get("keywords"):
+        c["keywords"] = e["keywords"]
+    d = e.get("descriptionText", e.get("description")) if e.get("descriptor") else e.get("description")
+    if d:
+        c["description"] = d
+    for k in ("descriptionNote", "descriptionResult"):
+        if e.get(k):
+            c[k] = e[k]
+    for k in ("discontinued", "unavailable", "requiresUnlock"):
+        if e.get(k):
+            c[k] = True
+    if e.get("disabledOn"):
+        c["disabledOn"] = e["disabledOn"]
+    if e.get("requires"):
+        c["requires"] = e["requires"]
+    return c
+
+
+def card_ts(e):
+    out = []
+    for k, v in card(e).items():
+        if isinstance(v, bool):
+            out.append(f"{k}: true")
+        elif isinstance(v, str):
+            out.append(f"{k}: {js_str(v)}")
+        elif isinstance(v, list):
+            out.append(f"{k}: [{', '.join(js_str(x) for x in v)}]")
+        else:  # requires
+            rules = ", ".join(f"{js_str(pk)}: [{', '.join('{ key: ' + js_str(r['key']) + ', relation: ' + js_str(r['relation']) + ', values: [' + ', '.join(js_str(x) for x in r['values']) + '] }' for r in rs)}]" for pk, rs in v.items())
+            out.append(f"{k}: {{ {rules} }}")
+    return ", " + ", ".join(out)
+
+
 def write_ts(es, path):
     used = set()
     for e in es:
@@ -275,7 +361,12 @@ def write_ts(es, path):
         desc = e.get("descriptor")
         extra = f", descriptor: {{ {', '.join(f'{k}: {js_str(v)}' for k, v in desc.items())} }}" if desc else ""
         outs = "[" + ", ".join(js_str(x) for x in e.get("outputTypes", [])) + "]"
+        extra += card_ts(e)
         lines.append(f"  {js_str(e['identifier'])}: {{ name: {js_str(e['name'])}, params: {params}, output: {js_str(e['output']) if e['output'] else 'null'}, outputTypes: {outs}{extra} }},")
+    lines += ["} as const;", "", "/** The entity type of each entity-typed App Intents parameter, by action identifier and key (`acceptedBy()` reads it). */", "export const PARAM_ENTITY_TYPES = {"]
+    for e in es:
+        if e.get("paramEntities"):
+            lines.append(f"  {js_str(e['identifier'])}: {{ {', '.join(f'{js_str(k)}: {js_str(v)}' for k, v in e['paramEntities'].items())} }},")
     lines += ["} as const;", "", "/** Value kind per parameter key, as the engine's state class implies. `text` parameters take a plain string or a",
               " *  WFTextTokenString; Shortcut.action() wraps a bare attachment given for one into a token string, which is what the engine writes. */",
               "export const PARAM_KINDS = {"]
@@ -352,7 +443,12 @@ def write_py(es, path):
     lines += ["", "# Per-identifier metadata: display name, parameter keys, output name, and for App Intents the descriptor the file needs.", "ACTIONS = {"]
     for e in es:
         desc = f", \"descriptor\": {json.dumps(e['descriptor'], ensure_ascii=False)}" if e.get("descriptor") else ""
+        desc += ", " + repr(card(e))[1:-1]  # a Python literal: True, not JSON's true, for the flags and relation values
         lines.append(f"    {json.dumps(e['identifier'])}: {{\"name\": {json.dumps(e['name'], ensure_ascii=False)}, \"params\": {json.dumps(e['params'])}, \"output\": {json.dumps(e['output']) if e['output'] else 'None'}, \"outputTypes\": {json.dumps(e.get('outputTypes', []))}{desc}}},")
+    lines += ["}", "", "# The entity type of each entity-typed App Intents parameter, by action identifier and key (accepted_by() reads it).", "PARAM_ENTITY_TYPES = {"]
+    for e in es:
+        if e.get("paramEntities"):
+            lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps(e['paramEntities'])},")
     lines += ["}", "", "# Accepted value kind per parameter key: bool, number, string, text, picker, subject, plainString, plainNumber, dictionary, quantity, filter, any.", "PARAM_KINDS = {"]
     for e in es:
         lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps({k: v['kind'] for k, v in e['kinds'].items()})},")
@@ -621,8 +717,9 @@ def main(argv):
     filters, properties = entity_tables(json.load(open(ents))["entities"] if ents.exists() else {}, defs, engine, linkd)
     es = entries(defs, filters)
     n_builtin = len(es)
+    entities_json = json.load(open(ents))["entities"] if ents.exists() else {}
     if apps.exists():
-        es += app_intent_entries(json.load(open(apps)).get("actions", {}), filters)
+        es += app_intent_entries(json.load(open(apps)).get("actions", {}), filters, entities_json)
     es = dedupe_keys(es)
     missing = sorted(set(filters) - {e["identifier"] for e in es})
     if missing:
