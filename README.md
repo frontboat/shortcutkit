@@ -112,7 +112,8 @@ it. `coerce()` reads a value as one content type, as the variable "Type" menu do
 on the result takes that class's properties, the menu's "Get" list (`CONTENT_ITEM_PROPERTIES`):
 `property(coerce(file, "WFGenericFileContentItem"), "File Size")`, checked at compile time and run time. An output the catalogue
 types, by class or by the object class it wraps (`CONTENT_ITEM_TYPES`), is checked the same way without a
-coercion: `property(askedNumber, "Name")`.
+coercion: `property(askedNumber, "Name")`. Where a choice decides the output, the literal you pass narrows it:
+`s.action(actions.ask, { WFInputType: "Number" })` outputs a Number, so only Name is accepted.
 
 ```ts
 import { coerce } from "shortcutkit";

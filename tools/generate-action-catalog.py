@@ -66,6 +66,15 @@ def load_state_map():
     return state_map, enc.get("actionParameters", {})
 
 
+def load_output_classes():
+    """Per action, the output content item classes the engine's instance computes, and per enumeration key the classes
+    each choice yields where a choice changes them (actionOutputClasses in data/parameter-encodings.json)."""
+    path = ROOT / "data" / "parameter-encodings.json"
+    if not path.exists():
+        return {}
+    return json.load(open(path)).get("actionOutputClasses", {})
+
+
 VARIABLE_TYPES = ["ActionOutput", "ExtensionInput", "Variable", "Clipboard", "CurrentDate", "Ask", "DeviceDetails", "CurrentApp"]
 
 
@@ -120,6 +129,7 @@ def key_for(identifier):
 
 def entries(defs, filters=None):
     state_map, runtime_params = load_state_map()
+    output_classes = load_output_classes()
     out = []
     for ident in sorted(defs):
         a = defs[ident]
@@ -167,6 +177,9 @@ def entries(defs, filters=None):
             "discontinued": bool(a.get("Discontinued")), "requiresUnlock": bool(a.get("RequiresUnlock")),
             "disabledOn": [x for x in (a.get("DisabledOnPlatforms") or []) if isinstance(x, str)],
             "requires": parameter_relations(pdefs),
+            # The engine's own answer to "what comes out": content item classes, and per enumeration choice where it decides.
+            "outputClasses": list((output_classes.get(ident) or {}).get("classes") or []),
+            "outputClassesBy": dict((output_classes.get(ident) or {}).get("byChoice") or {}),
         })
     seen = {}
     for e in out:  # keys are unique by construction; guard anyway
@@ -301,6 +314,8 @@ def jsdoc(e):
 def card(e):
     """The rest of an action's catalogue entry, as data: present only where the definition says something."""
     c = {"inputTypes": e.get("inputTypes", [])}
+    if e.get("outputClasses"):
+        c["outputClasses"] = e["outputClasses"]
     if e.get("inputKey"):
         c["inputKey"] = e["inputKey"]
     if e.get("inputRequired"):
@@ -367,6 +382,13 @@ def write_ts(es, path):
     for e in es:
         if e.get("paramEntities"):
             lines.append(f"  {js_str(e['identifier'])}: {{ {', '.join(f'{js_str(k)}: {js_str(v)}' for k, v in e['paramEntities'].items())} }},")
+    lines += ["} as const;", "", "/** Actions whose output class follows one enumeration choice (Ask for Input's Input Type, Get Details of Images' property, ...):",
+              " *  per key, the content item classes each choice yields, as the engine's action instance computes them. `property()` narrows by it",
+              " *  when the choice is a literal. */", "export const OUTPUT_CLASSES_BY = {"]
+    for e in es:
+        if e.get("outputClassesBy"):
+            per = ", ".join(f"{js_str(k)}: {{ {', '.join(f'{js_str(c)}: [{", ".join(js_str(x) for x in v)}]' for c, v in choices.items())} }}" for k, choices in e["outputClassesBy"].items())
+            lines.append(f"  {js_str(e['identifier'])}: {{ {per} }},")
     lines += ["} as const;", "", "/** Value kind per parameter key, as the engine's state class implies. `text` parameters take a plain string or a",
               " *  WFTextTokenString; Shortcut.action() wraps a bare attachment given for one into a token string, which is what the engine writes. */",
               "export const PARAM_KINDS = {"]
@@ -449,6 +471,11 @@ def write_py(es, path):
     for e in es:
         if e.get("paramEntities"):
             lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps(e['paramEntities'])},")
+    lines += ["}", "", "# Actions whose output class follows one enumeration choice: per key, the content item classes each choice yields,",
+              "# as the engine's action instance computes them. property_() narrows by it.", "OUTPUT_CLASSES_BY = {"]
+    for e in es:
+        if e.get("outputClassesBy"):
+            lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps(e['outputClassesBy'], ensure_ascii=False)},")
     lines += ["}", "", "# Accepted value kind per parameter key: bool, number, string, text, picker, subject, plainString, plainNumber, dictionary, quantity, filter, any.", "PARAM_KINDS = {"]
     for e in es:
         lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps({k: v['kind'] for k, v in e['kinds'].items()})},")

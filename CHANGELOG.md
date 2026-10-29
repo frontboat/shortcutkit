@@ -22,6 +22,17 @@ the section for a fresh extraction from the diff against the committed data.
   every property through the engine. A `coerce()`d reference carries its class in the TypeScript
   type (`Coerced<C>`), so the wrong name fails to compile; a property of a property takes any name,
   as before.
+- What comes out of an action, as the engine computes it: `outputClasses` on each built-in's catalogue
+  entry is the action instance's own answer in content item classes (`-outputContentClasses`; the
+  definition's `NSDecimalNumber` is the engine's Number), and `OUTPUT_CLASSES_BY` records, for the 32
+  actions whose output follows one enumeration choice (Ask for Input's Input Type, Get Device Details'
+  detail, Get Details of Images' property, Base64 Encode's mode, ...), the classes each choice yields,
+  read by setting every choice of every enumeration through every action (`actionOutputClasses` in
+  `data/parameter-encodings.json`). `action()` carries the answer on its result: a literal choice
+  selects its classes, a reference means any choice's, none means the default's (Ask for Input with
+  no Input Type is Text, as the editor shows), and `property()` checks names against it, at compile
+  time too, since `Action<I, P>` now remembers the parameters it was given. `producedBy()` matches
+  these classes as well as the declared types.
 - The catalogue entries carry the rest of each action's card, from data the definitions and the
   registry already held: `inputTypes` (with `inputKey` and `inputRequired`), `keywords`,
   `description` with `descriptionNote` and `descriptionResult`, the `discontinued`, `unavailable`,

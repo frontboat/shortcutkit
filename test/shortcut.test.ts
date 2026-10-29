@@ -2,7 +2,7 @@ import { describe, expect, spyOn, test } from "bun:test";
 import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, acceptedBy, producedBy, PARAM_ENTITY_TYPES, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, acceptedBy, producedBy, PARAM_ENTITY_TYPES, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, OUTPUT_CLASSES_BY, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 import * as readmeExamples from "./readme-examples";
 
 describe("shortcutkit", () => {
@@ -465,10 +465,21 @@ describe("dictionaries, coercions and other apps' intents", () => {
     expect(CONTENT_ITEM_TYPES.NSDecimalNumber).toBe("WFNumberContentItem");
     expect(CONTENT_ITEM_TYPES["public.folder"]).toBe("WFFolderContentItem");
     expect(CONTENT_ITEM_TYPES.CLLocation).toBe("WFLocationContentItem");
+    // Ask for Input: the Input Type decides the class. A literal narrows to it, a reference means any choice, none means the default (Text).
     const asked = s.action(actions.ask, { WFInputType: "Number" });
+    expect(asked.outputClasses).toEqual(["WFNumberContentItem"]);
     expect(property(asked, "Name").Value.Aggrandizements).toEqual([{ Type: "WFPropertyVariableAggrandizement", PropertyName: "Name" }]);
-    // @ts-expect-error Text, Number, URL and Date have no Width
-    expect(() => property(asked, "Width")).toThrow(/WFStringContentItem \/ WFNumberContentItem \/ WFURLContentItem \/ WFDateContentItem has no property Width/);
+    // @ts-expect-error a Number has only Name
+    expect(() => property(asked, "Time")).toThrow(/WFNumberContentItem has no property Time; it has Name/);
+    const askedDate = s.action(actions.ask, { WFInputType: "Date" });
+    expect(property(askedDate, "Time").Value.Aggrandizements).toEqual([{ Type: "WFPropertyVariableAggrandizement", PropertyName: "Time" }]);
+    expect(s.action(actions.ask, {}).outputClasses).toEqual(["WFStringContentItem"]);
+    expect(s.action(actions.ask, { WFInputType: ref(asked) }).outputClasses).toEqual(["WFDateContentItem", "WFNumberContentItem", "WFStringContentItem", "WFURLContentItem"]);
+    expect(() => property(s.action(actions.ask, { WFInputType: ref(asked) }), "Time")).not.toThrow();
+    expect(OUTPUT_CLASSES_BY[actions.getdevicedetails].WFDeviceDetail["Device Model"]).toEqual(["WFStringContentItem"]);
+    expect(Object.keys(OUTPUT_CLASSES_BY).length).toBe(32);
+    expect(ACTIONS[actions.detect_images].outputClasses).toEqual(["WFImageContentItem"]);
+    expect(producedBy("WFCalendarEventContentItem")).toContain(actions.getupcomingevents);
     const events = s.action(actions.getupcomingevents, {});
     expect(ACTIONS[actions.getupcomingevents].outputTypes).toContain("EKEvent");
     expect(property(events, "Start Date").Value.Aggrandizements).toEqual([{ Type: "WFPropertyVariableAggrandizement", PropertyName: "Start Date" }]);

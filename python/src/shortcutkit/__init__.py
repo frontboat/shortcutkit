@@ -199,7 +199,8 @@ def property_(source, name):
         cls = _coerced_class(source)
         types = [cls] if cls else []
     else:
-        types = list(dict.fromkeys(t if t in ENTITY_PROPERTIES else _item_class_of(t) for t in source.get("_outputTypes", [])))
+        declared = (source["_outputClasses"] + [t for t in source.get("_outputTypes", []) if t in ENTITY_PROPERTIES]) if source.get("_outputClasses") else source.get("_outputTypes", [])
+        types = list(dict.fromkeys(t if t in ENTITY_PROPERTIES else _item_class_of(t) for t in declared))
         types = [t for t in types if t]
     known = {p for t in types for p in (ENTITY_PROPERTIES.get(t) or CONTENT_ITEM_PROPERTIES.get(t) or [])}
     if types and name not in known:
@@ -507,6 +508,15 @@ class Shortcut:
         output = (definition or {}).get("Output", {})
         entry["_outputName"] = (output.get("OutputName") if isinstance(output, dict) else None) or catalog.get("output") or (intent or {}).get("output")
         entry["_outputTypes"] = list(catalog.get("outputTypes") or (output.get("Types") if isinstance(output, dict) else []) or [])
+        # The engine's answer to what comes out: for a choice that decides it (OUTPUT_CLASSES_BY), the literal given selects
+        # its classes and a reference means any of them; otherwise the classes for the default parameters.
+        by = OUTPUT_CLASSES_BY.get(identifier) if isinstance(identifier, str) else None
+        deciding = next((k for k in by if k in params), None) if by else None
+        if deciding:
+            v = params[deciding]
+            entry["_outputClasses"] = list(by[deciding][v]) if isinstance(v, str) and v in by[deciding] else sorted({c for cs in by[deciding].values() for c in cs})
+        elif catalog.get("outputClasses"):
+            entry["_outputClasses"] = list(catalog["outputClasses"])
         if isinstance(entry["_outputName"], dict):
             entry["_outputName"] = entry["_outputName"].get("format")
         self.actions.append(entry)
@@ -624,7 +634,7 @@ def get_action(identifier, definitions=DEFINITIONS):
     out = {"identifier": identifier, "name": entry["name"], "params": list(entry["params"]),
            "kinds": dict(PARAM_KINDS.get(identifier, {})), "output": entry.get("output"), "outputTypes": list(entry.get("outputTypes", [])),
            "inputTypes": list(entry.get("inputTypes", [])), "keywords": list(entry.get("keywords", []))}
-    for k in ("inputKey", "inputRequired", "description", "descriptionNote", "descriptionResult", "discontinued", "unavailable", "requiresUnlock", "disabledOn", "requires"):
+    for k in ("outputClasses", "inputKey", "inputRequired", "description", "descriptionNote", "descriptionResult", "discontinued", "unavailable", "requiresUnlock", "disabledOn", "requires"):
         if entry.get(k):
             out[k] = copy.deepcopy(entry[k])
     if entry.get("descriptor"):
@@ -646,7 +656,7 @@ def accepted_by(type_name):
 
 def produced_by(type_name):
     """Every action whose output is declared as this content type (ACTIONS[id]["outputTypes"])."""
-    return [i for i, e in ACTIONS.items() if type_name in e.get("outputTypes", [])]
+    return [i for i, e in ACTIONS.items() if type_name in e.get("outputTypes", []) or type_name in e.get("outputClasses", [])]
 
 
 def demo(out):
@@ -667,13 +677,13 @@ def demo(out):
 
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
-from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES  # noqa: E402
+from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, OUTPUT_CLASSES_BY  # noqa: E402
 from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES  # noqa: E402  (generated Find filters, entity properties, content item classes, their properties and owned types)
 
 PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
-__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "accepted_by", "produced_by", "PARAM_ENTITY_TYPES", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
+__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "accepted_by", "produced_by", "PARAM_ENTITY_TYPES", "OUTPUT_CLASSES_BY", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
            "property_", "coerce", "dictionary", "app_intent", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES", "CONTENT_ITEM_CLASSES", "CONTENT_ITEM_PROPERTIES", "CONTENT_ITEM_TYPES",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
 __version__ = "3.0.0"

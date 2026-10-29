@@ -4,12 +4,12 @@ import { spawnSync } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition, type ActionDefinition } from "./definitions.js";
-import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES } from "./generated/actions.js";
+import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, OUTPUT_CLASSES_BY } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
 import { BOUNDED_FILTERS, BYTE_COUNT_UNITS, CALENDAR_UNITS, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type ContentItemClass, type ContentItemProperty, type ContentItemType, type EntityId, type EntityProperty } from "./generated/entities.js";
 import type { AppIntentDescriptor, AskAttachment, Attachment, Coerced, ConditionSubject, DictionaryFieldValue, DictionaryItem, DictionaryItems, DictionaryItemType, DictionaryValue, FilterRow, FilterTemplateValue, TokenString, Uncoerced, Value, VariableType, Where } from "./values.js";
 
-export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
+export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, OUTPUT_CLASSES_BY, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
 export type { PlistValue } from "./plist.js";
 export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
@@ -20,8 +20,10 @@ export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FI
 /** Parameters accepted for an identifier: typed per key for built-in actions, open for anything else. */
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
 
-/** An action as `action()` returns it; pass it to `ref()` to use its output, or to `property()` for one of its properties. */
-export type Action<I extends string = string> = { WFWorkflowActionIdentifier: I; WFWorkflowActionParameters: Record<string, Value>; outputName?: string; outputTypes?: readonly string[] };
+/** An action as `action()` returns it; pass it to `ref()` to use its output, or to `property()` for one of its properties. `P` is the
+ *  parameters it was given, so a literal choice that decides the output class (Ask for Input's Input Type) narrows `property()`. */
+export type Action<I extends string = string, P = unknown> = { WFWorkflowActionIdentifier: I; WFWorkflowActionParameters: Record<string, Value>; outputName?: string; outputTypes?: readonly string[]; outputClasses?: readonly string[]; readonly [GIVEN]?: P };
+declare const GIVEN: unique symbol;
 /** Content types an action's output can be (`WFStringContentItem`, `NSURL`, an App Intents entity, …). Shortcuts converts between many of them at run time, so this is a description, not a restriction. */
 export type OutputTypes<I extends ActionId> = (typeof ACTIONS)[I]["outputTypes"];
 /** What the catalog knows about an identifier, built-in or App Intent. */
@@ -37,6 +39,8 @@ export type CatalogEntry = {
   output: string | null;
   /** Content types the output can be; empty when the action produces nothing. */
   outputTypes: readonly string[];
+  /** The output as content item classes, as the engine's action instance computes it for the default parameters (built-ins). */
+  outputClasses?: readonly string[];
   /** Content types the action takes as input (the definition's `Input.Types`); empty when it takes none or is an App Intent. */
   inputTypes: readonly string[];
   /** The parameter key the input lands in, for a built-in that takes one. */
@@ -63,7 +67,7 @@ export type CatalogEntry = {
 };
 /** One rule under which the editor shows a parameter: the other key's value must (`=`), must not (`!=`), ... be one of `values`. */
 export type ParameterRule = { key: string; relation: string; values: readonly PlistValue[] };
-type CardFields = Pick<CatalogEntry, "inputTypes" | "inputKey" | "inputRequired" | "keywords" | "description" | "descriptionNote" | "descriptionResult" | "discontinued" | "unavailable" | "requiresUnlock" | "disabledOn" | "requires">;
+type CardFields = Pick<CatalogEntry, "inputTypes" | "outputClasses" | "inputKey" | "inputRequired" | "keywords" | "description" | "descriptionNote" | "descriptionResult" | "discontinued" | "unavailable" | "requiresUnlock" | "disabledOn" | "requires">;
 
 /**
  * Look up any catalog identifier, built-in or App Intent. Unlike getDefinition(), which knows
@@ -90,7 +94,7 @@ export function acceptedBy(type: string): { identifier: string; key: string }[] 
 
 /** Every action whose output is declared as this content type (`ACTIONS[id].outputTypes`). */
 export function producedBy(type: string): string[] {
-  return Object.entries(ACTIONS as Record<string, { outputTypes: readonly string[] }>).filter(([, e]) => e.outputTypes.includes(type)).map(([id]) => id);
+  return Object.entries(ACTIONS as Record<string, { outputTypes: readonly string[]; outputClasses?: readonly string[] }>).filter(([, e]) => e.outputTypes.includes(type) || e.outputClasses?.includes(type)).map(([id]) => id);
 }
 
 /** A third-party app, for `appIntent()`: its bundle identifier, display name and team identifier (the bundle's Info.plist and `codesign -dv`). */
@@ -162,11 +166,17 @@ export const repeatIndex = (): Attachment<"Variable"> => attachment({ Type: "Var
 
 /** The entity type an action outputs, when it is one of Apple's (ENTITY_PROPERTIES). */
 type OutputEntity<I extends string> = I extends ActionId ? Extract<OutputTypes<I>[number], EntityId> : never;
-/** The content item class an action outputs: named directly (CONTENT_ITEM_PROPERTIES) or as the object class or file type it wraps (CONTENT_ITEM_TYPES). */
-type OutputClass<I extends string> = I extends ActionId ? Extract<OutputTypes<I>[number] | (typeof CONTENT_ITEM_TYPES)[Extract<OutputTypes<I>[number], keyof typeof CONTENT_ITEM_TYPES>], ContentItemType> : never;
-type KnownProperty<I extends string> = EntityProperty<OutputEntity<I>> | ContentItemProperty<OutputClass<I>>;
+type ByChoice = typeof OUTPUT_CLASSES_BY;
+/** The classes the deciding choice in `P` selects (OUTPUT_CLASSES_BY): a literal's own, any choice's for a reference; never when the key is not given. */
+type Elem<T> = T extends readonly (infer C)[] ? C : never;
+type ChosenClass<I extends string, P> = I extends keyof ByChoice ? { [K in keyof ByChoice[I] & keyof P]: P[K] extends keyof ByChoice[I][K] ? Elem<ByChoice[I][K][P[K]]> : Elem<ByChoice[I][K][keyof ByChoice[I][K]]> }[keyof ByChoice[I] & keyof P] : never;
+/** The engine's own classes for the default parameters (`outputClasses`), else the declared types named directly (CONTENT_ITEM_PROPERTIES) or by the object class or file type they wrap (CONTENT_ITEM_TYPES). */
+type DeclaredClass<I extends string> = I extends ActionId ? (typeof ACTIONS)[I] extends { outputClasses: readonly (infer C)[] } ? C : OutputTypes<I>[number] | (typeof CONTENT_ITEM_TYPES)[Extract<OutputTypes<I>[number], keyof typeof CONTENT_ITEM_TYPES>] : never;
+/** The content item class an action outputs: narrowed by a literal choice when one decides it, else the engine's default answer. */
+type OutputClass<I extends string, P = unknown> = Extract<[ChosenClass<I, P>] extends [never] ? DeclaredClass<I> : ChosenClass<I, P>, ContentItemType>;
+type KnownProperty<I extends string, P = unknown> = EntityProperty<OutputEntity<I>> | ContentItemProperty<OutputClass<I, P>>;
 /** What `property()` takes for an action's output: the property names of its entity type or content item class when the catalog knows them, else any name. */
-export type PropertyName<I extends string> = [KnownProperty<I>] extends [never] ? string : KnownProperty<I>;
+export type PropertyName<I extends string, P = unknown> = [KnownProperty<I, P>] extends [never] ? string : KnownProperty<I, P>;
 
 /** The content item class a reference was last coerced to, when it is one the engine lists; null for any other reference. */
 function coercedClass(a: Attachment): ContentItemType | null {
@@ -190,11 +200,13 @@ const itemClassOf = (t: string): ContentItemType | null => {
  * a Number, through CONTENT_ITEM_TYPES; also what a `coerce()`d reference has), the name must be one of its
  * properties, which the compiler also checks.
  */
-export function property<I extends string>(source: Action<I>, name: PropertyName<I>): Attachment<"ActionOutput">;
+export function property<I extends string, P>(source: Action<I, P>, name: PropertyName<I, P>): Attachment<"ActionOutput">;
 export function property<C extends ContentItemClass, T extends VariableType>(source: Coerced<C, T>, name: ContentItemProperty<C>): Attachment<T>;
 export function property<T extends VariableType>(source: Uncoerced<T>, name: string): Attachment<T>;
 export function property(source: Action | Attachment, name: string): Attachment {
-  const types: string[] = isAttachment(source) ? [coercedClass(source)].filter((c): c is ContentItemType => c !== null) : [...new Set((source.outputTypes ?? []).map((t) => (t in ENTITY_PROPERTIES ? t : itemClassOf(t))).filter((t): t is string => t !== null))];
+  // An action's classes: the engine's answer for its parameters (outputClasses) plus any entity type it declares; else its declared types, mapped.
+  const declared = (a: Action) => (a.outputClasses ? [...a.outputClasses, ...(a.outputTypes ?? []).filter((t) => t in ENTITY_PROPERTIES)] : a.outputTypes ?? []);
+  const types: string[] = isAttachment(source) ? [coercedClass(source)].filter((c): c is ContentItemType => c !== null) : [...new Set(declared(source).map((t) => (t in ENTITY_PROPERTIES ? t : itemClassOf(t))).filter((t): t is string => t !== null))];
   const known = new Set<string>(types.flatMap((t) => (t in ENTITY_PROPERTIES ? ENTITY_PROPERTIES[t as EntityId] : CONTENT_ITEM_PROPERTIES[t as ContentItemType]) as readonly string[]));
   if (types.length && !known.has(name)) throw new Error(`${types.join(" / ")} has no property ${name}; it has ${[...known].sort().join(", ")}`);
   return aggrandize(source, { Type: "WFPropertyVariableAggrandizement", PropertyName: name });
@@ -397,13 +409,13 @@ export class Shortcut {
    * wrong keys and values don't compile, and unknown keys or unreadable references throw. Other
    * identifiers pass through unchecked; `appIntent()` names another app's action with its descriptor.
    */
-  action<I extends string>(identifier: I, params?: ParamsFor<I>): Action<I>;
+  action<I extends string, const P extends ParamsFor<I>>(identifier: I, params?: P): Action<I, P>;
   action(intent: AppIntentRef, params?: Record<string, Value>): Action<string>;
   action(target: string | AppIntentRef, params: Record<string, Value> = {}): Action<string> {
     const intent = typeof target === "string" ? undefined : target;
     const identifier = intent ? intent.identifier : (target as string);
     const definition = getDefinition(identifier);
-    const catalog = (ACTIONS as Record<string, { params: readonly string[]; output: string | null; outputTypes?: readonly string[]; descriptor?: AppIntentDescriptor }>)[identifier];
+    const catalog = (ACTIONS as Record<string, { params: readonly string[]; output: string | null; outputTypes?: readonly string[]; outputClasses?: readonly string[]; descriptor?: AppIntentDescriptor }>)[identifier];
     if (!definition && !catalog && identifier.startsWith("is.workflow.")) throw new Error(`unknown built-in action ${identifier}`);
     if (definition || catalog?.descriptor) {
       const known = new Set<string>(META_KEYS);
@@ -444,6 +456,12 @@ export class Shortcut {
       outputName: definition?.Output?.OutputName ?? catalog?.output ?? intent?.output ?? undefined,
       outputTypes: catalog?.outputTypes ?? definition?.Output?.Types,
     };
+    // The engine's answer to what comes out: for a choice that decides it (OUTPUT_CLASSES_BY), the literal given selects its
+    // classes and a reference means any of them; otherwise the classes for the default parameters.
+    const by = (OUTPUT_CLASSES_BY as Record<string, Record<string, Record<string, readonly string[]>>>)[identifier];
+    const deciding = by && Object.keys(by).find((k) => k in normalized);
+    const chosen = deciding ? (typeof normalized[deciding] === "string" && (normalized[deciding] as string) in by[deciding]! ? by[deciding]![normalized[deciding] as string] : [...new Set(Object.values(by[deciding]!).flat())]) : catalog?.outputClasses;
+    if (chosen) entry.outputClasses = chosen;
     this.actions.push(entry);
     return entry;
   }
@@ -502,7 +520,7 @@ export class Shortcut {
 
   /** The shortcut as a plist object. */
   toPlist(): Record<string, PlistValue> {
-    const actions = this.actions.map(({ outputName: _o, outputTypes: _t, ...a }) => a as unknown as PlistValue);
+    const actions = this.actions.map(({ outputName: _o, outputTypes: _t, outputClasses: _c, ...a }) => a as unknown as PlistValue);
     return {
       WFWorkflowClientVersion: "4018.0.4",
       WFWorkflowMinimumClientVersion: 900,

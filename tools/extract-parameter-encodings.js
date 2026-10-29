@@ -45,7 +45,8 @@ function run(argv) {
     if (isSystemBundle(isNil(bundle) ? null : str(bundle))) actions.push(a);
   }
   actions.sort((a, b) => str(a.identifier).localeCompare(str(b.identifier)));
-  const byParamClass = {}, actionParameters = {}, actionOutputNames = {}, actionDefaults = {}, unavailableActions = [];
+  const byParamClass = {}, actionParameters = {}, actionOutputNames = {}, actionOutputClasses = {}, actionDefaults = {}, unavailableActions = [];
+  const classNames = (list) => { const r = []; if (isNil(list)) return r; const a = items(list); for (let i = 0; i < count(a); i++) r.push(str($.NSStringFromClass(a.objectAtIndex(i)))); return r; };
   let created = 0, params = 0, failed = 0;
   for (const action of actions) {
     const ident = str(action.identifier);
@@ -108,6 +109,38 @@ function run(argv) {
       if (entry.usedBy.length < 5 && !entry.usedBy.includes(ident)) entry.usedBy.push(ident);
     }
     actionParameters[ident] = keys;
+    // What the action's output is, as the instance computes it (-outputContentClasses: content item classes, where the
+    // definition names object classes such as NSDecimalNumber), and how an enumeration choice changes it: each choice of
+    // each enumeration (its possibleStates) is set through the action and the classes read back; a key is recorded under
+    // `byChoice` only where some choice yields something other than the base. Ask for Input's Input Type, Get Device
+    // Details' detail and five more decide their output this way; the rest keep the base for every choice.
+    if (!unavailableActions.includes(ident)) {
+      try {
+        const base = action.copyWithSerializedParameters($({ UUID: "00000000-0000-4000-8000-000000000001" }));
+        const baseClasses = classNames(base.outputContentClasses);
+        if (baseClasses.length) {
+          const rec = { classes: baseClasses, byChoice: {} };
+          try { if (base.inputTypeDeterminesOutputType) rec.inputTypeDeterminesOutputType = true; } catch (e) { /* older engine */ }
+          for (let j = 0; j < count(plist); j++) {
+            const p = plist.objectAtIndex(j); const key = p.key;
+            if (isNil(key) || !isA(key, "NSString") || !p.respondsToSelector("possibleStates")) continue;
+            let ps; try { ps = p.possibleStates; } catch (e) { continue; }
+            if (isNil(ps) || count(ps) === 0) continue;
+            const per = {}; let differs = false;
+            for (let m = 0; m < count(ps); m++) {
+              const v = plain(ps.objectAtIndex(m).serializedRepresentation, 0);
+              if (!isPlain(v)) continue;
+              let classes; try { const a = action.copyWithSerializedParameters($({ UUID: "00000000-0000-4000-8000-000000000001", [str(key)]: v })); classes = classNames(a.outputContentClasses); } catch (e) { continue; }
+              per[String(v)] = classes;
+              if (JSON.stringify(classes) !== JSON.stringify(baseClasses)) differs = true;
+            }
+            if (differs) rec.byChoice[str(key)] = per;
+          }
+          if (!Object.keys(rec.byChoice).length) delete rec.byChoice;
+          actionOutputClasses[ident] = rec;
+        }
+      } catch (e) { /* no output */ }
+    }
   }
   console.log("actions created: " + created + " failed: " + failed + " parameters: " + params + " parameter classes: " + Object.keys(byParamClass).length);
   // State classes: their serialization selectors.
@@ -118,5 +151,5 @@ function run(argv) {
     stateClassSelectors[scn] = methodNames(scn).filter((s) => s.includes("erializ") || s.includes("init"));
   }
   console.log("actions the engine loads as missing: " + unavailableActions.length);
-  writeJSON(argv[0], { parameterClasses: byParamClass, stateClassSelectors, actionParameters, actionOutputNames, actionDefaults, unavailableActions: unavailableActions.sort() });
+  writeJSON(argv[0], { parameterClasses: byParamClass, stateClassSelectors, actionParameters, actionOutputNames, actionOutputClasses, actionDefaults, unavailableActions: unavailableActions.sort() });
 }

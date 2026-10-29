@@ -710,6 +710,23 @@ fails if the engine defines a property the data lacks. Not recorded: what a prop
 time for a value whose class the file does not state (the editor offers the Get list only once a
 Type is chosen or inferred).
 
+**What an action outputs, per choice** (2026-10-29). The definitions declare an output's types once
+(`Output.Types`), 24 of them as a union (Ask for Input: NSString, NSDecimalNumber, NSURL, NSDate)
+with nothing linking a choice to a type. The action instance knows: `-outputContentClasses` on an
+action built with `copyWithSerializedParameters:` answers in content item classes for the
+parameters it holds (the editor labels a magic variable from it). `extract-parameter-encodings.js`
+builds each action with no parameters (`classes`, the default's answer: Ask for Input's is Text)
+and then with each choice of each enumeration parameter (`possibleStates`, the engine's own list)
+set, and records under `byChoice` the keys where some choice yields something else: 32 actions on
+macOS 27, one deciding key each (Ask for Input's Input Type, Get Device Details' detail, Get Wi-Fi
+Details' detail, Get Battery Status' subject, Get Current Song's subject, Get Travel Time's mode,
+Base64 Encode's mode, Use Model's result type, and the 24 Get Details of … actions' property). Of
+the 24 union outputs, 6 follow a choice; the others follow the input (`inputTypeDeterminesOutputType`,
+recorded where set) or are decided at run time, and keep the union. The engine's base answer differs
+from the declaration for 151 actions, always the content item class for the declared object class.
+Not read: Get Device Details reports Device Hostname and Device Is Locked as Number, which is what
+the engine says and is kept as such.
+
 ### What is still approximate
 
 - The generator emits the legacy single-condition If. Shortcuts migrates it on load. Multi-
