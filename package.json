@@ -1,6 +1,6 @@
 {
   "name": "shortcutkit",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Build, validate, and sign Apple Shortcuts files from TypeScript. All 449 built-in actions and 1,265 Apple app actions typed, extracted from the Shortcuts engine.",
   "type": "module",
   "main": "./dist/index.js",

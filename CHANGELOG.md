@@ -6,7 +6,7 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
-## Unreleased
+## 3.1.0 (2026-10-29)
 
 - `property()` knows the properties of the engine's content item classes, the editor's "Get" list
   under a variable's Type menu: `property(coerce(file, "WFGenericFileContentItem"), "File Size")`
