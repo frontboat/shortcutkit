@@ -1,6 +1,6 @@
 {
   "name": "shortcutkit",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Build, validate, and sign Apple Shortcuts files from TypeScript. All 449 built-in actions and 1,265 Apple app actions typed, extracted from the Shortcuts engine.",
   "type": "module",
   "main": "./dist/index.js",
@@ -17,7 +17,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "bun build src/index.ts --outdir dist --target node --format esm && tsc -p tsconfig.build.json",
+    "build": "bun build src/index.ts --outdir dist --target node --format esm && tsc -p tsconfig.build.json && bun run tools/prepare-npm.ts",
     "prepare": "bun run build",
     "test": "bun test",
     "typecheck": "tsc --noEmit -p .",
@@ -26,7 +26,11 @@
     "extract-filters": "./tools/extract-engine-filters.sh",
     "diff-data": "python3 tools/diff-data.py",
     "changelog": "python3 tools/diff-data.py --changelog",
-    "verify": "./test/verify/run.sh"
+    "verify": "./test/verify/run.sh",
+    "render-catalog": "bun run generate",
+    "generate": "bun run tools/generate.ts",
+    "check-generated": "bun run tools/generate.ts --check",
+    "check-parity": "bun run tools/check-metadata-parity.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.4",

@@ -267,6 +267,30 @@
         ]
       }
     },
+    "com.apple.AppIntents.AppIntents._ModelDelegationConfigurationEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "configuration"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "configuration" : [
+          "WFLinkEntityContentItem_com.apple.AppIntents_AppIntents._ModelDelegationConfiguration.SystemAssistantEntity"
+        ]
+      }
+    },
     "com.apple.AppIntents.AppIntents._ModelDelegationResultEntity" : {
       "byQuery" : {
 
@@ -287,6 +311,34 @@
       "query" : null,
       "yields" : {
         "suggestion" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.AppIntents.AppIntents.IntentPromptEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "text",
+        "files"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "files" : [
+          "WFGenericFileContentItem"
+        ],
+        "text" : [
           "WFStringContentItem"
         ]
       }
@@ -2719,6 +2771,39 @@
         ]
       }
     },
+    "com.apple.clock.WorldClockCityEntity" : {
+      "byQuery" : {
+        "WorldClocksCityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "name" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "MobileTimerSupport.WorldClocksCityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "name"
+      ],
+      "queries" : [
+        "WorldClocksCityQuery"
+      ],
+      "query" : "WorldClocksCityQuery",
+      "yields" : {
+        "name" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
     "com.apple.finder.FINodeEntity" : {
       "byQuery" : {
         "FINodeEntityQuery" : {
@@ -3924,6 +4009,93 @@
         "GeneratedImageEntityQuery"
       ],
       "query" : "GeneratedImageEntityQuery",
+      "yields" : {
+
+      }
+    },
+    "com.apple.GenerativePlaygroundApp.ImagePlaygroundStyleEntity" : {
+      "byQuery" : {
+        "ImagePlaygroundStyleEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+        "ImagePlaygroundStyleEntityQuery"
+      ],
+      "query" : "ImagePlaygroundStyleEntityQuery",
+      "yields" : {
+
+      }
+    },
+    "com.apple.helpviewer.TipCollection" : {
+      "byQuery" : {
+        "TipCollectionQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "Tips.TipCollection.TipCollectionQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+        "TipCollectionQuery"
+      ],
+      "query" : "TipCollectionQuery",
+      "yields" : {
+
+      }
+    },
+    "com.apple.Home.AccessoryAndSceneEntity" : {
+      "byQuery" : {
+        "AccessoryAndSceneQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "HomeWidget.AccessoryAndSceneQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+        "AccessoryAndSceneQuery"
+      ],
+      "query" : "AccessoryAndSceneQuery",
       "yields" : {
 
       }
@@ -7057,6 +7229,46 @@
 
       }
     },
+    "com.apple.iCal.AttendeeEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "person",
+        "status",
+        "type",
+        "comment",
+        "isAttendanceOptional"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "comment" : [
+          "WFStringContentItem"
+        ],
+        "isAttendanceOptional" : [
+          "WFBooleanContentItem"
+        ],
+        "person" : [
+          "WFContactContentItem"
+        ],
+        "status" : [
+          "WFLinkEnumerationContentItem_com.apple.iCal_AttendeeEntityParticipantStatus"
+        ],
+        "type" : [
+          "WFLinkEnumerationContentItem_com.apple.iCal_AttendeeType"
+        ]
+      }
+    },
     "com.apple.iCal.CalendarEntity" : {
       "byQuery" : {
         "CalendarEntityQuery" : {
@@ -7627,6 +7839,39 @@
 
       }
     },
+    "com.apple.iCal.SourceEntity" : {
+      "byQuery" : {
+        "SourceEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "title"
+      ],
+      "queries" : [
+        "SourceEntityQuery"
+      ],
+      "query" : "SourceEntityQuery",
+      "yields" : {
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
     "com.apple.iCal.TransferableCalendarEntity" : {
       "byQuery" : {
         "TransferableCalendarEntityQuery" : {
@@ -7683,6 +7928,38 @@
       "query" : "TransferableSourceEntityQuery",
       "yields" : {
 
+      }
+    },
+    "com.apple.iCal.VirtualConferenceTypeEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "title",
+        "identifier",
+        "extensionBundleIdentifier"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "extensionBundleIdentifier" : [
+          "WFStringContentItem"
+        ],
+        "identifier" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
       }
     },
     "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.AppUsageResultEntity" : {
@@ -7765,6 +8042,194 @@
           "WFLinkEntityContentItem_com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension_SportsTeamAppEntity"
         ],
         "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.SportsTeamAppEntity" : {
+      "byQuery" : {
+        "SportsTeamAppEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "fullName" : [
+              "WFStringContentItem"
+            ],
+            "league" : [
+              "WFStringContentItem"
+            ],
+            "logo" : [
+              "WFGenericFileContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "IntelligencePlatformDataActionsAppIntentsExtension.SportsTeamAppEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "league",
+        "logo",
+        "fullName"
+      ],
+      "queries" : [
+        "SportsTeamAppEntityQuery"
+      ],
+      "query" : "SportsTeamAppEntityQuery",
+      "yields" : {
+        "fullName" : [
+          "WFStringContentItem"
+        ],
+        "league" : [
+          "WFStringContentItem"
+        ],
+        "logo" : [
+          "WFGenericFileContentItem"
+        ]
+      }
+    },
+    "com.apple.iWork.Keynote.KNDocumentEntity" : {
+      "byQuery" : {
+        "KNDocumentQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "creationDate" : [
+              "WFDateContentItem"
+            ],
+            "modificationDate" : [
+              "WFDateContentItem"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "Keynote.KNDocumentQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "modificationDate",
+        "creationDate",
+        "name"
+      ],
+      "queries" : [
+        "KNDocumentQuery"
+      ],
+      "query" : "KNDocumentQuery",
+      "yields" : {
+        "creationDate" : [
+          "WFDateContentItem"
+        ],
+        "modificationDate" : [
+          "WFDateContentItem"
+        ],
+        "name" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.iWork.Numbers.TNDocumentEntity" : {
+      "byQuery" : {
+        "TNDocumentQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "creationDate" : [
+              "WFDateContentItem"
+            ],
+            "modificationDate" : [
+              "WFDateContentItem"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "Numbers.TNDocumentQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "creationDate",
+        "modificationDate",
+        "name"
+      ],
+      "queries" : [
+        "TNDocumentQuery"
+      ],
+      "query" : "TNDocumentQuery",
+      "yields" : {
+        "creationDate" : [
+          "WFDateContentItem"
+        ],
+        "modificationDate" : [
+          "WFDateContentItem"
+        ],
+        "name" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.iWork.Pages.TPDocumentEntity" : {
+      "byQuery" : {
+        "TPDocumentQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "creationDate" : [
+              "WFDateContentItem"
+            ],
+            "modificationDate" : [
+              "WFDateContentItem"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "Pages.TPDocumentQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "modificationDate",
+        "name",
+        "creationDate"
+      ],
+      "queries" : [
+        "TPDocumentQuery"
+      ],
+      "query" : "TPDocumentQuery",
+      "yields" : {
+        "creationDate" : [
+          "WFDateContentItem"
+        ],
+        "modificationDate" : [
+          "WFDateContentItem"
+        ],
+        "name" : [
           "WFStringContentItem"
         ]
       }
@@ -8085,6 +8550,46 @@
         ]
       }
     },
+    "com.apple.mail.AccountEntity" : {
+      "byQuery" : {
+        "AccountEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "emailAddress" : [
+              "WFStringContentItem"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "MailApp.AccountEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "name",
+        "emailAddress"
+      ],
+      "queries" : [
+        "AccountEntityQuery"
+      ],
+      "query" : "AccountEntityQuery",
+      "yields" : {
+        "emailAddress" : [
+          "WFStringContentItem"
+        ],
+        "name" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
     "com.apple.mail.DraftMessageEntity" : {
       "byQuery" : {
         "DraftMessageQuery" : {
@@ -8276,6 +8781,133 @@
         ],
         "to" : [
           "WFContactContentItem"
+        ]
+      }
+    },
+    "com.apple.mail.MailAccountEntity" : {
+      "byQuery" : {
+        "MailAccountQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "displayName" : [
+              "WFStringContentItem"
+            ],
+            "emailAddress" : [
+              "WFStringContentItem"
+            ],
+            "server" : [
+              "WFURLContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "MailApp.MailAccountQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "displayName",
+        "emailAddress",
+        "server"
+      ],
+      "queries" : [
+        "MailAccountQuery"
+      ],
+      "query" : "MailAccountQuery",
+      "yields" : {
+        "displayName" : [
+          "WFStringContentItem"
+        ],
+        "emailAddress" : [
+          "WFStringContentItem"
+        ],
+        "server" : [
+          "WFURLContentItem"
+        ]
+      }
+    },
+    "com.apple.mail.MailAddresseeEntity" : {
+      "byQuery" : {
+        "MailAddresseeQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "displayName" : [
+              "WFStringContentItem"
+            ],
+            "emailAddress" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "MailApp.MailAddresseeQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "displayName",
+        "emailAddress"
+      ],
+      "queries" : [
+        "MailAddresseeQuery"
+      ],
+      "query" : "MailAddresseeQuery",
+      "yields" : {
+        "displayName" : [
+          "WFStringContentItem"
+        ],
+        "emailAddress" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.mail.MailboxEntity" : {
+      "byQuery" : {
+        "MailboxEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "account" : [
+              "WFLinkEntityContentItem_com.apple.mail_AccountEntity"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "MailApp.MailboxEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "name",
+        "account"
+      ],
+      "queries" : [
+        "MailboxEntityQuery"
+      ],
+      "query" : "MailboxEntityQuery",
+      "yields" : {
+        "account" : [
+          "WFLinkEntityContentItem_com.apple.mail_AccountEntity"
+        ],
+        "name" : [
+          "WFStringContentItem"
         ]
       }
     },
@@ -9771,6 +10403,317 @@
         ]
       }
     },
+    "com.apple.Maps.PlaceEntity" : {
+      "byQuery" : {
+        "PlaceEntityDescriptorQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "amenities" : [
+              "WFStringContentItem"
+            ],
+            "categories" : [
+              "WFStringContentItem"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ],
+            "operatingHours" : [
+              "WFLinkEntityContentItem_com.apple.Maps_OperatingHoursEntity"
+            ],
+            "operatingStatus" : [
+              "WFLinkEnumerationContentItem_com.apple.Maps_OperatingStatusEnum"
+            ],
+            "phoneNumber" : [
+              "WFStringContentItem"
+            ],
+            "place" : [
+              "WFLocationContentItem"
+            ],
+            "priceRange" : [
+              "WFLinkEnumerationContentItem_com.apple.Maps_PriceRangeEnum"
+            ],
+            "ratings" : [
+              "WFLinkEntityContentItem_com.apple.Maps_RatingEntity"
+            ],
+            "thumbnailPhotoURL" : [
+              "WFURLContentItem"
+            ]
+          }
+        },
+        "PlaceEntityDescriptorsQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "amenities" : [
+              "WFStringContentItem"
+            ],
+            "categories" : [
+              "WFStringContentItem"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ],
+            "operatingHours" : [
+              "WFLinkEntityContentItem_com.apple.Maps_OperatingHoursEntity"
+            ],
+            "operatingStatus" : [
+              "WFLinkEnumerationContentItem_com.apple.Maps_OperatingStatusEnum"
+            ],
+            "phoneNumber" : [
+              "WFStringContentItem"
+            ],
+            "place" : [
+              "WFLocationContentItem"
+            ],
+            "priceRange" : [
+              "WFLinkEnumerationContentItem_com.apple.Maps_PriceRangeEnum"
+            ],
+            "ratings" : [
+              "WFLinkEntityContentItem_com.apple.Maps_RatingEntity"
+            ],
+            "thumbnailPhotoURL" : [
+              "WFURLContentItem"
+            ]
+          }
+        },
+        "PlaceEntityStringQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "amenities" : [
+              "WFStringContentItem"
+            ],
+            "categories" : [
+              "WFStringContentItem"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ],
+            "operatingHours" : [
+              "WFLinkEntityContentItem_com.apple.Maps_OperatingHoursEntity"
+            ],
+            "operatingStatus" : [
+              "WFLinkEnumerationContentItem_com.apple.Maps_OperatingStatusEnum"
+            ],
+            "phoneNumber" : [
+              "WFStringContentItem"
+            ],
+            "place" : [
+              "WFLocationContentItem"
+            ],
+            "priceRange" : [
+              "WFLinkEnumerationContentItem_com.apple.Maps_PriceRangeEnum"
+            ],
+            "ratings" : [
+              "WFLinkEntityContentItem_com.apple.Maps_RatingEntity"
+            ],
+            "thumbnailPhotoURL" : [
+              "WFURLContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "MapsIntents.PlaceEntityDescriptorQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "place",
+        "name",
+        "categories",
+        "operatingStatus",
+        "operatingHours",
+        "phoneNumber",
+        "priceRange",
+        "ratings",
+        "amenities",
+        "thumbnailPhotoURL"
+      ],
+      "queries" : [
+        "PlaceEntityDescriptorQuery",
+        "PlaceEntityDescriptorsQuery",
+        "PlaceEntityStringQuery"
+      ],
+      "query" : "PlaceEntityDescriptorQuery",
+      "yields" : {
+        "amenities" : [
+          "WFStringContentItem"
+        ],
+        "categories" : [
+          "WFStringContentItem"
+        ],
+        "name" : [
+          "WFStringContentItem"
+        ],
+        "operatingHours" : [
+          "WFLinkEntityContentItem_com.apple.Maps_OperatingHoursEntity"
+        ],
+        "operatingStatus" : [
+          "WFLinkEnumerationContentItem_com.apple.Maps_OperatingStatusEnum"
+        ],
+        "phoneNumber" : [
+          "WFStringContentItem"
+        ],
+        "place" : [
+          "WFLocationContentItem"
+        ],
+        "priceRange" : [
+          "WFLinkEnumerationContentItem_com.apple.Maps_PriceRangeEnum"
+        ],
+        "ratings" : [
+          "WFLinkEntityContentItem_com.apple.Maps_RatingEntity"
+        ],
+        "thumbnailPhotoURL" : [
+          "WFURLContentItem"
+        ]
+      }
+    },
+    "com.apple.Maps.ViewportEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "southLatitude",
+        "northLatitude",
+        "westLongitude",
+        "eastLongitude"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "eastLongitude" : [
+          "WFNumberContentItem"
+        ],
+        "northLatitude" : [
+          "WFNumberContentItem"
+        ],
+        "southLatitude" : [
+          "WFNumberContentItem"
+        ],
+        "westLongitude" : [
+          "WFNumberContentItem"
+        ]
+      }
+    },
+    "com.apple.MediaRemoteAppIntentsExtension.MediaControlsDevice" : {
+      "byQuery" : {
+        "DeviceQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "deviceName" : [
+              "WFStringContentItem"
+            ],
+            "deviceProximity" : [
+              "WFLinkEnumerationContentItem_com.apple.MediaRemoteAppIntentsExtension_DeviceProximity"
+            ],
+            "deviceType" : [
+              "WFLinkEnumerationContentItem_com.apple.MediaRemoteAppIntentsExtension_MediaDeviceType"
+            ],
+            "deviceVolume" : [
+              "WFNumberContentItem"
+            ],
+            "homeName" : [
+              "WFStringContentItem"
+            ],
+            "isCurrentDevice" : [
+              "WFBooleanContentItem"
+            ],
+            "mediaRouteId" : [
+              "WFStringContentItem"
+            ],
+            "mediaSystemId" : [
+              "WFStringContentItem"
+            ],
+            "playingState" : [
+              "WFLinkEntityContentItem_com.apple.MediaRemoteAppIntentsExtension_PlayingState"
+            ],
+            "roomName" : [
+              "WFStringContentItem"
+            ],
+            "zoneName" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "MediaRemoteAppIntentsExtension.MediaControlsDevice.DeviceQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "deviceName",
+        "mediaRouteId",
+        "roomName",
+        "zoneName",
+        "homeName",
+        "deviceType",
+        "deviceProximity",
+        "deviceVolume",
+        "playingState",
+        "mediaSystemId",
+        "isCurrentDevice"
+      ],
+      "queries" : [
+        "DeviceQuery"
+      ],
+      "query" : "DeviceQuery",
+      "yields" : {
+        "deviceName" : [
+          "WFStringContentItem"
+        ],
+        "deviceProximity" : [
+          "WFLinkEnumerationContentItem_com.apple.MediaRemoteAppIntentsExtension_DeviceProximity"
+        ],
+        "deviceType" : [
+          "WFLinkEnumerationContentItem_com.apple.MediaRemoteAppIntentsExtension_MediaDeviceType"
+        ],
+        "deviceVolume" : [
+          "WFNumberContentItem"
+        ],
+        "homeName" : [
+          "WFStringContentItem"
+        ],
+        "isCurrentDevice" : [
+          "WFBooleanContentItem"
+        ],
+        "mediaRouteId" : [
+          "WFStringContentItem"
+        ],
+        "mediaSystemId" : [
+          "WFStringContentItem"
+        ],
+        "playingState" : [
+          "WFLinkEntityContentItem_com.apple.MediaRemoteAppIntentsExtension_PlayingState"
+        ],
+        "roomName" : [
+          "WFStringContentItem"
+        ],
+        "zoneName" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
     "com.apple.MobileSMS.ConversationEntity" : {
       "byQuery" : {
         "ConversationQuery" : {
@@ -10551,6 +11494,91 @@
         ]
       }
     },
+    "com.apple.MobileSMS.MessagePerson" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "person"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "person" : [
+          "WFContactContentItem"
+        ]
+      }
+    },
+    "com.apple.news.ArticleEntity" : {
+      "byQuery" : {
+        "ArticleQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "articleURL" : [
+              "WFURLContentItem"
+            ],
+            "author" : [
+              "WFStringContentItem"
+            ],
+            "excerpt" : [
+              "WFStringContentItem"
+            ],
+            "source" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "source",
+        "title",
+        "excerpt",
+        "author",
+        "articleURL"
+      ],
+      "queries" : [
+        "ArticleQuery"
+      ],
+      "query" : "ArticleQuery",
+      "yields" : {
+        "articleURL" : [
+          "WFURLContentItem"
+        ],
+        "author" : [
+          "WFStringContentItem"
+        ],
+        "excerpt" : [
+          "WFStringContentItem"
+        ],
+        "source" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
     "com.apple.news.AutoDownloadAudioStoriesEntity" : {
       "byQuery" : {
         "AutoDownloadAudioStoriesEntity.EffectiveUniqueQuery" : {
@@ -10908,6 +11936,46 @@
         ]
       }
     },
+    "com.apple.news.FeedEntity" : {
+      "byQuery" : {
+        "FeedQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "name" : [
+              "WFStringContentItem"
+            ],
+            "subtitle" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "name",
+        "subtitle"
+      ],
+      "queries" : [
+        "FeedQuery"
+      ],
+      "query" : "FeedQuery",
+      "yields" : {
+        "name" : [
+          "WFStringContentItem"
+        ],
+        "subtitle" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
     "com.apple.news.GameCenterEntity" : {
       "byQuery" : {
         "GameCenterEntity.EffectiveUniqueQuery" : {
@@ -10989,6 +12057,46 @@
       "yields" : {
         "ingredientText" : [
           "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.news.InstructionEntity" : {
+      "byQuery" : {
+        "InstructionQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "instructionText" : [
+              "WFStringContentItem"
+            ],
+            "stepNumber" : [
+              "WFNumberContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "stepNumber",
+        "instructionText"
+      ],
+      "queries" : [
+        "InstructionQuery"
+      ],
+      "query" : "InstructionQuery",
+      "yields" : {
+        "instructionText" : [
+          "WFStringContentItem"
+        ],
+        "stepNumber" : [
+          "WFNumberContentItem"
         ]
       }
     },
@@ -11286,6 +12394,39 @@
       "yields" : {
         "value" : [
           "WFBooleanContentItem"
+        ]
+      }
+    },
+    "com.apple.Notes.AccountEntity" : {
+      "byQuery" : {
+        "VisibleAccountsQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "name" : [
+
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "Notes.VisibleAccountsQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "name"
+      ],
+      "queries" : [
+        "VisibleAccountsQuery"
+      ],
+      "query" : "VisibleAccountsQuery",
+      "yields" : {
+        "name" : [
+
         ]
       }
     },
@@ -13717,6 +14858,165 @@
         ]
       }
     },
+    "com.apple.printcenter.PrinterEntity" : {
+      "byQuery" : {
+        "PrinterQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "Print_Center.PrinterQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+        "PrinterQuery"
+      ],
+      "query" : "PrinterQuery",
+      "yields" : {
+
+      }
+    },
+    "com.apple.reminders.AnyListEntity" : {
+      "byQuery" : {
+        "AnyListEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "Reminders.AnyListEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+        "AnyListEntityQuery"
+      ],
+      "query" : "AnyListEntityQuery",
+      "yields" : {
+
+      }
+    },
+    "com.apple.reminders.ColorEntity" : {
+      "byQuery" : {
+        "ColorEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "alpha" : [
+              "WFNumberContentItem"
+            ],
+            "blue" : [
+              "WFNumberContentItem"
+            ],
+            "green" : [
+              "WFNumberContentItem"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ],
+            "red" : [
+              "WFNumberContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "RemindersAppIntents.ColorEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "name",
+        "red",
+        "green",
+        "blue",
+        "alpha"
+      ],
+      "queries" : [
+        "ColorEntityQuery"
+      ],
+      "query" : "ColorEntityQuery",
+      "yields" : {
+        "alpha" : [
+          "WFNumberContentItem"
+        ],
+        "blue" : [
+          "WFNumberContentItem"
+        ],
+        "green" : [
+          "WFNumberContentItem"
+        ],
+        "name" : [
+          "WFStringContentItem"
+        ],
+        "red" : [
+          "WFNumberContentItem"
+        ]
+      }
+    },
+    "com.apple.reminders.EarlyAlertEntity" : {
+      "byQuery" : {
+        "EarlyAlertEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "interval" : [
+              "WFNumberContentItem"
+            ],
+            "unit" : [
+              "WFLinkEnumerationContentItem_com.apple.reminders_Unit"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "RemindersAppIntents.EarlyAlertEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "unit",
+        "interval"
+      ],
+      "queries" : [
+        "EarlyAlertEntityQuery"
+      ],
+      "query" : "EarlyAlertEntityQuery",
+      "yields" : {
+        "interval" : [
+          "WFNumberContentItem"
+        ],
+        "unit" : [
+          "WFLinkEnumerationContentItem_com.apple.reminders_Unit"
+        ]
+      }
+    },
     "com.apple.reminders.GroupEntity" : {
       "byQuery" : {
         "GroupEntityQuery" : {
@@ -13838,6 +15138,46 @@
         ],
         "showsCompleted" : [
           "WFBooleanContentItem"
+        ]
+      }
+    },
+    "com.apple.reminders.ListBadgeEntity" : {
+      "byQuery" : {
+        "ListBadgeEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "emblem" : [
+              "WFStringContentItem"
+            ],
+            "emoji" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "RemindersAppIntents.ListBadgeEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "emblem",
+        "emoji"
+      ],
+      "queries" : [
+        "ListBadgeEntityQuery"
+      ],
+      "query" : "ListBadgeEntityQuery",
+      "yields" : {
+        "emblem" : [
+          "WFStringContentItem"
+        ],
+        "emoji" : [
+          "WFStringContentItem"
         ]
       }
     },
@@ -14069,6 +15409,34 @@
         ],
         "type" : [
           "WFLinkEnumerationContentItem_com.apple.reminders_ListType"
+        ]
+      }
+    },
+    "com.apple.reminders.LocationTriggerEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "place",
+        "event"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "event" : [
+          "WFLinkEnumerationContentItem_com.apple.reminders_LocationTriggerEvent"
+        ],
+        "place" : [
+          "WFLocationContentItem"
         ]
       }
     },
@@ -16104,6 +17472,39 @@
         ],
         "url" : [
           "WFURLContentItem"
+        ]
+      }
+    },
+    "com.apple.Safari.ProfileEntity" : {
+      "byQuery" : {
+        "ProfileQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "SafariSwift.ProfileQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "title"
+      ],
+      "queries" : [
+        "ProfileQuery"
+      ],
+      "query" : "ProfileQuery",
+      "yields" : {
+        "title" : [
+          "WFStringContentItem"
         ]
       }
     },
@@ -19093,6 +20494,35 @@
         ]
       }
     },
+    "com.apple.Settings.InternetAccountEntity" : {
+      "byQuery" : {
+        "InternetAccountEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AccountsUISettingsAppIntents.InternetAccountEntity.InternetAccountEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+        "InternetAccountEntityQuery"
+      ],
+      "query" : "InternetAccountEntityQuery",
+      "yields" : {
+
+      }
+    },
     "com.apple.Settings.KeyboardSettingsSettingsDeepLink" : {
       "byQuery" : {
         "KeyboardSettingsSettingsDeepLinkQuery" : {
@@ -19741,6 +21171,28 @@
         "NotificationsSettingsSettingsDeepLinkQuery"
       ],
       "query" : "NotificationsSettingsSettingsDeepLinkQuery",
+      "yields" : {
+
+      }
+    },
+    "com.apple.Settings.NotificationSummarizationEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
       "yields" : {
 
       }
@@ -22957,6 +24409,12 @@
 
       }
     },
+    "com.apple.shortcuts.WFContentItem" : {
+      "linkd" : false
+    },
+    "com.apple.shortcuts.WFFocusModeContentItem" : {
+      "linkd" : false
+    },
     "com.apple.shortcuts.WFWorkflowReference" : {
       "byQuery" : {
         "WorkflowQuery" : {
@@ -23286,6 +24744,1237 @@
       "query" : "ChargeLimitsQuery",
       "yields" : {
 
+      }
+    },
+    "com.apple.ShortcutsActions.TimeMachineDestination" : {
+      "byQuery" : {
+        "TimeMachineDestinationQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "ActionKit.TimeMachineDestinationQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+        "TimeMachineDestinationQuery"
+      ],
+      "query" : "TimeMachineDestinationQuery",
+      "yields" : {
+
+      }
+    },
+    "com.apple.siri.-MarketplaceIntents-AppIntents._MarketplaceKit_AppIntents.AppSearchEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "results",
+        "term"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "results" : [
+          "WFLinkEntityContentItem_com.apple.siri.-MarketplaceIntents-AppIntents__MarketplaceKit_AppIntents.AppSearchEntity.ResultEntity"
+        ],
+        "term" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.-MediaIntents-AppIntents.MediaIntents.HomeDeviceGroupRepresentationEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "name",
+        "searchCriteria",
+        "spotlightResults"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "name" : [
+          "WFStringContentItem"
+        ],
+        "searchCriteria" : [
+          "WFLinkEntityContentItem_com.apple.siri.-MediaIntents-AppIntents_MediaIntents.HomeDeviceGroupRepresentationEntity.SearchCriteriaEntity"
+        ],
+        "spotlightResults" : [
+          "WFLinkEntityContentItem_com.apple.siri.-MediaIntents-AppIntents_MediaIntents.HomeDeviceGroupRepresentationSpotlightResultEntity"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitAlbumEntity" : {
+      "byQuery" : {
+        "SiriKitAlbumEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "artistName" : [
+              "WFStringContentItem"
+            ],
+            "artists" : [
+              "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ],
+            "universalProductCode" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitAlbumEntity.SiriKitAlbumEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "artistName",
+        "artists",
+        "universalProductCode",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitAlbumEntityQuery"
+      ],
+      "query" : "SiriKitAlbumEntityQuery",
+      "yields" : {
+        "artistName" : [
+          "WFStringContentItem"
+        ],
+        "artists" : [
+          "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ],
+        "universalProductCode" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitAlgorithmicRadioStationEntity" : {
+      "byQuery" : {
+        "SiriKitAlgorithmicRadioStationEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "curatedForMe" : [
+              "WFBooleanContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitAlgorithmicRadioStationEntity.SiriKitAlgorithmicRadioStationEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "curatedForMe",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitAlgorithmicRadioStationEntityQuery"
+      ],
+      "query" : "SiriKitAlgorithmicRadioStationEntityQuery",
+      "yields" : {
+        "curatedForMe" : [
+          "WFBooleanContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitArtistEntity" : {
+      "byQuery" : {
+        "SiriKitArtistEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "name" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitArtistEntity.SiriKitArtistEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "name",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitArtistEntityQuery"
+      ],
+      "query" : "SiriKitArtistEntityQuery",
+      "yields" : {
+        "name" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitAudiobookEntity" : {
+      "byQuery" : {
+        "SiriKitAudiobookEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "author" : [
+              "WFStringContentItem"
+            ],
+            "genre" : [
+              "WFStringContentItem"
+            ],
+            "narrator" : [
+              "WFStringContentItem"
+            ],
+            "publisher" : [
+              "WFStringContentItem"
+            ],
+            "purchaseDate" : [
+              "WFDateContentItem"
+            ],
+            "releaseDate" : [
+              "WFDateContentItem"
+            ],
+            "seriesTitle" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitAudiobookEntity.SiriKitAudiobookEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "author",
+        "genre",
+        "narrator",
+        "publisher",
+        "seriesTitle",
+        "releaseDate",
+        "purchaseDate",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitAudiobookEntityQuery"
+      ],
+      "query" : "SiriKitAudiobookEntityQuery",
+      "yields" : {
+        "author" : [
+          "WFStringContentItem"
+        ],
+        "genre" : [
+          "WFStringContentItem"
+        ],
+        "narrator" : [
+          "WFStringContentItem"
+        ],
+        "publisher" : [
+          "WFStringContentItem"
+        ],
+        "purchaseDate" : [
+          "WFDateContentItem"
+        ],
+        "releaseDate" : [
+          "WFDateContentItem"
+        ],
+        "seriesTitle" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitClassicalMusicRecordingEntity" : {
+      "byQuery" : {
+        "SiriKitClassicalMusicRecordingEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "artistName" : [
+              "WFStringContentItem"
+            ],
+            "artists" : [
+              "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+            ],
+            "composerName" : [
+              "WFStringContentItem"
+            ],
+            "composers" : [
+              "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+            ],
+            "internationalStandardRecordingCode" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitClassicalMusicRecordingEntity.SiriKitClassicalMusicRecordingEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "artistName",
+        "composerName",
+        "artists",
+        "composers",
+        "internationalStandardRecordingCode",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitClassicalMusicRecordingEntityQuery"
+      ],
+      "query" : "SiriKitClassicalMusicRecordingEntityQuery",
+      "yields" : {
+        "artistName" : [
+          "WFStringContentItem"
+        ],
+        "artists" : [
+          "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+        ],
+        "composerName" : [
+          "WFStringContentItem"
+        ],
+        "composers" : [
+          "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+        ],
+        "internationalStandardRecordingCode" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitLiveRadioStationEntity" : {
+      "byQuery" : {
+        "SiriKitLiveRadioStationEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "providerName" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitLiveRadioStationEntity.SiriKitLiveRadioStationEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "providerName",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitLiveRadioStationEntityQuery"
+      ],
+      "query" : "SiriKitLiveRadioStationEntityQuery",
+      "yields" : {
+        "providerName" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitNewsBriefEntity" : {
+      "byQuery" : {
+        "SiriKitNewsBriefEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "date" : [
+              "WFDateContentItem"
+            ],
+            "provider" : [
+              "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitNewsProviderEntity"
+            ],
+            "providerName" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitNewsBriefEntity.SiriKitNewsBriefEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "providerName",
+        "date",
+        "provider",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitNewsBriefEntityQuery"
+      ],
+      "query" : "SiriKitNewsBriefEntityQuery",
+      "yields" : {
+        "date" : [
+          "WFDateContentItem"
+        ],
+        "provider" : [
+          "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitNewsProviderEntity"
+        ],
+        "providerName" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitNewsProviderEntity" : {
+      "byQuery" : {
+        "SiriKitNewsProviderEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitNewsProviderEntity.SiriKitNewsProviderEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitNewsProviderEntityQuery"
+      ],
+      "query" : "SiriKitNewsProviderEntityQuery",
+      "yields" : {
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitPlaylistEntity" : {
+      "byQuery" : {
+        "SiriKitPlaylistEntityIntentValueQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "createdByMe" : [
+              "WFBooleanContentItem"
+            ],
+            "curatedForMe" : [
+              "WFBooleanContentItem"
+            ],
+            "owner" : [
+              "WFContactContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        },
+        "SiriKitPlaylistEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "createdByMe" : [
+              "WFBooleanContentItem"
+            ],
+            "curatedForMe" : [
+              "WFBooleanContentItem"
+            ],
+            "owner" : [
+              "WFContactContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitPlaylistEntity.SiriKitPlaylistEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "createdByMe",
+        "curatedForMe",
+        "owner",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitPlaylistEntityIntentValueQuery",
+        "SiriKitPlaylistEntityQuery"
+      ],
+      "query" : "SiriKitPlaylistEntityQuery",
+      "yields" : {
+        "createdByMe" : [
+          "WFBooleanContentItem"
+        ],
+        "curatedForMe" : [
+          "WFBooleanContentItem"
+        ],
+        "owner" : [
+          "WFContactContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitPodcastCollectionEntity" : {
+      "byQuery" : {
+        "SiriKitPodcastCollectionEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitPodcastCollectionEntity.SiriKitPodcastCollectionEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitPodcastCollectionEntityQuery"
+      ],
+      "query" : "SiriKitPodcastCollectionEntityQuery",
+      "yields" : {
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitPodcastEpisodeEntity" : {
+      "byQuery" : {
+        "SiriKitPodcastEpisodeEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "duration" : [
+              "WFNumberContentItem"
+            ],
+            "releaseDate" : [
+              "WFDateContentItem"
+            ],
+            "show" : [
+              "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitPodcastShowEntity"
+            ],
+            "showName" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitPodcastEpisodeEntity.SiriKitPodcastEpisodeEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "showName",
+        "show",
+        "releaseDate",
+        "duration",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitPodcastEpisodeEntityQuery"
+      ],
+      "query" : "SiriKitPodcastEpisodeEntityQuery",
+      "yields" : {
+        "duration" : [
+          "WFNumberContentItem"
+        ],
+        "releaseDate" : [
+          "WFDateContentItem"
+        ],
+        "show" : [
+          "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitPodcastShowEntity"
+        ],
+        "showName" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitPodcastShowEntity" : {
+      "byQuery" : {
+        "SiriKitPodcastShowEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "showDescription" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitPodcastShowEntity.SiriKitPodcastShowEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "showDescription",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitPodcastShowEntityQuery"
+      ],
+      "query" : "SiriKitPodcastShowEntityQuery",
+      "yields" : {
+        "showDescription" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitRadioShowEntity" : {
+      "byQuery" : {
+        "SiriKitRadioShowEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitRadioShowEntity.SiriKitRadioShowEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitRadioShowEntityQuery"
+      ],
+      "query" : "SiriKitRadioShowEntityQuery",
+      "yields" : {
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitRadioShowEpisodeEntity" : {
+      "byQuery" : {
+        "SiriKitRadioShowEpisodeEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "releaseDate" : [
+              "WFDateContentItem"
+            ],
+            "show" : [
+              "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitRadioShowEntity"
+            ],
+            "showName" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitRadioShowEpisodeEntity.SiriKitRadioShowEpisodeEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "showName",
+        "releaseDate",
+        "show",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitRadioShowEpisodeEntityQuery"
+      ],
+      "query" : "SiriKitRadioShowEpisodeEntityQuery",
+      "yields" : {
+        "releaseDate" : [
+          "WFDateContentItem"
+        ],
+        "show" : [
+          "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitRadioShowEntity"
+        ],
+        "showName" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitSongEntity" : {
+      "byQuery" : {
+        "SiriKitSongEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "album" : [
+              "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitAlbumEntity"
+            ],
+            "albumTitle" : [
+              "WFStringContentItem"
+            ],
+            "artistName" : [
+              "WFStringContentItem"
+            ],
+            "artists" : [
+              "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+            ],
+            "composerName" : [
+              "WFStringContentItem"
+            ],
+            "composers" : [
+              "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+            ],
+            "internationalStandardRecordingCode" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitSongEntity.SiriKitSongEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "artistName",
+        "albumTitle",
+        "composerName",
+        "artists",
+        "album",
+        "composers",
+        "internationalStandardRecordingCode",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention",
+        "freeformAppBundleId"
+      ],
+      "queries" : [
+        "SiriKitSongEntityQuery"
+      ],
+      "query" : "SiriKitSongEntityQuery",
+      "yields" : {
+        "album" : [
+          "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitAlbumEntity"
+        ],
+        "albumTitle" : [
+          "WFStringContentItem"
+        ],
+        "artistName" : [
+          "WFStringContentItem"
+        ],
+        "artists" : [
+          "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+        ],
+        "composerName" : [
+          "WFStringContentItem"
+        ],
+        "composers" : [
+          "WFLinkEntityContentItem_com.apple.siri.AudioAppIntentsExtension_SiriKitArtistEntity"
+        ],
+        "internationalStandardRecordingCode" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitSoundEntity" : {
+      "byQuery" : {
+        "SiriKitSoundEntityQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "AudioAppIntentsExtension.SiriKitSoundEntity.SiriKitSoundEntityQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "contextualMetadata",
+        "siriKitFallbackPayload",
+        "representableAppBundleId",
+        "isExplicitAppMention"
+      ],
+      "queries" : [
+        "SiriKitSoundEntityQuery"
+      ],
+      "query" : "SiriKitSoundEntityQuery",
+      "yields" : {
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.messages.SiriMessagesAppIntentsExtension.ConversationEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "recipients",
+        "displayName",
+        "previewText",
+        "conversationName",
+        "vocabularyIdentifier",
+        "isRead",
+        "attributes",
+        "dateLastActive",
+        "app"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "attributes" : [
+          "WFLinkEnumerationContentItem_com.apple.siri.messages.SiriMessagesAppIntentsExtension_ConversationAttribute"
+        ],
+        "conversationName" : [
+          "WFStringContentItem"
+        ],
+        "dateLastActive" : [
+          "WFDateContentItem"
+        ],
+        "displayName" : [
+          "WFStringContentItem"
+        ],
+        "isRead" : [
+          "WFBooleanContentItem"
+        ],
+        "previewText" : [
+          "WFRichTextContentItem"
+        ],
+        "recipients" : [
+          "WFLinkEntityContentItem_com.apple.siri.messages.SiriMessagesAppIntentsExtension_MessagePersonEntity"
+        ]
+      }
+    },
+    "com.apple.siri.messages.SiriMessagesAppIntentsExtension.DraftMessageEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "destination",
+        "subject",
+        "content",
+        "attachments",
+        "locations",
+        "links",
+        "scheduledDate",
+        "audioMessage",
+        "isAudioMessage",
+        "app"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "app" : [
+          "WFAppContentItem"
+        ],
+        "attachments" : [
+          "WFGenericFileContentItem"
+        ],
+        "audioMessage" : [
+          "WFGenericFileContentItem"
+        ],
+        "content" : [
+          "WFRichTextContentItem"
+        ],
+        "destination" : [
+          "WFLinkEntityContentItem_com.apple.siri.messages.SiriMessagesAppIntentsExtension_MessagePersonEntity"
+        ],
+        "isAudioMessage" : [
+          "WFBooleanContentItem"
+        ],
+        "links" : [
+          "WFURLContentItem"
+        ],
+        "locations" : [
+          "WFLocationContentItem"
+        ],
+        "scheduledDate" : [
+          "WFDateContentItem"
+        ],
+        "subject" : [
+          "WFRichTextContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.messages.SiriMessagesAppIntentsExtension.ReadableMessageAppEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "app",
+        "messageIds",
+        "content",
+        "voiceId",
+        "languageCode",
+        "componentType",
+        "conversationId",
+        "senders",
+        "recipients",
+        "introductionNames",
+        "isGroup",
+        "groupName",
+        "canShortenGroupDescription",
+        "timestamp",
+        "summary",
+        "isLongMessage",
+        "isRead",
+        "attachmentDescription",
+        "componentCount",
+        "reactionDescription",
+        "referencedMessageId",
+        "audioMessageUrl",
+        "locationUrl",
+        "service",
+        "readableConversationId",
+        "nextReadableConversationId",
+        "reactionSentiment",
+        "referencedMessageType",
+        "isLastConversation",
+        "isBurstAnnouncement"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "app" : [
+          "WFAppContentItem"
+        ],
+        "attachmentDescription" : [
+          "WFStringContentItem"
+        ],
+        "audioMessageUrl" : [
+          "WFGenericFileContentItem"
+        ],
+        "canShortenGroupDescription" : [
+          "WFBooleanContentItem"
+        ],
+        "componentCount" : [
+          "WFNumberContentItem"
+        ],
+        "componentType" : [
+          "WFStringContentItem"
+        ],
+        "content" : [
+          "WFRichTextContentItem"
+        ],
+        "conversationId" : [
+          "WFStringContentItem"
+        ],
+        "groupName" : [
+          "WFStringContentItem"
+        ],
+        "introductionNames" : [
+          "WFStringContentItem"
+        ],
+        "isBurstAnnouncement" : [
+          "WFBooleanContentItem"
+        ],
+        "isGroup" : [
+          "WFBooleanContentItem"
+        ],
+        "isLastConversation" : [
+          "WFBooleanContentItem"
+        ],
+        "isLongMessage" : [
+          "WFBooleanContentItem"
+        ],
+        "isRead" : [
+          "WFBooleanContentItem"
+        ],
+        "languageCode" : [
+          "WFStringContentItem"
+        ],
+        "locationUrl" : [
+          "WFStringContentItem"
+        ],
+        "messageIds" : [
+          "WFStringContentItem"
+        ],
+        "nextReadableConversationId" : [
+          "WFStringContentItem"
+        ],
+        "reactionDescription" : [
+          "WFStringContentItem"
+        ],
+        "reactionSentiment" : [
+          "WFStringContentItem"
+        ],
+        "readableConversationId" : [
+          "WFStringContentItem"
+        ],
+        "recipients" : [
+          "WFContactContentItem"
+        ],
+        "referencedMessageId" : [
+          "WFStringContentItem"
+        ],
+        "referencedMessageType" : [
+          "WFStringContentItem"
+        ],
+        "senders" : [
+          "WFContactContentItem"
+        ],
+        "service" : [
+          "WFStringContentItem"
+        ],
+        "summary" : [
+          "WFStringContentItem"
+        ],
+        "timestamp" : [
+          "WFDateContentItem"
+        ],
+        "voiceId" : [
+          "WFStringContentItem"
+        ]
       }
     },
     "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity" : {
@@ -23633,6 +26322,1013 @@
         ]
       }
     },
+    "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.PlaceEntity" : {
+      "byQuery" : {
+        "PlaceQuery" : {
+          "filters" : {
+            "amenities" : {
+              "bounded" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "operators" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 5,
+                  "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 99,
+                  "type" : "ContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 999,
+                  "type" : "NotContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 8,
+                  "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 9,
+                  "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "subjectType" : 2,
+              "valueClass" : "NSString"
+            },
+            "categories" : {
+              "bounded" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "operators" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 5,
+                  "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 99,
+                  "type" : "ContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 999,
+                  "type" : "NotContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 8,
+                  "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 9,
+                  "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "subjectType" : 2,
+              "valueClass" : "NSString"
+            },
+            "name" : {
+              "bounded" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "operators" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 5,
+                  "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 99,
+                  "type" : "ContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 999,
+                  "type" : "NotContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 8,
+                  "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 9,
+                  "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "subjectType" : 2,
+              "valueClass" : "NSString"
+            },
+            "operatingStatus" : {
+              "bounded" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+                }
+              ],
+              "cases" : [
+                "normalHours",
+                "temporarilyClosed",
+                "permanentlyClosed"
+              ],
+              "enumeration" : "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.OperatingStatusEnum",
+              "operators" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+                },
+                {
+                  "code" : 5,
+                  "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+                }
+              ],
+              "subjectType" : 0,
+              "valueClass" : "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_OperatingStatusEnum"
+            },
+            "phoneNumber" : {
+              "bounded" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "operators" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 5,
+                  "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 99,
+                  "type" : "ContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 999,
+                  "type" : "NotContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 8,
+                  "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 9,
+                  "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "subjectType" : 2,
+              "valueClass" : "NSString"
+            },
+            "place" : {
+              "bounded" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "operators" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 5,
+                  "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 99,
+                  "type" : "ContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 999,
+                  "type" : "NotContainsOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 8,
+                  "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+                },
+                {
+                  "code" : 9,
+                  "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+                }
+              ],
+              "subjectType" : 2,
+              "valueClass" : "LNEntity_GeoToolbox_PlaceDescriptorEntity"
+            },
+            "priceRange" : {
+              "bounded" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+                }
+              ],
+              "cases" : [
+                "inexpensive",
+                "moderateExpensive",
+                "expensive",
+                "highExpensive"
+              ],
+              "enumeration" : "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.PriceRangeEnum",
+              "operators" : [
+                {
+                  "code" : 4,
+                  "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+                },
+                {
+                  "code" : 5,
+                  "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+                }
+              ],
+              "subjectType" : 0,
+              "valueClass" : "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_PriceRangeEnum"
+            }
+          },
+          "yields" : {
+            "amenities" : [
+              "WFStringContentItem"
+            ],
+            "categories" : [
+              "WFStringContentItem"
+            ],
+            "name" : [
+              "WFStringContentItem"
+            ],
+            "operatingHours" : [
+              "WFLinkEntityContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_OperatingHoursEntity"
+            ],
+            "operatingStatus" : [
+              "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_OperatingStatusEnum"
+            ],
+            "phoneNumber" : [
+              "WFStringContentItem"
+            ],
+            "place" : [
+              "WFLocationContentItem"
+            ],
+            "priceRange" : [
+              "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_PriceRangeEnum"
+            ],
+            "ratings" : [
+              "WFLinkEntityContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_RatingEntity"
+            ]
+          }
+        }
+      },
+      "filters" : {
+        "amenities" : {
+          "bounded" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "operators" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 5,
+              "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 99,
+              "type" : "ContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 999,
+              "type" : "NotContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 8,
+              "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 9,
+              "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "subjectType" : 2,
+          "valueClass" : "NSString"
+        },
+        "categories" : {
+          "bounded" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "operators" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 5,
+              "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 99,
+              "type" : "ContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 999,
+              "type" : "NotContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 8,
+              "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 9,
+              "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "subjectType" : 2,
+          "valueClass" : "NSString"
+        },
+        "name" : {
+          "bounded" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "operators" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 5,
+              "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 99,
+              "type" : "ContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 999,
+              "type" : "NotContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 8,
+              "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 9,
+              "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "subjectType" : 2,
+          "valueClass" : "NSString"
+        },
+        "operatingStatus" : {
+          "bounded" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+            }
+          ],
+          "cases" : [
+            "normalHours",
+            "temporarilyClosed",
+            "permanentlyClosed"
+          ],
+          "enumeration" : "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.OperatingStatusEnum",
+          "operators" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+            },
+            {
+              "code" : 5,
+              "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+            }
+          ],
+          "subjectType" : 0,
+          "valueClass" : "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_OperatingStatusEnum"
+        },
+        "phoneNumber" : {
+          "bounded" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "operators" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 5,
+              "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 99,
+              "type" : "ContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 999,
+              "type" : "NotContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 8,
+              "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 9,
+              "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "subjectType" : 2,
+          "valueClass" : "NSString"
+        },
+        "place" : {
+          "bounded" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "operators" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 5,
+              "type" : "IsNotEqualOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 99,
+              "type" : "ContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 999,
+              "type" : "NotContainsOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 8,
+              "type" : "BeginsWithStringOperator<RowTemplateStringValueType>"
+            },
+            {
+              "code" : 9,
+              "type" : "EndsWithStringOperator<RowTemplateStringValueType>"
+            }
+          ],
+          "subjectType" : 2,
+          "valueClass" : "LNEntity_GeoToolbox_PlaceDescriptorEntity"
+        },
+        "priceRange" : {
+          "bounded" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+            }
+          ],
+          "cases" : [
+            "inexpensive",
+            "moderateExpensive",
+            "expensive",
+            "highExpensive"
+          ],
+          "enumeration" : "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.PriceRangeEnum",
+          "operators" : [
+            {
+              "code" : 4,
+              "type" : "IsEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+            },
+            {
+              "code" : 5,
+              "type" : "IsNotEqualOperator<RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>>"
+            }
+          ],
+          "subjectType" : 0,
+          "valueClass" : "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_PriceRangeEnum"
+        }
+      },
+      "indexQueries" : [
+        "SiriGeoAppIntentExtension.ThirdPartyMapsSchemaTypes.PlaceEntity.PlaceQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "place",
+        "name",
+        "categories",
+        "operatingStatus",
+        "operatingHours",
+        "phoneNumber",
+        "priceRange",
+        "ratings",
+        "amenities"
+      ],
+      "queries" : [
+        "PlaceQuery"
+      ],
+      "query" : "PlaceQuery",
+      "yields" : {
+        "amenities" : [
+          "WFStringContentItem"
+        ],
+        "categories" : [
+          "WFStringContentItem"
+        ],
+        "name" : [
+          "WFStringContentItem"
+        ],
+        "operatingHours" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_OperatingHoursEntity"
+        ],
+        "operatingStatus" : [
+          "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_OperatingStatusEnum"
+        ],
+        "phoneNumber" : [
+          "WFStringContentItem"
+        ],
+        "place" : [
+          "WFLocationContentItem"
+        ],
+        "priceRange" : [
+          "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_PriceRangeEnum"
+        ],
+        "ratings" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_RatingEntity"
+        ]
+      }
+    },
+    "com.apple.siri.SiriNotificationsAppIntentsExtension.UserNotificationEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "title",
+        "date",
+        "application",
+        "sender",
+        "recipients",
+        "priorityStatus",
+        "sourceFeed",
+        "interruptionLevel",
+        "isPreviewRestricted",
+        "isDirectMessage",
+        "body",
+        "subtitle",
+        "summary",
+        "threadIdentifier",
+        "threadSummary",
+        "containsOneTimePasscode"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "application" : [
+          "WFAppContentItem"
+        ],
+        "body" : [
+          "WFStringContentItem"
+        ],
+        "containsOneTimePasscode" : [
+          "WFBooleanContentItem"
+        ],
+        "date" : [
+          "WFDateContentItem"
+        ],
+        "interruptionLevel" : [
+          "WFLinkEnumerationContentItem_com.apple.siri.SiriNotificationsAppIntentsExtension_UserNotificationEntityInterruptionLevel"
+        ],
+        "isDirectMessage" : [
+          "WFBooleanContentItem"
+        ],
+        "isPreviewRestricted" : [
+          "WFBooleanContentItem"
+        ],
+        "priorityStatus" : [
+          "WFLinkEnumerationContentItem_com.apple.siri.SiriNotificationsAppIntentsExtension_UserNotificationEntityPriorityStatus"
+        ],
+        "recipients" : [
+          "WFContactContentItem"
+        ],
+        "sender" : [
+          "WFContactContentItem"
+        ],
+        "sourceFeed" : [
+          "WFLinkEnumerationContentItem_com.apple.siri.SiriNotificationsAppIntentsExtension_UserNotificationEntitySourceFeed"
+        ],
+        "subtitle" : [
+          "WFStringContentItem"
+        ],
+        "summary" : [
+          "WFStringContentItem"
+        ],
+        "threadIdentifier" : [
+          "WFStringContentItem"
+        ],
+        "threadSummary" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.SiriVideoAppIntents.GenericVideoEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "creator",
+        "url",
+        "collaborators",
+        "tags",
+        "description",
+        "contentType",
+        "viewCount",
+        "releaseDate",
+        "duration",
+        "isExplicitContent",
+        "freeformAppBundleId",
+        "isExplicitAppMention",
+        "images"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "collaborators" : [
+          "WFStringContentItem"
+        ],
+        "contentType" : [
+          "WFLinkEnumerationContentItem_com.apple.siri.SiriVideoAppIntents_VideoContentTypeEnum"
+        ],
+        "creator" : [
+          "WFStringContentItem"
+        ],
+        "description" : [
+          "WFStringContentItem"
+        ],
+        "duration" : [
+          "WFDurationContentItem"
+        ],
+        "images" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_VideoImage"
+        ],
+        "isExplicitContent" : [
+          "WFBooleanContentItem"
+        ],
+        "releaseDate" : [
+          "WFDateContentItem"
+        ],
+        "tags" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ],
+        "url" : [
+          "WFURLContentItem"
+        ],
+        "viewCount" : [
+          "WFNumberContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoMovieEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "description",
+        "genres",
+        "directorNames",
+        "castNames",
+        "castAndCrew",
+        "images",
+        "trailers",
+        "contentRatingValue",
+        "releaseDate",
+        "duration",
+        "inTheaters",
+        "contentRatingSystem",
+        "entityExperienceURL",
+        "tvAppCanonicalURL",
+        "rottenTomatoesScore",
+        "rottenTomatoesImageURL",
+        "entityID"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "castAndCrew" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_SiriVideoPersonEntity"
+        ],
+        "contentRatingValue" : [
+          "WFStringContentItem"
+        ],
+        "description" : [
+          "WFStringContentItem"
+        ],
+        "duration" : [
+          "WFDurationContentItem"
+        ],
+        "genres" : [
+          "WFStringContentItem"
+        ],
+        "images" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_VideoImage"
+        ],
+        "releaseDate" : [
+          "WFDateContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ],
+        "trailers" : [
+          "WFURLContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoPersonEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "name",
+        "roles",
+        "image",
+        "url",
+        "entityID"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "image" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_VideoImage"
+        ],
+        "name" : [
+          "WFStringContentItem"
+        ],
+        "roles" : [
+          "WFLinkEnumerationContentItem_com.apple.siri.SiriVideoAppIntents_VideoPersonRole"
+        ],
+        "url" : [
+          "WFURLContentItem"
+        ]
+      }
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoTvEpisodeEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "description",
+        "premiereDate",
+        "directorNames",
+        "castNames",
+        "castAndCrew",
+        "images",
+        "trailers",
+        "seasonNumber",
+        "episodeNumber",
+        "tvSeason",
+        "tvShow",
+        "duration",
+        "entityExperienceURL",
+        "tvAppCanonicalURL",
+        "entityID"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "castAndCrew" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_SiriVideoPersonEntity"
+        ],
+        "description" : [
+          "WFStringContentItem"
+        ],
+        "duration" : [
+          "WFDurationContentItem"
+        ],
+        "episodeNumber" : [
+          "WFStringContentItem"
+        ],
+        "images" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_VideoImage"
+        ],
+        "premiereDate" : [
+          "WFDateContentItem"
+        ],
+        "seasonNumber" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ],
+        "trailers" : [
+          "WFURLContentItem"
+        ],
+        "tvSeason" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_SiriVideoTvSeasonEntity"
+        ],
+        "tvShow" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_SiriVideoTvShowEntity"
+        ]
+      }
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoTvSeasonEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "description",
+        "premiereDate",
+        "directorNames",
+        "castNames",
+        "castAndCrew",
+        "images",
+        "trailers",
+        "seasonNumber",
+        "tvShow",
+        "entityExperienceURL",
+        "tvAppCanonicalURL",
+        "entityID"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "castAndCrew" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_SiriVideoPersonEntity"
+        ],
+        "description" : [
+          "WFStringContentItem"
+        ],
+        "images" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_VideoImage"
+        ],
+        "premiereDate" : [
+          "WFDateContentItem"
+        ],
+        "seasonNumber" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ],
+        "trailers" : [
+          "WFURLContentItem"
+        ],
+        "tvShow" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_SiriVideoTvShowEntity"
+        ]
+      }
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoTvShowEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "id",
+        "title",
+        "description",
+        "genres",
+        "premiereDate",
+        "finaleDate",
+        "directorNames",
+        "castNames",
+        "castAndCrew",
+        "images",
+        "trailers",
+        "seasonCount",
+        "contentRatingValue",
+        "contentRatingSystem",
+        "entityExperienceURL",
+        "tvAppCanonicalURL",
+        "entityID"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "castAndCrew" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_SiriVideoPersonEntity"
+        ],
+        "contentRatingValue" : [
+          "WFStringContentItem"
+        ],
+        "description" : [
+          "WFStringContentItem"
+        ],
+        "finaleDate" : [
+          "WFDateContentItem"
+        ],
+        "genres" : [
+          "WFStringContentItem"
+        ],
+        "images" : [
+          "WFLinkEntityContentItem_com.apple.siri.SiriVideoAppIntents_VideoImage"
+        ],
+        "premiereDate" : [
+          "WFDateContentItem"
+        ],
+        "seasonCount" : [
+          "WFNumberContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ],
+        "trailers" : [
+          "WFURLContentItem"
+        ]
+      }
+    },
     "com.apple.Spotlight.SearchFieldEntity" : {
       "byQuery" : {
         "SearchFieldEntityQuery" : {
@@ -23732,6 +27428,107 @@
       "query" : "SearchFieldEntityQuery",
       "yields" : {
         "searchString" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.stocks.ArticleEntity" : {
+      "byQuery" : {
+        "ArticleQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "articleURL" : [
+              "WFURLContentItem"
+            ],
+            "author" : [
+              "WFStringContentItem"
+            ],
+            "excerpt" : [
+              "WFStringContentItem"
+            ],
+            "source" : [
+              "WFStringContentItem"
+            ],
+            "title" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "source",
+        "title",
+        "excerpt",
+        "author",
+        "articleURL"
+      ],
+      "queries" : [
+        "ArticleQuery"
+      ],
+      "query" : "ArticleQuery",
+      "yields" : {
+        "articleURL" : [
+          "WFURLContentItem"
+        ],
+        "author" : [
+          "WFStringContentItem"
+        ],
+        "excerpt" : [
+          "WFStringContentItem"
+        ],
+        "source" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFStringContentItem"
+        ]
+      }
+    },
+    "com.apple.stocks.FeedEntity" : {
+      "byQuery" : {
+        "FeedQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+            "name" : [
+              "WFStringContentItem"
+            ],
+            "subtitle" : [
+              "WFStringContentItem"
+            ]
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "name",
+        "subtitle"
+      ],
+      "queries" : [
+        "FeedQuery"
+      ],
+      "query" : "FeedQuery",
+      "yields" : {
+        "name" : [
+          "WFStringContentItem"
+        ],
+        "subtitle" : [
           "WFStringContentItem"
         ]
       }
@@ -34564,6 +38361,57 @@
         ]
       }
     },
+    "com.apple.systempreferences.PrinterPaperSize" : {
+      "byQuery" : {
+        "Query" : {
+          "filters" : {
+
+          },
+          "yields" : {
+
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "PrinterScannerIntentsExtension.PrinterPaperSize.Query"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+        "Query"
+      ],
+      "query" : "Query",
+      "yields" : {
+
+      }
+    },
+    "com.apple.systempreferences.ScreenSaverDelay" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+
+      }
+    },
     "com.apple.systempreferences.ScreenSaverDelayEntity" : {
       "byQuery" : {
         "ScreenSaverDelayQuery" : {
@@ -34594,6 +38442,50 @@
       "yields" : {
         "value" : [
           "WFLinkEntityContentItem_com.apple.systempreferences_ScreenSaverDelay"
+        ]
+      }
+    },
+    "com.apple.systempreferences.SettingsNavigationLocationEntity" : {
+      "byQuery" : {
+
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+        "settingsHostApplicationBundleIdentifier",
+        "icon",
+        "title",
+        "navigationPathComponents",
+        "navigationLink",
+        "associatedApplicationBundleIdentifier"
+      ],
+      "queries" : [
+
+      ],
+      "query" : null,
+      "yields" : {
+        "associatedApplicationBundleIdentifier" : [
+          "WFStringContentItem"
+        ],
+        "icon" : [
+          "WFLinkEntityContentItem_com.apple.systempreferences_SettingsNavigationLocationIconEntity"
+        ],
+        "navigationLink" : [
+          "WFURLContentItem"
+        ],
+        "navigationPathComponents" : [
+          "WFGenericFileContentItem"
+        ],
+        "settingsHostApplicationBundleIdentifier" : [
+          "WFStringContentItem"
+        ],
+        "title" : [
+          "WFGenericFileContentItem"
         ]
       }
     },
@@ -37767,6 +41659,35 @@
         "encodedSyncedData" : [
           "WFStringContentItem"
         ]
+      }
+    },
+    "com.apple.WritingTools.WritingToolsAppIntentsExtension.WTIntentContext" : {
+      "byQuery" : {
+        "WTIntentContextQuery" : {
+          "filters" : {
+
+          },
+          "yields" : {
+
+          }
+        }
+      },
+      "filters" : {
+
+      },
+      "indexQueries" : [
+        "WritingToolsAppIntentsExtension.WTIntentContextQuery"
+      ],
+      "linkd" : true,
+      "linkdProperties" : [
+
+      ],
+      "queries" : [
+        "WTIntentContextQuery"
+      ],
+      "query" : "WTIntentContextQuery",
+      "yields" : {
+
       }
     }
   },

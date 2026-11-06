@@ -33,8 +33,8 @@ are archived ([python-shortcuts](https://github.com/alexander-akhmetov/python-sh
 - 1,265 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
   actions the Shortcuts editor offers: the Siri-only intents the app refuses to import are left out.
 - Third-party app actions, named by app and intent.
-- Checked conditions for 150 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find
-  Contacts, ...) and 136 in Apple's apps (Find Messages, Find Notes, ...), from the engine's own
+- Checked conditions for 153 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find
+  Contacts, ...) and 139 in Apple's apps (Find Messages, Find Notes, ...), from the engine's own
   rules, and the properties of what they find.
 - If, Repeat, Repeat with Each, and Choose from Menu blocks.
 - A wrong key or value raises `ValueError` before anything is written.
@@ -127,6 +127,24 @@ note = s.action(app_intent(app, "CreateNoteIntent", "Note"), title=text("Hello")
 s.action(actions.SHOWRESULT, Text=ref(note))
 ```
 
+### Shared catalogue
+
+`CATALOG` exposes the same generated snapshot as the TypeScript package. Each action
+records its inputs, outputs, parameters, choice-dependent output classes, and evidence
+for missing descriptions or unprobed references. The package also includes the readable
+`data/catalog.txt` alongside `data/catalog.json`.
+
+```python
+from shortcutkit import CATALOG, CatalogAction
+
+record: CatalogAction = CATALOG["actions"][actions.ASK]
+reference_evidence = record["parameters"]["WFAskActionPrompt"]["refs"]
+```
+
+The catalogue has structural type annotations. `Shortcut.action()` continues to check
+action-specific arguments at runtime; the Python package does not yet provide static
+types for each action's keyword arguments.
+
 ## API
 
 | Export | What it does |
@@ -149,15 +167,17 @@ s.action(actions.SHOWRESULT, Text=ref(note))
 | `coerce(source, class)` | A value read as one content type, the editor's "Type" menu (`CONTENT_ITEM_CLASSES`). |
 | `dictionary(items)` | A dictionary parameter's items; `action()` encodes a plain dict itself. |
 | `app_intent(app, intent, output=None)` | Another app's action, for `s.action()`. |
-| `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type's properties, and the content types a coercion can name. |
-| `actions`, `ACTIONS`, `get_action(id)` | Action identifiers and their catalog entries: parameters and kinds, output and input types, keywords, description, flags, and the rules under which the editor shows each parameter. |
+| `FILTERS`, `ENTITIES`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type (name, app, Find action, typed properties), and the content types a coercion can name. |
+| `actions`, `ACTIONS`, `get_action(id)` | Action identifiers and their catalog entries: parameters and kinds, output and input types, keywords, description, flags, the rules under which the editor shows each parameter, and its labels, descriptions and choice titles. |
 | `accepted_by(type)`, `produced_by(type)` | Which actions take a content type as input or as an entity parameter, and which output it. |
 | `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | What each parameter accepts. |
+| `PARAM_LABELS`, `PARAM_DESCRIPTIONS`, `PARAM_CHOICE_TITLES` | How the editor labels each parameter and each enumeration choice. |
 | `CONDITION`, `ICON_COLORS`, `PROVENANCE` | If conditions, icon colors, and the build the data came from. |
 
 ## Documentation
 
 - [Shortcut file format](https://github.com/frontboat/shortcutkit/blob/main/docs/shortcut-file-format.md)
+- [The catalogue for agents](https://github.com/frontboat/shortcutkit/blob/main/docs/catalog.txt): one grep-shaped record per action and entity type
 - [Built-in actions](https://github.com/frontboat/shortcutkit/blob/main/docs/builtin-actions-reference.md)
 - [Apple app actions](https://github.com/frontboat/shortcutkit/blob/main/docs/apple-app-intents-reference.md)
 - [Parameter encodings](https://github.com/frontboat/shortcutkit/blob/main/docs/parameter-encodings.md)

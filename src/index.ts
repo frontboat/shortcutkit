@@ -4,18 +4,20 @@ import { spawnSync } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { toXmlPlist, type PlistValue } from "./plist.js";
 import { getDefinition, type ActionDefinition } from "./definitions.js";
-import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, OUTPUT_CLASSES_BY } from "./generated/actions.js";
+import { ACTIONS, PARAM_KINDS, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, OUTPUT_CLASSES_BY, PARAM_CHOICE_TITLES, PARAM_LABELS, PARAM_DESCRIPTIONS } from "./generated/actions.js";
 import type { ActionId, MetaParams, ParamTypes } from "./generated/actions.js";
 import { BOUNDED_FILTERS, BYTE_COUNT_UNITS, CALENDAR_UNITS, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, ENTITY_PROPERTIES, FILTERS, FILTER_OPERATORS, type ContentItemClass, type ContentItemProperty, type ContentItemType, type EntityId, type EntityProperty } from "./generated/entities.js";
 import type { AppIntentDescriptor, AskAttachment, Attachment, Coerced, ConditionSubject, DictionaryFieldValue, DictionaryItem, DictionaryItems, DictionaryItemType, DictionaryValue, FilterRow, FilterTemplateValue, TokenString, Uncoerced, Value, VariableType, Where } from "./values.js";
 
-export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, OUTPUT_CLASSES_BY, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
+export { actions, ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_CHOICE_TITLES, PARAM_LABELS, PARAM_DESCRIPTIONS, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, OUTPUT_CLASSES_BY, type ActionId, type ActionKey, type ParamKey, type ParamTypes, type MetaParams } from "./generated/actions.js";
 export type { PlistValue } from "./plist.js";
 export type * from "./values.js";
 export { getDefinition, allDefinitions, type ActionDefinition, type ParameterDefinition, type Localized } from "./definitions.js";
 export { provenance, type Provenance } from "./provenance.js";
+export { CATALOG } from "./catalog.js";
+export type { CatalogModel, CatalogAction, CatalogParameter, CatalogEntity, CatalogTypeInfo, CatalogFilterRow, CatalogContentItemClass, CatalogValue } from "./catalog.js";
 export type * from "./generated/params.js";
-export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, type FilterRows, type EntityId, type EntityProperty, type ContentItemClass, type ContentItemProperty, type ContentItemType } from "./generated/entities.js";
+export { FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITIES, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, type FilterRows, type EntityId, type EntityProperty, type ContentItemClass, type ContentItemProperty, type ContentItemType } from "./generated/entities.js";
 
 /** Parameters accepted for an identifier: typed per key for built-in actions, open for anything else. */
 export type ParamsFor<I extends string> = I extends ActionId ? Partial<ParamTypes[I] & MetaParams> : Record<string, Value>;
@@ -35,6 +37,12 @@ export type CatalogEntry = {
   params: readonly string[];
   /** Value kind per key: bool, number, string, text, picker, subject, plainString, plainNumber, dictionary, quantity, filter, any. */
   kinds: Record<string, string>;
+  /** The editor's title per enumeration choice, by key, for the choices whose title differs from the id (`PARAM_CHOICE_TITLES`). */
+  choiceTitles?: Readonly<Record<string, Readonly<Record<string, string>>>>;
+  /** The editor's label per key (`PARAM_LABELS`), where there is one. */
+  paramLabels?: Readonly<Record<string, string>>;
+  /** The editor's description per key, its hover text (`PARAM_DESCRIPTIONS`), where there is one. */
+  paramDescriptions?: Readonly<Record<string, string>>;
   /** Output name, or null when the action produces nothing. */
   output: string | null;
   /** Content types the output can be; empty when the action produces nothing. */
@@ -79,7 +87,10 @@ export function getAction(identifier: string): CatalogEntry | undefined {
   const kinds = { ...((PARAM_KINDS as Record<string, Record<string, string>>)[identifier] ?? {}) };
   const definition = getDefinition(identifier);
   const { name, params, output, outputTypes, descriptor, inputTypes, keywords, ...card } = entry;
-  return { identifier, name, params, kinds, output, outputTypes, inputTypes: inputTypes ?? [], keywords: keywords ?? [], ...card, ...(descriptor ? { descriptor } : {}), ...(definition ? { definition } : {}) };
+  const choiceTitles = (PARAM_CHOICE_TITLES as Record<string, Record<string, Record<string, string>>>)[identifier];
+  const paramLabels = (PARAM_LABELS as Record<string, Record<string, string>>)[identifier];
+  const paramDescriptions = (PARAM_DESCRIPTIONS as Record<string, Record<string, string>>)[identifier];
+  return { identifier, name, params, kinds, output, outputTypes, inputTypes: inputTypes ?? [], keywords: keywords ?? [], ...card, ...(choiceTitles ? { choiceTitles } : {}), ...(paramLabels ? { paramLabels } : {}), ...(paramDescriptions ? { paramDescriptions } : {}), ...(descriptor ? { descriptor } : {}), ...(definition ? { definition } : {}) };
 }
 
 /** Where a value of one content type can go: every built-in whose input takes it (with the key the input lands in) and every App

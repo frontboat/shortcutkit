@@ -49,9 +49,9 @@ DEFINITIONS = HERE / "data" / "builtin-actions.json"
 
 @functools.lru_cache(maxsize=None)
 def _load_definitions(path):
-    """The definitions file, parsed once per path; {} when it is absent."""
+    """The definitions file, parsed once per path; missing files are packaging errors."""
     path = pathlib.Path(path)
-    return json.loads(path.read_text()) if path.exists() else {}
+    return json.loads(path.read_text(encoding="utf-8"))
 
 # WFWorkflowIcon.backgroundColorValue for palette colors 0-14, as the unsigned 32-bit
 # value the plist stores. Names follow Shortcuts' picker order.
@@ -637,6 +637,9 @@ def get_action(identifier, definitions=DEFINITIONS):
     for k in ("outputClasses", "inputKey", "inputRequired", "description", "descriptionNote", "descriptionResult", "discontinued", "unavailable", "requiresUnlock", "disabledOn", "requires"):
         if entry.get(k):
             out[k] = copy.deepcopy(entry[k])
+    for k, table in (("choiceTitles", PARAM_CHOICE_TITLES), ("paramLabels", PARAM_LABELS), ("paramDescriptions", PARAM_DESCRIPTIONS)):
+        if identifier in table:
+            out[k] = copy.deepcopy(table[identifier])
     if entry.get("descriptor"):
         out["descriptor"] = entry["descriptor"]
     defs = _load_definitions(definitions) if definitions else {}
@@ -677,13 +680,14 @@ def demo(out):
 
 
 from . import actions  # noqa: E402  (generated identifier constants and ACTIONS metadata)
-from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, OUTPUT_CLASSES_BY  # noqa: E402
-from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES  # noqa: E402  (generated Find filters, entity properties, content item classes, their properties and owned types)
+from .catalog import CATALOG, CatalogModel, CatalogAction, CatalogParameter  # noqa: E402
+from .actions import ACTIONS, PARAM_KINDS, PARAM_CHOICES, PARAM_CHOICE_TITLES, PARAM_LABELS, PARAM_DESCRIPTIONS, PARAM_VARIABLE_TYPES, PARAM_ENTITY_TYPES, OUTPUT_CLASSES_BY  # noqa: E402
+from .entities import FILTERS, FILTER_OPERATORS, CALENDAR_UNITS, BYTE_COUNT_UNITS, BOUNDED_FILTERS, ENTITIES, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES  # noqa: E402  (generated Find filters, entity properties, content item classes, their properties and owned types)
 
-PROVENANCE = json.load(open(HERE / "data" / "provenance.json")) if (HERE / "data" / "provenance.json").exists() else {}
+PROVENANCE = json.loads((HERE / "data" / "provenance.json").read_text(encoding="utf-8"))
 """Which macOS and Shortcuts build the bundled data was extracted from."""
 
-__all__ = ["actions", "ACTIONS", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "accepted_by", "produced_by", "PARAM_ENTITY_TYPES", "OUTPUT_CLASSES_BY", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
-           "property_", "coerce", "dictionary", "app_intent", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITY_PROPERTIES", "CONTENT_ITEM_CLASSES", "CONTENT_ITEM_PROPERTIES", "CONTENT_ITEM_TYPES",
+__all__ = ["actions", "ACTIONS", "CATALOG", "CatalogModel", "CatalogAction", "CatalogParameter", "PARAM_KINDS", "PARAM_CHOICES", "PARAM_CHOICE_TITLES", "PARAM_LABELS", "PARAM_DESCRIPTIONS", "PARAM_VARIABLE_TYPES", "PROVENANCE", "get_action", "accepted_by", "produced_by", "PARAM_ENTITY_TYPES", "OUTPUT_CLASSES_BY", "repeat_item", "repeat_index", "subject", "Shortcut", "ref", "variable", "shortcut_input", "clipboard", "current_date", "ask", "device_details", "current_app", "picker", "text",
+           "property_", "coerce", "dictionary", "app_intent", "where", "where_any", "FILTERS", "FILTER_OPERATORS", "CALENDAR_UNITS", "BYTE_COUNT_UNITS", "BOUNDED_FILTERS", "ENTITIES", "ENTITY_PROPERTIES", "CONTENT_ITEM_CLASSES", "CONTENT_ITEM_PROPERTIES", "CONTENT_ITEM_TYPES",
            "ICON_COLORS", "CONDITION", "DEFAULT_GLYPH", "LEGACY_KEYS", "demo"]
-__version__ = "3.1.0"
+__version__ = "3.2.0"

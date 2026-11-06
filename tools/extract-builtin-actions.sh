@@ -9,8 +9,7 @@
 # Needs python3 (3.9+) and osascript (part of macOS). No compiler: the engine probes are
 # JavaScript for Automation scripts because ActionKit, which defines 53 of the built-in
 # actions, only loads into Apple platform binaries such as osascript (see
-# tools/jxa-prelude.js). Bun is optional (rebuilds the TypeScript package's declarations when
-# its node_modules exist).
+# tools/jxa-prelude.js). Bun is required for shared generation after extraction.
 set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 out="$(dirname "$here")"
@@ -52,14 +51,6 @@ python3 "$here/annotate-builtin-actions.py" "$data/builtin-actions.json" "$data/
 echo "rendering markdown"
 python3 "$here/render-builtin-actions.py" "$data/builtin-actions.json" "$docs/builtin-actions-reference.md"
 
-echo "refreshing the Python package's bundled definitions"
-mkdir -p "$out/python/src/shortcutkit/data" && cp "$data/builtin-actions.json" "$out/python/src/shortcutkit/data/builtin-actions.json"
-[ -f "$data/provenance.json" ] && cp "$data/provenance.json" "$out/python/src/shortcutkit/data/provenance.json"
-
-echo "generating typed action catalogues"
-python3 "$here/generate-action-catalog.py" "$data/builtin-actions.json" "$data/apple-app-intents.json" "$data/apple-entities.json"
-if [ -d "$out/node_modules" ]; then (cd "$out" && bunx tsc -p tsconfig.build.json); fi
-
 echo "dumping Apple's gallery workflows and installed apps' App Intents actions"
 python3 "$here/dump-gallery.py" "$data/gallery-workflows.json" | tail -1
 python3 "$here/dump-appintents-actions.py" "$data/app-provided-actions.json" | tail -1
@@ -96,5 +87,6 @@ cat > "$data/provenance.json" <<JSON
   "note": "appProvidedActions counts the App Intents actions of apps installed on the extracting machine; that dump and toolkit-registry.json are local and not committed."
 }
 JSON
-cp "$data/provenance.json" "$out/python/src/shortcutkit/data/provenance.json"
+echo "generating both packages and the shared catalogue from the saved snapshot"
+(cd "$out" && bun run generate)
 echo "done: $(sw_vers -productVersion) $(uname -m)"

@@ -130,11 +130,9 @@ property_cases = []
 producers = Shortcut("Producers")
 for entity, props in ENTITY_PROPERTIES.items():
     by = entity if entity in ACTIONS else next((i for i, a in ACTIONS.items() if entity in a["outputTypes"]), None)
-    if by is None:
-        continue
-    a = producers.action(by)
+    source = producers.action(by) if by else variable(entity)  # a type only parameters take: through a named variable
     for name in props:
-        property_cases.append({"entity": entity, "property": name, "attachment": property_(a, name)})
+        property_cases.append({"entity": entity, "property": name, "attachment": property_(source, name)})
 
 coercion_cases = [{"class": cls, "attachment": coerce(REF, cls)} for cls in CONTENT_ITEM_CLASSES]
 class_property_cases = [{"class": cls, "property": name, "attachment": property_(coerce(REF, cls), name) if cls in CONTENT_ITEM_CLASSES else property_(REF, name)} for cls, names in CONTENT_ITEM_PROPERTIES.items() for name in names]
