@@ -1,5 +1,5 @@
 // Check the archive consumers install, including its declarations and shared catalogue.
-import { mkdtempSync, readFileSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { mkdtempSync, readFileSync, readdirSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
@@ -18,6 +18,16 @@ try {
   const archive = join(work, "package");
   if (!readFileSync(join(archive, "dist/catalog.txt")).equals(readFileSync(join(root, "docs/catalog.txt")))) throw new Error("npm catalogue differs from the shared snapshot");
   if (!readFileSync(join(archive, "dist/catalog.json")).equals(readFileSync(join(root, "src/generated/catalog.json")))) throw new Error("npm catalogue JSON differs from the shared snapshot");
+  const skillFiles = readdirSync(join(root, "skills/shortcutkit"), { recursive: true, withFileTypes: true })
+    .filter(entry => entry.isFile())
+    .map(entry => join(entry.parentPath, entry.name).slice(join(root, "skills/shortcutkit").length + 1));
+  const packagedSkillFiles = readdirSync(join(archive, "dist/skills/shortcutkit"), { recursive: true, withFileTypes: true })
+    .filter(entry => entry.isFile())
+    .map(entry => join(entry.parentPath, entry.name).slice(join(archive, "dist/skills/shortcutkit").length + 1));
+  if (JSON.stringify(skillFiles.sort()) !== JSON.stringify(packagedSkillFiles.sort())) throw new Error("npm skill file list differs from source");
+  for (const file of skillFiles) {
+    if (!readFileSync(join(archive, "dist/skills/shortcutkit", file)).equals(readFileSync(join(root, "skills/shortcutkit", file)))) throw new Error(`npm skill differs from source: ${file}`);
+  }
   execFileSync("node", ["--input-type=module", "-e", `
     import { Shortcut, actions, CATALOG, ACTIONS } from ${JSON.stringify(join(archive, "dist/index.js"))};
     if (CATALOG.schemaVersion !== 1 || Object.keys(CATALOG.actions).length !== Object.keys(ACTIONS).length) throw new Error("npm metadata mismatch");
@@ -33,7 +43,7 @@ new Shortcut(catalog.actions[actions.showresult]!.name).action(actions.showresul
 new Shortcut("Invalid").action(actions.showresult, { UnknownParameter: true });
 `);
   execFileSync("node", [join(root, "node_modules/typescript/bin/tsc"), "--noEmit", "--strict", "--skipLibCheck", "--module", "NodeNext", "--target", "ES2022", "check.ts"], { cwd: consumer, stdio: "inherit" });
-  console.log("npm tarball: catalogue bytes, Node import, action construction and declarations verified.");
+  console.log("npm tarball: skill files, catalogue bytes, Node import, action construction and declarations verified.");
 } finally {
   rmSync(work, { recursive: true, force: true });
 }

@@ -48,6 +48,18 @@ npm install shortcutkit   # Node 20+ or Bun
 pip install shortcutkit   # Python 3.9+
 ```
 
+## Agent skill
+
+Install the [ShortcutKit skill](skills/shortcutkit/SKILL.md) for your coding agent:
+
+```bash
+npx skills add https://github.com/frontboat/shortcutkit --skill shortcutkit
+```
+
+The npm package includes the skill at `dist/skills/shortcutkit/`. After installing
+the package, `npx skills experimental_sync` can link it into your agent's skill directory.
+The Python package includes the same files at `shortcutkit/skills/shortcutkit/`.
+
 ## Usage
 
 These examples build on the one at the top.

@@ -49,6 +49,19 @@ adds compile-time checks.
 pip install shortcutkit   # Python 3.9+
 ```
 
+## Agent skill
+
+Install the [ShortcutKit skill](https://github.com/frontboat/shortcutkit/tree/main/skills/shortcutkit)
+for your coding agent:
+
+```bash
+npx skills add https://github.com/frontboat/shortcutkit --skill shortcutkit
+```
+
+The Python package also includes the skill at `skills/shortcutkit/` inside the
+installed `shortcutkit` module directory. You can install that local directory
+with `npx skills add <path-to-skill>`.
+
 ## Usage
 
 These examples build on the one at the top.
