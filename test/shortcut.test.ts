@@ -354,8 +354,8 @@ describe("App Intents actions", () => {
     const photos = s.action(actions.filter_photos, { WFContentItemFilter: where(["Duration", "greater_than", 30, "seconds"], ["Album", "is", "Recents"], ["Frame Rate", "greater_than", 59]) });
     expect(rows(photos).map((r) => r.Values)).toEqual([{ Number: 30, Unit: 128 }, { Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "Recents" } }, { Number: 59 }]);
     // The row key follows the property's value class: email addresses and phone numbers have their own.
-    const contacts = s.action(actions.filter_contacts, { WFContentItemFilter: where(["Email Addresses", "contains", "@example.com"], ["Phone Numbers", "begins_with", "+1505"], ["Group", "is", "Family"]) });
-    expect(rows(contacts).map((r) => r.Values)).toEqual([{ Email: "@example.com" }, { Phone: "+1505" }, { Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "Family" } }]);
+    const contacts = s.action(actions.filter_contacts, { WFContentItemFilter: where(["Email Addresses", "contains", "@example.com"], ["Phone Numbers", "begins_with", "+1"], ["Group", "is", "Family"]) });
+    expect(rows(contacts).map((r) => r.Values)).toEqual([{ Email: "@example.com" }, { Phone: "+1" }, { Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "Family" } }]);
     // Reminders' Priority lists its choices; an App Intents enumeration holds the case identifier in its own state class.
     const reminders = s.action(actions.filter_reminders, { WFContentItemFilter: where(["Priority", "is", "High"]) });
     expect(rows(reminders)[0]!.Values).toEqual({ Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "High" } });
