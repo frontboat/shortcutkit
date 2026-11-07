@@ -6,7 +6,7 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
-## 3.2.0 (Unreleased)
+## 3.2.0 (2026-11-06)
 
 - CI builds the npm package once, skipping installation and packaging lifecycle rebuilds.
   The npm distribution check also handles npm 10 running `prepare` despite `--ignore-scripts`.
