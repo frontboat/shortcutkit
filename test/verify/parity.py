@@ -26,6 +26,8 @@ for name, key in (("filterCases", lambda c: (c["identifier"], c["form"])), ("pro
     pf = {key(c): strip(c) for c in py.get(name, [])}
     problems += [f"{name} only in TypeScript: {k}" for k in sorted(set(tf) - set(pf))] + [f"{name} only in Python: {k}" for k in sorted(set(pf) - set(tf))]
     problems += [f"{name} differ: {k}\n    ts {json.dumps(tf[k])[:300]}\n    py {json.dumps(pf[k])[:300]}" for k in sorted(set(tf) & set(pf)) if tf[k] != pf[k]]
+if len(ts["shortcuts"]) != len(py["shortcuts"]):
+    problems.append(f"whole shortcut count differs: TypeScript {len(ts['shortcuts'])}, Python {len(py['shortcuts'])}")
 for a, b in zip(ts["shortcuts"], py["shortcuts"]):
     if strip(a["plist"]) != strip(b["plist"]):
         problems.append(f"whole shortcut {a['name']} differs between packages")

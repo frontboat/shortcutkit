@@ -33,10 +33,14 @@ jobs:
           py_version=$(sed -n 's/^version = "\(.*\)"/\1/p' python/pyproject.toml)
           [[ "$tag" == "$npm_version" && "$tag" == "$py_version" ]] || { echo "::error::tag $tag, package.json $npm_version, pyproject $py_version"; exit 1; }
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
-      - run: bun install
+      # Build once below; installation must not trigger the prepare build.
+      - run: bun install --frozen-lockfile --ignore-scripts
+      - run: bun run check-generated
+      - run: bun run check-parity
       - run: bunx tsc --noEmit -p .
       - run: bun test
       - run: bun run build
+      - run: bun run test/npm-distribution.ts
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
@@ -45,6 +49,7 @@ jobs:
           python -m pip install -q build twine
           python -m build python --outdir python/dist
           twine check python/dist/*
+          python test/python_distribution.py python/dist/*.whl python/dist/*.tar.gz
       - name: The wheel runs the README examples
         run: |
           python -m venv "$RUNNER_TEMP/venv"
@@ -90,10 +95,13 @@ jobs:
           name: npm-dist
           path: dist/
       # Node 24 bundles an npm new enough for trusted publishing (11.5.1 or later); provenance is
-      # recorded automatically. --ignore-scripts keeps `prepare` from rebuilding what `build` tested.
+      # recorded automatically. Explicitly skip prepare as well: npm 10 can run it
+      # despite --ignore-scripts. Publish the exact dist/ that the build job tested.
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
           package-manager-cache: false
       - run: npm publish --access public --ignore-scripts
+        env:
+          SHORTCUTKIT_SKIP_PREPARE: "1"

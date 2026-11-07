@@ -2,7 +2,7 @@ import { describe, expect, spyOn, test } from "bun:test";
 import { existsSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { Shortcut, actions, ACTIONS, PARAM_KINDS, acceptedBy, producedBy, PARAM_ENTITY_TYPES, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, OUTPUT_CLASSES_BY, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
+import { Shortcut, actions, ACTIONS, PARAM_KINDS, acceptedBy, producedBy, PARAM_ENTITY_TYPES, PARAM_CHOICE_TITLES, PARAM_LABELS, PARAM_DESCRIPTIONS, ENTITIES, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, OUTPUT_CLASSES_BY, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
 import * as readmeExamples from "./readme-examples";
 
 describe("shortcutkit", () => {
@@ -207,13 +207,45 @@ describe("getAction", () => {
     expect(Object.values(ACTIONS).filter((e) => e.inputTypes.length).length).toBe(200);
     expect(Object.values(ACTIONS).filter((e) => "requires" in e).length).toBe(69);
   });
+  test("carries the editor's choice titles, parameter labels and parameter descriptions", () => {
+    const reminder = getAction(actions.reminders_create_reminder)!;
+    expect(reminder.choiceTitles!.vehicleTrigger).toEqual({ connected: "Getting in", disconnected: "Getting out" });
+    expect(reminder.paramLabels!.list).toBe("Target List");
+    expect(reminder.paramDescriptions!.list).toBe("Parent list to add the reminder to");
+    const find = getAction(actions.reminders_find_reminder)!;
+    expect(find.choiceTitles!.WFCompoundType).toEqual({ "0": "Any", "1": "All" });
+    const list = getAction(actions.additemtolist)!;
+    expect(list.choiceTitles).toBeUndefined(); // Beginning | End | Index: the titles equal the ids
+    expect(list.paramLabels).toEqual({ WFListItem: "Item", WFInsertPosition: "Position", WFItemIndex: "Index", WFListVariable: "List" });
+    expect(list.paramDescriptions).toBeUndefined();
+    expect(getAction(actions.downloadurl)!.paramDescriptions!.WFHTTPMethod).toBe("The HTTP method to use.");
+    expect(Object.keys(PARAM_CHOICE_TITLES).length).toBe(603);
+    expect(Object.keys(PARAM_LABELS).length).toBe(1593);
+    expect(Object.keys(PARAM_DESCRIPTIONS).length).toBe(553);
+  });
+  test("ENTITIES describes every entity type: name, app, Find action, typed properties", () => {
+    expect(Object.keys(ENTITIES).length).toBe(485);
+    expect(Object.keys(ENTITIES)).toEqual(Object.keys(ENTITY_PROPERTIES));
+    const reminder = ENTITIES["com.apple.reminders.ReminderEntity"];
+    expect(reminder.name).toBe("Reminder");
+    expect(reminder.app).toBe("Reminders");
+    expect(reminder.find).toBe(actions.reminders_find_reminder);
+    expect(reminder.properties.dueDate).toEqual({ name: "Due Date", type: "dateComponents" });
+    expect(reminder.properties.images.type).toBe("file[]");
+    expect(reminder.properties.list.type).toBe("ListEntity");
+    expect(Object.keys(reminder.properties)).toEqual([...ENTITY_PROPERTIES["com.apple.reminders.ReminderEntity"]]);
+    // Find Notes keeps its legacy identifier and Clock's alarms come from Get Alarms: neither is the index's `find`, both filter the entity.
+    expect(ENTITIES["com.apple.Notes.NoteEntity"].find).toBe(actions.notes_find_notes);
+    expect(ENTITIES["com.apple.clock.AlarmEntity"].find).toBe(actions.clock_find_alarms);
+    expect("find" in ENTITIES["com.apple.Notes.FolderEntity"]).toBe(false);
+  });
   test("acceptedBy() and producedBy() follow the declared types across both catalogues", () => {
     expect(acceptedBy("WFURLContentItem")).toContainEqual({ identifier: actions.downloadurl, key: "WFURL" });
     expect(acceptedBy("com.apple.AppStore.MarketplaceApplication")).toEqual([{ identifier: actions.app_store_install_application, key: "application" }]);
     expect(producedBy("com.apple.AppStore.MarketplaceApplication")).toEqual([actions.app_store_find_marketplace_application]);
     expect(producedBy("WFImageContentItem")).toContain(actions.detect_images);
     expect(acceptedBy("no.such.type")).toEqual([]);
-    expect(Object.values(PARAM_ENTITY_TYPES).reduce((n, keys) => n + Object.keys(keys).length, 0)).toBe(609);
+    expect(Object.values(PARAM_ENTITY_TYPES).reduce((n, keys) => n + Object.keys(keys).length, 0)).toBe(704);
   });
 });
 
@@ -311,7 +343,7 @@ describe("App Intents actions", () => {
     expect(() => s.action(actions.messages_find_message, { WFContentItemFilter: where(["attachments", "contains", "x"]) })).toThrow(/no filterable property attachments/);
     // @ts-expect-error where() rows only go in a Find filter
     expect(() => s.action(actions.showresult, { Text: where(["a", "is", "b"]) })).toThrow(/only in a Find action/);
-    expect(Object.keys(FILTERS).length).toBe(150);
+    expect(Object.keys(FILTERS).length).toBe(153);
   });
   test("built-in Find actions take rows typed from the engine's own rules", () => {
     const s = new Shortcut("Files");
@@ -322,8 +354,8 @@ describe("App Intents actions", () => {
     const photos = s.action(actions.filter_photos, { WFContentItemFilter: where(["Duration", "greater_than", 30, "seconds"], ["Album", "is", "Recents"], ["Frame Rate", "greater_than", 59]) });
     expect(rows(photos).map((r) => r.Values)).toEqual([{ Number: 30, Unit: 128 }, { Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "Recents" } }, { Number: 59 }]);
     // The row key follows the property's value class: email addresses and phone numbers have their own.
-    const contacts = s.action(actions.filter_contacts, { WFContentItemFilter: where(["Email Addresses", "contains", "@example.com"], ["Phone Numbers", "begins_with", "+1505"], ["Group", "is", "Family"]) });
-    expect(rows(contacts).map((r) => r.Values)).toEqual([{ Email: "@example.com" }, { Phone: "+1505" }, { Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "Family" } }]);
+    const contacts = s.action(actions.filter_contacts, { WFContentItemFilter: where(["Email Addresses", "contains", "@example.com"], ["Phone Numbers", "begins_with", "+1"], ["Group", "is", "Family"]) });
+    expect(rows(contacts).map((r) => r.Values)).toEqual([{ Email: "@example.com" }, { Phone: "+1" }, { Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "Family" } }]);
     // Reminders' Priority lists its choices; an App Intents enumeration holds the case identifier in its own state class.
     const reminders = s.action(actions.filter_reminders, { WFContentItemFilter: where(["Priority", "is", "High"]) });
     expect(rows(reminders)[0]!.Values).toEqual({ Enumeration: { WFSerializationType: "WFStringSubstitutableState", Value: "High" } });
@@ -342,7 +374,7 @@ describe("App Intents actions", () => {
     expect(ev.Value.WFContentPredicateBoundedDate).toBe(true);
     expect(ev.Value.WFActionParameterFilterTemplates.map((r) => r.Bounded)).toEqual([undefined, true]);
     expect(() => s.action(actions.filter_calendarevents, { WFContentItemFilter: where(["Calendar", "is", "Work"]) })).toThrow(/needs a Start Date row with one of/);
-    expect(Object.keys(FILTERS).filter((k) => k.startsWith("is.workflow.")).length).toBe(14);
+    expect(Object.keys(FILTERS).filter((k) => k.startsWith("is.workflow.")).length).toBe(15);
   });
   test("property() references one property of an output, checked against the entity", () => {
     const s = new Shortcut("Messages");
@@ -353,7 +385,7 @@ describe("App Intents actions", () => {
     expect(property(body, "length").Value.Aggrandizements).toHaveLength(2);
     // @ts-expect-error not a property of Message
     expect(() => property(found, "bodyy")).toThrow(/has no property bodyy/);
-    expect(Object.values(ENTITY_PROPERTIES).flat().length).toBe(752);
+    expect(Object.values(ENTITY_PROPERTIES).flat().length).toBe(1035);
   });
   test("the engine's own filter rules cover every class and entity type", () => {
     // data/engine-filters.json and data/linkd-properties.json come from `bun run extract-filters`
@@ -366,8 +398,8 @@ describe("App Intents actions", () => {
     expect(Object.keys(linkd.entities).length).toBe(Object.keys(ENTITY_PROPERTIES).length);
     expect(linkd.alternatesRemaining).toBe(0);
     const yields = Object.values(linkd.entities as Record<string, { yields?: Record<string, string[]> }>).flatMap((e) => Object.values(e.yields ?? {}));
-    expect(yields.length).toBe(752);
-    expect(yields.filter((y) => y.length).length).toBe(729);
+    expect(yields.length).toBe(1032);
+    expect(yields.filter((y) => y.length).length).toBe(1008);
     // Every type with several queries carries the class built with each.
     for (const e of Object.values(linkd.entities as Record<string, { queries?: string[]; byQuery?: Record<string, unknown> }>)) if (e.queries) expect(Object.keys(e.byQuery ?? {}).sort()).toEqual([...e.queries].sort());
     // Row value forms: one sample per row value type the engine names, each read back, plus the byte-count unit codes.
@@ -375,8 +407,8 @@ describe("App Intents actions", () => {
     expect(Object.keys(linkd.rowValues.forms).sort()).toEqual(["RowTemplateContactHandleValueType", "RowTemplateEnumerationValueType<EnumerationLinkValueKey, LNDynamicOption, LNValue>"]);
     expect(Object.entries(engine.rowValues.byteCountUnits as Record<string, { label: string; decimalExponent: number }>).map(([c, u]) => `${c}:${u.label}:${u.decimalExponent}`)).toEqual(["1:bytes:0", "2:KB:3", "4:MB:6", "8:GB:9", "16:TB:12", "32:PB:15", "64:EB:18"]);
     const filters = Object.values(linkd.entities as Record<string, { filters?: Record<string, { cases?: string[] }> }>).flatMap((e) => Object.values(e.filters ?? {}));
-    expect(filters.filter((f) => f.cases).length).toBe(84);
-    expect(filters.filter((f) => f.cases && f.cases.length).length).toBe(82);
+    expect(filters.filter((f) => f.cases).length).toBe(86);
+    expect(filters.filter((f) => f.cases && f.cases.length).length).toBe(84);
   });
   test("the README's examples are test/readme-examples.ts, and they run", async () => {
     const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");

@@ -1,5 +1,4 @@
 {
- "com.apple.-GeoToolbox-AppIntents": {},
  "com.apple.-Photos-AppIntents": {
   "PHWorkaroundFor146914251Intent": {
    "assistantOnly": false,
@@ -267,7 +266,6 @@
    "discoverable": false
   }
  },
- "com.apple.AppIntents": {},
  "com.apple.AppKit": {
   "FetchIntelligenceCommands": {
    "assistantOnly": false,
@@ -8129,7 +8127,7 @@
      "obsoleted": null
     }
    },
-   "deprecated": "<LNActionDeprecationMetadata: 0x763796bf60, message: <LNStaticDeferredLocalizedString: 0x7639496760, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
+   "deprecated": "<LNActionDeprecationMetadata, message: <LNStaticDeferredLocalizedString, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
    "discoverable": true
   },
   "CRLAddTextToBoardIntent": {
@@ -8141,7 +8139,7 @@
      "obsoleted": null
     }
    },
-   "deprecated": "<LNActionDeprecationMetadata: 0x7638ffd980, message: <LNStaticDeferredLocalizedString: 0x763943d4f0, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
+   "deprecated": "<LNActionDeprecationMetadata, message: <LNStaticDeferredLocalizedString, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
    "discoverable": true
   },
   "CRLChangeBoardCanvasGridIntent": {
@@ -8263,7 +8261,7 @@
      "obsoleted": null
     }
    },
-   "deprecated": "<LNActionDeprecationMetadata: 0x763796bfc0, message: <LNStaticDeferredLocalizedString: 0x7639495b30, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
+   "deprecated": "<LNActionDeprecationMetadata, message: <LNStaticDeferredLocalizedString, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
    "discoverable": true
   },
   "CRLInsertTextToBoardIntent": {
@@ -8275,7 +8273,7 @@
      "obsoleted": null
     }
    },
-   "deprecated": "<LNActionDeprecationMetadata: 0x7637894f20, message: <LNStaticDeferredLocalizedString: 0x763943c1e0, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
+   "deprecated": "<LNActionDeprecationMetadata, message: <LNStaticDeferredLocalizedString, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
    "discoverable": false
   },
   "CRLInsertURLToBoardIntent": {
@@ -8287,7 +8285,7 @@
      "obsoleted": null
     }
    },
-   "deprecated": "<LNActionDeprecationMetadata: 0x763796b2e0, message: <LNStaticDeferredLocalizedString: 0x7639494be0, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
+   "deprecated": "<LNActionDeprecationMetadata, message: <LNStaticDeferredLocalizedString, key: This app intent is scheduled to be deleted., defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLAddItemToBoardIntent>",
    "discoverable": true
   },
   "CRLOpenBoardIntent": {
@@ -8310,7 +8308,7 @@
      "obsoleted": null
     }
    },
-   "deprecated": "<LNActionDeprecationMetadata: 0x7638ffd8c0, message: <LNStaticDeferredLocalizedString: 0x763943f570, key: Deprecated, defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: (null)>",
+   "deprecated": "<LNActionDeprecationMetadata, message: <LNStaticDeferredLocalizedString, key: Deprecated, defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: (null)>",
    "discoverable": false
   },
   "CRLResizeSelectionFontIntent": {
@@ -8322,7 +8320,7 @@
      "obsoleted": null
     }
    },
-   "deprecated": "<LNActionDeprecationMetadata: 0x763796b240, message: <LNStaticDeferredLocalizedString: 0x7639495180, key: Deprecated, defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: (null)>",
+   "deprecated": "<LNActionDeprecationMetadata, message: <LNStaticDeferredLocalizedString, key: Deprecated, defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: (null)>",
    "discoverable": false
   },
   "CRLResizeSelectionFontIntent_v2": {
@@ -8377,7 +8375,7 @@
      "obsoleted": null
     }
    },
-   "deprecated": "<LNActionDeprecationMetadata: 0x7638fff1a0, message: <LNStaticDeferredLocalizedString: 0x763943f7a0, key: Deprecated, defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLCreateBoardIntent>",
+   "deprecated": "<LNActionDeprecationMetadata, message: <LNStaticDeferredLocalizedString, key: Deprecated, defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLCreateBoardIntent>",
    "discoverable": true
   },
   "CRLiOSOpenBoardIntent": {
@@ -8399,7 +8397,7 @@
      "obsoleted": null
     }
    },
-   "deprecated": "<LNActionDeprecationMetadata: 0x7638fffde0, message: <LNStaticDeferredLocalizedString: 0x763943f0c0, key: Deprecated, defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLOpenBoardIntent>",
+   "deprecated": "<LNActionDeprecationMetadata, message: <LNStaticDeferredLocalizedString, key: Deprecated, defaultValue: (null), table: (null), bundleURL: file:///System/Applications/Freeform.app/>,  replacedByIntentIdentifier: CRLOpenBoardIntent>",
    "discoverable": true
   }
  },
@@ -9196,7 +9194,6 @@
    "discoverable": true
   }
  },
- "com.apple.intelligenceflow.GetCurrentLocationFlowToolPlugin": {},
  "com.apple.intelligenceflow.IntelligenceFlowAppIntentsExtension": {
   "OpenApplication": {
    "assistantOnly": false,
@@ -11802,7 +11799,6 @@
    "discoverable": false
   }
  },
- "com.apple.siri.SiriCrisisFlowTools": {},
  "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension": {
   "SiriGeoAppIntent": {
    "assistantOnly": false,
@@ -11827,7 +11823,6 @@
    "discoverable": true
   }
  },
- "com.apple.siri.SiriIdentityInternal": {},
  "com.apple.siri.SiriNotebookAppIntentsExtension": {
   "SiriNotebookAppIntentsExtension": {
    "assistantOnly": false,
@@ -11865,7 +11860,6 @@
    "discoverable": true
   }
  },
- "com.apple.siri.SiriNotificationsFlowTools": {},
  "com.apple.siri.SiriPhoneAppIntentsExtension": {
   "ReadCallMessageIntent": {
    "assistantOnly": false,
@@ -11912,7 +11906,6 @@
    "discoverable": false
   }
  },
- "com.apple.siri.SiriPhoneFlowTools": {},
  "com.apple.siri.SiriPhotosAppIntentsExtension": {
   "SiriPhotosAppIntentsExtension": {
    "assistantOnly": false,
@@ -11937,7 +11930,6 @@
    "discoverable": true
   }
  },
- "com.apple.siri.SiriTranslationFlowTools": {},
  "com.apple.siri.SiriVideoAppIntents": {
   "CrossDevicePlaceholderIntent": {
    "assistantOnly": false,
@@ -12084,7 +12076,6 @@
    "discoverable": true
   }
  },
- "com.apple.siri.SiriVideoFlowTools": {},
  "com.apple.siri.messages.SiriMessagesAppIntentsExtension": {
   "MessagesPostReadActionAppIntent": {
    "assistantOnly": false,
@@ -12175,7 +12166,6 @@
    "discoverable": true
   }
  },
- "com.apple.siri.messages.SiriMessagesFlowTools": {},
  "com.apple.sociallayerd": {
   "CollaborationIntent": {
    "assistantOnly": false,

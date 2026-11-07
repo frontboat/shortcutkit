@@ -233,14 +233,17 @@ function run(argv) {
     };
     for (const c of fixture.filterCases || []) {
       if (byId[c.identifier]) continue; // built-in: checked above
-      if (!(c.identifier in entities)) {
+      // The entity a Find action filters: the identifier itself (the synthesized entity Find actions) or the first output
+      // type of the App Intents action (Find Notes under its legacy identifier, Clock's Get Alarms).
+      const eid = c.identifier in entities ? c.identifier : apple[c.identifier] && (apple[c.identifier].outputTypes || [])[0];
+      if (!eid || !(eid in entities)) {
         // A built-in Find action this engine does not define (an older runner): a version gap, as for a key it lacks.
         if (olderEngine) versionGaps.push(c.identifier + ".WFContentItemFilter (no such action in this engine)");
         else failures.push({ identifier: c.identifier, key: "WFContentItemFilter", form: c.form, verdict: "no such action in this engine", via: "engine action" });
         continue;
       }
       entityChecks.filters++;
-      const cn = classFor(c.identifier);
+      const cn = classFor(eid);
       const fail = (verdict) => entityFail(c.identifier, "WFContentItemFilter", c.form, verdict);
       if (!cn) { fail("no content item class for the entity"); continue; }
       checkFilter(c, loadFilter(cn, revive(c.filter)), fail, !chosen);

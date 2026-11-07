@@ -19,13 +19,17 @@ jobs:
         with:
           persist-credentials: false
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
-      - run: bun install
+      # Build once below; installation must not trigger the prepare build.
+      - run: bun install --frozen-lockfile --ignore-scripts
+      - run: bun run check-generated
+      - run: bun run check-parity
       - run: bunx tsc --noEmit -p .
       - run: bun test
       - run: bun run build
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 20
+      - run: bun run test/npm-distribution.ts
       - name: Import from Node and write a shortcut
         run: |
           cd "$RUNNER_TEMP"
@@ -44,6 +48,11 @@ jobs:
           # The same exact counts test/shortcut.test.ts asserts for the TypeScript package; a data refresh changes both.
           .venv/bin/python -c "from shortcutkit import ACTIONS; n = len(ACTIONS); d = sum(1 for a in ACTIONS.values() if 'descriptor' in a); assert (n, d) == (1714, 1265), (n, d)"
           .venv/bin/python ../test/readme_examples.py
+      - name: Check Python distributions
+        run: |
+          python/.venv/bin/pip install -q build
+          python/.venv/bin/python -m build python --outdir "$RUNNER_TEMP/python-dist"
+          python/.venv/bin/python test/python_distribution.py "$RUNNER_TEMP"/python-dist/*.whl "$RUNNER_TEMP"/python-dist/*.tar.gz
       # Filter Contacts builds its sort-property state through the Contacts framework, which waits
       # forever for a privacy answer on a runner that was never asked. Record "denied" (as on the
       # extraction Mac) for the processes the image attributes requests to.

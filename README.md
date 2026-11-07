@@ -35,8 +35,8 @@ are archived ([shortcuts-js](https://github.com/joshfarrant/shortcuts-js),
 - 1,265 actions from Apple's apps: Reminders, Notes, Messages, Settings, and 70 more. Only
   actions the Shortcuts editor offers: the Siri-only intents the app refuses to import are left out.
 - Third-party app actions, named by app and intent.
-- Typed conditions for 150 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find
-  Contacts, ...) and 136 in Apple's apps (Find Messages, Find Notes, ...), from the engine's own
+- Typed conditions for 153 Find actions, the 14 built-in ones (Filter Files, Find Photos, Find
+  Contacts, ...) and 139 in Apple's apps (Find Messages, Find Notes, ...), from the engine's own
   rules, and the properties of what they find.
 - If, Repeat, Repeat with Each, and Choose from Menu blocks.
 - A wrong key or value fails at compile time in TypeScript, and at `action()` in Python.
@@ -175,15 +175,18 @@ Shortcut.sign("Greeting.shortcut", "Greeting-signed.shortcut")
 | `coerce(source, class)` | A value read as one content type, the editor's "Type" menu (`CONTENT_ITEM_CLASSES`). |
 | `dictionary(items)` | A dictionary parameter's items; `action()` encodes a plain object itself. |
 | `appIntent(app, intent, output?)` | Another app's action, for `s.action()`. |
-| `FILTERS`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `BYTE_COUNT_UNITS`, `BOUNDED_FILTERS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type's properties, and the content types a coercion can name. |
-| `actions`, `getAction(id)`, `getDefinition(id)` | Action identifiers and their catalog entries: parameters and kinds, output and input types, keywords, description, flags, and the rules under which the editor shows each parameter. |
+| `FILTERS`, `ENTITIES`, `ENTITY_PROPERTIES`, `FILTER_OPERATORS`, `CALENDAR_UNITS`, `BYTE_COUNT_UNITS`, `BOUNDED_FILTERS`, `CONTENT_ITEM_CLASSES` | What each Find action can filter on, each entity type (name, app, Find action, typed properties), and the content types a coercion can name. |
+| `actions`, `getAction(id)`, `getDefinition(id)` | Action identifiers and their catalog entries: parameters and kinds, output and input types, keywords, description, flags, the rules under which the editor shows each parameter, and its labels, descriptions and choice titles. |
 | `acceptedBy(type)`, `producedBy(type)` | Which actions take a content type as input or as an entity parameter, and which output it. |
 | `PARAM_KINDS`, `PARAM_CHOICES`, `PARAM_VARIABLE_TYPES` | What each parameter accepts. |
+| `PARAM_LABELS`, `PARAM_DESCRIPTIONS`, `PARAM_CHOICE_TITLES` | How the editor labels each parameter and each enumeration choice. |
+| `CATALOG` | The shared joined snapshot, including measurement evidence, choice-dependent outputs, entity property types, and content classes. |
 | `CONDITION`, `ICON_COLORS`, `provenance` | If conditions, icon colors, and the build the data came from. |
 
 ## Documentation
 
 - [Shortcut file format](docs/shortcut-file-format.md)
+- [The catalogue for agents](docs/catalog.txt): complete action, entity, and content-class records from the shared generated snapshot, including choice-dependent outputs and measurement evidence. Both packages expose the snapshot as `CATALOG`.
 - [Built-in actions](docs/builtin-actions-reference.md)
 - [Apple app actions](docs/apple-app-intents-reference.md)
 - [Parameter encodings](docs/parameter-encodings.md)

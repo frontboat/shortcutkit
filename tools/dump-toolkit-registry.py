@@ -206,10 +206,14 @@ def value_kind(info):
 
 
 def export_entities(con, apple, path):
-    """The entity types Apple's actions output or find, with their properties and filter templates
-    as the index stores them (protobuf blobs, base64). extract-entities.js decodes them with
-    ToolKit's own classes and has WorkflowKit build the filters from them."""
+    """The entity types Apple's actions output, find or take as a parameter, with their properties and
+    filter templates as the index stores them (protobuf blobs, base64). extract-entities.js decodes them
+    with ToolKit's own classes and has WorkflowKit build the filters from them."""
     wanted = {t for a in apple for t in a["outputTypes"]} | {a["identifier"] for a in apple if any(p["key"] == "WFContentItemFilter" for p in a["parameters"])}
+    # Types that only parameters name (News' FeedEntity, Clock's WorldClockCityEntity, Mail's AccountEntity):
+    # every type a catalogue action's parameter is declared with, alternatives included.
+    tool_ids = {a["identifier"] for a in apple}
+    wanted |= {t for ident, t in con.execute("select t.id, pt.typeId from Tools t join ToolParameterTypes pt on pt.toolId = t.rowId") if ident in tool_ids}
     kinds = dict(con.execute("select rowId, kind from Types"))
     display = {}
     for type_id, name in con.execute("select typeId, name from TypeDisplayRepresentations where locale='en' and name is not null and name != ''"):
@@ -226,6 +230,10 @@ def export_entities(con, apple, path):
         template = con.execute("select comparison from PredicateTemplates where typeId=?", (f"builtin.query.{type_id}",)).fetchone()
         tool = next((a for a in apple if a["identifier"] == type_id), None)
         bundle, type_name = read_bundle_and_name(con.execute("select id from Types where rowId=?", (type_id,)).fetchone()[0])
+        if not bundle or not type_name:
+            # A type whose identifier blob names no bundle and type (one Intelligence Platform entity): WorkflowKit cannot build it.
+            print(f"skipping entity type {type_id}: the index names no bundle and type for it", file=sys.stderr)
+            continue
         app = con.execute("select l.name from Types t join ContainerMetadataLocalizations l on l.containerId = t.sourceContainerId and l.locale='en' where t.rowId=?", (type_id,)).fetchone()
         entities[type_id] = {"name": display.get(type_id), "bundleIdentifier": bundle, "typeName": type_name, "app": app[0] if app else None,
                              "find": type_id if tool else None,

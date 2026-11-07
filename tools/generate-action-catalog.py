@@ -18,6 +18,7 @@ identifier when it is missing or shared. Run by extract-builtin-actions.sh.
 
 usage: generate-action-catalog.py [data/builtin-actions.json] [data/apple-app-intents.json] [data/apple-entities.json] [data/engine-filters.json] [data/linkd-properties.json]
 """
+import argparse
 import json
 import pathlib
 import re
@@ -113,6 +114,11 @@ def text(v):
     return v if isinstance(v, str) else (v.get("format") if isinstance(v, dict) else None)
 
 
+def plain_text(v):
+    """A label or description with its whitespace collapsed, or None when empty."""
+    return " ".join(v.split()) if isinstance(v, str) and v.strip() else None
+
+
 def doc_text(label, description):
     """A parameter's hover text: the editor's label, then its description when there is one."""
     parts = [" ".join(x.split()) for x in (label, description) if x]
@@ -136,6 +142,9 @@ def entries(defs, filters=None):
         pdefs = [p for p in a.get("Parameters", []) if isinstance(p, dict) and p.get("Key")]
         choices = {p["Key"]: [i for i in (p.get("Items") or []) if isinstance(i, str)] for p in pdefs}
         docs = {p["Key"]: (text(p.get("Label")), text(p.get("Description"))) for p in pdefs}
+        # Enumeration choice titles: ItemDisplayNames aligned with Items, kept only where the title differs from the id.
+        titles = {p["Key"]: {i: t for i, t in zip(p["Items"], p["ItemDisplayNames"]) if isinstance(i, str) and isinstance(t, str) and t != i}
+                  for p in pdefs if isinstance(p.get("Items"), list) and isinstance(p.get("ItemDisplayNames"), list) and len(p["Items"]) == len(p["ItemDisplayNames"])}
         params, kinds = [], {}
         # 1. the parameters the action actually creates at run time (authoritative, covers actions whose definitions list none)
         for rp in runtime_params.get(ident, []):
@@ -156,7 +165,7 @@ def entries(defs, filters=None):
             params.insert(0, inp["ParameterKey"]); kinds[inp["ParameterKey"]] = {"kind": "any", "choices": [], "class": "Input"}
         for k, (label, description) in docs.items():
             if k in kinds:
-                kinds[k]["doc"] = doc_text(label, description)
+                kinds[k].update(doc=doc_text(label, description), label=plain_text(label), description=plain_text(description), titles=titles.get(k) or {})
         if filters and ident in filters and "WFContentItemFilter" in kinds:
             kinds["WFContentItemFilter"].update(kind="filter", ts=f"Where<FilterRows[{js_str(ident)}]> | FilterTemplateValue",
                                                 doc="Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`.")
@@ -221,10 +230,13 @@ def app_intent_entries(catalog, filters, entities=None):
     `entities` (apple-entities.json) resolves entity-typed parameters to the catalogue's entity type
     identifiers; a parameter whose entity is not in the catalogue is left untyped."""
     state_map, _ = load_state_map()
+    # A parameter names its entity by bundle identifier and type name; the name is the entity's full typeName
+    # (GeoToolbox.PlaceDescriptorEntity) or its last component (ListEntity), so both are keys.
     entity_ids = {}
     for eid, e in (entities or {}).items():
-        k = (e.get("bundleIdentifier"), (e.get("typeName") or eid).split(".")[-1])
-        entity_ids[k] = None if k in entity_ids else eid  # an ambiguous name resolves to nothing
+        full = e.get("typeName") or eid
+        for k in {(e.get("bundleIdentifier"), full), (e.get("bundleIdentifier"), full.split(".")[-1])}:
+            entity_ids[k] = None if k in entity_ids else eid  # an ambiguous name resolves to nothing
     entity_ids = {k: v for k, v in entity_ids.items() if v}
     out = []
     for ident in sorted(catalog):
@@ -235,12 +247,14 @@ def app_intent_entries(catalog, filters, entities=None):
             # The engine's parameter class for the value type (extract-encoding-table.js) decides the
             # kind, exactly as for built-ins; the registry's own guess is the fallback.
             kind = kind_for(p["parameterClass"], state_map) if p.get("parameterClass") else p.get("kind", "any")
-            cases = [c["id"] for c in p.get("type", {}).get("cases", [])]
+            raw_cases = [c for c in p.get("type", {}).get("cases", []) if isinstance(c, dict) and isinstance(c.get("id"), str)]
+            cases = [c["id"] for c in raw_cases]
             if cases and kind in ("string", "any", "text"):
                 kind = "string"
             choices = cases if kind == "string" else []
             params.append(k); kinds[k] = {"kind": kind, "choices": choices, "class": p.get("parameterClass") or p.get("type", {}).get("kind"),
-                                          "doc": doc_text(p.get("name"), p.get("description"))}
+                                          "doc": doc_text(p.get("name"), p.get("description")), "label": plain_text(p.get("name")), "description": plain_text(p.get("description")),
+                                          "titles": {c["id"]: c["title"] for c in raw_cases if isinstance(c.get("title"), str) and c["title"] != c["id"]} if choices else {}}
             if k == "WFContentItemFilter" and ident in filters:
                 kinds[k].update(kind="filter", ts=f"Where<FilterRows[{js_str(ident)}]> | FilterTemplateValue",
                                 doc="Find conditions: `where(...rows)` or `whereAny(...rows)`, or a raw `WFContentPredicateTableTemplate`.")
@@ -293,6 +307,11 @@ def dedupe_keys(es):
 
 def js_str(s):
     return json.dumps(s, ensure_ascii=False)
+
+
+def ts_map(d):
+    """A string -> string map as a TypeScript object literal."""
+    return "{ " + ", ".join(f"{js_str(k)}: {js_str(v)}" for k, v in d.items()) + " }"
 
 
 def jsdoc(e):
@@ -400,9 +419,26 @@ def write_ts(es, path):
         ch = {k: v["choices"] for k, v in e["kinds"].items() if v["choices"]}
         if ch:
             lines.append(f"  {js_str(e['identifier'])}: {{ {', '.join(f'{js_str(k)}: [{", ".join(js_str(c) for c in v)}]' for k, v in ch.items())} }},")
+    lines += ["} as const;", "", "/** The editor's title for each enumeration choice whose title differs from its id (`WFCompoundType`'s `0` is \"Any\",",
+              " *  Create Reminder's `connected` is \"Getting in\"): ItemDisplayNames for built-ins, the registry's case titles for App Intents. */",
+              "export const PARAM_CHOICE_TITLES = {"]
+    for e in es:
+        t = {k: v["titles"] for k, v in e["kinds"].items() if v.get("titles") and v["choices"]}
+        if t:
+            lines.append(f"  {js_str(e['identifier'])}: {{ {', '.join(f'{js_str(k)}: {ts_map(v)}' for k, v in t.items())} }},")
+    lines += ["} as const;", "", "/** The editor's label for each parameter key, where the definition or the registry gives one. */", "export const PARAM_LABELS = {"]
+    for e in es:
+        t = {k: v["label"] for k, v in e["kinds"].items() if v.get("label")}
+        if t:
+            lines.append(f"  {js_str(e['identifier'])}: {ts_map(t)},")
+    lines += ["} as const;", "", "/** The editor's description of each parameter key (its hover text), where there is one. */", "export const PARAM_DESCRIPTIONS = {"]
+    for e in es:
+        t = {k: v["description"] for k, v in e["kinds"].items() if v.get("description")}
+        if t:
+            lines.append(f"  {js_str(e['identifier'])}: {ts_map(t)},")
     lines += ["} as const;", "", "/** Parameter keys the engine does not read every reference for, with the variable types it does read",
-              " *  (each one was loaded through the action; see docs/extraction.md). [] means only a plain value. Keys absent",
-              " *  here read any attachment. ParamTypes encodes this for the compiler; Shortcut.action() enforces it at run time. */",
+              " *  (each one was loaded through the action; see docs/extraction.md). [] permits no reference kinds. Keys absent",
+              " *  here permit any attachment; absence also includes unprobed keys (see CATALOG for evidence). ParamTypes and Shortcut.action() enforce this policy. */",
               "export const PARAM_VARIABLE_TYPES = {"]
     for e in es:
         restricted = {k: references(v) for k, v in e["kinds"].items() if references(v) is not None}
@@ -478,9 +514,25 @@ def write_py(es, path):
             lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps(e['outputClassesBy'], ensure_ascii=False)},")
     lines += ["}", "", "# Accepted value kind per parameter key: bool, number, string, text, picker, subject, plainString, plainNumber, dictionary, quantity, filter, any.", "PARAM_KINDS = {"]
     for e in es:
-        lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps({k: v['kind'] for k, v in e['kinds'].items()})},")
+        if e["kinds"]:
+            lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps({k: v['kind'] for k, v in e['kinds'].items()})},")
+    lines += ["}", "", "# The editor's title for each enumeration choice whose title differs from its id.", "PARAM_CHOICE_TITLES = {"]
+    for e in es:
+        t = {k: v["titles"] for k, v in e["kinds"].items() if v.get("titles") and v["choices"]}
+        if t:
+            lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps(t, ensure_ascii=False)},")
+    lines += ["}", "", "# The editor's label for each parameter key, where there is one.", "PARAM_LABELS = {"]
+    for e in es:
+        t = {k: v["label"] for k, v in e["kinds"].items() if v.get("label")}
+        if t:
+            lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps(t, ensure_ascii=False)},")
+    lines += ["}", "", "# The editor's description of each parameter key (its hover text), where there is one.", "PARAM_DESCRIPTIONS = {"]
+    for e in es:
+        t = {k: v["description"] for k, v in e["kinds"].items() if v.get("description")}
+        if t:
+            lines.append(f"    {json.dumps(e['identifier'])}: {json.dumps(t, ensure_ascii=False)},")
     lines += ["}", "", "# Parameter keys the engine does not read every reference for, with the variable types it does read.",
-              "# [] means only a plain value. Keys absent here read any attachment.", "PARAM_VARIABLE_TYPES = {"]
+              "# [] permits no reference kinds. Absent keys permit any attachment, including unprobed keys; CATALOG preserves evidence.", "PARAM_VARIABLE_TYPES = {"]
     for e in es:
         restricted = {k: references(v) for k, v in e["kinds"].items() if references(v) is not None}
         if restricted:
@@ -597,25 +649,43 @@ def bounded_filters(filters, engine):
     return out
 
 
-def entity_tables(entities, defs, engine, linkd):
+def find_actions(entities, catalog):
+    """Entity type -> the actions that filter it: the index's Find action (`find`) and every App Intents action with a
+    WFContentItemFilter parameter whose first output type is the entity (Find Notes keeps its legacy identifier
+    `is.workflow.actions.filter.notes`, Clock's Get Alarms is `MTGetAlarmsIntent`; neither is the entity's `find`)."""
+    out = {}
+    for eid, e in entities.items():
+        if e.get("find"):
+            out.setdefault(eid, []).append(e["find"])
+    for ident in sorted(catalog or {}):
+        t = catalog[ident]
+        first = (t.get("outputTypes") or [None])[0]
+        if any(p.get("key") == "WFContentItemFilter" for p in t.get("parameters", [])) and first in entities and ident not in out.get(first, []):
+            out.setdefault(first, []).append(ident)
+    return out
+
+
+def entity_tables(entities, defs, engine, linkd, catalog=None):
     """FILTERS: per Find action, the properties a row can name, with the operators the engine offers for
-    each, the value kind and the choices or units the value takes. App Intents Find actions come from the
-    entity built from linkd's metadata as the app builds it (data/linkd-properties.json; the index route
-    stands in for an entity the host did not build), built-in Find and Filter actions from their content
-    item class (data/engine-filters.json). ENTITY_PROPERTIES: per entity type, every property identifier
-    the index lists."""
+    each, the value kind and the choices or units the value takes. App Intents Find actions (find_actions)
+    come from the entity built from linkd's metadata as the app builds it (data/linkd-properties.json; the
+    index route stands in where the host did not build the entity or built it with no filter rules, as for
+    Notes), built-in Find and Filter actions from their content item class (data/engine-filters.json).
+    ENTITY_PROPERTIES: per entity type, every property identifier the index lists."""
     filters, properties = {}, {}
+    finds = find_actions(entities, catalog)
     for eid in sorted(entities):
         e = entities[eid]
         properties[eid] = sorted(e["properties"])
-        if not e.get("find"):
+        if not finds.get(eid):
             continue
         built = (linkd.get(eid) or {}).get("filters") if linkd else None
-        rows = engine_rows(built, eid) if built is not None else index_rows(e, eid)
+        rows = engine_rows(built, eid) if built else index_rows(e, eid)
         for pid, row in rows.items():
             row["name"] = e["properties"].get(pid, {}).get("name")
-        if rows:
-            filters[e["find"]] = rows
+        for ident in finds[eid]:
+            if rows:
+                filters[ident] = dict(rows)
     for ident in sorted(defs):
         a = defs[ident]
         if a.get("ActionClass") != "WFContentItemFilterAction" or not a.get("WFContentItemClass"):
@@ -626,6 +696,35 @@ def entity_tables(entities, defs, engine, linkd):
             if rows:
                 filters[ident] = rows
     return filters, properties
+
+
+def type_label(t):
+    """An entity property's type as one word: the primitive, `enum`, an entity's type name, `[]` for a list."""
+    if not isinstance(t, dict):
+        return "unknown"
+    kind = t.get("kind")
+    if kind == "primitive":
+        return t.get("primitive") or "unknown"
+    if kind == "entity":
+        return (t.get("typeName") or t.get("type") or "entity").split(".")[-1]
+    if kind == "array":
+        return type_label(t.get("of")) + "[]"
+    return kind or "unknown"
+
+
+def entity_records(entities, catalog=None):
+    """ENTITIES: per entity type, its display name, owning app and bundle, its Find action where the index has one,
+    and each property's name and type (what the editor shows for the type, and what docs/catalog.txt prints)."""
+    out = {}
+    finds = find_actions(entities, catalog)
+    for eid in sorted(entities):
+        e = entities[eid]
+        rec = {"name": e.get("name") or eid.split(".")[-1], "app": e.get("app") or "", "bundleIdentifier": e.get("bundleIdentifier") or ""}
+        if finds.get(eid):
+            rec["find"] = finds[eid][0]
+        rec["properties"] = {pid: {"name": p.get("name") or pid, "type": type_label(p.get("type"))} for pid, p in sorted(e["properties"].items())}
+        out[eid] = rec
+    return out
 
 
 def row_types(pid, f):
@@ -657,7 +756,7 @@ def row_types(pid, f):
     return out
 
 
-def write_entities_ts(filters, properties, bounded, classes, path):
+def write_entities_ts(filters, properties, bounded, classes, records, path):
     unions = {fid: " | ".join(t for pid, f in rows.items() for t in row_types(pid, f)) for fid, rows in filters.items()}
     used = sorted({n for u in unions.values() for n in re.findall(r"[A-Za-z]+", u) if n in ("Attachment", "EnumValue", "StringValue", *ROW_VALUE_TS.values(), "NumberValue")})
     lines = ["// Generated by tools/generate-action-catalog.py from data/engine-filters.json, data/linkd-properties.json and data/apple-entities.json. Do not edit.",
@@ -683,6 +782,13 @@ def write_entities_ts(filters, properties, bounded, classes, path):
     lines += ["} as const;", "", "/** Every property identifier Apple's index lists for an entity type; `property()` takes these. */", "export const ENTITY_PROPERTIES = {"]
     for eid, props in properties.items():
         lines.append(f"  {js_str(eid)}: [{', '.join(js_str(p) for p in props)}],")
+    lines += ["} as const;", "", "/** Every entity type Apple's index lists: display name, owning app and bundle, its Find action where there is one, and each",
+              " *  property's name and type (a primitive, `enum`, an entity's type name, `[]` for a list). `ENTITY_PROPERTIES` holds the identifiers alone. */",
+              "export const ENTITIES = {"]
+    for eid, r in records.items():
+        props = ", ".join(f"{js_str(pid)}: {{ name: {js_str(p['name'])}, type: {js_str(p['type'])} }}" for pid, p in r["properties"].items())
+        find = f", find: {js_str(r['find'])}" if r.get("find") else ""
+        lines.append(f"  {js_str(eid)}: {{ name: {js_str(r['name'])}, app: {js_str(r['app'])}, bundleIdentifier: {js_str(r['bundleIdentifier'])}{find}, properties: {{ {props} }} }},")
     lines += ["} as const;", "", "/** The rows `where()` accepts per Find action: `[property, operator, ...values]`. */", "export type FilterRows = {"]
     for fid, union in unions.items():
         lines.append(f"  {js_str(fid)}: {union};")
@@ -733,7 +839,7 @@ def owned_types(classes):
     return dict(sorted(out.items()))
 
 
-def write_entities_py(filters, properties, bounded, classes, path):
+def write_entities_py(filters, properties, bounded, classes, records, path):
     lines = ['"""Generated by tools/generate-action-catalog.py from data/engine-filters.json, data/linkd-properties.json and data/apple-entities.json. Do not edit."""', "",
              "# Filter row operators by name (CONDITION's names, plus the date operators If does not take).",
              f"FILTER_OPERATORS = {json.dumps({n: c for c, n in FILTER_OPERATOR_NAMES.items()})}",
@@ -744,12 +850,16 @@ def write_entities_py(filters, properties, bounded, classes, path):
              "# The properties a Find action's filter rows can name, by action identifier: operator codes, value kind, units, choices.",
              "FILTERS = {"]
     for fid, rows in filters.items():
-        lines.append(f"    {json.dumps(fid)}: {json.dumps({pid: {k: v for k, v in f.items() if k not in ('name', 'boundedOperators')} for pid, f in rows.items()})},")
+        lines.append(f"    {json.dumps(fid)}: {json.dumps({pid: {k: v for k, v in f.items() if k not in ('name', 'boundedOperators') and not (k in ('choices', 'units') and not v)} for pid, f in rows.items()})},")
     lines += ["}", "", "# Find actions whose filter must include a bounded date row on this property, with one of these operators; action() marks it Bounded.",
               f"BOUNDED_FILTERS = {json.dumps(bounded)}", "",
               "# Every property identifier Apple's index lists for an entity type; property_() takes these.", "ENTITY_PROPERTIES = {"]
     for eid, props in properties.items():
         lines.append(f"    {json.dumps(eid)}: {json.dumps(props)},")
+    lines += ["}", "", "# Every entity type Apple's index lists: display name, owning app and bundle, its Find action where there is one, and each",
+              "# property's name and type (a primitive, enum, an entity's type name, [] for a list).", "ENTITIES = {"]
+    for eid, r in records.items():
+        lines.append(f"    {json.dumps(eid)}: {json.dumps(r, ensure_ascii=False)},")
     lines += ["}", "", "# Content item classes a coercion can name (coerce()): the engine's own list, the editor's variable \"Type\" menu, with the name it shows.",
               f"CONTENT_ITEM_CLASSES = {json.dumps({c: v['name'] for c, v in classes.items() if v['coercible']})}", "",
               "# The properties of every content item class the engine defines (+allProperties; the coercible ones among them): the editor's",
@@ -763,41 +873,101 @@ def write_entities_py(filters, properties, bounded, classes, path):
     path.write_text("\n".join(lines))
 
 
+def canonical_model(es, defs, catalog, filters, records, classes, bounded, provenance, raw_entities):
+    """Preserve evidence before compatibility tables erase measured-all versus unprobed."""
+    actions = {}
+    measured_outputs = load_output_classes()
+    for e in es:
+        ident = e["identifier"]
+        builtin = ident in defs
+        source = "definition" if builtin else "registry"
+        pdefs = {p["Key"]: p for p in defs.get(ident, {}).get("Parameters", []) if isinstance(p, dict) and p.get("Key")}
+        registry_params = {p["key"]: p for p in catalog.get(ident, {}).get("parameters", [])}
+        parameters = {}
+        for key in e["params"]:
+            info = e["kinds"][key]
+            raw = registry_params.get(key, {})
+            entity = e.get("paramEntities", {}).get(key)
+            refs = {"status": "not-probed"} if info.get("reads") is None else {"status": "measured", "allowed": info["reads"]}
+            param = {
+                "kind": info["kind"],
+                "kindSource": ("legacy" if info.get("class") == "Legacy" else "implicit-input" if info.get("class") == "Input" else "parameter-class" if info.get("class") else source) if builtin else ("parameter-class" if raw.get("parameterClass") else "registry"),
+                "choices": info.get("choices", []), "choiceTitles": info.get("titles", {}),
+                "label": info.get("label"), "description": info.get("description"), "refs": refs,
+                "entityStatus": "resolved" if entity else "unresolved" if (raw.get("type") or {}).get("kind") == "entity" else "not-applicable",
+            }
+            if entity:
+                param["entityType"] = entity
+            if "DefaultValue" in pdefs.get(key, {}):
+                param["default"] = pdefs[key]["DefaultValue"]
+            parameters[key] = param
+        action = {k: v for k, v in e.items() if k not in ("kinds", "paramEntities", "descriptionText")}
+        action["description"] = e.get("descriptionText", e.get("description", ""))
+        for key, default in (("outputClasses", []), ("outputClassesBy", {})):
+            action.setdefault(key, default)
+        action.setdefault("unavailable", False)
+        owner = defs[ident].get("AppDefinition", {}) if builtin else e.get("descriptor", {})
+        action["app"] = {"name": text(owner.get("Name")), "bundleIdentifier": owner.get("BundleIdentifier")}
+        action.update(origin="builtin" if builtin else "app-intent", parameters=parameters,
+                      outputEvidence={"status": "measured" if ident in measured_outputs else "not-probed"},
+                      inputStatus=("declared" if isinstance(defs[ident].get("Input"), dict) else "not-declared") if builtin else "named-parameters",
+                      descriptionEvidence={"source": source, **{name: "present" if action.get(field) else "absent" for name, field in (("summary", "description"), ("note", "descriptionNote"), ("result", "descriptionResult"))}},
+                      filterStatus="available" if ident in filters else "unresolved" if "WFContentItemFilter" in parameters else "not-applicable")
+        if defs.get(ident, {}).get("WFContentItemClass"):
+            action["filterClass"] = defs[ident]["WFContentItemClass"]
+        actions[ident] = action
+    joined_entities = {eid: {**record, "properties": {pid: {**prop, "typeInfo": raw_entities[eid]["properties"][pid].get("type")} for pid, prop in record["properties"].items()}} for eid, record in records.items()}
+    normalized_filters = {ident: {pid: {k: v for k, v in row.items() if k not in ("name", "boundedOperators") and not (k in ("choices", "units") and not v)} for pid, row in rows.items()} for ident, rows in filters.items()}
+    return {"schemaVersion": 1, "provenance": provenance, "actions": actions, "entities": joined_entities,
+            "filters": normalized_filters, "filterOperators": {name: code for code, name in FILTER_OPERATOR_NAMES.items()},
+            "calendarUnits": CALENDAR_UNITS, "byteCountUnits": BYTE_COUNT_UNITS, "boundedFilters": bounded,
+            "contentItemClasses": classes, "contentItemTypes": owned_types(classes)}
+
+
 def main(argv):
-    src = pathlib.Path(argv[1]) if len(argv) > 1 else ROOT / "data" / "builtin-actions.json"
-    apps = pathlib.Path(argv[2]) if len(argv) > 2 else ROOT / "data" / "apple-app-intents.json"
-    ents = pathlib.Path(argv[3]) if len(argv) > 3 else ROOT / "data" / "apple-entities.json"
-    engine_path = pathlib.Path(argv[4]) if len(argv) > 4 else ROOT / "data" / "engine-filters.json"
-    linkd_path = pathlib.Path(argv[5]) if len(argv) > 5 else ROOT / "data" / "linkd-properties.json"
-    defs = json.load(open(src))
-    engine = json.load(open(engine_path)) if engine_path.exists() else None
-    linkd = json.load(open(linkd_path))["entities"] if linkd_path.exists() else None
-    if engine is None or linkd is None:
-        print("warning: data/engine-filters.json or data/linkd-properties.json missing (bun run extract-filters); Find filters typed from the index route only")
-    filters, properties = entity_tables(json.load(open(ents))["entities"] if ents.exists() else {}, defs, engine, linkd)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("inputs", nargs="*", type=pathlib.Path)
+    parser.add_argument("--output-root", type=pathlib.Path, default=ROOT)
+    args = parser.parse_args(argv[1:])
+    if len(args.inputs) > 5:
+        parser.error("at most five input paths are supported")
+    defaults = [ROOT / "data" / name for name in ("builtin-actions.json", "apple-app-intents.json", "apple-entities.json", "engine-filters.json", "linkd-properties.json")]
+    src, apps, ents, engine_path, linkd_path = args.inputs + defaults[len(args.inputs):]
+    defs = json.loads(src.read_text())
+    engine = json.loads(engine_path.read_text())
+    linkd = json.loads(linkd_path.read_text())["entities"]
+    entities_json = json.loads(ents.read_text())["entities"]
+    catalog = json.loads(apps.read_text())["actions"]
+    filters, properties = entity_tables(entities_json, defs, engine, linkd, catalog)
     es = entries(defs, filters)
     n_builtin = len(es)
-    entities_json = json.load(open(ents))["entities"] if ents.exists() else {}
-    if apps.exists():
-        es += app_intent_entries(json.load(open(apps)).get("actions", {}), filters, entities_json)
-    es = dedupe_keys(es)
+    es = dedupe_keys(es + app_intent_entries(catalog, filters, entities_json))
     missing = sorted(set(filters) - {e["identifier"] for e in es})
     if missing:
         raise SystemExit(f"Find filters for actions not in the catalogue: {missing[:5]}")
-    write_ts(es, ROOT / "src/generated/actions.ts")
-    write_params_ts(es, ROOT / "src/generated/params.ts")
-    write_py(es, ROOT / "python/src/shortcutkit/actions.py")
-    bounded = bounded_filters(filters, engine)
-    # The content item classes a coercion can name, from the encoding table (extract-encoding-table.js).
-    table = ROOT / "data" / "encoding-table.json"
-    classes = json.load(open(table)).get("contentItemClasses") if table.exists() else None
+    # Load and validate the complete snapshot before writing any output.
+    classes = json.loads((ROOT / "data/encoding-table.json").read_text()).get("contentItemClasses")
     if not classes:
         raise SystemExit("data/encoding-table.json has no contentItemClasses; run bun run extract")
-    write_entities_ts(filters, properties, bounded, classes, ROOT / "src/generated/entities.ts")
-    write_entities_py(filters, properties, bounded, classes, ROOT / "python/src/shortcutkit/entities.py")
-    rows = sum(len(p) for p in filters.values())
-    print(f"{n_builtin} built-in + {len(es) - n_builtin} App Intents actions -> src/generated/actions.ts, python/src/shortcutkit/actions.py; "
-          f"{len(filters)} Find filters ({rows} properties), {len(properties)} entity types -> src/generated/entities.ts, python/src/shortcutkit/entities.py")
+    bounded = bounded_filters(filters, engine)
+    records = entity_records(entities_json, catalog)
+    provenance = json.loads((ROOT / "data/provenance.json").read_text())
+    model = canonical_model(es, defs, catalog, filters, records, classes, bounded, provenance, entities_json)
+    output = args.output_root
+    for directory in ("src/generated", "python/src/shortcutkit/data"):
+        (output / directory).mkdir(parents=True, exist_ok=True)
+    write_ts(es, output / "src/generated/actions.ts")
+    write_params_ts(es, output / "src/generated/params.ts")
+    write_py(es, output / "python/src/shortcutkit/actions.py")
+    write_entities_ts(filters, properties, bounded, classes, records, output / "src/generated/entities.ts")
+    write_entities_py(filters, properties, bounded, classes, records, output / "python/src/shortcutkit/entities.py")
+    encoded = json.dumps(model, ensure_ascii=False, indent=2) + "\n"
+    (output / "src/generated/catalog.json").write_text(encoded)
+    (output / "python/src/shortcutkit/data/catalog.json").write_text(encoded)
+    for name in ("builtin-actions.json", "provenance.json"):
+        source = src if name == "builtin-actions.json" else ROOT / "data" / name
+        (output / "python/src/shortcutkit/data" / name).write_bytes(source.read_bytes())
+    print(f"{n_builtin} built-in + {len(es) - n_builtin} App Intents; {len(filters)} Find filters; {len(records)} entity types")
 
 
 if __name__ == "__main__":

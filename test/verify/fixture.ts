@@ -114,15 +114,16 @@ for (const [identifier, props] of Object.entries(FILTERS as Record<string, Recor
   const a = new Shortcut("Case").action(identifier, { WFContentItemFilter: whereAny(...(withBounded(identifier, first) as never[])) } as never);
   filterCases.push({ identifier, form: "any of each property", filter: a.WFWorkflowActionParameters.WFContentItemFilter });
 }
-// Properties: every property of every entity type, through property() on an action that outputs it.
+// Properties: every property of every entity type, through property() on an action that outputs it; a type no Apple
+// action outputs (one that only parameters take, Mail's AccountEntity) through property() on a named variable, which the
+// verifier resolves on the entity's class all the same.
 type PropertyCase = { entity: string; property: string; attachment: unknown };
 const propertyCases: PropertyCase[] = [];
 const producers = new Shortcut("Producers");
 for (const [entity, props] of Object.entries(ENTITY_PROPERTIES as Record<string, readonly string[]>)) {
   const by = entity in ACTIONS ? entity : Object.keys(ACTIONS).find((id) => (ACTIONS as Record<string, { outputTypes: readonly string[] }>)[id]!.outputTypes.includes(entity));
-  if (!by) continue;
-  const a = producers.action(by, {} as never);
-  for (const name of props) propertyCases.push({ entity, property: name, attachment: property(a as never, name) });
+  const source = by ? producers.action(by, {} as never) : variable(entity);
+  for (const name of props) propertyCases.push({ entity, property: name, attachment: property(source as never, name) });
 }
 
 // Coercions: every content item class the engine lists, through coerce().

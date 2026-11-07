@@ -113,19 +113,31 @@ function run(argv) {
       filter.parameterClass = isNil(def) ? null : str(def.objectForKey("Class"));
       const info = prop.userInfo;
       const isHandle = isNil(info) ? null : info.objectForKey("WFLinkEntityContentPropertyUserInfoIsContactHandleKey");
-      const kind = !isNil(isHandle) && isHandle.boolValue ? "contactHandle" : VALUE_KINDS[filter.parameterClass];
-      if (kind) filter.values = kind;
+      let kind = !isNil(isHandle) && isHandle.boolValue ? "contactHandle" : VALUE_KINDS[filter.parameterClass];
       // "is in the last/next" take a count and a calendar unit; the editor offers the units in this
       // NSCalendarUnit mask (WorkflowKit.CalendarUnitPickerParameter lists them).
       if (p.operators.some((o) => table.filterOperators[o] === "is in the last" || table.filterOperators[o] === "is in the next")) {
         const mask = Number(prop.timeUnits);
         filter.timeUnits = [...Array(20).keys()].map((b) => 2 ** b).filter((u) => mask & u);
       }
+      // The editor edits some rows with a variable picker or a URL field (Notes' Body and Name, typed as files), which
+      // names no plain value kind; the engine still reads a plain row value for them. Load each kind's sample through
+      // the class: the kind whose value key the engine reads back under every operator is the row's kind (valuesRead).
+      if (!kind) {
+        const dated = filter.timeUnits || p.operators.some((o) => /^is (today|between|in the last|in the next)$/.test(table.filterOperators[o]));
+        for (const candidate of dated ? ["date", "text", "number"] : ["text", "number", "date"]) {
+          const rows = p.operators.map((o) => ({ Property: pid, Operator: o, Removable: true, Values: sampleValues(candidate, table.filterOperators[o], filter.timeUnits || []) || {} }));
+          if (rows.every((r) => !Object.keys(r.Values).length)) continue;
+          const got = loadFilter(built.name, { WFSerializationType: "WFContentPredicateTableTemplate", Value: { WFActionParameterFilterPrefix: 1, WFContentPredicateBoundedDate: false, WFActionParameterFilterTemplates: rows } }).rows;
+          if (rows.every((r, i) => got[i] && got[i].property === pid && Object.keys(r.Values).every((k) => k in got[i].values))) { kind = candidate; filter.valuesRead = true; break; }
+        }
+      }
+      if (kind) filter.values = kind;
       const engineOps = integers(prop.allowedOperators);
       const notOffered = p.operators.filter((o) => !engineOps.includes(o));
       if (notOffered.length) filter.notFromComparators = notOffered; // listed by the index, not produced from the query's comparators
       // Each operator, loaded as a row with a sample value: the engine must keep the row, read the same operator, and read every value key.
-      const rows = p.operators.map((o) => ({ Property: pid, Operator: o, Removable: true, Values: kind ? sampleValues(kind, table.filterOperators[o], filter.timeUnits || []) : {} }));
+      const rows = p.operators.map((o) => ({ Property: pid, Operator: o, Removable: true, Values: (kind && sampleValues(kind, table.filterOperators[o], filter.timeUnits || [])) || {} }));
       const got = loadFilter(built.name, { WFSerializationType: "WFContentPredicateTableTemplate", Value: { WFActionParameterFilterPrefix: 1, WFContentPredicateBoundedDate: false, WFActionParameterFilterTemplates: rows } }).rows;
       for (const [i, o] of p.operators.entries()) {
         const r = got[i], missing = r ? Object.keys(rows[i].Values).filter((k) => !(k in r.values)) : [];

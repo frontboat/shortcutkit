@@ -11612,7 +11612,11 @@
         "valueClass" : "WFLinkEntityContentItem_com.apple.AddressBook_ContactLabeledValueEntity"
       }
     },
+    "com.apple.AppIntents.AppIntents._ModelDelegationConfigurationEntity" : null,
     "com.apple.AppIntents.AppIntents._ModelDelegationResultEntity" : {
+
+    },
+    "com.apple.AppIntents.AppIntents.IntentPromptEntity" : {
 
     },
     "com.apple.AppKit.EditingContextResult" : {
@@ -12262,6 +12266,9 @@
         "valueClass" : "NSString"
       }
     },
+    "com.apple.clock.WorldClockCityEntity" : {
+
+    },
     "com.apple.finder.FINodeEntity" : {
 
     },
@@ -12609,6 +12616,9 @@
       }
     },
     "com.apple.GenerativePlaygroundApp.GeneratedImageEntity" : null,
+    "com.apple.GenerativePlaygroundApp.ImagePlaygroundStyleEntity" : null,
+    "com.apple.helpviewer.TipCollection" : null,
+    "com.apple.Home.AccessoryAndSceneEntity" : null,
     "com.apple.Home.CameraClipEntity" : {
       "endDate" : {
         "bounded" : [
@@ -13773,6 +13783,9 @@
       }
     },
     "com.apple.iBooksX.DefaultCollectionEntity" : null,
+    "com.apple.iCal.AttendeeEntity" : {
+
+    },
     "com.apple.iCal.CalendarEntity" : {
 
     },
@@ -13882,12 +13895,30 @@
       }
     },
     "com.apple.iCal.InboxItemEntity" : null,
+    "com.apple.iCal.SourceEntity" : {
+
+    },
     "com.apple.iCal.TransferableCalendarEntity" : null,
     "com.apple.iCal.TransferableSourceEntity" : null,
+    "com.apple.iCal.VirtualConferenceTypeEntity" : {
+
+    },
     "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.AppUsageResultEntity" : {
 
     },
     "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.SportsEventAppEntity" : {
+
+    },
+    "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.SportsTeamAppEntity" : {
+
+    },
+    "com.apple.iWork.Keynote.KNDocumentEntity" : {
+
+    },
+    "com.apple.iWork.Numbers.TNDocumentEntity" : {
+
+    },
+    "com.apple.iWork.Pages.TPDocumentEntity" : {
 
     },
     "com.apple.journal.AddCurrentLocationEntity" : {
@@ -13906,6 +13937,9 @@
 
     },
     "com.apple.journal.SkipJournalingSuggestionsEntity" : {
+
+    },
+    "com.apple.mail.AccountEntity" : {
 
     },
     "com.apple.mail.DraftMessageEntity" : {
@@ -13954,6 +13988,15 @@
         "subjectType" : 2,
         "valueClass" : "NSString"
       }
+    },
+    "com.apple.mail.MailAccountEntity" : {
+
+    },
+    "com.apple.mail.MailAddresseeEntity" : {
+
+    },
+    "com.apple.mail.MailboxEntity" : {
+
     },
     "com.apple.mail.MailMessage" : {
       "dateSent" : {
@@ -14397,6 +14440,15 @@
         "valueClass" : "NSDate"
       }
     },
+    "com.apple.Maps.PlaceEntity" : {
+
+    },
+    "com.apple.Maps.ViewportEntity" : {
+
+    },
+    "com.apple.MediaRemoteAppIntentsExtension.MediaControlsDevice" : {
+
+    },
     "com.apple.MobileSMS.ConversationEntity" : {
       "dateLastActive" : {
         "bounded" : [
@@ -14637,6 +14689,12 @@
         "valueClass" : "NSAttributedString"
       }
     },
+    "com.apple.MobileSMS.MessagePerson" : {
+
+    },
+    "com.apple.news.ArticleEntity" : {
+
+    },
     "com.apple.news.AutoDownloadAudioStoriesEntity" : {
 
     },
@@ -14658,10 +14716,16 @@
     "com.apple.news.AutoDownloadStoriesInFeedsEntity" : {
 
     },
+    "com.apple.news.FeedEntity" : {
+
+    },
     "com.apple.news.GameCenterEntity" : {
 
     },
     "com.apple.news.IngredientEntity" : {
+
+    },
+    "com.apple.news.InstructionEntity" : {
 
     },
     "com.apple.news.NewsRecipeEntity" : {
@@ -14677,6 +14741,9 @@
 
     },
     "com.apple.news.RestrictStoriesInTodaySettingEntity" : {
+
+    },
+    "com.apple.Notes.AccountEntity" : {
 
     },
     "com.apple.Notes.AttachmentEntity" : {
@@ -15337,6 +15404,14 @@
     "com.apple.Preview.PageEntity" : {
 
     },
+    "com.apple.printcenter.PrinterEntity" : null,
+    "com.apple.reminders.AnyListEntity" : null,
+    "com.apple.reminders.ColorEntity" : {
+
+    },
+    "com.apple.reminders.EarlyAlertEntity" : {
+
+    },
     "com.apple.reminders.GroupEntity" : {
       "name" : {
         "bounded" : [
@@ -15370,6 +15445,9 @@
         "subjectType" : 2,
         "valueClass" : "NSString"
       }
+    },
+    "com.apple.reminders.ListBadgeEntity" : {
+
     },
     "com.apple.reminders.ListEntity" : {
       "name" : {
@@ -15424,6 +15502,9 @@
         "subjectType" : 0,
         "valueClass" : "WFLinkEnumerationContentItem_com.apple.reminders_ListType"
       }
+    },
+    "com.apple.reminders.LocationTriggerEntity" : {
+
     },
     "com.apple.reminders.ReminderEntity" : {
       "completionDate" : {
@@ -16113,6 +16194,9 @@
         "valueClass" : "NSURL"
       }
     },
+    "com.apple.Safari.ProfileEntity" : {
+
+    },
     "com.apple.Safari.QuickWebsiteSearchProviderEntity" : {
       "sourcePageURLString" : {
         "bounded" : [
@@ -16791,6 +16875,7 @@
     "com.apple.Settings.HourFormatEntity" : {
 
     },
+    "com.apple.Settings.InternetAccountEntity" : null,
     "com.apple.Settings.KeyboardSettingsSettingsDeepLink" : null,
     "com.apple.Settings.LocalizationSettingsDeepLink" : null,
     "com.apple.Settings.MenuBarControl" : {
@@ -16848,6 +16933,7 @@
       }
     },
     "com.apple.Settings.NotificationsSettingsSettingsDeepLink" : null,
+    "com.apple.Settings.NotificationSummarizationEntity" : null,
     "com.apple.Settings.PasswordsSettingsExtensionSettingsDeepLink" : null,
     "com.apple.Settings.PlaceholderAboutExtensionSettingsDeepLink" : null,
     "com.apple.Settings.PlaceholderAppearanceSettingsDeepLink" : null,
@@ -17263,6 +17349,12 @@
     },
     "com.apple.shortcuts.RootNavigationDestination" : null,
     "com.apple.shortcuts.ShortcutsActionEntity" : null,
+    "com.apple.shortcuts.WFContentItem" : {
+
+    },
+    "com.apple.shortcuts.WFFocusModeContentItem" : {
+
+    },
     "com.apple.shortcuts.WFWorkflowReference" : null,
     "com.apple.ShortcutsActions.CellularPlanEntity" : {
       "carrierName" : {
@@ -17327,6 +17419,70 @@
       }
     },
     "com.apple.ShortcutsActions.ChargeLimit" : null,
+    "com.apple.ShortcutsActions.TimeMachineDestination" : null,
+    "com.apple.siri.-MarketplaceIntents-AppIntents._MarketplaceKit_AppIntents.AppSearchEntity" : {
+
+    },
+    "com.apple.siri.-MediaIntents-AppIntents.MediaIntents.HomeDeviceGroupRepresentationEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitAlbumEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitAlgorithmicRadioStationEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitArtistEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitAudiobookEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitClassicalMusicRecordingEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitLiveRadioStationEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitNewsBriefEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitNewsProviderEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitPlaylistEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitPodcastCollectionEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitPodcastEpisodeEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitPodcastShowEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitRadioShowEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitRadioShowEpisodeEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitSongEntity" : {
+
+    },
+    "com.apple.siri.AudioAppIntentsExtension.SiriKitSoundEntity" : {
+
+    },
+    "com.apple.siri.messages.SiriMessagesAppIntentsExtension.ConversationEntity" : {
+
+    },
+    "com.apple.siri.messages.SiriMessagesAppIntentsExtension.DraftMessageEntity" : {
+
+    },
+    "com.apple.siri.messages.SiriMessagesAppIntentsExtension.ReadableMessageAppEntity" : {
+
+    },
     "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.CurrentLocationEntity" : null,
     "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.NavigationSessionEntity" : {
       "estimatedArrivalDate" : {
@@ -17443,6 +17599,30 @@
         "valueClass" : "WFLinkEnumerationContentItem_com.apple.siri.SiriGeo.SiriGeoAppIntentExtension_TransportationTypeEnum"
       }
     },
+    "com.apple.siri.SiriGeo.SiriGeoAppIntentExtension.PlaceEntity" : {
+
+    },
+    "com.apple.siri.SiriNotificationsAppIntentsExtension.UserNotificationEntity" : {
+
+    },
+    "com.apple.siri.SiriVideoAppIntents.GenericVideoEntity" : {
+
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoMovieEntity" : {
+
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoPersonEntity" : {
+
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoTvEpisodeEntity" : {
+
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoTvSeasonEntity" : {
+
+    },
+    "com.apple.siri.SiriVideoAppIntents.SiriVideoTvShowEntity" : {
+
+    },
     "com.apple.Spotlight.SearchFieldEntity" : {
       "searchString" : {
         "bounded" : [
@@ -17476,6 +17656,12 @@
         "subjectType" : 2,
         "valueClass" : "NSString"
       }
+    },
+    "com.apple.stocks.ArticleEntity" : {
+
+    },
+    "com.apple.stocks.FeedEntity" : {
+
     },
     "com.apple.stocks.NewsRecipeEntity" : {
 
@@ -19044,7 +19230,12 @@
     "com.apple.systempreferences.PaperSizeEntity" : {
 
     },
+    "com.apple.systempreferences.PrinterPaperSize" : null,
+    "com.apple.systempreferences.ScreenSaverDelay" : null,
     "com.apple.systempreferences.ScreenSaverDelayEntity" : {
+
+    },
+    "com.apple.systempreferences.SettingsNavigationLocationEntity" : {
 
     },
     "com.apple.systempreferences.ShareKeyboardEntity" : {
@@ -20004,7 +20195,8 @@
         "subjectType" : 2,
         "valueClass" : "NSString"
       }
-    }
+    },
+    "com.apple.WritingTools.WritingToolsAppIntentsExtension.WTIntentContext" : null
   },
   "linkdServed" : true,
   "rowValues" : {
@@ -20071,7 +20263,7 @@
             "comparisonType" : 2,
             "formatted" : "5 MB",
             "predicateClass" : "WFContentComparisonPredicate",
-            "value" : "<WFFileSize: 0x762b995c80>",
+            "value" : "<WFFileSize: 0x76c78bd0e0>",
             "valueClass" : "WFFileSize"
           },
           "property" : "File Size",
@@ -20121,7 +20313,7 @@
             "comparisonType" : 2,
             "predicateClass" : "WFContentComparisonPredicate",
             "timeInterval" : 300,
-            "value" : "<WFTimeInterval: 0x7623987c00>",
+            "value" : "<WFTimeInterval: 0x76bf936680>",
             "valueClass" : "WFTimeInterval"
           },
           "property" : "Duration",

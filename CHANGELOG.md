@@ -6,6 +6,59 @@ of the type surface, a data refresh is a **minor** release when it only adds act
 parameters and a **major** release when it removes or retypes any. `bun run changelog` prints
 the section for a fresh extraction from the diff against the committed data.
 
+## 3.2.0 (Unreleased)
+
+- CI builds the npm package once, skipping installation and packaging lifecycle rebuilds.
+  The npm distribution check also handles npm 10 running `prepare` despite `--ignore-scripts`.
+- Shared generation now prepares TypeScript, Python, and the complete text catalogue from one
+  joined snapshot. `generate`, `check-generated`, and `check-parity` separate preparation from
+  package builds. Both packages expose `CATALOG` and include the same catalogue text.
+- Catalogue records include choice-dependent outputs, every recorded relationship and property,
+  and explicit evidence for measured or unprobed references and outputs. Missing descriptions
+  identify the source; unresolved filter metadata is not presented as proof that no rules exist.
+
+### Data: macOS 27.2 (26B118), Shortcuts 10.0 build 5114.0.6.204, extracted 2026-10-28T01:38:46Z
+
+- No changes to actions or parameters.
+- `docs/catalog.txt`: the whole catalogue as one grep-shaped text file for agents, one record per action
+  (`## <key> · <Name> · <App>`, then `in:`/`out:`/`kw:`/`id:`, the description, one line per parameter with
+  its kind, label, choices as `Title (id)`, default, which references it reads, when the editor shows it,
+  and its description; a Find action's filter block lists the properties `where()` rows may name with their
+  operators; `→ accepted by:` says where the output can go) and one per entity type (`## entity <Type> · …`
+  with its typed properties, `← produced by:` and `→ accepted by:`). `tools/render-catalog.ts` renders it
+  from the library's own tables, never from `data/`, so a record says what `Shortcut.action()` validates
+  against; `bun run render-catalog` (also run by `bun run extract`), and a test asserts the committed file
+  is byte-identical to a fresh render.
+- `PARAM_CHOICE_TITLES`, `PARAM_LABELS` and `PARAM_DESCRIPTIONS` in both packages: the editor's title for
+  each enumeration choice whose title differs from its id (`WFCompoundType`'s `0` is "Any", Create
+  Reminder's `connected` is "Getting in"), its label for each parameter, and its description (the hover
+  text), from `ItemDisplayNames`, `Label` and `Description` for built-ins and the registry's case titles,
+  parameter names and descriptions for App Intents; `getAction()` / `get_action()` return them as
+  `choiceTitles`, `paramLabels` and `paramDescriptions`.
+- `ENTITIES` in both packages: every entity type Apple's index lists with its display name, owning app and
+  bundle, its Find action where there is one, and each property's name and type (a primitive, `enum`, an
+  entity's type name, `[]` for a list); `ENTITY_PROPERTIES` keeps the identifiers alone.
+- Three more Find actions take `where()` rows: Find Notes (`notes_find_notes`, which keeps its legacy
+  identifier `is.workflow.actions.filter.notes`), Clock's Get Alarms (`clock_find_alarms`) and Stocks' Find
+  Symbol. The index marks none of them as its entity's Find action, so `FILTERS` was keyed from that mark
+  alone; it is now keyed from every catalogue action with a `WFContentItemFilter` parameter whose first output
+  type is an entity, 153 actions and 412 properties, and `bun run verify` loads their rows through the entity's
+  class. The Notes rows (Body and Name contains, the two dates) come from the index route, since linkd's class
+  for Notes has no filter rules; their value form, which the index left untyped because the editor edits them
+  with a variable picker, is now the one the engine read back when the probe loaded each kind's sample
+  (`valuesRead` in `data/apple-entities.json`; 25 such properties, all `text` but the two date pickers).
+- The entity dump covers every entity type Apple's actions take as a parameter, not only the ones they output
+  or find: 72 more types (News' and Stocks' feeds and articles, Clock's world-clock city, Mail's accounts and
+  addressees, Maps' places, the SiriKit media entities, ...), 485 in all with 1,035 properties (from 413 and
+  752). Each has its `ENTITIES` record, its `ENTITY_PROPERTIES` for `property()`, an entity record in the
+  catalogue with `→ accepted by:`, and `bun run verify` resolves every property on the entity's class. One
+  parameter type stays out, the Intelligence Platform's device entity, whose identifier the index cannot name.
+- `PARAM_ENTITY_TYPES` links seven more parameters (616), and, with the entity types above, 704 of the 705
+  entity-typed App Intents parameters: the ones whose type is named by the entity's full type
+  name (`GeoToolbox.PlaceDescriptorEntity`, the location of Maps' Search Places, Messages' Send Message and Find
+  My's geofences) rather than its last component. The one parameter still unlinked is typed with the entity the index cannot
+  name.
+
 ## 3.1.0 (2026-10-29)
 
 - `property()` knows the properties of the engine's content item classes, the editor's "Get" list

@@ -294,6 +294,10 @@ without action metadata are the synthesized Get/Update/Find tools (keyed by enti
 tools, the SiriKit intents the definition probe serves, and a few whose linkd bundle differs
 from the index's (System Settings deep links); they are untouched.
 
+The payload removes process-specific object addresses from deprecation descriptions while
+preserving their messages and replacement identifiers. It omits empty bundle maps and keeps
+null results distinct, so repeated runs do not create address-only or empty-bundle diffs.
+
 One of the 135 had been the catalogue's own Create Note. The index gives the same key,
 `notes_create_note`, to three tools, and the generator's dedupe had chosen
 `com.apple.Notes.CreateNoteIntent`, the Siri-only one, over `com.apple.mobilenotes.SharingExtension`
@@ -311,8 +315,17 @@ protobuf type blob, `EntityPropertyLocalizations` their names, and `PredicateTem
 `builtin.query.<entity>`) the comparisons its query supports. ToolKit's own classes decode the
 blobs (`-[CCToolKitToolTypeInstance initWithData:error:]`,
 `CCToolKitToolTypeDefinitionVersion1QueryPredicateTemplates`, then `jsonDictionary`).
-`dump-toolkit-registry.py --entities` exports them for the 434 entity types Apple's actions
-output or find, and `extract-entities.js` writes `data/apple-entities.json`.
+`dump-toolkit-registry.py --entities` exports them for every entity type Apple's actions
+output, find or take as a parameter (`ToolParameterTypes`, alternatives included), and
+`extract-entities.js` writes `data/apple-entities.json`. Until 3.2.0 the export covered output
+and Find types only (434, 413 after the Siri-only intents left): 72 types that only parameters
+name (News' and Stocks' `FeedEntity` and `ArticleEntity`, Clock's `WorldClockCityEntity`, Mail's
+`AccountEntity`, the SiriKit media entities, ...) had no properties, no `property()` typing and
+no record in `docs/catalog.txt`; 485 types and 1,035 properties now. One parameter type, the
+Intelligence Platform's `DeviceActivityDeviceAppEntity`, is skipped: its identifier blob names no
+bundle and type, so WorkflowKit cannot build it. A type no Apple action outputs has no action to
+hang a `property()` reference on, so `bun run verify` checks its properties through a named
+variable's reference, resolved on the entity's class as for the others.
 
 The index says which comparisons exist, not how a row is written. WorkflowKit does, and it
 needs no linkd for it. From the decoded properties the probe builds the LinkMetadata objects
@@ -468,7 +481,13 @@ What the data says, beyond the lists themselves:
   text, URL, email address, phone number, location), 3 Number, 4 Date, 5 Measurement, 6 file
   size, 7 Duration and time interval, 9 App. `subjectTypes` in the data lists all 95 classes.
   Message bodies, event notes and URL properties are therefore plain string rows; the index
-  route dropped them only because their editing parameter is a variable picker.
+  route dropped them only because their editing parameter is a variable picker. Since 3.2.0
+  `extract-entities.js` settles such a row by loading each kind's sample through the class and
+  keeping the kind whose value key the engine reads back under every operator (`valuesRead`):
+  25 properties, `text` for all but Reminders' due date and the Assistant alarm time, which read
+  `Date`. Notes depends on this: linkd's class for `NoteEntity` has no filter rules, so Find Notes
+  (`is.workflow.actions.filter.notes`, which the index does not mark as the entity's Find action)
+  is typed from the index route, Body and Name as text rows.
 - The row value keys the engine reads are the raw values of
   `RowTemplateFindFilterParameterState`'s key types, read by calling their `rawValue` getters
   under lldb (`swiftcall.py`): `Bool`, `Date`, `AnotherDate`, `Email`, `Phone`, `Number`, `String`,
