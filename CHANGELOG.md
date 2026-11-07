@@ -8,6 +8,8 @@ the section for a fresh extraction from the diff against the committed data.
 
 ## 3.2.0 (Unreleased)
 
+- CI builds the npm package once, skipping installation and packaging lifecycle rebuilds.
+  The npm distribution check also handles npm 10 running `prepare` despite `--ignore-scripts`.
 - Shared generation now prepares TypeScript, Python, and the complete text catalogue from one
   joined snapshot. `generate`, `check-generated`, and `check-parity` separate preparation from
   package builds. Both packages expose `CATALOG` and include the same catalogue text.

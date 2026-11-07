@@ -7,7 +7,11 @@ import { execFileSync } from "node:child_process";
 const root = join(import.meta.dir, "..");
 const work = mkdtempSync(join(tmpdir(), "shortcutkit-npm-"));
 try {
-  const packed = JSON.parse(execFileSync("npm", ["pack", "--json", "--ignore-scripts", "--pack-destination", work], { cwd: root, encoding: "utf8" }));
+  const packed = JSON.parse(execFileSync("npm", ["pack", "--json", "--ignore-scripts", "--pack-destination", work], {
+    cwd: root,
+    encoding: "utf8",
+    env: { ...process.env, SHORTCUTKIT_SKIP_PREPARE: "1" },
+  }));
   const packages = Array.isArray(packed) ? packed : Object.values(packed);
   if (packages.length !== 1) throw new Error("expected one packed npm distribution");
   execFileSync("tar", ["-xzf", join(work, packages[0].filename), "-C", work]);

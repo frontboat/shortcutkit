@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "build": "bun build src/index.ts --outdir dist --target node --format esm && tsc -p tsconfig.build.json && bun run tools/prepare-npm.ts",
-    "prepare": "bun run build",
+    "prepare": "node tools/prepare.cjs",
     "test": "bun test",
     "typecheck": "tsc --noEmit -p .",
     "demo": "bun run src/cli.ts demo",

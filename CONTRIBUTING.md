@@ -68,6 +68,10 @@ Python includes the same files under `shortcutkit/data/`. CI checks generated fr
 metadata parity, and the built distributions. Python's catalogue has structural annotations;
 the dynamic action API does not yet offer TypeScript-equivalent static parameter checking.
 
+CI installs with `bun install --frozen-lockfile --ignore-scripts`, then builds explicitly once.
+Packaging prebuilt output sets `SHORTCUTKIT_SKIP_PREPARE=1`: npm 10 can run `prepare`
+despite `--ignore-scripts`. Normal local installs still build through the prepare hook.
+
 The data is committed because only a Mac can produce it. After a macOS update, on any Mac
 that has opened Shortcuts.app once (no Xcode needed):
 
