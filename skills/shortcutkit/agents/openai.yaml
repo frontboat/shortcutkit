@@ -1,0 +1,7 @@
+interface:
+  display_name: "ShortcutKit"
+  short_description: "Build Apple Shortcuts with TypeScript or Python"
+  icon_small: "./assets/icon-small.svg"
+  icon_large: "./assets/icon-large.png"
+  brand_color: "#000000"
+  default_prompt: "Use $shortcutkit to build an Apple Shortcut for my task."

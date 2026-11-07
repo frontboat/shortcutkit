@@ -16,6 +16,8 @@ import zipfile
 ROOT = Path(__file__).resolve().parent.parent
 PACKAGE = ROOT / "python" / "src" / "shortcutkit"
 FILES = ["data/builtin-actions.json", "data/provenance.json", "data/catalog.json", "data/catalog.txt"]
+SKILL = ROOT / "skills" / "shortcutkit"
+SKILL_FILES = {path.relative_to(SKILL).as_posix(): path.read_bytes() for path in SKILL.rglob("*") if path.is_file()}
 
 
 def check_archive(path):
@@ -34,7 +36,10 @@ def check_archive(path):
         assert member in contents, f"{path.name}: missing {member}"
         assert contents[member] == (PACKAGE / name).read_bytes(), f"{path.name}: stale {member}"
     assert prefix + "catalog.py" in contents, f"{path.name}: missing catalogue API"
-    print(f"{path.name}: bundled definitions, provenance, catalogue JSON/text verified")
+    skill_prefix = prefix + "skills/shortcutkit/"
+    bundled_skill = {name[len(skill_prefix):]: data for name, data in contents.items() if name.startswith(skill_prefix)}
+    assert bundled_skill == SKILL_FILES, f"{path.name}: bundled skill differs from source"
+    print(f"{path.name}: skill files, bundled definitions, provenance, catalogue JSON/text verified")
 
 
 def check_installed(wheel):
@@ -68,6 +73,9 @@ for filename in ("builtin-actions.json", "provenance.json", "catalog.json"):
 print("Installed wheel: catalogue API, action lookup, serialization, and missing-data failures verified")
 '''
         subprocess.run([sys.executable, "-I", "-c", script, str(target)], cwd=work, check=True)
+        installed_skill = target / "shortcutkit" / "skills" / "shortcutkit"
+        installed_files = {path.relative_to(installed_skill).as_posix(): path.read_bytes() for path in installed_skill.rglob("*") if path.is_file()}
+        assert installed_files == SKILL_FILES, "installed skill differs from source"
 
 
 def main():

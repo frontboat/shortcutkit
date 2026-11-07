@@ -30,4 +30,4 @@ Changelog = "https://github.com/frontboat/shortcutkit/blob/main/CHANGELOG.md"
 where = ["src"]
 
 [tool.setuptools.package-data]
-shortcutkit = ["data/*.json", "data/*.txt"]
+shortcutkit = ["data/*.json", "data/*.txt", "skills/**/*"]
