@@ -67,9 +67,7 @@ jobs:
       - run: bun run typecheck
       - run: bun test
       - run: bun run build
-      - run: bun run test/npm-distribution.ts
-        env:
-          NPM_DIST_DIR: ${{ runner.temp }}/npm-dist
+      - run: bun run test/npm-distribution.ts --retain
       - uses: actions/setup-python@v7.1.0
         with:
           python-version: "3.12"
@@ -87,7 +85,7 @@ jobs:
       - uses: actions/upload-artifact@v7.0.2
         with:
           name: npm-dist
-          path: ${{ runner.temp }}/npm-dist/*.tgz
+          path: .release-artifacts/npm/shortcutkit.tgz
           if-no-files-found: error
       - uses: actions/upload-artifact@v7.0.2
         with:

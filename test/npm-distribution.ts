@@ -48,9 +48,10 @@ new Shortcut("Invalid").action(actions.showresult, { UnknownParameter: true });
 `);
   execFileSync("node", [join(root, "node_modules/typescript/bin/tsc"), "--noEmit", "--strict", "--skipLibCheck", "--module", "NodeNext", "--target", "ES2022", "check.ts"], { cwd: consumer, stdio: "inherit" });
   // Retain these exact bytes only after every archive check succeeds.
-  if (process.env.NPM_DIST_DIR) {
-    mkdirSync(process.env.NPM_DIST_DIR, { recursive: true });
-    copyFileSync(join(work, packages[0].filename), join(process.env.NPM_DIST_DIR, packages[0].filename));
+  if (process.argv.includes("--retain")) {
+    const output = join(root, ".release-artifacts", "npm");
+    mkdirSync(output, { recursive: true });
+    copyFileSync(join(work, packages[0].filename), join(output, "shortcutkit.tgz"));
   }
   console.log("npm tarball: skill files, catalogue bytes, Node import, action construction and declarations verified.");
 } finally {
