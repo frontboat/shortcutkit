@@ -25,3 +25,14 @@ release when a fix becomes available.
 Reports may cover the TypeScript package, Python package, generated package data,
 and this repository's build and release workflows. For vulnerabilities in Apple
 Shortcuts or another third-party component, use that vendor's reporting process.
+
+## File and tool API trust boundaries
+
+ShortcutKit writes to the path supplied by its caller, or to a filename derived
+from the shortcut name when the path is omitted. These APIs do not restrict writes
+to a sandbox. Applications accepting untrusted names or paths must validate them
+against the application's allowed output directory before calling `write()`.
+
+Repository command-line tools likewise read and write the paths selected by the
+local operator. The `PYTHON` environment override selects a trusted executable for
+metadata generation and parity checks; it is not an input for untrusted requests.
