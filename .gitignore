@@ -20,6 +20,7 @@ CLAUDE.local.md
 # JavaScript
 node_modules/
 dist/
+/.release-artifacts/
 *.tgz
 *.log
 .bun/

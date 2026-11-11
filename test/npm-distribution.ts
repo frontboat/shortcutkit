@@ -1,5 +1,5 @@
 // Check the archive consumers install, including its declarations and shared catalogue.
-import { mkdtempSync, readFileSync, readdirSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { copyFileSync, mkdtempSync, readFileSync, readdirSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
@@ -16,6 +16,10 @@ try {
   if (packages.length !== 1) throw new Error("expected one packed npm distribution");
   execFileSync("tar", ["-xzf", join(work, packages[0].filename), "-C", work]);
   const archive = join(work, "package");
+  const manifest = JSON.parse(readFileSync(join(archive, "package.json"), "utf8"));
+  for (const hook of ["preinstall", "install", "postinstall"]) {
+    if (manifest.scripts?.[hook]) throw new Error(`npm distribution must not contain a ${hook} hook`);
+  }
   if (!readFileSync(join(archive, "dist/catalog.txt")).equals(readFileSync(join(root, "docs/catalog.txt")))) throw new Error("npm catalogue differs from the shared snapshot");
   if (!readFileSync(join(archive, "dist/catalog.json")).equals(readFileSync(join(root, "src/generated/catalog.json")))) throw new Error("npm catalogue JSON differs from the shared snapshot");
   const skillFiles = readdirSync(join(root, "skills/shortcutkit"), { recursive: true, withFileTypes: true })
@@ -43,6 +47,12 @@ new Shortcut(catalog.actions[actions.showresult]!.name).action(actions.showresul
 new Shortcut("Invalid").action(actions.showresult, { UnknownParameter: true });
 `);
   execFileSync("node", [join(root, "node_modules/typescript/bin/tsc"), "--noEmit", "--strict", "--skipLibCheck", "--module", "NodeNext", "--target", "ES2022", "check.ts"], { cwd: consumer, stdio: "inherit" });
+  // Retain these exact bytes only after every archive check succeeds.
+  if (process.argv.includes("--retain")) {
+    const output = join(root, ".release-artifacts", "npm");
+    mkdirSync(output, { recursive: true });
+    copyFileSync(join(work, packages[0].filename), join(output, "shortcutkit.tgz"));
+  }
   console.log("npm tarball: skill files, catalogue bytes, Node import, action construction and declarations verified.");
 } finally {
   rmSync(work, { recursive: true, force: true });

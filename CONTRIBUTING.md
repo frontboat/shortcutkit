@@ -87,3 +87,20 @@ release; removed or retyped ones are major. Bump `package.json` and `python/pypr
 together and add the changelog section to `CHANGELOG.md`.
 
 [`docs/extraction.md`](docs/extraction.md) explains how extraction works.
+
+## CI and releases
+
+CI runs on pull requests and pushes to `main`. Release tags must name a commit on
+`main` with a successful push run of `ci.yml`. Wait for that run to finish before
+pushing a release tag. The release build repeats the portable checks; separate
+OIDC jobs publish the tested npm tarball and Python archives without running
+project code. The npm archive check rejects consumer install hooks.
+
+Action references are pinned by the generated `.github/workflows/actions.lock`.
+After changing a workflow dependency, run `gh actions-lock`, review the resulting
+commit changes, and run `gh actions-lock --verify`. Install the official extension
+with `gh extension install github/gh-actions-lock`. Never edit the lockfile by hand.
+The PyPI action generates a local container action that this tool cannot follow;
+its container build inputs still require separate review.
+
+See [the security policy](SECURITY.md) for private vulnerability reporting.
