@@ -1,5 +1,5 @@
 import { describe, expect, spyOn, test } from "bun:test";
-import { existsSync, mkdtempSync, readFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { Shortcut, actions, ACTIONS, PARAM_KINDS, acceptedBy, producedBy, PARAM_ENTITY_TYPES, PARAM_CHOICE_TITLES, PARAM_LABELS, PARAM_DESCRIPTIONS, ENTITIES, FILTERS, ENTITY_PROPERTIES, CONTENT_ITEM_CLASSES, CONTENT_ITEM_PROPERTIES, CONTENT_ITEM_TYPES, OUTPUT_CLASSES_BY, getDefinition, getAction, allDefinitions, ref, text, variable, shortcutInput, ask, repeatItem, property, where, whereAny, coerce, dictionary, appIntent, CONDITION, type ShowresultParams, type RemindersCreateReminderParams, type OutputTypes } from "../src/index";
@@ -49,12 +49,17 @@ describe("shortcutkit", () => {
   test.skipIf(Bun.which("plutil") === null)("xml plist round-trips through plutil", async () => {
     const s = new Shortcut("Round Trip");
     s.action("is.workflow.actions.showresult", { Text: text("a & b <c>") });
-    const path = `/tmp/shortcutkit-test-${Date.now()}.shortcut`;
-    await s.write(path);
-    const lint = Bun.spawnSync(["plutil", "-lint", path]);
-    expect(lint.exitCode).toBe(0);
-    const json = Bun.spawnSync(["plutil", "-convert", "json", "-o", "-", path]).stdout.toString();
-    expect(JSON.parse(json).WFWorkflowActions[0].WFWorkflowActionParameters.Text.Value.string).toBe("a & b <c>");
+    const dir = mkdtempSync(join(tmpdir(), "shortcutkit-roundtrip-"));
+    try {
+      const path = join(dir, "Round Trip.shortcut");
+      await s.write(path);
+      const lint = Bun.spawnSync(["plutil", "-lint", path]);
+      expect(lint.exitCode).toBe(0);
+      const json = Bun.spawnSync(["plutil", "-convert", "json", "-o", "-", path]).stdout.toString();
+      expect(JSON.parse(json).WFWorkflowActions[0].WFWorkflowActionParameters.Text.Value.string).toBe("a & b <c>");
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
 
